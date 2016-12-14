@@ -12,7 +12,7 @@
 /* NOTE: Разделите высоту обложки на её ширину и умножьте на 100% */
 /* Пример: 720 / 1280 * 100% = 56.25% */
 .p-profiles-show .profile-head {
-  padding-bottom:43%
+  padding-bottom: 43%
 }
 /* Цвет основного текста */
 .p-profiles  .profile-head header.head h1, 
