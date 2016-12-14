@@ -1,0 +1,101 @@
+.p-profiles .profile-head .c-brief .avatar .profile-actions {
+  margin-top: 1rem;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+.profile-actions > a {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 2px;
+  color: #747474 !important;
+}
+.profile-actions > a:hover {
+  color: #444 !important;
+}
+.profile-actions > *:before {
+  vertical-align: top;
+}
+.profile-actions > *:hover {
+  background-color: #ddd;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile-actions .settings,
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove,
+  .profile-actions .ignore-add,
+  .profile-actions .ignore-remove,
+  .profile-actions .ban {
+    margin-left: .5rem;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .profile-actions .settings,
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove,
+  .profile-actions .ignore-add,
+  .profile-actions .ignore-remove,
+  .profile-actions .ban {
+    margin-left: .5rem;
+  }
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot) format('eot'),
+       url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.profile-actions > *:before {
+  font-family: 'Material Icons' !important;
+  font-weight: 400 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+/* Иконки профиля */
+.profile-actions .mail:before {
+  content: "mail";
+}
+.profile-actions .talk:before {
+  content: "message";
+}
+.profile-actions .fav-add:before {
+  content: "person_add";
+}
+.profile-actions .fav-remove:before {
+  content: "person_outline";
+}
+.profile-actions .ignore-add:before {
+  content: "do_not_disturb_on";
+}
+.profile-actions .ignore-remove:before {
+  content: "do_not_disturb_off";
+}
+.profile-actions .settings:before {
+  content: "settings";
+}
+.profile-actions .ban:before {
+  content: "gavel";
+}
