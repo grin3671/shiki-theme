@@ -53,8 +53,8 @@
 }
 
 .profile-actions > *:before {
+  width: 24px !important
   font-family: 'Material Icons' !important;
-  font-weight: 400 !important;
   font-size: 24px !important;
   font-weight: 400 !important;
   line-height: 1 !important;
