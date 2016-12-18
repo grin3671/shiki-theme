@@ -1,0 +1,106 @@
+/**
+ * HISTORY BLOCK
+ * PART OF: PROFILE HEADER - TRANSPARENT
+ * Similary mobile-tablet block
+ */
+
+@media (min-width: 960px) {
+  .p-profiles .profile-head .c-history {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    padding: 0 1rem;
+    margin: 0 -1rem;
+    background-color: rgba(0,0,0,.48);
+    white-space: nowrap;
+    overflow-x: auto;
+    z-index: 1;
+  }
+
+  .p-profiles .profile-head .c-history > .subheadline {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .p-profiles .profile-head .c-history > .subheadline > a {
+    color: #eee !important;
+  }
+
+  .p-profiles .profile-head .c-history > .subheadline > a:before {
+    display: none;
+  }
+
+  .p-profiles .profile-head .c-history > .block-list {
+    display: inline-block;
+    vertical-align: top;
+    padding: .5rem;
+    margin-left: .5rem;
+  }
+
+  .p-profiles .profile-head .c-history .entry {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 112px;
+    height: 2rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    margin-left: .5rem;
+  }
+
+  .p-profiles .profile-head .c-history .entry:before {
+    display: none;
+  }
+
+  .p-profiles .profile-head .c-history .entry .image-name {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: -8px 8px -8px -8px;
+    border-radius: 50%;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  .p-profiles .profile-head .c-history .entry span.misc {
+    display: none;
+  }
+
+  /* PART OF CHANGES */
+  .p-profiles .profile-head .c-history {
+    padding: .25rem 1.5rem;
+    top: 0;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(rgba(50,50,50,.64) 36%, transparent);
+    background-image:      -o-linear-gradient(rgba(50,50,50,.64) 36%, transparent);
+    background-image:         linear-gradient(rgba(50,50,50,.64) 36%, transparent);
+    z-index: 3;
+  }
+
+  .p-profiles .profile-head .c-history > .subheadline > a:hover {
+    color: #444 !important;
+  }
+
+  .p-profiles .profile-head .c-history .entry {
+    margin-left: 1rem;
+    border-radius: 1rem;
+    overflow: hidden; /* TODO: check elem height */
+  }
+
+  /* full-width bars */
+  .p-profiles .profile-head .c-info {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  /* Recolor transparent header */
+  .p-profiles .profile-head .c-brief header {
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(to top, rgba(50,50,50,.64) 36%, transparent);
+    background-image:      -o-linear-gradient(to top, rgba(50,50,50,.64) 36%, transparent);
+    background-image:         linear-gradient(to top, rgba(50,50,50,.64) 36%, transparent);
+  }
+}
