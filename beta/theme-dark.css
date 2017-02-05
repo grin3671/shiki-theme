@@ -1854,6 +1854,39 @@ select,
 
 
 
+/* SVG on About */
+/* PART of DARK THEME */
+svg:not(:root) {
+  fill: #fff;
+}
+rect.highcharts-background {
+  fill: #303030;
+}
+text {
+  fill: inherit !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+.highcharts-tooltip path:nth-child(1),
+.highcharts-tooltip path:nth-child(4) {
+  fill: rgba(66, 66, 66,.84) !important;
+  stroke: #000 !important;
+}
+/* END of SVG */
+
+
+
+
+
+/* TRANSPARENT COMMENT */
+/* PART of DARK THEME */
+  .b-comment,
+  .b-message { background: transparent !important; }
+/* END of TRANSPARENT COMMENT */
+
+
+
+
 
 
 
