@@ -2045,6 +2045,12 @@ body { background-image: none; }
 /* Рамка по бокам страницы */
 .l-page:before { outline-color: #303030; }
 
+/* Цвет юзер-панели профиля на мобильных экранах */
+/* Фон всплывающей и поднятой областей (По умолчанию: #424242) */
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief { background-color: #424242; }
+}
+
 /* Моя обложка в профиле */
 .p-profiles .profile-head[data-user-id = "2727"] .c-brief:before {
   background-image: url(); /* Моя обложка */
