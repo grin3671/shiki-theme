@@ -1,0 +1,83 @@
+/* ОСНОВНОЕ МЕНЮ */
+/* Фон меню */
+.l-top_menu:before { background-color: #212121; }
+
+/* Цвет текста в меню */
+.l-top_menu { color: #FAFAFA; }
+
+/* Цвет текста пунктов меню при наведении */
+/* Цвет текста активных пунктов меню */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .menu-items>.entry.selected,
+.l-top_menu .menu-items>.entry>a:active {
+  color: inherit !important;
+}
+
+/* Цвет текста пунктов меню при наведении */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .menu-items>.entry:hover {
+  color: inherit;
+}
+
+/* ВЫПАДАЮЩЕЕ МЕНЮ */
+@media only screen and (min-width: 1025px) {
+  /* Цвет фона выпадающего меню при наведении */
+  .l-top_menu .submenu,
+  .b-main_search ul.popup { background: #424242; }
+
+  /* Цвет пунктов выпадающего меню при щелчке */
+  /* Цвет активных пунктов выпадающего меню */
+  /* По умолчанию: затемненный цвет фона выпадающего меню */
+  .l-top_menu .submenu>.entry:active,
+  .l-top_menu .submenu>.entry.active,
+  .b-main_search .popup li:active,
+  .b-main_search .popup li.active { background-color: rgba(0, 0, 0, .24); }
+
+  /* Цвет пунктов выпадающего меню при наведении */
+  /* По умолчанию: осветленный цвет фона выпадающего меню */
+  .l-top_menu .submenu>.entry:hover,
+  .b-main_search .popup li:hover { background-color: rgba(255, 255, 255, .24); }
+
+  /* Цвет текста выпадающих меню */
+  /* По умолчанию: цвет текста наследуется от меню */
+  .l-top_menu .menu-search>.entry,
+  .l-top_menu .menu-userbox>.entry,
+  .l-top_menu .submenu { color: inherit; }
+
+  /* Цвет текста выпадающих меню при щелчке */
+  /* Цвет текста активных пунктов выпадающего меню */
+  /* По умолчанию: цвет текста наследуется от выпадающего меню */
+  .l-top_menu .submenu>.entry:active,
+  .l-top_menu .submenu>.entry.active,
+  .b-main_search .popup li:active,
+  .b-main_search .popup li.active { color: inherit; }
+
+  /* Цвет текста выпадающих меню при наведении */
+  /* По умолчанию: цвет текста наследуется от выпадающего меню */
+  .l-top_menu .submenu>.entry:hover,
+  .b-main_search .popup li:hover { color: inherit; }
+
+
+  /* ЦВЕТА ПОИСКА */
+  /* Фон строки поиска */
+  .b-main_search .input { background: rgba(242,242,242,.32); }
+  /* Набираемый текст в строке поиска */
+  .b-main_search .input input { color: #fff; }
+  /* Вспомогательный текст в строке поиска */
+  .b-main_search input::-webkit-input-placeholder { color: #ddd; }
+  .b-main_search input:-moz-placeholder { color: #ddd; }
+  .b-main_search input::-moz-placeholder { color: #ddd; }
+  .b-main_search input:-ms-input-placeholder { color: #ddd; }
+}
+
+/* ЦВЕТ ИКОНОК в меню (для мобильной версии) */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .to-mobile-forum,
+.l-top_menu .menu-mobile .search,
+.l-top_menu .menu-mobile .menu,
+.l-top_menu .menu-mobile #sign_in,
+.l-top_menu .menu-userbox .search,
+.l-top_menu .menu-userbox .menu,
+.l-top_menu .menu-userbox #sign_in {
+  color: inherit;
+}
