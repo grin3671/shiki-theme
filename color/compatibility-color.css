@@ -1,0 +1,43 @@
+/* Низкая совместимость */
+div.compatibility > a > .text.weak:before {
+  background-color: #F9FBE7;
+  color: #CDDC39;
+}
+div.compatibility > a:hover > .text.weak:before,
+div.compatibility > span.link-replacement > .text.weak:before {
+  background-color: #F0F4C3;
+  color: #C0CA33;
+}
+
+/* Средняя совместимость */
+div.compatibility > a > .text.moderate:before {
+  background-color: #F1F8E9;
+  color: #8BC34A;
+}
+div.compatibility > a:hover > .text.moderate:before,
+div.compatibility > span.link-replacement > .text.moderate:before {
+  background-color: #DCEDC8;
+  color: #7CB342;
+}
+
+/* Высокая совместимость */
+div.compatibility > a > .text.high:before {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+}
+div.compatibility > a:hover > .text.high:before,
+div.compatibility > span.link-replacement > .text.high:before {
+  background-color: #C8E6C9;
+  color: #43A047;
+}
+
+/* Полная совместимость */
+div.compatibility > a > .text.full:before {
+  background-color: #E1F5FE;
+  color: #03A9F4;
+}
+div.compatibility > a:hover > .text.full:before,
+div.compatibility > span.link-replacement > .text.full:before {
+  background-color: #B3E5FC;
+  color: #039BE5;
+}
