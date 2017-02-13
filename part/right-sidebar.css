@@ -1,0 +1,29 @@
+/**
+ * Right Sidebar
+ * MIT License
+ * Copyright (c) 2017 grin3671
+ */
+@media (max-width: 1024px) {
+  .l-menu {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: 25rem !important;
+    max-width: calc(100% - 3.5rem);
+    height: 100%;
+    background-color: #fff; /* #fff */
+    z-index: 100;
+    padding: 4.5rem 1rem 1.5rem;
+    box-shadow: 0 2px 3px 1px rgba(0,0,0,.24);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: .25s ease;
+  }
+  .l-page.menu-expanded .l-menu {
+    transform: translateX(0);
+  }
+  .menu-slide-outer .l-content {
+    margin-left: 0 !important;
+  }
+}
+/* END of Right Sidebar */
