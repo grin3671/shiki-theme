@@ -210,6 +210,23 @@ hr {
   opacity: .75;
 }
 
+/* Списки */
+.b-list {
+  margin: .5rem 0 .5rem 2rem;
+}
+.b-list li {
+  margin: 0;
+  line-height: 1.5;
+  list-style-type: disc;
+  list-style-image: none;
+}
+.b-list li + li {
+  margin: 1rem 0 0 0;
+}
+.b-list .b-list li + li {
+  margin: 0;
+}
+
 /* TODO: Убрать
 .b-image,
 .b-video {
@@ -2824,6 +2841,38 @@ header.head,
 
 
 
+/* CLUB PAGE EDITOR */
+select {
+  max-width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .edit_club_page .cc-2a > .c-column {
+    width: 100%;
+  }
+  .edit_club_page .cc-2a > .c-column:nth-child(1n+1) {
+    clear: left;
+  }
+}
+/* END of CLUB PAGE EDITOR */
+
+
+
+/* FIX: CLUB'S BUTTONS */
+.p-clubs-edit .pages .button {
+  margin-right: .5rem;
+}
+.p-clubs-edit .pages .club_page-layout,
+.p-clubs-edit .pages .club_page-actions {
+  font-size: .875rem;
+  padding-left: 1rem;
+}
+.p-clubs-edit .pages .club_page-actions .b-js-link {
+  margin-right: .5rem;
+}
+.p-club_pages-show .item-edit:before {
+  content: 'edit';
+}
+/* END of CLUB'S BUTTONS */
 
 
 
@@ -2841,9 +2890,17 @@ header.head,
   text-decoration: none;
 }
 .p-clubs-index header.head a.misc:before {
-  width: 24px !important;
+  content: 'group_add';
+}
+/* END of CREATE CLUB */
+
+
+/* TODO: merge with Material icons */
+.p-club_pages-show .item-edit:before,
+.p-clubs-index header.head a.misc:before {
+  width: 1.5rem !important;
   font-family: 'Material Icons' !important;
-  font-size: 24px !important;
+  font-size: 1.5rem !important;
   font-weight: 400 !important;
   line-height: 1 !important;
 
@@ -2862,10 +2919,7 @@ header.head,
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-.p-clubs-index header.head a.misc:before {
-  content: 'group_add';
-}
-/* END of CREATE CLUB */
+/* END of CLUB */
 
 
 
