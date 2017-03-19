@@ -2755,6 +2755,9 @@ header.head,
 
 
 /* CLUB */
+.b-clubs-menu .b-block_list li {
+  font-size: .875rem;
+}
 .b-clubs-menu > .actions > .block-list > li,
 .b-clubs-menu > .actions > .b-block_list > li {
   padding: 0 12px;
@@ -5304,7 +5307,6 @@ header.head h2 a.back:after {
 /* Фильтры на страницах поиска – Размер для ПК */
 @media (min-width: 1025px) {
   .b-collection-filters .block-list li {
-    font-size: .875rem;
     line-height: 1.5rem;
   }
   .b-collection-filters .block-list li:before {
@@ -5319,7 +5321,6 @@ header.head h2 a.back:after {
   }
   /* new class */
   .b-collection-filters .b-block_list li {
-    font-size: .875rem;
     line-height: 1.5rem;
   }
   .b-collection-filters .b-block_list li:before {
