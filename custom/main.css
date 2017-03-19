@@ -5299,6 +5299,7 @@ header.head h2 a.back:after {
 /* Фильтры на страницах поиска – Размер для ПК */
 @media (min-width: 1025px) {
   .b-collection-filters .block-list li {
+    font-size: .875rem;
     line-height: 1.5rem;
   }
   .b-collection-filters .block-list li:before {
@@ -5313,6 +5314,7 @@ header.head h2 a.back:after {
   }
   /* new class */
   .b-collection-filters .b-block_list li {
+    font-size: .875rem;
     line-height: 1.5rem;
   }
   .b-collection-filters .b-block_list li:before {
