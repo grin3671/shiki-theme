@@ -4742,10 +4742,15 @@ header.head h2 a.back:after {
   margin-left: 8px !important;
 }
 
+.b-spoiler_marker {
+  width: auto;
+}
+
 .b-abuse_marker:before,
 .b-broadcast_marker:before,
 .b-new_marker:before,
 .b-offtopic_marker:before,
+.b-spoiler_marker:before,
 .b-summary_marker:before {
   position: static !important;
   width: auto !important;
