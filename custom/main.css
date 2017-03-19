@@ -2755,15 +2755,18 @@ header.head,
 
 
 /* CLUB */
-.b-clubs-menu > .actions > .block-list > li {
+.b-clubs-menu > .actions > .block-list > li,
+.b-clubs-menu > .actions > .b-block_list > li {
   padding: 0 12px;
   margin: 0 -8px;
   line-height: 32px;
 }
-.b-clubs-menu > .actions > .block-list > li:before {
+.b-clubs-menu > .actions > .block-list > li:before,
+.b-clubs-menu > .actions > .b-block_list > li:before {
   margin: 7px 12px 0 0;
 }
-.b-clubs-menu > .actions > .block-list > li:before {
+.b-clubs-menu > .actions > .block-list > li:before,
+.b-clubs-menu > .actions > .b-block_list > li:before {
   width: 18px !important;
   font-family: 'Material Icons' !important;
   font-size: 18px !important;
@@ -5153,7 +5156,8 @@ header.head h2 a.back:after {
  */
 
 /* Настройка пунктов */
-.b-collection-filters .block-list li {
+.b-collection-filters .block-list li,
+.b-collection-filters .b-block_list li {
   position: relative;
   padding: 0 .5rem;
   margin: 0 -.5rem;
@@ -5162,7 +5166,8 @@ header.head h2 a.back:after {
 }
 
 /* Скрываем чекбокс, располагаем над псевдоэлементом */
-.b-collection-filters .block-list li > input {
+.b-collection-filters .block-list li > input,
+.b-collection-filters .b-block_list li > input {
   position: absolute;
   left: .3125rem;
   width: 2rem;
@@ -5175,7 +5180,8 @@ header.head h2 a.back:after {
 }
 
 /* Псевдоэлемент с иконкой чекбокса */
-.b-collection-filters .block-list li:before {
+.b-collection-filters .block-list li:before,
+.b-collection-filters .b-block_list li:before {
   display: inline-block;
   vertical-align: top;
   width: 1.125rem;
@@ -5202,7 +5208,8 @@ header.head h2 a.back:after {
 
 /* Фильтры на страницах поиска – ПОДСКАЗКИ */
 /* Положение подсказки */
-.b-collection-filters .block-list .b-question {
+.b-collection-filters .block-list .b-question,
+.b-collection-filters .b-block_list .b-question {
   display: inline-block !important;
   vertical-align: top;
   position: absolute;
@@ -5210,7 +5217,8 @@ header.head h2 a.back:after {
 }
 
 /* Иконка подсказки */
-.b-collection-filters .block-list .b-question:before {
+.b-collection-filters .block-list .b-question:before,
+.b-collection-filters .b-block_list .b-question:before {
   display: block;
   width: 1.125rem;
   height: auto;
@@ -5241,7 +5249,8 @@ header.head h2 a.back:after {
 .b-collection-filters .filter {
   top: 0;
 }
-.b-collection-filters .block-list .filter {
+.b-collection-filters .block-list .filter,
+.b-collection-filters .b-block_list .filter {
   float: right;
   position: relative;
   right: auto;
@@ -5251,12 +5260,16 @@ header.head h2 a.back:after {
 /* Положение переключателя с иконками подсказок */
 .b-collection-filters .block-list.ratings .filter,
 .b-collection-filters .block-list.genres .filter,
-.b-collection-filters .block-list li.sub .filter {
+.b-collection-filters .block-list li.sub .filter,
+.b-collection-filters .b-block_list.ratings .filter,
+.b-collection-filters .b-block_list.genres .filter,
+.b-collection-filters .b-block_list li.sub .filter {
   margin-right: 2rem;
 }
 
 /* Сбрасываем стандартные стили */
-.b-collection-filters .block-list .filter:before {
+.b-collection-filters .block-list .filter:before,
+.b-collection-filters .b-block_list .filter:before {
   display: block;
   width: auto;
   font-family: inherit;
@@ -5266,29 +5279,22 @@ header.head h2 a.back:after {
 }
 
 /* Добавляем понятные текстовые обозначения */
-.b-collection-filters .block-list .filter.item-add:before {
-  content: 'Исключить';
-}
-.b-collection-filters .block-list .filter.item-minus:before {
-  content: 'Добавить';
-}
+.b-collection-filters .block-list .filter.item-add:before { content: 'Исключить'; }
+.b-collection-filters .block-list .filter.item-minus:before { content: 'Добавить'; }
+.b-collection-filters .b-block_list .filter.item-add:before { content: 'Исключить'; }
+.b-collection-filters .b-block_list .filter.item-minus:before { content: 'Добавить'; }
 
 /* Настройка иконок */
-.b-collection-filters .block-list li:before {
-  content: 'check_box_outline_blank';
-}
-.b-collection-filters .block-list li.selected:before {
-  content: 'check_box';
-}
-.b-collection-filters .block-list.orders li:before {
-  content: 'radio_button_unchecked';
-}
-.b-collection-filters .block-list.orders li.selected:before {
-  content: 'radio_button_checked';
-}
-.b-collection-filters .block-list .b-question:before {
-  content: 'help_outline';
-}
+.b-collection-filters .block-list li:before { content: 'check_box_outline_blank';  }
+.b-collection-filters .block-list li.selected:before { content: 'check_box'; }
+.b-collection-filters .block-list.orders li:before { content: 'radio_button_unchecked'; }
+.b-collection-filters .block-list.orders li.selected:before { content: 'radio_button_checked'; }
+.b-collection-filters .block-list .b-question:before { content: 'help_outline'; }
+.b-collection-filters .b-block_list li:before { content: 'check_box_outline_blank';  }
+.b-collection-filters .b-block_list li.selected:before { content: 'check_box'; }
+.b-collection-filters .b-block_list.orders li:before { content: 'radio_button_unchecked'; }
+.b-collection-filters .b-block_list.orders li.selected:before { content: 'radio_button_checked'; }
+.b-collection-filters .b-block_list .b-question:before { content: 'help_outline'; }
 
 /* Фильтры на страницах поиска – Размер для ПК */
 @media (min-width: 1025px) {
@@ -5302,6 +5308,20 @@ header.head h2 a.back:after {
     margin: .1875rem;
   }
   .b-collection-filters .block-list li > input {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  /* new class */
+  .b-collection-filters .b-block_list li {
+    line-height: 1.5rem;
+  }
+  .b-collection-filters .b-block_list li:before {
+    margin: .1875rem .875rem .1875rem 0;
+  }
+  .b-collection-filters .b-block_list .b-question:before {
+    margin: .1875rem;
+  }
+  .b-collection-filters .b-block_list li > input {
     width: 1.5rem;
     height: 1.5rem;
   }
