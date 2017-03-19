@@ -3407,6 +3407,10 @@ header.head,
   margin-bottom: 0;
 }
 
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after {
+  clear: none;
+}
+
 .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar.manga {
   margin-top: 8px;
 }
