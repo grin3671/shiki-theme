@@ -134,8 +134,17 @@ body {
 
 
 /* ВЫСОТА СТРОКИ */
-.cc-2a>.c-column {
+.cc-2a > .c-column,
+.block,
+.b-db_entry,
+.p-animes .b-db_entry > *:last-child {
   line-height: inherit;
+}
+
+@media only screen and (min-width: 768px) {
+  .cc-2 > .c-column {
+    line-height: inherit;
+  }
 }
 
 /* ЗАКРУГЛЕНИЕ */
@@ -190,8 +199,10 @@ input[type=submit],
 .p-profiles-show .about .item-edit,
 header.head h1 a.back,
 header.head h2 a.back,
+.edit-page a.cancel,
 .editor-controls > span,
-.tooltip-inner {
+.tooltip-inner,
+.b-topic-preview > .editor-container .hide {
   border-radius: 2px;
 }
 
@@ -314,6 +325,7 @@ hr {
   margin-bottom: .5rem;
   line-height: 1.5rem;
 }
+
 .b-forum .faye-loader {
   padding: .4375rem .5rem;
 }
@@ -390,7 +402,7 @@ header.head h2 ~ .notice {
   margin-top: -.5rem;
 }
 
-.b-breadcrumbs>span:after { content: '»'; }
+.b-breadcrumbs > span:after { content: '»'; }
 
 .tipsy {
   padding: .875rem;
@@ -414,38 +426,127 @@ input {
   font-family: inherit;
   font-size: inherit;
 }
-.button {
+
+/* Кнопки */
+.button,
+.b-button,
+.b-form input[type=submit],
+.b-topic-preview > .editor-container .hide,
+.edit-page a.cancel {
   display: inline-block;
 }
+
+input[type=submit],
 .button,
+.b-button,
+.b-form input[type=submit],
 .b-contests-menu .results,
 .b-link_button,
-input[type=submit] {
+.b-shiki_editor .links .b-button.ok,
+.b-shiki_editor .images .b-button.ok,
+.b-shiki_editor .quotes .b-button.ok,
+.b-shiki_editor .email .b-button.ok,
+.b-shiki_editor .upload .b-button.ok,
+.edit-page a.cancel {
   padding: 0 1rem;
   margin-right: .5rem;
-  font-family: 'Roboto', sans-serif;
   font-size: .875rem;
-  line-height: 2rem;
+  line-height: 2rem !important;
   text-align: center;
   text-decoration: none !important;
   text-transform: uppercase;
 }
-input[type=submit]:last-child {
+
+input[type=submit]:last-child,
+.b-button:last-child,
+.b-form input[type=submit]:last-child {
   margin-right: 0;
 }
+
 input[type=submit]:hover {
   box-shadow: 0 2px 4px 2px rgba(0,0,0,.24);
 }
 
-.b-form,
-.b-topic { overflow: visible; }
+.b-shiki_editor .links .b-button.ok,
+.b-shiki_editor .images .b-button.ok,
+.b-shiki_editor .quotes .b-button.ok,
+.b-shiki_editor .email .b-button.ok,
+.b-shiki_editor .upload .b-button.ok {
+  margin-left: 1rem;
+}
+
+.edit-page a.cancel,
+.b-topic-preview > .editor-container .hide {
+  background-color: transparent;
+}
+
+.b-topic-preview > .editor-container .hide {
+  vertical-align: top;
+  border: 0;
+}
+
+.b-topic {
+  overflow: visible;
+}
+
+.b-topic > .inner {
+  overflow: visible;
+}
+
+.b-topic-preview > .inner > footer {
+  overflow: hidden;
+}
+
+/* Формы */
+.b-form {
+  overflow: visible;
+}
+
 .b-form:after {
   content: '';
   display: block;
   clear: both;
 }
-.b-topic>.inner {overflow: visible; }
-.b-topic-preview>.inner>footer { overflow: hidden; }
+
+.b-input input,
+.b-input textarea {
+  padding: .3125rem 1rem;
+  line-height: 1.25rem;
+}
+
+.b-input textarea {
+  padding: .4375rem 1rem;
+}
+
+select {
+  max-width: 100%;
+  height: 2rem;
+  padding: 2px .5rem;
+  font-size: .875rem;
+  line-height: 2rem;
+}
+
+.b-input .hint {
+  font-size: .75rem;
+  line-height: 1.25rem;
+}
+
+.b-input label {
+  line-height: 1.5;
+}
+
+.buttons {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.b-form .buttons {
+  margin-top: .5rem;
+}
+
+.btn {
+  line-height: 2rem; 
+}
 
 .b-contests-menu .results {
   float: none;
@@ -456,38 +557,16 @@ input[type=submit]:hover {
 .b-link_button {
   margin-bottom: .5rem;
 }
+
 .b-link_button.maxi {
   padding: 0;
   font-size: 1rem;
   line-height: 2.5rem;
 }
+
 .b-contests-menu .results,
 .b-forums > .b-link_button.maxi,
 .b-link_button.create-topic { margin-right: 0; }
-
-.b-input input,
-.b-input textarea {
-  padding: .3125rem 1rem;
-  line-height: 1.25rem;
-}
-.b-input textarea {
-  padding: .4375rem 1rem;
-}
-
-select {
-  height: 2rem;
-  padding: 2px .5rem;
-  font-size: .875rem;
-  line-height: 2rem;
-}
-
-.buttons {
-  font-family: inherit;
-  font-size: inherit;
-}
-.btn {
-  line-height: 2rem; 
-}
 
 .l-page .menu-toggler { top: 64px; z-index: 9; }
 .p-user_rates-index .l-page .menu-toggler { top: -96px; }
@@ -543,6 +622,20 @@ select {
 }
 
 .b-user.named_avatar .name {margin: auto;}
+
+
+/* FIX: BACKFACE VISIBILITY */
+.anime-params-controls > .block:first-child > .b-list > li:after,
+.anime-params-controls > .block:first-child > .b-list > li:before,
+.manga-params-controls > .block:first-child > .b-list > li:after,
+.manga-params-controls > .block:first-child > .b-list > li:before,
+.p-user_rates .mylist-block + .block > .b-list > li:after,
+.p-user_rates .mylist-block + .block > .b-list > li:before {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility;
+  backface-visibility: hidden;
+}
+
 
 
 /**
@@ -1146,7 +1239,14 @@ select {
   border-radius: 100%;
 }
 .entry.userbox > .avatar > img { height: inherit; }
-.userbox>a .graphics-arrow-down { display: none; }
+
+.userbox > a .graphics-arrow-down,
+.l-top_menu .menu-search .arrow-container,
+.l-top_menu .menu-userbox .arrow-container,
+.l-top_menu .menu-search .arrow-container .arrow-down,
+.l-top_menu .menu-userbox .arrow-container .arrow-down {
+  display: none;
+}
 
 @media screen and (max-width: 1024px) {
   .userbox img.avatar,
@@ -2655,8 +2755,7 @@ header.head,
 
 
 
-
-
+/* Просмотр комментариев во всплывающей подсказке */
 .tooltip .b-comment {
   padding-top: 0 !important;
   padding-bottom: 0;
@@ -2664,6 +2763,7 @@ header.head,
 .tooltip .b-comment:before {
   display: none;
 }
+
 
 
 /**
@@ -2712,9 +2812,6 @@ header.head,
   font-size: 16px !important;
   line-height: 18px;
 }
-
-
-
 
 
 
@@ -2850,10 +2947,25 @@ header.head,
 
 
 
-/* CLUB PAGE EDITOR */
-select {
-  max-width: 100%;
+/* Навигация в клубах: "контент" */
+.b-pages {
+  max-width: 15rem;
+  padding: 0 1rem;
+  margin: 0 0 1.5rem 2rem;
+  border-radius: 2px;
 }
+.b-pages .title {
+  font-size: .875rem;
+  line-height: 3rem;
+  text-transform: uppercase;
+}
+.b-pages .section {
+  margin: 0 0 .5rem;
+}
+
+
+
+/* CLUB PAGE EDITOR */
 @media screen and (max-width: 767px) {
   .edit_club_page .cc-2a > .c-column {
     width: 100%;
