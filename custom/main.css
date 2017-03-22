@@ -4,6 +4,7 @@ input {
   font-family: inherit;
 }
 
+.buttons,
 .ac_results .name,
 .b-animes-menu .total-rates,
 .b-comment > .inner header .name-date a.name,
@@ -27,6 +28,7 @@ input {
 .b-quote,
 .b-rate .score-notice,
 .b-rate .text-score,
+.b-table th,
 .b-topic > .inner header .name-date a.name,
 .b-user.detailed .history .line .event,
 .collapsed,
