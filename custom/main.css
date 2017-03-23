@@ -206,6 +206,25 @@ header.head h2 a.back,
   border-radius: 2px;
 }
 
+
+/* LAYOUT */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .l-page .menu-slide-outer .menu-slide-inner {
+    width: 100%;
+  }
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content {
+      float: none;
+      width: 100%;
+      margin: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .l-page .menu-slide-outer {
+    overflow: visible;
+  }
+}
+
 /* ОБЩИЕ КЛАССЫ */
 .p0, .m0, .m1, .m2, .m3, .m4, .m5, .m6, .m7, .m8, .m10, .m12, .m13, .m15, .m20, .m25, .m30, .m40, .m50 {
   margin-bottom: .5rem !important;
@@ -297,6 +316,9 @@ hr {
 }
 
 .b-height_shortener .shade {
+  right: 0;
+  left: 0;
+  width: auto;
   height: 2.5rem;
   margin-top: -2.5rem;
 }
@@ -2409,25 +2431,40 @@ header.head,
  * COMMENT
  * Изменение всех комментариев, новостей, диалогов, топиков.
  */
-.b-comments {
-  line-height: inherit;
-}
-.b-dialog {
-  position: relative;
-}
+
+.b-comment,
 .b-dialog,
-.b-message,
-.b-comment {
+.b-message {
   position: relative;
-  padding-top: 12px !important;
-  padding-bottom: 12px;
+  padding-top: .75rem !important;
+  padding-bottom: .75rem;
   margin-bottom: 0;
   border: 0;
 }
+
+.b-comments,
+.b-comment {
+  overflow: visible;
+}
+
+.b-comments {
+  line-height: inherit;
+}
+
+.b-dialog {
+  position: relative;
+}
+
+.b-topic {
+  padding-top: .5rem;
+}
+/* Исправление для предпросмотра комментария во всплывающем окне */
 .tooltip-inner .b-message {
   padding-top: 0 !important;
   padding-bottom: 0;
 }
+
+/* inset dividers */
 .b-dialog:before,
 .b-message:before,
 .b-comment:before,
@@ -2439,9 +2476,11 @@ header.head,
   left: 56px;
   height: 1px;
 }
+
 .b-comments .comments-loaded .b-comment:last-child {
   margin: 0;
 }
+
 .b-dialog:last-child:before,
 .b-message:last-child:before,
 .b-comment:last-child:before,
@@ -2454,36 +2493,64 @@ header.head,
 .b-topic .body,
 .b-dialog .body {
   padding: 4px 0;
-  padding-left: 56px !important;
+  padding-left: 0 !important;
   line-height: 20px;
   overflow: hidden; /* FIX: OVERFLOW: HIDDEN TOPIC BODY (issue #8) */
 }
+
 .b-generated_news .body {
   padding-left: 0 !important;
 }
 
-/*
-.b-topic,
-.b-comments,
-.b-comment,
-.b-comment > .inner,
-.b-dialog,
-.b-dialog > .inner,
-.b-message,
-.b-message > .inner {
-  overflow-x: initial;
+.b-comment .inner,
+.b-dialog .inner,
+.b-message .inner,
+.b-topic .inner {
+  overflow: hidden;
+  overflow-x: visible;
 }
-*/
 
-.b-comment>.inner header,
-.b-dialog>.inner header,
-.b-message>.inner header,
-.b-topic>.inner header {
+.b-comment > .inner,
+.b-dialog > .inner,
+.b-message > .inner,
+.b-topic > .inner,
+.b-topic-preview > .b-comments {
+  padding-left: 3.5rem;
+}
+
+.block > .previewed .b-comment > .inner,
+.b-dialog .body .b-message > .inner,
+.b-generated_news > .inner,
+.b-generated_news-topic > .inner,
+.b-topic-preview > .inner > .body,
+.b-topic-preview > .inner > footer,
+.p-dashboards-show .cc-news .c-news_topics .b-topic > .inner,
+.p-dashboards-show .cc-news .c-generated_news .b-topic > .inner {
+  padding-left: 0;
+}
+
+.b-comment > .inner header,
+.b-dialog > .inner header,
+.b-message > .inner header,
+.b-topic > .inner header {
   margin-bottom: 0;
 }
-.b-dialog>.inner header,
-.b-message>.inner header {
+
+.b-dialog > .inner header,
+.b-message > .inner header {
   padding: .25rem 0;
+}
+
+.b-comment > .inner header > a,
+.b-message > .inner header > a,
+.b-dialog > .inner header > a,
+.b-topic > .inner header > a {
+  position: absolute;
+  left: 0;
+}
+
+.b-dialog .body .b-message > .inner header > a {
+  position: relative;
 }
 
 .b-topic >.inner header img {
@@ -4691,7 +4758,7 @@ header.head h2 a.back:after {
   width: 40px;
   height: 40px;
   padding: 8px;
-  margin: 4px -8px;
+  margin: 4px 0;
   margin-left: 8px !important;
   border-radius: 100%;
   z-index: 4;
@@ -4869,7 +4936,7 @@ header.head h2 a.back:after {
   border: 0;
 }
 .b-shiki_editor .body > .preview .body {
-  padding-left: 56px !important;
+  padding-left: 0 !important;
 }
 
 .editor-controls > span {
