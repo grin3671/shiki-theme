@@ -2091,6 +2091,14 @@ select {
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .trigger-arrow::before {
   color: inherit;
 }
+/* FIX: ADD_TO_LIST LAYOUT IN NOTES (issue #7) */
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger {
+  padding: 0 1rem 0 2rem;
+}
+.b-db_entry-note .name-container .b-user_rate  .b-add_to_list .trigger + .expanded-options {
+  margin-top: 0;
+}
 /* END of ADD TO LIST BUTTON */
 
 
@@ -2448,6 +2456,7 @@ header.head,
   padding: 4px 0;
   padding-left: 56px !important;
   line-height: 20px;
+  overflow: hidden; /* FIX: OVERFLOW: HIDDEN TOPIC BODY (issue #9) */
 }
 .b-generated_news .body {
   padding-left: 0 !important;
@@ -3371,6 +3380,11 @@ pre {
 .b-forums .forum input:disabled + .link:before { color: #BDBDBD; }
 .b-forums .forum .topics {
   font-size: .75rem;
+}
+
+/* FIX: TOPIC UPDATE ICON (issue #5) */
+.p-topics header h1 a.reload:hover:after {
+  position: static;
 }
 
 /* END of FORUM */
