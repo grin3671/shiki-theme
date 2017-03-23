@@ -2422,13 +2422,17 @@ header.head,
 }
 .b-dialog:before,
 .b-message:before,
-.b-comment:before {
+.b-comment:before,
+.b-comments .comments-loaded:before {
   content: '';
   position: absolute;
   bottom: 0;
-  right: -24px;
+  right: 0;
   left: 56px;
   height: 1px;
+}
+.b-comments .comments-loaded .b-comment:last-child {
+  margin: 0;
 }
 .b-dialog:last-child:before,
 .b-message:last-child:before,
