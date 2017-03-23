@@ -2764,8 +2764,6 @@ header.head,
   display: none;
 }
 
-
-
 /**
  * COMMENT DOESN'T SLIDE
  * Большие комментарии, топики не должны сдвигаться margin'ами.
@@ -2813,6 +2811,66 @@ header.head,
   line-height: 18px;
 }
 
+
+/**
+ * BBCode: CODE
+ * Новый тег отвечающий за оформление программных кодов.
+ */
+
+code {
+  vertical-align: top;
+  padding: 1.5px 4px;
+  background-color: rgba(32,32,32,0.05);
+  border-radius: 2px;
+  font-size: .875rem;
+}
+
+pre {
+  position: relative;
+}
+
+.b-code {
+  padding: 1rem;
+  margin: .5rem 0;
+  background: #303030;
+  border-radius: 2px;
+  font-size: .875rem;
+}
+
+@media (min-width: 960px) {
+  .b-code:before {
+    content: attr(data-language);
+    position: absolute;
+    top: 1rem;
+    right: .5rem;
+    padding: 0 .5rem;
+    background-color: #747474;
+    border-radius: 2px;
+  }
+
+  .tooltip-details .b-code:before {
+    display: none;
+  }
+}
+/* END of CODE */
+
+/* CODE: SUBLIME 3 MATERIAL THEME'S COLOR */
+.b-code { background: #263238; }
+.hljs-selector-tag { color: #FF5370; }
+.hljs-selector-id { color: #FAD430; }
+.hljs-selector-class { color: #FFCB6B; }
+.hljs-selector-pseudo,
+.hljs-meta { color: #C792EA; }
+.hljs-attribute { color: #80CBC4; }
+.hljs-built_in { color: #89DDFF; }
+.hljs-number { color: #F77669; }
+.hljs-string { color: #C3E88D; }
+.hljs-comment { color: #5C7E8C; }
+/* END of CODE' THEME */
+
+/* -------------- */
+/* END of COMMENT */
+/* -------------- */
 
 
 /* TOAST */
