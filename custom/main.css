@@ -2522,6 +2522,7 @@ header.head,
 .b-dialog .body .b-message > .inner,
 .b-generated_news > .inner,
 .b-generated_news-topic > .inner,
+.b-review-topic.b-topic-preview > .inner,
 .b-topic-preview > .inner > .body,
 .b-topic-preview > .inner > footer,
 .p-dashboards-show .cc-news .c-news_topics .b-topic > .inner,
@@ -5436,10 +5437,15 @@ header.head h2 a.back:after {
 }
 @media only screen and (min-width: 768px) {
   .about-bb_codes:before {
-    content: 'Справка';
     font-family: inherit !important;
     font-size: 14px !important;
     text-transform: uppercase;
+  }
+  .locale-ru .about-bb_codes:before {
+    content: 'Справка';
+  }
+  .locale-en .about-bb_codes:before {
+    content: 'Help';
   }
 }
 /* END of SHIKI_EDITOR */
