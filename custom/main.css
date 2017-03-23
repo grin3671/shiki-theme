@@ -48,6 +48,7 @@ input {
 .b-forum .faye-loader:active,
 .block-list li.selected,
 .block-list-alt li.selected,
+.b-block_list li.selected,
 .p-animes-show .other-names.click-loader,
 .p-mangas-show .other-names.click-loader {
   color: inherit !important;
