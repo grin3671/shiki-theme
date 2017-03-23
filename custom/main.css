@@ -2986,6 +2986,29 @@ pre {
   cursor: pointer;
 }
 
+.b-clubs-menu .actions .upload label,
+.b-clubs-menu .actions .invite span,
+.b-clubs-menu .actions .join a,
+.b-clubs-menu .actions .leave a {
+  border: 0;
+}
+
+.b-clubs-menu .actions .edit-entry:hover a,
+.b-clubs-menu .actions .broadcast:hover a,
+.b-clubs-menu .actions .upload:hover label,
+.b-clubs-menu .actions .invite:hover span,
+.b-clubs-menu .actions .join:hover a,
+.b-clubs-menu .actions .leave:hover a {
+  text-decoration: underline;
+}
+
+.b-clubs-menu .actions .upload label:hover,
+.b-clubs-menu .actions .invite span:hover,
+.b-clubs-menu .actions .join a:hover,
+.b-clubs-menu .actions .leave a:hover {
+  text-decoration: underline !important;
+}
+
 .actions .edit-entry:before {
   content: 'build';
 }
@@ -3440,7 +3463,10 @@ pre {
   line-height: 1.25rem;
 }
 
-
+/* FIX: update 2017-03-19 */
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after {
+  clear: none;
+}
 
 /* Списки аниме/манги */
 .b-stats_bar .stat_names .stat_name:after { display: none; }
@@ -4901,6 +4927,13 @@ header.head h2 a.back:after {
   border-radius: 2px;
 }
 
+.b-shiki_editor .images input,
+.b-shiki_editor .quotes input,
+.b-shiki_editor .email input {
+  margin-left: 1rem !important;
+  width: 20rem !important;
+}
+
 
 .b-shiki_editor .body .editor textarea {
   padding: .5rem 1rem;
@@ -4930,6 +4963,23 @@ header.head h2 a.back:after {
 .b-shiki_editor footer .cancel:hover {
   color: #3F51B5;
 }
+
+
+/* FIX: COMMENT PREVIEW WIDTH */
+.b-shiki_editor aside.markers {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.b-shiki_editor.previewed .body .preview .b-comment {
+  padding: 0 !important;
+}
+.b-shiki_editor footer {
+  margin-top: 1rem;
+}
+
+
 .about-bb_codes {
   font-size: 0 !important;
   padding: 0 1rem;
