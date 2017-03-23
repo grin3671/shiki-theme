@@ -1470,7 +1470,8 @@ select {
 .subheadline > a,
 .b-form .cancel,
 .b-shiki_editor footer .unpreview,
-.b-shiki_editor footer .preview {
+.b-shiki_editor footer .preview,
+.b-topic-preview > .editor-container .hide {
   display: inline-block;
   padding: 0 1rem;
   background-color: transparent;
