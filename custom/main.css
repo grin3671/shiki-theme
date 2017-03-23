@@ -541,6 +541,14 @@ input[type=submit]:hover {
   padding: .4375rem 1rem;
 }
 
+.b-input input[disabled] {
+  background: transparent;
+  border-width: 0;
+  border-bottom-width: .125rem;
+  padding: .375rem 0 .25rem;
+  color: #9E9E9E !important;
+}
+
 select {
   max-width: 100%;
   height: 2rem;
