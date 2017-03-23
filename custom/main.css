@@ -2763,7 +2763,10 @@ header.head,
   }
 }
 
-
+.yellow-fade {
+  background: rgba(249, 247, 19, 0.16);
+  outline-color: rgba(249, 247, 19, 0.16);
+}
 
 .b-replies {
   padding: 8px 0 0;
