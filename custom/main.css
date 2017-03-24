@@ -38,7 +38,8 @@ input {
 .p-anime_videos-index .c-videos .title,
 .p-anime_videos-index .same-videos .title,
 .p-statistics-index .forum-nav .sections a,
-.p-user_rates-index .list-groups .summary.lines {
+.p-user_rates-index .list-groups .summary.lines,
+.p-userlist_comparer .comparer table .name a {
   color: inherit;
 }
 
@@ -365,6 +366,15 @@ hr {
 .b-comments .comments-collapser:before {
   content: 'expand_less';
   display: block;
+}
+
+.b-modal>.inner {
+  padding: 16px 24px;
+}
+.b-modal .subheadline {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: none;
 }
 
 .b-show_more,
@@ -2479,6 +2489,10 @@ header.head,
   height: 1px;
 }
 
+.b-generated_news:before {
+  left: 0;
+}
+
 .b-comments .comments-loaded .b-comment:last-child {
   margin: 0;
 }
@@ -3919,18 +3933,32 @@ pre {
 
 
 
-
-
-
-
-
-.b-modal>.inner {
-  padding: 16px 24px;
+/* Страница сравнения списков */
+.p-userlist_comparer .notice span {
+  padding: 1.5px 4px !important;
+  border-radius: 2px;
 }
-.b-modal .subheadline {
-  font-size: 20px;
-  font-weight: 400;
-  text-transform: none;
+
+/* Цвета списков */
+.p-userlist_comparer .comparer table .abslt-difr,
+.p-userlist_comparer .legend .abslt-difr,
+.p-userlist_comparer .notice span:nth-child(6) {
+  background: rgba(244, 67, 54, .5) !important;
+}
+.p-userlist_comparer .comparer table .slightly-difr,
+.p-userlist_comparer .legend .slightly-difr,
+.p-userlist_comparer .notice span:nth-child(4) {
+  background: rgba(255, 138, 128, .5) !important;
+}
+.p-userlist_comparer .comparer table .almost-same,
+.p-userlist_comparer .legend .almost-same,
+.p-userlist_comparer .notice span:nth-child(3) {
+  background: rgba(185, 246, 202, .5) !important;
+}
+.p-userlist_comparer .comparer table .exact-same,
+.p-userlist_comparer .legend .exact-same,
+.p-userlist_comparer .notice span:nth-child(5) {
+  background: rgba(76, 175, 80, .5) !important;
 }
 
 
