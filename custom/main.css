@@ -894,16 +894,8 @@ select {
   height: calc(100vh + 16px);
   padding: 8px 0;
   margin: -8px 0;
-  background-color: #fff;
   overflow-y: auto;
   z-index: 13;
-}
-@media (max-width: 1024px) {
-.l-top_menu .menu-items>.entry>a,
-.l-top_menu .menu-items>.entry>.submenu>a,
-.l-top_menu .inner .sign_out {
-  color: #212121 !important;
-}
 }
 /* EXPERIMENTAL > ANIMATED MOBILE MENU */
 .l-top_menu .menu-items {
