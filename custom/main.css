@@ -5536,8 +5536,10 @@ header.head h2 a.back:after {
   line-height: 16px;
 }
 
-.b-options-floated.before-buttons-2 {
-  padding-right: 112px;
+@media screen and (min-width: 768px) {
+  .b-options-floated.before-buttons-2 {
+      padding-right: 112px;
+  }
 }
 
 .p-profiles-edit .b-options-floated,
