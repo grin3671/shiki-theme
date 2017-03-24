@@ -2754,15 +2754,6 @@ header.head,
   padding-left: 0 !important;
 }
 
-
-@media screen and (max-width: 767px) {
-  .b-topic-preview>.b-comments,
-  .b-topic-preview>.inner>.body,
-  .b-topic-preview>.inner>footer {
-    padding-left: 56px;
-  }
-}
-
 .yellow-fade {
   background: rgba(249, 247, 19, 0.16);
   outline-color: rgba(249, 247, 19, 0.16);
@@ -5545,8 +5536,8 @@ header.head h2 a.back:after {
 .p-dialogs .b-options-floated > a,
 .p-messages .b-options-floated > a {
   display: inline-block;
-  width: 33.3333%;
-  min-width: 112px;
+  width: auto;
+  min-width: 88px;
   height: 48px;
   padding: 0 12px;
   font-size: 14px;
