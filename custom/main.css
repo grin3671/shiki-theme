@@ -121,6 +121,11 @@ body {
   font-size: .6875rem;
 }
 
+.l-page:after,
+.l-footer:after {
+  display: none;
+}
+
 .l-footer .links {
   padding: .25rem 0;
   font: inherit;
@@ -221,6 +226,43 @@ header.head h2 a.back,
       margin: 0;
   }
 }
+
+@media screen and (min-width: 481px) and (max-width: 767px),
+       screen and (max-width: 767px) and (orientation: landscape) {
+  .l-page .menu-slide-outer .menu-slide-inner {
+    width: 100%;
+  }
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .l-page.menu-expanded .x240 .l-content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .l-page .menu-slide-outer.x240.ipad-expanded .menu-slide-inner {
+    width: 100%;
+  }
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .menu-slide-outer.x199 .l-menu,
+  .menu-slide-outer.x240 .l-menu {
+    
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .l-page .menu-slide-outer {
     overflow: visible;
@@ -5397,6 +5439,11 @@ header.head h2 a.back:after {
   vertical-align: top;
   margin-right: 8px;
 }
+
+.b-shiki_editor footer .preview {
+  margin-right: 0;
+}
+
 .b-shiki_editor.previewed footer .unpreview {
   border: 0;
   font-size: 0;
