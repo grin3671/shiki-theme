@@ -3973,6 +3973,10 @@ pre {
   max-width: 40px;
 }
 
+.p-user_rates-index .l-content .filter input {
+  padding: .5rem 1rem;
+  font-size: .875rem;
+}
 
 
 /* Страница сравнения списков */
