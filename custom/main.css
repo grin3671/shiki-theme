@@ -5355,7 +5355,7 @@ header.head h2 a.back:after {
   height: 1.75em;
   min-height: 0;
   margin: -.875rem 0 0 -.875rem;
-  background: none;
+  background-image: none;
   border-radius: 50%;
   box-shadow: inset 0 0 0 0.1875em;
   overflow: hidden;
