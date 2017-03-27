@@ -5341,7 +5341,6 @@ header.head h2 a.back:after {
   min-height: 0;
   margin: -.875rem 0 0 -.875rem;
   background: none;
-  background-color: #fff;
   border-radius: 50%;
   box-shadow: inset 0 0 0 0.1875em;
   overflow: hidden;
@@ -5350,9 +5349,6 @@ header.head h2 a.back:after {
           animation: spin 2666ms linear infinite;
   -webkit-clip-path: circle(.875em at center);
           clip-path: circle(.875em at center);
-}
-.tooltip-details .ajax-loading {
-  color: #009688;
 }
 
 .tooltip-details .ajax-loading:after,
