@@ -1002,21 +1002,36 @@ select {
     transform: translate(0, 0);
   }
 
-  .l-top_menu .menu-items>.entry:active {
+  .l-top_menu .menu-items > .entry:active {
     background-color: inherit;
-    color: inherit !important;
   }
-
-  .l-top_menu .submenu>.entry:active {
-    color: inherit !important;
-  }
-
-  .l-top_menu .menu-items>.entry>a {
+  
+  .l-top_menu .menu-items > .entry:active,
+  .l-top_menu .submenu > .entry:active,
+  .l-top_menu .menu-items > .entry > a {
     color: inherit !important;
   }
   
-  .l-top_menu .submenu>.entry,
-  .b-main_search .popup li { color: inherit; }
+  .l-top_menu .menu-items > .entry > .submenu {
+    margin-top: 4px;
+    margin-left: 0;
+  }
+  
+  .l-top_menu .submenu.right {
+    right: 0px;
+    margin-top: 4px;
+  }
+  
+  .b-main_search ul.popup,
+  .b-main_search.hovered .popup {
+    margin: 0;
+    margin-top: 12px;
+  }
+  
+  .l-top_menu .submenu > .entry,
+  .b-main_search .popup li {
+    color: inherit;
+  }
 
   .b-main_search.hovered .popup {
     height: 272px;
