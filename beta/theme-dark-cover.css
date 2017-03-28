@@ -4,6 +4,7 @@
  * Copyright (c) 2016 grin3671
  */
 
+
 /**
  * РУКОВОДСТВО: КАК НАСТРОИТЬ СТИЛЬ
  * 
@@ -27,6 +28,11 @@
   margin: 5rem;
   z-index: 1000;
 }
+/* Настройки вверху, CSS внизу */
+.b-edit_styles {
+  display: flex;
+  flex-direction: column-reverse;
+}
 /* Широкое полотно стиля */
 .b-edit_styles > .c-column {
   width: 100%;
@@ -39,6 +45,13 @@
   line-height: 1.5 !important;
   white-space: nowrap;
 }
+
+
+
+
+
+
+
 
 
 
@@ -190,7 +203,8 @@ div.history .b-block_list li .tooltip-inner a,
 .p-userlist_comparer .comparer table .name a,
 .b-log_entry .comment-block ins,
 .p-statistics-index .forum-nav .sections a.selected,
-.p-anime_videos-index .c-videos .video-variant-switcher {
+.p-anime_videos-index .c-videos .video-variant-switcher,
+.p-user_rates-index .stat-categories .category {
   color: #2196F3;
   border-bottom-color: rgba(33, 150, 243, 0.3);
 }
@@ -397,7 +411,8 @@ div.history .b-block_list li .tooltip-inner a:hover,
 .p-user_rates-index .list-lines tr td .anime-status:hover,
 .p-user_rates-index .list-lines tr td .anime-remove:hover,
 .p-user_rates-index .list-lines tr td .anime-remove.selected,
-.p-anime_videos-index .c-videos .video-variant-switcher:hover {
+.p-anime_videos-index .c-videos .video-variant-switcher:hover,
+.p-user_rates-index .stat-categories .category:hover {
   color: #FF4081;
   border-bottom-color: rgba(255, 64, 129, 0.3);
 }
@@ -458,7 +473,8 @@ div.history .b-block_list li .tooltip-inner a:active,
 .p-topics .l-menu .contests .contest:active .title,
 .p-topics .l-menu .contests .contest:active .title:after,
 .p-topics .l-menu .contests .contest .title:active,
-.p-topics .l-menu .contests .contest .title:active:after {
+.p-topics .l-menu .contests .contest .title:active:after,
+.p-user_rates-index .stat-categories .category:active {
   color: #ff1402;
 }
 
@@ -634,7 +650,11 @@ div.history .b-block_list li .tooltip-inner a:active,
     color: #ff1402;
   }
 }
-body,
+body {
+  background-color: #303030;
+}
+
+.l-page,
 .c-actions:before,
 .p-contests .contest-match .vs > div:first-child,
 .p-contests .match-day > .date,
@@ -776,6 +796,7 @@ header.head h2,
     color: #FFFFFF !important;
   }
 }
+h3,
 header.head .notice,
 .bar.horizontal .line .x_label,
 .bar.vertical .line .x_label,
@@ -926,25 +947,26 @@ header.head h2 a.back,
 .c-actions > *,
 .editor-controls > span,
 .profile-actions > a,
+.p-animes .item-edit,
+.p-animes_collection-index .pagination .link,
 .p-clubs-index header.head a.misc,
 .p-contests .contest-match .prev-match,
 .p-contests .contest-match .next-match,
+.p-mangas .item-edit,
+.p-mangas_collection-index .pagination .link,
 .p-messages .mass-actions > .action > a,
 .p-profiles .profile-head .c-history .entry .misc,
+.p-profiles-show .about .item-edit,
 .p-profiles-show .lifetime .title > .label:before,
 .p-profiles-show .profile-content .activity .title,
+.p-recommendations-index .pagination .link,
 .p-topics .l-menu .calendar .entry .misc,
 .p-topics .l-menu .reviews .entry .misc,
 .p-topics .l-menu .clubs .entry .misc,
+.p-userlist_comparer-show .pagination .link,
 .p-user_rates-index .list-lines tr.edit-form .remove,
 .p-user_rates-index .list-lines tr.edit-form .remove:hover,
-.p-animes .item-edit,
-.p-mangas .item-edit,
-.p-profiles-show .about .item-edit,
-.p-animes_collection-index .pagination .link,
-.p-mangas_collection-index .pagination .link,
-.p-recommendations-index .pagination .link,
-.p-userlist_comparer-show .pagination .link {
+.p-user_history-index .history-page .history-interval p .date {
   color: #BDBDBD !important;
 }
 
@@ -957,26 +979,6 @@ header.head h2 a.back,
     color: #BDBDBD !important;
   }
 }
-header.head .misc,
-header.head a.edit,
-.b-ban .comment-hash,
-.b-ban .duration,
-.b-breadcrumbs > span:after,
-.b-club .info .value,
-.b-comment header a.hash,
-.b-comment > .inner header .name-date .time > time,
-.b-comment > .inner .was_updated,
-.b-input .hint,
-.b-log_entry .date,
-.b-message > .inner header .name-date .time > time,
-.b-nothing_here,
-.b-topic > .inner header .name-date .time,
-.b-topic > .inner header .name-date .time > time,
-.b-topic-preview > .inner .status-line .additional .comments:before,
-.b-topic-preview > .inner .status-line .additional .likes:before,
-.b-topic-preview > .inner .status-line .time,
-.p-moderations-missing_videos .missing-video > .info,
-.p-profiles .profile-head .c-brief header .notice span:after,
 .b-user.detailed .history .line .date,
 .b-video_variant .episode-hostings:before,
 .b-video_variant .episode-hostings:after,
@@ -1073,7 +1075,8 @@ input[type=submit]:hover,
 .b-collection-filters .b-block_list li.selected:before,
 .p-contests .contest-match .vs .refrain,
 .p-contests .contest-match .vs .refrain:hover,
-.p-contests .contest-match .vs .refrain:active {
+.p-contests .contest-match .vs .refrain:active,
+.tooltip-details .ajax-loading {
   color: #2196F3;
 }
 
@@ -1156,8 +1159,9 @@ div.compatibility > span.link-replacement > span.rate {
 .b-modal > .inner,
 .b-video .marker,
 .b-video .name,
+.l-top_menu .menu-items,
 .tooltip-inner,
-.l-top_menu .menu-items {
+.tooltip-details .ajax-loading {
   background: #424242;
 }
 
@@ -1242,6 +1246,7 @@ div.compatibility > a > span:first-child:before,
 .l-page .menu-toggler .toggler,
 .p-contests .match-day .match-link:hover,
 .p-contests .match-day .match-link.active,
+.p-user_rates-index .list-groups .summary.posters,
 .p-user_rates-index .list-lines tr td .new-value input,
 .p-user_rates-index .l-content .filter input,
 .subheadline-input {
@@ -1362,6 +1367,7 @@ hr,
   background-color: #757575;
 }
 
+h3,
 select,
 .b-input input,
 .b-input textarea,
@@ -1379,6 +1385,7 @@ select,
 .p-topics-edit .topic_video,
 .p-topics-create .topic_video,
 .p-topics-update .topic_video,
+.p-user_rates-index .list-groups .summary.posters,
 .p-user_rates-index .list-lines tr.edit-form form,
 .p-user_rates-index .list-lines tr td .new-value input,
 .p-user_rates-index .l-content .filter input,
@@ -1400,6 +1407,12 @@ select,
   background: #757575;
 }
 /* END of НАСТРОЙКА ЦВЕТОВ */
+
+
+
+
+
+
 
 
 
@@ -1483,6 +1496,13 @@ text,
   }
 }
 /* END of FONT COLLECTION */
+
+
+
+
+
+
+
 
 
 
@@ -1610,6 +1630,11 @@ body {
   font-size: .6875rem;
 }
 
+.l-page:after,
+.l-footer:after {
+  display: none;
+}
+
 .l-footer .links {
   padding: .25rem 0;
   font: inherit;
@@ -1710,6 +1735,43 @@ header.head h2 a.back,
       margin: 0;
   }
 }
+
+@media screen and (min-width: 481px) and (max-width: 767px),
+       screen and (max-width: 767px) and (orientation: landscape) {
+  .l-page .menu-slide-outer .menu-slide-inner {
+    width: 100%;
+  }
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .l-page.menu-expanded .x240 .l-content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .l-page .menu-slide-outer.x240.ipad-expanded .menu-slide-inner {
+    width: 100%;
+  }
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .menu-slide-outer.x199 .l-menu,
+  .menu-slide-outer.x240 .l-menu {
+    
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .l-page .menu-slide-outer {
     overflow: visible;
@@ -1719,6 +1781,12 @@ header.head h2 a.back,
 /* ОБЩИЕ КЛАССЫ */
 .p0, .m0, .m1, .m2, .m3, .m4, .m5, .m6, .m7, .m8, .m10, .m12, .m13, .m15, .m20, .m25, .m30, .m40, .m50 {
   margin-bottom: .5rem !important;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: .5rem;
 }
 
 hr {
@@ -2443,21 +2511,36 @@ select {
     transform: translate(0, 0);
   }
 
-  .l-top_menu .menu-items>.entry:active {
+  .l-top_menu .menu-items > .entry:active {
     background-color: inherit;
-    color: inherit !important;
   }
-
-  .l-top_menu .submenu>.entry:active {
-    color: inherit !important;
-  }
-
-  .l-top_menu .menu-items>.entry>a {
+  
+  .l-top_menu .menu-items > .entry:active,
+  .l-top_menu .submenu > .entry:active,
+  .l-top_menu .menu-items > .entry > a {
     color: inherit !important;
   }
   
-  .l-top_menu .submenu>.entry,
-  .b-main_search .popup li { color: inherit; }
+  .l-top_menu .menu-items > .entry > .submenu {
+    margin-top: 4px;
+    margin-left: 0;
+  }
+  
+  .l-top_menu .submenu.right {
+    right: 0px;
+    margin-top: 4px;
+  }
+  
+  .b-main_search ul.popup,
+  .b-main_search.hovered .popup {
+    margin: 0;
+    margin-top: 12px;
+  }
+  
+  .l-top_menu .submenu > .entry,
+  .b-main_search .popup li {
+    color: inherit;
+  }
 
   .b-main_search.hovered .popup {
     height: 272px;
@@ -3596,7 +3679,7 @@ select {
 .b-catalog_entry-tooltip .b-add_to_list .trigger,
 .b-catalog_entry-tooltip .b-add_to_list .add-trigger,
 .b-catalog_entry-tooltip .b-add_to_list .remove-trigger {
-  max-width: 220px;
+  max-width: 224px;
 }
 /* END of ATL_BUTTON in NEWS */
 /* FIX ORIGINAL STYLE */
@@ -5420,6 +5503,10 @@ pre {
   max-width: 40px;
 }
 
+.p-user_rates-index .l-content .filter input {
+  padding: .5rem 1rem;
+  font-size: .875rem;
+}
 
 
 /* Страница сравнения списков */
@@ -6758,6 +6845,101 @@ header.head h2 a.back:after {
 .tooltip-arrow {
   display: none;
 }
+
+/**
+ * Simple <paper-spinner>
+ * MIT License
+ * Copyright (c) 2015 Chris Nager
+ * https://github.com/chrisnager/simple-paper-spinner
+ */
+.tooltip-details {
+  min-height: 140px;
+}
+.tooltip-details .ajax-loading {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.75em;
+  height: 1.75em;
+  min-height: 0;
+  margin: -.875rem 0 0 -.875rem;
+  background-image: none;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.1875em;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-animation: spin 2666ms linear infinite;
+          animation: spin 2666ms linear infinite;
+  -webkit-clip-path: circle(.875em at center);
+          clip-path: circle(.875em at center);
+}
+
+.tooltip-details .ajax-loading:after,
+.tooltip-details .ajax-loading:before {
+  content: "";
+  position: absolute;
+  width: 7em;
+  height: 1.75em;
+  background-color: inherit;
+}
+
+.tooltip-details .ajax-loading:after {
+  -webkit-transform: skewX(-80deg) translate(.875em, .875em);
+          transform: skewX(-80deg) translate(.875em, .875em);
+  -webkit-animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate;
+          animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate;
+}
+
+.tooltip-details .ajax-loading:before {
+  -webkit-transform: skewX(80deg) translate(.875em, -.875em);
+          transform: skewX(80deg) translate(.875em, -.875em);
+  -webkit-animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate;
+          animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate;
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg);
+  }
+}
+
+@-webkit-keyframes shape-shift-before {
+  to {
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em);
+            transform: skewX(-45deg) translate(.875em, -.875em);
+  }
+}
+
+@keyframes shape-shift-before {
+  to {
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em);
+            transform: skewX(-45deg) translate(.875em, -.875em);
+  }
+}
+
+@-webkit-keyframes shape-shift-after {
+  to {
+    -webkit-transform: skewX(45deg) translate(.875em, .875em);
+            transform: skewX(45deg) translate(.875em, .875em);
+  }
+}
+
+@keyframes shape-shift-after {
+  to {
+    -webkit-transform: skewX(45deg) translate(.875em, .875em);
+    transform: skewX(45deg) translate(.875em, .875em);
+  }
+}
+
 .b-catalog_entry-tooltip .inner a.name {
   font-size: .875rem;
 }
@@ -6886,6 +7068,11 @@ header.head h2 a.back:after {
   vertical-align: top;
   margin-right: 8px;
 }
+
+.b-shiki_editor footer .preview {
+  margin-right: 0;
+}
+
 .b-shiki_editor.previewed footer .unpreview {
   border: 0;
   font-size: 0;
@@ -7725,6 +7912,13 @@ header.head h2 a.back:after {
 
 
 
+
+
+
+
+
+
+
 /**
  * PROFILE COVER
  */
@@ -7882,6 +8076,190 @@ header.head h2 a.back:after {
   }
 }
 /* END of Полупрозрачное меню в профиле */
+
+
+
+
+
+
+
+
+
+
+/* TENTATIVE CODE | USERLIST */
+.ajax > .b-user.detailed {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 48%;
+  height: auto;
+  min-height: 261px;
+  padding: 8px;
+  margin-right: 4%;
+  margin-bottom: 4%;
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.16);
+}
+
+.ajax > .b-user.detailed:nth-child(2n+2) {
+  margin-right: 0;
+}
+
+@media (min-width: 540px) {
+  .ajax > .b-user.detailed {
+    width: 32%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(2n+2) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(3n+3) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .ajax > .b-user.detailed {
+    width: 23.5%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(2n+2) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(3n+3) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(4n+4) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .ajax > .b-user.detailed {
+    width: 18.4%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(2n+2) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(3n+3) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(4n+4) {
+    margin-right: 2%;
+  }
+
+  .ajax > .b-user.detailed:nth-child(5n+5) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .p-users.x1200 .ajax > .b-user.detailed {
+    width: 15%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+
+  .p-users.x1200 .ajax > .b-user.detailed:nth-child(2n+2) {
+    margin-right: 2%;
+  }
+
+  .p-users.x1200 .ajax > .b-user.detailed:nth-child(3n+3) {
+    margin-right: 2%;
+  }
+
+  .p-users.x1200 .ajax > .b-user.detailed:nth-child(4n+4) {
+    margin-right: 2%;
+  }
+
+  .p-users.x1200 .ajax > .b-user.detailed:nth-child(5n+5) {
+    margin-right: 2%;
+  }
+
+  .p-users.x1200 .ajax > .b-user.detailed:nth-child(6n+6) {
+    margin-right: 0;
+  }
+}
+
+.ajax > .b-user.detailed:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 2px 8px 1px rgba(0,0,0,.16);
+  opacity: 0;
+  transition: .3s all;
+}
+
+.ajax > .b-user.detailed:hover:before {
+  opacity: 1;
+}
+
+.ajax > .b-user.detailed .info,
+.ajax > .b-user.detailed .history {
+  clear: both;
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+
+.ajax > .b-user.detailed .info .image-name {
+  display: block;
+  padding: 16px 0;
+  margin: auto;
+  text-align: center;
+}
+
+.ajax > .b-user.detailed .info .image-name .name {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 97px 0 0;
+  line-height: 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ajax > .b-user.detailed .info .image-name .image {
+  clear: both;
+  float: none;
+  display: block;
+  padding: 0;
+  margin: auto auto 24px;
+  border-radius: 100%;
+}
+
+.ajax > .b-user.detailed .info .last-online {
+  color: #9B9B9B;
+  text-align: center;
+}
+
+.ajax > .b-user.detailed .history {
+  padding-top: 8px;
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 20px;
+}
+/* TENTATIVE CODE | END */
 
 
 
@@ -8059,6 +8437,38 @@ header.head h2 a.back:after {
 
 
 
+/* ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ДЛЯ ТЕМНОЙ ТЕМЫ */
+
+/* Цвет карточки пользователя в списке */
+.ajax > .b-user.detailed {
+  background-color: #424242;
+}
+
+/* Цвет юзер-панели профиля на мобильных экранах */
+/* Фон всплывающей и поднятой областей (По умолчанию: #424242) */
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief {
+    background-color: #424242;
+  }
+}
+
+/* Правая боковая панель */
+/* Фон всплывающей и поднятой областей (По умолчанию: #424242) */
+@media (max-width: 1024px) {
+  .l-menu {
+    background-color: #424242;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 /* МОИ НАСТРОЙКИ */
 
 /* Фон страницы */
@@ -8084,22 +8494,4 @@ body {
   /* background-image: url(https://i.imgur.com/bd8W6VB.jpg); /* Пример */
   background-image: url(); /* Моя обложка */
   background-position: center;
-}
-
-
-/* Дополнительные цвета для темной темы */
-/* Цвет юзер-панели профиля на мобильных экранах */
-/* Фон всплывающей и поднятой областей (По умолчанию: #424242) */
-@media screen and (min-width: 320px) and (max-width: 599px) {
-  .p-profiles .profile-head[data-user-id = "2727"] .c-brief {
-    background-color: #424242;
-  }
-}
-
-/* Правая боковая панель */
-/* Фон всплывающей и поднятой областей (По умолчанию: #424242) */
-@media (max-width: 1024px) {
-  .l-menu {
-    background-color: #424242;
-  }
 }
