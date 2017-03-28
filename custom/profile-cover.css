@@ -1,0 +1,157 @@
+/**
+ * PROFILE COVER
+ */
+@media screen and (min-width: 320px) {
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief {
+    background-color: #FFF; /* COLOR */
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, .24);
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief:before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 480px) {
+  .p-profiles .profile-head .c-brief {
+    min-height: 16rem;
+  }
+  .p-profiles .profile-head .c-brief {
+    margin-bottom: 1rem;
+  }
+  .p-profiles .profile-head .c-info {
+    margin-left: 0;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief .avatar {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    max-width: 148px;
+    margin: 1.5rem 1rem;
+    z-index: 2;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief .avatar img {
+    width: 120px;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief header {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 112px;
+    padding: 1rem 1.5rem 1rem calc(4rem + 148px);
+    margin: 0;
+    z-index: 1;
+  }
+}
+@media screen and (min-width: 600px) {
+  .p-profiles .profile-head .c-brief {
+    min-height: 19rem;
+  }
+  .p-profiles .profile-head .c-info {
+    margin-left: 0;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief {
+    max-height: 380px;
+    padding-bottom: 112px;
+    margin: -3rem -1rem 1rem;
+    background-color: inherit;
+    box-shadow: none;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief:before {
+    height: 268px;
+    max-height: inherit;
+    padding-bottom: 0;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief .avatar {
+    max-width: 160px;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief .avatar img {
+    width: 160px;
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16);
+  }
+}
+@media (min-width: 768px) {
+  .p-profiles .profile-head .c-info {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .p-profiles .profile-head .c-brief {
+    min-height: 0;
+  }
+  .p-profiles .profile-head .c-info {
+    margin-left: 13.5rem;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief {
+    max-height: 520px;
+    margin: -4.5rem -2rem 0;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief:before {
+    height: 408px;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief header {
+    padding: 1rem calc(23% + 4.5rem) 1rem calc(4.5rem + 160px);
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-brief .avatar {
+    margin: 1.5rem 2rem;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-info {
+    width: 77%;
+    padding-right: 2.5rem;
+    padding-left: 1rem;
+    margin-left: -1rem;
+  }
+  .p-profiles .profile-head[data-user-id = "2727"] .c-history {
+    float: none;
+    position: absolute;
+    right: 0;
+    top: 520px;
+    width: 23%;
+    padding: .5rem 0;
+    margin: 0;
+    margin-top: -112px;
+    z-index: 3;
+  }
+}
+/* END of PROFILE COVER */
+
+
+
+/* Полупрозрачное меню в профиле */
+@media (min-width: 960px) {
+  .p-profiles .profile-head .c-info .c-additionals b:after {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .p-profiles-show:not(.p-dialogs-show) .l-top_menu {
+    background-color: transparent;
+    background-image: linear-gradient(rgba(51, 51, 51, .64), rgba(51, 51, 51, 0));
+    box-shadow: none;
+    transition: .3s;
+  }
+  .p-profiles-show:not(.p-dialogs-show) .l-top_menu:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    opacity: 0;
+    transition: .3s;
+  }
+  .p-profiles-show:not(.p-dialogs-show) .l-top_menu:hover:before {
+    opacity: 1;
+  }
+  .p-profiles-show.x1000:not(.p-dialogs-show) .l-top_menu {
+    max-width: calc(1000px + 2rem);
+  }
+  .p-profiles-show.x1200:not(.p-dialogs-show) .l-top_menu {
+    max-width: calc(1200px + 2rem);
+  }
+}
+/* END of Полупрозрачное меню в профиле */
