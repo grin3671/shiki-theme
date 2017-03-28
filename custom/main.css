@@ -1231,7 +1231,7 @@ select {
   border: 0;
   font-family: inherit;
   font-size: .875rem;
-  line-height: 20px;
+  line-height: 1rem;
 }
 .b-main_search .input input {
   width: 100%;
