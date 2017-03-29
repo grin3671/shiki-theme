@@ -45,7 +45,7 @@
 
 ###### Настройки цвета
 Следующий файл содержит настройки почти всех цветов сайта, доступных для изменения с помощью переменных языка `Sass`:
-> https://github.com/grin3671/shiki-theme/blob/master/color/settings.sass
+> https://github.com/grin3671/shiki-theme/blob/master/custom/color.sass
 
 Используйте сайт http://sassmeister.com, чтобы конвертировать `Sass` в `CSS`. В меню сайта "Options" смените синтаксис "Syntax" на `Sass`.
 
@@ -58,9 +58,6 @@
 
     > Для темы больше подходит шрифт Roboto, однако это он может долго грузится на медленном интернете.
     
-* [Правый сайдбар](../master/part/right-sidebar.css)
-
-    > Замена слайдинга сайта на удобную фиксированную боковую панель.
 
 ## Превью
 Альбом со скриншотами темы: https://imgur.com/a/tc7uV
