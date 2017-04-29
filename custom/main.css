@@ -209,7 +209,7 @@ input[type=submit],
 .p-profiles-show .b-stats_bar a.title,
 .b-stats_bar .bar,
 .profile-actions > a,
-:root .b-anime_status_tag:before,
+.l-page .b-anime_status_tag:before,
 .p-profiles .profile-head .c-history .entry img,
 .p-profiles-show .about .item-edit,
 header.head h1 a.back,
@@ -3339,7 +3339,7 @@ header.head,
 .b-comment > .inner > aside.buttons > .main-controls > a:after,
 .b-comment > .inner > aside.buttons > .main-controls > span:after,
 .b-comment > .inner > aside.buttons > .delete-controls > span:after,
-.b-comment > .inner > aside.buttons > .moderation-controls > span:after{
+.b-comment > .inner > aside.buttons > .moderation-controls > span:after {
   vertical-align: top;
   padding-left: 12px !important;
   font-size: 16px !important;
@@ -4448,7 +4448,7 @@ pre {
 }
 
 /* TODO: replace */
-:root .b-anime_status_tag:before {
+.l-page .b-anime_status_tag:before {
   vertical-align: text-bottom;
   padding: 0 .25rem;
   border: 0;
