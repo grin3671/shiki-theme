@@ -6828,8 +6828,8 @@ header.head h2 a.back:after {
   border: 0;
   opacity: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* Псевдоэлемент с иконкой чекбокса */
