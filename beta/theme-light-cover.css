@@ -1175,13 +1175,26 @@ input[type=submit],
 .line:nth-child(odd) > .bar-container > .bar:hover,
 .line:nth-child(even) > .bar-container > .bar,
 .line:nth-child(even) > .bar-container > .bar:hover,
-.b-image .mobile-edit,
+.b-image .cancel:hover,
+.b-image .cancel:active,
+.b-image .confirm:hover,
+.b-image .confirm:active,
 .b-image .delete:hover,
+.b-image .delete:active,
+.b-image .mobile-edit,
+.b-image .mobile-edit:hover,
+.b-image .mobile-edit:active,
 .b-image.deletable .confirm:hover,
 .b-image.deletable .cancel:hover,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate:hover {
   background-color: #009688;
+}
+
+@media screen and (max-width: 1024px) {
+  .p-user_rates-index .list-posters .user_rate .edit-user_rate {
+    background: #009688;
+  }
 }
 
 .p-contests .contest-match .votes-percents .right-part,
@@ -1275,6 +1288,11 @@ div.compatibility > span.link-replacement > span.rate {
 
 .p-profiles-show .b-stats_bar.manga a.title:hover {
   background-color: rgba(255, 171, 64, 0.12);
+}
+
+html.turbolinks-progress-bar:before {
+  background: #FFAB40 !important;
+  box-shadow: 0 0 10px rgba(255, 171, 64, 0.7) !important;
 }
 
 .p-profiles-edit .b-options-floated > a.selected,
@@ -1381,6 +1399,7 @@ div.compatibility > span.link-replacement > span.rate {
   background: #EEEEEE;
 }
 
+input,
 select,
 .b-editable_grid tbody tr:nth-child(odd) td,
 .b-input input,
@@ -1519,6 +1538,7 @@ hr,
   background-color: #DDDDDD;
 }
 
+input,
 h3,
 select,
 .b-input input,
@@ -1659,6 +1679,7 @@ body {
   padding-bottom: 4.5rem;
   padding-left: 1rem;
   background-color: inherit;
+  z-index: auto;
 }
 
 .l-footer {
@@ -1848,7 +1869,7 @@ header.head h2 a.back,
 
 @media screen and (max-width: 1024px) {
   .l-page .menu-slide-outer {
-    overflow: visible;
+    overflow: hidden;
   }
 }
 
@@ -2094,6 +2115,15 @@ hr {
   border-radius: .125rem;
 }
 
+.b-image .delete,
+.b-image .confirm,
+.b-image .cancel,
+.b-image .move-left,
+.b-image .move-right,
+.b-image .mobile-edit {
+  z-index: 8;
+}
+
 .b-image .mobile-edit,
 .b-gallery .grid_sizer .controls {
   margin-top: .375rem !important;
@@ -2168,7 +2198,9 @@ hr {
 
 /* END of Кнопки управления изображениями */
 .b-modal > .inner {
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
+  border-radius: .125rem;
+  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.24);
 }
 
 .b-modal .subheadline {
@@ -2515,6 +2547,16 @@ select {
   z-index: 9;
 }
 
+.l-page.menu-expanded .menu-toggler {
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .l-menu {
+    z-index: 9;
+  }
+}
+
 .p-user_rates-index .l-page .menu-toggler {
   top: -96px;
 }
@@ -2587,6 +2629,8 @@ select {
 .b-collection-filters > .block:first-child > .b-list > li:before,
 .b-collection-filters > .block:first-child > .b-list > li:after,
 .b-collection-filters > .block:first-child > .b-list > li:before,
+.l-top_menu .inner > a:first-child,
+.l-top_menu .menu-items > .entry > a,
 .p-user_rates .mylist-block + .block > .b-list > li:after,
 .p-user_rates .mylist-block + .block > .b-list > li:before {
   -webkit-backface-visibility: hidden;
@@ -2623,11 +2667,6 @@ select {
 /* По умолчанию: цвет текста наследуется от меню */
 .l-top_menu .menu-items > .entry:hover {
   color: inherit;
-}
-
-/* Цвет фона пунктов меню при наведении */
-.l-top_menu .menu-items > .entry > a:hover {
-  background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 /* ВЫПАДАЮЩЕЕ МЕНЮ */
@@ -2977,6 +3016,18 @@ select {
   }
 }
 
+.l-top_menu .inner > a:first-child,
+.l-top_menu .menu-items > .entry > a {
+  opacity: .87;
+  transition: 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.l-top_menu .inner > a:first-child:hover,
+.l-top_menu .menu-items > .entry > a:hover {
+  background-color: transparent !important;
+  opacity: 1;
+}
+
 .l-top_menu .menu-items > .entry.selected,
 .l-top_menu .menu-items > .entry:hover {
   background-color: transparent;
@@ -3005,12 +3056,12 @@ select {
 
 @media only screen and (min-width: 1025px) {
   .l-top_menu .menu-items > .entry > a.contest {
-    width: 40px;
-    height: 40px;
-    padding: 11px !important;
-    margin: 4px;
+    width: 3rem;
+    height: 3rem;
+    padding: .9375rem !important;
+    margin: 0;
     background: transparent;
-    border-radius: 2px;
+    border-radius: .125rem;
   }
   .l-top_menu .menu-items > .entry > a.contest:before {
     position: static;
@@ -3075,11 +3126,6 @@ select {
   background-color: transparent !important;
 }
 
-.l-top_menu .menu-items > .entry > a.contest,
-.l-top_menu .menu-items > .entry > a.contest:before {
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .l-top_menu .menu-items > .entry > a.contest:after {
   content: attr(data-count);
   position: absolute;
@@ -3096,8 +3142,8 @@ select {
 
 @media screen and (min-width: 1025px) {
   .l-top_menu .menu-items > .entry > a.contest:after {
-    top: -.25rem;
-    right: -.25rem;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -3112,14 +3158,14 @@ select {
   }
   .l-top_menu .menu-items > .entry > a[href*="/forum"]:before {
     content: 'people';
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 
 /* Уменьшение ширины всех пунктов меню */
 .x1000 .l-top_menu .menu-items > .entry > a,
 .x1000 .l-top_menu .menu-items > .entry.sign_out {
-  padding: 1rem .875rem;
+  padding: 0.9375rem;
 }
 
 /* END of Уменьшение ширины пунктов меню */
@@ -4169,9 +4215,11 @@ select {
 }
 
 .b-user_rate .rate-show .note {
-  padding: 8px 16px;
-  font-size: 14px;
-  line-height: 20px;
+  padding: .5rem 1rem;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  max-height: 10rem;
+  overflow-y: auto;
 }
 
 .b-user_rate .rate-show .note:before {
@@ -4753,7 +4801,8 @@ header.head,
 
 /* Предпросмотр описания и страниц клуба */
 .edit_club .b-shiki_editor .b-comment .inner .body,
-.edit_club_page .b-shiki_editor .b-comment .inner .body {
+.edit_club_page .b-shiki_editor .b-comment .inner .body,
+.new_club_page .b-shiki_editor .b-comment .inner .body {
   padding-left: 0;
 }
 
@@ -5060,11 +5109,15 @@ header.head,
 }
 
 .b-topic .body {
-  line-height: 20px;
+  line-height: 1.25;
+}
+
+.b-topic-preview > .inner header {
+  margin-bottom: 0;
 }
 
 .b-topic-preview > .inner .status-line {
-  margin-top: -8px;
+  margin-top: -4px;
   margin-bottom: 8px;
   font-size: 14px;
   line-height: 20px;
@@ -5498,6 +5551,10 @@ pre {
   font-size: .875rem;
 }
 
+.p-clubs-show .b-topic-preview.mini {
+  margin-bottom: .5rem;
+}
+
 /* Действия в клубах */
 .b-clubs-menu .club-actions {
   margin: 0 0 .5rem 0;
@@ -5535,9 +5592,7 @@ pre {
 .club-actions .invite:before,
 .club-actions .leave:before {
   width: 1.5rem;
-  font-family: 'Material Icons';
   font-size: 1.5rem;
-  line-height: 1;
 }
 
 .club-actions .edit-club:before {
@@ -7095,25 +7150,25 @@ div.compatibility > span.link-replacement:hover > span:first-child:before {
 }
 
 /* Подсказки для совместимости */
-/* По умолчанию: располагаются над иконкой */
-/* Вариант не работает без обложки, универсален только 2 вариант */
-/* Второй вариант: располагаются слева от иконки */
+/* + Подсказки для действий с почтой – thx Kaur */
+/* По умолчанию: располагаются слева от иконки */
 div.compatibility > a:after,
 div.compatibility > a > span:first-child:after,
-div.compatibility > span.link-replacement > span:first-child:after {
+div.compatibility > span.link-replacement > span:first-child:after,
+.p-messages .mass-actions > .action > a:after {
   display: block;
   position: absolute;
-  bottom: 100%;
-  left: 50%;
+  right: 100%;
+  bottom: 0;
   padding: 0 .75rem;
-  margin: 0 0 .5rem;
+  margin: 0 .75rem .5rem;
   background-color: #616161;
   border-radius: .125rem;
   color: #eee;
   font-size: .875rem;
   line-height: 2rem;
   white-space: nowrap;
-  transform: translateX(-50%);
+  transform: translateX(0.75rem);
   z-index: 100;
   pointer-events: none;
   opacity: 0;
@@ -7125,30 +7180,18 @@ div.compatibility > span.link-replacement > span:first-child:after {
   z-index: 101;
 }
 
+.p-messages .mass-actions > .action > a:after {
+  margin: 0 .75rem .25rem;
+}
+
 div.compatibility > a:hover:after,
 div.compatibility > a:hover > span:first-child:after,
-div.compatibility > span.link-replacement:hover > span:first-child:after {
+div.compatibility > span.link-replacement:hover > span:first-child:after,
+.p-messages .mass-actions > .action > a:hover:after {
   opacity: .9;
-}
-
-/* Второй вариант расположения подсказок */
-div.compatibility > a:after,
-div.compatibility > a > span:first-child:after,
-div.compatibility > span.link-replacement > span:first-child:after {
-  bottom: 0;
-  right: 100%;
-  left: auto;
-  margin: 0 .75rem .5rem;
-  transform: translateX(0.75rem);
-}
-
-div.compatibility > a:hover:after,
-div.compatibility > a:hover > span:first-child:after,
-div.compatibility > span.link-replacement:hover > span:first-child:after {
   transform: translateX(0);
 }
 
-/* КОНЕЦ: Второй вариант расположения подсказок */
 /* Текст подсказок для совместимости */
 .locale-ru div.compatibility > a[href*="similar"]:after {
   content: 'Найти похожих пользователей';
@@ -7206,6 +7249,23 @@ div.compatibility > span.link-replacement:hover > span:first-child:after {
 .locale-en div.compatibility > a > .text.high:after,
 .locale-en div.compatibility > span.link-replacement > .text.high:after {
   content: 'Full compatibility';
+}
+
+/* Текст для действий с почтой */
+.locale-ru.p-messages .mass-actions > .action:nth-child(1) > a:after {
+  content: 'Прочитать всё';
+}
+
+.locale-en.p-messages .mass-actions > .action:nth-child(1) > a:after {
+  content: 'Mark all messages as read';
+}
+
+.locale-ru.p-messages .mass-actions > .action:nth-child(2) > a:after {
+  content: 'Удалить всё';
+}
+
+.locale-en.p-messages .mass-actions > .action:nth-child(2) > a:after {
+  content: 'Remove all messages';
 }
 
 /* Числовое обозначение совместимости */
@@ -7290,10 +7350,14 @@ div.compatibility > a:before {
   border-radius: .5rem;
   font-size: .875rem;
   font-weight: 400;
-  line-height: 1rem !important;
   text-transform: initial;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.b-user16,
+.b-user16 a {
+  line-height: 0 !important;
 }
 
 .b-user16:hover {
@@ -7312,6 +7376,7 @@ div.compatibility > a:before {
 
 .b-user16 > a > span {
   padding: 0;
+  line-height: 1rem !important;
 }
 
 .b-user16:hover span {
@@ -7533,6 +7598,12 @@ div.compatibility > a:before {
 .b-image .delete:before,
 .b-image.deletable .confirm:before,
 .b-image.deletable .cancel:before,
+.club-actions .edit-club:before,
+.club-actions .broadcast:before,
+.club-actions .upload:before,
+.club-actions .join:before,
+.club-actions .invite:before,
+.club-actions .leave:before,
 .l-top_menu .menu-items > .entry > a[href*="/forum"]:before,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate:before {
   font-family: 'Material Icons';
@@ -8581,6 +8652,7 @@ header.head h2 a.back:after {
 }
 
 .p-messages .mass-actions > .action > a {
+  position: relative;
   width: 40px;
   height: 40px;
   padding: 8px;
@@ -9175,6 +9247,24 @@ header.head h2 a.back:after {
   font-weight: 700;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+.x1000.p-anime_videos-index .c-videos .title {
+  font-size: 0;
+  line-height: 0;
+}
+
+.x1000.p-anime_videos-index .c-videos .title:after {
+  font-size: .875rem;
+  line-height: 1rem;
+}
+
+.locale-ru.x1000.p-anime_videos-index .c-videos .title:after {
+  content: 'Варианты';
+}
+
+.locale-en.x1000.p-anime_videos-index .c-videos .title:after {
+  content: 'Variants';
 }
 
 /* Переключатели в варинатах видео */
@@ -9783,6 +9873,16 @@ header.head h2 a.back:after {
 }
 
 /* TENTATIVE CODE | END */
+
+
+
+
+
+
+
+
+
+
 
 
 
