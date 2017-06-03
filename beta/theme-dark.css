@@ -1,5 +1,5 @@
 /**
- * Shikimori.org – CSS Theme
+ * Shikimori.org – CSS Theme v1.12.18
  * MIT License
  * Copyright (c) 2016 grin3671
  */
@@ -1159,10 +1159,13 @@ input[type=submit],
 .line:nth-child(odd) > .bar-container > .bar:hover,
 .line:nth-child(even) > .bar-container > .bar,
 .line:nth-child(even) > .bar-container > .bar:hover,
+.b-image .cancel,
 .b-image .cancel:hover,
 .b-image .cancel:active,
+.b-image .confirm,
 .b-image .confirm:hover,
 .b-image .confirm:active,
+.b-image .delete,
 .b-image .delete:hover,
 .b-image .delete:active,
 .b-image .mobile-edit,
@@ -2095,8 +2098,17 @@ hr {
   padding: .5rem;
   margin-top: .25rem !important;
   margin-right: .25rem !important;
-  background-color: transparent;
   border-radius: .125rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .b-image .mobile-edit,
+  .b-image .delete,
+  .b-image.deletable .confirm,
+  .b-image.deletable .cancel,
+  .p-user_rates-index .list-posters .user_rate .edit-user_rate {
+    background-color: transparent;
+  }
 }
 
 .b-image .delete,
@@ -7344,6 +7356,11 @@ div.compatibility > a:before {
   line-height: 0 !important;
 }
 
+.b-user16 > span,
+.b-user16 > a > span {
+  line-height: 1rem !important;
+}
+
 .b-user16:hover {
   color: #f2f2f2 !important;
   background-color: #747474;
@@ -7360,7 +7377,6 @@ div.compatibility > a:before {
 
 .b-user16 > a > span {
   padding: 0;
-  line-height: 1rem !important;
 }
 
 .b-user16:hover span {
@@ -9584,7 +9600,6 @@ header.head h2 a.back:after {
     max-width: calc(100% - 3.5rem);
     height: 100%;
     background-color: #424242;
-    z-index: 100;
     padding: 4.5rem 1rem 1.5rem;
     box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.24);
     overflow-y: auto;
@@ -9726,6 +9741,6 @@ body {
 
 @media only screen and (min-width: 1025px) {
   .l-top_menu .submenu, .b-main_search ul.popup {
-    background: #2d2d2d;
+    background: #2D2D2D;
   }
 }
