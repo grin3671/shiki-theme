@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Сборщик shiki-theme</title>
-    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic,cyrillic-ext,latin-ext">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
@@ -362,7 +362,7 @@
         <div class="notify" v-bind:class="{ loading: isCreating, notify_show: isNotify }"><span></span>{{ text.notify_message }}</div>
       </div>
     </div>
-    <script src="/sass.js"></script>
+    <script src="./sass.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
     <script>
 
@@ -627,7 +627,7 @@
 
           function fileLoader (release) {
             for (var i = 0; i < fileList.length; i++) {
-              XHR(i, release, '/' + release + fileList[i] + '?' + hash, Loading);
+              XHR(i, release, './' + release + fileList[i] + '?' + hash, Loading);
             }
           }
 
