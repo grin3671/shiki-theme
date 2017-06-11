@@ -1,0 +1,7087 @@
+/* BUGFIX */
+/* В превью комментария не отображается заголовок на страницах клубов */
+.p-club_pages .new_comment .preview .b-comment .inner header,
+.p-club_pages .edit_comment .preview .b-comment .inner header
+  display: block
+
+/* ОСНОВНОЙ ФАЙЛ */
+header.head h1,
+header.head h2,
+input
+  font-family: inherit
+
+.buttons,
+.ac_results .name,
+.b-animes-menu .total-rates,
+.b-comment > .inner header .name-date a.name,
+.b-comments .comments-expander,
+.b-comments .comments-expander:hover,
+.b-comments .comments-hider,
+.b-comments .comments-hider:hover,
+.b-comments .comments-loader,
+.b-comments .comments-loader:hover,
+.b-comments .faye-loader,
+.b-comments .faye-loader:hover,
+.b-comments .messages-postloader,
+.b-comments .messages-postloader:hover,
+.b-entry-info .line .value,
+.b-forum .faye-loader,
+.b-forum .faye-loader:hover,
+.b-header_filters .filter-line .title,
+.b-header_filters .filter-line a.current,
+.b-mention s,
+.b-options-floated .selected.always-active,
+.b-quote,
+.b-rate .score-notice,
+.b-rate .text-score,
+.b-table th,
+.b-topic > .inner header .name-date a.name,
+.b-user.detailed .history .line .event,
+.collapsed,
+.completable-block .name,
+.l-page .menu-toggler .toggler:after,
+.p-anime_videos-index .c-anime_video_episodes .title,
+.p-anime_videos-index .c-videos .title,
+.p-anime_videos-index .same-videos .title,
+.p-statistics-index .forum-nav .sections a,
+.p-user_rates-index .list-groups .summary.lines,
+.p-userlist_comparer .comparer table .name a,
+.tooltip-details .b-nothing_here.centered
+  color: inherit
+
+.b-comments .comments-expander:active,
+.b-comments .comments-hider:active,
+.b-comments .comments-loader:active,
+.b-forum .faye-loader:active,
+.block-list li.selected,
+.block-list-alt li.selected,
+.b-block_list li.selected,
+.p-animes-show .other-names.click-loader,
+.p-mangas-show .other-names.click-loader
+  color: inherit !important
+
+@media screen and (max-width:767px)
+  .b-options-floated.mobile-phone a.selected
+    color: inherit
+ 
+
+
+
+
+
+/* MAIN BLOCKS */
+body
+  position: relative
+  min-height: 100%
+  font-size: 16px
+  font-weight: 400
+  line-height: 1.25
+  overflow-x: hidden
+
+.l-page
+  min-height: 100%
+  padding-top: 4.5rem
+  padding-right: 1rem
+  padding-bottom: 4.5rem
+  padding-left: 1rem
+  background-color: inherit
+  z-index: auto
+
+.l-footer
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  width: 100%
+  max-width: inherit /* thx @NedStar */
+  padding: 0 1rem
+  margin: auto
+
+.l-page:before
+  content: ''
+  display: block
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  width: auto
+  background: none
+  outline-width: 1rem
+  outline-style: solid
+  z-index: -1
+
+.l-footer:before
+  content: 'Theme by grin3671'
+  display: block
+  float: left
+  position: static
+  left: auto
+  bottom: auto
+  width: auto
+  height: auto
+  background: none
+  font-size: .6875rem
+
+.l-footer:before,
+.l-footer .copyright
+  padding: .5rem 0
+  line-height: 1rem
+
+.l-page:after,
+.l-footer:after
+  display: none
+
+.l-footer .links
+  padding: .25rem 0
+  font: inherit
+  font-size: .75rem
+  line-height: 1rem
+  text-align: center
+
+.l-footer .links a:last-child
+  margin: 0
+/* END of MAIN BLOCKS */
+
+
+
+
+
+/* ВЫСОТА СТРОКИ */
+.cc-2a > .c-column,
+.block,
+.b-db_entry,
+.p-animes .b-db_entry > *:last-child
+  line-height: inherit
+
+@media only screen and (min-width: 768px)
+  .cc-2 > .c-column
+    line-height: inherit
+
+.cc-3-flex > .c-column
+  line-height: inherit
+
+
+
+
+
+/* ЗАКРУГЛЕНИЕ */
+.b-comments .comments-loader,
+.b-comments .comments-hider,
+.b-comments .comments-expander,
+.b-comments .messages-postloader,
+.b-forum .faye-loader,
+.collapsed,
+.tipsy-inner,
+.button,
+.b-button,
+.b-contests-menu .results,
+.b-link_button,
+input[type=submit],
+.btn,
+.b-comments-notifier,
+.p-animes_collection-index .pagination .link,
+.p-mangas_collection-index .pagination .link,
+.p-recommendations-index .pagination .link,
+.p-userlist_comparer-show .pagination .link,
+.subheadline-buttons .item-edit,
+.p-characters .item-edit,
+.p-contests .contest-match .vs .refrain,
+.b-catalog_entry .image-cutter,
+.b-main_search .input,
+.b-lang_trigger,
+.b-user_rate .rate-show .note,
+.c-poster img,
+.c-actions > *,
+.b-user_rate .rate-show .rate-number .item-add,
+.p-animes-show .watch-online,
+.p-animes-show .upload-video,
+.p-mangas-show .watch-online,
+.p-mangas-show .upload-video,
+.b-tag,
+.b-entry-info .line .b-tag,
+.b-catalog_entry-tooltip .inner .line .value .tag,
+.b-topic > .inner header img,
+.b-quote,
+.p-clubs-index header.head a.misc,
+.b-list_switchers > .switcher,
+.p-user_rates-index .l-content .filter input,
+.p-user_rates-index .list-lines tr td .new-value input,
+.p-user_rates-index .list-lines tr.edit-form form,
+.p-user_rates-index .list-lines tr.edit-form .remove,
+.p-profiles-show .b-stats_bar a.title,
+.b-stats_bar .bar,
+.profile-actions > a,
+.l-page .b-anime_status_tag:before,
+.p-profiles .profile-head .c-history .entry img,
+.p-profiles-show .about .item-edit,
+header.head h1 a.back,
+header.head h2 a.back,
+.edit-page a.cancel,
+.editor-controls > span,
+.tooltip-inner,
+.b-topic-preview > .editor-container .hide,
+.b-input,
+.b-input input
+  border-radius: .125rem
+
+
+/* LAYOUT */
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .l-page .menu-slide-outer .menu-slide-inner
+    width: 100%
+ 
+
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content
+    float: none
+    width: 100%
+    margin: 0
+ 
+
+@media screen and (min-width: 481px) and (max-width: 767px), screen and (max-width: 767px) and (orientation: landscape)
+  .l-page .menu-slide-outer .menu-slide-inner
+    width: 100%
+ 
+
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content
+    float: none
+    width: 100%
+    margin-right: 0
+ 
+
+@media screen and (min-width: 768px) and (max-width: 1024px)
+  .l-page.menu-expanded .x240 .l-content
+    margin-left: 0
+ 
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
+  .l-page .menu-slide-outer.x240.ipad-expanded .menu-slide-inner
+    width: 100%
+ 
+
+  .menu-slide-outer.x199 .l-content,
+  .menu-slide-outer.x240 .l-content
+    float: none
+    width: 100%
+    margin-right: 0
+ 
+
+@media screen and (max-width: 1024px)
+  .l-page .menu-slide-outer
+    overflow: hidden
+ 
+
+/* ОБЩИЕ КЛАССЫ */
+.p0,
+.m0,
+.m1,
+.m2,
+.m3,
+.m4,
+.m5,
+.m6,
+.m7,
+.m8,
+.m10,
+.m12,
+.m13,
+.m15,
+.m20,
+.m25,
+.m30,
+.m40,
+.m50
+  margin-bottom: .5rem !important
+
+h3
+  font-size: 1.125rem
+  line-height: 1.5
+  margin-bottom: .5rem
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+hr
+  margin: .5rem 0
+  background-image: none
+
+.ajax-loading.vk-like
+  min-height: 1.5rem
+
+.b-ajax:before
+  opacity: .75
+
+.b-ajax:after
+  width: 1.5rem
+  height: 1.5rem
+  margin-top: -.75rem
+  margin-left: -.75rem
+  background: transparent
+  border: .25em solid
+  border-right-color: transparent
+  border-radius: 50%
+  color: $primary
+  -webkit-animation: spin 2s linear infinite
+  animation: spin 2s linear infinite
+
+/* Списки */
+.b-list
+  margin: .5rem 0 1rem 2rem
+
+.b-list li
+  margin: 0
+  line-height: 1.5
+  list-style-type: disc
+  list-style-image: none
+
+.b-list li + li
+  margin: .5rem 0 0 0
+
+.b-list .b-list li + li
+  margin: 0
+
+.b-height_shortener
+  position: relative
+  padding-left: 0
+  cursor: s-resize
+
+.b-comment .b-height_shortener,
+.b-dialog .b-height_shortener,
+.p-clubs .b-height_shortener
+  padding-left: 3.5rem
+
+.buttons .cancel
+  vertical-align: top
+  margin-right: .5rem
+  border: 0
+
+.b-form .cancel
+  margin-left: 0
+
+.b-form .cancel:hover
+  text-decoration: none
+
+.b-errors
+  margin-bottom: .5rem
+  line-height: inherit
+
+.red,
+.b-errors .subheadline
+  margin-bottom: 0
+  border: 0
+
+.b-review-topic .b-height_shortener
+  padding-left: 0
+  cursor: default
+
+.b-height_shortener .shade
+  right: 0
+  left: 0
+  width: auto
+  height: 2.5rem
+  margin-top: -2.5rem
+
+.b-height_shortener .expand
+  font-size: .875rem
+
+.b-comment.b-comment-info
+  font-size: .875rem
+  text-align: left
+  line-height: 1.5rem
+
+.b-comment.b-comment-info > span
+  margin-right: .5rem
+
+.b-comments .comments-loader,
+.b-comments .comments-hider,
+.b-comments .comments-expander,
+.b-comments .messages-postloader,
+.b-forum .faye-loader,
+.collapsed
+  padding: .4375rem 2.5rem
+  margin: 0
+  margin-bottom: .5rem
+  line-height: 1.5rem
+
+.b-dropzone
+  padding: .5rem 1rem 3rem
+  background-color: $background_normal
+  border: 1px dashed $border
+  border-radius: .125rem
+
+.b-dropzone:hover
+  border-color: $primary
+
+.b-dropzone:before
+  margin: .5rem 0
+  font-size: 14px
+
+.b-dropzone .thank-you
+  margin-bottom: .5rem
+
+.b-dropzone input[type=file]
+  bottom: 1rem
+
+.b-dropzone:before,
+.b-dropzone input[type=file]
+  color: $text_disabled
+
+.b-dropzone:hover:before,
+.b-dropzone:hover input[type=file]
+  color: $text_secondary
+
+.b-forum .faye-loader
+  padding: .4375rem .5rem
+
+.b-comments .comments-collapser
+  width: 2.5rem
+  padding: .5rem
+  margin: 0
+  border: 0
+  font-size: 0
+  line-height: 0
+
+.b-comments .comments-collapser:before
+  content: 'expand_less'
+  display: block
+
+
+.b-image
+  display: inline-block
+  vertical-align: top
+
+/* Кнопки управления изображениями */
+.b-image img
+  vertical-align: top
+  border-radius: .125rem
+
+.b-gallery .b-image
+  padding: .125rem
+
+.b-gallery .b-image .controls
+  margin: .125rem
+  text-align: right
+
+/* Кнопки */
+.b-image .mobile-edit,
+.b-image .delete,
+.b-image.deletable .confirm,
+.b-image.deletable .cancel,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate
+  width: auto
+  height: auto
+  padding: .5rem
+  margin-top: .25rem !important
+  margin-right: .25rem !important
+  border-radius: .125rem
+
+@media screen and (min-width: 1024px)
+  .b-image .mobile-edit,
+  .b-image .delete,
+  .b-image.deletable .confirm,
+  .b-image.deletable .cancel,
+  .p-user_rates-index .list-posters .user_rate .edit-user_rate
+    background-color: transparent
+
+.b-image .delete,
+.b-image .confirm,
+.b-image .cancel,
+.b-image .move-left,
+.b-image .move-right,
+.b-image .mobile-edit
+  z-index: 8
+
+.b-image .mobile-edit,
+.b-gallery .grid_sizer .controls
+  margin-top: .375rem !important
+  margin-right: .375rem !important
+
+@media screen and (min-width: 767px)
+  .p-user_rates-index .list-posters .user_rate .edit-user_rate
+    background-color: transparent
+
+/* Настройки иконок */
+.b-image .mobile-edit:before,
+.b-image .delete:before,
+.b-image.deletable .confirm:before,
+.b-image.deletable .cancel:before,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
+  width: 1.5rem
+  font-size: 1.5rem
+
+.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
+  position: static
+  height: auto
+  background: transparent
+
+/* Затемнение */
+.b-gallery .b-image .controls,
+.user_rate .b-catalog_entry:after
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-image: linear-gradient(rgba(0,0,0,.6) 0%, transparent 40%)
+  border-radius: .125rem
+
+.user_rate .b-catalog_entry:after
+  content: ''
+  opacity: 0
+  pointer-events: none
+
+.b-image:hover,
+.b-image.deletable img,
+.b-image.deletable:after,
+.b-image.mobile-editing:after,
+.p-user_rates-index .list-posters .user_rate:hover .b-catalog_entry:after
+  opacity: 1
+
+/* Вид иконки */
+.b-image .mobile-edit:before,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
+  content: 'edit'
+
+.b-image .delete:before
+  content: 'delete'
+
+.b-image .confirm:before
+  content: 'check'
+
+.b-image .cancel:before
+  content: 'close'
+/* END of Кнопки управления изображениями */
+
+.b-modal > .inner
+  padding: 1rem 1.5rem
+  border-radius: .125rem
+  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.24)
+
+.b-modal .subheadline
+  font-size: 20px
+  font-weight: 400
+  text-transform: none
+
+.b-prgrph,
+.b-spoiler_prgrph
+  margin-bottom: .5rem !important
+
+.b-show_more,
+.b-show_more-more .hide-more
+  display: inline-block
+  padding: 0 .5rem
+  margin: .25rem 0
+  border-radius: .625rem
+  font-size: .875rem
+
+.b-source
+  margin-top: .5rem
+  margin-bottom: 1rem
+
+.b-spoiler label
+  font-size: inherit
+  letter-spacing: initial
+
+.b-spoiler .content .before,
+.b-spoiler .content .after
+  font-size: inherit
+  letter-spacing: initial
+
+.b-nothing_here
+  margin-left: 0
+  font-size: .875rem
+  line-height: 2.5rem
+
+header.head h1,
+header.head h2
+  font-family: inherit
+
+header.head .notice
+  margin: .5rem 0
+  font-size: .875rem
+  line-height: 1.25rem
+
+header.head h1 ~ .notice,
+header.head h2 ~ .notice
+  margin-top: -.5rem
+
+.b-breadcrumbs
+  margin: 0
+  line-height: 1rem
+
+.b-breadcrumbs > span:after
+  content: '»'
+
+/* Всплывающая подсказка */
+.tipsy
+  padding: .875rem
+  font-size: .875rem
+  opacity: .9 !important
+  pointer-events: none
+
+.tipsy-arrow
+  display: none
+
+.tipsy-inner
+  padding: .375rem 1rem
+  background-color: #616161
+  color: #eee
+  text-align: left
+  box-shadow: none
+
+input
+  font-family: inherit
+  font-size: inherit
+
+/* Кнопки */
+.button,
+.b-button,
+.b-form input[type=submit],
+.b-topic-preview > .editor-container .hide,
+.edit-page a.cancel
+  display: inline-block
+
+input[type=submit],
+.button,
+.b-button,
+.b-form input[type=submit],
+.b-contests-menu .results,
+.b-link_button,
+.b-shiki_editor .links .b-button.ok,
+.b-shiki_editor .images .b-button.ok,
+.b-shiki_editor .quotes .b-button.ok,
+.b-shiki_editor .email .b-button.ok,
+.b-shiki_editor .upload .b-button.ok,
+.edit-page a.cancel
+  min-width: 5.5rem
+  padding: 0 1rem
+  margin-right: .5rem
+  font-size: .875rem
+  line-height: 2rem !important
+  text-align: center
+  text-decoration: none !important
+  text-transform: uppercase
+
+input[type=submit]:last-child,
+.b-button:last-child,
+.b-form input[type=submit]:last-child
+  margin-right: 0
+
+input[type=submit]:hover
+  box-shadow: 0 2px 4px 2px rgba(0,0,0,.24)
+
+/* TODO: new variable $btn_disabled_color (L: #9E9E9E; D: #757575) */
+.b-button[disabled],
+.b-button.disabled,
+.b-button[disabled]:hover,
+.b-button.disabled:hover,
+.b-form input[type=submit][disabled],
+.b-form input[type=submit].disabled,
+.b-form input[type=submit][disabled]:hover,
+.b-form input[type=submit].disabled:hover
+  background-color: $button_hover
+  box-shadow: none
+  color: $text_disabled !important
+
+.b-shiki_editor .links .b-button.ok,
+.b-shiki_editor .images .b-button.ok,
+.b-shiki_editor .quotes .b-button.ok,
+.b-shiki_editor .email .b-button.ok,
+.b-shiki_editor .upload .b-button.ok
+  min-width: auto
+  margin-left: 1rem
+
+.b-shiki_editor .links input,
+.b-shiki_editor .images input,
+.b-shiki_editor .quotes input,
+.b-shiki_editor .email input,
+.b-shiki_editor .upload input
+  vertical-align: middle
+  margin-top: 0px
+
+.edit-page a.cancel,
+.b-topic-preview > .editor-container .hide
+  background-color: transparent
+
+.b-topic-preview > .editor-container .hide
+  vertical-align: top
+  border: 0
+
+.b-topic
+  overflow: visible
+
+.b-topic > .inner
+  overflow: visible
+
+.b-topic-preview > .inner > footer
+  overflow: hidden
+
+/* Чекбоксы */
+/* TODO: L: border-color normal #757575 disabled #BDBDBD */
+/*       D: border-color normal #FFFFFF disabled rgba(255,255,255,.3) */
+input[type=checkbox],
+.b-input input[type=checkbox]
+  display: inline-block
+  vertical-align: top
+  width: 1.125rem !important
+  height: 1.125rem
+  padding: 0
+  margin: .1875rem 1rem .1875rem 0
+  background-color: transparent
+  background-repeat: no-repeat
+  background-size: 1.125rem
+  background-position: -.125rem -.125rem
+  border: .125rem solid $text_hint
+  border-radius: .125rem
+  box-sizing: border-box
+  transition: .24s cubic-bezier(.4, 0, .2, 1)
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+input[type=checkbox]:checked,
+.b-input input[type=checkbox]:checked
+  background-color: $primary
+  background-image: url("data\:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNi4xN0w0LjgzIDEybC0xLjQyIDEuNDFMOSAxOSAyMSA3bC0xLjQxLTEuNDF6Ii8+PC9zdmc+")
+  border-color: transparent
+
+input[type=checkbox]:disabled,
+.b-input input[type=checkbox]:disabled
+  border-color: $text_disabled
+
+input[type=checkbox]:checked:disabled,
+.b-input input[type=checkbox]:checked:disabled
+  background-color: $text_disabled
+  border-color: transparent
+
+/* Формы */
+.b-form
+  overflow: visible
+
+.b-form:after
+  content: ''
+  display: block
+  clear: both
+
+.b-input input,
+.b-input textarea
+  padding: .3125rem 1rem
+  line-height: 1.25rem
+
+.b-input textarea
+  padding: .4375rem 1rem
+
+.b-input input[disabled]
+  background: transparent
+  border-width: 0
+  border-bottom-width: .125rem
+  padding: .375rem 0 .25rem
+  color: #9E9E9E !important
+
+/* TODO: check moz & ms browsers */
+.b-input input::-webkit-input-placeholder,
+.b-input textarea::-webkit-input-placeholder,
+.b-shiki_editor .body .editor textarea::-webkit-input-placeholder
+  padding: 0
+  line-height: inherit
+
+.b-input input:-moz-placeholder,
+.b-input textarea:-moz-placeholder,
+.b-shiki_editor .body .editor textarea:-moz-placeholder
+  padding: 0
+  line-height: inherit
+
+.b-input input::-moz-placeholder,
+.b-input textarea::-moz-placeholder,
+.b-shiki_editor .body .editor textarea::-moz-placeholder
+  padding: 0
+  line-height: inherit
+
+.b-input input:-ms-input-placeholder,
+.b-input textarea:-ms-input-placeholder,
+.b-shiki_editor .body .editor textarea:-ms-input-placeholder
+  padding: 0
+  line-height: inherit
+
+select
+  max-width: 100%
+  height: 2rem
+  padding: 2px .5rem
+  font-size: .875rem
+  line-height: 2rem
+
+.b-input .hint
+  font-size: .75rem
+  line-height: 1.25rem
+
+.b-input label
+  line-height: 1.5
+
+.buttons
+  font-family: inherit
+  font-size: inherit
+
+.b-form .buttons
+  margin-top: .5rem
+
+.btn
+  line-height: 2rem
+
+.b-contests-menu .results
+  float: none
+  display: block
+  margin: .5rem 0
+
+.b-link_button
+  margin-bottom: .5rem
+
+.b-link_button.maxi
+  padding: 0
+  font-size: 1rem
+  line-height: 2.5rem
+
+.b-contests-menu .results,
+.b-forums > .b-link_button.maxi,
+.b-link_button.create-topic
+  margin-right: 0
+
+.l-page .menu-toggler
+  top: 64px
+  z-index: 9
+
+.l-page.menu-expanded .menu-toggler
+  z-index: 10
+
+@media (max-width: 1024px)
+  .l-menu
+    z-index: 9
+
+.p-user_rates-index .l-page .menu-toggler
+  top: -96px
+
+.locale-ru .l-page .menu-toggler .toggler:before
+  content: 'меню'
+
+.locale-en .l-page .menu-toggler .toggler:before
+  content: 'sidebar'
+
+.history-interval,
+.mischeadline,
+.b-input,
+.prgrph,
+.spoiler-prgrph,
+.review-votes_count
+  margin-bottom: .5rem !important
+
+.text
+  margin-left: 0 !important
+
+.tooltip-inner .close
+  background: transparent
+  color: inherit
+
+.block-list li,
+.block-list-alt li
+  line-height: 1.5rem
+  margin: 2px -.5rem
+  padding: 0 .5rem
+
+.b-block_list li
+  padding: 0 .5rem
+  margin: 0 -.5rem
+  font-family: inherit
+  line-height: 1.5rem
+
+.b-comments-notifier
+  top: 0 !important
+  width: 2rem
+  height: 2rem
+  margin-top: 4rem
+  line-height: 2rem
+
+.block,
+.b-topic .body
+  line-height: 1.25
+
+.b-pages-container,
+.b-topic > .inner > .body,
+.b-db_entry > div:last-child .text
+  line-height: 1.5
+
+.b-user.named_avatar .name
+  margin: auto
+
+/* FIX: BACKFACE VISIBILITY */
+.b-collection-filters > .block:first-child > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:before,
+.b-collection-filters > .block:first-child > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:before,
+.l-top_menu .inner > a:first-child,
+.l-top_menu .menu-items > .entry > a,
+.p-user_rates .mylist-block + .block > .b-list > li:after,
+.p-user_rates .mylist-block + .block > .b-list > li:before
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  backface-visibility: hidden
+
+
+
+
+
+/**
+ * TOPMENU
+ * Изменение верхнего меню сайта.
+ * Меню закреплено и увеличено.
+ */
+
+/* НАСТРОЙКА ЦВЕТОВ МЕНЮ */
+/* ОСНОВНОЕ МЕНЮ */
+/* Фон меню */
+.l-top_menu:before
+  background-color: #212121
+
+/* Цвет текста в меню */
+.l-top_menu
+  color: #FAFAFA
+
+/* Цвет текста пунктов меню при наведении */
+/* Цвет текста активных пунктов меню */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .menu-items > .entry.selected,
+.l-top_menu .menu-items > .entry > a:active
+  color: inherit !important
+
+/* Цвет текста пунктов меню при наведении */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .menu-items > .entry:hover
+  color: inherit
+
+/* ВЫПАДАЮЩЕЕ МЕНЮ */
+@media only screen and (min-width: 1025px)
+  /* Цвет фона выпадающего меню при наведении */
+  .l-top_menu .submenu,
+  .b-main_search ul.popup
+    background: #424242
+ 
+
+  /* Цвет пунктов выпадающего меню при щелчке */
+  /* Цвет активных пунктов выпадающего меню */
+  /* По умолчанию: затемненный цвет фона выпадающего меню */
+  .l-top_menu .submenu > .entry:active,
+  .l-top_menu .submenu > .entry.active,
+  .b-main_search .popup li:active,
+  .b-main_search .popup li.active
+    background-color: rgba(0, 0, 0, .24)
+ 
+
+  /* Цвет пунктов выпадающего меню при наведении */
+  /* По умолчанию: осветленный цвет фона выпадающего меню */
+  .l-top_menu .submenu > .entry:hover,
+  .b-main_search .popup li:hover
+    background-color: rgba(255, 255, 255, .24)
+ 
+
+  /* Цвет текста выпадающих меню */
+  /* По умолчанию: цвет текста наследуется от меню */
+  .l-top_menu .menu-search > .entry,
+  .l-top_menu .menu-userbox > .entry,
+  .l-top_menu .submenu
+    color: inherit
+ 
+
+  /* Цвет текста выпадающих меню при щелчке */
+  /* Цвет текста активных пунктов выпадающего меню */
+  /* По умолчанию: цвет текста наследуется от выпадающего меню */
+  .l-top_menu .submenu > .entry:active,
+  .l-top_menu .submenu > .entry.active,
+  .b-main_search .popup li:active,
+  .b-main_search .popup li.active
+    color: inherit
+ 
+
+  /* Цвет текста выпадающих меню при наведении */
+  /* По умолчанию: цвет текста наследуется от выпадающего меню */
+  .l-top_menu .submenu > .entry:hover,
+  .b-main_search .popup li:hover
+    color: inherit
+ 
+
+  /* ЦВЕТА ПОИСКА */
+  /* Фон строки поиска  */
+  .b-main_search .input
+    background: rgba(242,242,242,.32)
+ 
+
+  /* Набираемый текст в строке поиска  */
+  .b-main_search .input input
+    color: #fff
+ 
+
+  /* Вспомогательный текст в строке поиска  */
+  .b-main_search input::-webkit-input-placeholder
+    color: #ddd
+ 
+  .b-main_search input:-moz-placeholder
+    color: #ddd
+ 
+  .b-main_search input::-moz-placeholder
+    color: #ddd
+ 
+  .b-main_search input:-ms-input-placeholder
+    color: #ddd
+ 
+
+/* ЦВЕТ ИКОНОК в меню (для мобильной версии) */
+/* По умолчанию: цвет текста наследуется от меню */
+.l-top_menu .to-mobile-forum,
+.l-top_menu .menu-mobile .search,
+.l-top_menu .menu-mobile .menu,
+.l-top_menu .menu-mobile #sign_in,
+.l-top_menu .menu-userbox .search,
+.l-top_menu .menu-userbox .menu,
+.l-top_menu .menu-userbox #sign_in
+  color: inherit
+/* END of Настройка цветов в меню */
+
+
+/* NOTE: Что это за элемент? */
+.to-top-fix
+  height: 0
+  background: none
+  border: 0
+
+.l-top_menu:before
+  content: ''
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  opacity: 1
+  transition: .3s
+
+.l-top_menu
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  width: 100%
+  max-width: 100%
+  height: auto
+  margin: auto
+  background-color: transparent
+  background-image: none
+  border: none
+  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
+  overflow: visible
+
+/* Высота меню на мобильном телефоне в портретном режиме */
+/* Если вы меняете высоту меню, необходимо изменить верхний отступ страницы: */
+/* .l-page padding-top: 64px цифра равна высоте меню + 16px */
+/* Скопируйте правило и вставьте его в блоке МОИ НАСТРОЙКИ в конце файла. */
+.l-top_menu
+  padding: 4px 0 /* padding: 0 для наименьшего размера меню (48px)  */
+
+/* NOTE: Максимальное разрешение SONY Xperia Z Ultra: 960x540px */
+@media screen and (min-width: 480px) and (max-height: 540px) and (orientation: landscape)
+  .l-top_menu
+    padding: 0
+ 
+
+  .l-page
+    padding-top: 64px
+ 
+/* На планшетах и далее, высота меню равна 56px */
+@media screen and (min-width: 961px) and (orientation: landscape)
+  .l-top_menu
+    padding: 4px 0
+ 
+
+/* MENUTOP > LOGO */
+.l-top_menu .inner > a:first-child
+  display: inline-block
+  vertical-align: top
+  margin: 0 0 0 32px
+  color: inherit !important
+
+.l-top_menu .inner .logo
+  float: none
+  position: static
+  width: auto
+  height: auto
+  padding: .8125rem 1rem
+  margin: 0
+  background: none
+
+.l-top_menu .inner .logo:before
+  content: 'Главная'
+  display: block
+  color: inherit
+  font-size: 16px
+  line-height: 22px
+
+@media only screen and (min-width: 320px)
+  .l-top_menu .inner .logo:before
+    content: 'Shikimori'
+    font-size: 20px
+    text-transform: uppercase
+ 
+
+@media only screen and (min-width: 480px)
+  .l-top_menu .inner .logo:before
+    content: 'Shikimori'
+    font-size: 20px
+    text-transform: uppercase
+ 
+
+.l-top_menu .to-mobile-forum
+  display: inline-block
+  vertical-align: top
+  position: static
+  left: 138px
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px !important
+
+.l-top_menu .to-mobile-forum:before
+  width: 1.5rem
+  line-height: 1.5rem
+  text-align: center
+  font-size: 24px
+
+.l-top_menu  .mobile-menu-toggler,
+.l-top_menu  .mobile-search-toggler
+  position: absolute
+  top: 0
+  z-index: 10 /* TODO: убрать, потестить */
+.l-top_menu  .mobile-menu-toggler
+  left: 0
+.l-top_menu  .mobile-search-toggler
+  right: 56px
+
+/* Перерисовываем меню сайта под Material */
+.l-top_menu .mobile-menu-toggler.active
+  position: fixed
+  top: 0
+  left: 0
+  width: 100% !important
+  height: 100% !important
+  margin: 0 !important
+  background-color: #000
+  z-index: 12
+  opacity: .48
+
+.l-top_menu .menu-items
+  position: absolute
+  top: 0
+  width: calc(100% - 56px)
+  max-width: 320px
+  height: calc(100vh + 16px)
+  padding: 8px 0
+  margin: -8px 0
+  overflow-y: auto
+  z-index: 13
+
+/* EXPERIMENTAL > ANIMATED MOBILE MENU */
+.l-top_menu .menu-items
+  display: block
+  transform: translate(-100%, 0)
+  transition: 240ms ease-out
+
+.l-top_menu .menu-items.active
+  transform: translate(0, 0)
+/* END of EXPERIMENTAL */
+
+@media only screen and (min-width: 320px)
+  .l-top_menu .inner > a:first-child
+    margin: 0 0 0 40px
+ 
+@media only screen and (min-width: 360px)
+  .l-top_menu .inner > a:first-child
+    margin: 0 0 0 48px
+ 
+@media only screen and (min-width: 1025px)
+  .l-top_menu .inner > a:first-child
+    margin: 0
+ 
+@media only screen and (min-width: 1025px)
+  .l-top_menu .to-mobile-forum
+    display: none
+ 
+
+  .l-top_menu .menu-items
+    display: inline-block
+    vertical-align: top
+    position: static
+    width: auto
+    max-width: 100%
+    height: auto
+    padding: 0
+    margin: 0
+    margin-left: 0
+    background-color: transparent
+    color: inherit
+    overflow: initial
+    overflow-y: visible
+    transform: translate(0, 0)
+ 
+
+  .l-top_menu .menu-items > .entry:active
+    background-color: inherit
+ 
+  
+  .l-top_menu .menu-items > .entry:active,
+  .l-top_menu .submenu > .entry:active,
+  .l-top_menu .menu-items > .entry > a
+    color: inherit !important
+ 
+  
+  .l-top_menu .menu-items > .entry > .submenu
+    margin-top: 4px
+    margin-left: 0
+ 
+  
+  .l-top_menu .submenu.right
+    right: 0px
+    margin-top: 4px
+ 
+  
+  .b-main_search ul.popup,
+  .b-main_search.hovered .popup
+    margin: 0
+    margin-top: 12px
+ 
+  
+  .l-top_menu .submenu > .entry,
+  .b-main_search .popup li
+    color: inherit
+ 
+
+  .b-main_search.hovered .popup
+    height: 304px
+ 
+
+  .l-top_menu .menu-items > .entry.calendar > a,
+  .l-top_menu .menu-items > .entry.info > a
+    padding: 0.9375rem
+ 
+
+  .l-top_menu .menu-items > .entry.calendar > a:before,
+  .l-top_menu .menu-items > .entry.info > a:before
+    display: block !important
+ 
+
+  .l-top_menu .menu-items > .entry.calendar > a:after,
+  .l-top_menu .menu-items > .entry.info > a:after
+    display: none
+ 
+
+.l-top_menu .menu-items > .entry
+  float: none
+  display: block
+  padding: 0
+  border: 0
+  line-height: inherit
+
+@media (min-width: 1025px)
+  .l-top_menu .menu-items > .entry
+    display: inline-block
+    vertical-align: top
+
+
+.l-top_menu .inner > a:first-child,
+.l-top_menu .menu-items > .entry > a
+  opacity: .87
+  transition: 0.24s cubic-bezier(0.4, 0, 0.2, 1)
+
+.l-top_menu .inner > a:first-child:hover,
+.l-top_menu .menu-items > .entry > a:hover
+  background-color: transparent !important
+  opacity: 1
+
+.l-top_menu .menu-items > .entry.selected,
+.l-top_menu .menu-items > .entry:hover
+  background-color: transparent
+
+.l-top_menu .menu-items > .entry > a,
+.l-top_menu .menu-items > .entry.sign_out
+  padding: 1rem
+  margin: 0
+  font-size: inherit
+  line-height: 1rem
+
+.l-top_menu .menu-items > .entry > a.contest
+  width: 3rem
+  height: 3rem
+  padding: .75rem !important
+  background: inherit
+
+.l-top_menu .menu-items > .entry > a.contest:before
+  width: 1.5rem !important
+  font-size: 1.5rem !important
+  color: $text_secondary
+
+@media only screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry > a.contest
+    width: 3rem
+    height: 3rem
+    padding: .9375rem !important
+    margin: 0
+    background: transparent
+    border-radius: .125rem
+ 
+
+  .l-top_menu .menu-items > .entry > a.contest:before
+    position: static
+    width: 18px !important
+    margin: 0
+    color: inherit
+    font-size: 18px !important
+ 
+
+/* Текст вместо иконок в верхнем меню */
+.l-top_menu .menu-items > .entry.calendar > a,
+.l-top_menu .menu-items > .entry.info > a
+  padding: 1rem
+  margin: 0
+  line-height: 1rem
+
+.l-top_menu .menu-items > .entry.calendar > a:before,
+.l-top_menu .menu-items > .entry.info > a:before
+  display: none !important
+
+.locale-ru .l-top_menu .menu-items > .entry.calendar > a:after
+  content: 'Календарь онгоингов'
+
+.locale-en .l-top_menu .menu-items > .entry.calendar > a:after
+  content: 'Calendar'
+
+.locale-ru .l-top_menu .menu-items > .entry.info > a:after
+  content: 'Информация'
+
+.locale-en .l-top_menu .menu-items > .entry.info > a:after
+  content: 'Info'
+
+@media only screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry.calendar > a,
+  .l-top_menu .menu-items > .entry.info > a
+    padding: 0.9375rem
+
+  .l-top_menu .menu-items > .entry.calendar > a:before,
+  .l-top_menu .menu-items > .entry.info > a:before
+    display: block !important
+
+  .l-top_menu .menu-items > .entry.calendar > a:after,
+  .l-top_menu .menu-items > .entry.info > a:after
+    display: none
+
+/* END of Текст вместо иконок в верхнем меню */
+
+/* Уведомления о голосованиях */
+.l-top_menu .menu-items > .entry > a.contest
+  position: relative
+
+.l-top_menu .menu-items > .entry > a.contest:hover
+  background-color: transparent !important
+
+.l-top_menu .menu-items > .entry > a.contest:after
+  content: attr(data-count)
+  position: absolute
+  top: .125rem
+  right: .125rem
+  width: 1.25rem
+  background-color: $accent
+  border-radius: 50%
+  color: $accentBG_color
+  font-size: .75rem
+  line-height: 1.25rem
+  text-align: center
+
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry > a.contest:after
+    top: 0
+    right: 0
+
+/* END of Уведомления о голосованиях */
+
+/* Уменьшение ширины пунктов меню */
+/* Уменьшение ширины "Сообщество" */
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry > a[href *= "/forum"]
+    padding: .875rem
+    font-size: 0
+    line-height: 0
+
+  .l-top_menu .menu-items > .entry > a[href *= "/forum"]:before
+    content: 'people'
+    font-size: 1.125rem
+
+/* Уменьшение ширины всех пунктов меню */
+.x1000 .l-top_menu .menu-items > .entry > a,
+.x1000 .l-top_menu .menu-items > .entry.sign_out
+  padding: .9375rem /* thx Azsuna */
+
+/* END of Уменьшение ширины пунктов меню */
+
+
+
+.l-top_menu .submenu,
+.b-main_search ul.popup
+  min-width: 112px
+  border: 0
+
+.b-main_search .popup li
+  transition: 0s
+
+.l-top_menu .submenu > .entry
+  height: 2rem
+  padding: .5rem 1rem
+  background-color: transparent
+  border: 0
+  font-size: .875rem
+  line-height: 1rem
+
+.l-top_menu .submenu > .entry:first-child,
+.b-main_search ul.popup li:first-child
+  margin-top: .5rem
+
+.l-top_menu .submenu > .entry:last-child,
+.b-main_search ul.popup li:last-child
+  margin-bottom: .5rem
+
+.l-top_menu .menu-items .submenu-toggler
+  right: 0
+  width: 48px
+  height: 48px
+  padding: .75rem
+  margin: 0
+  z-index: 10
+
+.l-top_menu .menu-items .submenu-toggler:before
+  width: 24px
+  line-height: 24px
+
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-items .submenu-toggler,
+  .l-top_menu .inner .sign_out
+    display: none
+ 
+
+  .l-top_menu .menu-items > .entry
+    color: inherit
+ 
+
+@media screen and (max-width: 1024px)
+  .l-top_menu .submenu
+    padding-left: 32px
+ 
+
+
+
+
+/* TOPMENU | SEARCH */
+.l-top_menu .menu-search
+  padding: 8px 0
+
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-search
+    padding: 0
+ 
+
+  .l-top_menu .menu-search > .entry
+    width: 234px
+    padding: 8px 0 !important
+ 
+
+.b-main_search
+  padding-right: 8px !important
+  padding-left: 8px !important
+
+.b-main_search .input
+  position: relative
+  width: auto
+  height: 2rem
+  padding: 0
+  margin: 0
+  transition: background .3s
+
+.b-main_search.hovered .popup
+  border: 0
+  font-size: .875rem
+
+.b-main_search ul.popup li
+  width: auto
+  height: 2rem
+  padding: .5rem 1rem
+  border: 0
+  font-family: inherit
+  font-size: .875rem
+  line-height: 1rem
+
+.b-main_search .input input
+  width: 100%
+  padding: 0 1rem
+  font-family: inherit
+  font-size: 1rem
+  line-height: 2rem
+
+.b-main_search .input input.ac_loading
+  width: 100%
+  padding: 0 1rem
+
+.b-main_search ul.popup
+  width: inherit
+/* END of SEARCH */
+
+
+
+/* TOPMENU | SEARCHRESULT */
+.ac_results.menu-suggest,
+.completable-block.menu-suggest
+  border: 0
+  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
+
+.ac_results,
+.completable-block
+  font-size: .75rem
+
+.ac_odd
+  background-color: rgba(0,0,0,.24)
+
+.ac_over
+  background-color: rgba(255,255,255,.24)
+
+.ac_results li
+  padding: 0 .5rem
+  border: none
+  line-height: 2rem
+
+.b-main_search ul.popup,
+.b-main_search.hovered .popup
+  margin: 0
+
+.ac_results.menu-suggest,
+.completable-block.menu-suggest
+  margin-top: -17px
+  margin-left: 6px
+
+.ac_results .name
+  font-size: 14px
+
+.ac_results .name > strong
+  background-color: #ff0
+  color: #111
+
+.ac_results .character-suggest .animes
+  line-height: 1.25rem
+
+.ac_results .character-suggest .animes > div
+  margin: 2px 0 0
+
+.ac_results .character-suggest .avatar
+  width: 40px
+  height: auto
+  max-height: 64px
+  margin: 8px 0 0 8px
+  clip-path: circle(20px at 20px 20px)
+/* END of SEARCHRESULT */
+
+
+
+/* TOPMENU | USERBOX */
+.l-top_menu .menu-userbox
+  position: absolute
+  top: 0
+  right: 0
+
+.l-top_menu .menu-userbox > .entry
+  position: relative
+  height: 48px
+  padding: 0 !important
+  margin: 0 .5rem 0 1rem !important
+  cursor: default
+
+.entry.userbox > .avatar
+  display: inline-block
+  vertical-align: top
+  position: relative
+  width: 32px
+  height: 32px
+  margin: 8px
+  border-radius: 100%
+
+.entry.userbox > .avatar:after
+  content: ''
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  width: inherit
+  height: inherit
+  border-radius: 100%
+
+.entry.userbox > .avatar > img
+  height: inherit
+
+.userbox > a .graphics-arrow-down,
+.l-top_menu .menu-search .arrow-container,
+.l-top_menu .menu-userbox .arrow-container,
+.l-top_menu .menu-search .arrow-container .arrow-down,
+.l-top_menu .menu-userbox .arrow-container .arrow-down
+  display: none
+
+@media screen and (max-width: 1024px)
+  .userbox img.avatar,
+  .menu .unread-count
+    margin-top: 0
+
+.menu .unread-count
+  position: absolute
+  top: 0
+  right: 0
+  width: 1.25rem
+  height: auto
+  margin: 0
+  border-radius: 100%
+  line-height: 1.25rem
+  z-index: 1
+
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-userbox
+    position: relative
+ 
+/* END of USERBOX */
+
+
+
+/* TOPMENU | ICON */
+.l-top_menu .menu-mobile .search,
+.l-top_menu .menu-mobile .menu,
+.l-top_menu .menu-userbox .search,
+.l-top_menu .menu-userbox .menu
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px
+  margin-left: 4px !important
+
+.l-top_menu .menu-mobile #sign_in,
+.l-top_menu .menu-userbox #sign_in
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px
+  margin-left: 4px !important
+
+@media (min-width: 1025px)
+  .l-top_menu .menu-mobile #sign_in,
+  .l-top_menu .menu-userbox #sign_in
+    width: 48px
+    height: 48px
+    padding: 12px
+    margin: 0
+ 
+/* END of ICON */
+
+/* ************** */
+/* END of TOPMENU */
+/* ************** */
+
+
+
+/**
+ * PAGINATION
+ * 
+ */
+
+/* Делаем пагинацию более удобной */
+.p-animes_collection-index .pagination,
+.p-mangas_collection-index .pagination,
+.p-recommendations-index .pagination,
+.p-userlist_comparer-show .pagination
+  margin: 8px 0
+  color: inherit
+  font-size: 14px
+  line-height: 32px
+
+/* Добавляем разной ерунды */
+.p-animes_collection-index .pagination > *,
+.p-mangas_collection-index .pagination > *,
+.p-recommendations-index .pagination > *,
+.p-userlist_comparer-show .pagination > *
+  vertical-align: top
+
+.p-animes_collection-index .pagination .link,
+.p-mangas_collection-index .pagination .link,
+.p-recommendations-index .pagination .link,
+.p-userlist_comparer-show .pagination .link
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: -4px 8px
+  font-size: 0
+
+.p-animes_collection-index .pagination .link:first-child,
+.p-mangas_collection-index .pagination .link:first-child,
+.p-recommendations-index .pagination .link:first-child,
+.p-userlist_comparer-show .pagination .link:first-child
+  margin-left: 0
+
+.p-animes_collection-index .pagination .link:last-child,
+.p-mangas_collection-index .pagination .link:last-child,
+.p-recommendations-index .pagination .link:last-child,
+.p-userlist_comparer-show .pagination .link:last-child
+  margin-right: 0
+
+.p-animes_collection-index .pagination .link:hover,
+.p-mangas_collection-index .pagination .link:hover,
+.p-recommendations-index .pagination .link:hover,
+.p-userlist_comparer-show .pagination .link:hover
+  text-decoration: none
+
+.p-animes_collection-index .pagination .link.disabled:hover,
+.p-mangas_collection-index .pagination .link.disabled:hover,
+.p-recommendations-index .pagination .link.disabled:hover,
+.p-userlist_comparer-show .pagination .link.disabled:hover
+  background-color: transparent
+
+.p-animes_collection-index .pagination .link:before,
+.p-mangas_collection-index .pagination .link:before,
+.p-recommendations-index .pagination .link:before,
+.p-userlist_comparer-show .pagination .link:before
+  display: block
+  width: 24px !important
+  font-family: 'Material Icons' !important
+  font-size: 24px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-animes_collection-index .pagination .link.link-prev:before,
+.p-mangas_collection-index .pagination .link.link-prev:before,
+.p-recommendations-index .pagination .link.link-prev:before,
+.p-userlist_comparer-show .pagination .link.link-prev:before
+  content: 'chevron_left'
+
+.p-animes_collection-index .pagination .link.link-next:before,
+.p-mangas_collection-index .pagination .link.link-next:before,
+.p-recommendations-index .pagination .link.link-next:before,
+.p-userlist_comparer-show .pagination .link.link-next:before
+  content: 'chevron_right'
+
+/* ***************** */
+/* END of PAGINATION */
+/* ***************** */
+
+
+
+
+
+/**
+ * SUBHEADER
+ * Изменение подзаголовков разделов и ссылок в них.
+ */
+
+.headline
+  padding: 8px 0
+  margin: 8px 0
+  background: none
+  border: 0
+  font-size: 24px
+  font-weight: 400
+  line-height: 32px
+  text-transform: capitalize
+
+.mischeadline,
+.c-my_list .title,
+.subheadline,
+.midheadline,
+.b-stats_bar .title,
+.profile-content .activity .title,
+.lifetime .title
+  padding: 16px 0
+  margin-bottom: 0
+  background-color: transparent
+  border: 0
+  font-size: .875rem
+  line-height: 1rem
+  text-transform: uppercase
+  overflow: initial
+
+.p-db_entries-edit_field .subheadline
+  overflow: hidden
+
+.midheadline > a,
+.subheadline > a
+  vertical-align: top
+  margin: -.5rem -1rem
+
+.midheadline > a,
+.subheadline > a,
+.b-form .cancel,
+.b-shiki_editor footer .unpreview,
+.b-shiki_editor footer .preview,
+.b-topic-preview > .editor-container .hide
+  display: inline-block
+  padding: 0 1rem
+  background-color: transparent
+  border-radius: .125rem
+  font-size: .875rem
+  line-height: 2rem !important
+  text-transform: uppercase
+
+.headline > a:before,
+.midheadline > a:before,
+.subheadline > a:before
+  right: 0
+  left: 0
+  text-align: right
+  opacity: 0
+  pointer-events: auto
+
+.headline.linkheadline > a,
+.linkheadline.midheadline > a,
+.linkheadline.subheadline > a
+  text-decoration: none
+
+.subheadline .misc-link
+  float: right
+
+.subheadline-input
+  padding: 5px 8px
+  margin-top: 8px !important
+  border-radius: 2px !important
+  font-size: 14px
+  line-height: inherit !important
+
+@media screen and (max-width: 767px)
+  .subheadline-input
+    padding-bottom: 5px !important
+    padding-top: 5px !important
+
+.subheadline-buttons
+  right: 0
+  margin: 0
+
+.subheadline-buttons + .subheadline
+  padding-right: 3rem
+
+/* HOVER */
+.headline > a:hover,
+.midheadline > a:hover,
+.subheadline > a:hover
+  text-decoration: none
+
+.subheadline-buttons .item-edit,
+.p-characters .item-edit
+  display: inline-block
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px 0
+
+@media only screen and (min-width: 768px)
+  .b-options-floated.r-edit
+    margin-right: 48px
+ 
+/* END of SUBHEADER */
+
+
+
+
+
+/**
+ * CONTEST PAGE
+ */
+
+.p-contests .contest-match
+  padding: 16px 0
+  margin-bottom: 0
+
+.p-contests .contest-match .current-match .match-members:last-child
+  margin-bottom: 0 !important
+
+.p-contests .contest-match .vs .refrain
+  display: inline-block
+  padding: 0 16px
+  font-size: 14px
+  line-height: 32px
+  text-transform: uppercase
+
+.p-contests .contest-match .vs .refrain:hover
+  text-decoration: none
+
+.p-contests .match-day
+  position: relative
+  margin-bottom: 16px
+  text-align: center
+
+.p-contests .match-day:before
+  content: ''
+  display: block
+  position: absolute
+  top: 10px
+  right: 0
+  left: 0
+  height: 1px
+
+.p-contests .match-day > .date
+  position: relative
+  display: inline-block
+  padding: 0 16px
+  margin-bottom: 4px
+  text-align: center
+  text-transform: uppercase
+
+.p-contests .match-day > .date .from,
+.p-contests .match-day > .date .to
+  margin-right: 8px
+
+.p-contests .match-day > .date .to
+  margin-left: 8px
+
+.p-contests .match-day .match-link
+  padding-left: 0
+  text-align: left
+
+.p-contests .match-day .match-link .c-column
+  line-height: 32px
+
+.p-contests .match-day .match-link .voted:before,
+.p-contests .match-day .match-link .winner:before,
+.p-contests .match-day .match-link .loser:before,
+.p-contests .match-day .match-link .created:before,
+.p-contests .match-day .match-link .started:before,
+.p-contests .match-day .match-link .finished:before
+  display: inline-block
+  vertical-align: top
+  width: 18px
+  padding-right: 0
+  padding-left: 0
+  margin: 7px 0
+  margin-right: 14px
+  font-family: "Material Icons"
+  font-size: 18px
+  font-weight: normal !important
+  line-height: 1
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-contests .match-day .match-link .created:before
+  color: #9B9B9B
+  content: "lock"
+  padding-right: 0
+
+.p-contests .match-day .match-link .started:before
+  content: "check_box_outline_blank"
+  color: #757575
+
+.p-contests .match-day .match-link.voted-none .started:before
+  color: #9B9B9B
+
+.p-contests .match-day .match-link.voted-left .started:first-child:before,
+.p-contests .match-day .match-link.voted-right .started:last-child:before
+  content: "check_box"
+
+.p-contests .match-day .match-link.voted-left .started:last-child:before,
+.p-contests .match-day .match-link.voted-right .started:first-child:before
+  content: 'indeterminate_check_box'
+
+.p-contests .match-day .match-link .winner:before
+  content: "thumb_up"
+
+.p-contests .match-day .match-link .loser:before
+  content: "thumb_down"
+  padding-right: 0
+
+.p-contests .match-day .match-link.voted-left .started:first-child:before,
+.p-contests .match-day .match-link.voted-right .started:last-child:before,
+.p-contests .match-day .match-link .winner:before
+  color: #66BB6A /* Зеленый цвет */
+
+.p-contests .match-day .match-link.voted-left .started:last-child:before,
+.p-contests .match-day .match-link.voted-right .started:first-child:before,
+.p-contests .match-day .match-link .loser:before
+  color: #EF5350 /* Красный цвет */
+
+.p-contests .match-day .matches-num
+  display: inline-block
+  width: 56px
+  padding-right: 0
+  font-size: 16px
+
+.p-contests-show .cc-round_stats > .c-column:first-child:last-child > .block:last-child
+  padding: 4px 0
+
+.p-contests-show .warning
+  margin-top: 0
+  margin-bottom: 16px
+
+.p-contests .rating .member
+  height: auto
+
+.p-contests-users .subheadline a:hover
+  background: none
+
+.p-contests .contest-match .votes-percents
+  border-radius: 4px
+  font-size: 14px
+  line-height: 24px
+
+.p-contests .contest-match .votes-percents span
+  float: left
+  position: relative
+  white-space: nowrap
+  z-index: 1
+
+.p-contests .contest-match .votes-percents .left-part
+  position: relative
+  border-radius: inherit
+  padding-left: 8px
+
+.p-contests .contest-match .votes-percents .left-part > span
+  color: $accentBG_color
+
+.p-contests .contest-match .votes-percents .right-part
+  position: absolute
+  top: 0
+  right: 0
+  padding-right: 8px
+
+.p-contests .contest-match .votes-percents .right-part span
+  float: right
+
+.p-contests .contest-match .votes-percents .left-part,
+.p-contests .contest-match .votes-percents .right-part
+  height: auto
+
+.p-contests .contest-match .votes-percents .right-part:before
+  left: -24px
+  border-right-width: 24px
+  border-top-width: 48px
+
+.p-contests .contest-match .votes-percents .left-part:hover .right-part:before
+  border-right-width: 24px
+
+.p-contests .contest-match .votes-percents .right-part:before,
+.p-contests .contest-match .votes-percents .left-part:hover .right-part:before
+  border-right-color: inherit
+
+.p-contests .results .cc-result .c-rounds .match-day:before
+  display: none
+
+.p-contests .results .cc-result .c-rounds .match-day .match
+  padding-bottom: 0
+  line-height: 32px
+  text-align: left
+
+.p-contests .results .cc-result .c-rounds .match-link
+  display: inline-block
+
+@media (min-width: 481px)
+  .p-contests .contest-match .prev-match:hover,
+  .p-contests .contest-match .next-match:hover
+    background-color: transparent
+ 
+
+/* Mobile Ver. */
+@media (max-width: 480px)
+  .p-contests .contest-match .prev-match,
+  .p-contests .contest-match .next-match
+    position: absolute
+    left: 0
+    width: auto
+    padding: 8px
+    border-radius: 2px
+    line-height: 32px
+    z-index: 2
+ 
+
+  .p-contests .contest-match .next-match
+    right: 0
+    left: auto
+ 
+
+  .p-contests .contest-match .next-match:before
+    margin: 0
+ 
+
+  .p-contests .contest-match .prev-match:before,
+  .p-contests .contest-match .next-match:before
+    display: block
+    font-family: 'Material Icons'
+    font-size: 24px
+    line-height: 1
+
+    text-transform: none
+    letter-spacing: normal
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale
+    /* Support for IE. */
+    font-feature-settings: 'liga'
+ 
+
+  .p-contests .contest-match .prev-match:before
+    content: 'chevron_left'
+ 
+
+  .p-contests .contest-match .next-match:before
+    content: 'chevron_right'
+ 
+
+  .p-contests .contest-match .current-match
+    clear: both
+ 
+
+  .p-contests .contest-match .current-match .match-members
+    padding-top: 96px
+    margin-bottom: 4px
+ 
+
+  .p-contests .contest-match .current-match .match-member
+    position: relative
+    width: 48%
+    z-index: 2
+ 
+
+  .p-contests .contest-match .current-match .match-member:first-child
+    float: left
+ 
+
+  .p-contests .contest-match .current-match .match-member:last-child
+    float: right
+ 
+
+  .p-contests .contest-match .vs
+    position: absolute
+    top: 72px
+    width: 100%
+ 
+
+  .p-contests .contest-match .vs > div:first-child
+    display: inline-block
+    position: absolute
+    top: 112px
+    right: 0
+    left: 0
+    width: 72px
+    height: 72px
+    margin: auto
+    border-radius: 100%
+    font-size: 24px
+    line-height: 72px
+    text-transform: uppercase
+    z-index: 6
+ 
+
+  .p-contests .contest-match .vs .finish
+    position: absolute
+    top: -64px
+    right: 0
+    left: 0
+    width: 148px
+    margin: auto
+    font-size: 12px
+    line-height: 20px
+ 
+
+  .p-contests .contest-match .vs .refrain
+    position: absolute
+    top: -62px
+    right: 0
+    left: 0
+    width: 168px
+    margin: auto
+    z-index: 7
+ 
+
+  .p-contests .contest-match .vs .next
+    position: absolute
+    top: -56px
+    right: 0
+    left: 0
+    width: 168px
+    margin: auto
+    font-size: 14px
+    line-height: 32px
+    text-transform: uppercase
+    z-index: 5
+ 
+
+  .p-contests .contest-match .match-losers
+    display: block
+    padding: 0
+ 
+
+@media (max-width: 1024px)
+  .p-contests .match-day .match-link .c-column
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+ 
+
+  .p-contests .match-day .match-link .winner:before,
+  .p-contests .match-day .match-link .loser:before
+    display: none
+ 
+
+  .p-contests .match-day .matches-num
+    width: auto
+    padding: 0 4px
+    margin-right: 8px
+    border-radius: 2px
+    color: #FFF
+    font-size: 12px
+    line-height: 20px
+ 
+
+  .p-contests .match-day .winner .matches-num
+    background-color: #66bb6a
+ 
+
+  .p-contests .match-day .loser .matches-num
+    background-color: #ef5350
+ 
+/* END of Mobile Ver. */
+/* END of CONTEST PAGE */
+
+
+
+
+
+/* ROUNDED IMAGES */
+.b-dialog > .inner header img,
+.b-message > .inner header img,
+.p-user_rates-index .l-menu .avatar img,
+.avatar > img
+  border-radius: 100%
+/* END of ROUNDED IMAGES */
+
+
+
+
+/* TODO: replace */
+.b-catalog_entry.dropped .image-cutter
+  filter: grayscale(100%)
+
+
+
+/**
+ * ANIME PAGE
+ */
+
+.b-animes-menu .friend-rate
+  line-height: 1.5rem
+  white-space: nowrap /* thx @NedStar */
+
+.b-animes-menu .site-icon
+  margin-top: .25rem
+  margin-right: .75rem
+
+.b-db_entry
+  margin-bottom: 8px
+
+.b-db_entry-note .name-container
+  padding: .25rem 0
+
+.b-db_entry-note .name-container .name
+  display: block
+  font-size: 1rem
+  line-height: 1.25rem
+
+.b-db_entry-note .name-container .note
+  margin-top: 4px
+  font-size: .875rem
+  line-height: 1rem
+
+.b-db_entry-note .name-container .note > span
+  display: inline-block /* thx @NedStar */
+  vertical-align: top
+
+.b-db_entry-note .name-container .b-user_rate
+  margin-top: .375rem
+
+.b-db_entry>.c-about .c-info-left,
+.b-db_entry>.c-about .c-info-right,
+.b-db_entry>.c-about .c-info-left:last-child,
+.b-db_entry>.c-about .c-info-right:last-child
+  margin-bottom: 8px !important
+
+.p-animes .b-db_entry > *:last-child
+  clear: left
+  padding-top: 0
+  margin-left: 0 !important
+
+.p-people .subheadline.m10
+  width: 100%
+
+.p-people .m0
+  clear: both
+  padding: 0
+  margin: 0 !important
+
+.p-characters .subheadline.m5
+  width: 100%
+  overflow: hidden
+
+.p-characters .subheadline.m5 > a
+  display: block
+
+.p-characters .subheadline.m10
+  width: auto
+
+.p-characters .subheadline.m10 > a
+  display: inline-block
+
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .b-db_entry > .c-image .c-actions > a
+    width: auto !important
+ 
+
+.b-lang_trigger
+  position: absolute
+  top: -53px
+  right: 0
+  width: 40px
+  height: 40px
+  padding: 10px 0
+  margin: 4px
+  font-size: 12px
+  line-height: 20px
+  text-align: center
+  text-transform: uppercase
+  cursor: pointer /* eventListener повешен на этот элемент */
+
+.b-lang_trigger:before,
+.b-lang_trigger:after
+  display: none
+
+.b-lang_trigger span
+  border: 0
+
+.midheadline,
+.m10
+  margin-bottom: 0 !important
+
+.b-user_rate .rate-show .note
+  padding: .5rem 1rem
+  font-size: .875rem
+  line-height: 1.25rem
+  max-height: 10rem /* thx Dark_zarich */
+  overflow-y: auto /* thx Dark_zarich */
+
+.b-user_rate .rate-show .note:before
+  content: 'Заметка'
+  display: block
+  font-size: 10px
+
+.b-forums .forum .topics
+  margin-left: 8px
+  margin-top: 0
+
+/* ADD TO LIST BUTTON */
+.b-add_to_list
+  min-width: 0
+
+.b-add_to_list .trigger,
+.b-add_to_list .option
+  border: 0
+
+.b-add_to_list .trigger,
+.b-add_to_list .option
+  padding: .5rem 1rem .5rem 3rem
+  border: 0
+  line-height: 1.5rem
+
+/* thx @bot.AkiKawasaki */
+.b-add_to_list .trigger
+  border-radius: .125rem
+
+.b-add_to_list .option:last-child
+  border-radius: 0 0 .125rem .125rem
+
+.b-add_to_list .trigger + .expanded-options
+  margin-top: -.125rem
+
+.b-add_to_list .plus,
+.b-add_to_list .edit,
+.b-add_to_list .trigger-arrow
+  width: 2.5rem
+  height: 2.5rem
+  padding: .5rem
+  margin: -.5rem -1rem -.5rem 0
+  color: inherit !important
+
+.b-add_to_list .plus,
+.b-add_to_list .edit
+  position: absolute
+  left: 0
+  margin-left: 0 !important
+  margin-right: .5rem !important
+
+.b-add_to_list .trigger-arrow
+  position: relative
+
+.b-add_to_list .expanded-options .option .text
+  padding-left: 0
+
+.b-add_to_list.completed ~ .rate-show > .rate-number,
+.b-add_to_list.completed ~ .rate-show > .episodes
+  height: 1rem
+  margin-bottom: 0
+  font-size: 0
+
+/* DENSE ATL_BUTTON */
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option
+  padding: 0 1rem 0 2.25rem
+  line-height: 2rem
+
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .plus,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .edit,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger-arrow
+  width: 2rem
+  height: 2rem
+  padding: .4375rem
+  margin: 0 -1rem 0 .25rem
+
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .plus,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .edit
+  margin-right: .25rem !important
+/* END of DENSE ATL_BUTTON */
+
+/* ATL_BUTTON in NEWS */
+.b-catalog_entry-tooltip .b-add_to_list
+  width: auto
+
+.b-catalog_entry-tooltip .b-add_to_list .trigger
+  font-size: .875rem
+  line-height: 1.5rem
+
+.b-catalog_entry-tooltip .b-add_to_list .option
+  font-size: .875rem
+
+.b-catalog_entry-tooltip .b-add_to_list .trigger,
+.b-catalog_entry-tooltip .b-add_to_list .add-trigger,
+.b-catalog_entry-tooltip .b-add_to_list .remove-trigger
+  max-width: 224px
+/* END of ATL_BUTTON in NEWS */
+
+/* FIX ORIGINAL STYLE */
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .trigger-arrow::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .trigger-arrow::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .trigger-arrow::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .trigger-arrow::before
+  color: inherit
+
+/* FIX: ADD_TO_LIST LAYOUT IN NOTES (issue #7) */
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger
+  padding: 0 1rem 0 2rem
+
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger + .expanded-options
+  margin-top: 0
+/* END of ADD TO LIST BUTTON */
+
+.b-catalog_entry.planned .image-decor::after,
+.b-catalog_entry.watching .image-decor::after,
+.b-catalog_entry.completed .image-decor::after,
+.b-catalog_entry.rewatching .image-decor::after,
+.b-catalog_entry.on_hold .image-decor::after,
+.b-catalog_entry.dropped .image-decor::after
+  top: auto
+  right: .375rem
+  bottom: .375rem
+  width: 2rem
+  height: auto
+  border: none
+  border-radius: 100%
+  font-size: 1.125rem
+  line-height: 2rem
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.32)
+
+  /* TODO: MERGE with ICON_FONT */
+  font-family: 'Material Icons'
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-animes_collection-index.x1000 .b-catalog_entry .image-decor::after,
+.p-mangas_collection-index.x1000 .b-catalog_entry .image-decor::after,
+.p-recommendations-index.x1000 .b-catalog_entry .image-decor::after,
+.p-userlist_comparer-show.x1000 .b-catalog_entry .image-decor::after
+  width: 32px
+  height: auto
+  border-radius: 100%
+  line-height: 32px
+
+.b-catalog_entry.planned .image-decor::after
+  content: "event"
+
+.b-catalog_entry.watching .image-decor::after
+  content: "play_arrow"
+
+.b-catalog_entry.rewatching .image-decor::after
+  content: "replay"
+
+.b-catalog_entry.completed .image-decor::after
+  content: "done"
+
+.b-catalog_entry.on_hold .image-decor::after
+  content: "schedule"
+
+.b-catalog_entry.dropped .image-decor::after
+  content: "delete"
+
+.b-db_entry-note .name-container
+  margin-left: 64px
+  line-height: inherit
+
+header.head,
+.block,
+.b-add_to_list,
+.b-user_rate .rate-show
+  margin-bottom: .5rem
+
+.l-page > div > header.head
+  margin-bottom: 1.5rem
+
+.p-profiles-edit .l-page > div > header.head,
+.p-dialogs .l-page > div > header.head,
+.p-messages .l-page > div > header.head
+  margin-bottom: 0
+
+.c-poster img
+  display: block
+  min-height: 48px
+
+/* Кнопки управления над постером */
+@media (min-width: 481px)
+  .c-poster:hover ~ .c-actions
+    opacity: 0
+ 
+
+  .c-actions
+    position: absolute
+    bottom: 0
+    width: 100%
+    padding: 4px 0
+ 
+
+  .c-actions:before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: .8
+ 
+
+  .c-actions > *
+    position: relative
+ 
+
+.c-actions > *
+  width: 40px !important
+  height: 40px !important
+  padding: .5rem
+
+.c-actions > *:not(:last-child)
+  margin-right: 8px !important
+
+.c-actions > *:before
+  font-size: 24px !important
+  line-height: 1 !important
+
+.c-actions .fav-remove:hover:before
+  color: inherit
+
+@media screen and (min-width: 1200px)
+  .c-poster center
+    text-align: left
+ 
+
+  .p-animes-show .c-image .b-user_rate,
+  .p-mangas-show .c-image .b-user_rate
+    margin: 0
+ 
+
+.b-rate
+  padding: 6px 0
+
+.b-rate .text-score
+  vertical-align: top
+
+.b-rate .score-value
+  line-height: 36px
+
+.b-rate .score-notice
+  font-size: 10px
+  margin-top: -46px
+  text-transform: uppercase
+
+.b-review-topic .b-rate .score-notice
+  margin-top: -58px
+
+.b-user_rate .rate-show .episodes
+  margin-bottom: 8px
+  font-size: 14px
+  line-height: 32px
+
+.b-user_rate .rate-show .rate-number
+  margin-right: 0
+
+.b-user_rate .rate-show .rate-number .current-episodes,
+.b-user_rate .rate-show .rate-number .sep,
+.b-user_rate .rate-show .rate-number .total-episodes
+  display: inline-block
+  vertical-align: top
+  line-height: 32px
+
+.b-user_rate .rate-show .rate-number .item-add
+  display: inline-block
+  vertical-align: top
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: -4px 0 0 8px
+
+.b-user_rate .rate-show .rate-number .item-add:before
+  width: 24px !important
+  font-family: 'Material Icons' !important
+  font-size: 24px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-user_rate .rate-show .rate-number .item-add:before
+  content: 'add'
+
+.b-rate .stars:after
+  font-size: 36px !important
+  font-family: 'Material Icons' !important
+  line-height: 1 !important
+  font-weight: 400 !important
+
+  text-transform: none
+  letter-spacing: -6px
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-rate .stars.background:after
+  content: 'star_border star_border star_border star_border star_border'
+
+.b-rate .stars.score-1:after
+  content: 'star_half'
+
+.b-rate .stars.score-2:after
+  content: 'star'
+
+.b-rate .stars.score-3:after
+  content: 'star star_half'
+
+.b-rate .stars.score-4:after
+  content: 'star star'
+
+.b-rate .stars.score-5:after
+  content: 'star star star_half'
+
+.b-rate .stars.score-6:after
+  content: 'star star star'
+
+.b-rate .stars.score-7:after
+  content: 'star star star star_half'
+
+.b-rate .stars.score-8:after
+  content: 'star star star star'
+
+.b-rate .stars.score-9:after
+  content: 'star star star star star_half'
+
+.b-rate .stars.score-10:after
+  content: 'star star star star star'
+
+.watch-online-placeholer
+  margin: 2rem auto .5rem
+
+.b-link_button.watch-online:before,
+.b-link_button.upload-video:before,
+.b-link_button.create-topic:before
+  display: none
+
+.b-entry-info
+  margin: 0
+  font-size: .875rem
+
+.b-entry-info .line
+  line-height: 1.5rem
+
+.b-tag,
+.b-entry-info .line .b-tag,
+.b-catalog_entry-tooltip .inner .line .value .tag
+  padding: 0 8px
+  margin: 0 4px 0 0
+  border: 0
+  font-size: .625rem
+  line-height: 20px
+  text-transform: uppercase
+
+.b-tag:hover,
+.b-entry-info .line .b-tag:hover,
+.b-catalog_entry-tooltip .inner .line .value .tag:hover
+  padding: 0 8px
+  margin: 0 4px 0 0
+
+.b-tag
+  font-size: .875rem
+  line-height: 24px
+
+.b-catalog_entry-tooltip .inner .line .value .tag,
+.b-catalog_entry-tooltip .inner .line .value .tag:hover
+  padding: 0 6px
+  line-height: 18px
+
+@media screen and (min-width: 1200px)
+  .p-animes_collection-index.x1200 .cc-entries > .c-column
+    width: 18.4%
+    margin-right: 2%
+    border-radius: 2px
+ 
+
+
+
+
+
+/**
+ * COMMENT
+ * Изменение всех комментариев, новостей, диалогов, топиков.
+ */
+
+.b-comment,
+.b-dialog,
+.b-message
+  position: relative
+  padding-top: .75rem !important
+  padding-bottom: .75rem
+  margin-bottom: 0
+  border: 0
+
+.b-comments
+  line-height: inherit
+
+.b-dialog
+  position: relative
+
+.b-topic
+  padding-top: .5rem
+
+.b-comment > .inner .was_updated
+  margin: 0
+  color: $text_disabled
+
+/* Исправление для предпросмотра комментария во всплывающем окне */
+.tooltip-inner .b-message
+  padding-top: 0 !important
+  padding-bottom: 0
+
+/* inset dividers */
+.b-dialog:before,
+.b-message:before,
+.b-comment:before,
+.b-comments .comments-loaded:before
+  content: ''
+  position: absolute
+  bottom: 0
+  right: 0
+  left: 3.5rem
+  height: 1px
+
+.b-generated_news:before
+  left: 0
+
+.b-comments .comments-loaded .b-comment:last-child
+  margin: 0
+
+.b-dialog:last-child:before,
+.b-message:last-child:before,
+.b-comment:last-child:before,
+.tooltip-inner .b-message:before
+  display: none
+
+.b-comment .body,
+.b-message .body,
+.b-topic .body,
+.b-dialog .body
+  padding: 4px 0
+  padding-left: 0
+  line-height: inherit
+  overflow: hidden /* FIX: OVERFLOW: HIDDEN TOPIC BODY (issue #8) */
+
+/* Левый отступ комментариев от края экрана */
+.inner > header,
+.inner > .body,
+.inner > footer,
+.b-topic-preview > .b-comments
+  padding-left: 3.5rem
+
+/* Фикс отступа в новостях и новостных топиках */
+.b-topic-preview.mini > .inner > header,
+.b-generated_news-topic > .inner > header,
+.b-generated_news > .inner > header,
+.b-generated_news > .inner > .body
+  padding-left: 0
+
+/* Предпросмотр описания и страниц клуба */
+.edit_club .b-shiki_editor .b-comment .inner .body,
+.edit_club_page .b-shiki_editor .b-comment .inner .body,
+.new_club_page .b-shiki_editor .b-comment .inner .body
+  padding-left: 0
+
+@media screen and (max-width: 767px)
+  .b-topic-preview > .b-comments
+    padding-left: 0
+  
+  .b-topic-preview > .inner > .body,
+  .b-topic-preview > .inner > footer
+    padding-left: 3.5rem
+
+@media screen and (min-width: 767px)
+  .b-news-topic > .b-comments
+    padding-left: 3.5rem
+/* END of Левый отступ комментариев от края экрана */
+
+.b-comment > .inner header,
+.b-dialog > .inner header,
+.b-message > .inner header,
+.b-topic > .inner header
+  margin-bottom: 0
+
+.b-dialog > .inner header,
+.b-message > .inner header
+  padding-top: .25rem
+  padding-bottom: .25rem
+
+.b-comment > .inner header > a,
+.b-message > .inner header > a,
+.b-dialog > .inner header > a,
+.b-topic > .inner header > a
+  position: absolute
+  left: 0
+
+.b-dialog .body .b-message > .inner header > a
+  position: relative
+
+.b-topic > .inner header img
+  width: 2.5rem
+  margin: .25rem 1rem 0 0
+
+.b-comment > .inner header img,
+.b-message > .inner header img,
+.b-dialog > .inner header img
+  width: 2.5rem
+  margin: .25rem 1rem 0 0
+  border-radius: 100%
+
+.b-topic > .inner header .name-date,
+.b-comment > .inner header .name-date
+  padding: .25rem 0
+  line-height: 2rem
+
+.b-topic > .inner header .name-date
+  line-height: 20px
+
+.b-message > .inner header .name-date,
+.b-dialog > .inner header .name-date
+  line-height: 2rem
+
+.b-topic .name-date .name,
+.b-comment .name-date .name,
+.b-dialog .name-date .name
+  font-size: 1rem
+
+.b-message > .inner header .name-date a.name,
+.b-topic > .inner header .name-date a.name,
+.b-comment > .inner header .name-date a.name,
+.b-dialog > .inner header .name-date a.name
+  display: block
+  margin-right: .5rem
+  line-height: 1.25rem
+
+.b-topic > .inner header .name-date a.name,
+.b-topic > .inner header .name-date .about
+  display: inline-block
+  vertical-align: top
+  line-height: inherit
+
+.b-topic > .inner header .name-date .about
+  margin-right: .5rem
+
+.b-topic > .inner > header .name-date a
+  font-size: 16px
+
+.b-topic > .inner > header .about > span
+  display: inline-block
+  vertical-align: top
+  color: #9E9E9E
+  padding: 0 .5rem 0 0
+  font-size: .875rem
+  line-height: inherit
+
+.b-topic > .inner > header .about a
+  display: inline-block
+  vertical-align: top
+  font-size: 1rem
+  line-height: inherit
+
+.b-comment > .inner header .name-date a.name:hover
+  text-decoration: none
+
+.b-message > .inner header .name-date .time,
+.b-topic > .inner header .name-date .time,
+.b-comment > .inner header .name-date .time,
+.b-dialog > .inner header .name-date .time
+  position: relative
+  padding-top: 0
+  padding-left: 0
+  margin-right: .5rem
+  line-height: 1.25rem
+
+.b-message > .inner header .name-date .time > time,
+.b-comment > .inner header .name-date .time > time,
+.b-topic > .inner header .name-date .time > time
+  display: block
+  font-size: .875rem
+  line-height: inherit
+
+.b-topic > .inner header .name-date .time
+  font-size: .875rem
+  line-height: inherit
+
+.b-comment > .inner header .name-date .time:hover
+  text-decoration: underline
+
+.b-comment header .hash
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: 0 /* Сброс стандартного стиля */
+  opacity: 0
+  z-index: 1
+
+.b-comment .inner .name-date a.name .normal
+  vertical-align: top
+
+@media only screen and (min-width: 1025px)
+  .b-topic > .inner header .name-date,
+  .b-comment > .inner header .name-date
+    padding: .25rem 0
+    line-height: 1.5rem
+ 
+
+  .b-comment > .inner header .name-date a.name,
+  .b-comment > .inner header .name-date .time,
+  .b-dialog > .inner header .name-date a.name,
+  .b-dialog > .inner header .name-date .time
+    display: inline-block
+    vertical-align: top
+    line-height: inherit
+ 
+
+  .b-message > .inner header .name-date .time > time,
+  .b-comment > .inner header .name-date .time > time
+    display: block
+    font-size: 13px
+    line-height: inherit
+ 
+
+  .p-dialogs .b-message > .inner header
+    padding-top: 0
+    padding-bottom: 0
+ 
+
+  .p-dialogs .b-message > .inner header .name-date
+    line-height: 32px
+ 
+
+  .p-dialogs .b-message > .inner header .name-date a.name,
+  .p-dialogs .b-message > .inner header .name-date .time
+    display: inline-block
+    vertical-align: top
+    line-height: inherit
+ 
+
+  .b-comment > .inner header img,
+  .b-message > .inner header img,
+  .b-dialog > .inner header img
+    margin: 6px 16px 0 0
+ 
+
+  .b-topic > .inner header .name-date .time
+    display: inline-block
+    vertical-align: top
+    line-height: inherit
+ 
+
+.p-messages .b-message > .inner header .name-date a.name,
+.p-messages .b-message > .inner header .name-date .time
+  display: inline-block !important
+  vertical-align: top
+  padding-top: 0
+  line-height: inherit !important
+
+@media screen and (max-width: 1024px)
+  .b-dialog .time
+    display: block !important
+    padding-left: 0 !important
+    font-size: 14px !important
+    line-height: 20px !important
+ 
+
+  .b-dialog > .inner header .name-date time
+    display: block
+    line-height: inherit
+ 
+
+  .b-dialog .b-message > .inner header .name-date .time
+    display: inline-block !important
+    vertical-align: top
+    padding-left: 0 !important
+    line-height: inherit !important
+ 
+
+  .b-dialog .b-message .inner header .name-date .name
+    display: inline-block !important
+    vertical-align: top
+ 
+
+.b-dialog > .inner header .name-date .time,
+.b-message > .inner header .name-date .time
+  color: #9E9E9E
+
+.b-dialog .b-message
+  position: static
+  margin: 0
+  padding: 0 !important
+  overflow: visible
+
+.b-dialog .b-message .inner header
+  padding: 4px 0
+
+.b-dialog .b-message .inner header img
+  width: 20px
+  margin: 0 8px 0 0
+
+.b-dialog .b-message .inner header .name-date
+  line-height: 20px
+
+.b-dialog .b-message .inner .body
+  padding-left: 0 !important
+
+.yellow-fade
+  background: rgba(249, 247, 19, 0.16)
+  outline-color: rgba(249, 247, 19, 0.16)
+
+.b-replies
+  padding: 8px 0 0
+
+.b-quote
+  margin: .5rem 0
+  padding: .5rem 1rem
+
+.b-quote .quoteable
+  margin: 0 0 .5rem
+  line-height: 20px
+
+.b-quote .quoteable:before
+  float: left
+  margin-right: 8px
+
+.b-quote .b-quote
+  margin-left: 0 !important
+
+.b-topic > .inner header:after
+  content: '' /* TODO: check this.  thx @NedStar */
+  clear: both
+  display: none
+
+.b-topic .body
+  line-height: 1.25
+
+.b-topic-preview > .inner header
+  margin-bottom: 0
+
+.b-topic-preview > .inner .status-line
+  margin-top: -4px
+  margin-bottom: 8px
+  font-size: 14px
+  line-height: 20px
+
+.b-topic-preview > .inner .status-line .author
+  padding: 0
+
+.b-topic-preview > .inner .status-line .b-link
+  padding: 0 8px
+
+.b-topic-preview > .inner .status-line .additional
+  padding-left: .5rem
+  margin-left: .5rem
+
+.b-topic-preview > .inner .status-line .additional .comments,
+.b-topic-preview > .inner .status-line .additional .likes
+  color: inherit
+
+.b-topic-preview > .inner .status-line .additional .comments:before,
+.b-topic-preview > .inner .status-line .additional .likes:before
+  vertical-align: top
+  padding-right: 8px
+  color: $text_hint
+
+.b-topic-preview > .inner .status-line .additional .comments:before,
+.b-topic-preview > .inner .status-line .additional .likes:before
+  padding-right: 8px
+  font-family: 'Material Icons'
+  font-size: 18px
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-topic-preview > .inner .status-line .additional .comments:before
+  content: "mode_comment"
+
+.b-topic-preview > .inner .status-line .additional .likes:before
+  content: "thumb_up"
+
+.b-topic-preview > .inner .status-line .additional .b-review_votes
+  margin-left: 1rem
+
+.b-collection-topic .b-review_votes
+  display: inline-block
+  font-size: inherit
+  line-height: inherit
+
+.b-review-topic .review-votes_count
+  font-size: .875rem
+
+/* Просмотр комментариев во всплывающей подсказке */
+.tooltip .b-comment
+  padding-top: 0 !important
+  padding-bottom: 0
+
+.tooltip .b-comment:before
+  display: none
+
+/* Иконки коллекций */
+.b-collection-topic > .inner .status-line .collection-size
+  color: inherit
+
+.b-collection-topic > .inner .status-line .collection-size:before,
+.b-review_votes:before
+  vertical-align: top
+  width: 1.125rem
+  padding-right: .5rem
+  color: $text_hint
+  font-size: 1.125rem
+
+.b-collection-topic > .inner .status-line .collection-size:before
+  content: 'collections_bookmark'
+
+.b-review_votes:before
+  content: 'thumbs_up_down'
+
+.b-review_votes .votes-for
+  color: #66BB6A
+
+.b-review_votes .votes-against
+  color: #EF5350
+
+/* Кнопки голосования в рецензиях и коллекциях */
+.b-topic .footer-vote
+  padding: 0
+  margin-top: 1rem
+  margin-bottom: 1rem
+  background: transparent
+  border: 0
+  color: inherit
+  font-size: .875rem
+  line-height: inherit
+
+.b-topic .footer-vote:after
+  content: ''
+  display: block
+  clear: both
+
+.b-topic .footer-vote .star
+  vertical-align: top
+  padding: .5rem
+  line-height: 0
+
+.b-topic .footer-vote .star:before
+  content: 'thumbs_up_down'
+  width: 1.5rem
+  padding: 0
+  font-size: 1.5rem
+
+.b-topic .footer-vote .notice
+  margin: 0 1.5rem 0 1rem
+  line-height: 2.5rem
+
+.b-topic .footer-vote .vote-group
+  float: right
+
+.b-topic .footer-vote .vote-group .vote
+  min-width: 5.5rem
+  padding: 0 1rem
+  margin: .25rem 0
+  background-color: $background_active
+  border: 0
+  border-radius: .125rem
+  color: inherit
+  font-size: .875rem
+  font-weight: 700
+  line-height: 2rem
+  text-transform: uppercase
+  opacity: 1
+  transition: background-color .24s ease, color .24s ease
+
+.b-topic .footer-vote .vote-group .vote:not(:last-child)
+  margin-right: .5rem
+
+.b-topic .footer-vote .vote-group .vote.yes.selected,
+.b-topic .footer-vote .vote-group .vote.yes:hover
+  background-color: #4CAF50
+  background-color: #66BB6A
+  color: #FFFFFF
+
+.b-topic .footer-vote .vote-group .vote.no.selected,
+.b-topic .footer-vote .vote-group .vote.no:hover
+  background-color: #F44336
+  background-color: #EF5350
+  color: #FFFFFF
+
+.b-topic .footer-vote .vote-group .vote.yes:before,
+.b-topic .footer-vote .vote-group .vote.no:before
+  vertical-align: middle
+  width: 1.125rem
+  padding: 0
+  margin-right: .875rem
+  font-size: 1.125rem
+
+.b-topic .footer-vote .vote-group .vote.yes:before
+  content: 'thumb_up'
+
+.b-topic .footer-vote .vote-group .vote.no:before
+  content: 'thumb_down'
+
+.b-topic .footer-vote .vote-group .separator
+  display: none
+/* END of Кнопки голосования в рецензиях и коллекциях */
+
+
+
+
+/**
+ * COMMENT DOESN'T SLIDE
+ * Большие комментарии, топики не должны сдвигаться margin'ами.
+ * Либо translate3d либо никак.
+ */
+
+.b-topic.aside-expanded > .inner,
+.b-dialog.aside-expanded > .inner,
+.b-message.aside-expanded > .inner,
+.b-comment.aside-expanded > .inner,
+.b-topic.aside-expanded > .b-comments
+  margin-left: 0
+
+.b-topic.aside-expanded > .inner aside.buttons,
+.b-dialog.aside-expanded > .inner aside.buttons,
+.b-message.aside-expanded > .inner aside.buttons,
+.b-comment.aside-expanded > .inner aside.buttons
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  width: auto
+  height: 100%
+  margin: 0 -16px
+  padding: 8px 16px
+  border: 0
+  overflow-y: auto
+  z-index: 3
+
+.b-dialog > .inner > aside.buttons > .main-controls > a:after,
+.b-dialog > .inner > aside.buttons > .main-controls > span:after,
+.b-dialog > .inner > aside.buttons > .delete-controls > span:after,
+.b-dialog > .inner > aside.buttons > .moderation-controls > span:after,
+.b-message > .inner > aside.buttons > .main-controls > a:after,
+.b-message > .inner > aside.buttons > .main-controls > span:after,
+.b-message > .inner > aside.buttons > .delete-controls > span:after,
+.b-message > .inner > aside.buttons > .moderation-controls > span:after,
+.b-comment > .inner > aside.buttons > .main-controls > a:after,
+.b-comment > .inner > aside.buttons > .main-controls > span:after,
+.b-comment > .inner > aside.buttons > .delete-controls > span:after,
+.b-comment > .inner > aside.buttons > .moderation-controls > span:after
+  vertical-align: top
+  padding-left: 12px !important
+  font-size: 16px !important
+  line-height: 18px
+
+/* OPEN DIALOG BY CLICK */
+.b-dialog .to_dialog
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: 0 -16px
+  font-size: 0
+
+.b-dialog:hover .to_dialog
+  background-color: rgba(0, 0, 0, .05)
+  z-index: 0
+
+.b-dialog img,
+.b-dialog a,
+.b-dialog .buttons,
+.b-dialog .b-new_marker
+  position: relative
+  z-index: 2
+/* END of OPEN DIALOG BY CLICK */
+
+
+/**
+ * BBCode: CODE
+ * Новый тег отвечающий за оформление программных кодов.
+ */
+
+code
+  vertical-align: middle
+  padding: .5px 4px
+  background-color: rgba(32,32,32,0.05)
+  border-radius: 2px
+  font-size: .875rem
+
+pre
+  position: relative
+
+.b-code
+  padding: 1rem
+  margin: .5rem 0
+  background: #303030
+  border-radius: 2px
+  font-size: .875rem
+
+@media (min-width: 960px)
+  .b-code:before
+    content: attr(data-language)
+    position: absolute
+    top: 1rem
+    right: .5rem
+    padding: 0 .5rem
+    background-color: #747474
+    border-radius: 2px
+ 
+
+  .tooltip-details .b-code:before
+    display: none
+ 
+/* END of CODE */
+
+/* CODE: SUBLIME 3 MATERIAL THEME'S COLOR */
+.b-code
+  background: #263238
+
+.hljs-selector-tag
+  color: #FF5370
+
+.hljs-selector-id
+  color: #FAD430
+
+.hljs-selector-class
+  color: #FFCB6B
+
+.hljs-selector-pseudo,
+.hljs-meta
+  color: #C792EA
+
+.hljs-attribute
+  color: #80CBC4
+
+.hljs-built_in
+  color: #89DDFF
+
+.hljs-number
+  color: #F77669
+
+.hljs-string
+  color: #C3E88D
+
+.hljs-comment
+  color: #5C7E8C
+/* END of CODE' THEME */
+
+/* -------------- */
+/* END of COMMENT */
+/* -------------- */
+
+
+/* TOAST */
+#toast-container
+  line-height: 1.5rem
+
+.toast-top-right
+  top: auto
+  bottom: 0
+  right: 0
+  left: 0
+
+#toast-container > div
+  width: 100%
+  max-width: 25rem
+  padding: .875rem 1.5rem
+  margin: auto
+
+.toast-message
+  display: inline-block
+  vertical-align: top
+  line-height: 1.5rem
+
+#toast-container > .toast-success
+  background-color: #323232
+  background-image: none !important
+
+#toast-container > .toast-error
+  background-color: #323232
+  background-image: none !important
+
+#toast-container > .toast-error:before
+  content: 'error_outline'
+  float: left
+  display: inline-block
+  vertical-align: top
+  margin: -4px 1.5rem -4px 0
+  font-size: 2rem
+  font-family: 'Material Icons'
+  line-height: 1
+  box-sizing: border-box
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+/* END of TOAST */
+
+
+
+
+
+/* CLUB */
+.b-clubs-menu .b-block_list li
+  font-size: .875rem
+
+.p-clubs-show .b-topic-preview.mini
+  margin-bottom: .5rem
+
+/* Действия в клубах */
+.b-clubs-menu .club-actions
+  margin: 0 0 .5rem 0
+
+.club-actions .edit-club,
+.club-actions .broadcast,
+.club-actions .upload,
+.club-actions .join,
+.club-actions .invite,
+.club-actions .leave
+  width: auto
+  height: auto
+  padding: .5rem
+  margin: 0 .5rem 0 0
+  border-radius: .125rem
+  color: $text_hint !important
+  line-height: 0
+
+.club-actions .edit-club:hover,
+.club-actions .broadcast:hover,
+.club-actions .upload:hover,
+.club-actions .join:hover,
+.club-actions .invite:hover,
+.club-actions .leave:hover
+  background-color: $button_hover
+  color: $text_secondary !important
+
+.club-actions .edit-club:before,
+.club-actions .broadcast:before,
+.club-actions .upload:before,
+.club-actions .join:before,
+.club-actions .invite:before,
+.club-actions .leave:before
+  width: 1.5rem
+  font-size: 1.5rem
+
+.club-actions .edit-club:before
+  content: 'build'
+.club-actions .broadcast:before
+  content: 'speaker_notes'
+.club-actions .upload:before
+  content: 'attach_file'
+.club-actions .join:before,
+.club-actions .invite:before
+  content: 'person_add'
+.club-actions .leave:before
+  content: 'directions_run'
+
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .club-actions .edit-club,
+  .club-actions .broadcast,
+  .club-actions .upload,
+  .club-actions .join,
+  .club-actions .invite,
+  .club-actions .leave
+    display: block
+    margin: 0
+
+  .club-actions .edit-club:after,
+  .club-actions .broadcast:after,
+  .club-actions .upload:after,
+  .club-actions .join:after,
+  .club-actions .invite:after,
+  .club-actions .leave:after
+    color: $text_primary
+    padding-left: 1.5rem
+    font-size: inherit
+    line-height: 1.5
+
+/* Навигация в клубах: "контент" */
+.b-pages
+  max-width: 15rem
+  padding: 0 1rem
+  margin: 0 0 1.5rem 2rem
+  border-radius: 2px
+
+.b-pages .title
+  font-size: .875rem
+  line-height: 3rem
+  text-transform: uppercase
+
+.b-pages .section
+  margin: 0 0 .5rem
+
+/* Названия страниц клубов */
+.p-club_pages .l-content .subheadline,
+.p-club_pages .l-content .subheadline > a
+  max-width: 100%
+  white-space: normal
+
+/* CLUB PAGE EDITOR */
+@media screen and (max-width: 767px)
+  .edit_club_page .cc-2a > .c-column
+    width: 100%
+ 
+
+  .edit_club_page .cc-2a > .c-column:nth-child(1n+1)
+    clear: left
+ 
+
+/* FIX: CLUB'S BUTTONS */
+.p-clubs-edit .pages .button
+  margin-right: .5rem
+
+.p-clubs-edit .pages .club_page-layout,
+.p-clubs-edit .pages .club_page-actions
+  font-size: .875rem
+  padding-left: 1rem
+
+.p-clubs-edit .pages .club_page-actions .b-js-link
+  margin-right: .5rem
+
+.p-club_pages-show .item-edit:before
+  content: 'edit'
+/* END of CLUB'S BUTTONS */
+
+
+/* Поиск клубов и коллекций */
+.b-collection_search .field
+  margin-bottom: 1.5rem
+
+.b-collection_search .field input
+  border-radius: 2px
+  padding: .75rem 1rem
+  font-size: 1rem
+
+.b-collection_search .field .clear
+  position: absolute
+  top: 0
+  right: 0
+  padding: .625rem
+  font-size: 0
+  line-height: 0
+
+.b-collection_search .field .clear:hover
+  text-decoration: none
+
+.b-collection_search .field .clear:before
+  content: 'clear'
+  position: static
+  font-size: 1.5rem
+/* END of Поиск клубов */
+
+/* ICON | CREATE CLUB */
+.p-clubs-index header.head a.misc
+  float: right
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px
+  font-size: 0
+
+.p-clubs-index header.head a.misc:hover
+  background-color: #ddd
+  text-decoration: none
+
+.p-clubs-index header.head a.misc:before
+  content: 'group_add'
+/* END of CREATE CLUB */
+
+
+/* TODO: merge with Material icons */
+.p-club_pages-show .item-edit:before,
+.p-clubs-index header.head a.misc:before
+  width: 1.5rem !important
+  font-family: 'Material Icons' !important
+  font-size: 1.5rem !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+
+.p-club_pages-show .item-edit
+  color: $text_hint
+
+.p-club_pages-show .item-edit:hover
+  background-color: $button_hover
+  color: $text_secondary
+
+@media only screen and (min-width: 1025px)
+  .p-club_pages-show .item-edit:active
+    background-color: $button_hover
+    color: $text_secondary
+
+/* END of CLUB */
+
+
+
+/* TODO: replace */
+.p-contests .results .cc-result .c-rounds .label
+  font-size: .875rem
+
+
+
+
+
+/**
+ * INDEX
+ * Изменения главной страницы.
+ *
+ */
+
+.p-dashboards-show .c-my_list
+  padding: 0
+  background: initial
+  border: none
+
+.p-dashboards-show .c-my_list .title .switch,
+.p-dashboards-show .c-my_list .title .link
+  float: right
+
+.p-dashboards-show .cc-news .c-generated_news .b-topic .name-date a
+  font-size: 16px !important
+
+
+.b-forums
+  margin-bottom: .5rem
+  line-height: inherit
+
+@media screen and (max-width: 767px)
+  .p-dashboards-show .cc-second
+    margin-bottom: .5rem
+
+/* Изменение новостей на главной */
+.p-dashboards-show .cc-news .c-news_topics .b-topic
+  padding: 1rem 0 1.5rem
+  border-top-width: 1px
+
+@media screen and (max-width: 767px)
+  .p-dashboards-show .cc-news .c-news_topics .b-topic
+    margin-bottom: 0
+ 
+
+@media only screen and (min-width: 768px)
+  .p-dashboards-show .cc-news .c-news_topics .b-topic
+    margin-bottom: 0
+ 
+
+.p-dashboards-show .cc-news .c-news_topics .b-topic .name-date a
+  padding: 0 0 .25rem
+  font-size: 22px !important
+  font-weight: 400 !important
+  line-height: 1.65
+  white-space: normal
+
+.p-dashboards-show .cc-news .c-news_topics .b-topic .b-anime_status_tag
+  display: none
+/* КОНЕЦ – Изменение новостей на главной */
+
+
+
+/* Change Forum Button */
+/* NOTE: Цвета настраиваются в общем блоке ЦВЕТА */
+.p-dashboards-show .b-forums > .b-link_button.maxi
+  position: relative
+  margin-bottom: 0
+  background-color: transparent
+  font-size: 0
+  line-height: 0
+  text-align: left
+  overflow: visible
+
+.p-dashboards-show .b-forums > .b-link_button.maxi:after
+  display: inline-block
+  vertical-align: top
+  padding: 0 1rem
+  margin: .5rem -1rem
+  border-radius: .125rem
+  font-size: .875rem
+  line-height: 2rem
+
+.locale-ru.p-dashboards-show .b-forums > .b-link_button.maxi:after
+  content: 'Форум'
+
+.locale-en.p-dashboards-show .b-forums > .b-link_button.maxi:after
+  content: 'Forum'
+
+.p-dashboards-show .b-forums > .b-link_button.maxi:before
+  display: block
+  font-family: 'Material Icons' !important
+  font-size: 18px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-dashboards-show .b-forums > .b-link_button.maxi:before
+  position: absolute
+  right: 0
+  left: 0
+  color: inherit
+  line-height: 3rem !important
+  text-align: right
+
+.p-dashboards-show .b-forums > .b-link_button.maxi:before
+  content: 'chevron_right'
+/* END of Change Forum Button */
+
+/* ТЕМЫ ДНЯ */
+.b-hot_topics
+  padding: .5rem 1rem
+  margin: -.5rem -1rem 0 -1rem
+  background-color: initial
+  border: 0
+
+.b-hot_topics .topic
+  font-size: .875rem
+  line-height: 2rem
+  text-align: left
+
+.b-hot_topics .topic.subject
+  font-size: .875rem
+  line-height: 2rem
+  text-align: left
+  text-transform: uppercase
+  white-space: nowrap
+
+.b-hot_topics .topic a
+  padding: 0 .75rem
+  border-radius: 1rem
+
+.b-hot_topics .topic a:hover
+  text-decoration: none
+
+.b-hot_topics .topic a .poster
+  position: initial
+  display: inline-block
+  vertical-align: middle
+  width: 2rem
+  height: 2rem
+  margin-left: -.75rem
+  margin-right: .5rem
+  border-radius: 100%
+
+@media screen and (max-width: 1024px)
+  .b-hot_topics
+    padding: 14px 16px
+    margin: -16px -16px 0 -16px
+    border: 0
+ 
+
+  .b-hot_topics .topic a .poster
+    display:none
+ 
+
+@media only screen and (min-width: 1025px)
+  .b-hot_topics .topic
+    margin-right: .5%
+    width: 10.6666%
+ 
+
+
+
+
+
+/**
+ * FORUM
+ * СТРАНИЦЫ ФОРУМА
+ */
+
+.p-topics .l-menu .b-forums,
+.block2,
+.contests.block
+  margin-bottom: 1.5rem
+  line-height: 1.5rem
+
+.b-forums .forum
+  clear: both
+  position: relative
+  min-height: 1.5rem
+  line-height: 1.5rem
+  padding: 0 .5rem
+  margin: 0 -.5rem
+
+.b-forums .forum .link-with-input .link
+  display: inline-block
+  vertical-align: top
+  position: absolute
+  right: 0
+  left: 0
+  padding-left: .5rem
+
+.b-forums .forum input
+  position: absolute
+  left: 0
+  width: 2rem
+  height: 1.5rem
+  margin-right: .25rem
+  border: 0
+  opacity: 0
+  z-index: 1
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+.b-forums .forum .link-with-input input + .link
+  padding-left: 2.25rem
+
+.b-forums .forum input + .link:before
+  content: 'check_box_outline_blank'
+  display: block
+  position: absolute
+  top: 0
+  left: 0.375rem
+  width: 1.125rem
+  margin: 0.1875rem 0
+
+  font-family: 'Material Icons' !important
+  font-size: 1.125rem !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-forums .forum input:hover + .link:before
+  opacity: .9
+
+.b-forums .forum input:checked + .link:before
+  content: 'check_box'
+
+.b-forums .forum input:disabled + .link:before
+  color: #BDBDBD
+
+.b-forums .forum .topics
+  font-size: .75rem
+
+/* FIX: TOPIC UPDATE ICON (issue #5) */
+.p-topics header h1 a.reload:hover:after
+  position: static
+/* END of FORUM */
+
+
+
+
+
+/**
+ * PROFILE
+ * ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
+ */
+
+/* Убираем лишние overflow */
+.p-profiles-show .profile-content
+  overflow: visible
+
+/* Настраиваем равномерные отступы */
+.p-profiles .profile-content .cc-2,
+.p-profiles .profile-content .about,
+.p-profiles .profile-content .cc-2 .c-right .cc-2a
+  margin-bottom: 1rem !important
+
+@media screen and (max-width: 767px)
+  .cc-2 > .c-column
+    margin-bottom: 1rem
+ 
+
+  .p-profiles-show .profile-content .activity:last-child
+    margin-bottom: 1.25rem !important
+ 
+
+/* Полосы аниме/манги */
+.b-stats_bar .bar .first,
+.b-stats_bar .bar .second
+  color: inherit
+
+.b-stats_bar.anime .bar
+  color: $primaryBG_color
+
+.b-stats_bar.manga .bar
+  color: $accentBG_color
+
+.b-stats_bar .bar .third
+  color: $text_primary
+
+.b-stats_bar.anime .bar .second
+  background-color: rgba($primary, .72)
+
+.b-stats_bar.manga .bar .second
+  background-color: rgba($accent, .72)
+
+.line:nth-child(even) > .bar-container > .bar
+  opacity: 0.64
+
+/* Столбики активности */
+.bar.vertical
+  padding: 0
+  border: none
+
+.bar.vertical .line
+  border: none
+
+.bar.vertical .line .bar-container .value
+  font-size: .75rem
+  line-height: 1.25rem
+
+/* User aliases */
+.p-profiles .profile-head .c-brief header h1
+  vertical-align: top
+
+.p-profiles .profile-head .c-brief header h1.aliases
+  cursor: help
+
+.p-profiles .profile-head .c-brief header h1.aliases:after
+  display: inline-block
+  vertical-align: top
+  width: 2rem
+  height: 2rem
+  margin: 0
+  margin-left: .5rem
+  color: inherit
+  font-family: 'Material Icons'
+  font-size: 1.125rem
+  line-height: 2rem
+  text-align: center
+  cursor: help
+  opacity: .5
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-profiles .profile-head .c-brief header h1.aliases:after
+  content: 'label'
+
+.p-profiles header.head .misc
+  vertical-align: top
+  padding: 0 1rem
+  margin: 0
+  font-size: .875rem
+  line-height: 3rem
+
+.p-profiles .profile-head .c-brief header .notice
+  line-height: 1.25rem
+
+/* FIX: update 2017-03-19 */
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
+  clear: none
+
+/* Списки аниме/манги */
+.b-stats_bar .stat_names .stat_name:after
+  display: none
+
+.b-stats_bar .stat_names .stat_name
+  padding: 0 1rem 0 0
+  font-size: .875rem
+  line-height: 2rem
+
+.b-stats_bar .stat_names .stat_name a
+  display: block
+  line-height: inherit
+
+/* Выпадающий список аниме/манги в профиле */
+@media screen and (max-width: 599px)
+  .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+    position: relative
+ 
+
+  .b-stats_bar .stat_names .stat_name
+    display: none
+ 
+
+  .b-stats_bar .stat_names:hover .stat_name
+    display: block
+ 
+
+  .b-stats_bar .stat_names .stat_name,
+  .b-stats_bar .stat_names .stat_name a
+    padding: 0 1rem 0 0
+ 
+
+  .b-stats_bar .stat_names .stat_name a
+    display: block
+    margin: 0 -1rem
+ 
+
+  .b-stats_bar .stat_names .stat_name a:hover
+    background-color: rgba(0,0,0,.24)
+    text-decoration: none
+ 
+
+  .b-stats_bar .stat_names
+    position: absolute
+    top: 0
+    min-width: 165px
+    border-radius:  .125rem
+ 
+
+  .b-stats_bar .stat_names:hover
+    padding: 3rem 0 .5rem
+    z-index: 10
+ 
+
+  .b-stats_bar .stat_names:after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.32)
+    z-index: -1
+ 
+
+  .b-stats_bar .stat_names:before
+    content: 'arrow_drop_down'
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    width: 2rem
+    height: 2rem
+    padding: .25rem
+    margin: .5rem .25rem
+    border-radius: 100%
+    font-size: 1.5rem
+    font-family: 'Material Icons'
+    line-height: 1
+    box-sizing: border-box
+    pointer-events: auto
+
+    text-transform: none
+    letter-spacing: normal
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale
+    /* Support for IE. */
+    font-feature-settings: 'liga'
+ 
+
+  .b-stats_bar .stat_names .stat_name,
+  .b-stats_bar .stat_names .stat_name a 
+    padding: 0 1rem
+ 
+/* Конец: Выпадающий список аниме/манги в профиле */
+
+.edit_user_preferences .b-options-floated.about-options
+  position: absolute
+  right: 0
+  margin: 1rem 0
+  background: transparent !important
+  text-align: right
+  z-index: 1
+
+.edit_user_preferences .about-options .b-input
+  margin-bottom: 0 !important
+
+.edit_user_preferences .about-options .b-input label
+  line-height: 1.5rem
+
+.b-list_switchers > .switcher
+  width: 2.5rem
+  height: 2.5rem
+  padding: .5rem
+  margin: .25rem
+
+.b-list_switchers .switcher.posters
+  margin-left: .25rem !important
+
+.b-list_switchers .switcher.list
+  margin-left: .25rem !important
+
+.p-user_rates-index .l-menu .avatar img
+  width: 10rem
+  height: 10rem
+
+.p-user_rates-index .l-content thead tr
+  font-size: 13px
+  line-height: 2rem
+
+.p-user_rates-index .list-lines tr td .rate-text
+  font-size: .875rem
+  line-height: 1.25rem
+
+.p-user_rates-index .list-lines tr td .new-value input
+  height: 1.5rem
+  font-size: 1rem
+  line-height: 1.5rem
+
+.p-user_rates-index .list-lines tr.edit-form form
+  padding: .25rem 1rem
+  margin: .5rem 0
+  border-style: solid
+  border-width: 1px
+
+.p-user_rates-index .list-lines tr.edit-form .b-input.text textarea
+  font-size: .875rem
+
+.b-user_rate .rate-edit .b-input.integer input,
+.p-user_rates-index .list-lines tr.edit-form .b-input.integer input
+  width: 7rem
+
+.p-profiles-show .b-stats_bar a.title
+  padding: .5rem 1rem
+  margin: .5rem -1rem
+
+.p-profiles-show .b-stats_bar a.title:hover
+  text-decoration: none !important
+
+.p-user_rates-index .list-lines tr.edit-form .remove
+  width: 2.5rem
+  height: 2.5rem
+  padding: .5rem
+  margin: .25rem
+
+.p-user_rates-index .list-lines tr.edit-form .remove
+  margin: -.25rem 0 0
+  border: 0
+  font-size: 0
+
+.p-user_rates-index .list-lines tr.edit-form .remove:before
+  width: 1.5rem !important
+  font-family: 'Material Icons' !important
+  font-size: 1.5rem !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-user_rates-index .list-lines tr.edit-form .remove:before 
+  content: 'delete'
+
+/* Комментарий на постере */
+.p-user_rates-index .list-posters .user_rate > .text
+  bottom: 4rem
+  padding: .25rem .5rem
+  background: rgba(0,0,0,.6)
+  border-radius: 0 0 .125rem .125rem
+
+.p-user_rates-index .list-posters .user_rate > .text:before
+  display: none
+
+.p-user_rates-index .list-posters .user_rate.b-ajax:after
+  margin-top: -1.5rem
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+  overflow: visible
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+  margin-bottom: 0
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
+  clear: none
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar.manga
+  margin-top: 8px
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a
+  font-size: .875rem
+  margin-top: 1rem
+
+.b-stats_bar .bar
+  height: auto
+
+.b-stats_bar .bar .first,
+.b-stats_bar .bar .second,
+.b-stats_bar .bar .third
+  font-size: .75rem
+  line-height: 1.25rem
+
+.p-profiles .profile-head .c-brief .avatar .profile-actions
+  margin-top: 1rem
+  margin-right: -.75rem
+  margin-left: -.75rem
+
+.profile-actions > a
+  display: inline-block
+  padding: .5rem
+
+.profile-actions > *:before
+  vertical-align: top
+  width: 1.5rem !important
+  line-height: 1 !important
+  font-size: 1.5rem !important
+
+.p-profiles .profile-head .c-brief .avatar > img
+  display: block
+  margin: auto
+
+@media only screen and (min-width: 768px)
+  .p-profiles .profile-head .c-brief .avatar
+    margin: .5rem 2rem 3rem 1rem
+ 
+
+  .p-profiles .profile-head .c-brief .avatar > img
+    width: 10rem
+    height: 10rem
+ 
+
+@media screen and (max-width: 1024px)
+  .profile-actions .settings,
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove,
+  .profile-actions .ignore-add,
+  .profile-actions .ignore-remove,
+  .profile-actions .ban
+    margin-left: .5rem
+ 
+
+@media only screen and (min-width: 1025px)
+  .profile-actions .settings,
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove,
+  .profile-actions .ignore-add,
+  .profile-actions .ignore-remove,
+  .profile-actions .ban
+    margin-left: .5rem
+ 
+
+/* TODO: replace */
+.b-catalog-entry-embedded .b-catalog_entry
+  margin-bottom: 0 !important
+
+/* TODO: replace */
+.l-page .b-anime_status_tag:before
+  vertical-align: text-bottom
+  padding: 0 .25rem
+  border: 0
+  font-size: .625rem
+  line-height: 1rem
+  text-transform: uppercase
+
+/* TODO: replace */
+.b-topic
+  margin-bottom: .5rem
+
+/* TODO: replace */
+.m13
+  margin-bottom: 0 !important
+
+/* USER PROFILE |> HISTORY ENTRY */
+.p-profiles .profile-head .c-history .entry
+  position: relative
+  padding: .5rem 0
+  margin: 0
+  border: 0
+  overflow: initial
+
+.p-profiles .profile-head .c-history .entry,
+.p-profiles .profile-head .c-history .entry:first-child
+  padding-top: .5rem
+  margin-top: 0
+
+.p-profiles .profile-head .c-history .entry:before
+  content: ''
+  display: block
+  position: absolute
+  right: -.5rem
+  bottom: 0
+  left: 3.5rem
+  height: 1px
+  pointer-events: none
+
+.p-profiles .profile-head .c-history .entry:last-child:before
+  display: none
+
+/* Полноразмерная ссылка .entry, работает только для .c-history & .l-menu */
+.p-profiles .profile-head .c-history .entry a
+  display: block
+  padding: .5rem .5rem
+  margin: -.5rem
+
+@media screen and (min-width: 960px)
+  .p-profiles .profile-head .c-history .entry a
+    padding: .75rem .5rem
+ 
+
+.p-profiles .profile-head .c-history .entry a:after
+  content: ''
+  clear: both
+  display: block
+
+.p-profiles .profile-head .c-history .entry:hover .title
+  text-decoration: none
+/* END of FULLENTRY LINK */
+
+.p-profiles .profile-head .c-history .entry img
+  margin: 0 16px 0 0
+  max-height: 72px
+  max-width: 40px
+
+/* Страница истории пользователя */
+.p-user_history-index .history-page .history-interval p
+  line-height: 1.5rem
+  margin-bottom: 0
+
+.b-user_rate-extended > .midheadline
+  overflow: hidden
+
+.p-user_rates-index .l-content .filter input
+  padding: .5rem 1rem
+  font-size: .875rem
+
+/* Страница сравнения списков */
+.p-userlist_comparer .notice span
+  padding: 1.5px 4px !important
+  border-radius: 2px
+
+/* Цвета списков */
+.p-userlist_comparer .comparer table .abslt-difr,
+.p-userlist_comparer .legend .abslt-difr,
+.p-userlist_comparer .notice span:nth-child(6)
+  background: rgba(244, 67, 54, .5) !important
+
+.p-userlist_comparer .comparer table .slightly-difr,
+.p-userlist_comparer .legend .slightly-difr,
+.p-userlist_comparer .notice span:nth-child(4)
+  background: rgba(255, 138, 128, .5) !important
+
+.p-userlist_comparer .comparer table .almost-same,
+.p-userlist_comparer .legend .almost-same,
+.p-userlist_comparer .notice span:nth-child(3)
+  background: rgba(185, 246, 202, .5) !important
+
+.p-userlist_comparer .comparer table .exact-same,
+.p-userlist_comparer .legend .exact-same,
+.p-userlist_comparer .notice span:nth-child(5)
+  background: rgba(76, 175, 80, .5) !important
+
+.p-profiles .profile-head .c-info .c-additionals
+  margin-top: 8px
+  margin-bottom: 8px
+
+.p-profiles .profile-head .c-info .c-additionals b
+  padding-right: 8px
+  font-size: 0
+
+.p-profiles .profile-head .c-info .c-additionals b:after
+  font-size: 14px
+
+.p-profiles.locale-ru .profile-head .c-info .c-additionals b:after
+  content: 'Активность на сайте:'
+
+.p-profiles.locale-en .profile-head .c-info .c-additionals b:after
+  content: 'Activity:'
+
+/* Время за аниме и манга */
+.p-profiles .lifetime .bar, .p-profiles .lifetime .times
+  line-height: 0
+
+.p-profiles-show .lifetime .bar
+  height: 1.25rem
+
+.b-stats_bar.lifetime .bar .first
+  background: $primary
+  opacity: .72
+
+.p-profiles-show .lifetime .cuts .cut
+  width: 0
+  height: 0
+  margin: .5rem -.25rem
+  background: transparent
+  border: .375rem solid transparent
+  border-bottom-color: $background
+  z-index: 1
+
+.p-profiles-show .lifetime .times .time
+  color: $text_disabled
+  font-size: .625rem
+  line-height: 1.25rem
+  text-transform: uppercase
+
+.p-profiles-show .lifetime .times .time.checked
+  color: $primary
+
+.p-profiles-show .lifetime .times .time.checked:before
+  display: none
+  color: $primary
+  opacity: .72
+
+
+/**
+ * PROFILE HEAD
+ * Adaptive profile header includes: avatar, history, information, anime/manga bars.
+ */
+
+.p-profiles .profile-head
+  position: relative
+  overflow: visible
+
+.p-profiles .profile-head
+  min-height: 15.5rem
+  padding-top: 3rem
+  margin-top: -1rem
+
+.p-profiles .profile-head .c-info
+  margin-bottom: .5rem
+
+.p-profiles .profile-head .c-info
+  overflow: visible
+
+.p-profiles .profile-head .c-history
+  margin-bottom: 3rem
+
+.p-profiles .profile-head .c-history.x3
+  margin-bottom: 2rem
+
+.p-profiles .profile-head .c-brief
+  position: relative
+  margin: -3rem -1rem 1rem
+  overflow: hidden
+
+.p-profiles .profile-head .c-brief:before
+  content: ''
+  display: block
+  height: 0
+  padding-bottom: 0
+
+.p-profiles .profile-head .c-brief .avatar > img,
+.p-profiles .profile-head .c-history
+  display: none
+
+@media screen and (min-width: 320px)
+  .p-profiles .profile-head .c-mobile-actions
+    display: none
+ 
+
+  .p-profiles .profile-head .c-brief:before
+    content: ''
+    display: block
+    height: 0
+    padding-bottom: 34%
+ 
+
+  .p-profiles .profile-head .c-brief .avatar
+    float: none
+    max-width: 100%
+    margin: 0 auto
+    margin-top: -17%
+ 
+
+  .p-profiles .profile-head .c-brief .avatar > img
+    display: block
+    width: 36%
+    max-width: 10rem
+    min-width: 5rem
+    margin: auto
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions
+    display: block
+    position: absolute
+    width: 100%
+    padding: 0 .5rem
+    margin: 0 auto
+    margin-top: -15%
+    text-align: left
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions > a:first-child
+    float: right
+    margin: 0 .25rem
+ 
+
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove
+    float: right
+ 
+
+  .p-profiles .profile-head .c-brief header
+    clear: both
+    margin: 0
+    text-align: center
+ 
+
+@media screen and (min-width: 320px) and (max-width: 479px)
+  .p-profiles .profile-head .c-brief header .notice
+    padding: .5rem 1rem
+ 
+
+@media screen and (min-width: 320px) and (max-width: 599px)
+  .p-profiles .profile-head .c-brief header
+    background-color: inherit !important
+ 
+
+@media screen and (min-width: 320px) and (max-width: 959px)
+  .p-profiles .profile-head .c-history
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    width: auto
+    padding: 0 1rem
+    margin: 0 -1rem
+    background-color: rgba(0, 0, 0, .48)
+    white-space: nowrap
+    overflow-x: auto
+    z-index: 1
+ 
+
+  .p-profiles .profile-head .c-history > .subheadline
+    display: inline-block
+    vertical-align: top
+ 
+
+  .p-profiles .profile-head .c-history > .subheadline > a
+    color: #eee !important
+ 
+
+  .p-profiles .profile-head .c-history > .subheadline > a:before
+    display: none
+ 
+
+  .p-profiles .profile-head .c-history > .b-block_list
+    display: inline-block
+    vertical-align: top
+    padding: .5rem
+    margin-left: .5rem
+ 
+
+  .p-profiles .profile-head .c-history .entry
+    display: inline-block
+    vertical-align: top
+    min-width: 112px
+    height: 2rem
+    padding-right: .5rem
+    padding-left: .5rem
+    margin-left: .5rem
+    border-radius: 1rem
+    overflow: hidden
+ 
+
+  .p-profiles .profile-head .c-history .entry:before
+    display: none
+ 
+
+  .p-profiles .profile-head .c-history .entry .image-name
+    float: left
+    width: 32px
+    height: 32px
+    margin: -8px 8px -8px -8px
+    border-radius: 50%
+    font-size: 0
+    line-height: 0
+    overflow: hidden
+ 
+
+  .p-profiles .profile-head .c-history .entry span.misc
+    display: none
+ 
+
+  @media screen and (min-width: 600px)
+    .p-profiles .profile-head .c-history
+      padding: .25rem 1rem
+   
+ 
+
+@media screen and (max-width: 767px) and (min-width: 481px), screen and (max-width: 767px) and (orientation: landscape)
+  .p-profiles .profile-head .c-history .entry:first-child
+    display: inline-block
+ 
+
+@media screen and (min-width: 360px)
+  .profile-actions .settings,
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove,
+  .profile-actions .ignore-add,
+  .profile-actions .ignore-remove,
+  .profile-actions .ban
+    margin-left: .25rem
+ 
+
+@media screen and (min-width: 360px) and (max-width: 599px)
+  .p-profiles .profile-head .c-mobile-actions
+    display: none
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions
+    display: block
+ 
+
+@media screen and (min-width: 480px)
+  .p-profiles .profile-head .c-brief
+    margin-bottom: 0
+    overflow: visible
+ 
+
+  .p-profiles .profile-head .c-brief .avatar
+    position: absolute
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-brief header
+    margin-left: 10rem
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-info
+    margin-left: 9rem
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions
+    position: static
+    width: auto
+    padding: 0
+    margin-top: 1rem
+    margin-right: -12px
+    margin-left: -12px
+    text-align: center
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions > a:first-child
+    float: none
+    margin: 0
+ 
+
+  .profile-actions .fav-add,
+  .profile-actions .fav-remove
+    float: none
+ 
+
+  .p-profiles .profile-head .c-brief:before
+    padding-bottom: 48px
+ 
+
+  .p-profiles .profile-head .c-brief .avatar
+    max-width: 160px
+    margin: 1rem 1rem 1rem .5rem
+ 
+
+  .p-profiles .profile-head .c-brief .avatar img
+    width: 120px
+ 
+
+  .p-profiles .profile-head .c-brief header
+    clear: none
+    padding: 1rem 0 .5rem
+    text-align: left
+ 
+
+@media screen and (min-width: 600px)
+  .p-profiles .profile-head
+    background-color: inherit
+ 
+
+  .p-profiles .profile-head .c-brief
+    margin: -3rem -1rem 0
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-brief header
+    margin-left: 12.5rem
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-info
+    margin-left: 11.5rem
+ 
+
+  .p-profiles .profile-head .c-brief:before
+    padding-bottom: 56px
+ 
+
+  .p-profiles .profile-head .c-brief .avatar img
+    width: 160px
+ 
+
+  .p-profiles .profile-head .c-brief .avatar .profile-actions
+    display: block
+ 
+
+@media screen and (min-width: 768px)
+  .p-profiles .profile-head .c-brief
+    overflow: visible
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-brief header
+    margin-left: 13.5rem
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-info
+    margin-left: 12.5rem
+ 
+
+@media screen and (min-width: 960px)
+  .p-profiles .profile-head
+    padding-top: 0
+    margin-top: 0
+ 
+
+  .p-profiles .profile-head .c-brief
+    max-height: 504px
+    margin: 0
+    overflow: visible
+ 
+
+  .p-profiles .profile-head .c-brief:before
+    padding-bottom: 0
+ 
+
+  .p-profiles .profile-head .c-brief .avatar
+    margin: 1rem 2rem 1rem 0
+ 
+
+  .p-profiles .profile-head .c-info
+    margin-bottom: 1.5rem
+ 
+
+  /* Отступ от аватарки */
+  .p-profiles .profile-head .c-info
+    margin-left: 13.5rem
+ 
+
+  /* Отступ от истории */
+  .p-profiles .profile-head .c-info
+    margin-right: calc(23% + 3.5rem)
+ 
+
+  .p-profiles .profile-head .c-history
+    display: block
+    position: relative
+    top: 1rem
+    margin-left: 3.5rem
+    z-index: 1
+ 
+/* END of PROFILE HEAD */
+
+
+
+
+
+/**
+ * Иконки совместимости для профиля
+ * MIT License
+ * Copyright (c) 2016 grin3671
+ */
+
+/* ВАЖНО! */
+/* .p-profiles .profile-head .c-info overflow: visible /* Настройка для варианта №1 */
+
+/* Исправление видимости */
+/* Спасибо Kana Kuroki и Dewopalaxy */
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+  position: relative 
+  overflow: visible
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility span.link-replacement
+  position: relative
+  font-size: 0
+  line-height: 0
+  margin-top: 0
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:hover
+  text-decoration: none
+
+div.compatibility > a,
+div.compatibility > span.link-replacement
+  margin: 0 -.25rem
+
+div.compatibility > span.link-replacement
+  cursor: help
+
+div.compatibility > a:before,
+div.compatibility > span.link-replacement > span:first-child:before,
+div.compatibility > a > span:first-child:before
+  display: block
+  width: 2.5rem
+  height: 2.5rem
+  padding: .5rem
+  margin: .25rem
+  border-radius: .125rem
+  font-size: 1.5rem
+  font-family: 'Material Icons'
+  line-height: 1
+  box-sizing: border-box
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+div.compatibility > a > span:first-child:before
+  position: absolute
+  top: 0
+
+div.compatibility > a:hover:before,
+div.compatibility > a:hover > span:first-child:before
+  text-decoration: none
+
+/* Настройка иконок совместимости */
+div.compatibility > a:before
+  content: 'compare_arrows'
+
+div.compatibility > span.link-replacement > span:first-child:before,
+div.compatibility > a > span:first-child:before
+  content: 'people'
+
+div.compatibility > a > .text.zero:before,
+div.compatibility > span.link-replacement > .text.zero:before
+  content: 'people_outline'
+/* КОНЕЦ: Настройка иконок совместимости */
+
+/* Цветные иконки совместимости */
+/* Низкая совместимость */
+div.compatibility > a > .text.weak:before
+  background-color: #F9FBE7
+  color: #CDDC39
+
+div.compatibility > a:hover > .text.weak:before,
+div.compatibility > span.link-replacement > .text.weak:before
+  background-color: #F0F4C3
+  color: #C0CA33
+
+/* Средняя совместимость */
+div.compatibility > a > .text.moderate:before
+  background-color: #F1F8E9
+  color: #8BC34A
+
+div.compatibility > a:hover > .text.moderate:before,
+div.compatibility > span.link-replacement > .text.moderate:before
+  background-color: #DCEDC8
+  color: #7CB342
+
+/* Высокая совместимость */
+div.compatibility > a > .text.high:before
+  background-color: #E8F5E9
+  color: #4CAF50
+
+div.compatibility > a:hover > .text.high:before,
+div.compatibility > span.link-replacement > .text.high:before
+  background-color: #C8E6C9
+  color: #43A047
+
+/* Полная совместимость */
+div.compatibility > a > .text.full:before
+  background-color: #E1F5FE
+  color: #03A9F4
+
+div.compatibility > a:hover > .text.full:before,
+div.compatibility > span.link-replacement > .text.full:before
+  background-color: #B3E5FC
+  color: #039BE5
+/* КОНЕЦ: Цветные иконки совместимости */
+
+/* Недоступные для просмотра данные без фона */
+div.compatibility > span.link-replacement > span:first-child:before,
+div.compatibility > span.link-replacement:hover > span:first-child:before
+  background-color: transparent !important
+
+/* Подсказки для совместимости */
+/* + Подсказки для действий с почтой – thx Kaur */
+/* По умолчанию: располагаются слева от иконки */
+div.compatibility > a:after,
+div.compatibility > a > span:first-child:after,
+div.compatibility > span.link-replacement > span:first-child:after,
+.p-messages .mass-actions > .action > a:after
+  display: block
+  position: absolute
+  right: 100%
+  bottom: 0
+  padding: 0 .75rem
+  margin: 0 .75rem .5rem
+  background-color: #616161
+  border-radius:  .125rem
+  color: #eee
+  font-size: .875rem
+  line-height: 2rem
+  white-space: nowrap
+  transform: translateX(.75rem)
+  z-index: 100
+  pointer-events: none
+  opacity: 0
+  transition: .3s
+
+div.compatibility > a > span:first-child:after,
+div.compatibility > span.link-replacement > span:first-child:after
+  z-index: 101
+
+.p-messages .mass-actions > .action > a:after
+  margin: 0 .75rem .25rem
+
+div.compatibility > a:hover:after,
+div.compatibility > a:hover > span:first-child:after,
+div.compatibility > span.link-replacement:hover > span:first-child:after,
+.p-messages .mass-actions > .action > a:hover:after
+  opacity: .9
+  transform: translateX(0)
+
+/* Текст подсказок для совместимости */
+.locale-ru div.compatibility > a[href *= "similar"]:after
+  content: 'Найти похожих пользователей'
+
+.locale-en div.compatibility > a[href *= "similar"]:after
+  content: 'Find similar users'
+
+.locale-ru div.compatibility > a > .text.zero:after,
+.locale-ru div.compatibility > span.link-replacement > .text.zero:after
+  content: 'Нет совместимости'
+
+.locale-en div.compatibility > a > .text.zero:after,
+.locale-en div.compatibility > span.link-replacement > .text.zero:after
+  content: 'No compatibility'
+
+.locale-ru div.compatibility > a > .text.weak:after,
+.locale-ru div.compatibility > span.link-replacement > .text.weak:after
+  content: 'Низкая совместимость'
+
+.locale-en div.compatibility > a > .text.weak:after,
+.locale-en div.compatibility > span.link-replacement > .text.weak:after
+  content: 'Low compatibility'
+
+.locale-ru div.compatibility > a > .text.moderate:after,
+.locale-ru div.compatibility > span.link-replacement > .text.moderate:after
+  content: 'Средняя совместимость'
+
+.locale-en div.compatibility > a > .text.moderate:after,
+.locale-en div.compatibility > span.link-replacement > .text.moderate:after
+  content: 'Medium compatibility'
+
+.locale-ru div.compatibility > a > .text.high:after,
+.locale-ru div.compatibility > span.link-replacement > .text.high:after
+  content: 'Высокая совместимость'
+
+.locale-en div.compatibility > a > .text.high:after,
+.locale-en div.compatibility > span.link-replacement > .text.high:after
+  content: 'High compatibility'
+
+.locale-ru div.compatibility > a > .text.full:after,
+.locale-ru div.compatibility > span.link-replacement > .text.full:after
+  content: 'Полная совместимость'
+
+.locale-en div.compatibility > a > .text.high:after,
+.locale-en div.compatibility > span.link-replacement > .text.high:after
+  content: 'Full compatibility'
+
+/* Текст для действий с почтой */
+.locale-ru.p-messages .mass-actions > .action:nth-child(1) > a:after
+  content: 'Прочитать всё'
+
+.locale-en.p-messages .mass-actions > .action:nth-child(1) > a:after
+  content: 'Mark all messages as read'
+
+.locale-ru.p-messages .mass-actions > .action:nth-child(2) > a:after
+  content: 'Удалить всё'
+
+.locale-en.p-messages .mass-actions > .action:nth-child(2) > a:after
+  content: 'Remove all messages'
+
+/* Числовое обозначение совместимости */
+div.compatibility > a > span.rate,
+div.compatibility > span.link-replacement > span.rate
+  position: absolute
+  top: -.125rem
+  right: -.5rem
+  padding: 0 .25rem
+  border-radius:  .125rem
+  color: #fff
+  font-size: .75rem
+  line-height: 1rem
+
+div.compatibility > span.link-replacement > span.rate:before,
+div.compatibility > a > span.rate:before
+  display: none
+
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .rate:after
+  content: '%'
+  color: inherit
+
+div.compatibility > span.link-replacement > span.rate:after,
+div.compatibility > a > span.rate:after
+  display: none
+
+div.compatibility > a:before
+  background-color: transparent
+/* END of Иконки совместимости для профиля */
+
+
+
+
+
+/* ICON | EDIT ABOUT ME PROFILE'S BLOCK */
+.p-profiles-show .about .item-edit
+  display: inline-block
+  width: 2.5rem
+  height: 2.5rem
+  padding: .5rem
+  margin: .25rem 0
+
+.p-animes .item-edit:before,
+.p-mangas .item-edit:before,
+.p-profiles-show .about .item-edit:before
+  width: 1.5rem !important
+  font-family: 'Material Icons' !important
+  font-size: 1.5rem !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.p-animes .item-edit:before,
+.p-mangas .item-edit:before,
+.p-profiles-show .about .item-edit:before
+  content: 'edit'
+/* END of ICON */
+
+
+
+
+
+/* CHIP | USER PLATES */
+.b-user16
+  vertical-align: middle
+  max-width: 100%
+  padding: 0 .5rem
+  margin: 0 .5rem 0 0
+  background-color: #eee
+  border-radius: .5rem
+  font-size: .875rem
+  font-weight: 400
+  text-transform: initial
+  text-overflow: ellipsis
+  overflow: hidden
+
+.b-user16,
+.b-user16 a
+  line-height: 0 !important /* BUG: Лишний перенос строки в разметке thx オプティカル */
+
+.b-user16 > span,
+.b-user16 > a > span
+  line-height: 1rem !important
+
+.b-user16:hover
+  color: #f2f2f2 !important
+  background-color: #747474
+
+.b-user16:after
+  display: none !important
+
+.b-user16:hover a
+  color: #fff !important
+  text-decoration: none
+
+.b-user16 > a > span
+  padding: 0
+
+.b-user16:hover span
+  text-decoration: none
+
+.b-user16 img
+  position: static
+  display: inline-block
+  vertical-align: bottom
+  width: 16px !important
+  padding: 0
+  margin: 0 .375rem 0 -.5rem !important
+  margin-top: 0 !important
+  border-radius: .5rem
+
+.b-animes-menu .friend-rate .b-user16
+  display: inline-block
+
+.b-quote .quoteable a.b-user16
+  padding: 0 .5rem
+
+.p-anime_videos-index .c-video_stats .uploader .b-user16
+  padding-left: .5rem /* thx @Dewopalaxy */
+
+.b-log_entry .b-user16,
+.b-source .contributors .b-user16,
+.b-source .mal .b-user16,
+.b-source .source .b-user16
+  margin-right: .5rem
+
+.b-user16:last-child
+  margin-right: 0 !important
+
+.b-quote .quoteable a,
+.status-line > span:first-child
+  margin-right: .5rem
+
+.status-line .b-user16:last-child
+  margin-right: .5rem !important
+
+/* BUG: Лишний пробел в разметке */
+.b-quote .quoteable a.bubbled-processed
+  margin-right: .25rem !important /* thx @Dewopalaxy */
+
+/* BUG: Лишний пробел в разметке */
+.b-quote .quoteable a.bubbled-processed > img
+  margin-right: .125rem !important /* thx @Dewopalaxy */
+
+/* COLOR */
+.b-user16,
+.b-user16 a
+  color: #212121 !important
+/* END of USER PLATES */
+
+.b-source .contributors,
+.b-source .mal,
+.b-source .source
+  padding: 0
+
+.was_updated > div:first-child > span:first-child
+  margin-right: .5rem /* thx @Dewopalaxy */
+
+/* MODERATION LIST */
+.b-log_entry
+  position: relative
+  padding-right: 2.5rem !important
+  font-size: .875rem
+
+.b-log_entry,
+.b-log_entry .spoiler.collapse span:before,
+.b-log_entry .spoiler.collapsed:before
+  padding: .375rem 0
+  line-height: 1.25rem
+
+.b-log_entry .spoiler.collapse,
+.b-log_entry .spoiler.collapsed,
+.b-log_entry .spoiler.collapse span,
+.b-log_entry .spoiler.collapsed span
+  position: absolute
+  top: 0
+  right: 0
+  margin: 0
+  border: 0
+
+.b-log_entry .spoiler.collapse span:before,
+.b-log_entry .spoiler.collapsed:before
+  display: inline-block
+  vertical-align: top
+  position: relative
+  width: 1.5rem
+
+.b-ban .moderator
+  float: right
+  position: static
+
+.b-abuse_request .remove,
+.b-log_entry span,
+.b-log_entry .date 
+  padding-right: .5rem
+
+.b-ban .abuser,
+.b-ban .duration,
+.b-log_entry .date,
+.b-log_entry>.reason
+  vertical-align: top
+  font-size: inherit
+
+.b-log_entry span a
+  vertical-align: top
+
+.b-log_entry>.reason a
+  color: inherit
+
+.b-log_entry .spoiler.collapse,
+.b-log_entry .spoiler.collapsed,
+.b-log_entry .spoiler.collapse span,
+.b-log_entry .spoiler.collapsed span
+  font-size: 0
+  line-height: 0
+
+.b-log_entry .spoiler.collapse span:before,
+.b-log_entry .spoiler.collapsed:before
+  position: absolute
+  top: 0
+  right: 0
+  width: 2rem
+  font-family: 'Material Icons'
+  font-size: 1.125rem
+  font-weight: 400 !important
+  text-align: center
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-log_entry .spoiler.collapse span:before
+  content: 'expand_less'
+
+.b-log_entry .spoiler.collapsed:before
+  content: 'expand_more'
+
+@media screen and (min-width: 1025px)
+  .b-log_entry,
+  .b-log_entry .spoiler.collapse span:before,
+  .b-log_entry .spoiler.collapsed:before
+    padding: .125rem 0
+    line-height: 1.25rem
+ 
+
+/* FIX */
+.b-abuse_request .marker
+  margin: -5px 8px 0 0 !important /* thx @Dewopalaxy */
+/* END of MODERATION LIST */
+
+
+
+
+
+/**
+ * MATERIAL ICON
+ * Замена иконок.
+ *
+ * ПРАВИЛА:
+ * Следующие настройки касаются только иконок. Их цвета, родители и их положение настраивается отдельно.
+ * Иконки должны располагаться в псевдоэлементе :before
+ * Иконки используются в двух вариантах: 18px и 24px
+ * Следовательно родители иконок должны быть высотой 32px или 40px
+ *
+ * BUG:
+ * IE doesn't support Materail Icon's font format [.woff2]
+ */
+
+@font-face
+  font-family: 'Material Icons'
+  font-style: normal
+  font-weight: 400
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot) format('eot'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype')
+
+/* Стили Material Icons */
+.b-collection-topic > .inner .status-line .collection-size:before,
+.b-review_votes:before,
+.b-topic .footer-vote .star:before,
+.b-topic .footer-vote .vote-group .vote:before,
+.b-image .mobile-edit:before,
+.b-image .delete:before,
+.b-image.deletable .confirm:before,
+.b-image.deletable .cancel:before,
+.club-actions .edit-club:before,
+.club-actions .broadcast:before,
+.club-actions .upload:before,
+.club-actions .join:before,
+.club-actions .invite:before,
+.club-actions .leave:before,
+.l-top_menu .menu-items > .entry > a[href *= "/forum"]:before,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate:before,
+.b-collection_search .field .clear:before
+  font-family: 'Material Icons'
+  line-height: 1
+
+  font-weight: normal
+  letter-spacing: normal
+  text-transform: none
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+
+/* LARGE ICON */
+.c-actions > *:before,
+.profile-actions > *:before,
+.l-top_menu .menu-mobile .search:before,
+.l-top_menu .menu-mobile .menu:before,
+.l-top_menu .menu-mobile #sign_in:before,
+.l-top_menu .menu-userbox .search:before,
+.l-top_menu .menu-userbox .menu:before,
+.l-top_menu .menu-userbox #sign_in:before,
+.l-top_menu .to-mobile-forum:before,
+.l-top_menu .menu-items .submenu-toggler:before,
+.l-top_menu .menu-items .submenu-toggler.active:before,
+header.head h1 a.back:before,
+header.head h2 a.back:before,
+.item-mobile:before,
+.editor-controls > span:before,
+.b-add_to_list .trigger-arrow:before,
+.b-add_to_list.expanded .trigger-arrow:before,
+.b-add_to_list.watching .edit:before,
+.b-add_to_list.rewatching .edit:before,
+.b-add_to_list.on_hold .edit:before,
+.b-add_to_list.dropped .edit:before,
+.b-add_to_list .plus:before,
+.b-add_to_list.completed .edit:before,
+.b-add_to_list.planned .edit:before,
+.b-comments .comments-collapser:before,
+.b-list_switchers > .switcher:before,
+.p-characters .item-edit:before,
+.p-messages .mass-actions .action > a:before
+  width: 24px !important
+  font-family: 'Material Icons' !important
+  font-size: 24px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+/* SMALL ICON */
+.l-top_menu .menu-items > .entry.calendar > a:before,
+.l-top_menu .menu-items > .entry > .contest:before,
+.l-top_menu .menu-items > .entry.info > a:before
+  display: block
+  width: 18px !important
+  font-family: 'Material Icons' !important
+  font-size: 18px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.headline > a:before,
+.midheadline > a:before,
+.subheadline > a:before
+  display: block
+  font-family: 'Material Icons' !important
+  font-size: 18px !important
+  font-weight: 400 !important
+  line-height: 32px !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.headline > a:before,
+.midheadline > a:before,
+.subheadline > a:before
+  content: 'chevron_right'
+
+/* Иконки переключения вида каталога: список/постеры */
+.b-list_switchers .switcher.list:before
+  content: 'view_list'
+
+.b-list_switchers .switcher.lines:before
+  content: 'view_headline'
+
+.b-list_switchers .switcher.posters:before
+  content: 'view_module'
+
+/* Иконки списка аниме/манги пользователя */
+.b-add_to_list .plus:before
+  content: "add"
+
+.b-add_to_list.planned .edit:before
+  content: "event"
+
+.b-add_to_list.watching .edit:before
+  content: "play_arrow"
+
+.b-add_to_list.completed .edit:before
+  content: "done"
+
+.b-add_to_list.rewatching .edit:before
+  content: "replay"
+
+.b-add_to_list.on_hold .edit:before
+  content: "query_builder"
+
+.b-add_to_list.dropped .edit:before
+  content: "delete"
+
+.b-add_to_list .trigger-arrow:before
+  content: "arrow_drop_down"
+  transition: 240ms
+
+.b-add_to_list.expanded .trigger-arrow:before
+  content: "arrow_drop_down"
+  transform: rotate(180deg)
+
+/* Иконки верхнего меню */
+.l-top_menu .menu-items > .entry.calendar > a:before
+  content: "today"
+
+.l-top_menu .menu-items > .entry > .contest:before
+  content: "poll"
+
+.l-top_menu .menu-items > .entry.info > a:before
+  content: "info"
+
+.l-top_menu .menu-userbox #sign_in:before
+  content: "exit_to_app"
+
+.l-top_menu .to-mobile-forum:before
+  content: "forum"
+
+.l-top_menu .menu-items .submenu-toggler:before
+  content: 'arrow_drop_down'
+
+.l-top_menu .menu-items .submenu-toggler.active:before
+  content: "arrow_drop_down"
+  transform: rotate(180deg)
+
+/* Иконки профиля */
+.profile-actions .mail:before
+  content: "mail"
+
+.profile-actions .talk:before
+  content: "message"
+
+.profile-actions .fav-add:before
+  content: "person_add"
+
+.profile-actions .fav-remove:before
+  content: "person"
+
+.profile-actions .fav-remove:hover:before
+  content: "person_outline"
+  color: inherit
+
+.profile-actions .ignore-add:before
+  content: "do_not_disturb_on"
+
+.profile-actions .ignore-remove:before
+  content: "do_not_disturb_off"
+
+.profile-actions .settings:before
+  content: "settings"
+
+.profile-actions .ban:before
+  content: "gavel"
+
+/* Иконки текстового редактора */
+.buttons .editor-bold:before
+  content: "format_bold"
+
+.buttons .editor-italic:before
+  content: "format_italic"
+
+.buttons .editor-underline:before
+  content: "format_underlined"
+
+.buttons .editor-strike:before
+  content: "strikethrough_s"
+
+.buttons .editor-link:before
+  content: "insert_link"
+
+.buttons .editor-image:before
+  content: "insert_photo"
+
+.buttons .editor-quote:before
+  content: "format_quote"
+
+.buttons .editor-spoiler:before
+  content: "error_outline"
+
+.buttons .editor-file:before
+  content: "attach_file"
+
+.buttons .editor-smiley:before
+  content: "insert_emoticon"
+
+/* Иконки под постером аниме/манги/персонажа и т.д. */
+.c-actions .edit:before
+  content: "build"
+
+.c-actions .fav-remove:hover:before,
+.c-actions .fav-add:before
+  content: "favorite_border"
+
+.c-actions .fav-add:hover:before,
+.c-actions .fav-remove:before
+  content: "favorite"
+
+.c-actions .new_review:before
+  content: "rate_review"
+
+.c-actions .new_comment:before
+  content: "chat_bubble"
+
+/* Специальная иконка открывающая меню комментария/топика и т.д. */
+.item-mobile:before
+  content: "more_vert"
+
+.p-characters .item-edit:before
+  content: "edit"
+
+/* Иконка "закрыть" */
+.b-dialog.aside-expanded > .inner > .item-mobile:before,
+.b-message.aside-expanded > .inner > .item-mobile:before,
+.b-comment.aside-expanded > .inner > .item-mobile:before
+  content: "clear"
+
+/* Иконка "назад" */
+header.head h1 a.back:before,
+header.head h2 a.back:before
+  content: "arrow_back"
+
+/* Иконки в почте пользователя ("Отметить прочитанным" и "Удалить все") */
+.p-messages .mass-actions .action:nth-child(1) > a:before
+  content: 'done_all'
+
+.p-messages .mass-actions .action:nth-child(2) > a:before
+  content: 'delete_sweep'
+
+.p-dialogs header.head,
+.p-messages header.head,
+.p-profiles-edit header.head
+  padding: 16px 16px 8px
+  margin: -16px -16px 0
+
+header.head h1,
+header.head h2
+  padding: 8px 0
+  line-height: 32px
+  color: inherit
+
+header.head h1 a.back,
+header.head h2 a.back
+  vertical-align: top
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: -4px 16px -4px -8px
+  line-height: initial
+
+header.head h1 a.back:before,
+header.head h2 a.back:before
+  position: static
+  color: inherit
+
+header.head h1 a.back:after,
+header.head h2 a.back:after
+  display: none
+
+.buttons
+  margin-right: 0
+
+.delete-controls > span,
+.moderation-controls > span,
+.main-controls > span,
+.main-controls > a,
+.buttons .item-edit
+  width: 220px
+  padding: 11px 16px
+  margin-right: auto !important
+  margin-left: auto !important
+  line-height: 18px !important
+
+@media only screen and (min-width: 1025px)
+  .delete-controls > span,
+  .moderation-controls > span,
+  .main-controls > span,
+  .main-controls > a,
+  .buttons .item-edit
+    width: 32px
+    height: 32px
+    padding: 7px
+    margin-left: 8px !important
+    border-radius: 2px
+    line-height: 18px !important
+ 
+
+.item-mobile
+  position: relative
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px 0
+  margin-left: 8px !important
+  border-radius: 100%
+  z-index: 4
+
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .trigger-arrow::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .plus::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .edit::before,
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .trigger-arrow::before,
+.buttons .item-summary:before,
+.buttons .item-ignore:before,
+.buttons .item-quote:before,
+.buttons .item-reply:before,
+.buttons .item-edit:before,
+.buttons .item-delete:before,
+.buttons .item-moderation:before,
+.buttons .item-cancel:before,
+.buttons .item-request-reject:before,
+.buttons .item-apply:before,
+.buttons .item-request-confirm:before,
+.buttons .item-delete-confirm:before,
+.buttons .item-abuse:before,
+.buttons .item-spoiler:before,
+.buttons .item-offtopic:before,
+.buttons .item-delete-cancel:before,
+.buttons .item-moderation-cancel:before
+  vertical-align: top
+  width: 18px !important
+  font-family: 'Material Icons' !important
+  font-size: 18px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.buttons .item-ignore:before
+  content: "do_not_disturb_on"
+
+.buttons .item-quote:before
+  content: "format_quote"
+
+.buttons .item-reply:before
+  content: "reply"
+
+.buttons .item-edit:before
+  content: "mode_edit"
+
+.buttons .item-delete:before
+  content: "delete"
+
+.buttons .item-moderation:before
+  content: "flag"
+
+.buttons .item-cancel:before,
+.buttons .item-request-reject:before,
+.buttons .item-delete-cancel:before,
+.buttons .item-moderation-cancel:before
+  content: "clear"
+
+.buttons .item-spoiler:before
+  content: "sms_failed"
+
+.buttons .item-abuse:before
+  content: "pan_tool"
+
+.buttons .item-offtopic:before
+  content: "speaker_notes_off"
+
+.buttons .item-summary:before
+  content: "check_circle"
+
+.buttons .item-delete-confirm:before
+  content: "delete"
+
+.buttons .item-apply:before,
+.buttons .item-request-confirm:before,
+.buttons .item-delete-confirm:before
+  content: "done"
+
+.l-top_menu .menu-mobile .menu:before,
+.l-top_menu .menu-userbox .menu:before,
+.l-top_menu .menu-mobile .search:before,
+.l-top_menu .menu-userbox .search:before
+  width: 24px !important
+  font-family: 'Material Icons' !important
+  font-size: 24px !important
+  font-weight: 400 !important
+  line-height: 1 !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.l-top_menu .menu-mobile .menu:before,
+.l-top_menu .menu-userbox .menu:before
+  content: "menu"
+
+.l-top_menu .menu-mobile .search:before,
+.l-top_menu .menu-userbox .search:before
+  content: "search"
+
+.tooltip-inner
+  min-height: 56px
+  padding: 14px 16px
+  border: 0
+  overflow: hidden
+  box-shadow: 0 4px 10px 2px rgba(0,0,0,0.24)
+
+.tooltip-arrow
+  display: none
+
+/**
+ * Simple <paper-spinner>
+ * MIT License
+ * Copyright (c) 2015 Chris Nager
+ * https://github.com/chrisnager/simple-paper-spinner
+ */
+
+.tooltip-details
+  min-height: 140px
+
+.tooltip-details .ajax-loading
+  display: inline-block
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 1.75em
+  height: 1.75em
+  min-height: 0
+  margin: -.875rem 0 0 -.875rem
+  background-image: none
+  border-radius: 50%
+  box-shadow: inset 0 0 0 0.1875em
+  overflow: hidden
+  will-change: transform
+  -webkit-animation: spin 2666ms linear infinite
+  animation: spin 2666ms linear infinite
+  -webkit-clip-path: circle(.875em at center)
+  clip-path: circle(.875em at center)
+
+.tooltip-details .ajax-loading:after,
+.tooltip-details .ajax-loading:before
+  content: ""
+  position: absolute
+  width: 7em
+  height: 1.75em
+  background-color: inherit
+
+.tooltip-details .ajax-loading:after
+  -webkit-transform: skewX(-80deg) translate(.875em, .875em)
+  transform: skewX(-80deg) translate(.875em, .875em)
+  -webkit-animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+  animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+
+.tooltip-details .ajax-loading:before
+  -webkit-transform: skewX(80deg) translate(.875em, -.875em)
+  transform: skewX(80deg) translate(.875em, -.875em)
+  -webkit-animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+  animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+
+@-webkit-keyframes spin
+  to
+    -webkit-transform: rotate(1080deg)
+    transform: rotate(1080deg)
+ 
+
+@keyframes spin
+  to
+    -webkit-transform: rotate(1080deg)
+    transform: rotate(1080deg)
+ 
+
+@-webkit-keyframes shape-shift-before
+  to
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
+    transform: skewX(-45deg) translate(.875em, -.875em)
+ 
+
+@keyframes shape-shift-before
+  to
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
+    transform: skewX(-45deg) translate(.875em, -.875em)
+ 
+
+@-webkit-keyframes shape-shift-after
+  to
+    -webkit-transform: skewX(45deg) translate(.875em, .875em)
+    transform: skewX(45deg) translate(.875em, .875em)
+ 
+
+@keyframes shape-shift-after
+  to
+    -webkit-transform: skewX(45deg) translate(.875em, .875em)
+    transform: skewX(45deg) translate(.875em, .875em)
+ 
+
+.b-catalog_entry-tooltip .inner a.name
+  font-size: .875rem
+
+.b-catalog_entry-tooltip .inner .rating
+  font-family: inherit
+
+.b-catalog_entry-tooltip .inner .rating .text
+  font-size: .75rem
+
+/* FIX: Размер изображений в тултипах Избаранного */
+.b-catalog_entry-tooltip .inner .best-works > .c-column
+  width: 22%
+  margin-right: 4%
+
+.b-catalog_entry-tooltip .inner .best-works > .c-column:last-child
+  margin-right: 0
+
+/* TEXTEDITOR | SHIKI EDITOR */
+.b-topic > .editor-container
+  margin-top: 1rem
+
+.b-shiki_editor .body .preview
+  padding: 0
+  margin: 0
+  background: transparent
+  border: 0
+
+.editor-controls > span
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 0 8px 0 0 !important
+
+/* Расширяем file input */
+.buttons .editor-file
+  position: relative
+
+.buttons .editor-file span,
+.buttons .editor-file a
+  top: 0
+  left: 0
+  width: 40px
+  height: 40px
+  margin: 0 !important
+
+.buttons .editor-file input
+  left: 0
+  width: 40px
+  height: 40px
+  border: 0
+  font-size: 40px
+
+.b-shiki_editor aside.buttons
+  margin: 0
+  padding: .25rem 0
+
+.b-shiki_editor aside.markers
+  height: auto
+  padding: .75rem 0
+
+.b-shiki_editor .links,
+.b-shiki_editor .images,
+.b-shiki_editor .quotes,
+.b-shiki_editor .email,
+.b-shiki_editor .upload
+  height: 3rem
+  line-height: 2rem
+
+.b-shiki_editor .hidden-block p
+  padding: .5rem !important
+
+.b-shiki_editor .links .link-value,
+.b-shiki_editor .images .link-value,
+.b-shiki_editor .quotes .link-value,
+.b-shiki_editor .email .link-value,
+.b-shiki_editor .upload .link-value
+  width: 14rem
+  height: 2rem
+  padding: 0 1rem
+  margin: 0
+  border-radius: 2px
+  line-height: 2rem
+
+.b-shiki_editor .links .button.ok,
+.b-shiki_editor .images .button.ok,
+.b-shiki_editor .quotes .button.ok,
+.b-shiki_editor .email .button.ok,
+.b-shiki_editor .upload .button.ok
+  display: inline-block
+  vertical-align: top
+  padding: 0 1rem
+  margin-right: 0
+  margin-left: 1rem
+  font-size: .875rem
+  line-height: 2rem
+  border-radius: 2px
+
+.b-shiki_editor .images input,
+.b-shiki_editor .quotes input,
+.b-shiki_editor .email input
+  margin-left: 1rem !important
+  width: 20rem !important
+
+.b-shiki_editor .body .editor textarea
+  padding: .5rem 1rem
+  margin: 0
+  border-radius: 2px
+  font-size: 1rem
+  line-height: 1.25rem
+
+.b-shiki_editor footer input[type=submit],
+.b-shiki_editor footer .unpreview,
+.b-shiki_editor footer .preview
+  vertical-align: top
+  margin-right: 8px
+
+.b-shiki_editor footer .preview
+  margin-right: 0
+
+.b-shiki_editor.previewed footer .unpreview
+  border: 0
+  font-size: 0
+
+.b-shiki_editor.previewed footer .unpreview:after
+  content: 'Назад'
+  vertical-align: top
+  font-size: 14px
+
+.b-shiki_editor footer .cancel
+  border: 0
+
+.b-shiki_editor footer .cancel:hover
+  color: #3F51B5
+
+/* FIX: COMMENT PREVIEW WIDTH */
+.b-shiki_editor aside.markers
+  position: absolute
+  right: 0
+  top: 0
+  z-index: 2
+
+.b-shiki_editor.previewed .body .preview .b-comment
+  padding: 0 !important
+
+.b-shiki_editor footer
+  margin-top: 1rem
+
+.about-bb_codes
+  font-size: 0 !important
+  padding: 0 1rem
+  margin-top: 0 !important
+  border-radius: .125rem
+  line-height: 2rem !important
+
+.about-bb_codes:before
+  content: 'help' /* NOT 'help_outline' (!) see updated guideline (2016-12) */
+  display: inline-block
+  vertical-align: top
+  font-family: 'Material Icons' !important
+  font-size: 24px !important
+  line-height: 32px !important
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+@media only screen and (min-width: 768px)
+  .about-bb_codes:before
+    font-family: inherit !important
+    font-size: 14px !important
+    text-transform: uppercase
+ 
+
+  .locale-ru .about-bb_codes:before
+    content: 'Справка'
+ 
+
+  .locale-en .about-bb_codes:before
+    content: 'Help'
+ 
+/* END of SHIKI_EDITOR */
+/* END of TEXTEDITOR */
+
+.b-abuse_marker,
+.b-broadcast_marker,
+.b-new_marker,
+.b-offtopic_marker,
+.b-summary_marker
+  width: auto !important
+  margin: 0 !important
+  margin-top: 1px !important
+  margin-left: 8px !important
+
+.b-spoiler_marker
+  width: auto
+
+.b-abuse_marker:before,
+.b-broadcast_marker:before,
+.b-new_marker:before,
+.b-offtopic_marker:before,
+.b-spoiler_marker:before,
+.b-summary_marker:before
+  position: static !important
+  width: auto !important
+  padding: 0 4px !important
+  margin-top: 8px
+  border: 0 !important
+  border-radius: 2px
+  font-size: 10px !important
+  line-height: 16px !important
+  text-transform: capitalize
+
+.b-shiki_editor .b-summary_marker,
+.b-shiki_editor .b-summary_marker:before,
+.b-shiki_editor .b-offtopic_marker,
+.b-shiki_editor .b-offtopic_marker:before
+  vertical-align: top
+  padding: 0 8px !important
+  margin: 0 !important
+  font-size: 12px !important
+  line-height: 24px !important
+
+.b-shiki_editor .b-summary_marker,
+.b-shiki_editor .b-offtopic_marker
+  padding: 0 !important
+  margin-left: 8px !important
+/* END of SHIKI_EDITOR */
+
+
+
+
+
+/* FLOATED OPTIONS */
+.b-options-floated
+  margin-top: 16px
+  font-size: 14px
+  line-height: 16px
+
+@media screen and (min-width: 768px)
+  .b-options-floated.before-buttons-2
+    padding-right: 112px
+ 
+
+.p-profiles-edit .b-options-floated,
+.p-dialogs .b-options-floated,
+.p-messages .b-options-floated
+  position: static
+  margin: 0 -16px 8px
+  padding: 0
+  text-align: left
+  white-space: nowrap
+  overflow: hidden
+  overflow-x: auto
+
+.p-profiles-edit .b-options-floated > a,
+.p-dialogs .b-options-floated > a,
+.p-messages .b-options-floated > a
+  display: inline-block
+  width: auto
+  min-width: 88px
+  height: 48px
+  padding: 0 12px
+  font-size: 14px
+  line-height: 48px
+  text-align: center
+  text-transform: uppercase
+
+.p-profiles-edit .b-options-floated > a
+  width: auto
+
+.p-profiles-edit .b-options-floated > a:hover,
+.p-dialogs .b-options-floated > a:hover,
+.p-messages .b-options-floated > a:hover
+  text-decoration: none
+
+@media screen and (min-width: 481px)
+  .p-profiles-edit .b-options-floated > a,
+  .p-dialogs .b-options-floated > a,
+  .p-messages .b-options-floated > a
+    width: auto
+ 
+
+.b-options-floated a span.brackets,
+.b-options-floated .link span.brackets
+  display: inline-block
+  vertical-align: text-top
+  min-width: 20px
+  height: 16px
+  padding: 0 4px
+  border-radius: 4px
+  color: $accentBG_color
+  font-size: 10px
+  line-height: 16px
+  text-align: center
+
+.b-options-floated a:after,
+.b-options-floated .link:after
+  padding: 0 .375rem
+  color: $text_disabled
+
+.p-profiles-edit .b-options-floated > a:after,
+.p-dialogs .b-options-floated > a:after,
+.p-messages .b-options-floated > a:after,
+.b-options-floated a span.brackets:before,
+.b-options-floated a span.brackets:after,
+.b-options-floated .link span.brackets:before,
+.b-options-floated .link span.brackets:after
+  display: none
+
+@media screen and (min-width: 481px)
+  .p-dialogs header.head,
+  .p-messages header.head,
+  .p-profiles-edit header.head
+    padding: 0
+    margin: 0
+    background-color: transparent
+ 
+
+  .p-profiles-edit .b-options-floated,
+  .p-dialogs .b-options-floated,
+  .p-messages .b-options-floated
+    position: initial
+    margin: 0 -16px 8px
+    padding: 0
+    background-color: transparent
+    text-align: right
+ 
+/* END of FLOATED OPTIONS */
+
+/* USER'S MAIL ICONS – READ ALL & DELETE ALL */
+.p-messages .mass-actions
+  position: absolute
+  top: 56px
+  right: 0
+  margin: 0 -.5rem
+
+.p-messages .mass-actions .action:after
+  display: none
+
+.p-messages .mass-actions > .action > a
+  position: relative
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px
+  border: 0
+  border-radius: 2px
+  font-size: 0
+  line-height: 1
+/* END of USER'S MAIL ICONS */
+
+/* DB ENTRY NOTES */
+/* TODO: MERGE WITH .c-history .entry */
+.b-db_entry-note
+  position: relative
+  padding: 8px 0
+  margin: 0
+  border: 0
+
+.b-db_entry-note:first-child
+  padding-top: 8px
+
+.b-db_entry-note:before
+  content: ''
+  position: absolute
+  right: -16px
+  bottom: 0
+  left: 56px
+  height: 1px
+
+.b-db_entry-note:last-child:before
+  display: none
+
+/* FIX */
+.b-db_entry-note:before
+  right: 0
+  left: 64px
+
+.p-db_entries-related .b-db_entry-note
+  padding: 16px 0
+
+.p-db_entries-related .b-db_entry-note:first-child
+  padding-top: 16px
+/* END of DB ENTRY NOTES*/
+
+/* MENU ENTRY REVIEW & CLUBS */
+/* TODO: MERGE WITH .c-history .entry */
+/* TODO: where [.calendar .entry]? */
+.p-topics .l-menu .calendar .entry,
+.p-topics .l-menu .reviews .entry,
+.p-topics .l-menu .clubs .entry
+  position: relative
+  padding: 8px 0
+  margin: 0
+  border: 0
+  overflow: initial
+
+.p-topics .l-menu .calendar .entry:first-child,
+.p-topics .l-menu .reviews .entry:first-child,
+.p-topics .l-menu .clubs .entry:first-child
+  padding-top: 8px
+  margin-top: 0
+
+.p-topics .l-menu .calendar .entry:before,
+.p-topics .l-menu .reviews .entry:before,
+.p-topics .l-menu .clubs .entry:before
+  content: ''
+  position: absolute
+  right: -8px
+  bottom: 0
+  left: 56px
+  height: 1px
+  pointer-events: none
+
+.p-topics .l-menu .calendar .entry:last-child:before,
+.p-topics .l-menu .reviews .entry:last-child:before,
+.p-topics .l-menu .clubs .entry:last-child:before
+  display: none
+
+/* Полноразмерная ссылка .entry, работает только для .l-menu */
+.p-topics .l-menu .calendar .entry a,
+.p-topics .l-menu .reviews .entry a,
+.p-topics .l-menu .clubs .entry a
+  display: block
+  padding: 8px
+  margin: -8px
+
+.p-topics .l-menu .calendar .entry a:after,
+.p-topics .l-menu .reviews .entry a:after,
+.p-topics .l-menu .clubs .entry a:after
+  content: ''
+  clear: both
+  display: block
+
+.p-topics .l-menu .calendar .entry:hover .title,
+.p-topics .l-menu .reviews .entry:hover .title,
+.p-topics .l-menu .clubs .entry:hover .title
+  text-decoration: none
+
+/* ADDITIONS */
+.p-topics .l-menu .reviews .entry img
+  min-width: 40px
+  max-height: 64px
+  margin: 2px 16px 2px 0
+  border-radius: 2px
+
+.p-topics .l-menu .clubs .entry img
+  width: 40px
+  min-width: 40px
+  height: 40px
+  margin: 2px 16px 2px 0
+  border-radius: 2px
+/* END of MENU ENTRY REVIEW & CLUBS */
+
+/* SIDEMENU LINKS */
+.p-topics .l-menu .sticky-topics .topic,
+.p-dashboards-show .contests .contest,
+.p-topics .l-menu .contests .contest
+  padding: 8px
+  margin: 0 -8px
+  border: 0
+
+.p-topics .l-menu .sticky-topics .topic:first-child,
+.p-dashboards-show .contests .contest:first-child,
+.p-topics .l-menu .contests .contest:first-child
+  padding-top: 8px
+  margin-top: 0
+
+.p-topics .l-menu .sticky-topics .topic .title,
+.p-dashboards-show .contests .contest .title,
+.p-topics .l-menu .contests .contest .title
+  line-height: 20px
+
+.p-topics .l-menu .sticky-topics .topic:hover .title,
+.p-dashboards-show .contests .contest:hover .title,
+.p-topics .l-menu .contests .contest:hover .title
+  text-decoration: none
+
+.p-topics .l-menu .sticky-topics .topic .title:after,
+.p-dashboards-show .contests .contest .title:after,
+.p-topics .l-menu .contests .contest .title:after
+  display: none
+
+.p-topics .l-menu .sticky-topics .topic .notice,
+.p-dashboards-show .contests .contest .notice,
+.p-topics .l-menu .contests .contest .notice
+  margin-top: 2px
+  line-height: 18px
+/* END of SIDEMENU LINKS */
+
+/* Стилизованные кнопки на страницах поиска аниме и манги */
+.p-user_rates .mylist-block + .block > .b-list,
+.b-collection-filters > .block:first-child > .b-list,
+.b-collection-filters > .block:first-child > .b-list
+  margin-left: 0 !important
+
+.p-user_rates .mylist-block + .block > .b-list > li,
+.b-collection-filters > .block:first-child > .b-list > li,
+.b-collection-filters > .block:first-child > .b-list > li
+  position: relative
+  margin-bottom: .5rem
+  border-radius: .125rem
+  font-size: .875rem
+  line-height: 2rem
+  text-align: center
+  text-transform: uppercase
+  list-style: none
+
+.p-user_rates .mylist-block + .block > .b-list > li:before,
+.p-user_rates .mylist-block + .block > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:before,
+.b-collection-filters > .block:first-child > .b-list > li:before,
+.b-collection-filters > .block:first-child > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:after
+  content: ''
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  border-radius: inherit
+  opacity: 0
+  z-index: 0
+  transition: opacity .3s
+
+.p-user_rates .mylist-block + .block > .b-list > li:before,
+.b-collection-filters > .block:first-child > .b-list > li:before,
+.b-collection-filters > .block:first-child > .b-list > li:before
+  box-shadow: 0 1px 3px rgba(0,0,0,.56)
+
+.p-user_rates .mylist-block + .block > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:after,
+.b-collection-filters > .block:first-child > .b-list > li:after
+  background-color: rgba(0,0,0,.12)
+
+.p-user_rates .mylist-block + .block > .b-list > li:hover:before,
+.p-user_rates .mylist-block + .block > .b-list > li:hover:after,
+.b-collection-filters > .block:first-child > .b-list > li:hover:before,
+.b-collection-filters > .block:first-child > .b-list > li:hover:before,
+.b-collection-filters > .block:first-child > .b-list > li:hover:after,
+.b-collection-filters > .block:first-child > .b-list > li:hover:after
+  opacity: 1
+
+.p-user_rates .mylist-block + .block > .b-list > li > a,
+.b-collection-filters > .block:first-child > .b-list > li > a,
+.b-collection-filters > .block:first-child > .b-list > li > a
+  position: relative
+  display: block
+  color: #fff !important
+  z-index: 1
+
+.p-user_rates .mylist-block + .block > .b-list > li > a:hover,
+.b-collection-filters > .block:first-child > .b-list > li > a:hover,
+.b-collection-filters > .block:first-child > .b-list > li > a:hover
+  color: #fff !important
+  text-decoration: none
+/* END of Стилизованные кнопки на страницах поиска аниме и манги */
+
+
+
+
+
+/**
+ * Фильтры на страницах поиска
+ */
+
+/* Настройка пунктов */
+.b-collection-filters .block-list li,
+.b-collection-filters .b-block_list li
+  position: relative
+  padding: 0 .5rem
+  margin: 0 -.5rem
+  font-size: .875rem
+  line-height: 2rem
+
+/* Отступ для подпунктов */
+.b-collection-filters .block-list li.sub,
+.b-collection-filters .b-block_list li.sub
+  padding-left: 2.5rem
+
+/* Скрываем чекбокс, располагаем над псевдоэлементом */
+.b-collection-filters .block-list li > input,
+.b-collection-filters .b-block_list li > input
+  position: absolute
+  left: .3125rem
+  width: 2rem
+  height: 2rem
+  border: 0
+  opacity: 0
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+/* Псевдоэлемент с иконкой чекбокса */
+.b-collection-filters .block-list li:before,
+.b-collection-filters .b-block_list li:before
+  display: inline-block
+  vertical-align: top
+  width: 1.125rem
+  margin: .4375rem .875rem .4375rem 0
+  font-family: 'Material Icons'
+  font-size: 1.125rem
+  line-height: 1
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+/* Фильтры на страницах поиска – ПОДСКАЗКИ */
+/* Положение подсказки */
+.b-collection-filters .block-list .b-question,
+.b-collection-filters .b-block_list .b-question
+  display: inline-block !important
+  vertical-align: top
+  position: absolute
+  right: .3125rem
+
+/* Иконка подсказки */
+.b-collection-filters .block-list .b-question:before,
+.b-collection-filters .b-block_list .b-question:before
+  display: block
+  width: 1.125rem
+  height: auto
+  margin: .4375rem
+  background-color: transparent
+  font-family: 'Material Icons'
+  font-size: 1.125rem
+  line-height: 1
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+/* Фильтры на страницах поиска – ПЕРЕКЛЮЧАТЕЛИ */
+/* Положение переключателя */
+.b-collection-filters .filter
+  top: 0
+
+.b-collection-filters .block-list .filter,
+.b-collection-filters .b-block_list .filter
+  float: right
+  position: relative
+  right: auto
+  margin: 0 0 0 .5rem
+
+/* Положение переключателя с иконками подсказок */
+.b-collection-filters .block-list.ratings .filter,
+.b-collection-filters .block-list.genres .filter,
+.b-collection-filters .block-list li.sub .filter,
+.b-collection-filters .b-block_list.ratings .filter,
+.b-collection-filters .b-block_list.genres .filter,
+.b-collection-filters .b-block_list li.sub .filter
+  margin-right: 2rem
+
+/* Сбрасываем стандартные стили */
+.b-collection-filters .block-list .filter:before,
+.b-collection-filters .b-block_list .filter:before
+  display: block
+  width: auto
+  font-family: inherit
+  font-size: .75rem
+  line-height: inherit
+  text-transform: lowercase
+
+/* Добавляем понятные текстовые обозначения */
+.locale-ru .b-collection-filters .b-block_list .filter.item-add:before
+  content: 'Исключить'
+
+.locale-en .b-collection-filters .b-block_list .filter.item-add:before
+  content: 'Exclude'
+
+.locale-ru .b-collection-filters .b-block_list .filter.item-minus:before
+  content: 'Добавить'
+
+.locale-en .b-collection-filters .b-block_list .filter.item-minus:before
+  content: 'Include'
+
+/* Настройка иконок */
+.b-collection-filters .block-list li:before
+  content: 'check_box_outline_blank'
+
+.b-collection-filters .block-list li.selected:before
+  content: 'check_box'
+
+.b-collection-filters .block-list.orders li:before
+  content: 'radio_button_unchecked'
+
+.b-collection-filters .block-list.orders li.selected:before
+  content: 'radio_button_checked'
+
+.b-collection-filters .block-list .b-question:before
+  content: 'help_outline'
+
+.b-collection-filters .b-block_list li:before
+  content: 'check_box_outline_blank'
+
+.b-collection-filters .b-block_list li.selected:before
+  content: 'check_box'
+
+.b-collection-filters .b-block_list.orders li:before
+  content: 'radio_button_unchecked'
+
+.b-collection-filters .b-block_list.orders li.selected:before
+  content: 'radio_button_checked'
+
+.b-collection-filters .b-block_list .b-question:before
+  content: 'help_outline'
+
+/* Фильтры на страницах поиска – Размер для ПК */
+@media (min-width: 1025px)
+  .b-collection-filters .block-list li
+    line-height: 1.5rem
+ 
+
+  .b-collection-filters .block-list li:before
+    margin: .1875rem .875rem .1875rem 0
+ 
+
+  .b-collection-filters .block-list .b-question:before
+    margin: .1875rem
+ 
+
+  .b-collection-filters .block-list li > input
+    width: 1.5rem
+    height: 1.5rem
+ 
+
+  /* new class */
+  .b-collection-filters .b-block_list li
+    line-height: 1.5rem
+ 
+
+  .b-collection-filters .b-block_list li:before
+    margin: .1875rem .875rem .1875rem 0
+ 
+
+  .b-collection-filters .b-block_list .b-question:before
+    margin: .1875rem
+ 
+
+  .b-collection-filters .b-block_list li > input
+    width: 1.5rem
+    height: 1.5rem
+ 
+/* END of Фильтры на страницах поиска */
+
+/* "Мой список" в фильтрах поиска */
+/* Меняем название на более доступное */
+.block.mylist-block > .subheadline
+  font-size: 0
+  line-height: 0
+
+.block.mylist-block > .subheadline:before
+  font-size: .875rem
+  line-height: 1rem
+
+.locale-ru .block.mylist-block > .subheadline:before
+  content: 'Мой список'
+
+.locale-en .block.mylist-block > .subheadline:before
+  content: 'My List'
+
+/* Кнопка переключателя */
+.b-collection-filters .block > .filter.item-sign
+  height: 2.5rem
+  padding: .5rem
+  margin-top: .25rem
+  border-radius: .125rem
+
+.b-collection-filters .block > .filter.item-sign:before
+  width: 1.5rem
+  font-family: 'Material Icons'
+  font-size: 1.5rem
+  line-height: 1
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+/* Настройка иконки переключателя */
+.b-collection-filters .block > .filter.item-sign:before
+  content: 'playlist_add_check'
+
+/* Прозрачный фон переключателя */
+@media (min-width: 1025px)
+  .b-collection-filters .block > .filter.item-sign
+    background-color: transparent
+ 
+/* END of "Мой список" в фильтрах поиска */
+
+
+
+/* Страница видео */
+.b-video_player .cc-player_controls .episode-num input
+  margin: .75rem .25rem
+
+.b-video_player .cc-player_controls a.c-control:hover
+  text-decoration: none
+
+.b-video_player .cc-player_controls .cc-navigation > .c-control > span,
+.b-video_player .cc-player_controls .cc-navigation > .c-control > b
+  display: inline-block
+  vertical-align: top
+  margin: .25rem auto
+  line-height: 2.5rem
+
+.b-video_player .cc-player_controls .cc-navigation > .c-control > b
+  margin-left: .5rem
+
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .b-video_player .cc-player_controls .cc-navigation > .c-control > span,
+  .b-video_player .cc-player_controls .cc-navigation > .c-control > b
+    display: none
+
+.b-video_player .cc-player_controls .label,
+.b-video_player .cc-player_controls .episode-title .video-link
+  font-size: .75rem
+
+.b-video_player .cc-player_controls .episode-title .video-link a
+  display: block
+  line-height: inherit
+  border: 0
+
+.b-video_player .cc-player_controls .cc-options > .c-video_stats
+  margin: .25rem auto
+
+.p-anime_videos-index .c-videos .video-variant-switcher,
+.p-anime_videos-index .c-video_stats
+  font-size: .875rem
+
+.p-anime_videos-index .c-videos .video-variant-switcher:hover
+  border: 0
+
+.b-video_player .cc-player_controls .c-control:hover
+  text-decoration: none
+
+/* Подзаголовки на странице видео */
+.p-anime_videos-index .same-videos .title,
+.p-anime_videos-index .c-anime_video_episodes .title,
+.p-anime_videos-index .c-videos .title
+  padding: 1rem 0
+  margin: 0
+  font-size: .875rem
+  font-weight: 700
+  line-height: 1rem
+  text-transform: uppercase
+
+.x1000.p-anime_videos-index .c-videos .title
+  font-size: 0
+  line-height: 0
+
+.x1000.p-anime_videos-index .c-videos .title:after
+  font-size: .875rem
+  line-height: 1rem
+
+.locale-ru.x1000.p-anime_videos-index .c-videos .title:after
+  content: 'Варианты'
+
+.locale-en.x1000.p-anime_videos-index .c-videos .title:after
+  content: 'Variants'
+
+/* Переключатели в варинатах видео */
+.p-anime_videos-index .c-videos .video-variant-switcher
+  float: right
+  margin: 0
+  border: 0
+  line-height: 1rem
+  text-transform: capitalize
+
+.p-anime_videos-index .c-videos .video-variant-switcher:not(:first-child):after
+  content: '/'
+  padding: 0 .375rem
+  font-weight: normal
+
+.b-video_variant.active a
+  border: 0
+
+/* Иконки */
+.b-video_player .cc-player_controls .c-control .icon
+  width: 2.5rem !important
+  height: 2.5rem
+  padding: .5rem
+  margin: .25rem auto !important
+  border-radius: 2px
+
+.b-video_player .cc-player_controls .c-control .icon:before
+  width: 1.5rem
+  font-family: 'Material Icons'
+  font-size: 1.5rem !important
+  line-height: 1
+
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.b-video_player .cc-player_controls .create-user_rate .icon:before
+  content: 'add'
+
+.b-video_player .cc-player_controls .increment-user_rate .icon:before
+  content: 'done'
+
+.b-video_player .cc-player_controls .next .icon:before
+  content: 'skip_next'
+
+.b-video_player .cc-player_controls .prev .icon:before
+  content: 'skip_previous'
+
+.b-video_player .cc-player_controls .report .icon:before
+  content: 'flag'
+
+.b-video_player .cc-player_controls .show-options .icon:before
+  content: 'settings'
+
+.b-video_player .cc-player_controls .upload .icon:before
+  content: 'cloud_upload'
+
+.b-video_player .cc-player_controls .edit .icon:before
+  content: 'build'
+/* END of Страница видео */
+/* END of ОСНОВНОЙ ФАЙЛ */
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
