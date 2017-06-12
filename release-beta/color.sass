@@ -1,0 +1,1398 @@
+/* НАСТРОЙКА ЦВЕТОВ */
+/* Цвет текста ссылки по умолчанию */
+a
+  color: $link_normal
+
+/* Цвет ссылки при наведении */
+a:hover
+  color: $link_hover
+
+/* Цвет ссылки при нажатии */
+@media only screen and (min-width: 1025px)
+  a:active
+    color: $link_active
+
+.b-abuse_request .ban-form .cancel,
+.b-ban .abuser,
+.b-bb_codes-examples .example a,
+.b-bb_codes-examples .result a,
+.b-bracket-actions > div,
+.b-bracket-actions > span,
+.b-catalog_entry-tooltip .inner a.name,
+.b-catalog_entry-tooltip .inner .line .value a,
+.b-catalog_entry-tooltip .inner .line.works .value a,
+.b-catalog_entry .cover .title,
+.b-club .name,
+.b-comment > .inner header .name-date a.name,
+.b-comments .comments-collapser,
+.b-cosplay-topic > .inner .cosplay-info .line .value a,
+.b-cosplay_gallery h3 a,
+.b-db_entry-note .name-container .name,
+.b-db_entry > .c-about .additional-links .line-container > .link,
+.b-db_entry > .c-about .additional-links .line-container > a,
+.b-dialog > .inner header .name-date a.name,
+.b-entry-info .line a,
+.b-feedback-inner .about a,
+.b-form .variants .variant a,
+.b-form .cancel,
+.b-forums .forum .link-with-input .link,
+.b-forums .reload,
+.b-header_filters .filter-line a,
+.b-height_shortener .expand,
+.b-js-action,
+.b-js-link,
+.b-lang_trigger span,
+.b-link,
+.b-log_entry a,
+.b-log_entry .link,
+.b-log_entry .moderation a,
+.b-log_entry .spoiler.collapsed,
+.b-log_entry .spoiler.collapse,
+.b-log_entry .spoiler.collapse span,
+.b-log_entry .spoiler.collapsed span,
+.b-mention,
+.b-message > .inner header .name-date a.name,
+.b-nothing_here a,
+.b-options-floated a,
+.b-options-floated .link,
+.b-options-floated .action,
+.b-options-floated.mobile-desktop a,
+.b-person .name,
+.b-shiki_editor footer .unpreview,
+.b-shiki_editor footer .unpreview:not(.link),
+.b-shiki_editor footer .cancel,
+.b-shiki_editor footer .hide,
+.b-shiki_editor footer .about-bb_codes,
+.b-source .contributors .val a,
+.b-source .mal .val a,
+.b-source .source .val a,
+.b-spoiler .content .before,
+.b-spoiler .content .after,
+.b-spoiler label,
+.b-stats_bar a.title,
+.b-table a,
+.b-topic > .inner header .name-date a.name,
+.b-topic .footer-vote .vote-group .vote,
+.b-user.named_avatar .name,
+.b-user.detailed .info .image-name,
+.b-user.detailed .history .line a .event,
+.b-user16,
+header.head h1 a.back,
+header.head h2 a.back,
+header.head a.misc,
+header.head a.edit,
+.headline > a,
+.midheadline > a,
+.subheadline > a,
+.subheadline .misc-link,
+.b-video_player .cc-player_controls a.c-control,
+.b-video_player .cc-player_controls .episode-title .video-link a,
+.b-video_variant a,
+.b-animes-menu .menu-topics-block .history-entry-tooltip a,
+.p-animes-files .l-content a,
+.p-mangas-files .l-content a,
+div.history .block-list li .tooltip-inner a,
+div.history .b-block_list li .tooltip-inner a,
+.p-animes_collection-index .pagination .link,
+.p-mangas_collection-index .pagination .link,
+.p-recommendations-index .pagination .link,
+.p-userlist_comparer-show .pagination .link,
+.p-contests .contest-match .vs .next,
+.p-contests .contest-match .vs .refrain,
+.p-contests-edit .grid,
+.p-contests .match-day .match-link a,
+.p-contests .rating .member a,
+.p-contests .results a,
+.p-contests .suggestion > a,
+.p-contests .variant > a,
+.b-contests-menu .results,
+.b-contests-menu .grid a,
+.p-contests-grid .round .match a,
+.p-contests-index .contest a,
+.p-dashboards .c-my_list .list-type > .title .link,
+.p-dashboards .c-my_list .history > .title .link,
+.p-dashboards .c-my_list .list-type > .title .switch,
+.p-dashboards .c-my_list .history > .title .switch,
+.p-dashboards .user_list .list-type > .title .link,
+.p-dashboards .user_list .history > .title .link,
+.p-dashboards .user_list .list-type > .title .switch,
+.p-dashboards .user_list .history > .title .switch,
+.p-dashboards-show .midheadline .b-link,
+.p-dashboards-show .c-content .options .option,
+.p-db_entries-edit_field .cc-genres > .c-all_genres .genre:not(.included) .name,
+.p-profiles .profile-head .c-brief header .notice a,
+.p-profiles .profile-head .c-mobile-actions a,
+.p-profiles .profile-head .c-mobile-actions span,
+.p-profiles .profile-head .c-info .c-additionals div a,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a,
+.p-profiles-edit .account .change-password a,
+.p-profiles-edit .misc .profile-action a,
+.p-profiles-edit .misc .profile-action .link,
+.p-profiles-edit .misc .nickname-changes a,
+.p-profiles-edit .misc .nickname-changes .link,
+.p-profiles-edit .list .profile-action a,
+.p-profiles-edit .list .profile-action .link,
+.p-profiles-edit .list .nickname-changes a,
+.p-profiles-edit .list .nickname-changes .link,
+.p-profiles-edit .list #import_form .link,
+.p-profiles-show .about a,
+.p-studios .studio .name,
+.p-translations .animes a,
+.p-user_history-index .history-page .history-interval p a,
+.p-user_rates-index .list-lines tr .name a,
+.p-userlist_comparer .comparer table .name a,
+.b-log_entry .comment-block ins,
+.p-statistics-index .forum-nav .sections a.selected,
+.p-anime_videos-index .c-videos .video-variant-switcher,
+.p-user_rates-index .stat-categories .category,
+.b-video_player .cc-player_controls .episode-num .video-link a,
+.b-video_player .cc-player_controls .c-control
+  color: $link_normal
+  border-bottom-color: rgba($link_normal, .3)
+
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .b-options-floated.mobile-phone_portrait a
+    color: $link_normal
+
+@media screen and (max-width: 767px)
+  .b-options-floated.mobile-phone a
+    color: $link_normal
+
+@media screen and (max-width: 1024px)
+  .b-options-floated.mobile-tablet a
+    color: $link_normal
+
+
+
+
+.b-abuse_request .ban-form .cancel:hover,
+.b-ban .abuser:hover,
+.b-bb_codes-examples .example a:hover,
+.b-bb_codes-examples .result a:hover,
+.b-bracket-actions > div:hover,
+.b-bracket-actions > span:hover,
+.b-catalog_entry-tooltip .inner a.name:hover,
+.b-catalog_entry-tooltip .inner .line .value a:hover,
+.b-catalog_entry-tooltip .inner .line.works .value a:hover,
+.b-catalog_entry .cover .title:hover,
+.b-club .name:hover,
+.b-comment > .inner header .name-date a.name:hover,
+.b-comments .comments-collapser:hover,
+.b-cosplay-topic > .inner .cosplay-info .line .value a:hover,
+.b-cosplay_gallery h3 a:hover,
+.b-db_entry-note .name-container .name:hover,
+.b-db_entry > .c-about .additional-links .line-container > .link:hover,
+.b-db_entry > .c-about .additional-links .line-container > a:hover,
+.b-dialog > .inner header .name-date a.name:hover,
+.b-entry-info .line a:hover,
+.b-feedback-inner .about a:hover,
+.b-form .variants .variant a:hover,
+.b-form .cancel:hover,
+.b-forums .forum .link-with-input .link:hover,
+.b-forums .reload:hover,
+.b-header_filters .filter-line a:hover,
+.b-height_shortener .expand:hover,
+.b-js-action:hover,
+.b-js-link:hover,
+.b-lang_trigger span:hover,
+.b-link:hover,
+.b-log_entry a:hover,
+.b-log_entry .link:hover,
+.b-log_entry .moderation a:hover,
+.b-log_entry .spoiler.collapsed:hover,
+.b-log_entry .spoiler.collapse:hover,
+.b-log_entry .spoiler.collapse span:hover,
+.b-log_entry .spoiler.collapsed span:hover,
+.b-mention:hover,
+.b-message > .inner header .name-date a.name:hover,
+.b-nothing_here a:hover,
+.b-options-floated a:hover,
+.b-options-floated .link:hover,
+.b-options-floated .action:hover,
+.b-options-floated.mobile-desktop a:hover,
+.b-person .name:hover,
+.b-shiki_editor footer .unpreview:hover,
+.b-shiki_editor footer .unpreview:not(.link):hover,
+.b-shiki_editor footer .cancel:hover,
+.b-shiki_editor footer .hide:hover,
+.b-shiki_editor footer .about-bb_codes:hover,
+.b-source .contributors .val a:hover,
+.b-source .mal .val a:hover,
+.b-source .source .val a:hover,
+.b-spoiler label:hover,
+.b-spoiler .content:hover .before,
+.b-spoiler .content:hover .after,
+.b-stats_bar a.title:hover,
+.b-table a:hover,
+.b-topic > .inner header .name-date a.name:hover,
+.b-topic .footer-vote .vote-group .vote:hover,
+.b-user.named_avatar .name:hover,
+.b-user.detailed .info .image-name:hover,
+.b-user.detailed .history .line a .event:hover,
+.b-user16:hover,
+header.head h1 a.back:hover,
+header.head h2 a.back:hover,
+header.head a.misc:hover,
+header.head a.edit:hover,
+.headline > a:hover,
+.midheadline > a:hover,
+.subheadline > a:hover,
+.subheadline .misc-link:hover,
+.b-video_player .cc-player_controls a.c-control:hover,
+.b-video_player .cc-player_controls .episode-title .video-link a:hover,
+.b-video_variant a:hover,
+.b-animes-menu .menu-topics-block .history-entry-tooltip a:hover,
+.p-animes-files .l-content a:hover,
+.p-mangas-files .l-content a:hover,
+div.history .block-list li .tooltip-inner a:hover,
+div.history .b-block_list li .tooltip-inner a:hover,
+.p-animes_collection-index .pagination .link:hover,
+.p-mangas_collection-index .pagination .link:hover,
+.p-recommendations-index .pagination .link:hover,
+.p-userlist_comparer-show .pagination .link:hover,
+.p-contests .contest-match .vs .next:hover,
+.p-contests .contest-match .vs .refrain:hover,
+.p-contests-edit .grid:hover,
+.p-contests .match-day .match-link a:hover,
+.p-contests .rating .member a:hover,
+.p-contests .results a:hover,
+.p-contests .suggestion > a:hover,
+.p-contests .variant > a:hover,
+.b-contests-menu .results:hover,
+.b-contests-menu .grid a:hover,
+.p-contests-grid .round .match a:hover,
+.p-contests-index .contest a:hover,
+.p-dashboards .c-my_list .list-type > .title .link:hover,
+.p-dashboards .c-my_list .history > .title .link:hover,
+.p-dashboards .c-my_list .list-type > .title .switch:hover,
+.p-dashboards .c-my_list .history > .title .switch:hover,
+.p-dashboards .user_list .list-type > .title .link:hover,
+.p-dashboards .user_list .history > .title .link:hover,
+.p-dashboards .user_list .list-type > .title .switch:hover,
+.p-dashboards .user_list .history > .title .switch:hover,
+.p-dashboards-show .midheadline .b-link:hover,
+.p-dashboards-show .c-content .options .option:hover,
+.p-dashboards-show .c-content .options .option.selected,
+.p-db_entries-edit_field .cc-genres > .c-all_genres .genre:not(.included) .name:hover,
+.p-profiles .profile-head .c-brief header .notice a:hover,
+.p-profiles .profile-head .c-mobile-actions a:hover,
+.p-profiles .profile-head .c-mobile-actions span:hover,
+.p-profiles .profile-head .c-info .c-additionals div a:hover,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:hover,
+.p-profiles-edit .account .change-password a:hover,
+.p-profiles-edit .misc .profile-action a:hover,
+.p-profiles-edit .misc .profile-action .link:hover,
+.p-profiles-edit .misc .nickname-changes a:hover,
+.p-profiles-edit .misc .nickname-changes .link:hover,
+.p-profiles-edit .list .profile-action a:hover,
+.p-profiles-edit .list .profile-action .link:hover,
+.p-profiles-edit .list .nickname-changes a:hover,
+.p-profiles-edit .list .nickname-changes .link:hover,
+.p-profiles-edit .list #import_form .link:hover,
+.p-profiles-show .about a:hover,
+.p-studios .studio .name:hover,
+.p-translations .animes a:hover,
+.p-user_history-index .history-page .history-interval p a:hover,
+.p-user_rates-index .list-lines tr .name a:hover,
+.p-userlist_comparer .comparer table .name a:hover,
+.p-statistics-index .forum-nav .sections a:hover,
+.block-list-alt a:hover,
+.b-block_list-alt a:hover,
+.b-catalog_entry .cover:hover,
+.b-catalog_entry .cover:hover .title,
+.b-comment > .inner .was_updated:hover,
+.b-comment header .hash:hover,
+.b-dialog > .inner .was_updated:hover,
+.b-message > .inner .was_updated:hover,
+.b-options-floated .selected,
+.b-options-floated .selected.always-active:hover,
+.b-show_more:hover,
+.b-show_more-more .hide-more:hover,
+.b-stats_bar .stat_names .stat_name a:hover,
+.b-topic > .inner .was_updated:hover,
+.headline > a:hover:before,
+.midheadline > a:hover:before,
+.subheadline > a:hover:before,
+.headline.linkheadline > a:hover,
+.linkheadline.midheadline > a:hover,
+.linkheadline.subheadline > a:hover,
+.headline.linkheadline > a:hover:before,
+.linkheadline.midheadline > a:hover:before,
+.linkheadline.subheadline > a:hover:before,
+.tooltip-inner .close:hover,
+.p-animes-franchise .sticky-tooltip .close:hover,
+.p-mangas-franchise .sticky-tooltip .close:hover,
+.p-contests .contest-match .prev-match:hover,
+.p-contests .contest-match .next-match:hover,
+.p-contests .match-day .match-link.voted-none > .c-column a:hover,
+.p-contests .match-day .match-link.voted-left > .c-column:last-child a:hover,
+.p-contests .match-day .match-link.voted-right > .c-column:first-child a:hover,
+.p-contests .match-day .match-link .c-column.loser a:hover,
+.p-contests .match-day .match-link .c-column.created a:hover,
+.p-contests-grid .round .match .date a:hover,
+.p-dashboards-show .contests .contest:hover .title,
+.p-dashboards-show .contests .contest:hover .title:after,
+.p-dashboards-show .contests .contest .title:hover,
+.p-dashboards-show .contests .contest .title:hover:after,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.zero:hover,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.weak:hover,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.moderate:hover,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.high:hover,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.full:hover,
+.p-topics .l-menu .sticky-topics .topic:hover .title,
+.p-topics .l-menu .sticky-topics .topic:hover .title:after,
+.p-topics .l-menu .sticky-topics .topic .title:hover,
+.p-topics .l-menu .sticky-topics .topic .title:hover:after,
+.p-topics .l-menu .contests .contest:hover .title,
+.p-topics .l-menu .contests .contest:hover .title:after,
+.p-topics .l-menu .contests .contest .title:hover,
+.p-topics .l-menu .contests .contest .title:hover:after,
+.p-topics header h1 a.reload:hover,
+.p-user_rates-index .l-content .order-control:hover,
+.p-user_rates-index .list-lines tr td .anime-status:hover,
+.p-user_rates-index .list-lines tr td .anime-remove:hover,
+.p-user_rates-index .list-lines tr td .anime-remove.selected,
+.p-anime_videos-index .c-videos .video-variant-switcher:hover,
+.p-user_rates-index .stat-categories .category:hover,
+.b-options-floated.mobile-desktop a.selected,
+.p-user_rates-index .stat-categories .category.active,
+.p-anime_videos-index .c-videos .video-variant-switcher.active,
+.b-video_player .cc-player_controls .episode-num .video-link a:hover,
+.b-video_player .cc-player_controls .c-control:hover,
+.b-video_variant.active a,
+.b-video_player .cc-player_controls .c-control.selected
+  color: $link_hover
+  border-bottom-color: rgba($link_hover, .3)
+
+@media screen and (max-width: 480px) and (orientation: portrait)
+  .b-options-floated.mobile-phone_portrait a:hover
+    color: $link_hover
+
+@media screen and (max-width: 767px)
+  .b-options-floated.mobile-phone a:hover
+    color: $link_hover
+
+@media screen and (max-width: 1024px)
+  .b-options-floated.mobile-tablet a:hover
+    color: $link_hover
+
+
+
+.b-header_filters .filter-line a:active,
+.b-person .name:active,
+.b-source .contributors .val a:active,
+.b-source .mal .val a:active,
+.b-source .source .val a:active,
+.b-animes-menu .menu-topics-block .history-entry-tooltip a:active,
+.p-animes-files .l-content a:active,
+.p-mangas-files .l-content a:active,
+div.history .block-list li .tooltip-inner a:active,
+div.history .b-block_list li .tooltip-inner a:active,
+.p-dashboards-show .midheadline .b-link:active,
+.p-dashboards-show .c-content .options .option:active,
+.p-profiles .profile-head .c-brief header .notice a:active,
+.p-profiles .profile-head .c-mobile-actions a:active,
+.p-profiles .profile-head .c-mobile-actions span:active,
+.p-profiles .profile-head .c-info .c-additionals div a:active,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:active,
+.block-list-alt a:active,
+.b-block_list-alt a:active,
+.b-options-floated .selected:hover,
+.b-show_more:active,
+.b-show_more-more .hide-more:active,
+.headline > a:active:before,
+.midheadline > a:active:before,
+.subheadline > a:active:before,
+.p-dashboards-show .contests .contest:active .title,
+.p-dashboards-show .contests .contest:active .title:after,
+.p-dashboards-show .contests .contest .title:active,
+.p-dashboards-show .contests .contest .title:active:after,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.zero:active,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.weak:active,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.moderate:active,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.high:active,
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility .text.full:active,
+.p-topics .l-menu .sticky-topics .topic:active .title,
+.p-topics .l-menu .sticky-topics .topic:active .title:after,
+.p-topics .l-menu .sticky-topics .topic .title:active,
+.p-topics .l-menu .sticky-topics .topic .title:active:after,
+.p-topics .l-menu .contests .contest:active .title,
+.p-topics .l-menu .contests .contest:active .title:after,
+.p-topics .l-menu .contests .contest .title:active,
+.p-topics .l-menu .contests .contest .title:active:after,
+.p-user_rates-index .stat-categories .category:active,
+.b-options-floated.mobile-desktop a.selected:hover,
+.p-user_rates-index .stat-categories .category.active:hover,
+.p-anime_videos-index .c-videos .video-variant-switcher.active:hover,
+.b-video_player .cc-player_controls .c-control.selected:hover
+  color: $link_active
+
+@media only screen and (min-width: 1025px)
+  .b-abuse_request .ban-form .cancel:active,
+  .b-ban .abuser:active,
+  .b-bb_codes-examples .example a:active,
+  .b-bb_codes-examples .result a:active,
+  .b-bracket-actions > div:active,
+  .b-bracket-actions > span:active,
+  .b-catalog_entry-tooltip .inner a.name:active,
+  .b-catalog_entry-tooltip .inner .line .value a:active,
+  .b-catalog_entry-tooltip .inner .line.works .value a:active,
+  .b-catalog_entry .cover .title:active,
+  .b-club .name:active,
+  .b-comment > .inner header .name-date a.name:active,
+  .b-comments .comments-collapser:active,
+  .b-cosplay-topic > .inner .cosplay-info .line .value a:active,
+  .b-cosplay_gallery h3 a:active,
+  .b-db_entry-note .name-container .name:active,
+  .b-db_entry > .c-about .additional-links .line-container > .link:active,
+  .b-db_entry > .c-about .additional-links .line-container > a:active,
+  .b-dialog > .inner header .name-date a.name:active,
+  .b-entry-info .line a:active,
+  .b-feedback-inner .about a:active,
+  .b-form .variants .variant a:active,
+  .b-form .cancel:active,
+  .b-forums .forum .link-with-input .link:active,
+  .b-forums .reload:active,
+  .b-header_filters .filter-line a:active,
+  .b-height_shortener .expand:active,
+  .b-js-action:active,
+  .b-js-link:active,
+  .b-lang_trigger span:active,
+  .b-link:active,
+  .b-log_entry a:active,
+  .b-log_entry .link:active,
+  .b-log_entry .moderation a:active,
+  .b-log_entry .spoiler.collapsed:active,
+  .b-log_entry .spoiler.collapse:active,
+  .b-log_entry .spoiler.collapse span:active,
+  .b-log_entry .spoiler.collapsed span:active,
+  .b-mention:active,
+  .b-message > .inner header .name-date a.name:active,
+  .b-nothing_here a:active,
+  .b-options-floated a:active,
+  .b-options-floated .link:active,
+  .b-options-floated .action:active,
+  .b-options-floated.mobile-desktop a:active,
+  .b-shiki_editor footer .unpreview:active,
+  .b-shiki_editor footer .unpreview:not(.link):active,
+  .b-shiki_editor footer .cancel:active,
+  .b-shiki_editor footer .hide:active,
+  .b-shiki_editor footer .about-bb_codes:active,
+  .b-spoiler label:active,
+  .b-stats_bar a.title:active,
+  .b-table a:active,
+  .b-topic > .inner header .name-date a.name:active,
+  .b-topic .footer-vote .vote-group .vote:active,
+  .b-user.named_avatar .name:active,
+  .b-user.detailed .info .image-name:active,
+  .b-user.detailed .history .line a .event:active,
+  .b-user16:active,
+  header.head h1 a.back:active,
+  header.head h2 a.back:active,
+  header.head a.misc:active,
+  header.head a.edit:active,
+  .headline > a:active,
+  .midheadline > a:active,
+  .subheadline > a:active,
+  .subheadline .misc-link:active,
+  .b-video_player .cc-player_controls a.c-control:active,
+  .b-video_player .cc-player_controls .episode-title .video-link a:active,
+  .b-video_variant a:active,
+  .p-animes_collection-index .pagination .link:active,
+  .p-mangas_collection-index .pagination .link:active,
+  .p-recommendations-index .pagination .link:active,
+  .p-userlist_comparer-show .pagination .link:active,
+  .p-contests .contest-match .vs .next:active,
+  .p-contests .contest-match .vs .refrain:active,
+  .p-contests-edit .grid:active,
+  .p-contests .match-day .match-link a:active,
+  .p-contests .rating .member a:active,
+  .p-contests .results a:active,
+  .p-contests .suggestion > a:active,
+  .p-contests .variant > a:active,
+  .b-contests-menu .results:active,
+  .b-contests-menu .grid a:active,
+  .p-contests-grid .round .match a:active,
+  .p-contests-index .contest a:active,
+  .p-dashboards .c-my_list .list-type > .title .link:active,
+  .p-dashboards .c-my_list .history > .title .link:active,
+  .p-dashboards .c-my_list .list-type > .title .switch:active,
+  .p-dashboards .c-my_list .history > .title .switch:active,
+  .p-dashboards .user_list .list-type > .title .link:active,
+  .p-dashboards .user_list .history > .title .link:active,
+  .p-dashboards .user_list .list-type > .title .switch:active,
+  .p-dashboards .user_list .history > .title .switch:active,
+  .p-dashboards-show .midheadline .b-link:active,
+  .p-dashboards-show .c-content .options .option:active,
+  .p-db_entries-edit_field .cc-genres > .c-all_genres .genre:not(.included) .name:active,
+  .p-profiles .profile-head .c-brief header .notice a:active,
+  .p-profiles .profile-head .c-mobile-actions a:active,
+  .p-profiles .profile-head .c-mobile-actions span:active,
+  .p-profiles .profile-head .c-info .c-additionals div a:active,
+  .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar .compatibility a:active,
+  .p-profiles-edit .account .change-password a:active,
+  .p-profiles-edit .misc .profile-action a:active,
+  .p-profiles-edit .misc .profile-action .link:active,
+  .p-profiles-edit .misc .nickname-changes a:active,
+  .p-profiles-edit .misc .nickname-changes .link:active,
+  .p-profiles-edit .list .profile-action a:active,
+  .p-profiles-edit .list .profile-action .link:active,
+  .p-profiles-edit .list .nickname-changes a:active,
+  .p-profiles-edit .list .nickname-changes .link:active,
+  .p-profiles-edit .list #import_form .link:active,
+  .p-profiles-show .about a:active,
+  .p-studios .studio .name:active,
+  .p-translations .animes a:active,
+  .p-user_history-index .history-page .history-interval p a:active,
+  .p-user_rates-index .list-lines tr .name a:active,
+  .p-userlist_comparer .comparer table .name a:active,
+  .p-statistics-index .forum-nav .sections a:active,
+  .b-catalog_entry .cover:active,
+  .b-comment > .inner .was_updated:active,
+  .b-comment header .hash:active,
+  .b-dialog > .inner .was_updated:active,
+  .b-message > .inner .was_updated:active,
+  .b-options-floated .selected.always-active:active,
+  .b-stats_bar .stat_names .stat_name a:active,
+  .b-topic > .inner .was_updated:active,
+  .headline.linkheadline > a:active,
+  .linkheadline.midheadline > a:active,
+  .linkheadline.subheadline > a:active,
+  .headline.linkheadline > a:active:before,
+  .linkheadline.midheadline > a:active:before,
+  .linkheadline.subheadline > a:active:before,
+  .tooltip-inner .close:active,
+  .p-animes-franchise .sticky-tooltip .close:active,
+  .p-mangas-franchise .sticky-tooltip .close:active,
+  .p-contests .contest-match .prev-match:active,
+  .p-contests .contest-match .next-match:active,
+  .p-contests .match-day .match-link.voted-none > .c-column a:active,
+  .p-contests .match-day .match-link.voted-left > .c-column:last-child a:active,
+  .p-contests .match-day .match-link.voted-right > .c-column:first-child a:active,
+  .p-contests .match-day .match-link .c-column.loser a:active,
+  .p-contests .match-day .match-link .c-column.created a:active,
+  .p-contests-grid .round .match .date a:active,
+  .p-topics header h1 a.reload:active,
+  .p-user_rates-index .l-content .order-control:active,
+  .p-user_rates-index .list-lines tr td .anime-status:active,
+  .p-user_rates-index .list-lines tr td .anime-remove:active,
+  .b-bracket-details:active,
+  .b-form a.remove:active,
+  .p-anime_videos-index .c-videos .video-variant-switcher:active,
+  .p-anime_videos-index .c-videos .video-variant-switcher.active,
+  .b-video_player .cc-player_controls .episode-num .video-link a:active,
+  .b-video_player .cc-player_controls .c-control:active
+    color: $link_active
+    border-bottom-color: rgba($link_active, .3)
+
+@media only screen and (max-width: 480px) and (orientation: portrait) and (min-width: 1025px)
+  .b-options-floated.mobile-phone_portrait a:active
+    color: $link_active
+
+@media only screen and (max-width: 767px) and (min-width: 1025px)
+  .b-options-floated.mobile-phone a:active
+    color: $link_active
+
+@media only screen and (max-width: 1024px) and (min-width: 1025px)
+  .b-options-floated.mobile-tablet a:active
+    color: $link_active
+
+
+
+body
+  background-color: $background
+
+.l-page,
+.c-actions:before,
+.p-contests .contest-match .vs > div:first-child,
+.p-contests .match-day > .date,
+.p-animes_collection-index .l-content.ajax_request::before,
+.p-mangas_collection-index .l-content.ajax_request::before,
+.p-recommendations-index .l-content.ajax_request::before,
+.p-userlist_comparer-show .l-content.ajax_request::before,
+.b-ajax:before
+  background: $background
+
+.l-page:before
+  outline-color: $background
+
+@media screen and (max-width: 960px)
+  .p-profiles .profile-head .c-brief header
+    background-color: $background
+
+@media screen and (max-width: 1024px)
+  body
+    background-color: $background !important
+
+.b-height_shortener .shade
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), $background)
+
+.b-topic.aside-expanded > .inner aside.buttons,
+.b-dialog.aside-expanded > .inner aside.buttons,
+.b-message.aside-expanded > .inner aside.buttons,
+.b-comment.aside-expanded > .inner aside.buttons
+  background-color: rgba($background, .9)
+
+
+/* BLACK GREY WHITE */
+body,
+header.head h1,
+header.head h2,
+.ac_results,
+.tooltip-inner,
+.b-input input,
+.b-input textarea,
+.b-shiki_editor .body .editor textarea,
+.b-shiki_editor .links .link-value,
+.b-shiki_editor .images .link-value,
+.b-shiki_editor .quotes .link-value,
+.b-shiki_editor .email .link-value,
+.b-shiki_editor .upload .link-value,
+.p-user_rates-index .list-lines tr td .new-value input,
+.p-user_rates-index .l-content .filter input,
+.subheadline-input,
+.b-catalog_entry-tooltip .inner a.name,
+.b-catalog_entry .cover .title,
+.b-catalog_entry-tooltip .inner .line .value a,
+.b-clubs-menu .block-list li:hover,
+.b-clubs-menu .block-list li:hover a,
+.b-clubs-menu .block-list li a:hover,
+.b-clubs-menu .b-block_list li:hover,
+.b-clubs-menu .b-block_list li:hover a,
+.b-clubs-menu .b-block_list li a:hover,
+.b-db_entry > .c-image .c-actions > a:after,
+.b-db_entry-note .name-container .name,
+.b-dialog > .inner header .name-date a.name,
+.b-entry-info .line .b-tag,
+.b-forums .forum .link-with-input .link,
+.b-height_shortener .expand,
+.b-hot_topics .topic.subject,
+.b-hot_topics .topic a:hover,
+.b-message > .inner header .name-date a.name,
+.b-modal .subheadline,
+.b-link_button,
+.b-link_button:hover,
+.b-link_button:active,
+.block-list li:hover,
+.block-list-alt li:hover,
+.b-block_list li:hover,
+.b-block_list-alt li:hover,
+.b-pages .b-link,
+.b-show_more:hover,
+.b-show_more-more .hide-more:hover,
+.b-stats_bar .stat_names .stat_name a,
+.b-video_player .cc-player_controls .episode-title,
+.b-video_variant .episode-num,
+.b-video_variant .video-author,
+.b-video_variant .video-id,
+.headline,
+.b-catalog_entry-tooltip .inner .line .value .tag:hover,
+.b-entry-info .line .b-tag:hover,
+.b-tag:hover,
+.p-contests .match-day .match-link.voted-none > .c-column a,
+.p-contests .match-day .match-link.voted-left > .c-column:last-child a,
+.p-contests .match-day .match-link.voted-right > .c-column:first-child a,
+.p-contests .match-day .match-link .c-column.loser a,
+.p-contests .match-day .match-link .c-column.created a,
+.p-dashboards-show .contests .contest .title,
+.p-dialogs .b-options-floated > a.selected,
+.p-moderations-missing_videos .missing-video>.info span,
+.p-messages .b-options-floated > a.selected,
+.p-profiles-edit .b-options-floated > a.selected,
+.p-profiles .profile-head .c-history .entry .title,
+.p-topics .l-menu .calendar .entry a,
+.p-topics .l-menu .clubs .entry a,
+.p-topics .l-menu .contests .contest .title,
+.p-topics .l-menu .reviews .entry a,
+.p-topics .l-menu .sticky-topics .topic .title,
+.p-user_rates-index .l-content .order-control,
+.p-user_rates-index .l-content .order-control:hover
+  color: $text_primary !important
+
+
+/* Цвет основного текста в области при наведении */
+.b-clubs-menu .b-link:hover,
+.b-clubs-menu .actions li:hover,
+.b-clubs-menu .actions .upload label:hover,
+.b-clubs-menu .actions .invite span:hover,
+.b-clubs-menu .actions .join a:hover,
+.b-clubs-menu .actions .leave a:hover,
+.b-hot_topics .topic a,
+.b-forums .forum:hover .link-with-input .link,
+.b-image .marker,
+.b-video .marker,
+.b-video .name,
+.p-dashboards-show .contests .contest:hover .title,
+.p-profiles .profile-head .c-history .entry:hover .title,
+.p-topics .l-menu .calendar .entry:hover a,
+.p-topics .l-menu .clubs .entry:hover a,
+.p-topics .l-menu .contests .contest:hover .title,
+.p-topics .l-menu .reviews .entry:hover a,
+.p-topics .l-menu .sticky-topics .topic:hover .title
+  color: $text_primary !important
+
+
+@media (max-width: 1024px)
+  .l-top_menu .menu-items > .entry > a,
+  .l-top_menu .menu-items > .entry > .submenu > a,
+  .l-top_menu .inner .sign_out
+    color: $text_primary !important
+
+
+h3,
+header.head .notice,
+.bar.horizontal .line .x_label,
+.bar.vertical .line .x_label,
+.b-entry-info .line .b-tag,
+.b-catalog_entry-tooltip .inner .line .key,
+.b-catalog_entry-tooltip .inner .line .value .tag,
+.b-catalog_entry-tooltip .inner .rating,
+.b-collection-filters .block > .filter.item-sign:hover,
+.b-height_shortener:hover .expand,
+.b-lang_trigger:hover span,
+.b-lang_trigger span:hover,
+.b-show_more,
+.b-show_more-more .hide-more,
+.b-stats_bar .stat_names:hover:before,
+.b-tag,
+.block-list li,
+.block-list-alt li,
+.block-list li a,
+.block-list-alt li a,
+.b-block_list li,
+.b-block_list li a,
+div.compatibility > a:hover:before,
+div.compatibility > a:hover > span:first-child:before,
+.item-add:hover,
+.l-footer .copyright,
+.p-characters .item-edit:hover,
+.p-characters .item-edit:active,
+.p-contests .match-day > .date .from,
+.p-contests .match-day > .date .to,
+.p-profiles-edit .b-options-floated > a,
+.p-dialogs .b-options-floated > a,
+.p-messages .b-options-floated > a,
+.p-user_rates-index .list-lines tr td .episodes_total,
+.p-user_rates-index .list-lines tr td .rate-text,
+.b-collection_search .field .clear:hover
+  color: $text_secondary
+
+header.head h1 > a.back:hover,
+header.head h2 > a.back:hover,
+header.head h1 > a.back:active,
+header.head h2 > a.back:active,
+.b-video_player .cc-player_controls .c-control:hover .icon,
+.p-animes_collection-index .pagination .link:hover,
+.p-mangas_collection-index .pagination .link:hover,
+.p-recommendations-index .pagination .link:hover,
+.p-userlist_comparer-show .pagination .link:hover,
+.b-clubs-menu .block-list li,
+.b-clubs-menu .block-list li a,
+.b-clubs-menu .b-block_list li,
+.b-clubs-menu .b-block_list li a,
+.b-list_switchers > .switcher:hover,
+.c-actions > *:hover,
+.editor-controls > span:hover,
+.profile-actions > a:hover,
+.p-animes .item-edit:hover,
+.p-contests .contest-match .prev-match:hover,
+.p-contests .contest-match .next-match:hover,
+.p-mangas .item-edit:hover,
+.p-profiles-show .about .item-edit:hover,
+.p-messages .mass-actions .action > a:hover,
+.p-topics header h1 a.reload,
+.delete-controls > span,
+.delete-controls > span:hover,
+.main-controls > span,
+.main-controls > span:hover,
+.main-controls > a,
+.main-controls > a:hover,
+.buttons .item-edit,
+.buttons .item-edit:hover,
+.moderation-controls > span,
+.moderation-controls > span:hover,
+.b-video_player .cc-player_controls .episode-num
+  color: $text_secondary !important
+
+
+.midheadline,
+.subheadline,
+.b-animes-menu .menu-topics-block .date,
+.b-breadcrumbs,
+.b-breadcrumbs a.b-link,
+.b-catalog_entry .cover .misc span,
+.b-catalog_entry-tooltip .inner .rating .text,
+.b-club .info .number,
+.b-comment-info,
+.b-comment .inner .name-date a.name .normal,
+.b-collection-filters .block > .filter.item-sign,
+.b-db_entry-note .name-container .note,
+.b-entry-info .line .key,
+.b-forums .forum .link-with-input input + .link,
+.b-forums .forum .topics,
+.b-lang_trigger span,
+.b-log_entry .id-label,
+.b-log_entry .state.auto_accepted,
+.b-options-floated.count,
+.b-pages .title,
+.b-quote .quoteable:before,
+.b-replies:before,
+.b-stats_bar .title,
+.b-stats_bar .stat_names:before,
+.b-source .contributors .key,
+.b-source .mal .key,
+.b-source .source .key,
+.b-topic-preview > .inner .status-line .about,
+.b-topic-preview > .inner .status-line .from,
+.b-collection-filters .block-list li:before,
+.b-collection-filters .block-list .b-question:before,
+.b-collection-filters .b-block_list li:before,
+.b-collection-filters .b-block_list .b-question:before,
+div.compatibility > a:before,
+div.compatibility > span.link-replacement > span:first-child:before,
+div.compatibility > a > span:first-child:before,
+.item-add,
+.item-mobile,
+.item-mobile:hover,
+.item-mobile:active,
+.l-footer:before,
+.l-footer .links a,
+.l-top_menu .menu-items .submenu-toggler,
+.p-animes_collection-index .pagination .link,
+.p-mangas_collection-index .pagination .link,
+.p-recommendations-index .pagination .link,
+.p-userlist_comparer-show .pagination .link,
+.p-characters .item-edit,
+.p-contests .contest-match .vs,
+.p-contests .contest-match .vs .help,
+.p-contests .contest-match .vs .next,
+.p-contests .contest-match .vs .finish,
+.p-contests .contest-match .vs .refrain,
+.p-contests .contest-match .vs .refrained,
+.p-contests .match-day .matches-num,
+.p-dashboards-show .contests .contest .notice,
+.p-db_entries-edit .b-list .field,
+.p-profiles .profile-head .c-info .c-additionals b,
+.p-topics .l-menu .sticky-topics .topic .notice,
+.b-user.detailed .info .last-online,
+.b-video_variant .episode-hostings,
+.b-video_variant .video-hosting,
+.b-video_variant .video-language,
+.p-anime_videos-index .c-video_stats .views_count,
+.p-anime_videos-index .same-videos .title,
+.p-anime_videos-index .c-anime_video_episodes .title,
+.p-anime_videos-index .c-videos .title,
+.b-collection_search .field .clear
+  color: $text_hint
+
+header.head h1 a.back,
+header.head h2 a.back,
+.about-bb_codes:before,
+.b-db_entry > .c-about .additional-links .key,
+.b-list_switchers > .switcher,
+.b-user_rate .rate-show .note,
+.c-actions > *,
+.editor-controls > span,
+.profile-actions > a,
+.p-animes .item-edit,
+.p-animes_collection-index .pagination .link,
+.p-clubs-index header.head a.misc,
+.p-contests .contest-match .prev-match,
+.p-contests .contest-match .next-match,
+.p-mangas .item-edit,
+.p-mangas_collection-index .pagination .link,
+.p-messages .mass-actions > .action > a,
+.p-profiles .profile-head .c-history .entry .misc,
+.p-profiles-show .about .item-edit,
+.p-profiles-show .lifetime .title > .label:before,
+.p-profiles-show .profile-content .activity .title,
+.p-recommendations-index .pagination .link,
+.p-topics .l-menu .calendar .entry .misc,
+.p-topics .l-menu .reviews .entry .misc,
+.p-topics .l-menu .clubs .entry .misc,
+.p-userlist_comparer-show .pagination .link,
+.p-user_rates-index .list-lines tr.edit-form .remove,
+.p-user_rates-index .list-lines tr.edit-form .remove:hover,
+.p-user_history-index .history-page .history-interval p .date
+  color: $text_hint !important
+
+@media only screen and (min-width: 1025px)
+  .delete-controls > span,
+  .moderation-controls > span,
+  .main-controls > span,
+  .main-controls > a,
+  .buttons .item-edit
+    color: $text_hint !important
+
+
+header.head .misc,
+header.head a.edit,
+.b-ban .comment-hash,
+.b-ban .duration,
+.b-breadcrumbs > span:after,
+.b-club .info .value,
+.b-comment header a.hash,
+.b-comment > .inner header .name-date .time > time,
+.b-comment > .inner .was_updated,
+.b-input .hint,
+.b-log_entry .date,
+.b-message > .inner header .name-date .time > time,
+.b-nothing_here,
+.b-options-floated a:after,
+.b-options-floated .link:after,
+.b-stats_bar .stat_names .stat_name .size:after,
+.b-stats_bar .stat_names .stat_name .size:before,
+.b-topic > .inner header .name-date .time,
+.b-topic > .inner header .name-date .time > time,
+.b-topic-preview > .inner .status-line .additional .comments:before,
+.b-topic-preview > .inner .status-line .additional .likes:before,
+.b-topic-preview > .inner .status-line .time,
+.p-moderations-missing_videos .missing-video>.info,
+.p-profiles .profile-head .c-brief header .notice span:after,
+.p-user_rates-index .l-content .b-options-floated span:after,
+.p-user_rates-index .l-content .b-options-floated span:before,
+.p-user_rates-index .list-groups .summary .stat-value:after
+.b-user.detailed .history .line .date,
+.b-video_variant .episode-hostings:before,
+.b-video_variant .episode-hostings:after,
+.b-video_variant .video-hosting:before,
+.b-video_variant .video-hosting:after,
+.b-video_variant .video-language:before,
+.b-video_variant .video-language:after,
+.b-video_variant .video-kind.english:before,
+.p-anime_videos-index .c-videos .video-variant-switcher:not(:first-child):after,
+.b-nothing_here,
+.b-review_votes span,
+.b-topic-preview > .inner .status-line .time
+  color: $text_disabled
+
+.b-video_player .cc-player_controls .c-control .icon,
+.p-animes_collection-index .pagination .link.disabled,
+.p-mangas_collection-index .pagination .link.disabled,
+.p-recommendations-index .pagination .link.disabled,
+.p-userlist_comparer-show .pagination .link.disabled,
+.p-animes_collection-index .pagination .link.disabled:hover,
+.p-mangas_collection-index .pagination .link.disabled:hover,
+.p-recommendations-index .pagination .link.disabled:hover,
+.p-userlist_comparer-show .pagination .link.disabled:hover,
+.p-profiles .profile-head .c-history .entry .misc.date,
+.p-topics .l-menu .calendar .entry .misc.date,
+.p-topics .l-menu .reviews .entry .misc.date,
+.p-topics .l-menu .clubs .entry .misc.date
+  color: $text_disabled !important
+
+
+/* PRIMARY COLOR */
+input[type=submit],
+.button,
+.b-button,
+.b-contests-menu .results,
+.b-form input[type=submit],
+.b-link_button.dark,
+.btn-primary,
+.b-shiki_editor .links .button.ok,
+.b-shiki_editor .images .button.ok,
+.b-shiki_editor .quotes .button.ok,
+.b-shiki_editor .email .button.ok,
+.b-shiki_editor .upload .button.ok,
+.p-contests .contest-match .votes-percents .right-part,
+.p-contests .contest-match .votes-percents .left-part:hover .right-part,
+.p-user_rates .mylist-block + .block > .b-list > li,
+.b-collection-filters > .block:first-child > .b-list > li,
+.b-collection-filters > .block:first-child > .b-list > li,
+.b-stats_bar.anime .bar .first,
+.b-stats_bar.anime .bar .second,
+.line:nth-child(odd) > .bar-container > .bar,
+.line:nth-child(odd) > .bar-container > .bar:hover,
+.line:nth-child(even) > .bar-container > .bar,
+.line:nth-child(even) > .bar-container > .bar:hover,
+.b-image .cancel,
+.b-image .cancel:hover,
+.b-image .cancel:active,
+.b-image .confirm,
+.b-image .confirm:hover,
+.b-image .confirm:active,
+.b-image .delete,
+.b-image .delete:hover,
+.b-image .delete:active,
+.b-image .mobile-edit,
+.b-image .mobile-edit:hover,
+.b-image .mobile-edit:active,
+.b-image.deletable .confirm:hover,
+.b-image.deletable .cancel:hover,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate,
+.p-user_rates-index .list-posters .user_rate .edit-user_rate:hover
+  background-color: $primary
+
+@media screen and (max-width: 1024px)
+  .p-user_rates-index .list-posters .user_rate .edit-user_rate
+    background: $primary
+
+.p-contests .contest-match .votes-percents .right-part,
+.p-contests .contest-match .votes-percents .left-part:hover .right-part,
+.b-main_search .input:after
+  border-color: $primary
+
+.subheadline > a:hover,
+.midheadline > a:hover,
+.edit-page a.cancel:hover,
+.b-form .cancel:hover,
+.b-shiki_editor footer .unpreview:hover,
+.b-shiki_editor footer .preview:hover,
+.b-topic-preview > .editor-container .hide:hover,
+.p-contests .contest-match .vs .refrain:hover,
+.p-dashboards-show .b-forums > .b-link_button.maxi:hover:after,
+.p-profiles-show .b-stats_bar a.title:hover
+  background-color: rgba($primary, .12)
+
+input[type=submit]:hover,
+.button:hover,
+.b-button:hover,
+.b-contests-menu .results:hover,
+.b-form input[type=submit]:hover,
+.b-link_button.dark:hover
+  background-color: $primary_darker
+
+.b-contests-menu .results,
+.b-link_button.dark,
+.btn-submit
+  color: $primaryBG_color !important
+
+.b-rate .stars.score,
+.b-forums .forum input:checked + .link:before,
+.b-collection-filters .block-list .filter,
+.b-collection-filters .block-list li.selected:before,
+.b-collection-filters .b-block_list .filter,
+.b-collection-filters .b-block_list li.selected:before,
+.p-contests .contest-match .vs .refrain,
+.p-contests .contest-match .vs .refrain:hover,
+.p-contests .contest-match .vs .refrain:active,
+.tooltip-details .ajax-loading
+  color: $primary
+
+.headline > a,
+.headline > a:hover,
+.headline.linkheadline > a,
+.midheadline > a,
+.midheadline > a:hover,
+.midheadline.linkheadline > a,
+.subheadline > a,
+.subheadline > a:hover,
+.subheadline.linkheadline > a,
+.edit-page a.cancel,
+.p-dashboards-show .b-forums > .b-link_button.maxi:after,
+.b-form .cancel,
+.b-shiki_editor footer .unpreview,
+.b-shiki_editor footer .unpreview:not(.link):hover,
+.b-shiki_editor footer .preview,
+.b-stats_bar a.title,
+.b-topic-preview > .editor-container .hide
+  color: $primary !important
+/* END of PRIMARY COLOR */
+
+
+/* ACCENT COLOR */
+.menu .unread-count,
+.menu:hover .unread-count,
+.menu .contest,
+.menu:hover .contest,
+.p-contests .contest-match .votes-percents .left-part,
+.p-contests .contest-match .votes-percents .left-part:hover,
+.b-options-floated a span.brackets,
+.b-options-floated .link span.brackets,
+.b-stats_bar.manga .bar .first,
+.b-stats_bar.manga .bar .second,
+div.compatibility > a > span.rate,
+div.compatibility > span.link-replacement > span.rate
+  background-color: $accent
+
+.menu .unread-count:hover,
+.menu .contest:hover
+  background-color: $accent !important
+
+.p-profiles-show .b-stats_bar.manga a.title:hover
+  background-color: rgba($accent, .12)
+
+html.turbolinks-progress-bar:before
+  background: $accent !important
+  box-shadow: 0 0 10px rgba($accent, .7) !important
+
+.p-profiles-edit .b-options-floated > a.selected,
+.p-dialogs .b-options-floated > a.selected,
+.p-messages .b-options-floated > a.selected
+  border-bottom: 2px solid $accent
+
+.menu .unread-count,
+.menu:hover .unread-count,
+.menu .contest,
+.menu:hover .contest
+  color: $accentBG_color !important
+
+.b-rate .stars.hover,
+.c-actions .fav-add:hover:before,
+.c-actions .fav-remove:before,
+.profile-actions .fav-remove:before
+  color: $accent
+
+.b-list_switchers > .switcher.selected,
+.editor-controls > span.selected,
+.p-profiles-show .b-stats_bar.manga a.title
+  color: $accent !important
+/* END of ACCENT COLOR */
+
+
+/* BACKGROUND COLOR */
+.ac_results,
+.b-image .marker,
+.b-modal>.inner,
+.b-video .marker,
+.b-video .name,
+.l-top_menu .menu-items,
+.tooltip-inner,
+.tooltip-details .ajax-loading
+  background: $background_dialog
+
+@media screen and (max-width: 599px)
+  .b-stats_bar .stat_names:hover
+    background-color: $background_dialog
+
+.b-link_button,
+.b-comments .comments-loader,
+.b-comments .comments-hider,
+.b-comments .comments-expander,
+.b-comments .messages-postloader,
+.b-comments .faye-loader,
+.b-forum .faye-loader,
+.p-animes-show .other-names.click-loader,
+.p-mangas-show .other-names.click-loader,
+.collapsed
+  background-color: $background_normal
+  border-color: $background_hover
+
+.b-link_button:hover,
+.b-comments .comments-loader:hover,
+.b-comments .comments-hider:hover,
+.b-comments .comments-expander:hover,
+.b-comments .messages-postloader:hover,
+.b-comments .faye-loader:hover,
+.b-forum .faye-loader:hover,
+.p-animes-show .other-names.click-loader:hover,
+.p-mangas-show .other-names.click-loader:hover,
+.collapsed:hover
+  background-color: $background_hover
+  border-color: $background_active
+
+
+.b-link_button:active,
+.b-comments .comments-loader:active,
+.b-comments .comments-hider:active,
+.b-comments .comments-expander:active,
+.b-comments .messages-postloader:active,
+.b-comments .faye-loader:active,
+.b-forum .faye-loader:active,
+.p-animes-show .other-names.click-loader:active,
+.p-mangas-show .other-names.click-loader:active,
+.collapsed:active
+  background-color: $background_active
+  border-color: $border
+
+
+.b-quote, .b-quote .b-quote .b-quote
+  background: $Grey100
+
+
+.b-quote .b-quote, .b-quote .b-quote .b-quote .b-quote
+  background: $background_normal
+
+.b-user_rate .rate-show .note,
+.p-topics-new .topic_video,
+.p-topics-edit .topic_video,
+.p-topics-create .topic_video,
+.p-topics-update .topic_video,
+.p-user_rates-index .list-lines tr.edit-form form
+  background: $background_normal
+
+
+input,
+select,
+.b-editable_grid tbody tr:nth-child(odd) td,
+.b-input input,
+.b-input textarea,
+.b-pages,
+.b-shiki_editor .body .editor textarea,
+.b-shiki_editor .links .link-value,
+.b-shiki_editor .images .link-value,
+.b-shiki_editor .quotes .link-value,
+.b-shiki_editor .email .link-value,
+.b-shiki_editor .upload .link-value,
+div.compatibility > a:before,
+div.compatibility > span.link-replacement > span:first-child:before,
+div.compatibility > a > span:first-child:before,
+.l-page .menu-toggler .toggler,
+.p-contests .match-day .match-link:hover,
+.p-contests .match-day .match-link.active,
+.p-user_rates-index .list-groups .summary.posters,
+.p-user_rates-index .list-lines tr td .new-value input,
+.p-user_rates-index .l-content .filter input,
+.subheadline-input
+  background: $Grey100
+
+.editor textarea.b-comment,
+.editor textarea.b-message
+  background: $Grey100 !important
+
+
+/* Области наведения */
+.b-collection-filters .block > .filter.item-sign,
+.b-lang_trigger,
+.b-tag,
+.block-list li:hover,
+.block-list-alt li:hover,
+.block-list li.selected,
+.block-list-alt li.selected,
+.b-block_list li:hover,
+.b-block_list li.selected,
+.b-entry-info .line .b-tag,
+.b-catalog_entry-tooltip .inner .line .value .tag,
+.b-hot_topics .topic a,
+.b-forums .forum:hover,
+.b-show_more:hover,
+.b-show_more-more .hide-more:hover,
+.b-stats_bar .stat_names:hover:before,
+.history-interval p:hover,
+.p-profiles .profile-head .c-history .entry:hover a,
+.p-topics .l-menu .sticky-topics .topic:hover,
+.p-dashboards-show .contests .contest:hover,
+.p-topics .l-menu .calendar .entry:hover a,
+.p-topics .l-menu .clubs .entry:hover a,
+.p-topics .l-menu .contests .contest:hover,
+.p-topics .l-menu .reviews .entry:hover a,
+.p-user_rates-index .list-lines .selectable:hover,
+.p-user_rates-index .l-content .order-control:hover,
+.p-animes_collection-index .pagination .link:hover,
+.p-mangas_collection-index .pagination .link:hover,
+.p-recommendations-index .pagination .link:hover,
+.p-userlist_comparer-show .pagination .link:hover
+  background-color: $background_normal
+
+.block-list li:active,
+.block-list-alt li:active,
+.b-block_list li:active,
+.p-contests .match-day .match-link:active
+  background-color: $background_normal !important
+
+.p-dialogs header.head,
+.p-messages header.head,
+.p-profiles-edit header.head,
+.p-profiles-edit .b-options-floated,
+.p-dialogs .b-options-floated,
+.p-messages .b-options-floated,
+.b-hot_topics .topic a:hover
+  background-color: $background_hover
+
+.p-userlist_comparer .comparer table .selectable:hover
+  background-color: $background_hover !important
+
+
+/* Кнопки при наведении */
+div.compatibility > a:hover:before,
+div.compatibility > a:hover > span:first-child:before,
+.b-video_player .cc-player_controls .c-control:hover .icon,
+.p-animes_collection-index .pagination .link:hover,
+.p-mangas_collection-index .pagination .link:hover,
+.p-recommendations-index .pagination .link:hover,
+.p-userlist_comparer-show .pagination .link:hover,
+.b-collection-filters .block > .filter.item-sign:hover,
+.b-lang_trigger:hover,
+.b-list_switchers > .switcher:hover,
+.b-tag:hover,
+.b-entry-info .line .b-tag:hover,
+.b-catalog_entry-tooltip .inner .line .value .tag:hover,
+.b-user_rate .rate-show .rate-number .item-add:hover,
+.p-animes .item-edit:hover,
+.p-characters .item-edit:hover,
+.p-contests .contest-match .prev-match:hover,
+.p-contests .contest-match .next-match:hover,
+.p-mangas .item-edit:hover,
+.p-profiles-show .about .item-edit:hover,
+.p-messages .mass-actions .action > a:hover,
+.p-user_rates-index .list-lines tr.edit-form .remove:hover,
+.delete-controls > span:hover,
+.moderation-controls > span:hover,
+.main-controls > span:hover,
+.main-controls > a:hover,
+.buttons .item-edit:hover,
+.editor-controls > span:hover,
+.c-actions > *:hover,
+.about-bb_codes:hover,
+.profile-actions > *:hover,
+.item-mobile:hover,
+.item-mobile:active,
+header.head h1 > a.back:hover,
+header.head h2 > a.back:hover
+  background-color: $button_hover
+
+
+/* ЦВЕТ ГРАНИЦ ЭЛЕМЕНТОВ */
+hr,
+.b-db_entry-note:before,
+.b-dialog:before,
+.b-message:before,
+.b-comment:before,
+.b-comments .comments-loaded:before,
+.p-contests .match-day:before,
+.p-profiles .profile-head .c-history .entry:before,
+.p-topics .l-menu .calendar .entry:before,
+.p-topics .l-menu .reviews .entry:before,
+.p-topics .l-menu .clubs .entry:before
+  background-color: $border
+
+
+input,
+h3,
+select,
+.b-input input,
+.b-input textarea,
+.b-pages,
+.b-topic,
+.b-shiki_editor .body .editor textarea,
+.b-shiki_editor .links .link-value,
+.b-shiki_editor .images .link-value,
+.b-shiki_editor .quotes .link-value,
+.b-shiki_editor .email .link-value,
+.b-shiki_editor .upload .link-value,
+.b-quote,
+.l-page .menu-toggler .toggler,
+.p-topics-new .topic_video,
+.p-topics-edit .topic_video,
+.p-topics-create .topic_video,
+.p-topics-update .topic_video,
+.p-user_rates-index .list-groups .summary.posters,
+.p-user_rates-index .list-lines tr.edit-form form,
+.p-user_rates-index .list-lines tr td .new-value input,
+.p-user_rates-index .l-content .filter input,
+.subheadline-input
+  border-color: $border
+
+
+/* ОСОБЫЕ ЦВЕТА */
+
+.b-entry-info .line .b-tag:active,
+.b-catalog_entry-tooltip .inner .line .value .tag:active
+  background-color: $border
+
+.b-rate .stars.background
+  color: $border
+.b-stats_bar .bar .third
+  background: $border
+/* END of НАСТРОЙКА ЦВЕТОВ */
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
