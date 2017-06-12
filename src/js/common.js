@@ -259,7 +259,7 @@ var vm = new Vue({
 
     function fileLoader (release) {
       for (var i = 0; i < fileList.length; i++) {
-        XHR(i, release, '/release-' + release + fileList[i] + '?' + hash, Loading);
+        XHR(i, release, './release-' + release + fileList[i] + '?' + hash, Loading);
       }
     }
 
