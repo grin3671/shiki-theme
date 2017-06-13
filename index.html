@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<meta name="theme-color" content="#009688">
+    <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <link rel="stylesheet" href="./src/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic,cyrillic-ext,latin-ext">
@@ -28,7 +28,7 @@
           <div class="divider"></div>
         </div>
         <h1 class="display1">Настройка темы</h1>
-        <form action="/" v-on:submit.prevent="createTheme">
+        <form action="/" @submit.prevent="createTheme">
           <h3>Основные настройки</h3>
 
           <div class="field">
@@ -46,11 +46,11 @@
           <div class="field">
             <span class="field-label">Цветовая схема</span>
             <label class="label-radio">
-              <input type="radio" name="scheme" value="light" :value="false" v-model="scheme_dark" v-on:change="changeScheme">
+              <input type="radio" name="scheme" value="light" :value="false" v-model="scheme_dark" @change="changeScheme">
               <span>Светлая</span>
             </label>
             <label class="label-radio">
-              <input type="radio" name="scheme" value="dark" :value="true" v-model="scheme_dark" v-on:change="changeScheme">
+              <input type="radio" name="scheme" value="dark" :value="true" v-model="scheme_dark" @change="changeScheme">
               <span>Темная</span>
             </label>
             <label class="label-radio" v-if="user_setting.custom_scheme">
@@ -59,16 +59,14 @@
             </label>
           </div>
 
-
           <div class="field field-required" v-if="cover_display">
             <label for="user_id" class="field-label">Укажите ваш ID:</label>
             <div class="field-text">
-              <input type="text" id="user_id" name="id" v-on:change="setId" v-model="user_id" required>
+              <input type="text" id="user_id" name="id" @change="setId" v-model="user_id" required>
               <div class="divider"></div>
             </div>
             <span class="field-hint">Сюда можно вставить ссылку на вашу аватарку.</span>
           </div>
-
 
           <div class="field" v-if="cover_display">
             <label for="user_cover" class="field-label">Укажите ссылку на обложку:</label>
@@ -79,7 +77,6 @@
             <span class="field-hint">Хостинг картинок должен поддерживать протокол https://. Рекомендуемый хостинг: imgur.com.</span>
           </div>
 
-
           <div class="field">
             <label for="user_background" class="field-label">Укажите ссылку на фоновую картинку сайта:</label>
             <div class="field-text">
@@ -89,13 +86,11 @@
             <span class="field-hint">Хостинг картинок должен поддерживать протокол https://. Рекомендуемый хостинг: imgur.com.</span>
           </div>
 
-
           <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
           <label for="color_settings" class="field-switch secondary-action"></label>
           <h3>
             <label for="color_settings">Настройка цветов</label>
           </h3>
-
 
           <div class="color-settings">
 
@@ -104,28 +99,27 @@
             <div class="field">
               <span class="field-label">Цветовая палитра</span>
               <label class="label-radio">
-                <input type="radio" name="color_pallete" value="standart" v-model="user_setting.pallete" v-on:change="changePallete()">
+                <input type="radio" name="color_pallete" value="standart" v-model="user_setting.pallete" @change="changePallete()">
                 <span>Стандартная</span>
               </label>
               <label class="label-radio">
-                <input type="radio" name="color_pallete" value="blue_pink" v-model="user_setting.pallete" v-on:change="changePallete()">
+                <input type="radio" name="color_pallete" value="blue_pink" v-model="user_setting.pallete" @change="changePallete()">
                 <span>v1.1</span>
               </label>
               <label class="label-radio">
-                <input type="radio" name="color_pallete" value="teal_orange" v-model="user_setting.pallete" v-on:change="changePallete()">
+                <input type="radio" name="color_pallete" value="teal_orange" v-model="user_setting.pallete" @change="changePallete()">
                 <span>v1.2</span>
               </label>
               <label class="label-radio" v-if="user_setting.custom_pallete">
-                <input type="radio" name="color_pallete" value="custom" v-model="user_setting.pallete" v-on:change="changePallete()">
+                <input type="radio" name="color_pallete" value="custom" v-model="user_setting.pallete" @change="changePallete()">
                 <span>Своя палитра</span>
               </label>
             </div>
 
-
             <div class="list-container">
               <div class="list">
-                <input type="color" id="primary_color" class="field-radio" name="primary-color" v-model="scheme.primary" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.primary" v-on:change="changeColor()">
+                <input type="color" id="primary_color" class="field-radio" name="primary-color" v-model="scheme.primary" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.primary" @change="changeColor()">
                 <label for="primary_color" class="field-label">
                   <span>Основной цвет приложения</span>
                   <span>Используется для кнопок, ссылок и полоски аниме.</span>
@@ -133,8 +127,8 @@
               </div>
 
               <div class="list">
-                <input type="color" id="accent_color" class="field-radio" name="accent-color" v-model="scheme.accent" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.accent" v-on:change="changeColor()">
+                <input type="color" id="accent_color" class="field-radio" name="accent-color" v-model="scheme.accent" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.accent" @change="changeColor()">
                 <label for="accent_color" class="field-label">
                   <span>Акцентирующий цвет приложения</span>
                   <span>Используется для подсветки важных элементов и полоски манги.</span>
@@ -147,8 +141,8 @@
 
             <div class="list-container">
               <div class="list">
-                <input type="color" id="link_normal" class="field-radio" name="link-normal" v-model="scheme.link_normal" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.link_normal" v-on:change="changeColor()">
+                <input type="color" id="link_normal" class="field-radio" name="link-normal" v-model="scheme.link_normal" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.link_normal" @change="changeColor()">
                 <label for="link_normal" class="field-label">
                   <span>Цвет текста ссылки по умолчанию</span>
                   <span>Используется для ссылок в тексте, упоминаний, спойлеров и некоторых других элементов.</span>
@@ -156,8 +150,8 @@
               </div>
 
               <div class="list">
-                <input type="color" id="link_hover" class="field-radio" name="link-hover" v-model="scheme.link_hover" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.link_hover" v-on:change="changeColor()">
+                <input type="color" id="link_hover" class="field-radio" name="link-hover" v-model="scheme.link_hover" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.link_hover" @change="changeColor()">
                 <label for="link_hover" class="field-label">
                   <span>Цвет ссылки при наведении</span>
                   <span></span>
@@ -165,8 +159,8 @@
               </div>
 
               <div class="list">
-                <input type="color" id="link_active" class="field-radio" name="link-active" v-model="scheme.link_active" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.link_active" v-on:change="changeColor()">
+                <input type="color" id="link_active" class="field-radio" name="link-active" v-model="scheme.link_active" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.link_active" @change="changeColor()">
                 <label for="link_active" class="field-label">
                   <span>Цвет ссылки при нажатии</span>
                   <span></span>
@@ -179,8 +173,8 @@
 
             <div class="list-container">
               <div class="list">
-                <input type="color" id="menu_color" class="field-radio" name="menu-color" v-model="scheme.menu_background" v-on:change="changeColor()">
-                <input type="text" class="field-radio" v-model="scheme.menu_background" v-on:change="changeColor()">
+                <input type="color" id="menu_color" class="field-radio" name="menu-color" v-model="scheme.menu_background" @change="changeColor()">
+                <input type="text" class="field-radio" v-model="scheme.menu_background" @change="changeColor()">
                 <label for="menu_color" class="field-label">
                   <span>Цвет меню:</span>
                   <span>По умолчанию используется стандартный цвет. Цвет подменю настраивается автоматически.</span>
@@ -195,7 +189,6 @@
           <h3>
             <label for="extra_settings">Дополнительные настройки</label>
           </h3>
-
 
           <fieldset class="extra-settings">
             <p class="text-hint">Не меняйте цвет фонов и текста без необходимости. Цвета подобраны в соответствии с гайдлайном и являются наиболее подходящими для чтения в любых условиях. Подробнее ознакомится с цветами можно по ссылке: <a href="//material.io/guidelines/style/color.html#color-color-system">material.io</a>.</p>
@@ -321,7 +314,6 @@
           <span class="text-hint" v-if="isFileLoading">{{ text.fileLoading }}</span>
         </form>
 
-
         <div v-show="isCompiled">
           <h2 class="display1">Ваш код</h2>
           <div class="field">
@@ -331,36 +323,35 @@
               <div class="divider"></div>
             </div>
 
-            <div id="copy_css" class="btn btn-raised btn-primary" v-on:click.prevent="copyTheme">Скопировать код</div>
+            <div id="copy_css" class="btn btn-raised btn-primary" @click.prevent="copyTheme">Скопировать код</div>
             <span class="text-hint" v-show="isCopyUnsupport">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
           </div>
         </div>
 
-
         <h2 class="display1">Превью</h2>
         <div id="vue_preview" class="shiki-preview">
-          <div class="shiki-preview__body" v-bind:class="{ scheme_dark }" v-bind:style="{ backgroundColor: scheme.background, backgroundImage: 'url(' + user_background + ')' }">
-            <div class="shiki-preview__menu" v-bind:style="{ backgroundColor: scheme.menu_background }"></div>
-            <div class="shiki-preview__page" v-bind:style="{ backgroundColor: scheme.background }">
-              <div class="shiki-preview__cover" v-bind:class="{ cover_display }" v-bind:style="{ backgroundImage: 'url(' + user_cover + ')' }"></div>
+          <div class="shiki-preview__body" :class="{ scheme_dark }" :style="{ backgroundColor: scheme.background, backgroundImage: 'url(' + user_background + ')' }">
+            <div class="shiki-preview__menu" :style="{ backgroundColor: scheme.menu_background }"></div>
+            <div class="shiki-preview__page" :style="{ backgroundColor: scheme.background }">
+              <div class="shiki-preview__cover" :class="{ cover_display }" :style="{ backgroundImage: 'url(' + user_cover + ')' }"></div>
               <div class="shiki-preview__profile">
-                <div class="shiki-preview__avatar" v-bind:style="{ backgroundImage: 'url(' + user_avatar + ')' }"></div>
+                <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user_avatar + ')' }"></div>
                 <div class="shiki-preview__block block-h1"></div>
               </div>
               <div class="shiki-preview__list clearfix">
                 <div class="shiki-preview__block"></div>
-                <div class="shiki-preview__list-anime color-primary" v-bind:style="{ backgroundColor: scheme.primary }"></div>
+                <div class="shiki-preview__list-anime color-primary" :style="{ backgroundColor: scheme.primary }"></div>
                 <div class="shiki-preview__block"></div>
-                <div class="shiki-preview__list-manga color-accent" v-bind:style="{ backgroundColor: scheme.accent }"></div>
+                <div class="shiki-preview__list-manga color-accent" :style="{ backgroundColor: scheme.accent }"></div>
               </div>
               <div class="clearfix"></div>
-              <div class="shiki-preview__button color-primary" v-bind:style="{ backgroundColor: scheme.primary }"></div>
+              <div class="shiki-preview__button color-primary" :style="{ backgroundColor: scheme.primary }"></div>
             </div>
           </div>
         </div>
         <span class="field-hint">Условный вид профиля без адаптации для мобильных телефонов.</span>
 
-        <div class="notify" v-bind:class="{ loading: isCreating, notify_show: isNotify }"><span></span>{{ text.notify_message }}</div>
+        <div class="notify" :class="{ loading: isCreating, notify_show: isNotify }"><span></span>{{ text.notify_message }}</div>
       </div>
     </div>
     <script src="./vendor/sass.js/sass.js"></script>
