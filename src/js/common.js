@@ -140,7 +140,7 @@ var vm = new Vue({
       this.isCreating = true;
       this.isNotify = true;
 
-      Sass.setWorkerUrl('./../vendor/sass.js/sass.worker.min.js');
+      Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
       var sass = new Sass();
 
       sass.options({
