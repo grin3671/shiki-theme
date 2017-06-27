@@ -96,6 +96,7 @@ body
   max-width: inherit /* thx @NedStar */
   padding: 0 1rem
   margin: auto
+  text-align: center
 
 .l-page:before
   content: ''
@@ -125,7 +126,7 @@ body
 
 .l-footer:before,
 .l-footer .copyright
-  padding: .5rem 0
+  padding: .5rem 0 0
   line-height: 1rem
 
 .l-page:after,
@@ -133,7 +134,9 @@ body
   display: none
 
 .l-footer .links
-  padding: .25rem 0
+  clear: both
+  display: inline-block
+  padding: .5rem 0
   font: inherit
   font-size: .75rem
   line-height: 1rem
@@ -451,6 +454,7 @@ hr
 .b-image
   display: inline-block
   vertical-align: top
+  margin-bottom: .25rem
 
 /* Кнопки управления изображениями */
 .b-image img
@@ -2908,7 +2912,8 @@ header.head,
   padding-left: 3.5rem
 
 /* Фикс отступа в новостях и новостных топиках */
-.b-topic-preview.mini > .inner > header,
+/* NOTE: OLD .b-topic-preview.mini > .inner > header, */
+.b-topic-minified > .inner > header,
 .b-generated_news-topic > .inner > header,
 .b-generated_news > .inner > header,
 .b-generated_news > .inner > .body
