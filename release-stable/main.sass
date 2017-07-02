@@ -96,6 +96,7 @@ body
   max-width: inherit /* thx @NedStar */
   padding: 0 1rem
   margin: auto
+  text-align: center
 
 .l-page:before
   content: ''
@@ -123,9 +124,14 @@ body
   background: none
   font-size: .6875rem
 
+/* DO NOT DELETE */
+/* Информация для устранения неполадок */
+body[data-user *= ":2727,"] .l-footer:before
+  content: 'Theme by grin3671 v#{$ver} (#{$release})'
+
 .l-footer:before,
 .l-footer .copyright
-  padding: .5rem 0
+  padding: .5rem 0 0
   line-height: 1rem
 
 .l-page:after,
@@ -133,7 +139,9 @@ body
   display: none
 
 .l-footer .links
-  padding: .25rem 0
+  clear: both
+  display: inline-block
+  padding: .5rem 0
   font: inherit
   font-size: .75rem
   line-height: 1rem
@@ -451,6 +459,7 @@ hr
 .b-image
   display: inline-block
   vertical-align: top
+  margin-bottom: .25rem
 
 /* Кнопки управления изображениями */
 .b-image img
@@ -2909,9 +2918,11 @@ header.head,
 
 /* Фикс отступа в новостях и новостных топиках */
 .b-topic-preview.mini > .inner > header,
+.b-topic-minified > .inner > header,
 .b-generated_news-topic > .inner > header,
 .b-generated_news > .inner > header,
-.b-generated_news > .inner > .body
+.b-generated_news > .inner > .body,
+.p-clubs-show .b-topic-preview.mini > .inner > .body
   padding-left: 0
 
 /* Предпросмотр описания и страниц клуба */
@@ -2991,30 +3002,32 @@ header.head,
   line-height: 1.25rem
 
 .b-topic > .inner header .name-date a.name,
-.b-topic > .inner header .name-date .about
+.b-topic > .inner header .name-date .about,
+.b-topic > .inner > header .about a,
+.b-topic > .inner > header .about > span,
+.b-message header .broadcast-by
   display: inline-block
   vertical-align: top
   line-height: inherit
 
-.b-topic > .inner header .name-date .about
+.b-topic > .inner header .name-date .about,
+.b-message header .broadcast-by
   margin-right: .5rem
 
+.b-message header .broadcast-by
+  padding: 0
+  font-size: .875rem
+
 .b-topic > .inner > header .name-date a
-  font-size: 16px
+  font-size: 1rem
 
 .b-topic > .inner > header .about > span
-  display: inline-block
-  vertical-align: top
   color: #9E9E9E
   padding: 0 .5rem 0 0
   font-size: .875rem
-  line-height: inherit
 
 .b-topic > .inner > header .about a
-  display: inline-block
-  vertical-align: top
   font-size: 1rem
-  line-height: inherit
 
 .b-comment > .inner header .name-date a.name:hover
   text-decoration: none
@@ -5408,9 +5421,13 @@ div.compatibility > a:before
   position: relative
   width: 1.5rem
 
+.b-log_entry.b-ban
+  padding-right: 0 !important
+
 .b-ban .moderator
   float: right
   position: static
+  margin: 0 0 0 .5rem
 
 .b-abuse_request .remove,
 .b-log_entry span,
