@@ -2356,11 +2356,15 @@ select
 .b-db_entry-note .name-container .b-user_rate
   margin-top: .375rem
 
-.b-db_entry>.c-about .c-info-left,
-.b-db_entry>.c-about .c-info-right,
-.b-db_entry>.c-about .c-info-left:last-child,
-.b-db_entry>.c-about .c-info-right:last-child
+.b-db_entry > .c-about .c-info-left,
+.b-db_entry > .c-about .c-info-right,
+.b-db_entry > .c-about .c-info-left:last-child,
+.b-db_entry > .c-about .c-info-right:last-child
   margin-bottom: 8px !important
+
+.b-db_entry > .c-about .contest_winners
+  margin-top: 0
+  margin-bottom: 15px
 
 .p-animes .b-db_entry > *:last-child
   clear: left
@@ -2684,6 +2688,9 @@ header.head,
 
 .b-rate
   padding: 6px 0
+
+.b-rate:last-child
+  margin-bottom: 15px
 
 .b-rate .text-score
   vertical-align: top
