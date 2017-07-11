@@ -898,8 +898,17 @@ select
   margin-left: 0 !important
 
 .tooltip-inner .close
+  top: 0
+  right: 0
+  width: 2rem
+  padding: .4375rem
   background: transparent
+  border-radius: 50%
   color: inherit
+  font-size: 1.125rem
+
+.tooltip-inner .close:after
+  content: 'close'
 
 .block-list li,
 .block-list-alt li
@@ -5555,7 +5564,8 @@ div.compatibility > a:before
 .club-actions .leave:before,
 .l-top_menu .menu-items > .entry > a[href *= "/forum"]:before,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate:before,
-.b-collection_search .field .clear:before
+.b-collection_search .field .clear:before,
+.tooltip-inner .close
   font-family: 'Material Icons'
   line-height: 1
 
