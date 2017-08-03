@@ -146,7 +146,9 @@ div.history .b-block_list li .tooltip-inner a,
 .p-anime_videos-index .c-videos .video-variant-switcher,
 .p-user_rates-index .stat-categories .category,
 .b-video_player .cc-player_controls .episode-num .video-link a,
-.b-video_player .cc-player_controls .c-control
+.b-video_player .cc-player_controls .c-control,
+.b-animes-menu .menu-topics-block a.entry .name,
+.b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
   color: $link_normal
   border-bottom-color: rgba($link_normal, .3)
 
@@ -360,7 +362,10 @@ div.history .b-block_list li .tooltip-inner a:hover,
 .b-video_player .cc-player_controls .episode-num .video-link a:hover,
 .b-video_player .cc-player_controls .c-control:hover,
 .b-video_variant.active a,
-.b-video_player .cc-player_controls .c-control.selected
+.b-video_player .cc-player_controls .c-control.selected,
+.b-animes-menu .menu-topics-block a.entry:hover .name,
+.b-animes-menu .menu-topics-block a.entry .name:hover,
+.b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:hover
   color: $link_hover
   border-bottom-color: rgba($link_hover, .3)
 
@@ -581,7 +586,9 @@ div.history .b-block_list li .tooltip-inner a:active,
   .p-anime_videos-index .c-videos .video-variant-switcher:active,
   .p-anime_videos-index .c-videos .video-variant-switcher.active,
   .b-video_player .cc-player_controls .episode-num .video-link a:active,
-  .b-video_player .cc-player_controls .c-control:active
+  .b-video_player .cc-player_controls .c-control:active,
+  .b-animes-menu .menu-topics-block a.entry .name:active,
+  .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:active
     color: $link_active
     border-bottom-color: rgba($link_active, .3)
 
@@ -706,7 +713,9 @@ header.head h2,
 .p-topics .l-menu .reviews .entry a,
 .p-topics .l-menu .sticky-topics .topic .title,
 .p-user_rates-index .l-content .order-control,
-.p-user_rates-index .l-content .order-control:hover
+.p-user_rates-index .l-content .order-control:hover,
+.b-external_link .linkeable,
+.b-external_link a
   color: $text_primary !important
 
 

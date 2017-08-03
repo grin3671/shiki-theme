@@ -178,10 +178,8 @@ var vm = new Vue({
 
       if (this.user_background) {
         sass_setting += '$user_background: url(' + this.user_background + '); ';
-        sass_setting += '$outline_color: $background; ';
         sass.writeFile('settings-body.sass', 'body {background-attachment: fixed; background-image: $user_background; background-position: top center; background-size: 100%;}');
       } else {
-        sass_setting += '$outline_color: transparent; ';
         sass.writeFile('settings-body.sass', 'body { background-image: none; }');
       }
 

@@ -93,7 +93,6 @@ body
   padding-bottom: 4.5rem
   padding-left: 1rem
   background-color: inherit
-  z-index: auto
 
 .l-footer
   position: absolute
@@ -105,20 +104,6 @@ body
   padding: 0 1rem
   margin: auto
   text-align: center
-
-.l-page:before
-  content: ''
-  display: block
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  width: auto
-  background: none
-  outline-width: 1rem
-  outline-style: solid
-  z-index: -1
 
 .l-footer:before
   content: 'Theme by grin3671'
@@ -142,7 +127,6 @@ body[data-user *= ":2727,"] .l-footer:before
   padding: .5rem 0 0
   line-height: 1rem
 
-.l-page:after,
 .l-footer:after
   display: none
 
@@ -157,6 +141,12 @@ body[data-user *= ":2727,"] .l-footer:before
 
 .l-footer .links a:last-child
   margin: 0
+
+@media (min-width: 960px)
+  .l-page,
+  .l-footer
+    padding-right: 2rem
+    padding-left: 2rem
 /* END of MAIN BLOCKS */
 
 
@@ -1118,16 +1108,18 @@ select
 @media screen and (min-width: 480px) and (max-height: 540px) and (orientation: landscape)
   .l-top_menu
     padding: 0
- 
 
   .l-page
     padding-top: 64px
- 
+
 /* На планшетах и далее, высота меню равна 56px */
 @media screen and (min-width: 961px) and (orientation: landscape)
   .l-top_menu
     padding: 4px 0
- 
+
+@media (min-width: 960px)
+  .l-top_menu .inner
+    padding: 0 1rem
 
 /* MENUTOP > LOGO */
 .l-top_menu .inner > a:first-child

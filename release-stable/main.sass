@@ -4,6 +4,14 @@
 .p-club_pages .edit_comment .preview .b-comment .inner header
   display: block
 
+/* Ссылки в превью новостей не переносятся на новую строку */
+.b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
+  display: block
+
+/**/
+/**/
+/**/
+
 /* ОСНОВНОЙ ФАЙЛ */
 header.head h1,
 header.head h2,
@@ -85,7 +93,6 @@ body
   padding-bottom: 4.5rem
   padding-left: 1rem
   background-color: inherit
-  z-index: auto
 
 .l-footer
   position: absolute
@@ -97,20 +104,6 @@ body
   padding: 0 1rem
   margin: auto
   text-align: center
-
-.l-page:before
-  content: ''
-  display: block
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  width: auto
-  background: none
-  outline-width: 1rem
-  outline-style: solid
-  z-index: -1
 
 .l-footer:before
   content: 'Theme by grin3671'
@@ -134,7 +127,6 @@ body[data-user *= ":2727,"] .l-footer:before
   padding: .5rem 0 0
   line-height: 1rem
 
-.l-page:after,
 .l-footer:after
   display: none
 
@@ -149,6 +141,12 @@ body[data-user *= ":2727,"] .l-footer:before
 
 .l-footer .links a:last-child
   margin: 0
+
+@media (min-width: 960px)
+  .l-page,
+  .l-footer
+    padding-right: 2rem
+    padding-left: 2rem
 /* END of MAIN BLOCKS */
 
 
@@ -163,7 +161,9 @@ body[data-user *= ":2727,"] .l-footer:before
   line-height: inherit
 
 @media only screen and (min-width: 768px)
-  .cc-2 > .c-column
+  .cc-2 > .c-column,
+  .p-animes-show .cc-related-authors > .c-column,
+  .p-mangas-show .cc-related-authors > .c-column
     line-height: inherit
 
 .cc-3-flex > .c-column
@@ -327,12 +327,14 @@ hr
   margin-top: -.75rem
   margin-left: -.75rem
   background: transparent
-  border: .25em solid
+  border: .1875rem solid
   border-right-color: transparent
   border-radius: 50%
   color: $primary
   -webkit-animation: spin 2s linear infinite
   animation: spin 2s linear infinite
+  box-sizing: border-box
+  pointer-events: all
 
 /* Списки */
 .b-list
@@ -888,8 +890,17 @@ select
   margin-left: 0 !important
 
 .tooltip-inner .close
+  top: 0
+  right: 0
+  width: 2rem
+  padding: .4375rem
   background: transparent
+  border-radius: 50%
   color: inherit
+  font-size: 1.125rem
+
+.tooltip-inner .close:after
+  content: 'close'
 
 .block-list li,
 .block-list-alt li
@@ -1097,16 +1108,18 @@ select
 @media screen and (min-width: 480px) and (max-height: 540px) and (orientation: landscape)
   .l-top_menu
     padding: 0
- 
 
   .l-page
     padding-top: 64px
- 
+
 /* На планшетах и далее, высота меню равна 56px */
 @media screen and (min-width: 961px) and (orientation: landscape)
   .l-top_menu
     padding: 4px 0
- 
+
+@media (min-width: 960px)
+  .l-top_menu .inner
+    padding: 0 1rem
 
 /* MENUTOP > LOGO */
 .l-top_menu .inner > a:first-child
@@ -2316,15 +2329,6 @@ select
 /**
  * ANIME PAGE
  */
-
-.b-animes-menu .friend-rate
-  line-height: 1.5rem
-  white-space: nowrap /* thx @NedStar */
-
-.b-animes-menu .site-icon
-  margin-top: .25rem
-  margin-right: .75rem
-
 .b-db_entry
   margin-bottom: 8px
 
@@ -2332,9 +2336,7 @@ select
   padding: .25rem 0
 
 .b-db_entry-note .name-container .name
-  display: block
   font-size: 1rem
-  line-height: 1.25rem
 
 .b-db_entry-note .name-container .note
   margin-top: 4px
@@ -2348,11 +2350,15 @@ select
 .b-db_entry-note .name-container .b-user_rate
   margin-top: .375rem
 
-.b-db_entry>.c-about .c-info-left,
-.b-db_entry>.c-about .c-info-right,
-.b-db_entry>.c-about .c-info-left:last-child,
-.b-db_entry>.c-about .c-info-right:last-child
+.b-db_entry > .c-about .c-info-left,
+.b-db_entry > .c-about .c-info-right,
+.b-db_entry > .c-about .c-info-left:last-child,
+.b-db_entry > .c-about .c-info-right:last-child
   margin-bottom: 8px !important
+
+.b-db_entry > .c-about .contest_winners
+  margin-top: 0
+  margin-bottom: 15px
 
 .p-animes .b-db_entry > *:last-child
   clear: left
@@ -2677,6 +2683,9 @@ header.head,
 .b-rate
   padding: 6px 0
 
+.b-rate:last-child
+  margin-bottom: 15px
+
 .b-rate .text-score
   vertical-align: top
 
@@ -2838,7 +2847,36 @@ header.head,
     width: 18.4%
     margin-right: 2%
     border-radius: 2px
- 
+
+/* Anime/Manga Sidebar */
+.b-animes-menu .friend-rate
+  line-height: 1.5rem
+  white-space: nowrap /* thx @NedStar */
+
+.b-animes-menu .site-icon
+  margin-top: .25rem
+  margin-right: .75rem
+
+.b-external_link
+  font-size: .875rem
+  line-height: 1.5rem
+
+.b-external_link .linkeable,
+.b-external_link a
+  display: block
+  margin-left: 2rem
+
+.b-animes-menu .b-external_link .linkeable:before,
+.b-animes-menu .b-external_link a:before
+  width: 1.125rem
+  height: 1.125rem
+  margin-top: .1875rem
+  margin-left: -2rem
+  background-size: 1.125rem
+
+.b-external_link .linkeable:hover,
+.b-external_link a:hover
+  text-decoration: underline
 
 
 
@@ -5540,7 +5578,8 @@ div.compatibility > a:before
 .club-actions .leave:before,
 .l-top_menu .menu-items > .entry > a[href *= "/forum"]:before,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate:before,
-.b-collection_search .field .clear:before
+.b-collection_search .field .clear:before,
+.tooltip-inner .close
   font-family: 'Material Icons'
   line-height: 1
 
