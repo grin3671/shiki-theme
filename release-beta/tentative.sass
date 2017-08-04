@@ -217,10 +217,14 @@
     padding: 4.5rem 1rem 1.5rem
     box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .24)
     overflow-y: auto
-    transform: translateX(100%)
+    -webkit-transform: translateX(110%)
+    -ms-transform: translateX(110%)
+    transform: translateX(110%)
     transition: .25s ease
 
   .l-page.menu-expanded .l-menu
+    -webkit-transform: translateX(0)
+    -ms-transform: translateX(0)
     transform: translateX(0)
 
   .menu-slide-outer .l-content

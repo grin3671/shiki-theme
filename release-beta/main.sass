@@ -1199,6 +1199,7 @@ select
 .l-top_menu .menu-items
   position: absolute
   top: 0
+  left: 0
   width: calc(100% - 56px)
   max-width: 320px
   height: calc(100vh + 16px)
@@ -1210,10 +1211,14 @@ select
 /* EXPERIMENTAL > ANIMATED MOBILE MENU */
 .l-top_menu .menu-items
   display: block
-  transform: translate(-100%, 0)
+  -webkit-transform: translate(-110%, 0)
+  -ms-transform: translate(-110%, 0)
+  transform: translate(-110%, 0)
   transition: 240ms ease-out
 
 .l-top_menu .menu-items.active
+  -webkit-transform: translate(0, 0)
+  -ms-transform: translate(0, 0)
   transform: translate(0, 0)
 /* END of EXPERIMENTAL */
 
