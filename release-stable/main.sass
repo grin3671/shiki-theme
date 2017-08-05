@@ -125,6 +125,7 @@ body[data-user *= ":2727,"] .l-footer:before
 .l-footer:before,
 .l-footer .copyright
   padding: .5rem 0 0
+  font-family: inherit
   line-height: 1rem
 
 .l-footer:after
@@ -145,8 +146,8 @@ body[data-user *= ":2727,"] .l-footer:before
 @media (min-width: 960px)
   .l-page,
   .l-footer
-    padding-right: 2rem
-    padding-left: 2rem
+    padding-right: 1.5rem
+    padding-left: 1.5rem
 /* END of MAIN BLOCKS */
 
 
@@ -1119,7 +1120,7 @@ select
 
 @media (min-width: 960px)
   .l-top_menu .inner
-    padding: 0 1rem
+    padding: 0 .5rem
 
 /* MENUTOP > LOGO */
 .l-top_menu .inner > a:first-child
@@ -1199,6 +1200,7 @@ select
 .l-top_menu .menu-items
   position: absolute
   top: 0
+  left: 0
   width: calc(100% - 56px)
   max-width: 320px
   height: calc(100vh + 16px)
@@ -1210,10 +1212,14 @@ select
 /* EXPERIMENTAL > ANIMATED MOBILE MENU */
 .l-top_menu .menu-items
   display: block
-  transform: translate(-100%, 0)
+  -webkit-transform: translate(-110%, 0)
+  -ms-transform: translate(-110%, 0)
+  transform: translate(-110%, 0)
   transition: 240ms ease-out
 
 .l-top_menu .menu-items.active
+  -webkit-transform: translate(0, 0)
+  -ms-transform: translate(0, 0)
   transform: translate(0, 0)
 /* END of EXPERIMENTAL */
 
@@ -1463,6 +1469,7 @@ select
   padding: .5rem 1rem
   background-color: transparent
   border: 0
+  font-family: inherit
   font-size: .875rem
   line-height: 1rem
 
@@ -3517,6 +3524,9 @@ pre
   background: #303030
   border-radius: 2px
   font-size: .875rem
+  font-style: normal
+  font-weight: normal
+  text-align: left
 
 @media (min-width: 960px)
   .b-code:before
@@ -6156,22 +6166,33 @@ header.head h2 a.back:after
     transform: skewX(45deg) translate(.875em, .875em)
  
 
+/* Всплывающие окна */
 .b-catalog_entry-tooltip .inner a.name
   font-size: .875rem
 
+.b-catalog_entry-tooltip .inner .text
+  font-size: .8125rem
+  line-height: 1.25rem
+  margin-bottom: .5rem
+
+.b-catalog_entry-tooltip .inner .line
+  font-size: .8125rem
+  line-height: 1.5rem
+
+.b-catalog_entry-tooltip .inner .line.name
+  line-height: 1.5rem
+  margin-bottom: 0
+
 .b-catalog_entry-tooltip .inner .rating
+  bottom: 0
   font-family: inherit
+  font-size: 1.5rem
+  line-height: 1
 
 .b-catalog_entry-tooltip .inner .rating .text
+  margin: .5rem .5rem 0
   font-size: .75rem
-
-/* FIX: Размер изображений в тултипах Избаранного */
-.b-catalog_entry-tooltip .inner .best-works > .c-column
-  width: 22%
-  margin-right: 4%
-
-.b-catalog_entry-tooltip .inner .best-works > .c-column:last-child
-  margin-right: 0
+  line-height: 1rem
 
 /* TEXTEDITOR | SHIKI EDITOR */
 .b-topic > .editor-container
