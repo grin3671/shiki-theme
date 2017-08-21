@@ -6285,6 +6285,25 @@ header.head h2 a.back:after
   margin-left: 1rem !important
   width: 20rem !important
 
+/* Полоса загрузки. thx Dewopalaxy */
+.b-upload_progress.active
+  height: 1.5rem
+
+.b-upload_progress .bar
+  min-width: 0
+  height: 4px
+  background-color: $primary
+  color: $text_primary
+  font-size: .875rem
+  border-radius: 2px
+  text-align: left
+  text-indent: 1rem
+  line-height: 2rem
+  overflow: visible
+
+.b-upload_progress .bar::first-letter
+  text-transform: uppercase
+
 .b-shiki_editor .body .editor textarea
   padding: .5rem 1rem
   margin: 0
