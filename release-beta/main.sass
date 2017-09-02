@@ -2336,6 +2336,153 @@ select
 
 
 
+/**
+ * Опросы
+ */
+
+/* Контейнер */
+.b-poll
+  margin: .5rem 0
+  line-height: inherit
+
+/* Текстовый блок */
+.b-poll .poll
+  margin-bottom: .0
+
+/* Название опроса */
+.b-poll .poll .name
+
+/* Текст опроса */
+.b-poll .poll .text
+
+/* Контейнер для вариантов в опросе */
+.b-poll .poll-variants
+  padding: .5em 0
+  margin: 0
+
+/* Вариант в опросе */
+.b-poll .poll-variants .poll-variant
+  line-height: 1.5em
+  margin-bottom: .5em
+
+/* Вариант в опросе (завершенный) */
+.b-poll .poll-variants .poll-variant.result
+  margin-bottom: .75em
+
+/* Отступ от текста варианта */
+.b-poll .poll-variants .poll-variant label
+  margin-bottom: .25em
+
+/* Псевдо переключатель */
+.b-radio input[type="radio"]+.radio-label:before
+  content: ''
+  display: inline-block
+  vertical-align: top
+  position: relative
+  width: 18px
+  height: 18px
+  margin: 3px 18px 0 0
+  border-radius: 100%
+  border: 1.5px solid $primary
+  box-sizing: border-box
+  box-shadow: 0 0 0 2.75px $background inset
+  text-align: center
+  cursor: pointer
+
+.b-radio input[type="radio"]:checked+.radio-label:before
+  width: 18px
+  height: 18px
+  background-color: $primary
+  border: 1.5px solid $primary
+
+/* Кнопки голосования */
+.b-poll .poll-actions .vote,
+.b-poll .poll-actions .abstain
+  display: inline-block
+  vertical-align: top
+  min-width: 112px
+  padding: 0 1rem
+  margin: .375rem 0
+  background-color: $primary
+  border-radius: 2px
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.24)
+  font-size: .875rem
+  font-weight: 700
+  line-height: 2.25rem
+  text-align: center
+  text-transform: uppercase
+  transition: .16s cubic-bezier(0.4, 0.0, 0.6, 1)
+
+.b-poll .poll-actions .vote:not(:last-child),
+.b-poll .poll-actions .abstain:not(:last-child)
+  margin-right: .5rem
+
+.b-poll .poll-actions .vote:hover,
+.b-poll .poll-actions .abstain:hover
+  background-color: $primary_darker
+  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.24), 0 3px 12px 2px rgba(0, 0, 0, 0.16)
+
+@media (min-width: 960px)
+  .b-poll .poll-actions .vote,
+  .b-poll .poll-actions .abstain
+    margin-top: .5rem
+    margin-bottom: .5rem
+    box-shadow: none
+    font-size: .8125rem
+    line-height: 2rem
+
+  .b-poll .poll-actions .vote:hover,
+  .b-poll .poll-actions .abstain:hover
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.24)
+
+/* Вспомогательная информация: процент и сумма голосов */
+.b-poll .poll-variants .poll-variant.result .votes-percent,
+.b-poll .poll-variants .poll-variant.result .votes-total
+  line-height: inherit
+  font-size: .75em
+
+.b-poll .poll-variants .poll-variant.result .votes-percent
+  color: $text_disabled
+  margin-right: 1em
+
+.b-poll .poll-variants .poll-variant.result .votes-total
+  color: $text_hint
+  margin-left: 1em
+
+/* Отметка своего выарианта */
+.b-poll .poll-variants .poll-variant.result label .voted-for
+  padding-left: 0
+  margin-left: 1em
+  color: #66BB6A
+
+.b-poll .poll-variants .poll-variant.result label .voted-for:after,
+.b-poll .poll-variants .poll-variant.result label .voted-for:before
+  display: none
+
+/* Полосы */
+.b-poll .poll-variants .poll-variant.result .bar .line,
+.b-poll .poll-variants .poll-variant.result .bar .bar
+  height: 4px
+  line-height: 4px
+  margin-bottom: 0
+  border-radius: 2px
+
+/* Цвет полос */
+.b-poll .poll-variants .poll-variant.result .bar .line
+  background-color: $border
+
+.b-poll .poll-variants .poll-variant.result .bar .bar.s0,
+.b-poll .poll-variants .poll-variant.result .bar .bar.s1,
+.b-poll .poll-variants .poll-variant.result .bar .bar.s2,
+.b-poll .poll-variants .poll-variant.result .bar .bar.s3
+  background-color: $primary
+
+/* END of ОПРОСЫ */
+
+
+
+
+
 /* ROUNDED IMAGES */
 .b-dialog > .inner header img,
 .b-message > .inner header img,
