@@ -2723,6 +2723,14 @@ select
   margin-top: 0
 /* END of ADD TO LIST BUTTON */
 
+.b-catalog_entry.planned .image-decor::before,
+.b-catalog_entry.watching .image-decor::before,
+.b-catalog_entry.completed .image-decor::before,
+.b-catalog_entry.rewatching .image-decor::before,
+.b-catalog_entry.on_hold .image-decor::before,
+.b-catalog_entry.dropped .image-decor::before
+  display: none
+
 .b-catalog_entry.planned .image-decor::after,
 .b-catalog_entry.watching .image-decor::after,
 .b-catalog_entry.completed .image-decor::after,
@@ -2730,33 +2738,16 @@ select
 .b-catalog_entry.on_hold .image-decor::after,
 .b-catalog_entry.dropped .image-decor::after
   top: auto
-  right: .375rem
-  bottom: .375rem
-  width: 2rem
+  right: 8px
+  bottom: 8px
+  width: 36px
   height: auto
   border: none
   border-radius: 100%
-  font-size: 1.125rem
-  line-height: 2rem
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,.32)
-
-  /* TODO: MERGE with ICON_FONT */
-  font-family: 'Material Icons'
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
+  box-shadow: 0 2px 4px 1px rgba(0,0,0,.24)
+  color: #FFF
+  font-size: 22px
+  line-height: 36px !important
 
 .p-animes_collection-index.x1000 .b-catalog_entry .image-decor::after,
 .p-mangas_collection-index.x1000 .b-catalog_entry .image-decor::after,
@@ -2769,21 +2760,28 @@ select
 
 .b-catalog_entry.planned .image-decor::after
   content: "event"
+  background: #FAFAFA
+  color: #1976D2
 
 .b-catalog_entry.watching .image-decor::after
   content: "play_arrow"
+  background: #1E88E5
 
 .b-catalog_entry.rewatching .image-decor::after
   content: "replay"
+  background: #1E88E5
 
 .b-catalog_entry.completed .image-decor::after
   content: "done"
+  background: #43A047
 
 .b-catalog_entry.on_hold .image-decor::after
   content: "schedule"
+  background: #757575
 
 .b-catalog_entry.dropped .image-decor::after
   content: "delete"
+  background: #E53935
 
 .b-db_entry-note .name-container
   margin-left: 64px
@@ -5767,7 +5765,13 @@ div.compatibility > a:before
 .p-contests .match-day .match-link .loser:before,
 .p-contests .match-day .match-link .created:before,
 .p-contests .match-day .match-link .started:before,
-.p-contests .match-day .match-link .finished:before
+.p-contests .match-day .match-link .finished:before,
+.b-catalog_entry.planned .image-decor::after,
+.b-catalog_entry.watching .image-decor::after,
+.b-catalog_entry.completed .image-decor::after,
+.b-catalog_entry.rewatching .image-decor::after,
+.b-catalog_entry.on_hold .image-decor::after,
+.b-catalog_entry.dropped .image-decor::after
   font-family: 'Material Icons'
   line-height: 1
 
