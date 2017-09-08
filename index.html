@@ -7,7 +7,6 @@
     <title>Сборщик shiki-theme</title>
     <link rel="stylesheet" href="./src/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic,cyrillic-ext,latin-ext">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     <header class="topbar">
@@ -33,28 +32,33 @@
 
           <div class="field">
             <span class="field-label">Вид профиля</span>
-            <label class="label-radio">
+            <label class="md-label">
               <input type="radio" name="type" value="1" :value="true" v-model="cover_display">
+              <span class="md-radio"></span>
               <span>С обложкой</span>
             </label>
-            <label class="label-radio">
+            <label class="md-label">
               <input type="radio" name="type" value="0" :value="false" v-model="cover_display">
+              <span class="md-radio"></span>
               <span>Без обложки</span>
             </label>
           </div>
 
           <div class="field">
             <span class="field-label">Цветовая схема</span>
-            <label class="label-radio">
+            <label class="md-label">
               <input type="radio" name="scheme" value="light" :value="false" v-model="scheme_dark" @change="changeScheme">
+              <span class="md-radio"></span>
               <span>Светлая</span>
             </label>
-            <label class="label-radio">
+            <label class="md-label">
               <input type="radio" name="scheme" value="dark" :value="true" v-model="scheme_dark" @change="changeScheme">
+              <span class="md-radio"></span>
               <span>Темная</span>
             </label>
-            <label class="label-radio" v-if="user_setting.custom_scheme">
+            <label class="md-label" v-if="user_setting.custom_scheme">
               <input type="radio" name="scheme" value="custom" v-model="user_setting.scheme">
+              <span class="md-radio"></span>
               <span>Своя схема</span>
             </label>
           </div>
@@ -98,20 +102,24 @@
 
             <div class="field">
               <span class="field-label">Цветовая палитра</span>
-              <label class="label-radio">
+              <label class="md-label">
                 <input type="radio" name="color_pallete" value="standart" v-model="user_setting.pallete" @change="changePallete()">
+                <span class="md-radio"></span>
                 <span>Стандартная</span>
               </label>
-              <label class="label-radio">
+              <label class="md-label">
                 <input type="radio" name="color_pallete" value="blue_pink" v-model="user_setting.pallete" @change="changePallete()">
+                <span class="md-radio"></span>
                 <span>v1.1</span>
               </label>
-              <label class="label-radio">
+              <label class="md-label">
                 <input type="radio" name="color_pallete" value="teal_orange" v-model="user_setting.pallete" @change="changePallete()">
+                <span class="md-radio"></span>
                 <span>v1.2</span>
               </label>
-              <label class="label-radio" v-if="user_setting.custom_pallete">
+              <label class="md-label" v-if="user_setting.custom_pallete">
                 <input type="radio" name="color_pallete" value="custom" v-model="user_setting.pallete" @change="changePallete()">
+                <span class="md-radio"></span>
                 <span>Своя палитра</span>
               </label>
             </div>
