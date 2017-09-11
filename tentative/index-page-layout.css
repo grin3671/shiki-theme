@@ -1,0 +1,64 @@
+/* TENTATIVE CODE | INDEX PAGE LAYOUT  */
+.p-dashboards-show .cc-second .cc-inner {
+  display: none;
+}
+
+/* FIX: index landscape layout (issue: #9) */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .p-dashboards-show .cc-second .c-forum {
+    width: 100%;
+  }
+  .p-dashboards-show .cc-second .c-forum .b-forums,
+  .p-dashboards-show .cc-second .c-forum .contests {
+    float: left;
+    width: 48%;
+  }
+  .p-dashboards-show .cc-second .c-forum .b-forums {
+    margin-right: 4%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .p-dashboards-show .cc-second {
+    float: right;
+    width: 30.33333%;
+  }
+  .p-dashboards-show .cc-second > .cc-inner {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  .p-dashboards-show .cc-second > .c-forum {
+    float: none;
+    width: 100%;
+  }
+  .p-dashboards-show .cc-second > .cc-inner > .c-content,
+  .p-dashboards-show .cc-second > .cc-inner > .c-my_list {
+    float: none;
+    width: 100%;
+    padding: 0;
+  }
+  .p-dashboards-show .cc-second {
+    margin-bottom: 0;
+  }
+  .p-dashboards-show .cc-second .c-forum > .b-forums,
+  .p-dashboards-show .cc-second .c-forum > .block:last-child {
+    margin-bottom: 1.5rem;
+  }
+  /* Настройки для экранов больше 768 */
+  .p-dashboards-show .cc-second .cc-inner {
+    display: none;
+  }
+  .p-dashboards-show .cc-second .cc-inner > .c-content {
+    /* display: none /* Скрываем блоки: Быстрые ссылки Аниме/Манга */
+  }
+  .p-dashboards-show .cc-second .cc-inner > .c-my_list {
+    /* display: none /* Скрываем блоки: Мой лист */
+  }
+  .p-dashboards-show .cc-second .cc-inner > .b-forums {
+    /* display: none /* Скрываем блоки: Темы форума */
+  }
+}
+
+/* TENTATIVE CODE | END */

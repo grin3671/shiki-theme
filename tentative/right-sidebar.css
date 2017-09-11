@@ -1,0 +1,29 @@
+/* TENTATIVE CODE | RIGHT SIDEBAR */
+@media (max-width: 1024px) {
+  .l-menu {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: 25rem !important;
+    max-width: calc(100% - 3.5rem);
+    height: 100%;
+    background-color: #FFFFFF; /* Цвет */
+    padding: 4.5rem 1rem 1.5rem;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.24);
+    overflow-y: auto;
+    -webkit-transform: translateX(110%);
+    -ms-transform: translateX(110%);
+    transform: translateX(110%);
+    transition: .25s ease;
+  }
+  .l-page.menu-expanded .l-menu {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  .menu-slide-outer .l-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* TENTATIVE CODE | END */
