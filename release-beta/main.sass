@@ -3110,22 +3110,26 @@ header.head,
   display: none
 
 .b-comment .body,
+.b-dialog .body,
 .b-message .body,
-.b-topic .body,
-.b-dialog .body
+.b-topic .body
   padding: 4px 0
   padding-left: 0
   line-height: inherit
-  overflow: hidden /* FIX: OVERFLOW: HIDDEN TOPIC BODY (issue #8) */
+  word-break: break-word /* FIXES: issue #8 */
 
 /* Левый отступ комментариев от края экрана */
-.inner > header,
-.inner > .body,
-.inner > footer,
-.b-topic-preview > .b-comments
+.b-comment > .inner > .body,
+.b-dialog > .inner > .body,
+.b-message > .inner > .body,
+.b-topic > .inner > .body,
+.b-topic-preview > .b-comments,
+.b-topic-preview > .inner > .body,
+.b-topic-preview > .inner > footer
   padding-left: 3.5rem
 
 /* Фикс отступа в новостях и новостных топиках */
+.b-dialog .b-message > .inner > .body,
 .b-topic-preview.mini > .inner > header,
 .b-topic-minified > .inner > header,
 .b-generated_news-topic > .inner > header,
@@ -3163,16 +3167,6 @@ header.head,
 .b-message > .inner header
   padding-top: .25rem
   padding-bottom: .25rem
-
-.b-comment > .inner header > a,
-.b-message > .inner header > a,
-.b-dialog > .inner header > a,
-.b-topic > .inner header > a
-  position: absolute
-  left: 0
-
-.b-dialog .body .b-message > .inner header > a
-  position: relative
 
 .b-topic > .inner header img
   width: 2.5rem
@@ -3380,9 +3374,6 @@ header.head,
 
 .b-dialog .b-message .inner header .name-date
   line-height: 20px
-
-.b-dialog .b-message .inner .body
-  padding-left: 0 !important
 
 .yellow-fade
   background: rgba(249, 247, 19, 0.16)
