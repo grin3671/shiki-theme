@@ -90,14 +90,15 @@ var vm = new Vue({
   },
   methods: {
     setId: function () {
+      var str = this.user_id;
       if ( ~this.user_id.indexOf(".") ) {
         this.user_avatar = this.user_id;
-        var str = this.user_id.substring(this.user_id.indexOf("/users/x") + 8);
+        str = this.user_id.substring(this.user_id.indexOf("/users/x") + 8);
         str = str.substr(0, str.indexOf("."));
         str = str.substr(str.indexOf("/") + 1);
-        str = parseInt(str);
-        this.user_id =  isNaN(str) ? '' : str;
       }
+      str = parseInt(str);
+      this.user_id =  isNaN(str) ? '' : str;
     },
     changeScheme: function () {
       var scheme = this.scheme_dark ? 'dark' : 'light';
