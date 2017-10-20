@@ -95,7 +95,8 @@ var vm = new Vue({
         var str = this.user_id.substring(this.user_id.indexOf("/users/x") + 8);
         str = str.substr(0, str.indexOf("."));
         str = str.substr(str.indexOf("/") + 1);
-        this.user_id = str;
+        str = parseInt(str);
+        this.user_id =  isNaN(str) ? '' : str;
       }
     },
     changeScheme: function () {

@@ -64,12 +64,12 @@
           </div>
 
           <div class="field field-required" v-if="cover_display">
-            <label for="user_id" class="field-label">Укажите ваш ID:</label>
+            <label for="user_id" class="field-label">Укажите ваш ID: <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a></label>
             <div class="field-text">
               <input type="text" id="user_id" name="id" @change="setId" v-model="user_id" required>
               <div class="divider"></div>
             </div>
-            <span class="field-hint">Сюда можно вставить ссылку на вашу аватарку.</span>
+            <span class="field-hint">Сюда можно вставить ссылку на вашу аватарку с сайта shikimori.org.</span>
           </div>
 
           <div class="field" v-if="cover_display">
@@ -358,6 +358,20 @@
           </div>
         </div>
         <span class="field-hint">Условный вид профиля без адаптации для мобильных телефонов.</span>
+
+        <h2 class="display1">FAQ</h2>
+        <div class="section_faq">
+          <h5 id="how_find_my_id">Как узнать мой ID?</h5>
+          <p>Заходите в свой профиль на сайте shikimori.org, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
+          <p>
+            <img src="//i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки"><img src="//i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре">
+          </p>
+          <p>Если копировать адрес картинки по какой-то причине нельзя, вы можете "Сохранить картинку как...". В поле ввода имени файла будет отображаться ваш ID.</p>
+          <p>
+            <img src="//i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку"><img src="//i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла">
+          </p>
+          <p>Аватарку можно использовать не только из профиля, но и из настроек, комментариев и верхнего меню.</p>
+        </div>
 
         <div class="notify" :class="{ loading: isCreating, notify_show: isNotify }"><span></span>{{ text.notify_message }}</div>
       </div>
