@@ -4335,8 +4335,9 @@ pre
 .b-stats_bar.manga .bar .second
   background-color: rgba($accent, .72)
 
-.line:nth-child(even) > .bar-container > .bar
-  opacity: 0.64
+.line:nth-child(even) > .bar-container > .bar,
+.line:nth-child(even) > .bar-container > .bar:hover
+  background-color: rgba($primary, .72) /* thx NedStar */
 
 /* Столбики активности */
 .bar.vertical
