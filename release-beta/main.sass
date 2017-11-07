@@ -871,10 +871,10 @@ select
 .p-user_rates-index .l-page .menu-toggler
   top: -96px
 
-.locale-ru .l-page .menu-toggler .toggler:before
+[data-locale="ru"] .l-page .menu-toggler .toggler:before
   content: 'меню'
 
-.locale-en .l-page .menu-toggler .toggler:before
+[data-locale="en"] .l-page .menu-toggler .toggler:before
   content: 'sidebar'
 
 .history-interval,
@@ -1379,16 +1379,16 @@ select
 .l-top_menu .menu-items > .entry.info > a:before
   display: none !important
 
-.locale-ru .l-top_menu .menu-items > .entry.calendar > a:after
+[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a:after
   content: 'Календарь онгоингов'
 
-.locale-en .l-top_menu .menu-items > .entry.calendar > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a:after
   content: 'Calendar'
 
-.locale-ru .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a:after
   content: 'Информация'
 
-.locale-en .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.info > a:after
   content: 'Info'
 
 @media only screen and (min-width: 1025px)
@@ -4066,10 +4066,10 @@ pre
   font-size: .875rem
   line-height: 2rem
 
-.locale-ru.p-dashboards-show .b-forums > .b-link_button.maxi:after
+.p-dashboards-show[data-locale="ru"] .b-forums > .b-link_button.maxi:after
   content: 'Форум'
 
-.locale-en.p-dashboards-show .b-forums > .b-link_button.maxi:after
+.p-dashboards-show[data-locale="en"] .b-forums > .b-link_button.maxi:after
   content: 'Forum'
 
 .p-dashboards-show .b-forums > .b-link_button.maxi:before
@@ -4818,10 +4818,10 @@ pre
 .p-profiles .profile-head .c-info .c-additionals b:after
   font-size: 14px
 
-.p-profiles.locale-ru .profile-head .c-info .c-additionals b:after
+.p-profiles[data-locale="ru"] .profile-head .c-info .c-additionals b:after
   content: 'Активность на сайте:'
 
-.p-profiles.locale-en .profile-head .c-info .c-additionals b:after
+.p-profiles[data-locale="en"] .profile-head .c-info .c-additionals b:after
   content: 'Activity:'
 
 /* Время за аниме и манга */
@@ -5381,63 +5381,63 @@ div.compatibility > span.link-replacement:hover > span:first-child:after,
   transform: translateX(0)
 
 /* Текст подсказок для совместимости */
-.locale-ru div.compatibility > a[href *= "similar"]:after
+[data-locale="ru"] div.compatibility > a[href *= "similar"]:after
   content: 'Найти похожих пользователей'
 
-.locale-en div.compatibility > a[href *= "similar"]:after
+[data-locale="en"] div.compatibility > a[href *= "similar"]:after
   content: 'Find similar users'
 
-.locale-ru div.compatibility > a > .text.zero:after,
-.locale-ru div.compatibility > span.link-replacement > .text.zero:after
+[data-locale="ru"] div.compatibility > a > .text.zero:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.zero:after
   content: 'Нет совместимости'
 
-.locale-en div.compatibility > a > .text.zero:after,
-.locale-en div.compatibility > span.link-replacement > .text.zero:after
+[data-locale="en"] div.compatibility > a > .text.zero:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.zero:after
   content: 'No compatibility'
 
-.locale-ru div.compatibility > a > .text.weak:after,
-.locale-ru div.compatibility > span.link-replacement > .text.weak:after
+[data-locale="ru"] div.compatibility > a > .text.weak:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.weak:after
   content: 'Низкая совместимость'
 
-.locale-en div.compatibility > a > .text.weak:after,
-.locale-en div.compatibility > span.link-replacement > .text.weak:after
+[data-locale="en"] div.compatibility > a > .text.weak:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.weak:after
   content: 'Low compatibility'
 
-.locale-ru div.compatibility > a > .text.moderate:after,
-.locale-ru div.compatibility > span.link-replacement > .text.moderate:after
+[data-locale="ru"] div.compatibility > a > .text.moderate:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.moderate:after
   content: 'Средняя совместимость'
 
-.locale-en div.compatibility > a > .text.moderate:after,
-.locale-en div.compatibility > span.link-replacement > .text.moderate:after
+[data-locale="en"] div.compatibility > a > .text.moderate:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.moderate:after
   content: 'Medium compatibility'
 
-.locale-ru div.compatibility > a > .text.high:after,
-.locale-ru div.compatibility > span.link-replacement > .text.high:after
+[data-locale="ru"] div.compatibility > a > .text.high:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.high:after
   content: 'Высокая совместимость'
 
-.locale-en div.compatibility > a > .text.high:after,
-.locale-en div.compatibility > span.link-replacement > .text.high:after
+[data-locale="en"] div.compatibility > a > .text.high:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.high:after
   content: 'High compatibility'
 
-.locale-ru div.compatibility > a > .text.full:after,
-.locale-ru div.compatibility > span.link-replacement > .text.full:after
+[data-locale="ru"] div.compatibility > a > .text.full:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.full:after
   content: 'Полная совместимость'
 
-.locale-en div.compatibility > a > .text.high:after,
-.locale-en div.compatibility > span.link-replacement > .text.high:after
+[data-locale="en"] div.compatibility > a > .text.high:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.high:after
   content: 'Full compatibility'
 
 /* Текст для действий с почтой */
-.locale-ru.p-messages .mass-actions > .action:nth-child(1) > a:after
+.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(1) > a:after
   content: 'Прочитать всё'
 
-.locale-en.p-messages .mass-actions > .action:nth-child(1) > a:after
+.p-messages[data-locale="en"] .mass-actions > .action:nth-child(1) > a:after
   content: 'Mark all messages as read'
 
-.locale-ru.p-messages .mass-actions > .action:nth-child(2) > a:after
+.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(2) > a:after
   content: 'Удалить всё'
 
-.locale-en.p-messages .mass-actions > .action:nth-child(2) > a:after
+.p-messages[data-locale="en"] .mass-actions > .action:nth-child(2) > a:after
   content: 'Remove all messages'
 
 /* Числовое обозначение совместимости */
@@ -6559,11 +6559,11 @@ header.head h2 a.back:after
     text-transform: uppercase
  
 
-  .locale-ru .about-bb_codes:before
+  [data-locale="ru"] .about-bb_codes:before
     content: 'Справка'
  
 
-  .locale-en .about-bb_codes:before
+  [data-locale="en"] .about-bb_codes:before
     content: 'Help'
  
 /* END of SHIKI_EDITOR */
@@ -7073,16 +7073,16 @@ header.head h2 a.back:after
   text-transform: lowercase
 
 /* Добавляем понятные текстовые обозначения */
-.locale-ru .b-collection-filters .b-block_list .filter.item-add:before
+[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-add:before
   content: 'Исключить'
 
-.locale-en .b-collection-filters .b-block_list .filter.item-add:before
+[data-locale="en"] .b-collection-filters .b-block_list .filter.item-add:before
   content: 'Exclude'
 
-.locale-ru .b-collection-filters .b-block_list .filter.item-minus:before
+[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-minus:before
   content: 'Добавить'
 
-.locale-en .b-collection-filters .b-block_list .filter.item-minus:before
+[data-locale="en"] .b-collection-filters .b-block_list .filter.item-minus:before
   content: 'Include'
 
 /* Настройка иконок */
@@ -7164,10 +7164,10 @@ header.head h2 a.back:after
   font-size: .875rem
   line-height: 1rem
 
-.locale-ru .block.mylist-block > .subheadline:before
+[data-locale="ru"] .block.mylist-block > .subheadline:before
   content: 'Мой список'
 
-.locale-en .block.mylist-block > .subheadline:before
+[data-locale="en"] .block.mylist-block > .subheadline:before
   content: 'My List'
 
 /* Кнопка переключателя */
@@ -7266,18 +7266,18 @@ header.head h2 a.back:after
   line-height: 1rem
   text-transform: uppercase
 
-.x1000.p-anime_videos-index .c-videos .title
+.p-anime_videos-index.x1000 .c-videos .title
   font-size: 0
   line-height: 0
 
-.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000 .c-videos .title:after
   font-size: .875rem
   line-height: 1rem
 
-.locale-ru.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000[data-locale="ru"] .c-videos .title:after
   content: 'Варианты'
 
-.locale-en.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000[data-locale="en"] .c-videos .title:after
   content: 'Variants'
 
 /* Переключатели в варинатах видео */
