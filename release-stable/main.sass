@@ -8,6 +8,11 @@
 .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
   display: block
 
+/* Максимальная ширина элементов */
+img,
+select
+  max-width: 100%
+
 /**/
 /**/
 /**/
@@ -261,6 +266,7 @@ header.head h2 a.back,
   .l-page.menu-expanded .x240 .l-content
     margin-left: 0
 
+  .l-page .menu-slide-outer.x240.ipad-expanded .menu-slide-inner,
   .l-page .menu-slide-outer:not(.ipad-expanded) .menu-slide-inner
     width: 100%
 
@@ -865,10 +871,10 @@ select
 .p-user_rates-index .l-page .menu-toggler
   top: -96px
 
-.locale-ru .l-page .menu-toggler .toggler:before
+[data-locale="ru"] .l-page .menu-toggler .toggler:before
   content: 'меню'
 
-.locale-en .l-page .menu-toggler .toggler:before
+[data-locale="en"] .l-page .menu-toggler .toggler:before
   content: 'sidebar'
 
 .history-interval,
@@ -1373,16 +1379,16 @@ select
 .l-top_menu .menu-items > .entry.info > a:before
   display: none !important
 
-.locale-ru .l-top_menu .menu-items > .entry.calendar > a:after
+[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a:after
   content: 'Календарь онгоингов'
 
-.locale-en .l-top_menu .menu-items > .entry.calendar > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a:after
   content: 'Calendar'
 
-.locale-ru .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a:after
   content: 'Информация'
 
-.locale-en .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.info > a:after
   content: 'Info'
 
 @media only screen and (min-width: 1025px)
@@ -2794,36 +2800,10 @@ header.head,
 .p-messages .l-page > div > header.head
   margin-bottom: 0
 
-.c-poster img
-  display: block
-  min-height: 48px
-
 /* Кнопки управления над постером */
 @media (min-width: 481px)
-  .c-poster:hover ~ .c-actions
-    opacity: 0
- 
-
   .c-actions
-    position: absolute
-    bottom: 0
-    width: 100%
     padding: 4px 0
- 
-
-  .c-actions:before
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    opacity: .8
- 
-
-  .c-actions > *
-    position: relative
- 
 
 .c-actions > *
   width: 40px !important
@@ -2841,14 +2821,9 @@ header.head,
   color: inherit
 
 @media screen and (min-width: 1200px)
-  .c-poster center
-    text-align: left
- 
-
   .p-animes-show .c-image .b-user_rate,
   .p-mangas-show .c-image .b-user_rate
     margin: 0
- 
 
 .b-rate
   padding: 6px 0
@@ -3042,7 +3017,9 @@ header.head,
   height: 1.125rem
   margin-top: .1875rem
   margin-left: -2rem
-  background-size: 1.125rem
+  background-size: 1rem
+  background-position: center
+  background-repeat: no-repeat
 
 .b-external_link .linkeable:hover,
 .b-external_link a:hover
@@ -3109,22 +3086,27 @@ header.head,
   display: none
 
 .b-comment .body,
+.b-dialog .body,
 .b-message .body,
-.b-topic .body,
-.b-dialog .body
+.b-topic .body
   padding: 4px 0
   padding-left: 0
   line-height: inherit
-  overflow: hidden /* FIX: OVERFLOW: HIDDEN TOPIC BODY (issue #8) */
+  word-break: break-word /* FIXES: issue #8 */
 
 /* Левый отступ комментариев от края экрана */
-.inner > header,
-.inner > .body,
-.inner > footer,
-.b-topic-preview > .b-comments
+.b-comment > .inner > .body,
+.b-dialog > .inner > .body,
+.b-message > .inner > .body,
+.b-topic > .inner > .body,
+.b-topic > .inner > footer,
+.b-topic-preview > .b-comments,
+.b-topic-preview > .inner > .body,
+.b-topic-preview > .inner > footer
   padding-left: 3.5rem
 
 /* Фикс отступа в новостях и новостных топиках */
+.b-dialog .b-message > .inner > .body,
 .b-topic-preview.mini > .inner > header,
 .b-topic-minified > .inner > header,
 .b-generated_news-topic > .inner > header,
@@ -3162,16 +3144,6 @@ header.head,
 .b-message > .inner header
   padding-top: .25rem
   padding-bottom: .25rem
-
-.b-comment > .inner header > a,
-.b-message > .inner header > a,
-.b-dialog > .inner header > a,
-.b-topic > .inner header > a
-  position: absolute
-  left: 0
-
-.b-dialog .body .b-message > .inner header > a
-  position: relative
 
 .b-topic > .inner header img
   width: 2.5rem
@@ -3379,9 +3351,6 @@ header.head,
 
 .b-dialog .b-message .inner header .name-date
   line-height: 20px
-
-.b-dialog .b-message .inner .body
-  padding-left: 0 !important
 
 .yellow-fade
   background: rgba(249, 247, 19, 0.16)
@@ -4097,10 +4066,10 @@ pre
   font-size: .875rem
   line-height: 2rem
 
-.locale-ru.p-dashboards-show .b-forums > .b-link_button.maxi:after
+.p-dashboards-show[data-locale="ru"] .b-forums > .b-link_button.maxi:after
   content: 'Форум'
 
-.locale-en.p-dashboards-show .b-forums > .b-link_button.maxi:after
+.p-dashboards-show[data-locale="en"] .b-forums > .b-link_button.maxi:after
   content: 'Forum'
 
 .p-dashboards-show .b-forums > .b-link_button.maxi:before
@@ -4157,21 +4126,58 @@ pre
   white-space: nowrap
 
 .b-hot_topics .topic a
-  padding: 0 .75rem
+  padding: 0 .75rem 0 2.5rem
   border-radius: 1rem
 
 .b-hot_topics .topic a:hover
   text-decoration: none
 
 .b-hot_topics .topic a .poster
-  position: initial
-  display: inline-block
-  vertical-align: middle
   width: 2rem
   height: 2rem
-  margin-left: -.75rem
-  margin-right: .5rem
+  margin: 0 0 0 -2.5rem
   border-radius: 100%
+
+@media screen and (max-width: 767px)
+  .b-hot_topics
+    overflow: hidden
+    overflow-x: auto
+    white-space: nowrap
+
+  .b-hot_topics:before,
+  .b-hot_topics:after
+    content: ''
+    position: absolute
+    left: 0
+    width: 1rem
+    height: 2rem
+    background-image: linear-gradient(-90deg, transparent, $background)
+    z-index: 1
+
+  .b-hot_topics:after
+    left: auto
+    right: 0
+    margin-top: -2rem
+    background-image: linear-gradient(90deg, transparent, $background)
+
+  .b-hot_topics .topic 
+    float: none
+    display: inline-block
+    vertical-align: top
+    width: auto
+    max-width: 100%
+
+  .b-hot_topics .topic,
+  .b-hot_topics .topic:nth-child(4n),
+  .b-hot_topics .topic:nth-child(6n)
+    margin-right: 1rem
+
+  .b-hot_topics .topic:nth-child(5),
+  .b-hot_topics .topic:nth-child(6),
+  .b-hot_topics .topic:nth-child(7),
+  .b-hot_topics .topic:nth-child(8),
+  .b-hot_topics .topic:nth-child(9)
+    display: inline-block
 
 @media screen and (max-width: 1024px)
   .b-hot_topics
@@ -4331,8 +4337,9 @@ pre
 .b-stats_bar.manga .bar .second
   background-color: rgba($accent, .72)
 
-.line:nth-child(even) > .bar-container > .bar
-  opacity: 0.64
+.line:nth-child(even) > .bar-container > .bar,
+.line:nth-child(even) > .bar-container > .bar:hover
+  background-color: rgba($primary, .72) /* thx NedStar */
 
 /* Столбики активности */
 .bar.vertical
@@ -4811,10 +4818,10 @@ pre
 .p-profiles .profile-head .c-info .c-additionals b:after
   font-size: 14px
 
-.p-profiles.locale-ru .profile-head .c-info .c-additionals b:after
+.p-profiles[data-locale="ru"] .profile-head .c-info .c-additionals b:after
   content: 'Активность на сайте:'
 
-.p-profiles.locale-en .profile-head .c-info .c-additionals b:after
+.p-profiles[data-locale="en"] .profile-head .c-info .c-additionals b:after
   content: 'Activity:'
 
 /* Время за аниме и манга */
@@ -5374,63 +5381,63 @@ div.compatibility > span.link-replacement:hover > span:first-child:after,
   transform: translateX(0)
 
 /* Текст подсказок для совместимости */
-.locale-ru div.compatibility > a[href *= "similar"]:after
+[data-locale="ru"] div.compatibility > a[href *= "similar"]:after
   content: 'Найти похожих пользователей'
 
-.locale-en div.compatibility > a[href *= "similar"]:after
+[data-locale="en"] div.compatibility > a[href *= "similar"]:after
   content: 'Find similar users'
 
-.locale-ru div.compatibility > a > .text.zero:after,
-.locale-ru div.compatibility > span.link-replacement > .text.zero:after
+[data-locale="ru"] div.compatibility > a > .text.zero:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.zero:after
   content: 'Нет совместимости'
 
-.locale-en div.compatibility > a > .text.zero:after,
-.locale-en div.compatibility > span.link-replacement > .text.zero:after
+[data-locale="en"] div.compatibility > a > .text.zero:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.zero:after
   content: 'No compatibility'
 
-.locale-ru div.compatibility > a > .text.weak:after,
-.locale-ru div.compatibility > span.link-replacement > .text.weak:after
+[data-locale="ru"] div.compatibility > a > .text.weak:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.weak:after
   content: 'Низкая совместимость'
 
-.locale-en div.compatibility > a > .text.weak:after,
-.locale-en div.compatibility > span.link-replacement > .text.weak:after
+[data-locale="en"] div.compatibility > a > .text.weak:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.weak:after
   content: 'Low compatibility'
 
-.locale-ru div.compatibility > a > .text.moderate:after,
-.locale-ru div.compatibility > span.link-replacement > .text.moderate:after
+[data-locale="ru"] div.compatibility > a > .text.moderate:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.moderate:after
   content: 'Средняя совместимость'
 
-.locale-en div.compatibility > a > .text.moderate:after,
-.locale-en div.compatibility > span.link-replacement > .text.moderate:after
+[data-locale="en"] div.compatibility > a > .text.moderate:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.moderate:after
   content: 'Medium compatibility'
 
-.locale-ru div.compatibility > a > .text.high:after,
-.locale-ru div.compatibility > span.link-replacement > .text.high:after
+[data-locale="ru"] div.compatibility > a > .text.high:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.high:after
   content: 'Высокая совместимость'
 
-.locale-en div.compatibility > a > .text.high:after,
-.locale-en div.compatibility > span.link-replacement > .text.high:after
+[data-locale="en"] div.compatibility > a > .text.high:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.high:after
   content: 'High compatibility'
 
-.locale-ru div.compatibility > a > .text.full:after,
-.locale-ru div.compatibility > span.link-replacement > .text.full:after
+[data-locale="ru"] div.compatibility > a > .text.full:after,
+[data-locale="ru"] div.compatibility > span.link-replacement > .text.full:after
   content: 'Полная совместимость'
 
-.locale-en div.compatibility > a > .text.high:after,
-.locale-en div.compatibility > span.link-replacement > .text.high:after
+[data-locale="en"] div.compatibility > a > .text.high:after,
+[data-locale="en"] div.compatibility > span.link-replacement > .text.high:after
   content: 'Full compatibility'
 
 /* Текст для действий с почтой */
-.locale-ru.p-messages .mass-actions > .action:nth-child(1) > a:after
+.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(1) > a:after
   content: 'Прочитать всё'
 
-.locale-en.p-messages .mass-actions > .action:nth-child(1) > a:after
+.p-messages[data-locale="en"] .mass-actions > .action:nth-child(1) > a:after
   content: 'Mark all messages as read'
 
-.locale-ru.p-messages .mass-actions > .action:nth-child(2) > a:after
+.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(2) > a:after
   content: 'Удалить всё'
 
-.locale-en.p-messages .mass-actions > .action:nth-child(2) > a:after
+.p-messages[data-locale="en"] .mass-actions > .action:nth-child(2) > a:after
   content: 'Remove all messages'
 
 /* Числовое обозначение совместимости */
@@ -5511,7 +5518,7 @@ div.compatibility > a:before
 .b-user16
   vertical-align: middle
   max-width: 100%
-  padding: 0 .5rem
+  padding: 0 .5rem 0 1.25rem
   margin: 0 .5rem 0 0
   background-color: #eee
   border-radius: .5rem
@@ -5547,12 +5554,9 @@ div.compatibility > a:before
   text-decoration: none
 
 .b-user16 img
-  position: static
-  display: inline-block
-  vertical-align: bottom
   width: 16px !important
   padding: 0
-  margin: 0 .375rem 0 -.5rem !important
+  margin: 0 .375rem 0 -1.25rem !important
   margin-top: 0 !important
   border-radius: .5rem
 
@@ -6555,11 +6559,11 @@ header.head h2 a.back:after
     text-transform: uppercase
  
 
-  .locale-ru .about-bb_codes:before
+  [data-locale="ru"] .about-bb_codes:before
     content: 'Справка'
  
 
-  .locale-en .about-bb_codes:before
+  [data-locale="en"] .about-bb_codes:before
     content: 'Help'
  
 /* END of SHIKI_EDITOR */
@@ -7069,16 +7073,16 @@ header.head h2 a.back:after
   text-transform: lowercase
 
 /* Добавляем понятные текстовые обозначения */
-.locale-ru .b-collection-filters .b-block_list .filter.item-add:before
+[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-add:before
   content: 'Исключить'
 
-.locale-en .b-collection-filters .b-block_list .filter.item-add:before
+[data-locale="en"] .b-collection-filters .b-block_list .filter.item-add:before
   content: 'Exclude'
 
-.locale-ru .b-collection-filters .b-block_list .filter.item-minus:before
+[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-minus:before
   content: 'Добавить'
 
-.locale-en .b-collection-filters .b-block_list .filter.item-minus:before
+[data-locale="en"] .b-collection-filters .b-block_list .filter.item-minus:before
   content: 'Include'
 
 /* Настройка иконок */
@@ -7160,10 +7164,10 @@ header.head h2 a.back:after
   font-size: .875rem
   line-height: 1rem
 
-.locale-ru .block.mylist-block > .subheadline:before
+[data-locale="ru"] .block.mylist-block > .subheadline:before
   content: 'Мой список'
 
-.locale-en .block.mylist-block > .subheadline:before
+[data-locale="en"] .block.mylist-block > .subheadline:before
   content: 'My List'
 
 /* Кнопка переключателя */
@@ -7262,18 +7266,18 @@ header.head h2 a.back:after
   line-height: 1rem
   text-transform: uppercase
 
-.x1000.p-anime_videos-index .c-videos .title
+.p-anime_videos-index.x1000 .c-videos .title
   font-size: 0
   line-height: 0
 
-.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000 .c-videos .title:after
   font-size: .875rem
   line-height: 1rem
 
-.locale-ru.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000[data-locale="ru"] .c-videos .title:after
   content: 'Варианты'
 
-.locale-en.x1000.p-anime_videos-index .c-videos .title:after
+.p-anime_videos-index.x1000[data-locale="en"] .c-videos .title:after
   content: 'Variants'
 
 /* Переключатели в варинатах видео */
@@ -7345,6 +7349,121 @@ header.head h2 a.back:after
 .b-video_player .cc-player_controls .edit .icon:before
   content: 'build'
 /* END of Страница видео */
+
+
+
+/**
+ * ДОСТИЖЕНИЯ (АЧИВКИ)
+ * Тестовая версия
+ */
+@media (max-width: 767px) and (orientation: portrait)
+  .p-achievements-index .cc-achievements .b-achievement
+    width: 100%
+    margin-right: 0
+
+@media (max-width: 767px) and (orientation: landscape)
+  .p-achievements-index .cc-achievements .b-achievement,
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(1n)
+    width: 48%
+    margin-right: 4%
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(2n)
+    margin-right: 0
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(1n+1)
+    clear: none
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(2n+1)
+    clear: left
+
+@media (min-width: 960px)
+  .p-achievements-index .cc-achievements .b-achievement,
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(2n)
+    width: 32%
+    margin-right: 2%
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(3n)
+    margin-right: 0
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(2n+1)
+    clear: none
+
+  .p-achievements-index .cc-achievements .b-achievement:nth-child(3n+1)
+    clear: left
+
+@media (min-width: 1025px)
+  .p-achievements-index.x1200 .cc-achievements .b-achievement,
+  .p-achievements-index.x1200 .cc-achievements .b-achievement:nth-child(2n)
+    width: 23.5%
+    margin-right: 2%
+
+  .p-achievements-index.x1200 .cc-achievements .b-achievement:nth-child(4n)
+    margin-right: 0
+
+  .p-achievements-index.x1200 .cc-achievements .b-achievement:nth-child(3n+1)
+    clear: none
+
+  .p-achievements-index.x1200 .cc-achievements .b-achievement:nth-child(4n+1)
+    clear: left
+
+@media (min-width: 768px)
+  .p-achievements:not(.p-profiles) .cc-2>.c-column:first-child
+    width: 33%
+
+  .p-achievements:not(.p-profiles) .cc-2>.c-column:last-child
+    width: 63%
+
+.b-achievement
+  display: flex
+  flex-direction: column-reverse
+  background: $background_dialog
+  border-radius: 2px
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)
+
+.b-achievement .c-about,
+.b-achievement .c-image
+  width: 100%
+  margin: 0
+
+.b-achievement .c-about
+  padding: .5rem 1rem
+
+.b-achievement .c-image
+  padding-top: 56.25%
+
+.b-achievement .c-image .inner .border
+  border: 0
+
+.b-achievement .c-image .inner img,
+.b-achievement .c-image .inner .no-image
+  background: rgba(0,0,0,.06)
+  border-radius: 2px 2px 0 0
+
+.b-achievement .c-about .title
+  padding: .5rem 0
+  margin: 0
+  color: $text_primary
+  font-size: 1.125rem
+  line-height: 1.5rem
+
+.b-achievement .c-about .hint,
+.b-achievement .c-about .percent
+  margin-bottom: 0
+  color: $text_secondary
+  font-size: .875rem
+  line-height: 1.5rem
+
+.b-achievement .c-about .progress
+  height: 4px
+  margin-bottom: .5rem
+  border-radius: 2px
+
+.b-achievement .c-about .progress .bar
+  background: $primary
+  border-radius: 2px
+
+.b-achievement .c-about .text
+  font-size: .875rem
 /* END of ОСНОВНОЙ ФАЙЛ */
 /**/
 /**/
