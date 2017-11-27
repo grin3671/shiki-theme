@@ -282,17 +282,20 @@
     position: relative
 
   .p-profiles .profile-content .cc-2 .c-left
-    width: 77%
+    width: calc(77% - 16px)
     min-height: 220px
-    padding-right: 3.5rem
+    padding-right: 40px
+    margin-right: 0
     margin-bottom: 1.5rem
 
+  .p-profiles .profile-content .c-right:last-child
+    float: none
+
   .p-profiles .profile-content .cc-2 .c-right .cc-2a
-    position: absolute
-    top: 0
-    right: 0
-    width: 23%
-    margin-top: -244px
+    width: calc(23% + 16px)
+    padding-left: 16px
+    margin-left: -16px
+    overflow: hidden
 
   .p-profiles .profile-content .cc-2 .c-right .cc-2a > .c-column
     clear: both
