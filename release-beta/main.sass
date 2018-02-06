@@ -5280,9 +5280,9 @@ div.compatibility > a > span:first-child:before
   /* Support for IE. */
   font-feature-settings: 'liga'
 
-div.compatibility > a > span:first-child:before
-  position: absolute
-  top: 0
+/* Убираем стрелки совместимости в чужих профилях */
+.b-stats_bar .compatibility a[href ^= '/comparer']:before
+  display: none
 
 div.compatibility > a:hover:before,
 div.compatibility > a:hover > span:first-child:before
