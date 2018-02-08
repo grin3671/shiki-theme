@@ -995,16 +995,13 @@ select
   /* Цвет активных пунктов выпадающего меню */
   /* По умолчанию: затемненный цвет фона выпадающего меню */
   .l-top_menu .submenu > .entry:active,
-  .l-top_menu .submenu > .entry.active,
-  .b-main_search .popup li:active,
-  .b-main_search .popup li.active
+  .l-top_menu .submenu > .entry.active
     background-color: rgba(0, 0, 0, .24)
  
 
   /* Цвет пунктов выпадающего меню при наведении */
   /* По умолчанию: осветленный цвет фона выпадающего меню */
-  .l-top_menu .submenu > .entry:hover,
-  .b-main_search .popup li:hover
+  .l-top_menu .submenu > .entry:hover
     background-color: rgba(255, 255, 255, .24)
  
 
@@ -1057,6 +1054,20 @@ select
   .b-main_search input:-ms-input-placeholder
     color: #ddd
  
+
+/* ОБЩИЕ ЦВЕТА ПОИСКА */
+.b-main_search .popup li:hover
+  background-color: rgba(255, 255, 255, .24)
+
+.b-main_search .popup li.active,
+.b-main_search .popup li:active
+  background-color: rgba(0, 0, 0, .24)
+
+.l-top_menu .entry,
+.b-main_search .popup li,
+.b-main_search .popup li:hover,
+.b-main_search .popup li:active
+  color: inherit
 
 /* ЦВЕТ ИКОНОК в меню (для мобильной версии) */
 /* По умолчанию: цвет текста наследуется от меню */
@@ -1188,6 +1199,9 @@ select
   left: 0
 .l-top_menu  .mobile-search-toggler
   right: 56px
+
+.l-top_menu .mobile-search-toggler.active
+  background-color: transparent
 
 /* Перерисовываем меню сайта под Material */
 .l-top_menu .mobile-menu-toggler.active
