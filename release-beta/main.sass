@@ -1416,10 +1416,6 @@ select
   content: 'Info'
 
 @media only screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry.calendar > a,
-  .l-top_menu .menu-items > .entry.info > a
-    padding: 0.9375rem
-
   .l-top_menu .menu-items > .entry.calendar > a:before,
   .l-top_menu .menu-items > .entry.info > a:before
     display: block !important
@@ -1461,7 +1457,6 @@ select
 /* Уменьшение ширины "Сообщество" */
 @media screen and (min-width: 1025px)
   .l-top_menu .menu-items > .entry > a[href *= "/forum"]
-    padding: .875rem
     font-size: 0
     line-height: 0
 
@@ -1474,8 +1469,11 @@ select
 .x1000 .l-top_menu .menu-items > .entry.sign_out
   padding: 1rem .75rem /* thx Azsuna */
 
-/* END of Уменьшение ширины пунктов меню */
-
+@media screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry.calendar > a,
+  .l-top_menu .menu-items > .entry.info > a,
+  .l-top_menu .menu-items > .entry > a[href*="/forum"]
+    padding: 0.9375rem
 
 
 .l-top_menu .submenu,
