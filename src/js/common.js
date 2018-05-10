@@ -508,7 +508,7 @@ var vm = new Vue({
     });
 
 
-    scss.preloadFiles('../../branch-stable/', '', this.getFilelist('url'), function callback() {
+    scss.preloadFiles('../../release-stable/', '', this.getFilelist('url'), function callback() {
       // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
       vm.status.isFileLoading = false;
       switchDisabled(document.getElementById('create_css'));
