@@ -1,16 +1,16 @@
 /* НАСТРОЙКА ЦВЕТОВ */
 /* Цвет текста ссылки по умолчанию */
 a
-  color: $link_normal
+  color: $color-link
 
 /* Цвет ссылки при наведении */
 a:hover
-  color: $link_hover
+  color: $color-link-hover
 
 /* Цвет ссылки при нажатии */
 @media only screen and (min-width: 1025px)
   a:active
-    color: $link_active
+    color: $color-link-active
 
 .b-abuse_request .ban-form .cancel,
 .b-ban .abuser,
@@ -147,20 +147,20 @@ div.history .b-block_list li .tooltip-inner a,
 .b-video_player .cc-player_controls .c-control,
 .b-animes-menu .menu-topics-block a.entry .name,
 .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
-  color: $link_normal
-  border-bottom-color: rgba($link_normal, .3)
+  color: $color-link
+  border-bottom-color: rgba($color-link, .3)
 
 @media screen and (max-width: 480px) and (orientation: portrait)
   .b-options-floated.mobile-phone_portrait a
-    color: $link_normal
+    color: $color-link
 
 @media screen and (max-width: 767px)
   .b-options-floated.mobile-phone a
-    color: $link_normal
+    color: $color-link
 
 @media screen and (max-width: 1024px)
   .b-options-floated.mobile-tablet a
-    color: $link_normal
+    color: $color-link
 
 
 
@@ -358,20 +358,20 @@ div.history .b-block_list li .tooltip-inner a:hover,
 .b-animes-menu .menu-topics-block a.entry:hover .name,
 .b-animes-menu .menu-topics-block a.entry .name:hover,
 .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:hover
-  color: $link_hover
-  border-bottom-color: rgba($link_hover, .3)
+  color: $color-link-hover
+  border-bottom-color: rgba($color-link-hover, .3)
 
 @media screen and (max-width: 480px) and (orientation: portrait)
   .b-options-floated.mobile-phone_portrait a:hover
-    color: $link_hover
+    color: $color-link-hover
 
 @media screen and (max-width: 767px)
   .b-options-floated.mobile-phone a:hover
-    color: $link_hover
+    color: $color-link-hover
 
 @media screen and (max-width: 1024px)
   .b-options-floated.mobile-tablet a:hover
-    color: $link_hover
+    color: $color-link-hover
 
 
 
@@ -418,7 +418,7 @@ div.history .b-block_list li .tooltip-inner a:active,
 .p-user_rates-index .stat-categories .category.active:hover,
 .p-anime_videos-index .c-videos .video-variant-switcher.active:hover,
 .b-video_player .cc-player_controls .c-control.selected:hover
-  color: $link_active
+  color: $color-link-active
 
 @media only screen and (min-width: 1025px)
   .b-abuse_request .ban-form .cancel:active,
@@ -575,25 +575,25 @@ div.history .b-block_list li .tooltip-inner a:active,
   .b-video_player .cc-player_controls .c-control:active,
   .b-animes-menu .menu-topics-block a.entry .name:active,
   .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:active
-    color: $link_active
-    border-bottom-color: rgba($link_active, .3)
+    color: $color-link-active
+    border-bottom-color: rgba($color-link-active, .3)
 
 @media only screen and (max-width: 480px) and (orientation: portrait) and (min-width: 1025px)
   .b-options-floated.mobile-phone_portrait a:active
-    color: $link_active
+    color: $color-link-active
 
 @media only screen and (max-width: 767px) and (min-width: 1025px)
   .b-options-floated.mobile-phone a:active
-    color: $link_active
+    color: $color-link-active
 
 @media only screen and (max-width: 1024px) and (min-width: 1025px)
   .b-options-floated.mobile-tablet a:active
-    color: $link_active
+    color: $color-link-active
 
 
 
 body
-  background-color: $background
+  background-color: $color-background
 
 .l-page,
 .p-contests .b-contest_match .vs .label,
@@ -603,27 +603,27 @@ body
 .p-recommendations-index .l-content.ajax_request::before,
 .p-userlist_comparer-show .l-content.ajax_request::before,
 .b-ajax:before
-  background: $background
+  background: $color-background
 
 .l-page:before
-  outline-color: $background
+  outline-color: $color-background
 
 @media screen and (max-width: 960px)
   .p-profiles .profile-head .c-brief header
-    background-color: $background
+    background-color: $color-background
 
 @media screen and (max-width: 1024px)
   body
-    background-color: $background !important
+    background-color: $color-background !important
 
 .b-height_shortener .shade
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0), $background)
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), $color-background)
 
 .b-topic.aside-expanded > .inner aside.buttons,
 .b-dialog.aside-expanded > .inner aside.buttons,
 .b-message.aside-expanded > .inner aside.buttons,
 .b-comment.aside-expanded > .inner aside.buttons
-  background-color: rgba($background, .9)
+  background-color: rgba($color-background, .9)
 
 
 /* BLACK GREY WHITE */
@@ -701,7 +701,7 @@ header.head h2,
 .p-user_rates-index .l-content .order-control:hover,
 .b-external_link .linkeable,
 .b-external_link a
-  color: $text_primary !important
+  color: $color-text-primary !important
 
 
 /* Цвет основного текста в области при наведении */
@@ -722,14 +722,14 @@ header.head h2,
 .p-topics .l-menu .contests .contest:hover .title,
 .p-topics .l-menu .reviews .entry:hover a,
 .p-topics .l-menu .sticky-topics .topic:hover .title
-  color: $text_primary !important
+  color: $color-text-primary !important
 
 
 @media (max-width: 1024px)
   .l-top_menu .menu-items > .entry > a,
   .l-top_menu .menu-items > .entry > .submenu > a,
   .l-top_menu .inner .sign_out
-    color: $text_primary !important
+    color: $color-text-primary !important
 
 
 h3,
@@ -774,7 +774,7 @@ div.compatibility > a:hover > span:first-child:before,
 .p-user_rates-index .list-lines tr td .episodes_total,
 .p-user_rates-index .list-lines tr td .rate-text,
 .b-collection_search .field .clear:hover
-  color: $text_secondary
+  color: $color-text-secondary
 
 header.head h1 > a.back:hover,
 header.head h2 > a.back:hover,
@@ -811,7 +811,7 @@ header.head h2 > a.back:active,
 .moderation-controls > span,
 .moderation-controls > span:hover,
 .b-video_player .cc-player_controls .episode-num
-  color: $text_secondary !important
+  color: $color-text-secondary !important
 
 
 .midheadline,
@@ -880,7 +880,7 @@ div.compatibility > a > span:first-child:before,
 .p-anime_videos-index .c-anime_video_episodes .title,
 .p-anime_videos-index .c-videos .title,
 .b-collection_search .field .clear
-  color: $text_hint
+  color: $color-text-hint
 
 header.head h1 a.back,
 header.head h2 a.back,
@@ -911,7 +911,7 @@ header.head h2 a.back,
 .p-user_rates-index .list-lines tr.edit-form .remove,
 .p-user_rates-index .list-lines tr.edit-form .remove:hover,
 .p-user_history-index .history-page .history-interval p .date
-  color: $text_hint !important
+  color: $color-text-hint !important
 
 @media only screen and (min-width: 1025px)
   .delete-controls > span,
@@ -919,7 +919,7 @@ header.head h2 a.back,
   .main-controls > span,
   .main-controls > a,
   .buttons .item-edit
-    color: $text_hint !important
+    color: $color-text-hint !important
 
 
 header.head a.edit,
@@ -971,7 +971,7 @@ header.head .misc,
 .p-user_rates-index .l-content .b-options-floated span:after,
 .p-user_rates-index .l-content .b-options-floated span:before,
 .p-user_rates-index .list-groups .summary .stat-value:after
-  color: $text_disabled
+  color: $color-text-disabled
 
 .b-video_player .cc-player_controls .c-control .icon,
 .p-animes_collection-index .pagination .link.disabled,
@@ -986,7 +986,7 @@ header.head .misc,
 .p-topics .l-menu .calendar .entry .misc.date,
 .p-topics .l-menu .reviews .entry .misc.date,
 .p-topics .l-menu .clubs .entry .misc.date
-  color: $text_disabled !important
+  color: $color-text-disabled !important
 
 
 /* PRIMARY COLOR */
@@ -1026,16 +1026,16 @@ input[type=submit],
 .b-image.deletable .cancel:hover,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate,
 .p-user_rates-index .list-posters .user_rate .edit-user_rate:hover
-  background-color: $primary
+  background-color: $color-primary
 
 @media screen and (max-width: 1024px)
   .p-user_rates-index .list-posters .user_rate .edit-user_rate
-    background: $primary
+    background: $color-primary
 
 .p-contests .b-contest_match .votes-percents .right-part,
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part,
 .b-main_search .input:after
-  border-color: $primary
+  border-color: $color-primary
 
 .subheadline > a:hover,
 .midheadline > a:hover,
@@ -1046,7 +1046,7 @@ input[type=submit],
 .b-topic-preview > .editor-container .hide:hover,
 .p-dashboards-show .b-forums > .b-link_button.maxi:hover:after,
 .p-profiles-show .b-stats_bar a.title:hover
-  background-color: rgba($primary, .12)
+  background-color: rgba($color-primary, .12)
 
 input[type=submit]:hover,
 .button:hover,
@@ -1054,12 +1054,12 @@ input[type=submit]:hover,
 .b-contests-menu .results:hover,
 .b-form input[type=submit]:hover,
 .b-link_button.dark:hover
-  background-color: $primary_darker
+  background-color: $color-primary-darker
 
 .b-contests-menu .results,
 .b-link_button.dark,
 .btn-submit
-  color: $primaryBG_color !important
+  color: $color-text-on-primary !important
 
 .b-rate .stars.score,
 .b-forums .forum input:checked + .link:before,
@@ -1068,7 +1068,7 @@ input[type=submit]:hover,
 .b-collection-filters .b-block_list .filter,
 .b-collection-filters .b-block_list li.selected:before,
 .tooltip-details .ajax-loading
-  color: $primary
+  color: $color-primary
 
 .headline > a,
 .headline > a:hover,
@@ -1087,7 +1087,7 @@ input[type=submit]:hover,
 .b-shiki_editor footer .preview,
 .b-stats_bar a.title,
 .b-topic-preview > .editor-container .hide
-  color: $primary !important
+  color: $color-primary !important
 /* END of PRIMARY COLOR */
 
 
@@ -1103,41 +1103,41 @@ input[type=submit]:hover,
 .b-stats_bar.manga .bar .first,
 div.compatibility > a > span.rate,
 div.compatibility > span.link-replacement > span.rate
-  background-color: $accent
+  background-color: $color-accent
 
 .menu .unread-count:hover,
 .menu .contest:hover
-  background-color: $accent !important
+  background-color: $color-accent !important
 
 .p-profiles-show .b-stats_bar.manga a.title:hover
-  background-color: rgba($accent, .12)
+  background-color: rgba($color-accent, .12)
 
 html.turbolinks-progress-bar:before,
 .turbolinks.turbolinks-progress-bar::before
-  background: $accent !important
-  box-shadow: 0 0 10px rgba($accent, .7) !important
+  background: $color-accent !important
+  box-shadow: 0 0 10px rgba($color-accent, .7) !important
 
 .p-profiles-edit .b-options-floated > a.selected,
 .p-dialogs .b-options-floated > a.selected,
 .p-messages .b-options-floated > a.selected
-  border-bottom: 2px solid $accent
+  border-bottom: 2px solid $color-accent
 
 .menu .unread-count,
 .menu:hover .unread-count,
 .menu .contest,
 .menu:hover .contest
-  color: $accentBG_color !important
+  color: $color-text-on-accent !important
 
 .b-rate .stars.hover,
 .c-actions .fav-add:hover:before,
 .c-actions .fav-remove:before,
 .profile-actions .fav-remove:before
-  color: $accent
+  color: $color-accent
 
 .b-list_switchers > .switcher.selected,
 .editor-controls > span.selected,
 .p-profiles-show .b-stats_bar.manga a.title
-  color: $accent !important
+  color: $color-accent !important
 /* END of ACCENT COLOR */
 
 
@@ -1150,11 +1150,11 @@ html.turbolinks-progress-bar:before,
 .l-top_menu .menu-items,
 .tooltip-inner,
 .tooltip-details .ajax-loading
-  background: $background_dialog
+  background: $color-background-dialog
 
 @media screen and (max-width: 599px)
   .b-stats_bar .stat_names:hover
-    background-color: $background_dialog
+    background-color: $color-background-dialog
 
 .b-link_button,
 .b-comments .comments-loader,
@@ -1166,8 +1166,8 @@ html.turbolinks-progress-bar:before,
 .p-animes-show .other-names.click-loader,
 .p-mangas-show .other-names.click-loader,
 .collapsed
-  background-color: $background_normal
-  border-color: $background_hover
+  background-color: $color-area-normal
+  border-color: $color-area-hover
 
 .b-link_button:hover,
 .b-comments .comments-loader:hover,
@@ -1179,8 +1179,8 @@ html.turbolinks-progress-bar:before,
 .p-animes-show .other-names.click-loader:hover,
 .p-mangas-show .other-names.click-loader:hover,
 .collapsed:hover
-  background-color: $background_hover
-  border-color: $background_active
+  background-color: $color-area-hover
+  border-color: $color-area-active
 
 
 .b-link_button:active,
@@ -1193,16 +1193,16 @@ html.turbolinks-progress-bar:before,
 .p-animes-show .other-names.click-loader:active,
 .p-mangas-show .other-names.click-loader:active,
 .collapsed:active
-  background-color: $background_active
-  border-color: $border
+  background-color: $color-area-active
+  border-color: $color-border
 
 
 .b-quote, .b-quote .b-quote .b-quote
-  background: $Grey100
+  background: $color-background-secondary
 
 
 .b-quote .b-quote, .b-quote .b-quote .b-quote .b-quote
-  background: $background_normal
+  background: $color-area-normal
 
 .b-user_rate .rate-show .note,
 .p-topics-new .topic_video,
@@ -1210,7 +1210,7 @@ html.turbolinks-progress-bar:before,
 .p-topics-create .topic_video,
 .p-topics-update .topic_video,
 .p-user_rates-index .list-lines tr.edit-form form
-  background: $background_normal
+  background: $color-area-normal
 
 
 input,
@@ -1235,11 +1235,11 @@ div.compatibility > a > span:first-child:before,
 .p-user_rates-index .list-lines tr td .new-value input,
 .p-user_rates-index .l-content .filter input,
 .subheadline-input
-  background: $Grey100
+  background: $color-background-secondary
 
 .editor textarea.b-comment,
 .editor textarea.b-message
-  background: $Grey100 !important
+  background: $color-background-secondary !important
 
 
 /* Области наведения */
@@ -1273,13 +1273,13 @@ div.compatibility > a > span:first-child:before,
 .p-mangas_collection-index .pagination .link:hover,
 .p-recommendations-index .pagination .link:hover,
 .p-userlist_comparer-show .pagination .link:hover
-  background-color: $background_normal
+  background-color: $color-area-normal
 
 .block-list li:active,
 .block-list-alt li:active,
 .b-block_list li:active,
 .p-contests .match-day .match-link:active
-  background-color: $background_normal !important
+  background-color: $color-area-normal !important
 
 .p-dialogs header.head,
 .p-messages header.head,
@@ -1288,10 +1288,10 @@ div.compatibility > a > span:first-child:before,
 .p-dialogs .b-options-floated,
 .p-messages .b-options-floated,
 .b-hot_topics .topic a:hover
-  background-color: $background_hover
+  background-color: $color-area-hover
 
 .p-userlist_comparer .comparer table .selectable:hover
-  background-color: $background_hover !important
+  background-color: $color-area-hover !important
 
 
 /* Кнопки при наведении */
@@ -1330,7 +1330,7 @@ div.compatibility > a:hover > span:first-child:before,
 .item-mobile:active,
 header.head h1 > a.back:hover,
 header.head h2 > a.back:hover
-  background-color: $button_hover
+  background-color: $color-button-hover
 
 
 /* ЦВЕТ ГРАНИЦ ЭЛЕМЕНТОВ */
@@ -1345,7 +1345,7 @@ hr,
 .p-topics .l-menu .calendar .entry:before,
 .p-topics .l-menu .reviews .entry:before,
 .p-topics .l-menu .clubs .entry:before
-  background-color: $border
+  background-color: $color-border
 
 
 input,
@@ -1376,19 +1376,19 @@ select,
 .p-user_rates-index .list-lines tr td .new-value input,
 .p-user_rates-index .l-content .filter input,
 .subheadline-input
-  border-color: $border
+  border-color: $color-border
 
 
 /* ОСОБЫЕ ЦВЕТА */
 
 .b-entry-info .line .b-tag:active,
 .b-catalog_entry-tooltip .inner .line .value .tag:active
-  background-color: $border
+  background-color: $color-border
 
 .b-rate .stars.background
-  color: $border
+  color: $color-border
 .b-stats_bar .bar .third
-  background: $border
+  background: $color-border
 /* END of НАСТРОЙКА ЦВЕТОВ */
 /**/
 /**/

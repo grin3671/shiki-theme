@@ -1,59 +1,225 @@
+Vue.component('filelist', {
+  props: ['file_list'],
+  template: '<div class="block filelist">' +
+              '<file v-for="(file, index) in file_list"' +
+                'v-on:input="changeState" ' +
+                'v-bind:file="file" ' +
+                'v-bind:index="index" ' +
+                'v-bind:key="index">' +
+              '</file>' +
+            '</div>',
+  methods: {
+    changeState: function (x, checked) {
+      for (var i = 0; i < this.file_list.length; i++) {
+        if (x == i) {
+          if (this.file_list[i]['cat']) {
+            for (var j = 0; j < this.file_list.length; j++) {
+              if (this.file_list[j]['cat'] == this.file_list[i]['cat']) this.file_list[j]['checked'] = false;
+            }
+          }
+          this.file_list[i]['checked'] = checked;
+        }
+      }
+    },
+  },
+});
+
+Vue.component('file', {
+  props: ['file', 'index'],
+  template: '<label class="file md-label">' +
+              '<input ' +
+                'v-on:change="onChange($event)" ' +
+                'v-bind:type="file.cat ? \'radio\' : \'checkbox\'" ' +
+                'v-bind:name="file.cat ? \'file-\' + file.cat : \'file-\' + index " ' +
+                'v-bind:checked="file.checked ? \'checked\' : \'\'" ' +
+                'v-bind:disabled="file.disabled">' +
+              '<span v-bind:class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
+              '<span>{{ file.title ? file.title : file.url }}</span>' +
+              '<div class="field-hint" v-if="file.description">{{ file.description }}</div>' +
+            '</label>',
+  methods: {
+    onChange: function ($event) {
+      this.$emit('input', this.index, $event.target.checked);
+    },
+  },
+});
+
 var vm = new Vue({
   el: '#page',
   data: {
-    theme: {
-      release: 'stable',
-      version: '1.2.20',
-    },
+    // TODO: delete next six variables after rewrite next 'to do'
     user_setting: {
-      cover: true,
-      dark: false,
       pallete: 'teal_orange',
       scheme: 'light',
       custom_pallete: false,
       custom_scheme: false,
     },
-    isBetaRelease: false,
-    isCompiled: false,
-    isCopyUnsupport: true,
-    isCreating: false,
-    isFileLoading: true,
-    isNotify: false,
     cover_display: true,
     scheme_dark: false,
-    user_id: null,
-    user_cover: '',
-    user_avatar: '',
-    user_background: '',
-    extra_settings: false,
-    scheme: {
-      background: '#FAFAFA',
-      background_dialog: '#FFFFFF',
-      Grey100: '#F5F5F5',
-      background_normal: '#EEEEEE',
-      background_hover: '#E0E0E0',
-      background_active: '#DDDDDD',
-      button_hover: '#E0E0E0',
-      border: '#DDDDDD',
-      text_primary: '#212121',
-      text_secondary: '#424242',
-      text_hint: '#757575',
-      text_disabled: '#9E9E9E',
-      link_normal: '#009688',
-      link_hover: '#FFAB40',
-      link_active: '#FF9100',
-      primary: '#009688',
-      primaryBG_color: '#FAFAFA',
-      primary_darker: '#008478',
-      accent: '#FFAB40',
-      accentBG_color: '#212121',
-      menu_background: '#333333',
-      menu_popup_background: '#2D2D2D',
+    status: {
+      isCompiled: false,
+      isCreating: false,
+      isFileLoading: true,
+      isNotify: false,
     },
-    color_scheme: {
-      light: ['#FAFAFA', '#FFFFFF', '#F5F5F5', '#EEEEEE', '#E0E0E0', '#DDDDDD', '#E0E0E0', '#DDDDDD', '#212121', '#424242', '#757575', '#9E9E9E'],
-      dark: ['#303030', '#424242', '#424242', '#616161', '#424242', '#212121', '#424242', '#757575', '#FFFFFF', '#EEEEEE', '#BDBDBD', '#9E9E9E'],
-      custom: [],
+    support: {
+      copy: true,
+      file: false,
+    },
+    file_list: [
+      {
+        'url': 'version.sass',
+        'disabled': true,
+        'checked': true,
+      },
+      {
+        'url': 'copyright.sass',
+        'disabled': true,
+        'checked': true,
+      },
+      {
+        'url': 'font-arial.sass',
+        'cat': 'font',
+        'checked': true,
+      },
+      {
+        'url': 'font-roboto.sass',
+        'cat': 'font',
+        'checked': false,
+      },
+      {
+        'url': 'color.sass',
+        'checked': true,
+      },
+      {
+        'url': 'main.sass',
+        'checked': true,
+      },
+      {
+        'url': 'menu-classic.sass',
+        'checked': true,
+      },
+      {
+        'url': 'dashboard-layout.sass',
+        'checked': true,
+      },
+      {
+        'url': 'users-list.sass',
+        'checked': true,
+      },
+      {
+        'url': 'profile-content.sass',
+        'checked': true,
+      },
+      {
+        'url': 'profile-cover.sass',
+        'checked': true,
+        'disabled': true,
+        'description': 'Этот файл зависит от настройки "Вид профиля".',
+      },
+      {
+        'url': 'tentative.sass',
+        'checked': false,
+        'disabled': true,
+        'description': 'В данный момент тестировать нечего.',
+      },
+      {
+        'url': 'user-settings.sass',
+        'checked': true,
+      },
+    ],
+    user: {
+      id: null,
+      avatar: '',
+      background: '',
+      cover: '',
+      color_pallete: [],
+      color_scheme: [],
+      has_css: false,
+      // TODO: next six variables
+      has_pallete: false,
+      has_scheme: false,
+      isCover: true,
+      isDarkScheme: false,
+      selected_pallete: 'teal_orange',
+      selected_scheme: 'light',
+    },
+    // TODO: rewrite all variable
+    variables: [
+      // Основные цвета
+      '$color-primary',
+      '$color-accent',
+      // Текст на фонах основных цветов
+      '$color-text-on-primary',
+      '$color-text-on-accent',
+      // Цвета ссылок
+      '$color-link',
+      '$color-link-hover',
+      '$color-link-active',
+      // Цвета текста
+      '$color-text-primary',
+      '$color-text-secondary',
+      '$color-text-hint',
+      '$color-text-disabled',
+      // Цвета меню
+      '$color-header-background',
+      '$color-header-background-shade',
+      '$color-header-text',
+      // Цвет фона
+      '$color-background',
+      '$color-background-dialog',
+      '$color-background-secondary',
+      // Вспомогательные цвета фона
+      '$color-area-normal',
+      '$color-area-hover',
+      '$color-area-active',
+      // Цвета границ
+      '$color-border',
+      '$color-border-hover',
+      // Цвета кнопок
+      '$color-button-hover',
+      // ID пользователя
+      '$id',
+      // Ссылки на изображение
+      '$image-background',
+      '$image-cover',
+      // Затемненная и осветленная версии основного цвета
+      '$color-primary-darker',
+      '$color-primary-lighter',
+      // Основной и акцентирующий цвета текста на цвете фоне
+      '$color-primary-on-background',
+      '$color-accent-on-background',
+    ],
+    // TODO: delete after rewrite
+    scheme: {
+      // NOTE: Порядок соответствует color_scheme
+      color_background: '#FAFAFA',
+      color_background_dialog: '#FFFFFF',
+      color_background_secondary: '#F5F5F5',
+      color_area_normal: '#EEEEEE',
+      color_area_hover: '#E0E0E0',
+      color_area_active: '#DDDDDD',
+      color_button_hover: '#E0E0E0',
+      color_border: '#DDDDDD',
+      color_text_primary: '#212121',
+      color_text_secondary: '#424242',
+      color_text_hint: '#757575',
+      color_text_disabled: '#9E9E9E',
+      // NOTE: Свойства color_pallete
+      color_primary: '#009688',
+      color_accent: '#FFAB40',
+      color_link: '#009688',
+      color_link_hover: '#FFAB40',
+      color_link_active: '#FF9100',
+      color_header_background: '#333333',
+      // NOTE: Вычисляемые свойства
+      color_primary_darker: '#008478',
+      color_primary_lighter: '#1FA396',
+      color_text_on_primary: '#FAFAFA',
+      color_text_on_accent: '#212121',
+      color_border_hover: '#C2C2C2',
+      color_header_background_shade: '#2D2D2D',
+      color_header_text: '#FAFAFA',
     },
     color_pallete: {
       standart: ['#4682B4', '#B78BC7', '#176093', '#FF5202', '#FF1402', '#333333'],
@@ -61,44 +227,63 @@ var vm = new Vue({
       teal_orange: ['#009688', '#FFAB40', '#009688', '#FFAB40', '#FF9100', '#333333'],
       custom: [],
     },
+    color_scheme: {
+      light: ['#FAFAFA', '#FFFFFF', '#F5F5F5', '#EEEEEE', '#E0E0E0', '#DDDDDD', '#E0E0E0', '#DDDDDD', '#212121', '#424242', '#757575', '#9E9E9E'],
+      dark: ['#303030', '#424242', '#424242', '#616161', '#424242', '#212121', '#424242', '#757575', '#FFFFFF', '#EEEEEE', '#BDBDBD', '#9E9E9E'],
+      custom: [],
+    },
     text: {
       fileLoading: 'Идет загрузка файлов темы...',
       notify_message: 'Идет создание темы...',
     },
-    files: {
-      stable: [],
-      beta: [],
-    },
   },
   watch: {
-    "scheme.primary": function () {
-      if (this.scheme.primary.length === 7) {
-        this.scheme.primaryBG_color = isLight(hexToRgb(this.scheme.primary)) ? '#212121' : '#FAFAFA';
-        this.scheme.primary_darker = additionColor(this.scheme.primary, '#000000', '12');
+    "scheme.color_primary": function () {
+      if (this.scheme.color_primary.length === 7) {
+        this.scheme.color_text_on_primary = isLight(hexToRgb(this.scheme.color_primary)) ? '#212121' : '#FAFAFA';
+        this.scheme.color_primary_darker = additionColor(this.scheme.color_primary, '#000000', 12);
+        this.scheme.color_primary_lighter = additionColor(this.scheme.color_primary, '#FFFFFF', 12);
       }
     },
-    "scheme.accent": function () {
-      if (this.scheme.accent.length === 7) {
-        this.scheme.accentBG_color = isLight(hexToRgb(this.scheme.accent)) ? '#212121' : '#FAFAFA';
+    "scheme.color_accent": function () {
+      if (this.scheme.color_accent.length === 7) {
+        this.scheme.color_text_on_accent = isLight(hexToRgb(this.scheme.color_accent)) ? '#212121' : '#FAFAFA';
       }
     },
-    "scheme.menu_background": function () {
-      if (this.scheme.menu_background.length === 7) {
-        this.scheme.menu_popup_background = additionColor(this.scheme.menu_background, '#000000', '12');
+    "scheme.color_border": function () {
+      if (this.scheme.color_border.length === 7) {
+        this.scheme.color_border_hover = additionColor(this.scheme.color_border, '#000000', 12);
+      }
+    },
+    "scheme.color_header_background": function () {
+      if (this.scheme.color_header_background.length === 7) {
+        this.scheme.color_header_background_shade = additionColor(this.scheme.color_header_background, '#000000', 12);
+        this.scheme.color_header_text = isLight(hexToRgb(this.scheme.color_header_background)) ? '#212121' : '#FAFAFA';
+      }
+    },
+    "cover_display": function () {
+      for (var i = 0; i < this.file_list.length; i++) {
+        if (this.file_list[i]['url'] == 'profile-cover.sass' || this.file_list[i]['url'] == 'user-settings-cover.sass') {
+          this.file_list[i].checked = this.cover_display;
+        }
+        if (this.file_list[i]['url'] == 'user-settings.sass') {
+          this.file_list[i].checked = this.cover_display ? false : true;
+        }
       }
     },
   },
   methods: {
     setId: function () {
-      var str = this.user_id;
-      if ( ~this.user_id.indexOf(".") ) {
-        this.user_avatar = this.user_id;
-        str = this.user_id.substring(this.user_id.indexOf("/users/x") + 8);
+      var str = this.user.id;
+      if ( ~this.user.id.indexOf(".") ) {
+        this.user.avatar = this.user.id;
+        str = this.user.id.substring(this.user.id.indexOf("/users/x") + 8);
         str = str.substr(0, str.indexOf("."));
         str = str.substr(str.indexOf("/") + 1);
       }
       str = parseInt(str);
-      this.user_id =  isNaN(str) ? '' : str;
+      this.user.id =  isNaN(str) ? '' : str;
+      localStorage.setItem('user_id', this.user.id);
     },
     changeScheme: function () {
       var scheme = this.scheme_dark ? 'dark' : 'light';
@@ -112,12 +297,12 @@ var vm = new Vue({
     changePallete: function (x) {
       x = x === 'custom' ? x : this.user_setting.pallete;
 
-      this.scheme.primary = this.color_pallete[x][0];
-      this.scheme.accent = this.color_pallete[x][1];
-      this.scheme.link_normal = this.color_pallete[x][2];
-      this.scheme.link_hover = this.color_pallete[x][3];
-      this.scheme.link_active = this.color_pallete[x][4];
-      this.scheme.menu_background = this.color_pallete[x][5];
+      this.scheme.color_primary = this.color_pallete[x][0];
+      this.scheme.color_accent = this.color_pallete[x][1];
+      this.scheme.color_link = this.color_pallete[x][2];
+      this.scheme.color_link_hover = this.color_pallete[x][3];
+      this.scheme.color_link_active = this.color_pallete[x][4];
+      this.scheme.color_header_background = this.color_pallete[x][5];
     },
     changeColor: function () {
       if (this.user_setting.pallete !== 'custom') {
@@ -125,100 +310,165 @@ var vm = new Vue({
         this.user_setting.pallete = 'custom';
       }
 
-      // TODO: Перед записью проверить на совпадение цветов. Если отличий больше одного спросить про перезапись. Если необходимо - отменить перезапись.
-      // TODO: Сделать запись цветов в localStorage
-      this.color_pallete['custom'][0] = this.scheme.primary;
-      this.color_pallete['custom'][1] = this.scheme.accent;
-      this.color_pallete['custom'][2] = this.scheme.link_normal;
-      this.color_pallete['custom'][3] = this.scheme.link_hover;
-      this.color_pallete['custom'][4] = this.scheme.link_active;
-      this.color_pallete['custom'][5] = this.scheme.menu_background;
+      this.color_pallete['custom'][0] = this.scheme.color_primary;
+      this.color_pallete['custom'][1] = this.scheme.color_accent;
+      this.color_pallete['custom'][2] = this.scheme.color_link;
+      this.color_pallete['custom'][3] = this.scheme.color_link_hover;
+      this.color_pallete['custom'][4] = this.scheme.color_link_active;
+      this.color_pallete['custom'][5] = this.scheme.color_header_background;
 
       localStorage.setItem('user_pallete', JSON.stringify(this.color_pallete['custom']));
     },
     createTheme: function () {
       switchDisabled(document.getElementById('copy_css'));
       document.getElementById('output_css').value = '';
-      this.isCreating = true;
-      this.isNotify = true;
+      this.status.isCreating = true;
+      this.status.isNotify = true;
 
-      Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
-      var sass = new Sass();
 
-      sass.options({
-        // Treat source_string as SASS (as opposed to SCSS)
-        style: Sass.style.expanded,
-        indentedSyntax: true,
-      }, function callback() {
-        // invoked without arguments when operation completed
-      });
 
       var sass_setting = '';
+      var user_setting;
+
+
 
       for (var key in this.scheme) {
         sass_setting += '$' + key + ': ' + this.scheme[key] + '; ';
       }
 
-      if (this.cover_display) {
-        sass_setting += '$id: ' + this.user_id + '; ';
-        sass_setting += '$cover: url(' + this.user_cover + '); ';
-      }
-
-      sass.writeFile('_version.sass', this.files[this.theme.release][8]);
-      sass.writeFile('main.sass', this.files[this.theme.release][3]);
-      sass.writeFile('copyright.sass', this.files[this.theme.release][0]);
-      sass.writeFile('font.sass', this.files[this.theme.release][1]);
-      sass.writeFile('color.sass', this.files[this.theme.release][2]);
-
-      if (this.cover_display) {
-        sass.writeFile('profile-cover.sass', this.files[this.theme.release][4]);
-        sass.writeFile('settings-cover.sass', this.files[this.theme.release][5]);
+      if (this.user.id)         sass_setting += '$id: ' + this.user.id + '; ';
+      if (this.cover_display)   sass_setting += '$image-cover: url(' + this.user.cover + '); ';
+      if (this.user.background) {
+        sass_setting += '$image-background: url(' + this.user.background + '); '
       } else {
-        sass.writeFile('profile-cover.sass', '');
-        sass.writeFile('settings-cover.sass', '');
+        sass_setting += '$image-background: none; '
+      };
+
+
+
+      if (user_sass) {
+        user_sass.compile(sass_setting + user_css, function callback(result) {
+          console.log('Статус компиляции пользовательского стиля:', result.status);
+          if (result.status === 0) {
+            user_setting = shikiCssAdaptation(result.text);
+          } else {
+            console.error('В процессе компиляции пользовательского стиля произошла ошибка:', result);
+          }
+        });
       }
 
-      if (this.user_background) {
-        sass_setting += '$user_background: url(' + this.user_background + '); ';
-        sass.writeFile('settings-body.sass', 'body {background-attachment: fixed; background-image: $user_background; background-position: top center; background-size: 100%;}');
-      } else {
-        sass.writeFile('settings-body.sass', 'body { background-image: none; }');
+
+
+      var baseImport = '';
+      var compileFileList = this.getFilelist('checked');
+      for (var i = 0; i < compileFileList.length; i++) {
+        baseImport += '@import "' + compileFileList[i] + '"; ';
       }
 
-      sass.writeFile('base.sass', sass_setting + '@import "_version.sass"; @import "copyright"; @import "font"; @import "color"; @import "main";');
-      sass.writeFile('cover.sass', '@import "profile-cover"');
-      sass.writeFile('tentative.sass', this.files[this.theme.release][7]);
-      sass.writeFile('user-settings.sass', this.files[this.theme.release][6]);
 
-      sass.compile('@import "base"; @import "cover"; @import "tentative"; @import "user-settings";', function(result) {
+
+      scss.writeFile('base.sass', sass_setting + baseImport);
+
+
+
+      scss.compile('@import "base";', function(result) {
         console.log("compiled", result);
         if (result.status === 0) {
-          vm.isCompiled = true;
-          vm.isCreating = false;
-          vm.isNotify = false;
+          vm.status.isCompiled = true;
+          vm.status.isCreating = false;
+          vm.status.isNotify = false;
 
 
-          var css = result.text;
-          css = css.slice(18);
-          css = css.replace('data:image', 'data\\:image');
-          css = css.replace(/\/\*\*\//g, '');
+          var css = shikiCssAdaptation(result.text);
+          css += vm.user.has_css ? user_setting ? user_setting : user_css : '';
           document.getElementById('output_css').value = css;
 
 
           switchDisabled(document.getElementById('copy_css'));
         } else {
-          vm.isCreating = false;
+          vm.status.isCreating = false;
           vm.text.notify_message = 'Произошла ошибка, попробуйте в следующий раз.';
         }
       });
+    },
+    getFilelist: function (key) {
+      var filelist = [];
+      for (var i = 0; i < this.file_list.length; i++) {
+        switch (key) {
+          case 'checked':
+            if (this.file_list[i][key]) filelist.push(this.file_list[i]['url']);
+            break;
+          default:
+            filelist.push(this.file_list[i][key]);
+            break;
+        }
+      }
+      return filelist;
     },
     copyTheme: function () {
       document.getElementById('output_css').select();
       document.execCommand('copy');
     },
+    readUserFile: function (event) {
+      if (!event.target.files.length) {
+        user_sass = undefined;
+        user_css = undefined;
+        vm.user.has_css = false;
+        return;
+      }
+
+      var file  = event.target.files[0],
+          reader = new FileReader(),
+          ex     = getExtension(file.name);
+
+      // Closure to capture the file information.
+      reader.onloadend = function(evt) {
+        if (evt.target.readyState == FileReader.DONE) {
+          if (ex == 'sass' || ex == 'scss') {
+            console.log('Загруженный файл будет приобразован препроцессором Sass и добавлен в конец стиля.');
+
+            user_sass = new Sass();
+
+            user_sass.options({
+              style: Sass.style.expanded,
+              indentedSyntax: ex == 'sass' ? true : false,
+            });
+
+            user_css = evt.target.result;
+            vm.user.has_css = true;
+          } else if (ex == 'css' && file.type == 'text/css') {
+            console.log('Загружен css-файл. Он будет добавлен в конец стиля без изменений.');
+
+            user_css = evt.target.result;
+            vm.user.has_css = true;
+          }
+        }
+      };
+
+      reader.readAsText(file, 'UTF-8');
+    },
+    saveLocal: function (key, value) {
+      localStorage.setItem(key, value);
+    },
   },
   mounted: function () {
-    // Проверяем localhost на наличие user_pallete. Если есть, то загружаем массив и отображаем кнопку для переключения.
+    if (localStorage.getItem('user_id') !== null) {
+      this.user.id = localStorage.getItem('user_id');
+      this.setId();
+    }
+
+
+    if (localStorage.getItem('user_cover') !== null) {
+      this.user.cover = localStorage.getItem('user_cover');
+    }
+
+
+    if (localStorage.getItem('user_background') !== null) {
+      this.user.background = localStorage.getItem('user_background');
+    }
+
+
+    // Проверяем localStorage на наличие user_pallete. Если есть, то загружаем массив и отображаем кнопку для переключения.
     if (localStorage.getItem('user_pallete') !== null) {
       var user_pallete = JSON.parse(localStorage.getItem('user_pallete'));
 
@@ -227,73 +477,60 @@ var vm = new Vue({
           this.color_pallete['custom'][i] = user_pallete[i];
         }
         this.user_setting.custom_pallete = true;
+        this.user_setting.pallete = 'custom';
+        this.changePallete('custom');
         console.log('Информация:', 'Найдена и загружена пользовательская палитра.');
       }
     } else {
       console.log('Информация:', 'Пользовательская палитра не найдена.');
     }
 
+
     // Проверяем поддержку копирования в буфер
     if (document.queryCommandSupported('copy')) {
-      this.isCopyUnsupport = false;
+      this.support.copy = false;
     }
 
-    // Загружаем файлы темы..
-    var fileList = [
-      '/copyright.sass',
-      '/font.sass',
-      '/color.sass',
-      '/main.sass',
-      '/profile-cover.sass',
-      '/settings-cover.sass',
-      '/user-settings.sass',
-      '/tentative.sass',
-      '/version.sass'
-    ];
-    var fileLoaded = {
-      stable: 0,
-      beta: 0,
-    };
-    var hash = Date.now();
 
-    fileLoader('stable');
-
-    function fileLoader (release) {
-      for (var i = 0; i < fileList.length; i++) {
-        XHR(i, release, './release-' + release + fileList[i] + '?' + hash, Loading);
-      }
+    // Проверяем поддержку чтения локальных файлов
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+      this.support.file = true;
     }
 
-    function XHR (i, release, url, callback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', url);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) return;
-        if (xhr.status == 200) {
-          callback(i, release, xhr.responseText);
-        }
-      }
-      xhr.send();
-    }
 
-    function Loading(i, release, response) {
-      fileLoaded[release]++;
-      vm.files[release][i] = response;
-      if (fileList.length === fileLoaded[release]) {
-        console.log('Загрузка файлов:', 'Ветка ' + release + ' загружена.' + '(' + fileLoaded[release] + ')');
-        if (vm.isFileLoading) {
-          vm.isFileLoading = false;
-          switchDisabled(document.getElementById('create_css'));
-          fileLoader('beta');
-        }
-        if (fileList.length === fileLoaded['beta']) {
-          vm.isBetaRelease = true;
-        }
-      }
-    }
+    Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
+    scss = new Sass();
+
+
+    scss.options({
+      style: Sass.style.expanded,
+      indentedSyntax: true,
+    });
+
+
+    scss.preloadFiles('../../branch-stable/', '', this.getFilelist('url'), function callback() {
+      // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
+      vm.status.isFileLoading = false;
+      switchDisabled(document.getElementById('create_css'));
+    });
   },
 });
 
+
+var scss;
+var user_sass;
+var user_css;
+
+
+function shikiCssAdaptation (css) {
+  var css = css ? css : '@charset "UTF-8"; ';
+  if (css.substring(0, 17) == '@charset "UTF-8";') {
+    css = css.slice(18);
+  }
+  css = css.replace('data:image', 'data\\:image');
+  css = css.replace(/\/\*\*\//g, '');
+  return css;
+}
 
 
 function switchDisabled(elem) {
@@ -329,6 +566,17 @@ document.addEventListener('click', function () {
     document.activeElement.blur();
   }
 });
+
+
+/**
+ * Get file extension from its name
+ * @fname  {string}   File name
+ * @return {string}   File extension
+ * Author: VisioN (https://stackoverflow.com/a/12900504)
+ */
+function getExtension (fname) {
+  return fname.slice((fname.lastIndexOf(".") - 1 >>> 0) + 2);
+}
 
 
 function isLight (r, g, b) {
@@ -380,7 +628,9 @@ function rgbToHex(r, g, b) {
 /**
  * Color contrast script for http://webaim.org/resources/contrastchecker/
  * Authored by Jared Smith.
- * Nothing here is too earth shattering, but if you're reading this, you must be interested. Feel free to steal, borrow, or use this code however you would like.
+ * Nothing here is too earth shattering, but if you're reading this,
+ * you must be interested.
+ * Feel free to steal, borrow, or use this code however you would like.
  * The color picker is jscolor - http://jscolor.com/
  */
 function checkcontrast(background, color) {

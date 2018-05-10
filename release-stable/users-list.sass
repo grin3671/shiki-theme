@@ -1,0 +1,145 @@
+/**
+ * List of User
+ * Список пользователей меняется на карточки пользователей
+ */
+.p-users .b-user.detailed
+  display: inline-block
+  vertical-align: top
+  position: relative
+  width: 48%
+  height: auto
+  min-height: 261px
+  padding: 8px
+  margin-right: 4%
+  margin-bottom: 4%
+  background-color: $color-background-dialog
+  border: 0
+  border-radius: 2px
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.16)
+
+  &:nth-child(2n+2)
+    margin-right: 0
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    box-shadow: 0 2px 8px 1px rgba(0,0,0,.16)
+    opacity: 0
+    transition: .3s all
+
+  &:hover::before
+    opacity: 1
+
+  .info,
+  .history
+    clear: both
+    float: none
+    width: 100%
+    margin: 0
+
+  .info .image-name
+    display: block
+    padding: 16px 0
+    margin: auto
+    text-align: center
+
+    .name
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      padding: 97px 0 0
+      line-height: 32px
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+
+    .image
+      clear: both
+      float: none
+      display: block
+      padding: 0
+      margin: auto auto 24px
+      border-radius: 100%
+
+  .info .last-online
+    color: #9B9B9B
+    text-align: center
+
+  .history
+    padding-top: 8px
+    margin-top: 0
+    font-size: 12px
+    line-height: 20px
+
+@media (min-width: 540px)
+  .p-users .b-user.detailed
+    width: 32%
+    margin-right: 2%
+    margin-bottom: 2%
+
+  .p-users .b-user.detailed:nth-child(2n+2)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(3n+3)
+    margin-right: 0
+
+@media (min-width: 768px)
+  .p-users .b-user.detailed
+    width: 23.5%
+    margin-right: 2%
+    margin-bottom: 2%
+
+  .p-users .b-user.detailed:nth-child(2n+2)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(3n+3)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(4n+4)
+    margin-right: 0
+
+@media (min-width: 960px)
+  .p-users .b-user.detailed
+    width: 18.4%
+    margin-right: 2%
+    margin-bottom: 2%
+
+  .p-users .b-user.detailed:nth-child(2n+2)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(3n+3)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(4n+4)
+    margin-right: 2%
+
+  .p-users .b-user.detailed:nth-child(5n+5)
+    margin-right: 0
+
+@media (min-width: 1200px)
+  .p-users.x1200 .b-user.detailed
+    width: 15%
+    margin-right: 2%
+    margin-bottom: 2%
+
+  .p-users.x1200 .b-user.detailed:nth-child(2n+2)
+    margin-right: 2%
+
+  .p-users.x1200 .b-user.detailed:nth-child(3n+3)
+    margin-right: 2%
+
+  .p-users.x1200 .b-user.detailed:nth-child(4n+4)
+    margin-right: 2%
+
+  .p-users.x1200 .b-user.detailed:nth-child(5n+5)
+    margin-right: 2%
+
+  .p-users.x1200 .b-user.detailed:nth-child(6n+6)
+    margin-right: 0
+/* END of List of User */

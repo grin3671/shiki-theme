@@ -97,39 +97,6 @@ p {
   margin: .5rem 0;
 }
 
-select {
-  height: 2.5rem;
-  padding: .5rem 1.5rem .5rem 0;
-  background: #FAFAFA;
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: 1.5rem;
-}
-select:focus {
-  outline: 0;
-}
-select:hover + .divider:before,
-select:focus + .divider:before {
-  background-color: #CCCCCC;
-}
-.field-select {
-  position: relative;
-}
-.field-select:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: .5rem 0;
-  background-color: #FAFAFA;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTcgMTBsNSA1IDUtNXoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
-  background-size: 1.5rem;
-  pointer-events: none;
-}
-
 .hidden {
   display: none;
 }
@@ -179,12 +146,8 @@ select:focus + .divider:before {
     padding: 1.375rem 1.5rem;
   }
   .page {
-    padding: 1.375rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
-}
-
-.content {
-  margin: .5rem 0;
 }
 
 input[type="color"] {
@@ -289,7 +252,11 @@ input[type=color]:::-moz-color-swatch {
   opacity: 0;
   pointer-events: none;
 }
-
+.divider.invisible {
+  height: 1px;
+  margin: .5rem 0;
+  opacity: 0;
+}
 .divider:before {
   content: '';
   position: absolute;
@@ -308,6 +275,10 @@ input[type=color]:::-moz-color-swatch {
   height: 2px;
   background-color: #009688;
   transition: 0s;
+}
+
+.block {
+  margin: 1.5rem 0;
 }
 
 .btn {
@@ -410,7 +381,7 @@ input:focus + .field-switch:after {
 }
 
 .field-switch.secondary-action {
-  margin: 1rem .5rem;
+  margin: 0 .5rem;
 }
 
 .list {
@@ -428,11 +399,13 @@ input:focus + .field-switch:after {
 }
 
 .color-settings,
-.extra-settings {
+.extra-settings,
+.user-file {
   display: none;
 }
 #color_settings:checked ~ .color-settings,
-#extra_settings:checked ~ .extra-settings {
+#extra_settings:checked ~ .extra-settings,
+#user_file:checked ~ .user-file {
   display: block;
 }
 
@@ -772,7 +745,42 @@ input[type=radio]:focus + .md-radio:before {
 input[type=radio]:checked + .md-radio:after {
   transform: scale(.625);
 }
+input[type=radio]:disabled + .md-radio {
+  opacity: .32;
+}
 .md-radio + span {
+  padding: 0 .25rem;
+}
+
+
+.md-label input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.md-checkbox {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  opacity: .8;
+  transition: .12s cubic-bezier(0, 0, 0.2, 1);
+}
+input[type=checkbox]:checked + .md-checkbox {
+  color: #009688;
+  background-color: currentColor;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4gICAgPHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPiAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPjwvc3ZnPg==);
+  background-size: 100%;
+  opacity: 1;
+}
+input[type=checkbox]:disabled + .md-checkbox {
+  opacity: .32;
+}
+.md-checkbox + span {
   padding: 0 .25rem;
 }
 
@@ -815,4 +823,57 @@ img {
   .section_faq img:nth-child(2n) {
     margin-right: 0;
   }
+}
+
+
+
+.filelist {
+  margin-top: 0;
+}
+.filelist .file {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.filelist .field-hint {
+  width: 100%;
+  margin: 0 0 .25em 44px;
+}
+
+
+
+.sass_guideline .guide_pallete {
+  float: right;
+}
+.sass_guideline .field-label {
+  font-family: monospace;
+  line-height: 3rem;
+}
+.sass_guideline .guideline-description {
+  display: none;
+  padding: 0.5rem 0;
+  color: #747474;
+}
+.sass_guideline .guideline-description.visible {
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .sass_guideline .field-label {
+    font-size: 1.125rem;
+  }
+  .sass_guideline .guide_pallete:not(:first-child) {
+    margin-right: 2rem;
+  }
+}
+
+
+
+.content + .content {
+  padding: .5em 0;
+  margin-top: 3em;
+}
+
+h1 + p {
+  margin: -1em 0 2em;
 }

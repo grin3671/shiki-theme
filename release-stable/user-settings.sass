@@ -11,15 +11,21 @@
 /* МОИ НАСТРОЙКИ */
 
 /* Фон страницы */
-@import 'settings-body';
+body
+  @if $image-background == 'none'
+    background-image: none
+  @else
+    background-attachment: fixed
+    background-image: $image-background
+    background-position: top center
+    background-size: cover
 
-/* Цвета меню */
-.l-top_menu:before
-  background-color: $menu_background
-
-@media only screen and (min-width: 1025px)
-  .l-top_menu .submenu, .b-main_search ul.popup
-    background: $menu_popup_background
-
-@import 'settings-cover';
-
+@if variable-exists(image-cover)
+  /* Моя обложка в профиле */
+  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief:before
+    /* background-image: url(//i.imgur.com/bd8W6VB.jpg); /* Пример */
+    background-image: $image-cover /* Моя обложка */
+    background-position: center 50% /* Последнее значение (50% - по центру) отвечает за вертикальное смещение */
+/**/
+/**/
+/**/

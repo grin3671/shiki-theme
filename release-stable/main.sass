@@ -338,7 +338,7 @@ hr
   border: .1875rem solid
   border-right-color: transparent
   border-radius: 50%
-  color: $primary
+  color: $color-primary
   -webkit-animation: spin 2s linear infinite
   animation: spin 2s linear infinite
   box-sizing: border-box
@@ -425,12 +425,12 @@ hr
 
 .b-dropzone
   padding: .5rem 1rem 3rem
-  background-color: $background_normal
-  border: 1px dashed $border
+  background-color: $color-area-normal
+  border: 1px dashed $color-border
   border-radius: .125rem
 
 .b-dropzone:hover
-  border-color: $primary
+  border-color: $color-primary
 
 .b-dropzone:before
   margin: .5rem 0
@@ -444,11 +444,11 @@ hr
 
 .b-dropzone:before,
 .b-dropzone input[type=file]
-  color: $text_disabled
+  color: $color-text-disabled
 
 .b-dropzone:hover:before,
 .b-dropzone:hover input[type=file]
-  color: $text_secondary
+  color: $color-text-secondary
 
 .b-forum .faye-loader
   padding: .4375rem .5rem
@@ -701,9 +701,9 @@ input[type=submit]:hover
 .b-form input[type=submit].disabled,
 .b-form input[type=submit][disabled]:hover,
 .b-form input[type=submit].disabled:hover
-  background-color: $button_hover
+  background-color: $color-button-hover
   box-shadow: none
-  color: $text_disabled !important
+  color: $color-text-disabled !important
 
 .b-shiki_editor .links .b-button.ok,
 .b-shiki_editor .images .b-button.ok,
@@ -753,7 +753,7 @@ input[type=checkbox],
   background-repeat: no-repeat
   background-size: 1.125rem
   background-position: -.125rem -.125rem
-  border: .125rem solid $text_hint
+  border: .125rem solid $color-text-hint
   border-radius: .125rem
   box-sizing: border-box
   transition: .24s cubic-bezier(.4, 0, .2, 1)
@@ -763,17 +763,17 @@ input[type=checkbox],
 
 input[type=checkbox]:checked,
 .b-input input[type=checkbox]:checked
-  background-color: $primary
+  background-color: $color-primary
   background-image: url("data\:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNi4xN0w0LjgzIDEybC0xLjQyIDEuNDFMOSAxOSAyMSA3bC0xLjQxLTEuNDF6Ii8+PC9zdmc+")
   border-color: transparent
 
 input[type=checkbox]:disabled,
 .b-input input[type=checkbox]:disabled
-  border-color: $text_disabled
+  border-color: $color-text-disabled
 
 input[type=checkbox]:checked:disabled,
 .b-input input[type=checkbox]:checked:disabled
-  background-color: $text_disabled
+  background-color: $color-text-disabled
   border-color: transparent
 
 /* Формы */
@@ -959,788 +959,7 @@ select
 
 
 
-/**
- * TOPMENU
- * Изменение верхнего меню сайта.
- * Меню закреплено и увеличено.
- */
 
-/* НАСТРОЙКА ЦВЕТОВ МЕНЮ */
-/* ОСНОВНОЕ МЕНЮ */
-/* Фон меню */
-.l-top_menu:before
-  background-color: #212121
-
-/* Цвет текста в меню */
-.l-top_menu
-  color: #FAFAFA
-
-/* Цвет текста пунктов меню при наведении */
-/* Цвет текста активных пунктов меню */
-/* По умолчанию: цвет текста наследуется от меню */
-.l-top_menu .menu-items > .entry.selected,
-.l-top_menu .menu-items > .entry > a:active
-  color: inherit !important
-
-/* Цвет текста пунктов меню при наведении */
-/* По умолчанию: цвет текста наследуется от меню */
-.l-top_menu .menu-items > .entry:hover
-  color: inherit
-
-/* ВЫПАДАЮЩЕЕ МЕНЮ */
-@media only screen and (min-width: 1025px)
-  /* Цвет фона выпадающего меню при наведении */
-  .l-top_menu .submenu,
-  .b-main_search ul.popup
-    background: #424242
- 
-
-  /* Цвет пунктов выпадающего меню при щелчке */
-  /* Цвет активных пунктов выпадающего меню */
-  /* По умолчанию: затемненный цвет фона выпадающего меню */
-  .l-top_menu .submenu > .entry:active,
-  .l-top_menu .submenu > .entry.active
-    background-color: rgba(0, 0, 0, .24)
- 
-
-  /* Цвет пунктов выпадающего меню при наведении */
-  /* По умолчанию: осветленный цвет фона выпадающего меню */
-  .l-top_menu .submenu > .entry:hover
-    background-color: rgba(255, 255, 255, .24)
- 
-
-  /* Цвет текста выпадающих меню */
-  /* По умолчанию: цвет текста наследуется от меню */
-  .l-top_menu .menu-search > .entry,
-  .l-top_menu .menu-userbox > .entry,
-  .l-top_menu .submenu
-    color: inherit
- 
-
-  /* Цвет текста выпадающих меню при щелчке */
-  /* Цвет текста активных пунктов выпадающего меню */
-  /* По умолчанию: цвет текста наследуется от выпадающего меню */
-  .l-top_menu .submenu > .entry:active,
-  .l-top_menu .submenu > .entry.active,
-  .b-main_search .popup li:active,
-  .b-main_search .popup li.active
-    color: inherit
- 
-
-  /* Цвет текста выпадающих меню при наведении */
-  /* По умолчанию: цвет текста наследуется от выпадающего меню */
-  .l-top_menu .submenu > .entry:hover,
-  .b-main_search .popup li:hover
-    color: inherit
- 
-
-  /* ЦВЕТА ПОИСКА */
-  /* Фон строки поиска  */
-  .b-main_search .input
-    background: rgba(242,242,242,.32)
- 
-
-  /* Набираемый текст в строке поиска  */
-  .b-main_search .input input
-    color: #fff
- 
-
-  /* Вспомогательный текст в строке поиска  */
-  .b-main_search input::-webkit-input-placeholder
-    color: #ddd
- 
-  .b-main_search input:-moz-placeholder
-    color: #ddd
- 
-  .b-main_search input::-moz-placeholder
-    color: #ddd
- 
-  .b-main_search input:-ms-input-placeholder
-    color: #ddd
- 
-
-/* ОБЩИЕ ЦВЕТА ПОИСКА */
-.b-main_search .popup li:hover
-  background-color: rgba(255, 255, 255, .24)
-
-.b-main_search .popup li.active,
-.b-main_search .popup li:active
-  background-color: rgba(0, 0, 0, .24)
-
-.l-top_menu .entry,
-.b-main_search .popup li,
-.b-main_search .popup li:hover,
-.b-main_search .popup li:active
-  color: inherit
-
-/* ЦВЕТ ИКОНОК в меню (для мобильной версии) */
-/* По умолчанию: цвет текста наследуется от меню */
-.l-top_menu .to-mobile-forum,
-.l-top_menu .menu-mobile .search,
-.l-top_menu .menu-mobile .menu,
-.l-top_menu .menu-mobile #sign_in,
-.l-top_menu .menu-userbox .search,
-.l-top_menu .menu-userbox .menu,
-.l-top_menu .menu-userbox #sign_in
-  color: inherit
-/* END of Настройка цветов в меню */
-
-
-/* NOTE: Что это за элемент? */
-.to-top-fix
-  height: 0
-  background: none
-  border: 0
-
-.l-top_menu:before
-  content: ''
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  opacity: 1
-  transition: .3s
-
-.l-top_menu
-  position: fixed
-  top: 0
-  right: 0
-  left: 0
-  width: 100%
-  max-width: 100%
-  height: auto
-  margin: auto
-  background-color: transparent
-  background-image: none
-  border: none
-  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
-  overflow: visible
-
-/* Высота меню на мобильном телефоне в портретном режиме */
-/* Если вы меняете высоту меню, необходимо изменить верхний отступ страницы: */
-/* .l-page padding-top: 64px цифра равна высоте меню + 16px */
-/* Скопируйте правило и вставьте его в блоке МОИ НАСТРОЙКИ в конце файла. */
-.l-top_menu
-  padding: 4px 0 /* padding: 0 для наименьшего размера меню (48px)  */
-
-/* NOTE: Максимальное разрешение SONY Xperia Z Ultra: 960x540px */
-@media screen and (min-width: 480px) and (max-height: 540px) and (orientation: landscape)
-  .l-top_menu
-    padding: 0
-
-  .l-page
-    padding-top: 64px
-
-/* На планшетах и далее, высота меню равна 56px */
-@media screen and (min-width: 961px) and (orientation: landscape)
-  .l-top_menu
-    padding: 4px 0
-
-@media (min-width: 960px)
-  .l-top_menu .inner
-    padding: 0 .5rem
-
-/* MENUTOP > LOGO */
-.l-top_menu .inner > a:first-child
-  display: inline-block
-  vertical-align: top
-  margin: 0 0 0 32px
-  color: inherit !important
-
-.l-top_menu .inner .logo
-  float: none
-  position: static
-  width: auto
-  height: auto
-  padding: .8125rem 1rem
-  margin: 0
-  background: none
-
-.l-top_menu .inner .logo:before
-  content: 'Главная'
-  display: block
-  color: inherit
-  font-size: 16px
-  line-height: 22px
-
-@media only screen and (min-width: 320px)
-  .l-top_menu .inner .logo:before
-    content: 'Shikimori'
-    font-size: 20px
-    text-transform: uppercase
- 
-
-@media only screen and (min-width: 480px)
-  .l-top_menu .inner .logo:before
-    content: 'Shikimori'
-    font-size: 20px
-    text-transform: uppercase
- 
-
-.l-top_menu .to-mobile-forum
-  display: inline-block
-  vertical-align: top
-  position: static
-  left: 138px
-  width: 40px
-  height: 40px
-  padding: 8px
-  margin: 4px !important
-
-.l-top_menu .to-mobile-forum:before
-  width: 1.5rem
-  line-height: 1.5rem
-  text-align: center
-  font-size: 24px
-
-.l-top_menu  .mobile-menu-toggler,
-.l-top_menu  .mobile-search-toggler
-  position: absolute
-  top: 0
-  z-index: 10 /* TODO: убрать, потестить */
-.l-top_menu  .mobile-menu-toggler
-  left: 0
-.l-top_menu  .mobile-search-toggler
-  right: 56px
-
-.l-top_menu .mobile-search-toggler.active
-  background-color: transparent
-
-/* Перерисовываем меню сайта под Material */
-.l-top_menu .mobile-menu-toggler.active
-  position: fixed
-  top: 0
-  left: 0
-  width: 100% !important
-  height: 100% !important
-  margin: 0 !important
-  background-color: #000
-  z-index: 12
-  opacity: .48
-
-.l-top_menu .menu-items
-  position: absolute
-  top: 0
-  left: 0
-  width: calc(100% - 56px)
-  max-width: 320px
-  height: calc(100vh + 16px)
-  padding: 8px 0
-  margin: -8px 0
-  overflow-y: auto
-  z-index: 13
-
-/* EXPERIMENTAL > ANIMATED MOBILE MENU */
-.l-top_menu .menu-items
-  display: block
-  -webkit-transform: translate(-110%, 0)
-  -ms-transform: translate(-110%, 0)
-  transform: translate(-110%, 0)
-  transition: 240ms ease-out
-
-.l-top_menu .menu-items.active
-  -webkit-transform: translate(0, 0)
-  -ms-transform: translate(0, 0)
-  transform: translate(0, 0)
-/* END of EXPERIMENTAL */
-
-@media only screen and (min-width: 320px)
-  .l-top_menu .inner > a:first-child
-    margin: 0 0 0 40px
- 
-@media only screen and (min-width: 360px)
-  .l-top_menu .inner > a:first-child
-    margin: 0 0 0 48px
- 
-@media only screen and (min-width: 1025px)
-  .l-top_menu .inner > a:first-child
-    margin: 0
- 
-@media only screen and (min-width: 1025px)
-  .l-top_menu .to-mobile-forum
-    display: none
- 
-
-  .l-top_menu .menu-items
-    display: inline-block
-    vertical-align: top
-    position: static
-    width: auto
-    max-width: 100%
-    height: auto
-    padding: 0
-    margin: 0
-    margin-left: 0
-    background-color: transparent
-    color: inherit
-    overflow: initial
-    overflow-y: visible
-    transform: translate(0, 0)
- 
-
-  .l-top_menu .menu-items > .entry:active
-    background-color: inherit
- 
-  
-  .l-top_menu .menu-items > .entry:active,
-  .l-top_menu .submenu > .entry:active,
-  .l-top_menu .menu-items > .entry > a
-    color: inherit !important
- 
-  
-  .l-top_menu .menu-items > .entry > .submenu
-    margin-top: 4px
-    margin-left: 0
- 
-  
-  .l-top_menu .submenu.right
-    right: 0px
-    margin-top: 4px
- 
-  
-  .b-main_search ul.popup,
-  .b-main_search.hovered .popup
-    margin: 0
-    margin-top: 12px
- 
-  
-  .l-top_menu .submenu > .entry,
-  .b-main_search .popup li
-    color: inherit
- 
-
-  .b-main_search.hovered .popup
-    height: 304px
- 
-
-  .l-top_menu .menu-items > .entry.calendar > a,
-  .l-top_menu .menu-items > .entry.info > a
-    padding: 0.9375rem
- 
-
-  .l-top_menu .menu-items > .entry.calendar > a:before,
-  .l-top_menu .menu-items > .entry.info > a:before
-    display: block !important
- 
-
-  .l-top_menu .menu-items > .entry.calendar > a:after,
-  .l-top_menu .menu-items > .entry.info > a:after
-    display: none
- 
-
-.l-top_menu .menu-items > .entry
-  float: none
-  display: block
-  padding: 0
-  border: 0
-  line-height: inherit
-
-@media (min-width: 1025px)
-  .l-top_menu .menu-items > .entry
-    display: inline-block
-    vertical-align: top
-
-
-.l-top_menu .inner > a:first-child,
-.l-top_menu .menu-items > .entry > a
-  opacity: .87
-  transition: 0.24s cubic-bezier(0.4, 0, 0.2, 1)
-
-.l-top_menu .inner > a:first-child:hover,
-.l-top_menu .menu-items > .entry > a:hover
-  background-color: transparent !important
-  opacity: 1
-
-.l-top_menu .menu-items > .entry.selected,
-.l-top_menu .menu-items > .entry:hover
-  background-color: transparent
-
-.l-top_menu .menu-items > .entry > a,
-.l-top_menu .menu-items > .entry.sign_out
-  padding: 1rem
-  margin: 0
-  font-size: inherit
-  line-height: 1rem
-
-.l-top_menu .menu-items > .entry > a.contest
-  width: 3rem
-  height: 3rem
-  padding: .75rem !important
-  background: inherit
-
-.l-top_menu .menu-items > .entry > a.contest:before
-  width: 1.5rem !important
-  font-size: 1.5rem !important
-  color: $text_secondary
-
-@media only screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry > a.contest
-    width: 3rem
-    height: 3rem
-    padding: .9375rem !important
-    margin: 0
-    background: transparent
-    border-radius: .125rem
- 
-
-  .l-top_menu .menu-items > .entry > a.contest:before
-    position: static
-    width: 18px !important
-    margin: 0
-    color: inherit
-    font-size: 18px !important
- 
-
-/* Текст вместо иконок в верхнем меню */
-.l-top_menu .menu-items > .entry.calendar > a,
-.l-top_menu .menu-items > .entry.info > a
-  padding: 1rem
-  margin: 0
-  line-height: 1rem
-
-.l-top_menu .menu-items > .entry.calendar > a:before,
-.l-top_menu .menu-items > .entry.info > a:before
-  display: none !important
-
-[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a:after
-  content: 'Календарь онгоингов'
-
-[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a:after
-  content: 'Calendar'
-
-[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a:after
-  content: 'Информация'
-
-[data-locale="en"] .l-top_menu .menu-items > .entry.info > a:after
-  content: 'Info'
-
-@media only screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry.calendar > a:before,
-  .l-top_menu .menu-items > .entry.info > a:before
-    display: block !important
-
-  .l-top_menu .menu-items > .entry.calendar > a:after,
-  .l-top_menu .menu-items > .entry.info > a:after
-    display: none
-
-/* END of Текст вместо иконок в верхнем меню */
-
-/* Уведомления о голосованиях */
-.l-top_menu .menu-items > .entry > a.contest
-  position: relative
-
-.l-top_menu .menu-items > .entry > a.contest:hover
-  background-color: transparent !important
-
-.l-top_menu .menu-items > .entry > a.contest:after
-  content: attr(data-count)
-  position: absolute
-  top: .125rem
-  right: .125rem
-  width: 1.25rem
-  background-color: $accent
-  border-radius: 50%
-  color: $accentBG_color
-  font-size: .75rem
-  line-height: 1.25rem
-  text-align: center
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry > a.contest:after
-    top: 0
-    right: 0
-
-/* END of Уведомления о голосованиях */
-
-/* Уменьшение ширины пунктов меню */
-/* Уменьшение ширины "Сообщество" */
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry > a[href *= "/forum"]
-    font-size: 0
-    line-height: 0
-
-  .l-top_menu .menu-items > .entry > a[href *= "/forum"]:before
-    content: 'people'
-    font-size: 1.125rem
-
-/* Уменьшение ширины всех пунктов меню */
-.x1000 .l-top_menu .menu-items > .entry > a,
-.x1000 .l-top_menu .menu-items > .entry.sign_out
-  padding: 1rem .75rem /* thx Azsuna */
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry.calendar > a,
-  .l-top_menu .menu-items > .entry.info > a,
-  .l-top_menu .menu-items > .entry > a[href*="/forum"]
-    padding: 0.9375rem
-
-
-.l-top_menu .submenu,
-.b-main_search ul.popup
-  min-width: 112px
-  border: 0
-
-.b-main_search .popup li
-  transition: 0s
-
-.l-top_menu .submenu > .entry
-  height: 2rem
-  padding: .5rem 1rem
-  background-color: transparent
-  border: 0
-  font-family: inherit
-  font-size: .875rem
-  line-height: 1rem
-
-.l-top_menu .submenu > .entry:first-child,
-.b-main_search ul.popup li:first-child
-  margin-top: .5rem
-
-.l-top_menu .submenu > .entry:last-child,
-.b-main_search ul.popup li:last-child
-  margin-bottom: .5rem
-
-.l-top_menu .menu-items .submenu-toggler
-  right: 0
-  width: 48px
-  height: 48px
-  padding: .75rem
-  margin: 0
-  z-index: 10
-
-.l-top_menu .menu-items .submenu-toggler:before
-  width: 24px
-  line-height: 24px
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items .submenu-toggler,
-  .l-top_menu .inner .sign_out
-    display: none
- 
-
-  .l-top_menu .menu-items > .entry
-    color: inherit
- 
-
-@media screen and (max-width: 1024px)
-  .l-top_menu .submenu
-    padding-left: 32px
- 
-
-
-
-
-/* TOPMENU | SEARCH */
-.l-top_menu .menu-search
-  padding: 8px 0
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-search
-    padding: 0
- 
-
-  .l-top_menu .menu-search > .entry
-    width: 234px
-    padding: 8px 0 !important
- 
-
-.b-main_search
-  padding-right: 8px !important
-  padding-left: 8px !important
-
-.b-main_search .input
-  position: relative
-  width: auto
-  height: 2rem
-  padding: 0
-  margin: 0
-  transition: background .3s
-
-.b-main_search.hovered .popup
-  border: 0
-  font-size: .875rem
-
-.b-main_search ul.popup li
-  width: auto
-  height: 2rem
-  padding: .5rem 1rem
-  border: 0
-  font-family: inherit
-  font-size: .875rem
-  line-height: 1rem
-
-.b-main_search .input input
-  width: 100%
-  padding: 0 1rem
-  font-family: inherit
-  font-size: 1rem
-  line-height: 2rem
-
-.b-main_search .input input.ac_loading
-  width: 100%
-  padding: 0 1rem
-
-.b-main_search ul.popup
-  width: inherit
-/* END of SEARCH */
-
-
-
-/* TOPMENU | SEARCHRESULT */
-.ac_results.menu-suggest,
-.completable-block.menu-suggest
-  border: 0
-  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
-
-.ac_results,
-.completable-block
-  font-size: .75rem
-
-.ac_odd
-  background-color: $background
-
-.ac_even
-  background-color: $Grey100 /* thx @Depict */
-
-.ac_over
-  background-color: rgba(255,255,255,.24)
-
-.ac_results li
-  padding: 0 .5rem
-  border: none
-  line-height: 2rem
-
-.b-main_search ul.popup,
-.b-main_search.hovered .popup
-  margin: 0
-
-.ac_results.menu-suggest,
-.completable-block.menu-suggest
-  margin-top: -17px
-  margin-left: 6px
-
-.ac_results .name
-  font-size: 14px
-
-.ac_results .name > strong
-  background-color: #ff0
-  color: #111
-
-.ac_results .character-suggest .animes
-  line-height: 1.25rem
-
-.ac_results .character-suggest .animes > div
-  margin: 2px 0 0
-
-.ac_results .character-suggest .avatar
-  width: 40px
-  height: auto
-  max-height: 64px
-  margin: 8px 0 0 8px
-  clip-path: circle(20px at 20px 20px)
-/* END of SEARCHRESULT */
-
-
-
-/* TOPMENU | USERBOX */
-.l-top_menu .menu-userbox
-  position: absolute
-  top: 0
-  right: 0
-
-.l-top_menu .menu-userbox > .entry
-  position: relative
-  height: 48px
-  padding: 0 !important
-  margin: 0 .5rem 0 1rem !important
-  cursor: default
-
-.entry.userbox > .avatar
-  display: inline-block
-  vertical-align: top
-  position: relative
-  width: 32px
-  height: 32px
-  margin: 8px
-  border-radius: 100%
-
-.entry.userbox > .avatar:after
-  content: ''
-  display: block
-  position: absolute
-  top: 0
-  left: 0
-  width: inherit
-  height: inherit
-  border-radius: 100%
-
-.entry.userbox > .avatar > img
-  height: inherit
-
-.userbox > a .graphics-arrow-down,
-.l-top_menu .menu-search .arrow-container,
-.l-top_menu .menu-userbox .arrow-container,
-.l-top_menu .menu-search .arrow-container .arrow-down,
-.l-top_menu .menu-userbox .arrow-container .arrow-down
-  display: none
-
-@media screen and (max-width: 1024px)
-  .userbox img.avatar,
-  .menu .unread-count
-    margin-top: 0
-
-.menu .unread-count
-  position: absolute
-  top: 0
-  right: 0
-  width: 1.25rem
-  height: auto
-  margin: 0
-  border-radius: 100%
-  line-height: 1.25rem
-  z-index: 1
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-userbox
-    position: relative
- 
-/* END of USERBOX */
-
-
-
-/* TOPMENU | ICON */
-.l-top_menu .menu-mobile .search,
-.l-top_menu .menu-mobile .menu,
-.l-top_menu .menu-userbox .search,
-.l-top_menu .menu-userbox .menu
-  width: 40px
-  height: 40px
-  padding: 8px
-  margin: 4px
-  margin-left: 4px !important
-
-.l-top_menu .menu-mobile #sign_in,
-.l-top_menu .menu-userbox #sign_in
-  width: 40px
-  height: 40px
-  padding: 8px
-  margin: 4px
-  margin-left: 4px !important
-
-@media (min-width: 1025px)
-  .l-top_menu .menu-mobile #sign_in,
-  .l-top_menu .menu-userbox #sign_in
-    width: 48px
-    height: 48px
-    padding: 12px
-    margin: 0
- 
-/* END of ICON */
-
-/* ************** */
-/* END of TOPMENU */
-/* ************** */
 
 
 
@@ -2098,7 +1317,7 @@ select
   padding-left: 8px
 
 .p-contests .b-contest_match .votes-percents .left-part > span
-  color: $accentBG_color
+  color: $color-text-on-accent
 
 .p-contests .b-contest_match .votes-percents .right-part
   position: absolute
@@ -2153,10 +1372,10 @@ select
   user-select: none
 
 .b-contest_match .vs .action:hover
-  background-color: rgba($primary, .12)
+  background-color: rgba($color-primary, .12)
 
 .b-contest_match .vs .action:active
-  background-color: rgba($primary, .24)
+  background-color: rgba($color-primary, .24)
 
 /* Текст внутри кнопки */
 .b-contest_match .vs .actions .action span
@@ -2166,7 +1385,7 @@ select
 .b-contest_match .vs .actions .action span,
 .b-contest_match .vs .actions .action span:hover,
 .b-contest_match .vs .actions .action span:active
-  color: $primary
+  color: $color-primary
   border: 0
   -webkit-tap-highlight-color: transparent
 
@@ -2407,17 +1626,17 @@ select
   height: 18px
   margin: 3px 18px 0 0
   border-radius: 100%
-  border: 1.5px solid $primary
+  border: 1.5px solid $color-primary
   box-sizing: border-box
-  box-shadow: 0 0 0 2.75px $background inset
+  box-shadow: 0 0 0 2.75px $color-background inset
   text-align: center
   cursor: pointer
 
 .b-radio input[type="radio"]:checked+.radio-label:before
   width: 18px
   height: 18px
-  background-color: $primary
-  border: 1.5px solid $primary
+  background-color: $color-primary
+  border: 1.5px solid $color-primary
 
 /* Кнопки голосования */
 .b-poll .poll-actions .vote,
@@ -2427,7 +1646,7 @@ select
   min-width: 112px
   padding: 0 1rem
   margin: .375rem 0
-  background-color: $primary
+  background-color: $color-primary
   border-radius: 2px
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.24)
   font-size: .875rem
@@ -2443,7 +1662,7 @@ select
 
 .b-poll .poll-actions .vote:hover,
 .b-poll .poll-actions .abstain:hover
-  background-color: $primary_darker
+  background-color: $color-primary-darker
   box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.24), 0 3px 12px 2px rgba(0, 0, 0, 0.16)
 
 @media (min-width: 960px)
@@ -2466,11 +1685,11 @@ select
   font-size: .75em
 
 .b-poll .poll-variants .poll-variant.result .votes-percent
-  color: $text_disabled
+  color: $color-text-disabled
   margin-right: 1em
 
 .b-poll .poll-variants .poll-variant.result .votes-total
-  color: $text_hint
+  color: $color-text-hint
   margin-left: 1em
 
 /* Отметка своего выарианта */
@@ -2493,13 +1712,13 @@ select
 
 /* Цвет полос */
 .b-poll .poll-variants .poll-variant.result .bar .line
-  background-color: $border
+  background-color: $color-border
 
 .b-poll .poll-variants .poll-variant.result .bar .bar.s0,
 .b-poll .poll-variants .poll-variant.result .bar .bar.s1,
 .b-poll .poll-variants .poll-variant.result .bar .bar.s2,
 .b-poll .poll-variants .poll-variant.result .bar .bar.s3
-  background-color: $primary
+  background-color: $color-primary
 
 /* END of ОПРОСЫ */
 
@@ -3081,7 +2300,7 @@ header.head,
 
 .b-comment > .inner .was_updated
   margin: 0
-  color: $text_disabled
+  color: $color-text-disabled
 
 /* Исправление для предпросмотра комментария во всплывающем окне */
 .tooltip-inner .b-message
@@ -3436,7 +2655,7 @@ header.head,
 .b-topic-preview > .inner .status-line .additional .likes:before
   vertical-align: top
   padding-right: 8px
-  color: $text_hint
+  color: $color-text-hint
 
 .b-topic-preview > .inner .status-line .additional .comments:before,
 .b-topic-preview > .inner .status-line .additional .likes:before
@@ -3493,7 +2712,7 @@ header.head,
   vertical-align: top
   width: 1.125rem
   padding-right: .5rem
-  color: $text_hint
+  color: $color-text-hint
   font-size: 1.125rem
 
 .b-collection-topic > .inner .status-line .collection-size:before
@@ -3546,7 +2765,7 @@ header.head,
   min-width: 5.5rem
   padding: 0 1rem
   margin: .25rem 0
-  background-color: $background_active
+  background-color: $color-area-active
   border: 0
   border-radius: .125rem
   color: inherit
@@ -3823,7 +3042,7 @@ pre
   padding: .5rem
   margin: 0 .5rem 0 0
   border-radius: .125rem
-  color: $text_hint !important
+  color: $color-text-hint !important
   line-height: 0
 
 .club-actions .edit-club:hover,
@@ -3832,8 +3051,8 @@ pre
 .club-actions .join:hover,
 .club-actions .invite:hover,
 .club-actions .leave:hover
-  background-color: $button_hover
-  color: $text_secondary !important
+  background-color: $color-button-hover
+  color: $color-text-secondary !important
 
 .club-actions .edit-club:before,
 .club-actions .broadcast:before,
@@ -3872,7 +3091,7 @@ pre
   .club-actions .join:after,
   .club-actions .invite:after,
   .club-actions .leave:after
-    color: $text_primary
+    color: $color-text-primary
     padding-left: 1.5rem
     font-size: inherit
     line-height: 1.5
@@ -3995,16 +3214,16 @@ pre
 
 
 .p-club_pages-show .item-edit
-  color: $text_hint
+  color: $color-text-hint
 
 .p-club_pages-show .item-edit:hover
-  background-color: $button_hover
-  color: $text_secondary
+  background-color: $color-button-hover
+  color: $color-text-secondary
 
 @media only screen and (min-width: 1025px)
   .p-club_pages-show .item-edit:active
-    background-color: $button_hover
-    color: $text_secondary
+    background-color: $color-button-hover
+    color: $color-text-secondary
 
 /* END of CLUB */
 
@@ -4162,14 +3381,14 @@ pre
     left: 0
     width: 1rem
     height: 2rem
-    background-image: linear-gradient(-90deg, transparent, $background)
+    background-image: linear-gradient(-90deg, transparent, $color-background)
     z-index: 1
 
   .b-hot_topics:after
     left: auto
     right: 0
     margin-top: -2rem
-    background-image: linear-gradient(90deg, transparent, $background)
+    background-image: linear-gradient(90deg, transparent, $color-background)
 
   .b-hot_topics .topic 
     float: none
@@ -4334,23 +3553,23 @@ pre
   color: inherit
 
 .b-stats_bar.anime .bar
-  color: $primaryBG_color
+  color: $color-text-on-primary
 
 .b-stats_bar.manga .bar
-  color: $accentBG_color
+  color: $color-text-on-accent
 
 .b-stats_bar .bar .third
-  color: $text_primary
+  color: $color-text-primary
 
 .b-stats_bar.anime .bar .second
-  background-color: rgba($primary, .72)
+  background-color: rgba($color-primary, .72)
 
 .b-stats_bar.manga .bar .second
-  background-color: rgba($accent, .72)
+  background-color: rgba($color-accent, .72)
 
 .line:nth-child(even) > .bar-container > .bar,
 .line:nth-child(even) > .bar-container > .bar:hover
-  background-color: rgba($primary, .72) /* thx NedStar */
+  background-color: rgba($color-primary, .72) /* thx NedStar */
 
 /* Столбики активности */
 .bar.vertical
@@ -4521,6 +3740,48 @@ pre
     padding: 0 1rem
  
 /* Конец: Выпадающий список аниме/манги в профиле */
+
+
+
+/* СТРАНИЦА РЕДАКТИРОВАНИЯ АККАУНТА */
+.p-profiles-edit .account .c-column .block:not(:last-child)
+  margin-bottom: 3rem
+
+.p-profiles-edit .account .change-password
+  max-width: 375px
+  margin-top: 1rem
+  margin-bottom: 3rem
+
+.change-password:after
+  content: ''
+  clear: both
+  display: table
+
+.change-password a[href $= '/edit/password']
+  float: right
+  font-size: 0
+  line-height: 0
+
+.change-password a[href $= '/edit/password']:after
+  content: 'Изменить'
+  display: inline-block
+  padding: .375rem 1rem
+  background: $color-primary
+  border-radius: 2px
+  color: $color-text-primary
+  font-size: .875rem
+  font-weight: bold
+  text-decoration: none
+  text-transform: uppercase
+  line-height: 1.25rem
+  transition: 0.16s cubic-bezier(0.4, 0, 0.6, 1)
+
+.change-password a[href $= '/edit/password']:hover:after
+  background-color: $color-primary-darker
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
+/**/
+/**/
+/**/
 
 .edit_user_preferences .b-options-floated.about-options
   position: absolute
@@ -4843,7 +4104,7 @@ pre
   height: 1.25rem
 
 .b-stats_bar.lifetime .bar .first
-  background: $primary
+  background: $color-primary
   opacity: .72
 
 .p-profiles-show .lifetime .cuts .cut
@@ -4852,21 +4113,21 @@ pre
   margin: .5rem -.25rem
   background: transparent
   border: .375rem solid transparent
-  border-bottom-color: $background
+  border-bottom-color: $color-background
   z-index: 1
 
 .p-profiles-show .lifetime .times .time
-  color: $text_disabled
+  color: $color-text-disabled
   font-size: .625rem
   line-height: 1.25rem
   text-transform: uppercase
 
 .p-profiles-show .lifetime .times .time.checked
-  color: $primary
+  color: $color-primary
 
 .p-profiles-show .lifetime .times .time.checked:before
   display: none
-  color: $primary
+  color: $color-primary
   opacity: .72
 
 
@@ -6478,8 +5739,8 @@ header.head h2 a.back:after
 .b-upload_progress .bar
   min-width: 0
   height: 4px
-  background-color: $primary
-  color: $text_primary
+  background-color: $color-primary
+  color: $color-text-primary
   font-size: .875rem
   border-radius: 2px
   text-align: left
@@ -6688,7 +5949,7 @@ header.head h2 a.back:after
   height: 16px
   padding: 0 4px
   border-radius: 4px
-  color: $accentBG_color
+  color: $color-text-on-accent
   font-size: 10px
   line-height: 16px
   text-align: center
@@ -6696,7 +5957,7 @@ header.head h2 a.back:after
 .b-options-floated a:after,
 .b-options-floated .link:after
   padding: 0 .375rem
-  color: $text_disabled
+  color: $color-text-disabled
 
 .p-profiles-edit .b-options-floated > a:after,
 .p-dialogs .b-options-floated > a:after,
@@ -7422,7 +6683,7 @@ header.head h2 a.back:after
 .b-achievement
   display: flex
   flex-direction: column-reverse
-  background: $background_dialog
+  background: $color-background-dialog
   border-radius: 2px
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)
 
@@ -7448,14 +6709,14 @@ header.head h2 a.back:after
 .b-achievement .c-about .title
   padding: .5rem 0
   margin: 0
-  color: $text_primary
+  color: $color-text-primary
   font-size: 1.125rem
   line-height: 1.5rem
 
 .b-achievement .c-about .hint,
 .b-achievement .c-about .percent
   margin-bottom: 0
-  color: $text_secondary
+  color: $color-text-secondary
   font-size: .875rem
   line-height: 1.5rem
 
@@ -7465,19 +6726,38 @@ header.head h2 a.back:after
   border-radius: 2px
 
 .b-achievement .c-about .progress .bar
-  background: $primary
+  background: $color-primary
   border-radius: 2px
 
 .b-achievement .c-about .text
   font-size: .875rem
+
+/* RIGHT SIDEBAR */
+@media (max-width: 1024px)
+  .l-menu
+    position: fixed !important
+    top: 0
+    right: 0
+    width: 25rem !important
+    max-width: calc(100% - 3.5rem)
+    height: 100%
+    background-color: $color-background-dialog
+    padding: 4.5rem 1rem 1.5rem
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .24)
+    overflow-y: auto
+    -webkit-transform: translateX(110%)
+    -ms-transform: translateX(110%)
+    transform: translateX(110%)
+    transition: .25s ease
+
+  .l-page.menu-expanded .l-menu
+    -webkit-transform: translateX(0)
+    -ms-transform: translateX(0)
+    transform: translateX(0)
+
+  .menu-slide-outer .l-content
+    margin-left: 0 !important
 /* END of ОСНОВНОЙ ФАЙЛ */
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
 /**/
 /**/
 /**/
