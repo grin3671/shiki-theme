@@ -1,3 +1,5 @@
+'use strict';
+
 Vue.component('filelist', {
   props: ['file_list'],
   template: '<div class="md-container">' +

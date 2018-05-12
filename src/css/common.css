@@ -35,13 +35,14 @@ h1, h2, h4, h5, h6,
 }
 
 h3 {
-  margin: 1.5em 0 .5em;
+  padding: 1em 0 0 0;
+  margin: .5em 0 .5em;
   font-size: 1.125em;
   font-weight: normal;
 }
 
 .section_faq + .section_faq h3 {
-  margin-top: 2.875em;
+  margin-top: 1.875em;
 }
 
 h4 {
@@ -110,12 +111,12 @@ p:last-child {
 }
 
 .content h2 {
-  margin: .25em auto 1.5em;
+  margin: .25em auto .5em;
   font-size: 1.25em;
 }
 
 .content h2 + p {
-  margin-top: -1em;
+  margin-top: .5em;
 }
 
 .nav__button {
