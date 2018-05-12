@@ -1,6 +1,6 @@
 Vue.component('filelist', {
   props: ['file_list'],
-  template: '<div class="block filelist">' +
+  template: '<div class="md-container">' +
               '<file v-for="(file, index) in file_list"' +
                 'v-on:input="changeState" ' +
                 'v-bind:file="file" ' +
@@ -26,7 +26,7 @@ Vue.component('filelist', {
 
 Vue.component('file', {
   props: ['file', 'index'],
-  template: '<label class="file md-label">' +
+  template: '<label class="md-list md-control">' +
               '<input ' +
                 'v-on:change="onChange($event)" ' +
                 'v-bind:type="file.cat ? \'radio\' : \'checkbox\'" ' +
@@ -35,7 +35,7 @@ Vue.component('file', {
                 'v-bind:disabled="file.disabled">' +
               '<span v-bind:class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
               '<span>{{ file.title ? file.title : file.url }}</span>' +
-              '<div class="field-hint" v-if="file.description">{{ file.description }}</div>' +
+              '<div class="md-list_description" v-if="file.description">{{ file.description }}</div>' +
             '</label>',
   methods: {
     onChange: function ($event) {
@@ -263,11 +263,8 @@ var vm = new Vue({
     },
     "cover_display": function () {
       for (var i = 0; i < this.file_list.length; i++) {
-        if (this.file_list[i]['url'] == 'profile-cover.sass' || this.file_list[i]['url'] == 'user-settings-cover.sass') {
+        if (this.file_list[i]['url'] == 'profile-cover.sass') {
           this.file_list[i].checked = this.cover_display;
-        }
-        if (this.file_list[i]['url'] == 'user-settings.sass') {
-          this.file_list[i].checked = this.cover_display ? false : true;
         }
       }
     },
