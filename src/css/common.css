@@ -119,26 +119,16 @@ p:last-child {
   margin-top: .5em;
 }
 
-.nav__button {
+.menubar > label {
   display: inline-block;
   vertical-align: middle;
   padding: .75em;
 }
-.nav__button::before {
-  content: 'menu';
-  display: block;
-  width: 1em;
-  font: 1.5em 'Material Icons';
-  line-height: 1;
-}
 
-.page__title h1 {
-  display: inline-block;
-  vertical-align: middle;
-  padding: .7em .8em;
-  margin: auto;
-  font-size: 1.25em;
-  line-height: 1em;
+[data-env='beta'] .topbar-title::after {
+  content: ' beta';
+  vertical-align: super;
+  font-size: .5em;
 }
 
 .topbar {
@@ -518,11 +508,12 @@ input:checked + .md-list + .md-list_hidden {
  */
 .md-fab {
   position: absolute;
-  top: calc(10em - (3.5em / 2));
-  right: 1em;
+  top: calc(9em - (3.5em / 2));
+  right: 0;
   width: 3.5em;
   height: auto;
   padding: 1em;
+  margin: 1em;
   background: #FFD740;
   border: 0;
   border-radius: 50%;
@@ -1087,9 +1078,7 @@ img {
   .topbar .md-fab {
     position: fixed;
     top: auto;
-    right: 0;
     bottom: 0;
-    margin: .75em;
   }
 
   .content {

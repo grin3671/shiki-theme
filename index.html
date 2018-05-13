@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" style="background: #FAFAFA; color: #212121; font-size: 16px;">
+<html lang="ru" data-env="beta" style="background: #FAFAFA; color: #212121; font-size: 16px;">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
       </header>
 
 
-      <div id="nav_settings" class="content">
+      <section id="nav_settings" class="content">
         <span class="content_status" v-if="status.isFileLoading">{{ text.fileLoading }}</span>
         <h2 class="display1">Настройка темы</h2>
         <p>Настройте тему, а затем нажмите желтую кнопку, чтобы получить код своей темы.</p>
@@ -387,10 +387,10 @@
         <p>Не забывайте почаще <a href="https://github.com/grin3671/shiki-theme/commits/gh-pages">проверять обновления</a>! Если у вас что-то сломалось, скорее всего на сайте что-то изменилось, и вам следует обновить тему.</p>
         <p>Если обновление не помогло, пожалуйста, <a href="https://shikimori.org/grin3671">сообщите мне</a> об ошибке!</p>
         <p>Поддержать разработку можно <span class="strong"><span style="color: red">Я</span>ндекс</span> Деньгами: <code>41001258665103</code></p>
-      </div>
+      </section>
 
 
-      <div id="nav_code" class="content" v-show="status.isCompiled">
+      <section id="nav_code" class="content" v-show="status.isCompiled">
         <h2 class="display1">Ваш код</h2>
         <div class="field">
           <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
@@ -402,10 +402,10 @@
           <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
           <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
         </div>
-      </div>
+      </section>
 
 
-      <div id="nav_preview" class="content">
+      <section id="nav_preview" class="content">
         <h2 class="display1">Превью</h2>
         <div id="vue_preview" class="shiki-preview">
           <div class="shiki-preview__body" :class="{ scheme_dark }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
@@ -428,11 +428,11 @@
           </div>
         </div>
         <p>Условный вид профиля без адаптации для мобильных телефонов.</p>
-      </div>
+      </section>
 
 
 
-      <div id="nav_faq" class="content">
+      <section id="nav_faq" class="content">
         <h2 class="display1">FAQ</h2>
         <div class="section_faq">
           <h3 id="how_find_my_id">Как узнать мой ID?</h3>
@@ -454,11 +454,11 @@
           <h3 id="how_find_my_id">Что делать если обложка не отображается?</h3>
           <p>Попробуйте сменить хостинг картинок: загрузите свою обложку на проверенный imgur.com.</p>
         </div>
-      </div>
+      </section>
 
 
 
-      <div id="nav_guideline" class="content sass_guideline">
+      <section id="nav_guideline" class="content sass_guideline">
         <h2 class="display1">Список переменных</h2>
         <p>Переменные можно использовать в собственном стиле, который будет подключён в сборщике перед компиляцией.</p>
 
@@ -768,7 +768,7 @@
             <span class="md-list_description">Ссылка на изображение, используемое в профиле пользователя в качестве обложки.</span>
           </div>
         </div>
-      </div>
+      </section>
 
       <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }"><span></span>{{ text.notify_message }}</div>
     </div>
