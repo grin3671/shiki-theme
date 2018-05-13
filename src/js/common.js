@@ -319,7 +319,7 @@ var vm = new Vue({
       localStorage.setItem('user_pallete', JSON.stringify(this.color_pallete['custom']));
     },
     createTheme: function () {
-      switchDisabled(document.getElementById('copy_css'));
+      switchDisabled(document.getElementById('create_css'));
       document.getElementById('output_css').value = '';
       this.status.isCreating = true;
       this.status.isNotify = true;
@@ -383,7 +383,7 @@ var vm = new Vue({
           document.getElementById('output_css').value = css;
 
 
-          switchDisabled(document.getElementById('copy_css'));
+          switchDisabled(document.getElementById('create_css'));
         } else {
           vm.status.isCreating = false;
           vm.text.notify_message = 'Произошла ошибка, попробуйте в следующий раз.';

@@ -207,11 +207,10 @@ p:last-child {
  */
 .md-icon {
   display: inline-block;
-  vertical-align: middle;
   position: relative;
-  padding: .75em;
   background: transparent;
   border: 0;
+  text-align: center;
   z-index: 1;
 }
 .md-icon::before {
@@ -245,16 +244,12 @@ p:last-child {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: -.25em;
+  margin: -.5em;
   background: #424242;
   border-radius: 50%;
   transform: scale(0);
   opacity: 0;
   z-index: -1;
-}
-.md-icon:hover::after {
-  transform: scale(1);
-  opacity: .16;
 }
 
 /* Список иконок */
@@ -320,38 +315,11 @@ p:last-child {
   padding: .5em 1.5em;
   margin: 0 -1.5em;
 }
-
-.md-list_icon::before {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  font: 1.5em 'Material Icons';
-  line-height: 1;
-
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: normal;
-  text-transform: none;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
 .md-list::after {
   content: '';
   display: block;
   clear: both;
 }
-
 
 .md-list .md-list_title {
   float: left;
@@ -365,7 +333,7 @@ p:last-child {
   line-height: 2.5em;
 }
 
-.md-list .md-list_title .md-list_icon {
+.md-list .md-list_title .md-icon {
   margin-right: 1em;
 }
 
@@ -554,7 +522,7 @@ input:checked + .md-list + .md-list_hidden {
   right: 1em;
   width: 3.5em;
   height: auto;
-  padding: .25em;
+  padding: 1em;
   background: #FFD740;
   border: 0;
   border-radius: 50%;
@@ -583,7 +551,7 @@ input:checked + .md-list + .md-list_hidden {
   transition: opacity .24s ease-in-out;
 }
 .md-fab:hover .md-icon::after {
-  transform: scale(1);
+  transform: scale(1.4);
   opacity: .24;
 }
 
@@ -767,6 +735,7 @@ input[type=color]:::-moz-color-swatch {
 
 #create_css {
   position: absolute;
+  left: -9999px;
   opacity: 0;
 }
 
