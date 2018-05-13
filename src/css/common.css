@@ -290,7 +290,7 @@ p:last-child {
  * Material Lists
  */
 .md-container {
-  padding: .5em 0;
+  margin: .5em 0;
 }
 
 .md-container > input {
@@ -449,10 +449,6 @@ input:checked + .md-list + .md-list_hidden {
 /**
  * Material Text Field
  */
-.md-textarea,
-.md-input {
-  position: relative;
-}
 .md-input input {
   padding: .625em 0;
   background: transparent;
