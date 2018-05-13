@@ -334,7 +334,7 @@ p:last-child {
 input:checked + .md-list .md-list_control {
   transform: rotate(180deg);
 }
-input:focus + .md-list .md-icon::after {
+input:focus + .md-list .md-list_control::after {
   transform: scale(1);
   opacity: .16;
 }
@@ -455,17 +455,17 @@ input:checked + .md-list + .md-list_hidden {
 .md-input {
   position: relative;
 }
-.md-input input[type="text"] {
+.md-input input {
   display: block;
   padding: .625em 0;
   background: transparent;
   border: 0;
   font: inherit;
 }
-.md-input input[type="text"]:focus {
+.md-input input:focus {
   outline: none;
 }
-.md-input.fullwidth input[type="text"] {
+.md-input.fullwidth input {
   width: 100%;
 }
 .md-textarea .md-divider,
@@ -476,7 +476,7 @@ input:checked + .md-list + .md-list_hidden {
   left: 0;
   margin: 0;
 }
-.md-input > input[type=text]:focus + .md-divider::after {
+.md-input > input:focus + .md-divider::after {
   right: 0;
   left: 0;
   transition: left .2s, right .2s;
@@ -1100,7 +1100,8 @@ img {
 
 @media (max-width: 599px) {
   .content {
-    padding: 4em 1em;
+    padding: 4em 1em 0;
+    box-shadow: none;
   }
   .md-list {
     padding: .75em 1em;

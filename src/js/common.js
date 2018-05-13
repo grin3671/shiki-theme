@@ -557,11 +557,8 @@ document.addEventListener('click', function () {
   if (event.clientX === 0 && event.clientY === 0 && event.screenX === 0) {
     return false;
   }
-  if (event.target.nodeName.toUpperCase() === 'INPUT' && event.target.type.toUpperCase() === 'TEXT' || 
-      event.target.nodeName.toUpperCase() === 'SELECT' || 
-      event.target.nodeName.toUpperCase() === 'TEXTAREA') {
-
-  } else {
+  if (event.target.nodeName.toUpperCase() === 'INPUT' && event.target.type.toUpperCase() === 'RADIO' || 
+      event.target.nodeName.toUpperCase() === 'INPUT' && event.target.type.toUpperCase() === 'CHECKBOX') {
     document.activeElement.blur();
   }
 });
