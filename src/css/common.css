@@ -144,7 +144,6 @@ p:last-child {
 .topbar > input {
   position: absolute;
   opacity: 0;
-  left: -9999px;
 }
 
 .topbar nav {
@@ -297,7 +296,6 @@ p:last-child {
 .md-container > input {
   position: absolute;
   opacity: 0;
-  left: -9999px;
 }
 
 .md-list {
@@ -456,7 +454,6 @@ input:checked + .md-list + .md-list_hidden {
   position: relative;
 }
 .md-input input {
-  display: block;
   padding: .625em 0;
   background: transparent;
   border: 0;
@@ -470,18 +467,15 @@ input:checked + .md-list + .md-list_hidden {
 }
 .md-textarea .md-divider,
 .md-input .md-divider {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
+  margin: -1px 0 .5em 0;
 }
-.md-input > input:focus + .md-divider::after {
+.md-input > input:focus ~ .md-divider::after {
   right: 0;
   left: 0;
   transition: left .2s, right .2s;
 }
 .md-input_hint {
+  display: block;
   font-size: .75em;
   color: #757575;
 }
@@ -552,6 +546,7 @@ input:checked + .md-list + .md-list_hidden {
  * Material Action Controls
  */
 .md-control {
+  display: inline-block;
   margin-left: -.625em;
   cursor: pointer;
 }
@@ -563,7 +558,6 @@ input:checked + .md-list + .md-list_hidden {
 .md-control input {
   position: absolute;
   opacity: 0;
-  left: -9999px;
 }
 
 .md-checkbox,
@@ -725,9 +719,7 @@ input[type=color]:::-moz-color-swatch {
 
 
 #create_css {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
+  display: none;
 }
 
 img {
