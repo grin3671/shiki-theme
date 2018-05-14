@@ -376,8 +376,7 @@
             </div>
           </div>
 
-          <button type="submit" id="create_css" class="md-btn raised primary disabled ie-only" disabled><span>Создать тему</span></button>
-          
+          <button type="submit" id="create_css" class="md-btn raised primary ie-only" disabled><span>Создать тему</span></button>
         </form>
 
         <hr class="md-divider">
@@ -407,10 +406,10 @@
       <section id="nav_preview" class="content">
         <h2 class="display1">Превью</h2>
         <div id="vue_preview" class="shiki-preview">
-          <div class="shiki-preview__body" :class="{ scheme_dark }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
+          <div class="shiki-preview__body" :class="{ scheme_dark: scheme_dark }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
             <div class="shiki-preview__menu" :style="{ backgroundColor: scheme.color_header_background }"></div>
             <div class="shiki-preview__page" :style="{ backgroundColor: scheme.color_background }">
-              <div class="shiki-preview__cover" :class="{ cover_display }" :style="{ backgroundImage: 'url(' + user.cover + ')' }"></div>
+              <div class="shiki-preview__cover" :class="{ cover_display: cover_display }" :style="{ backgroundImage: 'url(' + user.cover + ')' }"></div>
               <div class="shiki-preview__profile">
                 <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
                 <div class="shiki-preview__block block-h1"></div>

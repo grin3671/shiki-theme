@@ -533,22 +533,10 @@ function shikiCssAdaptation (css) {
 
 
 function switchDisabled(elem) {
-  if (elem.getAttribute('disabled') == 'disabled') {
+  if (elem.hasAttribute('disabled')) {
     elem.removeAttribute('disabled');
   } else {
     elem.setAttribute('disabled', 'disabled');
-  }
-
-  if (elem.getAttribute('aria-disabled') == 'true') {
-    elem.setAttribute('aria-disabled', 'false');
-  } else if (elem.getAttribute('aria-disabled') == 'false') {
-    elem.setAttribute('aria-disabled', 'true');
-  }
-
-  if (elem.classList.contains('btn-disabled')) {
-    elem.classList.remove('btn-disabled');
-  } else if (elem.classList.contains('btn')) {
-    elem.classList.add('btn-disabled');
   }
 }
 
