@@ -1,0 +1,38 @@
+{
+  "light": {
+    "name": "Светлая",
+    "default": true,
+    "color": {
+      "background": "#FAFAFA",
+      "background-dialog": "#FFFFFF",
+      "background-secondary": "#F5F5F5",
+      "area-normal": "#EEEEEE",
+      "area-hover": "#E0E0E0",
+      "area-active": "#DDDDDD",
+      "button-hover": "#E0E0E0",
+      "border": "#DDDDDD",
+      "text-primary": "#212121",
+      "text-secondary": "#424242",
+      "text-hint": "#757575",
+      "text-disabled": "#9E9E9E"
+    }
+  },
+  "dark": {
+    "name": "Темная",
+    "default": false,
+    "color": {
+      "background": "#303030",
+      "background-dialog": "#424242",
+      "background-secondary": "#424242",
+      "area-normal": "#616161",
+      "area-hover": "#424242",
+      "area-active": "#212121",
+      "button-hover": "#424242",
+      "border": "#757575",
+      "text-primary": "#FFFFFF",
+      "text-secondary": "#EEEEEE",
+      "text-hint": "#BDBDBD",
+      "text-disabled": "#9E9E9E"
+    }
+  }
+}

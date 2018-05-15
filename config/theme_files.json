@@ -1,0 +1,62 @@
+[
+  {
+    "url": "version.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "copyright.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "font-arial.sass",
+    "cat": "font",
+    "checked": true
+  },
+  {
+    "url": "font-roboto.sass",
+    "cat": "font",
+    "checked": false
+  },
+  {
+    "url": "color.sass",
+    "checked": true
+  },
+  {
+    "url": "main.sass",
+    "checked": true
+  },
+  {
+    "url": "menu-classic.sass",
+    "checked": true
+  },
+  {
+    "url": "dashboard-layout.sass",
+    "checked": true
+  },
+  {
+    "url": "users-list.sass",
+    "checked": true
+  },
+  {
+    "url": "profile-content.sass",
+    "checked": true
+  },
+  {
+    "url": "profile-cover.sass",
+    "checked": true,
+    "disabled": true,
+    "description": "Этот файл зависит от настройки \"Вид профиля\"."
+  },
+  {
+    "url": "tentative.sass",
+    "checked": false,
+    "disabled": true,
+    "description": "В данный момент тестировать нечего."
+  },
+  {
+    "url": "user-settings.sass",
+    "checked": true
+  }
+]

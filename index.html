@@ -6,6 +6,7 @@
     <meta name="google-site-verification" content="8xlW8M1Ln8KMWkopmPWTEuJqaaqpDixWDmJJ9vPgBG8">
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
+    <meta name="description" content="Сборщик CSS темы для Шикимори.">
     <link rel="stylesheet" href="./src/css/common.css?v2">
   </head>
   <body>
@@ -44,12 +45,12 @@
             </span>
             <span class="md-list_content" role="radiogroup" aria-labelledby="label_user_cover">
               <label class="md-control">
-                <input type="radio" name="type" value="1" :value="true" v-model="cover_display">
+                <input type="radio" name="type" value="1" :value="true" v-model="user.isCover">
                 <span class="md-radio"></span>
                 <span>С обложкой</span>
               </label>
               <label class="md-control">
-                <input type="radio" name="type" value="0" :value="false" v-model="cover_display">
+                <input type="radio" name="type" value="0" :value="false" v-model="user.isCover">
                 <span class="md-radio"></span>
                 <span>Без обложки</span>
               </label>
@@ -58,7 +59,7 @@
 
 
 
-          <div class="md-list" v-if="cover_display">
+          <div class="md-list" v-if="user.isCover">
             <label for="user_id" class="md-list_title inactive required">
               <span class="md-icon ic-user"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
             </label>
@@ -73,7 +74,7 @@
 
 
 
-          <div class="md-list" v-if="cover_display">
+          <div class="md-list" v-if="user.isCover">
             <label for="user_cover" class="md-list_title inactive">
               <span class="md-icon ic-image"></span>Обложка профиля
             </label>
@@ -110,7 +111,7 @@
             </label>
             <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
-              <span class="md-list_content-placeholder">Текущая палитра: {{ user_setting.pallete }}</span>
+              <span class="md-list_content-placeholder">Текущая палитра: {{ user.selectedPallete }}</span>
             </span>
           </div>
           <div class="md-list_hidden color-settings">
@@ -120,22 +121,22 @@
 
             <div class="field">
               <label class="md-control">
-                <input type="radio" name="color_pallete" value="standart" v-model="user_setting.pallete" @change="changePallete()">
+                <input type="radio" name="color_pallete" value="standart" v-model="user.selectedPallete" @change="changePallete()">
                 <span class="md-radio"></span>
                 <span>Стандартная</span>
               </label>
               <label class="md-control">
-                <input type="radio" name="color_pallete" value="blue_pink" v-model="user_setting.pallete" @change="changePallete()">
+                <input type="radio" name="color_pallete" value="blue_pink" v-model="user.selectedPallete" @change="changePallete()">
                 <span class="md-radio"></span>
                 <span>v1.1</span>
               </label>
               <label class="md-control">
-                <input type="radio" name="color_pallete" value="teal_orange" v-model="user_setting.pallete" @change="changePallete()">
+                <input type="radio" name="color_pallete" value="teal_orange" v-model="user.selectedPallete" @change="changePallete()">
                 <span class="md-radio"></span>
                 <span>v1.2</span>
               </label>
-              <label class="md-control" v-if="user_setting.custom_pallete">
-                <input type="radio" name="color_pallete" value="custom" v-model="user_setting.pallete" @change="changePallete()">
+              <label class="md-control" v-if="user.hasPallete">
+                <input type="radio" name="color_pallete" value="custom" v-model="user.selectedPallete" @change="changePallete()">
                 <span class="md-radio"></span>
                 <span>Своя палитра</span>
               </label>
@@ -216,17 +217,17 @@
             <label for="extra_settings" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content" role="radiogroup" aria-labelledby="label_color_scheme">
               <label class="md-control">
-                <input type="radio" name="scheme" value="light" :value="false" v-model="scheme_dark" @change="changeScheme">
+                <input type="radio" name="scheme" value="light" :value="'light'" v-model="user.selectedScheme" @change="changeScheme">
                 <span class="md-radio"></span>
                 <span>Светлая</span>
               </label>
               <label class="md-control">
-                <input type="radio" name="scheme" value="dark" :value="true" v-model="scheme_dark" @change="changeScheme">
+                <input type="radio" name="scheme" value="dark" :value="'dark'" v-model="user.selectedScheme" @change="changeScheme">
                 <span class="md-radio"></span>
                 <span>Темная</span>
               </label>
-              <label class="md-control" v-if="user_setting.custom_scheme">
-                <input type="radio" name="scheme" value="custom" v-model="user_setting.scheme">
+              <label class="md-control" v-if="user.hasScheme">
+                <input type="radio" name="scheme" value="custom" v-model="user.selectedScheme">
                 <span class="md-radio"></span>
                 <span>Своя схема</span>
               </label>
@@ -360,7 +361,7 @@
             </label>
             <label for="user_file" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
-              <span class="md-list_content-placeholder">{{ user.has_css ? 'Ваш файл будет добавлен в тему' : 'Вы можете загрузить свой файл стиля' }}</span>
+              <span class="md-list_content-placeholder">{{ user.hasFile ? 'Ваш файл будет добавлен в тему' : 'Вы можете загрузить свой файл стиля' }}</span>
             </span>
           </div>
 
@@ -406,10 +407,10 @@
       <section id="nav_preview" class="content">
         <h2 class="display1">Превью</h2>
         <div id="vue_preview" class="shiki-preview">
-          <div class="shiki-preview__body" :class="{ scheme_dark: scheme_dark }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
+          <div class="shiki-preview__body" :class="{ scheme_dark: user.selectedScheme == 'dark' }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
             <div class="shiki-preview__menu" :style="{ backgroundColor: scheme.color_header_background }"></div>
             <div class="shiki-preview__page" :style="{ backgroundColor: scheme.color_background }">
-              <div class="shiki-preview__cover" :class="{ cover_display: cover_display }" :style="{ backgroundImage: 'url(' + user.cover + ')' }"></div>
+              <div class="shiki-preview__cover" :class="{ cover_display: user.isCover }" :style="{ backgroundImage: 'url(' + user.cover + ')' }"></div>
               <div class="shiki-preview__profile">
                 <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
                 <div class="shiki-preview__block block-h1"></div>

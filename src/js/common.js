@@ -49,15 +49,6 @@ Vue.component('file', {
 var vm = new Vue({
   el: '#page',
   data: {
-    // TODO: delete next six variables after rewrite next 'to do'
-    user_setting: {
-      pallete: 'teal_orange',
-      scheme: 'light',
-      custom_pallete: false,
-      custom_scheme: false,
-    },
-    cover_display: true,
-    scheme_dark: false,
     status: {
       isCompiled: false,
       isCreating: false,
@@ -68,83 +59,20 @@ var vm = new Vue({
       copy: true,
       file: false,
     },
-    file_list: [
-      {
-        'url': 'version.sass',
-        'disabled': true,
-        'checked': true,
-      },
-      {
-        'url': 'copyright.sass',
-        'disabled': true,
-        'checked': true,
-      },
-      {
-        'url': 'font-arial.sass',
-        'cat': 'font',
-        'checked': true,
-      },
-      {
-        'url': 'font-roboto.sass',
-        'cat': 'font',
-        'checked': false,
-      },
-      {
-        'url': 'color.sass',
-        'checked': true,
-      },
-      {
-        'url': 'main.sass',
-        'checked': true,
-      },
-      {
-        'url': 'menu-classic.sass',
-        'checked': true,
-      },
-      {
-        'url': 'dashboard-layout.sass',
-        'checked': true,
-      },
-      {
-        'url': 'users-list.sass',
-        'checked': true,
-      },
-      {
-        'url': 'profile-content.sass',
-        'checked': true,
-      },
-      {
-        'url': 'profile-cover.sass',
-        'checked': true,
-        'disabled': true,
-        'description': 'Этот файл зависит от настройки "Вид профиля".',
-      },
-      {
-        'url': 'tentative.sass',
-        'checked': false,
-        'disabled': true,
-        'description': 'В данный момент тестировать нечего.',
-      },
-      {
-        'url': 'user-settings.sass',
-        'checked': true,
-      },
-    ],
+    file_list: [],
     user: {
       id: null,
-      avatar: '',
       background: '',
       cover: '',
-      color_pallete: [],
-      color_scheme: [],
-      has_css: false,
-      // TODO: next six variables
-      has_pallete: false,
-      has_scheme: false,
       isCover: true,
-      isDarkScheme: false,
-      selected_pallete: 'teal_orange',
-      selected_scheme: 'light',
+      selectedPallete: 'teal_orange',
+      selectedScheme: 'light',
+      // Используется только для превью темы
+      avatar: '',
+      // Не сохраняются в localStorage, вычисляются после загрузки страницы
+      hasPallete: false,
+      hasScheme: false,
+      hasFile: false,
     },
     // TODO: rewrite all variable
     variables: [
@@ -263,10 +191,10 @@ var vm = new Vue({
         this.scheme.color_header_text = isLight(hexToRgb(this.scheme.color_header_background)) ? '#212121' : '#FAFAFA';
       }
     },
-    "cover_display": function () {
+    "user.isCover": function () {
       for (var i = 0; i < this.file_list.length; i++) {
         if (this.file_list[i]['url'] == 'profile-cover.sass') {
-          this.file_list[i].checked = this.cover_display;
+          this.file_list[i].checked = this.user.isCover;
         }
       }
     },
@@ -285,7 +213,7 @@ var vm = new Vue({
       localStorage.setItem('user_id', this.user.id);
     },
     changeScheme: function () {
-      var scheme = this.scheme_dark ? 'dark' : 'light';
+      var scheme = this.user.selectedScheme;
       var i = 0;
       for (var key in this.scheme) {
         if (this.color_scheme[scheme][i] == undefined) continue;
@@ -294,7 +222,7 @@ var vm = new Vue({
       }
     },
     changePallete: function (x) {
-      x = x === 'custom' ? x : this.user_setting.pallete;
+      x = x === 'custom' ? x : this.user.selectedPallete;
 
       this.scheme.color_primary = this.color_pallete[x][0];
       this.scheme.color_accent = this.color_pallete[x][1];
@@ -304,9 +232,9 @@ var vm = new Vue({
       this.scheme.color_header_background = this.color_pallete[x][5];
     },
     changeColor: function () {
-      if (this.user_setting.pallete !== 'custom') {
-        this.user_setting.custom_pallete = true;
-        this.user_setting.pallete = 'custom';
+      if (this.user.selectedPallete !== 'custom') {
+        this.user.hasPallete = true;
+        this.user.selectedPallete = 'custom';
       }
 
       this.color_pallete['custom'][0] = this.scheme.color_primary;
@@ -336,7 +264,7 @@ var vm = new Vue({
       }
 
       if (this.user.id)         sass_setting += '$id: ' + this.user.id + '; ';
-      if (this.cover_display)   sass_setting += '$image-cover: url(' + this.user.cover + '); ';
+      if (this.user.isCover)   sass_setting += '$image-cover: url(' + this.user.cover + '); ';
       if (this.user.background) {
         sass_setting += '$image-background: url(' + this.user.background + '); '
       } else {
@@ -379,7 +307,7 @@ var vm = new Vue({
 
 
           var css = shikiCssAdaptation(result.text);
-          css += vm.user.has_css ? user_setting ? user_setting : user_css : '';
+          css += vm.user.hasFile ? user_setting ? user_setting : user_css : '';
           document.getElementById('output_css').value = css;
 
 
@@ -412,7 +340,7 @@ var vm = new Vue({
       if (!event.target.files.length) {
         user_sass = undefined;
         user_css = undefined;
-        vm.user.has_css = false;
+        vm.user.hasFile = false;
         return;
       }
 
@@ -434,12 +362,12 @@ var vm = new Vue({
             });
 
             user_css = evt.target.result;
-            vm.user.has_css = true;
+            vm.user.hasFile = true;
           } else if (ex == 'css' && file.type == 'text/css') {
             console.log('Загружен css-файл. Он будет добавлен в конец стиля без изменений.');
 
             user_css = evt.target.result;
-            vm.user.has_css = true;
+            vm.user.hasFile = true;
           }
         }
       };
@@ -475,8 +403,8 @@ var vm = new Vue({
         for (var i = 0; i < user_pallete.length; i++) {
           this.color_pallete['custom'][i] = user_pallete[i];
         }
-        this.user_setting.custom_pallete = true;
-        this.user_setting.pallete = 'custom';
+        this.user.hasPallete = true;
+        this.user.selectedPallete = 'custom';
         this.changePallete('custom');
         console.log('Информация:', 'Найдена и загружена пользовательская палитра.');
       }
@@ -506,11 +434,13 @@ var vm = new Vue({
       indentedSyntax: true,
     });
 
-
-    scss.preloadFiles('../../release-stable/', '', this.getFilelist('url'), function callback() {
-      // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
-      vm.status.isFileLoading = false;
-      switchDisabled(document.getElementById('create_css'));
+    XHR('../../config/theme_files.json', function(files) {
+      vm.file_list = JSON.parse(files);
+      scss.preloadFiles('../../assets/', '', vm.getFilelist('url'), function callback() {
+        // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
+        vm.status.isFileLoading = false;
+        switchDisabled(document.getElementById('create_css'));
+      });
     });
   },
 });
@@ -538,6 +468,19 @@ function switchDisabled(elem) {
   } else {
     elem.setAttribute('disabled', 'disabled');
   }
+}
+
+
+function XHR (url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState != 4) return;
+    if (xhr.status == 200) {
+      callback(xhr.responseText);
+    }
+  }
+  xhr.send();
 }
 
 

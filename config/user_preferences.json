@@ -1,0 +1,27 @@
+{
+  "isCover": true,
+  "id": 0,
+  "cover": "",
+  "background": "",
+  "selectedPallete": "teal_orange",
+  "selectedScheme": "light",
+  "selectedFiles": [
+    "version.sass",
+    "copyright.sass",
+    "font-arial.sass",
+    "color.sass",
+    "main.sass",
+    "menu-classic.sass",
+    "dashboard-layout.sass",
+    "users-list.sass",
+    "profile-content.sass",
+    "profile-cover.sass",
+    "user-settings.sass"
+  ],
+  "customPallete": {},
+  "customScheme": {},
+  "customFile": {
+    "filename": "",
+    "content": ""
+  }
+}

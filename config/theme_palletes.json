@@ -1,0 +1,38 @@
+{
+  "standart": {
+    "name": "Стандартная",
+    "default": false,
+    "color": {
+      "primary": "#4682B4",
+      "accent": "#B78BC7",
+      "link": "#176093",
+      "link-hover": "#FF5202",
+      "link-active": "#FF1402",
+      "header-background": "#333333"
+    }
+  },
+  "blue_pink": {
+    "name": "v1.1",
+    "default": false,
+    "color": {
+      "primary": "#2196F3",
+      "accent": "#FF4081",
+      "link": "#2196F3",
+      "link-hover": "#FF4081",
+      "link-active": "#F50057",
+      "header-background": "#333333"
+    }
+  },
+  "teal_orange": {
+    "name": "v1.2",
+    "default": true,
+    "color": {
+      "primary": "#009688",
+      "accent": "#FFAB40",
+      "link": "#009688",
+      "link-hover": "#FFAB40",
+      "link-active": "#FF9100",
+      "header-background": "#333333"
+    }
+  }
+}
