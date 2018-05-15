@@ -434,7 +434,7 @@ var vm = new Vue({
       indentedSyntax: true,
     });
 
-    XHR('../../config/theme_files.json', function(files) {
+    XHR('./config/theme_files.json', function(files) {
       vm.file_list = JSON.parse(files);
       scss.preloadFiles('../../assets/', '', vm.getFilelist('url'), function callback() {
         // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
