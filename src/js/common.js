@@ -6,44 +6,45 @@ Vue.component('filelist', {
               '<file v-for="(file, index) in file_list"' +
                 'v-on:input="changeState" ' +
                 'v-bind:file="file" ' +
-                'v-bind:index="index" ' +
                 'v-bind:key="index">' +
               '</file>' +
             '</div>',
   methods: {
-    changeState: function (x, checked) {
+    changeState: function (name, value) {
       for (var i = 0; i < this.file_list.length; i++) {
-        if (x == i) {
-          if (this.file_list[i]['cat']) {
-            for (var j = 0; j < this.file_list.length; j++) {
-              if (this.file_list[j]['cat'] == this.file_list[i]['cat']) this.file_list[j]['checked'] = false;
-            }
-          }
-          this.file_list[i]['checked'] = checked;
-        }
+        if (this.file_list[i]['cat'] == name && this.file_list[i]['url'] != value) this.file_list[i]['checked'] = false;
       }
     },
   },
 });
 
 Vue.component('file', {
-  props: ['file', 'index'],
+  props: ['file', 'key'],
   template: '<label class="md-list md-control">' +
-              '<input ' +
-                'v-on:change="onChange($event)" ' +
+              '<md-control ' +
+                'v-on:change="onChange" ' +
                 'v-bind:type="file.cat ? \'radio\' : \'checkbox\'" ' +
-                'v-bind:name="file.cat ? \'file-\' + file.cat : \'file-\' + index " ' +
-                'v-bind:checked="file.checked ? \'checked\' : \'\'" ' +
-                'v-bind:disabled="file.disabled">' +
+                'v-model="file.checked" ' +
+                'v-bind:disabled="file.disabled"' +
+              '></md-control>' +
               '<span v-bind:class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
               '<span>{{ file.title ? file.title : file.url }}</span>' +
               '<div class="md-list_description" v-if="file.description">{{ file.description }}</div>' +
             '</label>',
   methods: {
-    onChange: function ($event) {
-      this.$emit('input', this.index, $event.target.checked);
+    onChange: function () {
+      if (this.file.cat) this.$emit('input', this.file.cat, this.file.url);
     },
   },
+});
+
+Vue.component('md-control', {
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
+  props: ['type', 'name', 'value', 'checked', 'disabled'],
+  template: '<input @change="$emit(\'change\', $event.target.checked)" :type="type" :name="name" :value="value" :checked="checked" :disabled="disabled">',
 });
 
 var vm = new Vue({
