@@ -5041,11 +5041,14 @@ div.compatibility > a:before
 .b-catalog_entry.completed .image-decor::after,
 .b-catalog_entry.rewatching .image-decor::after,
 .b-catalog_entry.on_hold .image-decor::after,
-.b-catalog_entry.dropped .image-decor::after
-  font-family: 'Material Icons'
-  line-height: 1
+.b-catalog_entry.dropped .image-decor::after,
+.l-top_menu .menu-items > .entry.calendar > a::before,
+.l-top_menu .menu-items > .entry.info > a::before,
+.l-top_menu .menu-items > .entry > .contest::before
+  font-family: 'Material Icons' !important
+  font-weight: normal !important
+  line-height: 1 !important
 
-  font-weight: normal
   letter-spacing: normal
   text-transform: none
   word-wrap: normal
@@ -5094,32 +5097,6 @@ header.head h2 a.back:before,
   width: 24px !important
   font-family: 'Material Icons' !important
   font-size: 24px !important
-  font-weight: 400 !important
-  line-height: 1 !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-/* SMALL ICON */
-.l-top_menu .menu-items > .entry.calendar > a:before,
-.l-top_menu .menu-items > .entry > .contest:before,
-.l-top_menu .menu-items > .entry.info > a:before
-  display: block
-  width: 18px !important
-  font-family: 'Material Icons' !important
-  font-size: 18px !important
   font-weight: 400 !important
   line-height: 1 !important
 

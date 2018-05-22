@@ -1,3 +1,6 @@
+$menu-padding: .625rem;
+$font-size: 16px;
+
 .l-top_menu
   position: fixed
   top: 0
@@ -30,12 +33,17 @@
     display: none
 
   .inner
+    margin: 0 .375em
+
     @media (min-width: 960px)
-      padding: 0 .5em
+      margin: 0 .875em
+
+    @media (min-width: 1025px)
+      margin: 0 auto
+      padding: 0 .875em
     
     & > a:first-child
-      display: inline-block
-      vertical-align: top
+      float: left;
       margin: 0 0 0 32px
       color: inherit !important
 
@@ -47,16 +55,20 @@
       padding: 1em
       margin: 0
       background: none
+      line-height: 1em
 
       &::before
         content: 'Главная'
         display: block
         color: inherit
-        line-height: 1
 
         @media only screen and (min-width: 320px)
           content: 'Shikimori'
+          font-size: ($font-size * 1.25)
           text-transform: uppercase
+
+        @media only screen and (min-width: 1025px)
+          font-size: ($font-size * 1.125)
 
 
 /* Цвет текста пунктов меню при наведении */
@@ -77,7 +89,6 @@
   .l-top_menu .submenu,
   .b-main_search ul.popup
     background: $color-header-background-shade
- 
 
   /* Цвет пунктов выпадающего меню при щелчке */
   /* Цвет активных пунктов выпадающего меню */
@@ -85,13 +96,11 @@
   .l-top_menu .submenu > .entry:active,
   .l-top_menu .submenu > .entry.active
     background-color: rgba(0, 0, 0, .24)
- 
 
   /* Цвет пунктов выпадающего меню при наведении */
   /* По умолчанию: осветленный цвет фона выпадающего меню */
   .l-top_menu .submenu > .entry:hover
     background-color: rgba(255, 255, 255, .24)
- 
 
   /* Цвет текста выпадающих меню */
   /* По умолчанию: цвет текста наследуется от меню */
@@ -99,7 +108,6 @@
   .l-top_menu .menu-userbox > .entry,
   .l-top_menu .submenu
     color: inherit
- 
 
   /* Цвет текста выпадающих меню при щелчке */
   /* Цвет текста активных пунктов выпадающего меню */
@@ -109,39 +117,36 @@
   .b-main_search .popup li:active,
   .b-main_search .popup li.active
     color: inherit
- 
 
   /* Цвет текста выпадающих меню при наведении */
   /* По умолчанию: цвет текста наследуется от выпадающего меню */
   .l-top_menu .submenu > .entry:hover,
   .b-main_search .popup li:hover
     color: inherit
- 
 
   /* ЦВЕТА ПОИСКА */
   /* Фон строки поиска  */
   .b-main_search .input
-    background: rgba(242,242,242,.32)
- 
+    background: rgba($color-header-text, .06)
+    color: inherit
 
   /* Набираемый текст в строке поиска  */
   .b-main_search .input input
-    color: #fff
- 
+    color: inherit
 
   /* Вспомогательный текст в строке поиска  */
   .b-main_search input::-webkit-input-placeholder
-    color: #ddd
- 
+    color: rgba($color-header-text, .56)
+
   .b-main_search input:-moz-placeholder
-    color: #ddd
- 
+    color: rgba($color-header-text, .56)
+
   .b-main_search input::-moz-placeholder
-    color: #ddd
- 
+    color: rgba($color-header-text, .56)
+
   .b-main_search input:-ms-input-placeholder
-    color: #ddd
- 
+    color: rgba($color-header-text, .56)
+
 
 /* ОБЩИЕ ЦВЕТА ПОИСКА */
 .b-main_search .popup li:hover
@@ -173,8 +178,6 @@
 
 
 
-
-
 /* NOTE: Максимальное разрешение SONY Xperia Z Ultra: 960x540px */
 @media screen and (min-width: 480px) and (max-height: 540px) and (orientation: landscape)
   .l-top_menu
@@ -189,7 +192,6 @@
     padding: 4px 0
 
 
- 
 
 .l-top_menu .to-mobile-forum
   display: inline-block
@@ -207,14 +209,16 @@
   text-align: center
   font-size: 24px
 
-.l-top_menu  .mobile-menu-toggler,
-.l-top_menu  .mobile-search-toggler
+.l-top_menu .mobile-menu-toggler,
+.l-top_menu .mobile-search-toggler
   position: absolute
   top: 0
   z-index: 10 /* TODO: убрать, потестить */
-.l-top_menu  .mobile-menu-toggler
-  left: 0
-.l-top_menu  .mobile-search-toggler
+
+.l-top_menu .mobile-menu-toggler
+  left: -.125em
+
+.l-top_menu .mobile-search-toggler
   right: 56px
 
 .l-top_menu .mobile-search-toggler.active
@@ -232,115 +236,96 @@
   z-index: 12
   opacity: .48
 
-.l-top_menu .menu-items
-  position: absolute
-  top: 0
-  left: 0
-  width: calc(100% - 56px)
-  max-width: 320px
-  height: calc(100vh + 16px)
-  padding: 8px 0
-  margin: -8px 0
-  overflow-y: auto
-  z-index: 13
+@media (max-width: 1024px)
+  .l-top_menu .menu-items
+    position: absolute
+    top: 0
+    left: -.375em
+    width: calc(100% - 56px)
+    max-width: 320px
+    height: calc(100vh + 16px)
+    padding: 8px 0
+    margin: -8px 0
+    overflow-y: auto
+    z-index: 13
 
-/* EXPERIMENTAL > ANIMATED MOBILE MENU */
-.l-top_menu .menu-items
-  display: block
-  -webkit-transform: translate(-110%, 0)
-  -ms-transform: translate(-110%, 0)
-  transform: translate(-110%, 0)
-  transition: 240ms ease-out
+  /* EXPERIMENTAL > ANIMATED MOBILE MENU */
+  .l-top_menu .menu-items
+    display: block
+    -webkit-transform: translate(-110%, 0)
+    -ms-transform: translate(-110%, 0)
+    transform: translate(-110%, 0)
+    transition: 240ms ease-out
 
-.l-top_menu .menu-items.active
-  -webkit-transform: translate(0, 0)
-  -ms-transform: translate(0, 0)
-  transform: translate(0, 0)
-/* END of EXPERIMENTAL */
+  .l-top_menu .menu-items.active
+    -webkit-transform: translate(0, 0)
+    -ms-transform: translate(0, 0)
+    transform: translate(0, 0)
+  /* END of EXPERIMENTAL */
+
+
 
 @media only screen and (min-width: 320px)
   .l-top_menu .inner > a:first-child
     margin: 0 0 0 40px
- 
+
 @media only screen and (min-width: 360px)
   .l-top_menu .inner > a:first-child
-    margin: 0 0 0 48px
- 
+    margin: 0 0 0 50px
+
 @media only screen and (min-width: 1025px)
   .l-top_menu .inner > a:first-child
     margin: 0
- 
+
+
+
 @media only screen and (min-width: 1025px)
   .l-top_menu .to-mobile-forum
     display: none
- 
 
   .l-top_menu .menu-items
-    display: inline-block
-    vertical-align: top
-    position: static
-    width: auto
-    max-width: 100%
-    height: auto
-    padding: 0
-    margin: 0
     margin-left: 0
     background-color: transparent
-    color: inherit
-    overflow: initial
-    overflow-y: visible
-    transform: translate(0, 0)
- 
 
   .l-top_menu .menu-items > .entry:active
     background-color: inherit
- 
-  
+
   .l-top_menu .menu-items > .entry:active,
   .l-top_menu .submenu > .entry:active,
   .l-top_menu .menu-items > .entry > a
     color: inherit !important
- 
-  
+
   .l-top_menu .menu-items > .entry > .submenu
     margin-top: 4px
     margin-left: 0
- 
-  
+
   .l-top_menu .submenu.right
     right: 0px
     margin-top: 4px
- 
-  
+
   .b-main_search ul.popup,
   .b-main_search.hovered .popup
     margin: 0
     margin-top: 12px
- 
-  
+
   .l-top_menu .submenu > .entry,
   .b-main_search .popup li
     color: inherit
- 
 
   .b-main_search.hovered .popup
     height: 304px
- 
 
   .l-top_menu .menu-items > .entry.calendar > a,
   .l-top_menu .menu-items > .entry.info > a
     padding: 0.9375rem
- 
 
   .l-top_menu .menu-items > .entry.calendar > a:before,
   .l-top_menu .menu-items > .entry.info > a:before
     display: block !important
- 
 
   .l-top_menu .menu-items > .entry.calendar > a:after,
   .l-top_menu .menu-items > .entry.info > a:after
     display: none
- 
 
 .l-top_menu .menu-items > .entry
   float: none
@@ -353,7 +338,6 @@
   .l-top_menu .menu-items > .entry
     display: inline-block
     vertical-align: top
-
 
 .l-top_menu .inner > a:first-child,
 .l-top_menu .menu-items > .entry > a
@@ -376,68 +360,54 @@
   font-size: inherit
   line-height: 1rem
 
-.l-top_menu .menu-items > .entry > a.contest
-  width: 3rem
-  height: 3rem
-  padding: .75rem !important
+.l-top_menu .menu-items > .entry > .contest
+  width: auto
+  height: auto
+  margin: auto
   background: inherit
 
-.l-top_menu .menu-items > .entry > a.contest:before
-  width: 1.5rem !important
-  font-size: 1.5rem !important
-  color: $color-text-secondary
+.l-top_menu .menu-items > .entry > .contest::before
+  position: static
+  margin: 0
+  color: inherit
 
-@media only screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry > a.contest
-    width: 3rem
-    height: 3rem
-    padding: .9375rem !important
-    margin: 0
-    background: transparent
-    border-radius: .125rem
- 
-
-  .l-top_menu .menu-items > .entry > a.contest:before
-    position: static
-    width: 18px !important
-    margin: 0
-    color: inherit
-    font-size: 18px !important
- 
+@media screen and (min-width: 1025px)
+  .l-top_menu .inner .logo,
+  .l-top_menu .menu-items > .entry > a,
+  .l-top_menu .menu-items > .entry.sign_out
+    padding: 1em $menu-padding
 
 /* Текст вместо иконок в верхнем меню */
 .l-top_menu .menu-items > .entry.calendar > a,
 .l-top_menu .menu-items > .entry.info > a
-  padding: 1rem
+  padding: 1em
   margin: 0
-  line-height: 1rem
+  line-height: 1
 
-.l-top_menu .menu-items > .entry.calendar > a:before,
-.l-top_menu .menu-items > .entry.info > a:before
-  display: none !important
+  &::before
+    display: none !important
 
-[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a:after
+    @media only screen and (min-width: 1025px)
+      display: block !important
+
+  &::after
+    @media only screen and (min-width: 1025px)
+      display: none
+
+[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a::after
   content: 'Календарь онгоингов'
 
-[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a::after
   content: 'Calendar'
 
-[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a::after
   content: 'Информация'
 
-[data-locale="en"] .l-top_menu .menu-items > .entry.info > a:after
+[data-locale="en"] .l-top_menu .menu-items > .entry.info > a::after
   content: 'Info'
-
-@media only screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry.calendar > a:before,
-  .l-top_menu .menu-items > .entry.info > a:before
-    display: block !important
-
-  .l-top_menu .menu-items > .entry.calendar > a:after,
-  .l-top_menu .menu-items > .entry.info > a:after
-    display: none
-
 /* END of Текст вместо иконок в верхнем меню */
+
+
 
 /* Уведомления о голосованиях */
 .l-top_menu .menu-items > .entry > a.contest
@@ -460,33 +430,14 @@
   text-align: center
 
 @media screen and (min-width: 1025px)
+  .l-top_menu .menu-items > .entry > a.contest
+    margin-left: -$menu-padding
+
   .l-top_menu .menu-items > .entry > a.contest:after
     top: 0
     right: 0
-
 /* END of Уведомления о голосованиях */
 
-/* Уменьшение ширины пунктов меню */
-/* Уменьшение ширины "Сообщество" */
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry > a[href *= "/forum"]
-    font-size: 0
-    line-height: 0
-
-  .l-top_menu .menu-items > .entry > a[href *= "/forum"]:before
-    content: 'people'
-    font-size: 1.125rem
-
-/* Уменьшение ширины всех пунктов меню */
-.x1000 .l-top_menu .menu-items > .entry > a,
-.x1000 .l-top_menu .menu-items > .entry.sign_out
-  padding: 1rem .75rem /* thx Azsuna */
-
-@media screen and (min-width: 1025px)
-  .l-top_menu .menu-items > .entry.calendar > a,
-  .l-top_menu .menu-items > .entry.info > a,
-  .l-top_menu .menu-items > .entry > a[href*="/forum"]
-    padding: 0.9375rem
 
 
 .l-top_menu .submenu,
@@ -498,8 +449,8 @@
   transition: 0s
 
 .l-top_menu .submenu > .entry
-  height: 2rem
-  padding: .5rem 1rem
+  height: auto
+  padding: .5rem $menu-padding
   background-color: transparent
   border: 0
   font-family: inherit
@@ -530,16 +481,14 @@
   .l-top_menu .menu-items .submenu-toggler,
   .l-top_menu .inner .sign_out
     display: none
- 
 
   .l-top_menu .menu-items > .entry
     color: inherit
- 
 
 @media screen and (max-width: 1024px)
   .l-top_menu .submenu
     padding-left: 32px
- 
+
 
 
 
@@ -551,12 +500,10 @@
 @media screen and (min-width: 1025px)
   .l-top_menu .menu-search
     padding: 0
- 
 
   .l-top_menu .menu-search > .entry
-    width: 234px
+    width: 224px
     padding: 8px 0 !important
- 
 
 .b-main_search
   padding-right: 8px !important
@@ -577,7 +524,7 @@
 .b-main_search ul.popup li
   width: auto
   height: 2rem
-  padding: .5rem 1rem
+  padding: .5rem $menu-padding
   border: 0
   font-family: inherit
   font-size: .875rem
@@ -585,14 +532,14 @@
 
 .b-main_search .input input
   width: 100%
-  padding: 0 1rem
+  padding: 0 $menu-padding
   font-family: inherit
   font-size: 1rem
   line-height: 2rem
 
 .b-main_search .input input.ac_loading
   width: 100%
-  padding: 0 1rem
+  padding: 0 $menu-padding
 
 .b-main_search ul.popup
   width: inherit
@@ -666,16 +613,16 @@
   position: relative
   height: 48px
   padding: 0 !important
-  margin: 0 .5rem 0 1rem !important
+  margin: 0 .625rem 0 1.25rem !important
   cursor: default
 
 .entry.userbox > .avatar
   display: inline-block
   vertical-align: top
   position: relative
-  width: 32px
-  height: 32px
-  margin: 8px
+  width: 40px
+  height: 40px
+  margin: 4px 0
   border-radius: 100%
 
 .entry.userbox > .avatar:after
@@ -692,9 +639,7 @@
   height: inherit
 
 .userbox > a .graphics-arrow-down,
-.l-top_menu .menu-search .arrow-container,
 .l-top_menu .menu-userbox .arrow-container,
-.l-top_menu .menu-search .arrow-container .arrow-down,
 .l-top_menu .menu-userbox .arrow-container .arrow-down
   display: none
 
@@ -717,16 +662,13 @@
 @media screen and (min-width: 1025px)
   .l-top_menu .menu-userbox
     position: relative
- 
 /* END of USERBOX */
 
 
 
 /* TOPMENU | ICON */
 .l-top_menu .menu-mobile .search,
-.l-top_menu .menu-mobile .menu,
-.l-top_menu .menu-userbox .search,
-.l-top_menu .menu-userbox .menu
+.l-top_menu .menu-mobile .menu
   width: 40px
   height: 40px
   padding: 8px
@@ -748,6 +690,28 @@
     height: 48px
     padding: 12px
     margin: 0
+
+@media (max-width: 1024px)
+  .l-top_menu .menu-items > .entry > a.contest
+    padding: .75em !important
+
+@media (min-width: 1025px)
+  .l-top_menu .menu-items > .entry.calendar > a,
+  .l-top_menu .menu-items > .entry.info > a,
+  .l-top_menu .menu-items > .entry > a.contest
+    padding: .875em
+
+.l-top_menu .menu-items > .entry.calendar > a::before,
+.l-top_menu .menu-items > .entry.info > a::before,
+.l-top_menu .menu-items > .entry > a.contest::before
+  display: block
+  width: 1em !important
+  font-size: ($font-size * 1.5) !important
+  line-height: 1 !important
+
+  @media (min-width: 1025px)
+    font-size: ($font-size * 1.25) !important
+
 /**/
 /**/
 /**/
