@@ -52,8 +52,7 @@
   {
     "url": "tentative.sass",
     "checked": false,
-    "disabled": true,
-    "description": "В данный момент тестировать нечего."
+    "description": "Стили для графиков на страницах \"О сайте\" и \"Индустрия аниме\"."
   },
   {
     "url": "user-settings.sass",
