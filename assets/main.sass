@@ -9,8 +9,7 @@
   display: block
 
 /* Максимальная ширина элементов */
-img,
-select
+img
   max-width: 100%
 
 /* Убираем лишнее пространство под textarea */
@@ -825,12 +824,14 @@ input[type=checkbox]:checked:disabled,
   padding: 0
   line-height: inherit
 
-select
-  max-width: 100%
+.b-input select
   height: 2rem
   padding: 2px .5rem
   font-size: .875rem
   line-height: 2rem
+
+  &:disabled
+    opacity: .5
 
 .b-input .hint
   font-size: .75rem
