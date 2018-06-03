@@ -20,6 +20,11 @@
     "checked": false
   },
   {
+    "url": "font-roboto_condensed.sass",
+    "cat": "font",
+    "checked": false
+  },
+  {
     "url": "color.sass",
     "checked": true
   },
