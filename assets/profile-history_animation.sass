@@ -1,0 +1,36 @@
+/* Анимация истории в профиле */
+@media screen and (min-width: 960px)
+  .p-profiles .profile-head
+    .c-history
+      .entry
+        height: inherit
+        animation: steps(3, end) 6s slideUp_x3 infinite
+
+        a
+          margin: -.5em 0
+
+        &::before
+          display: none
+
+      &.x2 .entry
+        animation: steps(2, end) 4s slideUp_x2 infinite
+
+    .b-block_list
+      height: 86px
+      margin: 0 -.5em
+      overflow: hidden
+
+      &:hover .entry
+        animation-play-state: paused
+
+@keyframes slideUp_x2
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateY(-200%)
+
+@keyframes slideUp_x3
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateY(-300%)

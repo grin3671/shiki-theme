@@ -49,6 +49,11 @@
     "checked": true
   },
   {
+    "url": "profile-history_animation.sass",
+    "checked": false,
+    "description": "Для тех, у кого не отображаются полосы аниме и манги в профиле."
+  },
+  {
     "url": "profile-cover.sass",
     "checked": true,
     "disabled": true,
