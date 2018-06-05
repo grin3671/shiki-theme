@@ -105,7 +105,6 @@ body
   padding-right: 1rem
   padding-bottom: 4.5rem
   padding-left: 1rem
-  background-color: inherit
 
 .l-footer
   position: absolute
@@ -956,10 +955,17 @@ input[type=checkbox]:checked:disabled,
   -moz-backface-visibility: hidden
   backface-visibility: hidden
 
+/* Table */
+.b-table
+  td
+    padding: .25em 0
+    line-height: 1.5
 
+    &.num
+      white-space: nowrap
 
-
-
+  tr.border
+    border-color: $color-border
 
 
 
@@ -1079,7 +1085,7 @@ input[type=checkbox]:checked:disabled,
   font-size: 24px
   font-weight: 400
   line-height: 32px
-  text-transform: capitalize
+  text-transform: none
 
 .mischeadline,
 .c-my_list .title,
@@ -1901,12 +1907,6 @@ input[type=checkbox]:checked:disabled,
 
 .b-add_to_list .expanded-options .option .text
   padding-left: 0
-
-.b-add_to_list.completed ~ .rate-show > .rate-number,
-.b-add_to_list.completed ~ .rate-show > .episodes
-  height: 1rem
-  margin-bottom: 0
-  font-size: 0
 
 /* DENSE ATL_BUTTON */
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger,
@@ -3769,17 +3769,17 @@ pre
   margin-top: 1rem
   margin-bottom: 3rem
 
-.change-password:after
+.change-password::after
   content: ''
   clear: both
-  display: table
+  display: block
 
-.change-password a[href $= '/edit/password']
+.change-password a[href *= '/edit/password']
   float: right
   font-size: 0
   line-height: 0
 
-.change-password a[href $= '/edit/password']:after
+.change-password a[href *= '/edit/password']::after
   content: 'Изменить'
   display: inline-block
   padding: .375rem 1rem
@@ -3793,9 +3793,12 @@ pre
   line-height: 1.25rem
   transition: 0.16s cubic-bezier(0.4, 0, 0.6, 1)
 
-.change-password a[href $= '/edit/password']:hover:after
+.change-password a[href *= '/edit/password']:hover::after
   background-color: $color-primary-darker
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
+
+[data-locale='en'] .change-password a[href *= '/edit/password']::after
+  content: 'Change'
 /**/
 /**/
 /**/
