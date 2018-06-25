@@ -1,0 +1,76 @@
+/**
+ * Иконки в меню
+ */
+.l-top_menu .menu-items
+  & > .entry > a::before,
+  & > a::before
+    display: inline-block
+    vertical-align: top
+    font-size: 20px
+    line-height: 1
+
+  & > .entry.calendar > a::before,
+  & > .entry.info > a::before
+    display: inline-block !important
+  
+  // Иконки
+  & > .entry > a[href $= '/animes']::before
+    content: 'ondemand_video'
+
+  & > .entry > a[href $= '/mangas']::before
+    content: 'photo_album'
+
+  & > .entry > a[href $= '/ranobe']::before
+    content: 'photo_album'
+
+  & > .entry > a[href $= '/contests']::before
+    content: 'equalizer'
+    transform: scale(-1, 1)
+
+  & > .entry > a[href $= '/forum']::before
+    content: 'forum'
+
+  & > .entry > a[href $= '/info']::before
+    content: 'info'
+
+  & > .entry > a[href $= '/for_right_holders']::before
+    content: 'copyright'
+
+  & > a.entry[href $= '/sign_out']::before
+    content: 'open_in_new'
+
+  @media screen and (max-width: 1024px)
+    .submenu
+      padding-left: 3.5em
+
+      & > .entry
+        display: block
+        padding: .5em 1em
+        margin: 0
+        font-size: 1em
+
+    & > .entry.selected > a,
+    .submenu > .entry.active
+      background-color: rgba(0, 0, 0, 0.12)
+
+    & > .entry > a,
+    & > .entry.calendar > a,
+    & > .entry.info > a,
+    & > .entry.sign_out
+      padding: .75em 1rem
+      line-height: 1.5
+
+    & > .entry > a::before,
+    & > a::before
+      margin-right: 32px
+      color: $color-text-hint
+      font-size: 24px
+
+  @media screen and (min-width: 1025px)
+    & > .entry > a::before,
+    & > a::before
+      display: none
+/**/
+/**/
+/**/
+
