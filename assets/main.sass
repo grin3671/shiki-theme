@@ -1743,13 +1743,6 @@ input[type=checkbox]:checked:disabled,
 
 
 
-
-/* TODO: replace */
-.b-catalog_entry.dropped .image-cutter
-  filter: grayscale(100%)
-
-
-
 /**
  * ANIME PAGE
  */
@@ -1983,16 +1976,16 @@ input[type=checkbox]:checked:disabled,
 .b-catalog_entry.rewatching .image-decor::after,
 .b-catalog_entry.on_hold .image-decor::after,
 .b-catalog_entry.dropped .image-decor::after
-  top: auto
-  right: 8px
-  bottom: 8px
-  width: 36px
+  top: auto !important
+  right: 8px !important
+  bottom: 8px !important
+  width: 36px !important
   height: auto
   border: none
   border-radius: 100%
   box-shadow: 0 2px 4px 1px rgba(0,0,0,.24)
   color: #FFF
-  font-size: 22px
+  font-size: 22px !important
   line-height: 36px !important
 
 .b-catalog_entry.planned .image-decor::after
@@ -5070,7 +5063,12 @@ div.compatibility > a:before
 .l-top_menu .menu-items > .entry.info > a::before,
 .l-top_menu .menu-items > .entry > .contest::before,
 .l-top_menu .menu-items > .entry > a::before,
-.l-top_menu .menu-items > a::before
+.l-top_menu .menu-items > a::before,
+.b-status-line .section.created_at time::before,
+.b-status-line .section.changed_at time::before,
+.b-status-line .section.additional .collection-size::before,
+.b-status-line .section.additional .comments::before,
+.b-status-line .section.additional .b-review_votes::before
   font-family: 'Material Icons' !important
   font-weight: normal !important
   line-height: 1

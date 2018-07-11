@@ -45,6 +45,10 @@
     "checked": true
   },
   {
+    "url": "status-line.sass",
+    "checked": true
+  },
+  {
     "url": "dashboard-layout.sass",
     "checked": true
   },
