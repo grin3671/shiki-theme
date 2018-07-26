@@ -867,26 +867,6 @@ input[type=checkbox]:checked:disabled,
 .b-link_button.create-topic
   margin-right: 0
 
-.l-page .menu-toggler
-  top: 64px
-  z-index: 9
-
-.l-page.menu-expanded .menu-toggler
-  z-index: 10
-
-@media (max-width: 1024px)
-  .l-menu
-    z-index: 9
-
-.p-user_rates-index .l-page .menu-toggler
-  top: -96px
-
-[data-locale="ru"] .l-page .menu-toggler .toggler:before
-  content: 'меню'
-
-[data-locale="en"] .l-page .menu-toggler .toggler:before
-  content: 'sidebar'
-
 .history-interval,
 .mischeadline,
 .b-input,
@@ -5068,7 +5048,8 @@ div.compatibility > a:before
 .b-status-line .section.changed_at time::before,
 .b-status-line .section.additional .collection-size::before,
 .b-status-line .section.additional .comments::before,
-.b-status-line .section.additional .b-review_votes::before
+.b-status-line .section.additional .b-review_votes::before,
+.l-page .menu-toggler .toggler::before
   font-family: 'Material Icons' !important
   font-weight: normal !important
   line-height: 1
@@ -6617,34 +6598,7 @@ header.head h2 a.back:after
 .b-video_player .cc-player_controls .edit .icon:before
   content: 'build'
 /* END of Страница видео */
-
-
-
-/* RIGHT SIDEBAR */
-@media (max-width: 1024px)
-  .l-menu
-    position: fixed !important
-    top: 0
-    right: 0
-    width: 25rem !important
-    max-width: calc(100% - 3.5rem)
-    height: 100%
-    background-color: $color-background-dialog
-    padding: 4.5rem 1rem 1.5rem
-    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .24)
-    overflow-y: auto
-    -webkit-transform: translateX(110%)
-    -ms-transform: translateX(110%)
-    transform: translateX(110%)
-    transition: .25s ease
-
-  .l-page.menu-expanded .l-menu
-    -webkit-transform: translateX(0)
-    -ms-transform: translateX(0)
-    transform: translateX(0)
-
-  .menu-slide-outer .l-content
-    margin-left: 0 !important
+/**/
 /* END of ОСНОВНОЙ ФАЙЛ */
 /**/
 /**/

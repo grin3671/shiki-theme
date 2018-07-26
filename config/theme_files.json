@@ -45,6 +45,10 @@
     "checked": true
   },
   {
+    "url": "rightbar.sass",
+    "checked": true
+  },
+  {
     "url": "status-line.sass",
     "checked": true
   },
