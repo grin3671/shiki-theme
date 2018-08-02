@@ -91,6 +91,9 @@ input
 
 
 /* MAIN BLOCKS */
+html
+  overflow-x: hidden
+
 body
   position: relative
   min-height: 100%
@@ -5997,23 +6000,25 @@ header.head h2 a.back:after
 /* TODO: MERGE WITH .c-history .entry */
 .b-db_entry-note
   position: relative
-  padding: 8px 0
+  padding: 8px 0 !important
   margin: 0
   border: 0
-
-.b-db_entry-note:first-child
-  padding-top: 8px
 
 .b-db_entry-note:before
   content: ''
   position: absolute
   right: -16px
-  bottom: 0
+  top: 0
   left: 56px
   height: 1px
 
-.b-db_entry-note:last-child:before
+.cc > .b-db_entry-note:first-child::before,
+.block_m > .b-db_entry-note:first-child::before
   display: none
+
+@media only screen and (min-width: 768px)
+  .c-column:first-child:last-child .cc > .b-db_entry-note:nth-child(2)::before
+    display: none
 
 /* FIX */
 .b-db_entry-note:before
@@ -6022,9 +6027,6 @@ header.head h2 a.back:after
 
 .p-db_entries-related .b-db_entry-note
   padding: 16px 0
-
-.p-db_entries-related .b-db_entry-note:first-child
-  padding-top: 16px
 /* END of DB ENTRY NOTES*/
 
 /* MENU ENTRY REVIEW & CLUBS */
