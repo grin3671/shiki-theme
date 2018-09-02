@@ -1390,7 +1390,7 @@ input[type=checkbox]:checked:disabled,
   .p-contests .b-contest_match .next-match:hover
     background-color: transparent
 
-/* BUG: font-size нужно укзать внутри соответствующего элемента */
+/* BUG: font-size нужно указать внутри соответствующего элемента */
 @media only screen and (min-width: 768px)
   .b-contest_match .vs
     font-size: inherit
@@ -1683,7 +1683,7 @@ input[type=checkbox]:checked:disabled,
   color: $color-text-hint
   margin-left: 1em
 
-/* Отметка своего выарианта */
+/* Отметка своего варианта */
 .b-poll .poll-variants .poll-variant.result label .voted-for
   padding-left: 0
   margin-left: 1em
@@ -3826,13 +3826,17 @@ pre
   line-height: 1.5rem
 
 .p-user_rates-index .list-lines tr.edit-form form
-  padding: .25rem 1rem
+  padding: 1rem
   margin: .5rem 0
   border-style: solid
   border-width: 1px
 
+.p-user_rates-index .list-lines tr.edit-form .b-input
+  vertical-align: top
+
 .p-user_rates-index .list-lines tr.edit-form .b-input.text textarea
   font-size: .875rem
+  resize: vertical
 
 .b-user_rate .rate-edit .b-input.integer input,
 .p-user_rates-index .list-lines tr.edit-form .b-input.integer input
@@ -3845,6 +3849,9 @@ pre
 .p-profiles-show .b-stats_bar a.title:hover
   text-decoration: none !important
 
+.p-user_rates-index .list-lines tr.edit-form .buttons
+  margin-top: 0
+
 .p-user_rates-index .list-lines tr.edit-form .remove
   width: 2.5rem
   height: 2.5rem
@@ -3852,7 +3859,7 @@ pre
   margin: .25rem
 
 .p-user_rates-index .list-lines tr.edit-form .remove
-  margin: -.25rem 0 0
+  margin: -.25rem 0
   border: 0
   font-size: 0
 
@@ -6414,14 +6421,14 @@ header.head h2 a.back:after
   font-size: 0
   line-height: 0
 
-.block.mylist-block > .subheadline:before
+.block.mylist-block > .subheadline::after
   font-size: .875rem
   line-height: 1rem
 
-[data-locale="ru"] .block.mylist-block > .subheadline:before
+[data-locale="ru"] .block.mylist-block > .subheadline::after
   content: 'Мой список'
 
-[data-locale="en"] .block.mylist-block > .subheadline:before
+[data-locale="en"] .block.mylist-block > .subheadline::after
   content: 'My List'
 
 /* Кнопка переключателя */
@@ -6534,7 +6541,7 @@ header.head h2 a.back:after
 .p-anime_videos-index.x1000[data-locale="en"] .c-videos .title:after
   content: 'Variants'
 
-/* Переключатели в варинатах видео */
+/* Переключатели в вариантах видео */
 .p-anime_videos-index .c-videos .video-variant-switcher
   float: right
   margin: 0
