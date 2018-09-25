@@ -1,27 +1,28 @@
-.highcharts-root
-  .highcharts-background
-    fill: $color-background
+/**
+ * ИЗБРАННОЕ В ПРОФИЛЕ
+ * Desktop: максимум 8 записей в Избранном
+ * Mobile: кол-во записей указывается в настройках профиля
+ *         для блока избранного добавлен горизонтальный скролл
+ */
+@media (max-width: 959px)
+  .p-profiles-show
+    .cc-favourites
+      white-space: nowrap
+      overflow-x: auto
 
-  .highcharts-yaxis-grid .highcharts-grid-line,
-  .highcharts-xaxis .highcharts-tick,
-  .highcharts-xaxis .highcharts-axis-line
-    stroke: $color-border
+      .c-column
+        display: inline-block !important
+        vertical-align: top
+        float: none
+        width: calc((100vw - 32px) / 2)
+        padding: 0 4px
+        margin-right: 0
 
-  .highcharts-legend-item text
-    color: $color-text-primary !important
-    fill: $color-text-primary !important
+        @media (min-width: 480px)
+          width: calc((100vw - 32px) / 4)
 
-  .highcharts-legend-item.highcharts-legend-item-hidden text
-    color: $color-text-secondary !important
-    fill: $color-text-secondary !important
+        @media (min-width: 600px)
+          width: calc((100vw - 32px) / 5)
 
-  .highcharts-axis-labels text
-    color: $color-text-hint !important
-    fill: $color-text-hint !important
-
-  .highcharts-text-outline
-    display: none
-
-  .highcharts-text-outline ~ tspan
-    color: $color-text-primary !important
-    fill: $color-text-primary !important
+        @media (min-width: 720px)
+          width: calc((100vw - 32px) / 6)
