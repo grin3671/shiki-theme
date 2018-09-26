@@ -11,23 +11,12 @@ $font-size: 16px;
   height: auto
   margin: auto
   padding: 4px 0
-  background-color: transparent
+  background-color: $color-header-background
   background-image: none
   border: none
   box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
   color: $color-header-text
   overflow: visible
-
-  &::before
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    background-color: $color-header-background
-    opacity: 1
-    transition: .3s
 
   .to-top-fix
     display: none
@@ -41,34 +30,28 @@ $font-size: 16px;
     @media (min-width: 1025px)
       margin: 0 auto
       padding: 0 .875em
-    
+
+    // Название сайта
     & > a:first-child
-      float: left;
+      float: left
+      padding: 1em 0.625rem
       margin: 0 0 0 32px
       color: inherit !important
-
-    .logo
-      float: none
-      position: static
-      width: auto
-      height: auto
-      padding: 1em
-      margin: 0
-      background: none
+      font-weight: bold
       line-height: 1em
 
-      &::before
-        content: 'Главная'
+      &::after
+        content: attr(title)
         display: block
-        color: inherit
 
-        @media only screen and (min-width: 320px)
-          content: 'Shikimori'
+        @media (min-width: 320px)
           font-size: ($font-size * 1.25)
-          text-transform: uppercase
 
-        @media only screen and (min-width: 1025px)
+        @media (min-width: 1025px)
           font-size: ($font-size * 1.125)
+
+    .logo
+      display: none
 
 
 /* Цвет текста пунктов меню при наведении */

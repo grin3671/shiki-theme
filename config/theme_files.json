@@ -61,6 +61,10 @@
     "checked": true
   },
   {
+    "url": "profile-head.sass",
+    "checked": true
+  },
+  {
     "url": "profile-content.sass",
     "checked": true
   },

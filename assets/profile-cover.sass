@@ -1,160 +1,145 @@
 /**
  * PROFILE COVER
  */
-@media screen and (min-width: 320px)
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief
-    background-color: $color-background-dialog
-    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, .24)
+.p-profiles .profile-head
+  .c-brief
+    @media (min-width: 480px)
+      min-height: 16rem
+      margin-bottom: 1rem
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief:before
-    content: ''
-    display: block
-    height: 0
-    padding-bottom: 56.25%
-    background-repeat: no-repeat
-    background-size: cover
+    @media (min-width: 600px)
+      min-height: 19rem
 
-@media screen and (min-width: 480px)
-  .p-profiles .profile-head .c-brief
-    min-height: 16rem
+    @media (min-width: 960px)
+      min-height: 0
 
-  .p-profiles .profile-head .c-brief
-    margin-bottom: 1rem
+  .c-info
+    @media (min-width: 600px)
+      margin-left: 0
 
-  .p-profiles .profile-head .c-info
-    margin-left: 0
+    @media (min-width: 768px)
+      margin-left: 0
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief .avatar
-    position: absolute
-    top: auto
-    right: auto
-    bottom: 0
-    left: 0
-    max-width: 148px
-    margin: 1.5rem 1rem
-    z-index: 2
+    @media (min-width: 960px)
+      margin-left: 13.5rem
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief .avatar img
-    width: 120px
+  &[data-user-id = "#{$id}"]
+    .c-brief
+      @media (min-width: 320px)
+        background-color: $color-background-dialog
+        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, .24)
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief header
-    position: absolute
-    top: auto
-    right: 0
-    bottom: 0
-    left: 0
-    min-height: 112px
-    padding: 1rem 1.5rem 1rem calc(4rem + 148px)
-    margin: 0
-    z-index: 1
+      @media (min-width: 600px)
+        max-height: 380px
+        padding-bottom: 112px
+        margin: -3rem -1rem 1rem
+        background-color: inherit
+        box-shadow: none
 
-@media screen and (min-width: 600px)
-  .p-profiles .profile-head .c-brief
-    min-height: 19rem
+      @media (min-width: 960px)
+        max-height: 520px
+        margin: -4.5rem -1.5rem 0
 
-  .p-profiles .profile-head .c-info
-    margin-left: 0
+      // Обложка
+      &::before
+        @media (min-width: 320px)
+          content: ''
+          display: block
+          height: 0
+          padding-bottom: 56.25%
+          background-repeat: no-repeat
+          background-size: cover
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief
-    max-height: 380px
-    padding-bottom: 112px
-    margin: -3rem -1rem 1rem
-    background-color: inherit
-    box-shadow: none
+        @media (min-width: 600px)
+          height: 268px
+          max-height: inherit
+          padding-bottom: 0
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief:before
-    height: 268px
-    max-height: inherit
-    padding-bottom: 0
+        @media (min-width: 960px)
+          height: 408px
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief .avatar
-    max-width: 160px
+      .avatar
+        @media (min-width: 320px) and (max-width: 599px)
+          margin-top: -80px
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief .avatar img
-    width: 160px
-    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16)
+        @media (min-width: 600px)
+          position: absolute
+          top: auto
+          right: auto
+          bottom: 0
+          left: 0
+          max-width: 160px
+          margin: 1.5rem 1rem
+          z-index: 2
 
-@media (min-width: 768px)
-  .p-profiles .profile-head .c-info
-    margin-left: 0
+        @media (min-width: 960px)
+          margin: 1.5rem 2rem
 
-@media screen and (min-width: 960px)
-  .p-profiles .profile-head .c-brief
-    min-height: 0
+        img
+          @media (min-width: 600px)
+            box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16)
 
-  .p-profiles .profile-head .c-info
-    margin-left: 13.5rem
+      header
+        @media (min-width: 960px)
+          padding: 1rem calc(23% + 4.5rem) 1rem .5rem
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief
-    max-height: 520px
-    margin: -4.5rem -1.5rem 0
+    .c-info
+      @media (min-width: 960px)
+        width: 77%
+        padding-right: 2.5rem
+        padding-left: 1rem
+        margin-left: -1rem
 
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief:before
-    height: 408px
-
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief header
-    padding: 1rem calc(23% + 4.5rem) 1rem calc(4.5rem + 160px)
-
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-brief .avatar
-    margin: 1.5rem 2rem
-
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-info
-    width: 77%
-    padding-right: 2.5rem
-    padding-left: 1rem
-    margin-left: -1rem
-
-  .p-profiles .profile-head[data-user-id = "#{$id}"] .c-history
-    float: none
-    position: absolute
-    right: 0
-    top: 520px
-    width: 23%
-    padding: .5rem 0
-    margin: 0
-    margin-top: -112px
-    z-index: 3
+    .c-history
+      @media (min-width: 960px)
+        float: none
+        position: absolute
+        right: 0
+        top: 520px
+        width: 23%
+        padding: .5rem 0
+        margin: 0
+        margin-top: -112px
+        z-index: 3
 /* END of PROFILE COVER */
-/**/
-/**/
-/**/
+
 /* Полупрозрачное меню в профиле */
 @media (min-width: 960px)
-  .p-profiles .profile-head .c-info .c-additionals b:after
-    font-size: 12px
-    font-weight: 400
+  .p-profiles-show:not(.p-dialogs):not([data-user *= '"id":null'])
+    .l-top_menu
+      max-width: 1200px
+      margin: auto
+      background-color: transparent
+      background-image: linear-gradient($color-header-background, transparent)
+      box-shadow: none
+      z-index: 11
 
-  .p-profiles-show:not(.p-dialogs-show) .l-top_menu
-    background-color: transparent
-    background-image: linear-gradient(rgba(51, 51, 51, .64), rgba(51, 51, 51, 0))
-    box-shadow: none
+      &:hover ~ .b-to-top::before
+        opacity: 1
 
-  .p-profiles-show:not(.p-dialogs-show) .l-top_menu:before
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    opacity: 0
-    transition: .3s
+    &.x1000 .l-top_menu
+      max-width: 1000px
 
-  .p-profiles-show:not(.p-dialogs-show) .l-top_menu:hover:before
-    opacity: 1
+    .b-to-top
+      &::before
+        content: ''
+        display: block
+        position: fixed
+        top: 0
+        right: 0
+        left: 0
+        height: 56px
+        background: $color-header-background
+        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.24)
+        z-index: 1
+        opacity: 0
+        visibility: visible
+        pointer-events: none
+        transition: opacity .25s ease
 
-  .p-profiles-show.x1000:not(.p-dialogs-show) .l-top_menu
-    max-width: 1000px
-
-  .p-profiles-show.x1200:not(.p-dialogs-show) .l-top_menu
-    max-width: 1200px
+      &.active::before
+        opacity: 1
 /* END of Полупрозрачное меню в профиле */
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
 /**/
 /**/
 /**/
