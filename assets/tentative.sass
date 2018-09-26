@@ -4,9 +4,10 @@
  * Mobile: кол-во записей указывается в настройках профиля
  *         для блока избранного добавлен горизонтальный скролл
  */
-@media (max-width: 959px)
-  .p-profiles-show
-    .cc-favourites
+.p-profiles-show
+  .cc-favourites
+    @media (max-width: 959px)
+      margin: 0 -4px
       white-space: nowrap
       overflow-x: auto
 
@@ -14,21 +15,22 @@
         display: inline-block !important
         vertical-align: top
         float: none
-        width: calc((100vw - 32px) / 2)
+        width: calc((100vw - 24px) / 2)
         padding: 0 4px
         margin-right: 0
 
+        @media (min-width: 400px)
+          width: calc((100vw - 24px) / 3)
+
         @media (min-width: 480px)
-          width: calc((100vw - 32px) / 4)
+          width: calc((100vw - 24px) / 4)
 
         @media (min-width: 600px)
-          width: calc((100vw - 32px) / 5)
+          width: calc((100vw - 24px) / 5)
 
         @media (min-width: 720px)
-          width: calc((100vw - 32px) / 6)
+          width: calc((100vw - 24px) / 6)
 
-@media (min-width: 960px)
-  .p-profiles-show
-    .cc-favourites
+    @media (min-width: 960px)
       .c-column:nth-child(n + 9)
         display: none
