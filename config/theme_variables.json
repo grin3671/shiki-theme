@@ -1,0 +1,178 @@
+{
+  "pallete": {
+    "color_primary": {
+      "category": "pallete",
+      "block": "Основные цвета",
+      "name": "Основной цвет приложения",
+      "description": "Используется для кнопок, ссылок и полоски аниме."
+    },
+    "color_accent": {
+      "category": "pallete",
+      "block": "Основные цвета",
+      "name": "Акцентирующий цвет приложения",
+      "description": "Используется для подсветки важных элементов и полоски манги."
+    },
+    "color_link": {
+      "category": "pallete",
+      "block": "Цвет ссылок",
+      "name": "Цвет текста ссылки по умолчанию",
+      "description": "Используется для ссылок в тексте, упоминаний, спойлеров и некоторых других элементов."
+    },
+    "color_link_hover": {
+      "category": "pallete",
+      "block": "Цвет ссылок",
+      "name": "Цвет ссылки при наведении",
+      "description": ""
+    },
+    "color_link_active": {
+      "category": "pallete",
+      "block": "Цвет ссылок",
+      "name": "Цвет ссылки при нажатии",
+      "description": ""
+    },
+    "color_header_background": {
+      "category": "pallete",
+      "block": "Меню сайта",
+      "name": "Цвет меню",
+      "description": "По умолчанию используется стандартный цвет. Цвет подменю настраивается автоматически."
+    }
+  },
+  "scheme": {
+    "color_background": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон сайта",
+      "description": "Используется для фона сайта, страницы и полупрозрачных элементов на странице."
+    },
+    "color_background_dialog": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон диалогов",
+      "description": "Используется для выделения важных элементов на странице."
+    },
+    "color_background_secondary": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Вспомогательный фон сайта",
+      "description": "Используется для полей ввода на сайте."
+    },
+    "color_area_normal": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон области",
+      "description": "Используется для цитат, полей ввода, некоторых кнопок."
+    },
+    "color_area_hover": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон области при наведении",
+      "description": "Используется для цитат, полей ввода, некоторых кнопок."
+    },
+    "color_area_active": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон области при нажатии",
+      "description": "Используется для цитат, некоторых кнопок."
+    },
+    "color_button_hover": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Фон кнопок при наведении",
+      "description": "Некоторых кнопки при наведении."
+    },
+    "color_border": {
+      "category": "scheme",
+      "block": "Цвета фонов",
+      "name": "Цвет границ элементов",
+      "description": "Используется для границ элементов и полос-разделителей."
+    },
+    "color_text_primary": {
+      "category": "scheme",
+      "block": "Цвета текстов",
+      "name": "Цвет основной информации",
+      "description": "Используется для заголовков, описаний, комментариев и прочего."
+    },
+    "color_text_secondary": {
+      "category": "scheme",
+      "block": "Цвета текстов",
+      "name": "Цвет дополнительной информации",
+      "description": "Используется для дополняющего текста, подзаголовков и прочего."
+    },
+    "color_text_hint": {
+      "category": "scheme",
+      "block": "Цвета текстов",
+      "name": "Цвет подсказок",
+      "description": "Используется для подсказок к основному тексту."
+    },
+    "color_text_disabled": {
+      "category": "scheme",
+      "block": "Цвета текстов",
+      "name": "Цвет выключенного текста",
+      "description": "Используется для информационного текста и небольших подсказок."
+    }
+  },
+  "calculated": {
+    "color_primary_darker": {
+      "category": "calculated",
+      "name": "Затемненный основной цвет",
+      "description": "Вычисляется как $color-primary + rgba(0,0,0,.12)."
+    },
+    "color_primary_lighter": {
+      "category": "calculated",
+      "name": "Осветленный основной цвет",
+      "description": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    },
+    "color_text_on_primary": {
+      "category": "calculated",
+      "name": "Текст на основном цвете",
+      "description": "Цвет текста используемого на элементах, где фоном служит основной цвет."
+    },
+    "color_text_on_accent": {
+      "category": "calculated",
+      "name": "Текст на акцентирующем цвете",
+      "description": "Цвет текста используемого на элементах, где фоном служит акцентирующий цвет."
+    },
+    "color_header_text": {
+      "category": "calculated",
+      "name": "Цвет текста в меню",
+      "description": "Используется как для текста, так и для иконок."
+    },
+    "color_header_background_shade": {
+      "category": "calculated",
+      "name": "Цвет подменю",
+      "description": "Вычисляется как $color-header-background + rgba(0,0,0,.12)."
+    },
+    "color_border_hover": {
+      "category": "calculated",
+      "name": "Цвет границы области при наведении",
+      "description": "Вычисляется как $color-border + rgba(0,0,0,.12)."
+    }
+  },
+  "user": {
+    "id": {
+      "category": "user",
+      "name": "ID пользователя",
+      "description": "Личный идентификатор пользователя указанный в атрибуте data-user_id элемента profile-head."
+    },
+    "image_background": {
+      "category": "user",
+      "name": "Фон сайта",
+      "description": "Пользовательское изображение, используемое в качестве фона сайта."
+    },
+    "image_cover": {
+      "category": "user",
+      "name": "Обложка пользователя",
+      "description": "Пользовательское изображение, используемое в качестве обложки в профиле пользователя."
+    }
+  },
+  "todo": {
+    "color_primary_on_background": {
+      "category": "calculated",
+      "description": "Основной цвет текста на фоновом цвете сайта."
+    },
+    "color_accent_on_background": {
+      "category": "calculated",
+      "description": "Основной цвет текста на фоновом цвете сайта."
+    }
+  }
+}

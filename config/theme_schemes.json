@@ -2,37 +2,55 @@
   "light": {
     "name": "Светлая",
     "default": true,
-    "color": {
-      "background": "#FAFAFA",
-      "background-dialog": "#FFFFFF",
-      "background-secondary": "#F5F5F5",
-      "area-normal": "#EEEEEE",
-      "area-hover": "#E0E0E0",
-      "area-active": "#DDDDDD",
-      "button-hover": "#E0E0E0",
-      "border": "#DDDDDD",
-      "text-primary": "#212121",
-      "text-secondary": "#424242",
-      "text-hint": "#757575",
-      "text-disabled": "#9E9E9E"
+    "colors": {
+      "color_background": "#FAFAFA",
+      "color_background_dialog": "#FFFFFF",
+      "color_background_secondary": "#F5F5F5",
+      "color_area_normal": "#EEEEEE",
+      "color_area_hover": "#E0E0E0",
+      "color_area_active": "#DDDDDD",
+      "color_button_hover": "#E0E0E0",
+      "color_border": "#DDDDDD",
+      "color_text_primary": "#212121",
+      "color_text_secondary": "#424242",
+      "color_text_hint": "#757575",
+      "color_text_disabled": "#9E9E9E"
     }
   },
   "dark": {
     "name": "Темная",
     "default": false,
-    "color": {
-      "background": "#303030",
-      "background-dialog": "#424242",
-      "background-secondary": "#424242",
-      "area-normal": "#616161",
-      "area-hover": "#424242",
-      "area-active": "#212121",
-      "button-hover": "#424242",
-      "border": "#757575",
-      "text-primary": "#FFFFFF",
-      "text-secondary": "#EEEEEE",
-      "text-hint": "#BDBDBD",
-      "text-disabled": "#9E9E9E"
+    "colors": {
+      "color_background": "#303030",
+      "color_background_dialog": "#424242",
+      "color_background_secondary": "#424242",
+      "color_area_normal": "#616161",
+      "color_area_hover": "#424242",
+      "color_area_active": "#212121",
+      "color_button_hover": "#424242",
+      "color_border": "#757575",
+      "color_text_primary": "#FFFFFF",
+      "color_text_secondary": "#EEEEEE",
+      "color_text_hint": "#BDBDBD",
+      "color_text_disabled": "#9E9E9E"
+    }
+  },
+  "custom": {
+    "name": "Своя",
+    "default": false,
+    "colors": {
+      "color_background": null,
+      "color_background_dialog": null,
+      "color_background_secondary": null,
+      "color_area_normal": null,
+      "color_area_hover": null,
+      "color_area_active": null,
+      "color_button_hover": null,
+      "color_border": null,
+      "color_text_primary": null,
+      "color_text_secondary": null,
+      "color_text_hint": null,
+      "color_text_disabled": null
     }
   }
 }

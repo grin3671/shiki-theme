@@ -1,39 +1,24 @@
 'use strict';
 
-Vue.component('filelist', {
-  props: ['file_list'],
-  template: '<div class="md-container">' +
-              '<file v-for="(file, index) in file_list"' +
-                'v-on:input="changeState" ' +
-                'v-bind:file="file" ' +
-                'v-bind:key="index">' +
-              '</file>' +
-            '</div>',
-  methods: {
-    changeState: function (name, value) {
-      for (var i = 0; i < this.file_list.length; i++) {
-        if (this.file_list[i]['cat'] == name && this.file_list[i]['url'] != value) this.file_list[i]['checked'] = false;
-      }
-    },
-  },
-});
-
 Vue.component('file', {
-  props: ['file', 'key'],
-  template: '<label class="md-list md-control">' +
+  props: ['file', 'index'],
+  template: '<label class="md-list md-control" ' +
+              ':class="file.disabled ? \'disabled\' : \'\'" ' +
+            '>' +
               '<md-control ' +
-                'v-on:change="onChange" ' +
-                'v-bind:type="file.cat ? \'radio\' : \'checkbox\'" ' +
                 'v-model="file.checked" ' +
-                'v-bind:disabled="file.disabled"' +
+                ':type="file.cat ? \'radio\' : \'checkbox\'"' +
+                ':name="file.cat" ' +
+                ':disabled="file.disabled" ' +
+                '@change="onChange" ' +
               '></md-control>' +
-              '<span v-bind:class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
+              '<span :class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
               '<span>{{ file.title ? file.title : file.url }}</span>' +
               '<div class="md-list_description" v-if="file.description">{{ file.description }}</div>' +
             '</label>',
   methods: {
     onChange: function () {
-      if (this.file.cat) this.$emit('input', this.file.cat, this.file.url);
+      if (this.file.cat) this.$emit('change', this.file.cat, this.index);
     },
   },
 });
@@ -43,13 +28,82 @@ Vue.component('md-control', {
     prop: 'checked',
     event: 'change',
   },
-  props: ['type', 'name', 'value', 'checked', 'disabled'],
-  template: '<input @change="$emit(\'change\', $event.target.checked)" :type="type" :name="name" :value="value" :checked="checked" :disabled="disabled">',
+  props: ['type', 'name', 'checked', 'disabled'],
+  template: '<input ' +
+              ':type="type" ' +
+              ':name="name" ' +
+              ':checked="checked" ' +
+              ':disabled="disabled" ' +
+              '@change="$emit(\'change\', $event.target.checked)" ' +
+            '>',
+});
+
+Vue.component('color-scheme', {
+  props: ['name', 'value'],
+  template: '<label class="md-control">' +
+              '<input type="radio" ' +
+                'name="scheme" ' +
+                ':value="value" ' +
+                'v-model="$root.user.selected_scheme" ' +
+                '@change="$root.loadColorSet(\'scheme\')" ' +
+              '>' +
+              '<span class="md-radio"></span>' +
+              '<span><slot>{{ name }}</slot></span>' +
+            '</label>',
+});
+
+Vue.component('color-pallete', {
+  props: ['name', 'value'],
+  template: '<label class="md-control">' +
+              '<input type="radio" ' +
+                'name="color_pallete" ' +
+                ':value="value" ' +
+                'v-model="$root.user.selected_pallete" ' +
+                '@change="$root.loadColorSet(\'pallete\')" ' +
+              '>' +
+              '<span class="md-radio"></span>' +
+              '<span><slot>{{ name }}</slot></span>' +
+            '</label>',
+});
+
+Vue.component('color-variable', {
+  props: ['variable', 'index'],
+  computed: {
+    sass_name: function () {
+      return '$' + this.index.replace(/_/g, '-');
+    },
+  },
+  template: '<div class="md-list">' +
+              '<input type="color" class="md-list_control" ' +
+                ':id="index" ' +
+                ':name="index" ' +
+                'v-model="$root.scheme[index]" ' +
+                '@change="$root.changeColorSet(variable.category)">' +
+              '<input type="text" class="md-list_control" ' +
+                'v-model="$root.scheme[index]" ' +
+                '@change="$root.changeColorSet(variable.category)">' +
+              '<template v-if="variable.name">' +
+                '<div class="md-list_title md-list_title--twoline">' +
+                  '<label :for="index">{{ variable.name }}</label>' +
+                  '<span><code>{{ sass_name }}</code></span>' +
+                '</div>' +
+              '</template>' +
+              '<template v-else>' +
+                '<label class="md-list_title" :for="index">' +
+                  '<span>{{ sass_name }}</span>' +
+                '</label>' +
+              '</template>' +
+              '<span class="md-list_description">{{ variable.description }}</span>' +
+            '</div>',
 });
 
 var vm = new Vue({
   el: '#page',
   data: {
+    errors: {
+      user_background: false,
+      user_cover: false,
+    },
     status: {
       isCompiled: false,
       isCreating: false,
@@ -60,68 +114,25 @@ var vm = new Vue({
       copy: true,
       file: false,
     },
-    file_list: [],
+    text: {
+      fileLoading: 'Идет загрузка файлов темы...',
+      notify_message: 'Идет создание темы...',
+    },
     user: {
-      id: null,
-      background: '',
-      cover: '',
-      isCover: true,
-      selectedPallete: 'teal_orange',
-      selectedScheme: 'light',
-      // Используется только для превью темы
+      user_id: null,
+      user_background: '',
+      user_cover: '',
+      selected_layout: 'cover',
+      selected_pallete: 'teal_orange',
+      selected_scheme: 'light',
+      selected_files: '{}',
+      // Используется только для предпросмотра темы
       avatar: '',
       // Не сохраняются в localStorage, вычисляются после загрузки страницы
       hasPallete: false,
       hasScheme: false,
       hasFile: false,
     },
-    // TODO: rewrite all variable
-    variables: [
-      // Основные цвета
-      '$color-primary',
-      '$color-accent',
-      // Текст на фонах основных цветов
-      '$color-text-on-primary',
-      '$color-text-on-accent',
-      // Цвета ссылок
-      '$color-link',
-      '$color-link-hover',
-      '$color-link-active',
-      // Цвета текста
-      '$color-text-primary',
-      '$color-text-secondary',
-      '$color-text-hint',
-      '$color-text-disabled',
-      // Цвета меню
-      '$color-header-background',
-      '$color-header-background-shade',
-      '$color-header-text',
-      // Цвет фона
-      '$color-background',
-      '$color-background-dialog',
-      '$color-background-secondary',
-      // Вспомогательные цвета фона
-      '$color-area-normal',
-      '$color-area-hover',
-      '$color-area-active',
-      // Цвета границ
-      '$color-border',
-      '$color-border-hover',
-      // Цвета кнопок
-      '$color-button-hover',
-      // ID пользователя
-      '$id',
-      // Ссылки на изображение
-      '$image-background',
-      '$image-cover',
-      // Затемненная и осветленная версии основного цвета
-      '$color-primary-darker',
-      '$color-primary-lighter',
-      // Основной и акцентирующий цвета текста на цвете фоне
-      '$color-primary-on-background',
-      '$color-accent-on-background',
-    ],
-    // TODO: delete after rewrite
     scheme: {
       // NOTE: Порядок соответствует color_scheme
       color_background: '#FAFAFA',
@@ -152,21 +163,10 @@ var vm = new Vue({
       color_header_background_shade: '#2D2D2D',
       color_header_text: '#FAFAFA',
     },
-    color_pallete: {
-      standart: ['#4682B4', '#B78BC7', '#176093', '#FF5202', '#FF1402', '#333333'],
-      blue_pink: ['#2196F3', '#FF4081', '#2196F3', '#FF4081', '#F50057', '#333333'],
-      teal_orange: ['#009688', '#FFAB40', '#009688', '#FFAB40', '#FF9100', '#333333'],
-      custom: [],
-    },
-    color_scheme: {
-      light: ['#FAFAFA', '#FFFFFF', '#F5F5F5', '#EEEEEE', '#E0E0E0', '#DDDDDD', '#E0E0E0', '#DDDDDD', '#212121', '#424242', '#757575', '#9E9E9E'],
-      dark: ['#303030', '#424242', '#424242', '#616161', '#424242', '#212121', '#424242', '#757575', '#FFFFFF', '#EEEEEE', '#BDBDBD', '#9E9E9E'],
-      custom: [],
-    },
-    text: {
-      fileLoading: 'Идет загрузка файлов темы...',
-      notify_message: 'Идет создание темы...',
-    },
+    file_list: [],
+    color_pallete: {},
+    color_scheme: {},
+    variables: {},
   },
   watch: {
     "scheme.color_primary": function () {
@@ -192,60 +192,88 @@ var vm = new Vue({
         this.scheme.color_header_text = isLight(hexToRgb(this.scheme.color_header_background)) ? '#212121' : '#FAFAFA';
       }
     },
-    "user.isCover": function () {
+    "user.selected_layout": function () {
       for (var i = 0; i < this.file_list.length; i++) {
         if (this.file_list[i]['url'] == 'profile-cover.sass') {
-          this.file_list[i].checked = this.user.isCover;
+          this.file_list[i].checked = this.user.selected_layout == 'cover' ? true : false;
         }
       }
+
+      this.saveLocal('selected_layout', this.user.selected_layout);
     },
   },
   methods: {
     setId: function () {
-      var str = this.user.id;
-      if ( ~this.user.id.indexOf(".") ) {
-        this.user.avatar = this.user.id;
-        str = this.user.id.substring(this.user.id.indexOf("/users/x") + 8);
+      var str = this.user.user_id;
+      if ( ~this.user.user_id.indexOf(".") ) {
+        this.user.avatar = this.user.user_id;
+        str = this.user.user_id.substring(this.user.user_id.indexOf("/users/x") + 8);
         str = str.substr(0, str.indexOf("."));
         str = str.substr(str.indexOf("/") + 1);
       }
       str = parseInt(str);
-      this.user.id =  isNaN(str) ? '' : str;
-      localStorage.setItem('user_id', this.user.id);
+      this.user.user_id = isNaN(str) ? '' : str;
+      this.saveLocal('user_id', this.user.user_id);
     },
-    changeScheme: function () {
-      var scheme = this.user.selectedScheme;
-      var i = 0;
-      for (var key in this.scheme) {
-        if (this.color_scheme[scheme][i] == undefined) continue;
-        this.scheme[key] = this.color_scheme[scheme][i];
-        i++;
-      }
-    },
-    changePallete: function (x) {
-      x = x === 'custom' ? x : this.user.selectedPallete;
+    /**
+     * Загрузка набора цветов из палитры/схемы в текущий набор цветов
+     * @param  {string} type 'pallete' or 'scheme'
+     * @param  {string} x    'custom' – special settings
+     */
+    loadColorSet: function (type, x) {
+      var user_color = 'selected_' + type;
+      var current_color = 'color_' + type;
+      var x = x === 'custom' ? x : this.user[user_color];
 
-      this.scheme.color_primary = this.color_pallete[x][0];
-      this.scheme.color_accent = this.color_pallete[x][1];
-      this.scheme.color_link = this.color_pallete[x][2];
-      this.scheme.color_link_hover = this.color_pallete[x][3];
-      this.scheme.color_link_active = this.color_pallete[x][4];
-      this.scheme.color_header_background = this.color_pallete[x][5];
-    },
-    changeColor: function () {
-      if (this.user.selectedPallete !== 'custom') {
-        this.user.hasPallete = true;
-        this.user.selectedPallete = 'custom';
+      for (var key in this[current_color][x]['colors']) {
+        this.scheme[key] = this[current_color][x]['colors'][key];
       }
 
-      this.color_pallete['custom'][0] = this.scheme.color_primary;
-      this.color_pallete['custom'][1] = this.scheme.color_accent;
-      this.color_pallete['custom'][2] = this.scheme.color_link;
-      this.color_pallete['custom'][3] = this.scheme.color_link_hover;
-      this.color_pallete['custom'][4] = this.scheme.color_link_active;
-      this.color_pallete['custom'][5] = this.scheme.color_header_background;
+      this.saveLocal(user_color, this.user[user_color]);
+    },
+    changeColorSet: function (type) {
+      var template;
 
-      localStorage.setItem('user_pallete', JSON.stringify(this.color_pallete['custom']));
+      template = this['color_' + type]['custom']['colors']; // this.color_scheme.['custom']['colors']
+
+      if (this.user['selected_' + type] !== 'custom') {
+        this.user['has' + wordCapitlize(type)] = true;
+        this.user['selected_' + type] = 'custom';
+      }
+
+      for (var key in template) {
+        template[key] = this.scheme[key];
+      }
+
+      this.saveLocal('custom_' + type, JSON.stringify(template));
+    },
+    changeFiles: function (name, value) {
+      if (name && value) {
+        for (var i = 0; i < this.file_list.length; i++) {
+          if (this.file_list[i]['cat'] == name && i !== value) this.file_list[i]['checked'] = false;
+        }
+      }
+    },
+    checkImage: function (e) {
+      var img, type, image;
+
+      type = e.target.id;
+      image = e.target.value;
+
+      if (image) {
+        img = new Image();
+        img.onload = function() {
+          vm.errors[type] = false;
+        }
+        img.onerror = function() {
+          vm.errors[type] = true;
+        }
+        img.src = image;
+      } else {
+        vm.errors[type] = false;
+      }
+
+      this.saveLocal(type, image);
     },
     createTheme: function () {
       switchDisabled(document.getElementById('create_css'));
@@ -253,6 +281,7 @@ var vm = new Vue({
       this.status.isCreating = true;
       this.status.isNotify = true;
 
+      this.saveSelectedFiles();
 
 
       var sass_setting = '';
@@ -264,10 +293,10 @@ var vm = new Vue({
         sass_setting += '$' + key + ': ' + this.scheme[key] + '; ';
       }
 
-      if (this.user.id)         sass_setting += '$id: ' + this.user.id + '; ';
-      if (this.user.isCover)   sass_setting += '$image-cover: url(' + this.user.cover + '); ';
-      if (this.user.background) {
-        sass_setting += '$image-background: url(' + this.user.background + '); '
+      if (this.user.user_id)                    sass_setting += '$id: ' + this.user.user_id + '; ';
+      if (this.user.selected_layout == 'cover') sass_setting += '$image-cover: url(' + this.user.user_cover + '); ';
+      if (this.user.user_background) {
+        sass_setting += '$image-background: url(' + this.user.user_background + '); '
       } else {
         sass_setting += '$image-background: none; '
       };
@@ -320,9 +349,12 @@ var vm = new Vue({
       });
     },
     getFilelist: function (key) {
-      var filelist = [];
+      var filelist = key === 'object' ? {} : [];
       for (var i = 0; i < this.file_list.length; i++) {
         switch (key) {
+          case 'object':
+            filelist[this.file_list[i]['url']] = this.file_list[i]['checked'];
+            break;
           case 'checked':
             if (this.file_list[i][key]) filelist.push(this.file_list[i]['url']);
             break;
@@ -353,7 +385,7 @@ var vm = new Vue({
       reader.onloadend = function(evt) {
         if (evt.target.readyState == FileReader.DONE) {
           if (ex == 'sass' || ex == 'scss') {
-            console.log('Загруженный файл будет приобразован препроцессором Sass и добавлен в конец стиля.');
+            console.log('Загруженный файл будет преобразован препроцессором Sass и добавлен в конец стиля.');
 
             user_sass = new Sass();
 
@@ -378,39 +410,107 @@ var vm = new Vue({
     saveLocal: function (key, value) {
       localStorage.setItem(key, value);
     },
+    // Скачивание своих настроек
+    // NOTE: возможно, потребуется дать разрешение на скачивание в браузере
+    getMySettings: function () {
+      // Подготавливаем данные
+      this.user.custom_pallete = this.color_pallete[this.user.selected_pallete].colors;
+      this.user.custom_scheme = this.color_scheme[this.user.selected_scheme].colors;
+
+      // Создаём файл
+      var json = JSON.stringify(this.user, null, 2);
+      var blob = new Blob([json], {type: "application/json"});
+      var url  = URL.createObjectURL(blob);
+
+      // Создаём элемент
+      var link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'shiki-theme-settings.json');
+
+      // Подделываем клик по элементу
+      var event = document.createEvent('MouseEvents');
+      event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+      link.dispatchEvent(event);
+    },
+    loadUserPallete: function () {
+      // TODO: delete on next update
+      // Временный вариант для поддержки палитр в массивах
+      if (localStorage.getItem('user_pallete') !== null) {
+        var user_pallete = JSON.parse(localStorage.getItem('user_pallete'));
+
+        if (Array.isArray(user_pallete)) {
+          this.color_pallete['custom']['colors'].color_primary           = user_pallete[0];
+          this.color_pallete['custom']['colors'].color_accent            = user_pallete[1];
+          this.color_pallete['custom']['colors'].color_link              = user_pallete[2];
+          this.color_pallete['custom']['colors'].color_link_hover        = user_pallete[3];
+          this.color_pallete['custom']['colors'].color_link_active       = user_pallete[4];
+          this.color_pallete['custom']['colors'].color_header_background = user_pallete[5];
+
+          // Меняем старую запись на новую
+          this.saveLocal('custom_pallete', JSON.stringify(this.color_pallete['custom']['colors']));
+          localStorage.removeItem('user_pallete');
+
+          this.user.hasPallete = true;
+        }
+      }
+
+      // Проверяем localStorage на наличие custom_pallete. Если есть, то загружаем массив и отображаем кнопку для переключения.
+      if (localStorage.getItem('custom_pallete') !== null) {
+        var user_pallete = JSON.parse(localStorage.getItem('custom_pallete'));
+
+        if (typeof user_pallete === 'object') {
+          for (var key in user_pallete) {
+            this.color_pallete['custom']['colors'][key] = user_pallete[key];
+          }
+
+          this.user.hasPallete = true;
+        }
+      }
+
+      this.loadColorSet('pallete', this.user.selected_pallete);
+    },
+    loadUserScheme: function () {
+      if (localStorage.getItem('custom_scheme') !== null) {
+        var user_scheme = JSON.parse(localStorage.getItem('custom_scheme'));
+
+        if (typeof user_scheme === 'object') {
+          for (var key in user_scheme) {
+            this.color_scheme['custom']['colors'][key] = user_scheme[key];
+          }
+
+          this.user.hasScheme = true;
+        }
+      }
+
+      this.loadColorSet('scheme', this.user.selected_scheme);
+    },
+    saveSelectedFiles: function () {
+      this.saveLocal('selected_files', JSON.stringify(this.getFilelist('object')));
+    },
+    updateSelectedFiles: function () {
+      var x = JSON.parse(this.user.selected_files);
+      for (var i = 0; i < this.file_list.length; i++) {
+        if (x.hasOwnProperty(this.file_list[i].url)) {
+          this.file_list[i].checked = x[this.file_list[i].url];
+        }
+      }
+    },
   },
   mounted: function () {
-    if (localStorage.getItem('user_id') !== null) {
-      this.user.id = localStorage.getItem('user_id');
-      this.setId();
-    }
+    // Загружаем настройки пользователя
+    var localSettings = [
+      'user_id',
+      'user_cover',
+      'user_background',
+      'selected_layout',
+      'selected_pallete',
+      'selected_scheme',
+      'selected_files',
+    ];
 
-
-    if (localStorage.getItem('user_cover') !== null) {
-      this.user.cover = localStorage.getItem('user_cover');
-    }
-
-
-    if (localStorage.getItem('user_background') !== null) {
-      this.user.background = localStorage.getItem('user_background');
-    }
-
-
-    // Проверяем localStorage на наличие user_pallete. Если есть, то загружаем массив и отображаем кнопку для переключения.
-    if (localStorage.getItem('user_pallete') !== null) {
-      var user_pallete = JSON.parse(localStorage.getItem('user_pallete'));
-
-      if (Array.isArray(user_pallete)) {
-        for (var i = 0; i < user_pallete.length; i++) {
-          this.color_pallete['custom'][i] = user_pallete[i];
-        }
-        this.user.hasPallete = true;
-        this.user.selectedPallete = 'custom';
-        this.changePallete('custom');
-        console.log('Информация:', 'Найдена и загружена пользовательская палитра.');
-      }
-    } else {
-      console.log('Информация:', 'Пользовательская палитра не найдена.');
+    for (var i = 0; i < localSettings.length; i++) {
+      var x = localStorage.getItem(localSettings[i]);
+      if (x !== null) this.user[localSettings[i]] = x;
     }
 
 
@@ -419,20 +519,37 @@ var vm = new Vue({
       this.support.copy = false;
     }
 
-
     // Проверяем поддержку чтения локальных файлов
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       this.support.file = true;
     }
 
 
+    // Подготовка сборщика
     Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
     scss = new Sass();
-
 
     scss.options({
       style: Sass.style.expanded,
       indentedSyntax: true,
+    });
+
+
+    // Загрузка списка цветовых схем
+    XHR('./config/theme_schemes.json', function(config) {
+      vm.color_scheme = JSON.parse(config);
+      vm.loadUserScheme();
+    });
+
+    // Загрузка списка цветовых палитр
+    XHR('./config/theme_palletes.json', function(config) {
+      vm.color_pallete = JSON.parse(config);
+      vm.loadUserPallete();
+    });
+
+    // Загрузка списка переменных
+    XHR('./config/theme_variables.json', function(config) {
+      vm.variables = JSON.parse(config);
     });
 
     XHR('./config/theme_files.json', function(files) {
@@ -440,6 +557,7 @@ var vm = new Vue({
       scss.preloadFiles('../../assets/', '', vm.getFilelist('url'), function callback() {
         // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
         vm.status.isFileLoading = false;
+        vm.updateSelectedFiles();
         switchDisabled(document.getElementById('create_css'));
       });
     });
@@ -504,6 +622,10 @@ document.addEventListener('click', function () {
  */
 function getExtension (fname) {
   return fname.slice((fname.lastIndexOf(".") - 1 >>> 0) + 2);
+}
+
+function wordCapitlize (word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 

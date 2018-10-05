@@ -2,37 +2,49 @@
   "standart": {
     "name": "Стандартная",
     "default": false,
-    "color": {
-      "primary": "#4682B4",
-      "accent": "#B78BC7",
-      "link": "#176093",
-      "link-hover": "#FF5202",
-      "link-active": "#FF1402",
-      "header-background": "#333333"
+    "colors": {
+      "color_primary": "#4682B4",
+      "color_accent": "#B78BC7",
+      "color_link": "#176093",
+      "color_link_hover": "#FF5202",
+      "color_link_active": "#FF1402",
+      "color_header_background": "#333333"
     }
   },
   "blue_pink": {
     "name": "v1.1",
     "default": false,
-    "color": {
-      "primary": "#2196F3",
-      "accent": "#FF4081",
-      "link": "#2196F3",
-      "link-hover": "#FF4081",
-      "link-active": "#F50057",
-      "header-background": "#333333"
+    "colors": {
+      "color_primary": "#2196F3",
+      "color_accent": "#FF4081",
+      "color_link": "#2196F3",
+      "color_link_hover": "#FF4081",
+      "color_link_active": "#F50057",
+      "color_header_background": "#333333"
     }
   },
   "teal_orange": {
     "name": "v1.2",
     "default": true,
-    "color": {
-      "primary": "#009688",
-      "accent": "#FFAB40",
-      "link": "#009688",
-      "link-hover": "#FFAB40",
-      "link-active": "#FF9100",
-      "header-background": "#333333"
+    "colors": {
+      "color_primary": "#009688",
+      "color_accent": "#FFAB40",
+      "color_link": "#009688",
+      "color_link_hover": "#FFAB40",
+      "color_link_active": "#FF9100",
+      "color_header_background": "#333333"
+    }
+  },
+  "custom": {
+    "name": "Своя",
+    "default": false,
+    "colors": {
+      "color_primary": null,
+      "color_accent": null,
+      "color_link": null,
+      "color_link_hover": null,
+      "color_link_active": null,
+      "color_header_background": null
     }
   }
 }

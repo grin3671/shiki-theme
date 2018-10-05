@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?v2">
+    <link rel="stylesheet" href="./src/css/common.css">
   </head>
   <body>
     <div id="page" class="page">
@@ -23,8 +23,8 @@
         <label for="topbar_menu" class="shade"></label>
         <nav>
           <a href="#nav_settings">Настройка темы</a>
-          <a href="#nav_code" v-show="status.isCompiled">Мой стиль</a>
-          <a href="#nav_preview">Превью</a>
+          <a href="#nav_code" v-show="status.isCompiled">Готовый стиль</a>
+          <a href="#nav_preview">Предпросмотр</a>
           <a href="#nav_faq">FAQ</a>
           <a href="#nav_guideline">Переменные</a>
           <hr class="md-divider">
@@ -34,23 +34,23 @@
       </header>
 
 
+
       <section id="nav_settings" class="content">
-        <span class="content_status" v-if="status.isFileLoading">{{ text.fileLoading }}</span>
         <h2 class="display1">Настройка темы</h2>
-        <p>Настройте тему, а затем нажмите желтую кнопку, чтобы получить код своей темы.</p>
+        <p>Настройте тему, а затем нажмите желтую кнопку, чтобы начать сборку темы. Когда она будет завершена, вы сможете скопировать готовый код секцией ниже.</p>
         <form action="/" @submit.prevent="createTheme" class="md-container">
           <div class="md-list">
             <span class="md-list_title inactive" id="label_user_cover">
               <span class="md-icon ic-flip"></span>Вид профиля
             </span>
-            <span class="md-list_content" role="radiogroup" aria-labelledby="label_user_cover">
+            <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_user_cover">
               <label class="md-control">
-                <input type="radio" name="type" value="1" :value="true" v-model="user.isCover">
+                <input type="radio" name="type" value="cover" v-model="user.selected_layout">
                 <span class="md-radio"></span>
                 <span>С обложкой</span>
               </label>
               <label class="md-control">
-                <input type="radio" name="type" value="0" :value="false" v-model="user.isCover">
+                <input type="radio" name="type" value="simple" v-model="user.selected_layout">
                 <span class="md-radio"></span>
                 <span>Без обложки</span>
               </label>
@@ -58,50 +58,48 @@
           </div>
 
 
-
-          <div class="md-list" v-if="user.isCover">
+          <div class="md-list" v-if="user.selected_layout == 'cover'">
             <label for="user_id" class="md-list_title inactive required">
               <span class="md-icon ic-user"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
             </label>
             <span class="md-list_content">
               <div class="md-input fullwidth">
-                <input type="text" id="user_id" name="id" @change="setId" v-model="user.id" required aria-describedby="hint_cover_url" placeholder="8764532">
+                <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" required aria-describedby="hint_cover_url" placeholder="8764532">
                 <div class="md-divider"></div>
-                <span class="md-input_hint" id="hint_cover_url">Сюда можно вставить ссылку на вашу аватарку с сайта <a href="https://shikimori.org">shikimori.org</a>.</span>
+                <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.org">shikimori.org</a></span>
               </div>
             </span>
           </div>
 
 
-
-          <div class="md-list" v-if="user.isCover">
-            <label for="user_cover" class="md-list_title inactive">
+          <div class="md-list" v-if="user.selected_layout == 'cover'">
+            <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
               <span class="md-icon ic-image"></span>Обложка профиля
             </label>
             <span class="md-list_content">
-              <div class="md-input fullwidth">
-                <input type="text" id="user_cover" name="cover" @change="saveLocal('user_cover', user.cover)" v-model="user.cover" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
+              <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
+                <input type="text" id="user_cover" name="cover" @change="checkImage" v-model="user.user_cover" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
                 <div class="md-divider"></div>
-                <span class="md-input_hint">Используйте любой <a href="https://www.google.ru/search?q=хостинг+картинок">хостинг картинок</a>, кроме imgur.com</span>
+                <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
+                <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
               </div>
             </span>
           </div>
-
 
 
           <div class="md-list">
-            <label for="user_background" class="md-list_title inactive">
+            <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
               <span class="md-icon ic-wallpaper"></span>Фон сайта
             </label>
             <span class="md-list_content">
-              <div class="md-input fullwidth">
-                <input type="text" id="user_background" name="background" @change="saveLocal('user_background', user.background)" v-model="user.background" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
+              <div class="md-input fullwidth" :class="{ error: errors.user_background }">
+                <input type="text" id="user_background" name="background" @change="checkImage" v-model="user.user_background" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
                 <div class="md-divider"></div>
-                <span class="md-input_hint">Используйте любой <a href="https://www.google.ru/search?q=хостинг+картинок">хостинг картинок</a>, кроме imgur.com</span>
+                <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
+                <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
               </div>
             </span>
           </div>
-
 
 
           <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
@@ -111,102 +109,57 @@
             </label>
             <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
-              <span class="md-list_content-placeholder">Текущая палитра: {{ user.selectedPallete }}</span>
+              <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_pallete }}</span>
             </span>
           </div>
           <div class="md-list_hidden color-settings">
             <p class="text-hint">Цветовая палитра состоит из основного и акцентирующего цвета. Основной цвет приложения – наиболее часто встречающийся цвет на сайте, а акцентирующий используется для выделения важных элементов. Ознакомится с системой цветов можно на сайте: <a href="//material.io/guidelines/style/color.html#color-color-system">material.io</a>.</p>
 
-            <h4>Цветовая палитра</h4>
-
-            <div class="field">
-              <label class="md-control">
-                <input type="radio" name="color_pallete" value="standart" v-model="user.selectedPallete" @change="changePallete()">
-                <span class="md-radio"></span>
-                <span>Стандартная</span>
-              </label>
-              <label class="md-control">
-                <input type="radio" name="color_pallete" value="blue_pink" v-model="user.selectedPallete" @change="changePallete()">
-                <span class="md-radio"></span>
-                <span>v1.1</span>
-              </label>
-              <label class="md-control">
-                <input type="radio" name="color_pallete" value="teal_orange" v-model="user.selectedPallete" @change="changePallete()">
-                <span class="md-radio"></span>
-                <span>v1.2</span>
-              </label>
-              <label class="md-control" v-if="user.hasPallete">
-                <input type="radio" name="color_pallete" value="custom" v-model="user.selectedPallete" @change="changePallete()">
-                <span class="md-radio"></span>
-                <span>Своя палитра</span>
-              </label>
+            <h4>Готовые палитры</h4>
+            <div class="md-control_group">
+              <color-pallete v-for="(pallete, index) in color_pallete"
+                v-if="index != 'custom'"
+                :name="pallete.name"
+                :value="index"
+                :key="index">
+              </color-pallete>
+              <color-pallete v-if="$root.user.hasPallete" value="custom" :key="'custom'">Своя</color-pallete>
             </div>
 
-
+            <h4>Цвета палитры</h4>
             <div class="md-container">
-              <h4>Основные цвета</h4>
-              <div class="md-list">
-                <input type="color" id="primary_color" class="md-list_control" name="primary-color" v-model="scheme.color_primary" @change="changeColor()">
-                <input type="text" class="md-list_control" v-model="scheme.color_primary" @change="changeColor()">
-                <label for="primary_color" class="md-list_title">
-                  <span>Основной цвет приложения</span>
-                </label>
-                <span class="md-list_description">Используется для кнопок, ссылок и полоски аниме.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="accent_color" class="md-list_control" name="accent-color" v-model="scheme.color_accent" @change="changeColor()">
-                <input type="text" class="md-list_control" v-model="scheme.color_accent" @change="changeColor()">
-                <label for="accent_color" class="md-list_title">
-                  <span>Акцентирующий цвет приложения</span>
-                </label>
-                <span class="md-list_description">Используется для подсветки важных элементов и полоски манги.</span>
-              </div>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_primary"
+                :index="'color_primary'"
+              ></color-variable>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_accent"
+                :index="'color_accent'"
+              ></color-variable>
             </div>
 
-
             <div class="md-container">
-              <h4>Цвет ссылок</h4>
-              <div class="md-list">
-                <input type="color" id="link_normal" class="md-list_control" name="link-normal" v-model="scheme.color_link" @change="changeColor()">
-                <input type="text" class="md-list_control" v-model="scheme.color_link" @change="changeColor()">
-                <label for="link_normal" class="md-list_title">
-                  <span>Цвет текста ссылки по умолчанию</span>
-                </label>
-                <span class="md-list_description">Используется для ссылок в тексте, упоминаний, спойлеров и некоторых других элементов.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="link_hover" class="md-list_control" name="link-hover" v-model="scheme.color_link_hover" @change="changeColor()">
-                <input class="md-list_control" type="text" v-model="scheme.color_link_hover" @change="changeColor()">
-                <label class="md-list_title" for="link_hover">
-                  <span>Цвет ссылки при наведении</span>
-                </label>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="link_active" class="md-list_control" name="link-active" v-model="scheme.color_link_active" @change="changeColor()">
-                <input class="md-list_control" type="text" v-model="scheme.color_link_active" @change="changeColor()">
-                <label class="md-list_title" for="link_active">
-                  <span>Цвет ссылки при нажатии</span>
-                </label>
-              </div>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_link"
+                :index="'color_link'"
+              ></color-variable>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_link_hover"
+                :index="'color_link_hover'"
+              ></color-variable>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_link_active"
+                :index="'color_link_active'"
+              ></color-variable>
             </div>
 
-
             <div class="md-container">
-              <h4>Меню сайта</h4>
-              <div class="md-list">
-                <input class="md-list_control" type="color" id="menu_color" name="menu-color" v-model="scheme.color_header_background" @change="changeColor()">
-                <input class="md-list_control" type="text" v-model="scheme.color_header_background" @change="changeColor()">
-                <label class="md-list_title" for="menu_color">
-                  <span>Цвет меню</span>
-                </label>
-                <span class="md-list_description">По умолчанию используется стандартный цвет. Цвет подменю настраивается автоматически.</span>
-              </div>
+              <color-variable v-if="variables.pallete"
+                :variable="variables.pallete.color_header_background"
+                :index="'color_header_background'"
+              ></color-variable>
             </div>
           </div>
-
 
 
           <input type="checkbox" id="extra_settings" class="field-checkbox" name="extra">
@@ -215,22 +168,10 @@
               <span class="md-icon ic-scheme"></span>Цветовая схема
             </label>
             <label for="extra_settings" class="md-list_control md-icon ic-collapse"></label>
-            <span class="md-list_content" role="radiogroup" aria-labelledby="label_color_scheme">
-              <label class="md-control">
-                <input type="radio" name="scheme" value="light" :value="'light'" v-model="user.selectedScheme" @change="changeScheme">
-                <span class="md-radio"></span>
-                <span>Светлая</span>
-              </label>
-              <label class="md-control">
-                <input type="radio" name="scheme" value="dark" :value="'dark'" v-model="user.selectedScheme" @change="changeScheme">
-                <span class="md-radio"></span>
-                <span>Темная</span>
-              </label>
-              <label class="md-control" v-if="user.hasScheme">
-                <input type="radio" name="scheme" value="custom" v-model="user.selectedScheme">
-                <span class="md-radio"></span>
-                <span>Своя схема</span>
-              </label>
+            <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_color_scheme">
+              <color-scheme :value="'light'">Светлая</color-scheme>
+              <color-scheme :value="'dark'">Темная</color-scheme>
+              <color-scheme :value="'custom'" v-if="user.hasScheme">Своя</color-scheme>
             </span>
           </div>
           <div class="md-list_hidden extra-settings">
@@ -238,120 +179,61 @@
 
             <div class="md-container">
               <h4>Фоны</h4>
-              <div class="md-list">
-                <input type="color" id="background_color" class="md-list_control" name="background-color" v-model="scheme.color_background">
-                <input type="text" class="md-list_control" v-model="scheme.color_background">
-                <label for="background_color" class="md-list_title">
-                  <span>Фон сайта</span>
-                </label>
-                <span class="md-list_description">Используется для фона сайта, страницы и полупрозрачных элементов на странице.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="background_dialog" class="md-list_control" name="background-dialog" v-model="scheme.color_background_dialog">
-                <input type="text" class="md-list_control" v-model="scheme.color_background_dialog">
-                <label for="background_dialog" class="md-list_title">
-                  <span>Фон диалогов</span>
-                </label>
-                <span class="md-list_description">Используется для выделения важных элементов на странице.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="grey_100" class="md-list_control" name="grey-color" v-model="scheme.color_background_secondary">
-                <input type="text" class="md-list_control" v-model="scheme.color_background_secondary">
-                <label for="grey_100" class="md-list_title">
-                  <span>Серый 100</span>
-                </label>
-                <span class="md-list_description">Используется для полей ввода на сайте.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="background_normal" class="md-list_control" name="background-normal" v-model="scheme.color_area_normal">
-                <input type="text" class="md-list_control" v-model="scheme.color_area_normal">
-                <label for="background_normal" class="md-list_title">
-                  <span>Фон области</span>
-                </label>
-                <span class="md-list_description">Используется для цитат, полей ввода, некоторых кнопок.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="background_hover" class="md-list_control" name="background-hover" v-model="scheme.color_area_hover">
-                <input type="text" class="md-list_control" v-model="scheme.color_area_hover">
-                <label for="background_hover" class="md-list_title">
-                  <span>Фон области при наведении</span>
-                </label>
-                <span class="md-list_description">Используется для цитат, полей ввода, некоторых кнопок.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="background_active" class="md-list_control" name="background-active" v-model="scheme.color_area_active">
-                <input type="text" class="md-list_control" v-model="scheme.color_area_active">
-                <label for="background_active" class="md-list_title">
-                  <span>Фон области при нажатии</span>
-                </label>
-                <span class="md-list_description">Используется для цитат, некоторых кнопок.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="button_hover" class="md-list_control" name="button-hover" v-model="scheme.color_button_hover">
-                <input type="text" class="md-list_control" v-model="scheme.color_button_hover">
-                <label for="button_hover" class="md-list_title">
-                  <span>Фон кнопок при наведении</span>
-                </label>
-                <span class="md-list_description">Некоторых кнопки при наведении.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="border_color" class="md-list_control" name="border-color" v-model="scheme.color_border">
-                <input type="text" class="md-list_control" v-model="scheme.color_border">
-                <label for="border_color" class="md-list_title">
-                  <span>Цвет границ элементов</span>
-                </label>
-                <span class="md-list_description">Используется для границ элементов.</span>
-              </div>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_background"
+                :index="'color_background'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_background_dialog"
+                :index="'color_background_dialog'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_background_secondary"
+                :index="'color_background_secondary'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_area_normal"
+                :index="'color_area_normal'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_area_hover"
+                :index="'color_area_hover'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_area_active"
+                :index="'color_area_active'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_button_hover"
+                :index="'color_button_hover'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_border"
+                :index="'color_border'"
+              ></color-variable>
             </div>
 
 
             <div class="md-container">
               <h4>Цвет текста</h4>
-              <div class="md-list">
-                <input type="color" id="text_primary" class="md-list_control" name="text-primary" v-model="scheme.color_text_primary">
-                <input type="text" class="md-list_control" v-model="scheme.color_text_primary">
-                <label for="text_primary" class="md-list_title">
-                  <span>Цвет основной информации</span>
-                </label>
-                <span class="md-list_description">Используется для заголовков, описаний, комментариев и прочего.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="text_secondary" class="md-list_control" name="text-secondary" v-model="scheme.color_text_secondary">
-                <input type="text" class="md-list_control" v-model="scheme.color_text_secondary">
-                <label for="text_secondary" class="md-list_title">
-                  <span>Цвет дополнительной информации</span>
-                </label>
-                <span class="md-list_description">Используется для дополняющего текста, подзаголовков и прочего.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="text_hint" class="md-list_control" name="text-hint" v-model="scheme.color_text_hint">
-                <input type="text" class="md-list_control" v-model="scheme.color_text_hint">
-                <label for="text_hint" class="md-list_title">
-                  <span>Цвет подсказок</span>
-                </label>
-                <span class="md-list_description">Используется для подсказок к основному тексту.</span>
-              </div>
-
-              <div class="md-list">
-                <input type="color" id="text_disabled" class="md-list_control" name="text-disabled" v-model="scheme.color_text_disabled">
-                <input type="text" class="md-list_control" v-model="scheme.color_text_disabled">
-                <label for="text_disabled" class="md-list_title">
-                  <span>Цвет выключенного текста</span>
-                </label>
-                <span class="md-list_description">Используется для информационного текста и небольших подсказок.</span>
-              </div>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_text_primary"
+                :index="'color_text_primary'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_text_secondary"
+                :index="'color_text_secondary'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_text_hint"
+                :index="'color_text_hint'"
+              ></color-variable>
+              <color-variable v-if="variables.scheme"
+                :variable="variables.scheme.color_text_disabled"
+                :index="'color_text_disabled'"
+              ></color-variable>
             </div>
           </div>
-
 
 
           <input type="checkbox" id="user_file" class="field-checkbox" name="file">
@@ -364,12 +246,16 @@
               <span class="md-list_content-placeholder">{{ user.hasFile ? 'Ваш файл будет добавлен в тему' : 'Вы можете загрузить свой файл стиля' }}</span>
             </span>
           </div>
-
           <div class="md-list_hidden user-file">
             <p class="text-hint">Выбрав отдельные файлы, вы можете изменить только необходимые элементы сайта (или сломать всё к чертям).</p>
-            <filelist
-              v-bind:file_list="file_list"
-            ></filelist>
+            <div class="md-container">
+              <file v-for="(file, index) in file_list"
+                :file="file"
+                :index="index"
+                :key="index"
+                @change="changeFiles"
+              ></file>
+            </div>
             <p class="text-hint">Вы можете загрузить свой файл стилей, чтобы присоединить его к компилируемому стилю. Вы можете использовать переменные из стилей темы, а также собственные переменные. Поддерживаются <code>sass</code>, <code>scss</code> и <code>css</code> файлы.</p>
             <div class="md-list">
               <input type="file" id="user_setting" name="file" v-on:change="readUserFile" accept=".sass, .scss, .css">
@@ -377,40 +263,41 @@
             </div>
           </div>
 
+
           <button type="submit" id="create_css" class="md-btn raised primary ie-only" disabled><span>Создать тему</span></button>
         </form>
 
         <hr class="md-divider">
 
         <p>Свои правила, в силу <a href="https://developer.mozilla.org/ru/docs/Web/Guide/CSS/Getting_Started/Cascading_and_inheritance">особенностей CSS</a>, рекомендуется указывать внизу стиля.</p>
-        <p>Не забывайте почаще <a href="https://github.com/grin3671/shiki-theme/commits/gh-pages">проверять обновления</a>! Если у вас что-то сломалось, скорее всего на сайте что-то изменилось, и вам следует обновить тему.</p>
-        <p>Если обновление не помогло, пожалуйста, <a href="https://shikimori.org/grin3671">сообщите мне</a> об ошибке!</p>
+        <p>Если у вас что-то сломалось – проверьте <a href="https://github.com/grin3671/shiki-theme/commits/gh-pages">последние обновления</a> и обновитесь, если ваша версия темы устарела. Если обновление не помогло, пожалуйста, <a href="https://shikimori.org/grin3671">сообщите мне</a> об ошибке!</p>
         <p>Поддержать разработку можно <span class="strong"><span style="color: red">Я</span>ндекс</span> Деньгами: <code>41001258665103</code></p>
       </section>
 
 
+
       <section id="nav_code" class="content" v-show="status.isCompiled">
-        <h2 class="display1">Ваш код</h2>
+        <h2 class="display1">Готовый стиль</h2>
         <div class="field">
           <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
           <div class="md-textarea code">
             <textarea id="output_css" rows="5"></textarea>
             <div class="md-divider"></div>
           </div>
-
           <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
           <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
         </div>
       </section>
 
 
-      <section id="nav_preview" class="content">
-        <h2 class="display1">Превью</h2>
+
+      <section id="nav_preview" class="content" v-show="status.isFileLoading == false">
+        <h2 class="display1">Предпросмотр</h2>
         <div id="vue_preview" class="shiki-preview">
-          <div class="shiki-preview__body" :class="{ scheme_dark: user.selectedScheme == 'dark' }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.background + ')' }">
+          <div class="shiki-preview__body" :class="{ scheme_dark: user.selected_scheme == 'dark' }" :style="{ backgroundColor: scheme.color_background, backgroundImage: 'url(' + user.user_background + ')' }">
             <div class="shiki-preview__menu" :style="{ backgroundColor: scheme.color_header_background }"></div>
             <div class="shiki-preview__page" :style="{ backgroundColor: scheme.color_background }">
-              <div class="shiki-preview__cover" :class="{ cover_display: user.isCover }" :style="{ backgroundImage: 'url(' + user.cover + ')' }"></div>
+              <div class="shiki-preview__cover" :class="{ cover_display: user.selected_layout == 'cover' }" :style="{ backgroundImage: 'url(' + user.user_cover + ')' }"></div>
               <div class="shiki-preview__profile">
                 <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
                 <div class="shiki-preview__block block-h1"></div>
@@ -451,329 +338,248 @@
         </div>
         <div class="section_faq">
           <h3>Что делать если обложка не отображается?</h3>
-          <p>Попробуйте сменить хостинг картинок. Не используйте imgur.com! Картинки с этого хостинга не будут отображаться на Шики.</p>
+          <p>Попробуйте сменить хостинг картинок. Изображение должно появиться в предпросмотре темы.</p>
         </div>
       </section>
 
 
 
       <section id="nav_guideline" class="content sass_guideline">
-        <h2 class="display1">Список переменных</h2>
+        <h2 class="display1">Переменные</h2>
         <p>Переменные можно использовать в собственном стиле, который будет подключён в сборщике перед компиляцией.</p>
 
         <div class="md-container">
-          <h4>Палитра</h4>
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_primary" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_primary" disabled>
-            <label class="md-list_title">
-              <span>$color-primary</span>
+          <input type="checkbox" id="sass_guideline" class="field-checkbox" name="sass">
+          <div class="md-list collapsed">
+            <label for="sass_guideline" class="md-list_title inactive">
+              <span class="md-icon ic-code"></span>Переменные
             </label>
+            <label for="sass_guideline" class="md-list_control md-icon ic-collapse"></label>
+            <span class="md-list_content">
+              <span class="md-list_content-placeholder">Список переменных с описанием из работы</span>
+            </span>
           </div>
+          <div class="md-list_hidden">
+            <div class="md-container">
+              <h4>Палитра</h4>
+              <color-variable
+                v-for="(variable, index) in variables.pallete"
+                :variable="variable"
+                :index="index"
+                :key="index"
+              ></color-variable>
+            </div>
 
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_accent" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_accent" disabled>
-            <label class="md-list_title">
-              <span>$color-accent</span>
-            </label>
-          </div>
+            <div class="md-container" v-if="false == true">
+              <h4>Схема</h4>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[0]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[0]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[0]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[0]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-background</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[1]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[1]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[1]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[1]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-background-dialog</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[2]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[2]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[2]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[2]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-background-secondary</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[3]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[3]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[3]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[3]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-area-normal</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[4]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[4]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[4]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[4]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-area-hover</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[5]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[5]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[5]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[5]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-area-active</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[6]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[6]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[6]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[6]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-button-hover</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[7]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[7]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[7]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[7]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-border</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[8]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[8]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[8]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[8]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-text-primary</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[9]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[9]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[9]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[9]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-text-secondary</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[10]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[10]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[10]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[10]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-text-hint</span>
+                </label>
+              </div>
+              <div class="md-list">
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.dark[11]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.dark[11]" disabled>
+                </div>
+                <div class="guide_pallete">
+                  <input type="color" class="md-list_control" v-model="color_scheme.light[11]" disabled>
+                  <input type="text" class="md-list_control" v-model="color_scheme.light[11]" disabled>
+                </div>
+                <label class="md-list_title">
+                  <span>$color-text-disabled</span>
+                </label>
+              </div>
+            </div>
 
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_link" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_link" disabled>
-            <label class="md-list_title">
-              <span>$color-link</span>
-            </label>
-          </div>
+            <div class="md-container">
+              <h4>Вычисляемые свойства</h4>
+              <color-variable
+                v-for="(variable, index) in variables.calculated"
+                :variable="variable"
+                :index="index"
+                :key="index"
+              ></color-variable>
+            </div>
 
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_link_hover" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_link_hover" disabled>
-            <label class="md-list_title">
-              <span>$color-link-hover</span>
-            </label>
-          </div>
+            <div class="md-container">
+              <h4>Другое</h4>
+              <div class="md-list">
+                <input type="text" class="md-list_control" v-model="user.user_id" disabled>
+                <label class="md-list_title">
+                  <span>$id</span>
+                </label>
+                <span class="md-list_description">Уникальный идентификатор пользователя, указанный в сборщике. Обязательное поле, если используется обложка.</span>
+              </div>
 
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_link_active" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_link_active" disabled>
-            <label class="md-list_title">
-              <span>$color-link-active</span>
-            </label>
-          </div>
+              <div class="md-list">
+                <input type="text" class="md-list_control fullwidth" v-model="user.user_background" disabled>
+                <label class="md-list_title">
+                  <span>$image-background</span>
+                </label>
+                <span class="md-list_description">Ссылка на фоновое изображение, указанная в сборщике.</span>
+              </div>
 
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_header_background" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_header_background" disabled>
-            <label class="md-list_title">
-              <span>$color-header-background</span>
-            </label>
-          </div>
-        </div>
-
-
-        <div class="md-container">
-          <h4>Схема</h4>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[0]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[0]" disabled>
+              <div class="md-list">
+                <input type="text" class="md-list_control fullwidth" v-model="user.user_cover" disabled>
+                <label class="md-list_title">
+                  <span>$image-cover</span>
+                </label>
+                <span class="md-list_description">Ссылка на изображение, используемое в профиле пользователя в качестве обложки.</span>
+              </div>
             </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[0]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[0]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-background</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[1]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[1]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[1]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[1]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-background-dialog</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[2]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[2]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[2]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[2]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-background-secondary</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[3]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[3]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[3]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[3]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-area-normal</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[4]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[4]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[4]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[4]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-area-hover</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[5]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[5]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[5]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[5]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-area-active</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[6]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[6]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[6]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[6]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-button-hover</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[7]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[7]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[7]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[7]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-border</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[8]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[8]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[8]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[8]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-text-primary</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[9]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[9]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[9]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[9]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-text-secondary</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[10]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[10]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[10]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[10]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-text-hint</span>
-            </label>
-          </div>
-          <div class="md-list">
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.dark[11]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.dark[11]" disabled>
-            </div>
-            <div class="guide_pallete">
-              <input type="color" class="md-list_control" v-model="color_scheme.light[11]" disabled>
-              <input type="text" class="md-list_control" v-model="color_scheme.light[11]" disabled>
-            </div>
-            <label class="md-list_title">
-              <span>$color-text-disabled</span>
-            </label>
-          </div>
-        </div>
-
-
-        <div class="md-container">
-          <h4>Вычисляемые свойства</h4>
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_primary_darker" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_primary_darker" disabled>
-            <label class="md-list_title">
-              <span>$color-primary-darker</span>
-            </label>
-            <span class="md-list_description">Затемненный основной цвет. Вычисляется как <code>$color-primary + rgba(0,0,0,.12)</code>.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_primary_lighter" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_primary_lighter" disabled>
-            <label class="md-list_title">
-              <span>$color-primary-lighter</span>
-            </label>
-            <span class="md-list_description">Осветленный основной цвет. Вычисляется как <code>$color-primary + rgba(255,255,255,.12)</code>.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_text_on_primary" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_text_on_primary" disabled>
-            <label class="md-list_title">
-              <span>$color-text-on-primary</span>
-            </label>
-            <span class="md-list_description">Цвет текста используемого на элементах, где фоном служит основной цвет.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_text_on_accent" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_text_on_accent" disabled>
-            <label class="md-list_title">
-              <span>$color-text-on-accent</span>
-            </label>
-            <span class="md-list_description">Цвет текста используемого на элементах, где фоном служит акцентирующий цвет.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_border_hover" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_border_hover" disabled>
-            <label class="md-list_title">
-              <span>$color-border-hover</span>
-            </label>
-            <span class="md-list_description">Цвет границы области при наведении. Вычисляется как <code>$color-border + rgba(0,0,0,.12)</code>.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_header_background_shade" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_header_background_shade" disabled>
-            <label class="md-list_title">
-              <span>$color-header-background-shade</span>
-            </label>
-            <span class="md-list_description">Цвет подменю. Вычисляется как <code>$color-header-background + rgba(0,0,0,.12)</code>.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="color" class="md-list_control" v-model="scheme.color_header_text" disabled>
-            <input type="text" class="md-list_control" v-model="scheme.color_header_text" disabled>
-            <label class="md-list_title">
-              <span>$color-header-text</span>
-            </label>
-            <span class="md-list_description">Цвет текста в меню.</span>
-          </div>
-        </div>
-
-
-        <div class="md-container">
-          <h4>Другое</h4>
-          <div class="md-list">
-            <input type="text" class="md-list_control" v-model="user.id" disabled>
-            <label class="md-list_title">
-              <span>$id</span>
-            </label>
-            <span class="md-list_description">Уникальный индификатор пользователя, указанный в сборщике. Обязательное поле, если используется обложка.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="text" class="md-list_control fullwidth" v-model="user.background" disabled>
-            <label class="md-list_title">
-              <span>$image-background</span>
-            </label>
-            <span class="md-list_description">Ссылка на фоновое изображение, указанное в сборщике.</span>
-          </div>
-
-          <div class="md-list">
-            <input type="text" class="md-list_control fullwidth" v-model="user.cover" disabled>
-            <label class="md-list_title">
-              <span>$image-cover</span>
-            </label>
-            <span class="md-list_description">Ссылка на изображение, используемое в профиле пользователя в качестве обложки.</span>
           </div>
         </div>
       </section>
 
-      <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }"><span></span>{{ text.notify_message }}</div>
+      <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }">
+        <span></span>{{ text.notify_message }}
+      </div>
+      <div class="notify" :class="{ loading: status.isFileLoading, notify_show: status.isFileLoading }">
+        <span></span>{{ text.fileLoading }}
+      </div>
     </div>
 
     <script src="./vendor/sass.js/sass.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script src="./src/js/common.js"></script>
   </body>
 </html>
