@@ -1,0 +1,28 @@
+%md-tooltip
+  &::after
+    display: block !important
+    position: absolute
+    padding: .375rem .75rem
+    margin: .25rem .75rem
+    background-color: #616161
+    border-radius: .125rem
+    color: #eee
+    font-size: .875rem
+    line-height: 1.25rem
+    white-space: nowrap
+    z-index: 100
+    pointer-events: none
+    opacity: 0
+    transition: .3s
+
+  &:hover::after
+    opacity: .9
+
+%md-tooltip-left
+  &::after
+    right: 100%
+    bottom: 0
+    transform: translateX(0.75rem)
+
+  &:hover::after
+    transform: translateX(0)

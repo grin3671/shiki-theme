@@ -2,12 +2,14 @@
   {
     "url": "version.sass",
     "disabled": true,
-    "checked": true
+    "checked": true,
+    "title": "Информация о версии"
   },
   {
     "url": "copyright.sass",
     "disabled": true,
-    "checked": true
+    "checked": true,
+    "title": "Информация о теме"
   },
   {
     "url": "font-arial.sass",
@@ -26,6 +28,16 @@
   },
   {
     "url": "color.sass",
+    "checked": true
+  },
+  {
+    "url": "_modules/md-icon.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "_modules/md-tooltip.sass",
+    "disabled": true,
     "checked": true
   },
   {

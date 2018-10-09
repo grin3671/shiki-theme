@@ -1,0 +1,67 @@
+/**
+ * MATERIAL ICON
+ * Иконки должны располагаться в псевдоэлементе ::before
+ * Стандартный размер иконок 24px, уменьшенный – 20px
+ *
+ * BUG: Версия шрифта устарела, поддерживаются не все иконки из каталога
+ * BUG: IE doesn't support Materail Icon's font format [.woff2]
+ */
+
+@font-face
+  font-family: 'Material Icons'
+  font-style: normal
+  font-weight: 400
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot) format('eot'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype')
+
+%md-icon
+  display: inline-block
+  vertical-align: top
+  width: 40px
+  height: 40px
+  padding: 8px
+  margin: 4px 8px 4px 0 !important
+  border-radius: 2px
+  transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+  &:last-child
+    margin-right: 0 !important
+
+  &::before
+    display: block
+    width: 1em !important
+    font-family: 'Material Icons' !important
+    font-size: 24px !important
+    font-weight: 400 !important
+    line-height: 1 !important
+
+    letter-spacing: normal
+    text-transform: none
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale
+    /* Support for IE. */
+    font-feature-settings: 'liga'
+
+%md-icon-hover
+  color: $color-text-hint !important
+
+  &:hover
+    background-color: $color-button-hover
+    color: $color-text-secondary !important
+    text-decoration: none
+
+%md-icon-small
+  width: 32px
+  height: 32px
+  padding: 6px
+  margin: 0 8px 0 0 !important
+
+  &::before
+    font-size: 20px !important
