@@ -92,7 +92,22 @@
     "description": "Этот файл зависит от настройки \"Вид профиля\"."
   },
   {
-    "url": "tentative.sass",
+    "url": "tests/b-input.sass",
+    "checked": false,
+    "description": "Более \"материальные\" поля ввода."
+  },
+  {
+    "url": "tests/b-video.sass",
+    "checked": false,
+    "description": "Изменённыё вид превью видео."
+  },
+  {
+    "url": "tests/p-messages-menu.sass",
+    "checked": false,
+    "description": "Закреплённые табы в почте."
+  },
+  {
+    "url": "tests/p-profiles-favorites.sass",
     "checked": false,
     "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
   },
