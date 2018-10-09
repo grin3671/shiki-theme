@@ -31,12 +31,12 @@
     "checked": true
   },
   {
-    "url": "_modules/md-icon.sass",
+    "url": "modules/md-icon.sass",
     "disabled": true,
     "checked": true
   },
   {
-    "url": "_modules/md-tooltip.sass",
+    "url": "modules/md-tooltip.sass",
     "disabled": true,
     "checked": true
   },
