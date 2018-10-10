@@ -4381,10 +4381,7 @@ pre
 .l-top_menu .to-mobile-forum:before,
 .l-top_menu .menu-items .submenu-toggler:before,
 .l-top_menu .menu-items .submenu-toggler.active:before,
-header.head h1 a.back:before,
-header.head h2 a.back:before,
 .item-mobile:before,
-.editor-controls > span:before,
 .b-add_to_list .trigger-arrow:before,
 .b-add_to_list.expanded .trigger-arrow:before,
 .b-add_to_list.watching .edit:before,
@@ -4564,7 +4561,8 @@ header.head h2 a.back:before,
 
 
 
-header.head h1
+header.head h1,
+header.head h2
   padding: 8px 0
   line-height: 32px
   color: inherit
@@ -4572,7 +4570,12 @@ header.head h1
   a.back
     @extend %md-icon
     @extend %md-icon-hover
-    margin: -4px 16px -4px 0 !important
+
+    &:nth-child(n)
+      margin: -4px 24px -4px -8px !important
+
+      @media (min-width: 1025px)
+        margin: -4px 16px -4px 0 !important
 
     &::before
       content: 'arrow_back'
