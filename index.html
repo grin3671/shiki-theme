@@ -236,18 +236,18 @@
           </div>
 
 
-          <input type="checkbox" id="user_file" class="field-checkbox" name="file">
-          <div class="md-list collapsed" v-if="support.file">
-            <label for="user_file" class="md-list_title inactive">
+          <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
+          <div class="md-list collapsed">
+            <label for="theme_files" class="md-list_title inactive">
               <span class="md-icon ic-build"></span>Файлы темы
             </label>
-            <label for="user_file" class="md-list_control md-icon ic-collapse"></label>
+            <label for="theme_files" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
-              <span class="md-list_content-placeholder">{{ user.hasFile ? 'Ваш файл будет добавлен в тему' : 'Вы можете загрузить свой файл стиля' }}</span>
+              <span class="md-list_content-placeholder">Настройка шрифтов, тестовые файлы и прочее.</span>
             </span>
           </div>
-          <div class="md-list_hidden user-file">
-            <p class="text-hint">Выбрав отдельные файлы, вы можете изменить только необходимые элементы сайта (или сломать всё к чертям).</p>
+          <div class="md-list_hidden theme-files">
+            <p class="text-hint">Здесь вы можете включить или исключить из сборки темы отдельные файлы. Смело меняйте шрифты (названия файлов начинаются на <code>font-</code>) и пробуйте тестовые функции (названия файлов начинаются на <code>tests/</code>). Остальное – на свой страх и риск.</p>
             <div class="md-container">
               <file v-for="(file, index) in file_list"
                 :file="file"
@@ -256,11 +256,16 @@
                 @change="changeFiles"
               ></file>
             </div>
-            <p class="text-hint">Вы можете загрузить свой файл стилей, чтобы присоединить его к компилируемому стилю. Вы можете использовать переменные из стилей темы, а также собственные переменные. Поддерживаются <code>sass</code>, <code>scss</code> и <code>css</code> файлы.</p>
-            <div class="md-list">
-              <input type="file" id="user_setting" name="file" v-on:change="readUserFile" accept=".sass, .scss, .css">
-              <p class="md-list_description">Вы можете использовать только один файл настроек. При загрузке нового файла он заменит старый.</p>
-            </div>
+          </div>
+
+
+          <div class="md-list" v-if="support.file">
+            <label for="user_setting" class="md-list_title inactive">
+              <span class="md-icon ic-file"></span>Мои настройки
+            </label>
+            <span class="md-list_content">
+              <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" v-on:change="readUserFile" accept=".sass, .scss, .css"></span>
+            </span>
           </div>
 
 

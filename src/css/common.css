@@ -291,6 +291,9 @@ p:last-child {
 .ic-code::before {
   content: 'code';
 }
+.ic-file::before {
+  content: 'attach_file';
+}
 
 
 
