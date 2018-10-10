@@ -136,7 +136,7 @@ body
 /* DO NOT DELETE */
 /* Информация для устранения неполадок */
 body[data-user *= ":2727,"] .l-footer:before
-  content: 'Theme by grin3671 v#{$ver} (#{$release})'
+  content: 'shiki-theme v#{$ver}-#{$release}'
 
 .l-footer:before,
 .l-footer .copyright
@@ -1704,10 +1704,6 @@ input[type=checkbox]:checked:disabled,
 .p-characters .subheadline.m10 > a
   display: inline-block
 
-@media screen and (max-width: 480px) and (orientation: portrait)
-  .b-db_entry > .c-image .c-actions > a
-    width: auto !important
-
 @media only screen and (min-width: 768px)
   .p-people-show .b-db_entry > .c-about
     float: none
@@ -1936,10 +1932,25 @@ header.head,
 
 
 
-.b-db_entry .c-actions 
+.b-db_entry .c-actions
   .b-tooltipped
     @extend %md-icon
     @extend %md-icon-hover
+
+    @media (max-width: 480px) and (orientation: portrait)
+      display: table
+      width: 100%
+      margin: 0 0 8px !important
+
+    &::before
+      display: table-cell
+      float: none
+
+    &::after
+      padding-left: .5rem
+      color: inherit
+      font-size: .875rem
+      line-height: 1.125rem
 
   .fav-add:hover
     color: $color-accent !important
