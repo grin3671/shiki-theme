@@ -102,6 +102,11 @@
     "description": "Изменённыё вид превью видео."
   },
   {
+    "url": "tests/b-video_variant.sass",
+    "checked": false,
+    "description": "Выбор видео на play.shikimori.org."
+  },
+  {
     "url": "tests/p-messages-menu.sass",
     "checked": false,
     "description": "Закреплённые табы в почте."
