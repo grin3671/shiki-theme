@@ -1,12 +1,20 @@
 .b-video_variant
+  margin: 0 -12px 4px
+  border-radius: 3px
+  transition: .24s ease-out
+
+  &:hover
+    background-color: $color-area-hover
+
+  &:active,
+  &.active
+    background-color: $color-primary
+
   a
     display: block
     padding: 8px 12px
-    margin: 0 0 4px
-    border-radius: 3px
     color: inherit
     font-size: .875em
-    transition: .24s cubic-bezier(.4, 0, .6, 1)
 
     &::after
       content: ''
@@ -14,7 +22,6 @@
       clear: both
 
     &:hover
-      background-color: $color-area-hover
       border: 0
 
     &.broken,
@@ -45,7 +52,6 @@
 
   &.active
     a
-      background-color: $color-primary
       color: rgba($color-text-on-primary, .8)
 
       &:hover span
@@ -110,3 +116,7 @@
 
     a
       padding-left: 56px
+
+      span
+        &:last-child
+          clear: both
