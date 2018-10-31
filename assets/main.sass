@@ -1135,6 +1135,19 @@ input[type=checkbox]:checked:disabled,
 .p-contests .match-day .match-link .c-column
   line-height: 32px
 
+// Ничья
+.p-contests .match-day .match-link .draw
+  padding-left: 0
+
+  &::before
+    position: static
+    top: 0
+    left: 0
+    width: 12px
+    height: 12px
+    margin: 10px 4px
+    margin-right: 16px
+
 .p-contests .match-day .match-link .voted:before,
 .p-contests .match-day .match-link .winner:before,
 .p-contests .match-day .match-link .loser:before,
