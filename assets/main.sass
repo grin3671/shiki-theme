@@ -84,7 +84,19 @@ input
 @media screen and (max-width:767px)
   .b-options-floated.mobile-phone a.selected
     color: inherit
- 
+
+
+
+
+
+// НАСТРОЙКИ
+// Используется для дальнейших рассчётов размеров
+$layout-grid: 8px !default
+// Gutters are the spaces between columns. They help separate content.
+$layout-gutter: 16px !default
+// Margins are the space between content and the left and right edges of the screen.
+$layout-margin: 16px !default
+$layout-margin-tablet: $layout-margin * 1.5 !default
 
 
 
@@ -105,24 +117,20 @@ body
 
 .l-page
   min-height: 100%
-  padding-top: 4.5rem
-  padding-right: 1rem
-  padding-bottom: 4.5rem
-  padding-left: 1rem
+  padding: 72px $layout-margin 0
+
+  @media (min-width: 960px)
+    padding-right: $layout-margin-tablet
+    padding-left: $layout-margin-tablet
 
 .l-footer
-  position: absolute
-  right: 0
-  bottom: 0
-  left: 0
-  width: 100%
-  max-width: inherit /* thx @NedStar */
-  padding: 0 1rem
-  margin: auto
+  padding: 0
+  margin: 1em 0 0
   text-align: center
+  line-height: 2em
 
 .l-footer:before
-  content: 'Theme by grin3671'
+  content: ''
   display: block
   float: left
   position: static
@@ -131,40 +139,29 @@ body
   width: auto
   height: auto
   background: none
-  font-size: .6875rem
 
-/* DO NOT DELETE */
-/* Информация для устранения неполадок */
+/* НЕ УДАЛЯТЬ! Информация для устранения неполадок */
 body[data-user *= ":2727,"] .l-footer:before
   content: 'shiki-theme v#{$ver}-#{$release}'
-
-.l-footer:before,
-.l-footer .copyright
-  padding: .5rem 0 0
-  font-family: inherit
-  line-height: 1rem
 
 .l-footer:after
   display: none
 
+.l-footer:before,
+.l-footer .copyright,
+.l-footer .links
+  padding: 0
+  font: inherit
+  font-size: .75em
+
 .l-footer .links
   clear: both
   display: inline-block
-  padding: .5rem 0
-  font: inherit
-  font-size: .75rem
-  line-height: 1rem
+  vertical-align: top
   text-align: center
 
 .l-footer .links a:last-child
   margin: 0
-
-@media (min-width: 960px)
-  .l-page,
-  .l-footer
-    padding-right: 1.5rem
-    padding-left: 1.5rem
-/* END of MAIN BLOCKS */
 
 
 
@@ -247,7 +244,7 @@ header.head h2 a.back,
 
 
 
-/* LAYOUT */
+/* RESET LAYOUT */
 @media (max-width: 1024px)
   .l-page
     .menu-slide-outer
