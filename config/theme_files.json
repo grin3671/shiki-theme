@@ -31,6 +31,11 @@
     "checked": true
   },
   {
+    "url": "modules/material-icons.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
     "url": "modules/md-icon.sass",
     "disabled": true,
     "checked": true
