@@ -1,5 +1,6 @@
-$menu-padding: .625rem;
-$font-size: 16px;
+$menu-padding: .625rem
+$menu-height: 48px
+$font-size: 16px
 
 .l-top_menu
   position: fixed
@@ -34,33 +35,28 @@ $font-size: 16px;
     // Название сайта
     & > a:first-child
       float: left
-      padding: 1em 0.625rem
+      padding: calc((#{$menu-height} - 1em) / 2) 0.625rem
       margin: 0 0 0 32px
       color: inherit !important
       font-weight: bold
-      line-height: 1em
+      line-height: 1
 
       [data-locale='en'] &
         text-transform: uppercase
 
       @media (min-width: 320px)
         margin-left: 40px
+        font-size: 1.25em
 
       @media (min-width: 360px)
         margin-left: 56px
 
       @media (min-width: 1025px)
         margin-left: 0
+        font-size: 1.125em
 
       &::after
         content: attr(title)
-        display: block
-
-        @media (min-width: 320px)
-          font-size: ($font-size * 1.25)
-
-        @media (min-width: 1025px)
-          font-size: ($font-size * 1.125)
 
     .logo
       display: none
@@ -208,7 +204,6 @@ $font-size: 16px;
 .l-top_menu .mobile-search-toggler
   position: absolute
   top: 0
-  z-index: 10 /* TODO: убрать, потестить */
 
 .l-top_menu .mobile-menu-toggler
   left: -.125em
@@ -219,48 +214,45 @@ $font-size: 16px;
 .l-top_menu .mobile-search-toggler.active
   background-color: transparent
 
-/* Перерисовываем меню сайта под Material */
-.l-top_menu .mobile-menu-toggler.active
+.l-top_menu .mobile-menu-toggler::after
+  content: ''
   position: fixed
   top: 0
+  right: 0
+  bottom: 0
   left: 0
-  width: 100% !important
-  height: 100% !important
-  margin: 0 !important
-  background-color: #000
+  background-color: rgba(0,0,0,.48)
+  opacity: 0
+  visibility: hidden
+  transition: .24s cubic-bezier(0.4, 0, 0.6, 1)
   z-index: 12
-  opacity: .48
+
+.l-top_menu .mobile-menu-toggler.active::after
+  opacity: 1
+  visibility: visible
 
 @media (max-width: 1024px)
   .l-top_menu .menu-items
-    position: absolute
+    display: block
+    position: fixed
     top: 0
-    left: -.375em
+    right: 0
+    bottom: 0
+    left: 0
     width: calc(100% - 56px)
     max-width: 320px
-    height: calc(100vh + 16px)
     padding: 8px 0
-    margin: -8px 0
+    margin: 0
+    box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12)
     overflow-y: auto
+    -webkit-transform: translateX(-110%)
+    transform: translateX(-110%)
+    transition: .24s cubic-bezier(0.4, 0, 0.6, 1)
     z-index: 13
 
-  /* EXPERIMENTAL > ANIMATED MOBILE MENU */
-  .l-top_menu .menu-items
-    display: block
-    -webkit-transform: translate(-110%, 0)
-    -ms-transform: translate(-110%, 0)
-    transform: translate(-110%, 0)
-    transition: 240ms ease-out
-
   .l-top_menu .menu-items.active
-    -webkit-transform: translate(0, 0)
-    -ms-transform: translate(0, 0)
-    transform: translate(0, 0)
-  /* END of EXPERIMENTAL */
-
-@media (min-width: 960px) and (max-width: 1024px)
-  .l-top_menu .menu-items
-    left: -.875em
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
 
 
 
@@ -360,7 +352,7 @@ $font-size: 16px;
   .l-top_menu .inner .logo,
   .l-top_menu .menu-items > .entry > a,
   .l-top_menu .menu-items > .entry.sign_out
-    padding: 1em $menu-padding
+    padding: calc((#{$menu-height} - 1rem) / 2) $menu-padding
 
 /* Текст вместо иконок в верхнем меню */
 .l-top_menu .menu-items > .entry.calendar > a,
