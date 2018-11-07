@@ -130,7 +130,7 @@ body
   line-height: 2em
 
 .l-footer:before
-  content: ''
+  content: 'shiki-theme v#{$ver}-#{$release}'
   display: block
   float: left
   position: static
@@ -894,10 +894,8 @@ input[type=checkbox]:checked:disabled,
   margin: auto
 
 /* FIX: BACKFACE VISIBILITY */
-.b-collection-filters > .block:first-child > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:before,
-.b-collection-filters > .block:first-child > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:before,
+.b-collection-filters > .block:nth-child(3) > .b-list > li::after,
+.b-collection-filters > .block:nth-child(3) > .b-list > li::before,
 .l-top_menu .inner > a:first-child,
 .l-top_menu .menu-items > .entry > a,
 .p-user_rates .mylist-block + .block > .b-list > li:after,
@@ -5466,30 +5464,29 @@ header.head h2
   line-height: 18px
 /* END of SIDEMENU LINKS */
 
+
+
 /* Стилизованные кнопки на страницах поиска аниме и манги */
-.p-user_rates .mylist-block + .block > .b-list,
-.b-collection-filters > .block:first-child > .b-list,
-.b-collection-filters > .block:first-child > .b-list
+.p-user_rates .mylist-block + .block + .block + .block > .b-list,
+.b-collection-filters > .block:nth-child(3) > .b-list
   margin-left: 0 !important
 
-.p-user_rates .mylist-block + .block > .b-list > li,
-.b-collection-filters > .block:first-child > .b-list > li,
-.b-collection-filters > .block:first-child > .b-list > li
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li,
+.b-collection-filters > .block:nth-child(3) > .b-list > li
   position: relative
   margin-bottom: .5rem
-  border-radius: .125rem
+  background-color: $color-primary
+  border-radius: 2px
   font-size: .875rem
   line-height: 2rem
   text-align: center
   text-transform: uppercase
   list-style: none
 
-.p-user_rates .mylist-block + .block > .b-list > li:before,
-.p-user_rates .mylist-block + .block > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:before,
-.b-collection-filters > .block:first-child > .b-list > li:before,
-.b-collection-filters > .block:first-child > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:after
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:before,
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:after,
+.b-collection-filters > .block:nth-child(3) > .b-list > li::before,
+.b-collection-filters > .block:nth-child(3) > .b-list > li::after
   content: ''
   position: absolute
   top: 0
@@ -5501,36 +5498,30 @@ header.head h2
   z-index: 0
   transition: opacity .3s
 
-.p-user_rates .mylist-block + .block > .b-list > li:before,
-.b-collection-filters > .block:first-child > .b-list > li:before,
-.b-collection-filters > .block:first-child > .b-list > li:before
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:before,
+.b-collection-filters > .block:nth-child(3) > .b-list > li:before
   box-shadow: 0 1px 3px rgba(0,0,0,.56)
 
-.p-user_rates .mylist-block + .block > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:after,
-.b-collection-filters > .block:first-child > .b-list > li:after
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:after,
+.b-collection-filters > .block:nth-child(3) > .b-list > li::after
   background-color: rgba(0,0,0,.12)
 
-.p-user_rates .mylist-block + .block > .b-list > li:hover:before,
-.p-user_rates .mylist-block + .block > .b-list > li:hover:after,
-.b-collection-filters > .block:first-child > .b-list > li:hover:before,
-.b-collection-filters > .block:first-child > .b-list > li:hover:before,
-.b-collection-filters > .block:first-child > .b-list > li:hover:after,
-.b-collection-filters > .block:first-child > .b-list > li:hover:after
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:hover:before,
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:hover:after,
+.b-collection-filters > .block:nth-child(3) > .b-list > li:hover::before,
+.b-collection-filters > .block:nth-child(3) > .b-list > li:hover::after
   opacity: 1
 
-.p-user_rates .mylist-block + .block > .b-list > li > a,
-.b-collection-filters > .block:first-child > .b-list > li > a,
-.b-collection-filters > .block:first-child > .b-list > li > a
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li > a,
+.b-collection-filters > .block:nth-child(3) > .b-list > li > a
   position: relative
   display: block
-  color: #fff !important
+  color: $color-text-on-primary !important
   z-index: 1
 
-.p-user_rates .mylist-block + .block > .b-list > li > a:hover,
-.b-collection-filters > .block:first-child > .b-list > li > a:hover,
-.b-collection-filters > .block:first-child > .b-list > li > a:hover
-  color: #fff !important
+.p-user_rates .mylist-block + .block + .block + .block > .b-list > li > a:hover,
+.b-collection-filters > .block:nth-child(3) > .b-list > li > a:hover
+  color: $color-text-on-primary !important
   text-decoration: none
 /* END of Стилизованные кнопки на страницах поиска аниме и манги */
 
