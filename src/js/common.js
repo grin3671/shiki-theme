@@ -2,6 +2,11 @@
 
 Vue.component('file', {
   props: ['file', 'index'],
+  computed: {
+    file_name: function () {
+      return this.file.url.substring(this.file.url.lastIndexOf('/') + 1);
+    },
+  },
   template: '<label class="md-list md-control" ' +
               ':class="file.disabled ? \'disabled\' : \'\'" ' +
             '>' +
@@ -13,7 +18,7 @@ Vue.component('file', {
                 '@change="onChange" ' +
               '></md-control>' +
               '<span :class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
-              '<span>{{ file.title ? file.title : file.url }}</span>' +
+              '<span :data-url="file.url">{{ file.title ? file.title : file_name }}</span>' +
               '<div class="md-list_description" v-if="file.description">{{ file.description }}</div>' +
             '</label>',
   methods: {
