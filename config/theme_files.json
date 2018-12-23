@@ -86,6 +86,16 @@
     "checked": true
   },
   {
+    "url": "tests/profile-content-new.sass",
+    "checked": false,
+    "description": "Отображение времени за аниме и мангой."
+  },
+  {
+    "url": "tests/profile-achievements.sass",
+    "checked": false,
+    "description": "Маленький блок достижений."
+  },
+  {
     "url": "profile-history_animation.sass",
     "checked": false,
     "description": "Для тех, у кого не отображаются полосы аниме и манги в профиле."
@@ -95,6 +105,11 @@
     "checked": true,
     "disabled": true,
     "description": "Этот файл зависит от настройки \"Вид профиля\"."
+  },
+  {
+    "url": "tests/b-achievements.sass",
+    "checked": false,
+    "description": "Строгие тёмные уведомления вместо цветных."
   },
   {
     "url": "tests/b-input.sass",
