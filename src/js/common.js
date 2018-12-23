@@ -23,7 +23,7 @@ Vue.component('file', {
             '</label>',
   methods: {
     onChange: function () {
-      if (this.file.cat) this.$emit('change', this.file.cat, this.index);
+      this.$emit('change', this.file.cat, this.index);
     },
   },
 });
@@ -205,6 +205,7 @@ var vm = new Vue({
       }
 
       this.saveLocal('selected_layout', this.user.selected_layout);
+      this.saveSelectedFiles();
     },
   },
   methods: {
@@ -258,6 +259,7 @@ var vm = new Vue({
           if (this.file_list[i]['cat'] == name && i !== value) this.file_list[i]['checked'] = false;
         }
       }
+      this.saveSelectedFiles();
     },
     checkImage: function (e) {
       var img, type, image;
@@ -286,7 +288,6 @@ var vm = new Vue({
       this.status.isCreating = true;
       this.status.isNotify = true;
 
-      this.saveSelectedFiles();
 
 
       var sass_setting = '';
