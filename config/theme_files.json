@@ -107,6 +107,10 @@
     "description": "Этот файл зависит от настройки \"Вид профиля\"."
   },
   {
+    "url": "achievements.sass",
+    "checked": true
+  },
+  {
     "url": "tests/b-achievements.sass",
     "checked": false,
     "description": "Строгие тёмные уведомления вместо цветных."
