@@ -26,3 +26,11 @@
 
   &:hover::after
     transform: translateX(0)
+
+%md-tooltip-top
+  &::after
+    bottom: 100%
+    transform: translate3d(-50%, .75rem, 0)
+
+  &:hover::after
+    transform: translate3d(-50%, 0, 0)
