@@ -137,7 +137,7 @@
 
 .p-achievements-index .c-franchises .b-badge::before
   padding-right: 48px
-  background-image: linear-gradient(transparent, rgba(0,0,0,.32))
+  background: linear-gradient(transparent, rgba(0,0,0,.32))
   text-align: left
 
 .p-achievements-index .c-franchises .b-badge::after
@@ -185,3 +185,10 @@
 
   &[original-title]::after
     content: attr(original-title)
+
+// Фикс вылезающих за пределы страницы тултипов
+@media screen and (max-width: 767px)
+  .p-achievements-index .cc-franchises-genres .c-franchises
+    padding: 0 16px
+    margin: 0 -16px
+    overflow: hidden
