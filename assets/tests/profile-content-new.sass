@@ -118,20 +118,24 @@ $color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary,
 .profile-content .lifetime
   margin-bottom: 16px
 
-.profile-content .lifetime .bar .first
-  background: linear-gradient(90deg, $color-primary 75%, $color-primary-hover 100%)
-  box-shadow: 0 0 5px 1px rgba(0,0,0,.5)
-  border-radius: 0 8px 8px 0
-
-.profile-content .lifetime .bar .third
-  display: none
-
 .profile-content .lifetime .bar
   height: 8px
   border-radius: 8px
   background-color: $color-border
 
+.profile-content .lifetime .bar .first
+  background: $color-primary
+  border-radius: 0 8px 8px 0
+  opacity: 1
+
+.profile-content .lifetime .bar .third
+  display: none
+
+.profile-content .lifetime .cuts
+  position: static
+
 .profile-content .lifetime .cuts .cut
+  bottom: 0
   margin: 0 -4px
   border-width: 4px
 
