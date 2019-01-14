@@ -4204,18 +4204,11 @@ pre
 .b-log_entry.b-ban
   padding-right: 0 !important
 
-.b-ban .moderator
-  float: right
-  position: static
-  margin: 0 0 0 .5rem
-
 .b-abuse_request .remove,
 .b-log_entry span,
 .b-log_entry .date 
   padding-right: .5rem
 
-.b-ban .abuser,
-.b-ban .duration,
 .b-log_entry .date,
 .b-log_entry>.reason
   vertical-align: top
@@ -4272,7 +4265,75 @@ pre
   .b-log_entry .spoiler.collapsed:before
     padding: .125rem 0
     line-height: 1.25rem
- 
+
+
+.b-ban
+  padding: .125rem 0
+  font-size: .875rem
+  line-height: 1.25rem
+
+  a,
+  .link
+    color: $color-link
+
+    &:hover
+      color: $color-link-hover
+
+      .id-label
+        color: inherit
+
+    &:active
+      color: $color-link-active
+
+  & > span
+    padding-right: .5rem
+
+  .abuser
+    vertical-align: top
+    color: $color-link
+    font-size: inherit
+
+    &::before,
+    &::after
+      color: $color-text-disabled
+
+    &:hover
+      color: $color-link-hover
+
+    &:active
+      color: $color-link-active
+
+  .comment-hash
+    color: $color-text-disabled
+
+    &:hover
+      color: $color-link-hover
+
+    &:active
+      color: $color-link-active
+
+  .date
+    padding-right: .5rem
+    color: $color-text-hint
+    font-size: inherit
+
+  .duration
+    color: $color-text-hint
+    font-size: inherit
+
+  .id-label
+    color: $color-text-disabled
+
+  .moderator
+    float: right
+    position: static
+    margin: 0 0 0 .5rem
+
+    span
+      padding-left: .5rem
+
+
+
 
 /* FIX */
 .b-abuse_request .marker
