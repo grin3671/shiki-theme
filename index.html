@@ -14,8 +14,8 @@
       <header class="topbar">
         <input type="checkbox" id="topbar_menu">
         <div class="menubar">
-          <label for="topbar_menu" class="md-icon ic-menu"></label>
-          <h1 class="topbar-title">Сборщик</h1>
+          <label for="topbar_menu" class="md-icon ic-menu">
+          </label><h1 class="topbar-title">Сборщик</h1>
         </div>
         <label for="create_css" class="md-fab" v-bind:class="{ hidden: status.isFileLoading }">
           <span class="md-icon ic-done"></span>
@@ -247,13 +247,34 @@
             </span>
           </div>
           <div class="md-list_hidden theme-files">
-            <p class="text-hint">Здесь вы можете включить или исключить из сборки темы отдельные файлы. Смело меняйте шрифты (названия файлов начинаются на <code>font-</code>) и тестируйте новые функции (отмечены жёлтым тегом). Остальное – на свой страх и риск.</p>
+            <p class="text-hint">Здесь вы можете включить или исключить из сборки темы отдельные файлы. Смело меняйте шрифты (названия файлов начинаются на <code>font-</code>) и тестируйте новые функции. Остальное – на свой страх и риск.</p>
+
+            <h4>Категории</h4>
+            <div class="md-container">
+              <folder
+                foldername="modules"
+                :file_list="file_list"
+              >
+                <template slot="name">Модули Material Design 2014</template>
+                <template slot="info">shiki-theme/assets/modules/</template>
+              </folder>
+              <folder
+                foldername="tests"
+                :file_list="file_list"
+              >
+                <template slot="name">Для тестирования</template>
+                <template slot="info">shiki-theme/assets/tests/</template>
+              </folder>
+            </div>
+
+            <h4>Файлы</h4>
             <div class="md-container">
               <file v-for="(file, index) in file_list"
+                v-if="file.url.substring(0, file.url.lastIndexOf('/')) != 'tests' &&
+                      file.url.substring(0, file.url.lastIndexOf('/')) != 'modules'"
                 :file="file"
                 :index="index"
                 :key="index"
-                @change="changeFiles"
               ></file>
             </div>
           </div>
@@ -575,6 +596,10 @@
         </div>
       </section>
 
+
+
+      <footer class="copyright">shiki-theme</footer>
+
       <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }">
         <span></span>{{ text.notify_message }}
       </div>
@@ -584,7 +609,7 @@
     </div>
 
     <script src="./vendor/sass.js/sass.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.min.js"></script>
     <script src="./src/js/common.js"></script>
   </body>
 </html>

@@ -254,6 +254,10 @@ p:last-child {
 }
 .ic-collapse::before {
   content: 'expand_more';
+  transition: .12s ease-in-out;
+}
+.ic-collapse.active::before {
+  transform: rotate(180deg);
 }
 .ic-user::before {
   content: 'person';
@@ -294,6 +298,12 @@ p:last-child {
 .ic-file::before {
   content: 'attach_file';
 }
+.ic-folder::before {
+  content: 'folder';
+}
+.ic-folder.active::before {
+  content: 'folder_open';
+}
 
 
 
@@ -320,6 +330,12 @@ p:last-child {
   content: '';
   display: block;
   clear: both;
+}
+@media (max-width: 599px) {
+  .md-list {
+    padding: .75em 1em;
+    margin: 0 -1em;
+  }
 }
 
 .md-list .md-list_title {
@@ -413,6 +429,118 @@ input:focus + .md-list .md-list_control::after {
 }
 input:checked + .md-list + .md-list_hidden {
   display: block;
+}
+
+
+
+
+
+.md-area {
+  position: relative;
+}
+.md-area:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 3.5em;
+  right: -1.5em;
+  border-bottom: 1px solid #ddd;
+}
+@media (max-width: 599px) {
+  .md-area:not(:last-child)::after {
+    right: -1em;
+  }
+}
+
+
+.md-area > .md-container {
+  padding: .5em 0;
+  margin: 0;
+}
+.md-area.collapsed > .md-container {
+  display: none;
+}
+
+
+
+.md-list.flex {
+  display: flex;
+}
+.md-list.flex .md-list_title--twoline {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.md-list.flex .md-list_title--twoline + .md-icon {
+  order: -1;
+  padding: .5em;
+  margin: .25em 1.5em .25em -.5em;
+}
+.md-list.flex .md-list_title--twoline ~ .md-list_control {
+  padding: .75em;
+  margin: 0 -.25em 0 auto;
+}
+
+
+/* Vue Component Folder */
+.v-folder > .md-list {
+  cursor: pointer;
+  user-select: none;
+}
+.v-folder > .md-list:hover {
+  background: #eee;
+}
+.v-folder > .md-list .md-icon:not(.md-list_control) {
+  color: #757575;
+}
+.v-folder.expanded .md-list > .md-icon:not(.md-list_control),
+.v-folder .md-list:hover > .md-icon:not(.md-list_control) {
+  color: #009688;
+}
+.v-folder .md-list > .md-list_title--twoline > :last-child {
+  color: #757575;
+  font-size: .875em;
+  line-height: 1rem;
+}
+
+
+
+
+
+form.md-container > .md-list {
+  display: flex;
+}
+
+form.md-container > .md-list > .md-list_title {
+  min-width: 200px;
+  margin-right: 2.5em;
+  color: #757575;
+  line-height: 1;
+}
+
+form.md-container > .md-list > .md-list_title .md-icon {
+  padding: .5em;
+  margin: 0 1.5em 0 -.5em;
+  line-height: 1;
+}
+
+form.md-container > .md-list > .md-list_content {
+  width: 100%;
+}
+
+form.md-container > .md-list > .md-list_control {
+  order: 1;
+}
+
+@media (max-width: 999px) {
+  form.md-container > .md-list {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  form.md-container > .md-list > .md-list_content {
+    width: auto;
+    order: 1;
+  }
 }
 
 
@@ -627,7 +755,7 @@ input:checked + .md-list + .md-list_hidden {
   cursor: pointer;
 }
 
-.md-control:last-child {
+.md-control:not(.v-file):last-child {
   margin: 0;
 }
 
@@ -771,33 +899,70 @@ input[type=color]:::-moz-color-swatch {
 
 
 
-.md-list.md-control {
+
+
+
+
+/* Vue Component File */
+.v-file {
   display: block;
-  padding: 0 1em 0 .375em;
+  position: relative;
+  padding: .25em 1em .25em .375em;
   margin: 0 -1em;
 }
 
-.md-list.md-control:not(.disabled):hover {
+@media (min-width: 960px) {
+  .v-file {
+    padding: .25em 1.5em .25em .875em;
+    margin: 0 -1.5em;
+  }
+}
+
+.v-file:not(.disabled):hover {
   background: #eee;
 }
 
-.md-list.md-control .md-list_description {
+.v-file.disabled {
+  cursor: default;
+}
+
+.v-file:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 4.5em;
+  right: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (min-width: 960px) {
+  .v-file:not(:last-child)::after {
+    left: 5em;
+  }
+}
+
+.v-file .md-checkbox + span,
+.v-file .md-radio + span {
+  margin-left: 1.25em;
+}
+
+@media (min-width: 960px) {
+  .v-file .md-checkbox + span,
+  .v-file .md-radio + span {
+    margin-left: 1em;
+  }
+}
+
+.v-file .md-list_description {
   padding: 0 0 .25em 0;
-  margin: 0 0 0 3.25em;
+  margin: 0 0 0 4.75em;
   font-size: .875em;
   line-height: 1.25em;
 }
 
-@media (min-width: 960px) {
-  .md-list.md-control {
-    padding: 0 1.5em 0 .875em;
-    margin: 0 -1.5em;
-  }
 
-  .md-list.md-control .md-list_description {
-    margin: 0 0 0 3.5em;
-  }
-}
+
+
 
 .md-list_control[type=text] {
   width: 4.5em;
@@ -828,11 +993,11 @@ input[type=color]:::-moz-color-swatch {
   font-weight: 500;
 }
 
-[data-url ^= 'tests/']::after {
+/*[data-url ^= 'tests/']::after {
   content: 'Тестовая версия';
   background: #ffd642;
   color: #8a6c00;
-}
+}*/
 
 
 
@@ -1124,6 +1289,12 @@ img {
 
 
 
+.copyright {
+  padding: .75em 1em;
+  color: #757575;
+}
+
+
 
 
 
@@ -1155,7 +1326,7 @@ img {
   .topbar .topbar-title {
     display: inline-block;
     vertical-align: middle;
-    padding: 0 .5em;
+    padding: 0 1em;
     font-size: 1.25em;
     line-height: 1;
   }
@@ -1208,9 +1379,5 @@ img {
   .content {
     padding: 4em 1em 0;
     box-shadow: none;
-  }
-  .md-list {
-    padding: .75em 1em;
-    margin: 0 -1em;
   }
 }

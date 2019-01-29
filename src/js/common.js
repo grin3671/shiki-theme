@@ -1,5 +1,44 @@
 'use strict';
 
+Vue.component('folder', {
+  props: ['foldername', 'file_list'],
+  data: function () {
+    return {
+      state: 0,
+    }
+  },
+  template: '<div class="v-folder md-area" :class="this.state ? \'expanded\' : \'collapsed\'">' +
+              '<div class="md-list flex"' +
+                ' @click="toggle"' +
+                ' :aria-expanded="this.state ? \'true\' : \'false\'"' +
+                '>' +
+                '<span class="md-list_title--twoline">' +
+                  '<span><slot name="name"></slot></span>' +
+                  '<span><slot name="info"></slot></span>' +
+                '</span>' +
+                '<span class="md-icon ic-folder"' +
+                  ' :class="this.state ? \'active\' : \'\'"' +
+                '></span>' +
+                '<span class="md-list_control md-icon ic-collapse"' +
+                  ' :class="this.state ? \'active\' : \'\'"' +
+                '></span>' +
+              '</div>' +
+              '<div class="md-container">' +
+                '<file v-for="(file, index) in file_list"' +
+                  ' v-if="foldername == file.url.substring(0, file.url.lastIndexOf(\'/\'))"' +
+                  ' :file="file"' +
+                  ' :index="index"' +
+                  ' :key="index"' +
+                '></file>' +
+              '</div>' +
+            '</div>',
+  methods: {
+    toggle: function () {
+      this.state = this.state ? 0 : 1;
+    },
+  },
+});
+
 Vue.component('file', {
   props: ['file', 'index'],
   computed: {
@@ -7,7 +46,7 @@ Vue.component('file', {
       return this.file.url.substring(this.file.url.lastIndexOf('/') + 1);
     },
   },
-  template: '<label class="md-list md-control" ' +
+  template: '<label class="v-file md-list md-control" ' +
               ':class="file.disabled ? \'disabled\' : \'\'" ' +
             '>' +
               '<md-control ' +
@@ -23,7 +62,7 @@ Vue.component('file', {
             '</label>',
   methods: {
     onChange: function () {
-      this.$emit('change', this.file.cat, this.index);
+      this.$root.changeFiles(this.file.cat, this.index);
     },
   },
 });
