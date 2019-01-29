@@ -1,0 +1,50 @@
+.p-anime_videos-index .c-videos .title
+  display: flex
+  font-size: 0
+  line-height: 0
+
+.p-anime_videos-index.x1000[data-locale] .c-videos .title:after
+  content: ''
+  clear: both
+
+.p-anime_videos-index .c-videos .video-variant-switcher:not(:first-child):after
+  content: ''
+  padding: 0
+
+.p-anime_videos-index .c-videos .video-variant-switcher
+  width: 100%
+  height: 2rem
+  float: none
+  text-align: center
+  text-transform: uppercase
+  margin: -.5rem 0
+  line-height: 2rem
+  border: 1px solid $color-primary
+  font-size: 12px
+  color: $color-text-hint
+  transition: .24s ease-out
+  user-select: none
+
+.p-anime_videos-index .c-videos .video-variant-switcher:not(:last-child)
+  border-right: 0
+
+.p-anime_videos-index .c-videos .video-variant-switcher:first-child
+  border-radius: 16px 0 0 16px
+
+.p-anime_videos-index .c-videos .video-variant-switcher:last-child
+  border-radius: 0 16px 16px 0
+
+.p-anime_videos-index .c-videos .video-variant-switcher:first-child:last-child
+  border-radius: 16px
+
+.p-anime_videos-index .c-videos .video-variant-switcher:hover
+  background: $color-area-hover
+  border-color: $color-primary
+  color: rgba($color-text-on-primary, .8)
+
+.p-anime_videos-index .c-videos .video-variant-switcher:active,
+.p-anime_videos-index .c-videos .video-variant-switcher.active,
+.p-anime_videos-index .c-videos .video-variant-switcher.active:hover
+  background: $color-primary
+  border-color: $color-primary
+  color: $color-text-on-primary

@@ -126,6 +126,11 @@
     "description": "Изменённыё вид превью видео."
   },
   {
+    "url": "tests/video-variant-switcher.sass",
+    "checked": false,
+    "description": "Переключатель dub/sub/raw на play.shikimori.org."
+  },
+  {
     "url": "tests/b-video_variant.sass",
     "checked": false,
     "description": "Выбор видео на play.shikimori.org."
