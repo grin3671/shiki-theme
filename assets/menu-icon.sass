@@ -1,6 +1,13 @@
 /**
  * Иконки в меню
  */
+.l-top_menu
+  .to-mobile-forum::before
+    content: 'forum'
+
+  .menu-userbox #sign_in::before
+    content: 'exit_to_app'
+
 .l-top_menu .menu-items
   & > .entry > a::before,
   & > a::before
@@ -12,25 +19,31 @@
   & > .entry.calendar > a::before,
   & > .entry.info > a::before
     display: inline-block !important
-  
+
   // Иконки
   & > .entry > a[href $= '/animes']::before
     content: 'ondemand_video'
+
+  & > .entry.calendar > a::before
+    content: 'today'
 
   & > .entry > a[href $= '/mangas']::before
     content: 'photo_album'
 
   & > .entry > a[href $= '/ranobe']::before
-    content: 'photo_album'
+    content: 'book'
 
   & > .entry > a[href $= '/contests']::before
     content: 'equalizer'
     transform: scale(-1, 1)
 
+  & > .entry > .contest::before
+    content: 'poll'
+
   & > .entry > a[href $= '/forum']::before
     content: 'forum'
 
-  & > .entry > a[href $= '/info']::before
+  & > .entry.info > a::before
     content: 'info'
 
   & > .entry > a[href $= '/for_right_holders']::before
@@ -39,10 +52,17 @@
   & > .entry > a[href = 'https://shikimori.org/']::before
     content: 'home'
 
-  & > a.entry[href $= '/sign_out']::before
+  & > .entry.sign_out::before
     content: 'open_in_new'
 
-  @media screen and (max-width: 1024px)
+  .submenu-toggler::before
+    content: 'arrow_drop_down'
+
+  .submenu-toggler.active::before
+    content: 'arrow_drop_down'
+    transform: rotate(180deg)
+
+  @media (max-width: 1024px)
     .submenu
       padding-left: 3.5em
 

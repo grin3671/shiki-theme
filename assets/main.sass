@@ -248,6 +248,10 @@ header.head h2 a.back,
 @media (max-width: 1024px)
   .l-page
     .menu-slide-outer
+      width: auto
+      padding: 0 16px
+      margin: 0 -16px
+
       .menu-slide-inner
         width: 100% !important
 
@@ -2726,22 +2730,14 @@ header.head,
   overflow-y: auto
   z-index: 3
 
-.b-dialog > .inner > aside.buttons > .main-controls > a:after,
-.b-dialog > .inner > aside.buttons > .main-controls > span:after,
-.b-dialog > .inner > aside.buttons > .delete-controls > span:after,
-.b-dialog > .inner > aside.buttons > .moderation-controls > span:after,
-.b-message > .inner > aside.buttons > .main-controls > a:after,
-.b-message > .inner > aside.buttons > .main-controls > span:after,
-.b-message > .inner > aside.buttons > .delete-controls > span:after,
-.b-message > .inner > aside.buttons > .moderation-controls > span:after,
-.b-comment > .inner > aside.buttons > .main-controls > a:after,
-.b-comment > .inner > aside.buttons > .main-controls > span:after,
-.b-comment > .inner > aside.buttons > .delete-controls > span:after,
-.b-comment > .inner > aside.buttons > .moderation-controls > span:after
+.buttons span[title]::after
   vertical-align: top
-  padding-left: 12px !important
-  font-size: 16px !important
+  padding-left: 12px
+  font-size: 16px
   line-height: 18px
+
+.item-mobile.selected
+  color: $color-text-secondary
 
 /* OPEN DIALOG BY CLICK */
 .b-dialog .to_dialog
@@ -3443,7 +3439,7 @@ pre
 .p-profiles .profile-head .c-brief header h1.aliases:after
   content: 'label'
 
-.p-profiles header.head .misc
+.p-profiles-show header.head .misc
   vertical-align: top
   padding: 0 1rem
   margin: 0
@@ -4519,29 +4515,6 @@ pre
   transition: 240ms
 
 .b-add_to_list.expanded .trigger-arrow:before
-  content: "arrow_drop_down"
-  transform: rotate(180deg)
-
-/* Иконки верхнего меню */
-.l-top_menu .menu-items > .entry.calendar > a:before
-  content: "today"
-
-.l-top_menu .menu-items > .entry > .contest:before
-  content: "poll"
-
-.l-top_menu .menu-items > .entry.info > a:before
-  content: "info"
-
-.l-top_menu .menu-userbox #sign_in:before
-  content: "exit_to_app"
-
-.l-top_menu .to-mobile-forum:before
-  content: "forum"
-
-.l-top_menu .menu-items .submenu-toggler:before
-  content: 'arrow_drop_down'
-
-.l-top_menu .menu-items .submenu-toggler.active:before
   content: "arrow_drop_down"
   transform: rotate(180deg)
 
@@ -5842,9 +5815,6 @@ header.head h2
 .p-anime_videos-index .c-videos .video-variant-switcher,
 .p-anime_videos-index .c-video_stats
   font-size: .875rem
-
-.p-anime_videos-index .c-videos .video-variant-switcher:hover
-  border: 0
 
 .b-video_player .cc-player_controls .c-control:hover
   text-decoration: none
