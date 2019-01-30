@@ -1,0 +1,41 @@
+.b-to-top
+  .slide::before
+    width: 56px
+    background: $color-area-normal
+
+    &:hover + .arrow::before
+      color: $color-text-secondary
+
+  .arrow
+    top: auto
+    bottom: 4px
+    width: 48px
+    height: 48px
+    padding: .75em
+    margin: 0 4px
+    border-radius: 50%
+    font: inherit
+    pointer-events: none
+
+    &::before
+      content: 'arrow_upward'
+      color: $color-text-hint
+      font-family: 'Material Icons'
+      font-size: 24px
+      line-height: 1
+      text-shadow: none
+
+      letter-spacing: normal
+      text-transform: none
+      word-wrap: normal
+      white-space: nowrap
+      direction: ltr
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale
+      /* Support for IE. */
+      font-feature-settings: 'liga'

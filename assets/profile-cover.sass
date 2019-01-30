@@ -1,0 +1,145 @@
+/**
+ * PROFILE COVER
+ */
+.p-profiles .profile-head
+  .c-brief
+    @media (min-width: 480px)
+      min-height: 16rem
+      margin-bottom: 1rem
+
+    @media (min-width: 600px)
+      min-height: 19rem
+
+    @media (min-width: 960px)
+      min-height: 0
+
+  .c-info
+    @media (min-width: 600px)
+      margin-left: 0
+
+    @media (min-width: 768px)
+      margin-left: 0
+
+    @media (min-width: 960px)
+      margin-left: 13.5rem
+
+  &[data-user-id = "#{$id}"]
+    .c-brief
+      @media (min-width: 320px)
+        background-color: $color-background-dialog
+        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, .24)
+
+      @media (min-width: 600px)
+        max-height: 380px
+        padding-bottom: 112px
+        margin: -3rem -1rem 1rem
+        background-color: inherit
+        box-shadow: none
+
+      @media (min-width: 960px)
+        max-height: 520px
+        margin: -4.5rem -1.5rem 0
+
+      // Обложка
+      &::before
+        @media (min-width: 320px)
+          content: ''
+          display: block
+          height: 0
+          padding-bottom: 56.25%
+          background-repeat: no-repeat
+          background-size: cover
+
+        @media (min-width: 600px)
+          height: 268px
+          max-height: inherit
+          padding-bottom: 0
+
+        @media (min-width: 960px)
+          height: 408px
+
+      .avatar
+        @media (min-width: 320px) and (max-width: 599px)
+          margin-top: -80px
+
+        @media (min-width: 600px)
+          position: absolute
+          top: auto
+          right: auto
+          bottom: 0
+          left: 0
+          max-width: 160px
+          margin: 1.5rem 1rem
+          z-index: 2
+
+        @media (min-width: 960px)
+          margin: 1.5rem 2rem
+
+        img
+          @media (min-width: 600px)
+            box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16)
+
+      header
+        @media (min-width: 960px)
+          padding: 1rem calc(23% + 4.5rem) 1rem .5rem
+
+    .c-info
+      @media (min-width: 960px)
+        width: 77%
+        padding-right: 2.5rem
+        padding-left: 1rem
+        margin-left: -1rem
+
+    .c-history
+      @media (min-width: 960px)
+        float: none
+        position: absolute
+        right: 0
+        top: 520px
+        width: 23%
+        padding: .5rem 0
+        margin: 0
+        margin-top: -112px
+        z-index: 3
+/* END of PROFILE COVER */
+
+/* Полупрозрачное меню в профиле */
+@media (min-width: 960px)
+  #profiles_show
+    .l-top_menu
+      max-width: 1200px
+      margin: auto
+      background-color: transparent
+      background-image: linear-gradient($color-header-background, transparent)
+      box-shadow: none
+      z-index: 11
+
+      &:hover ~ .b-to-top::before
+        opacity: 1
+
+    &.x1000 .l-top_menu
+      max-width: 1000px
+
+    .b-to-top
+      &::before
+        content: ''
+        display: block
+        position: fixed
+        top: 0
+        right: 0
+        left: 0
+        height: 56px
+        background: $color-header-background
+        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.24)
+        z-index: 1
+        opacity: 0
+        visibility: visible
+        pointer-events: none
+        transition: opacity .25s ease
+
+      &.active::before
+        opacity: 1
+/* END of Полупрозрачное меню в профиле */
+/**/
+/**/
+/**/

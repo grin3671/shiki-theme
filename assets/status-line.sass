@@ -1,0 +1,50 @@
+.b-topic-minified .b-status-line
+  margin: -4px 0 8px
+
+.b-status-line
+  margin-bottom: 12px
+  font-size: .875em
+  line-height: 20px
+
+  .section
+    vertical-align: top
+    padding-left: 8px
+    margin-left: 8px
+    border-color: $color-border
+
+    &.about .author
+      padding-left: 8px
+
+    &.additional .b-review_votes
+      margin-left: 16px
+
+    &.additional .collection-size
+      vertical-align: top
+      margin-right: 16px
+      color: inherit
+
+.b-status-line .section.created_at time::before,
+.b-status-line .section.changed_at time::before,
+.b-status-line .section.additional .collection-size::before,
+.b-status-line .section.additional .comments::before,
+.b-status-line .section.additional .b-review_votes::before
+  vertical-align: top
+  width: 20px
+  padding-right: 8px
+  color: $color-text-disabled
+  font-size: 20px
+
+.b-status-line .section.created_at time::before
+  content: 'create'
+
+.b-status-line .section.changed_at time::before
+  content: 'history'
+
+.b-status-line .section.additional .collection-size::before
+  content: 'widgets'
+
+.b-status-line .section.additional .comments::before
+  content: 'mode_comment'
+
+.b-status-line .section.additional .b-review_votes::before
+  content: 'thumbs_up_down'

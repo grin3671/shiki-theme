@@ -1,0 +1,152 @@
+[
+  {
+    "url": "version.sass",
+    "disabled": true,
+    "checked": true,
+    "title": "Информация о версии"
+  },
+  {
+    "url": "copyright.sass",
+    "disabled": true,
+    "checked": true,
+    "title": "Информация о теме"
+  },
+  {
+    "url": "font-arial.sass",
+    "cat": "font",
+    "checked": true
+  },
+  {
+    "url": "font-roboto.sass",
+    "cat": "font",
+    "checked": false
+  },
+  {
+    "url": "font-roboto_condensed.sass",
+    "cat": "font",
+    "checked": false
+  },
+  {
+    "url": "color.sass",
+    "checked": true
+  },
+  {
+    "url": "modules/material-icons.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "modules/md-icon.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "modules/md-tooltip.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "main.sass",
+    "checked": true
+  },
+  {
+    "url": "menu-classic.sass",
+    "checked": true
+  },
+  {
+    "url": "menu-icon.sass",
+    "checked": true
+  },
+  {
+    "url": "b-to-top.sass",
+    "checked": true
+  },
+  {
+    "url": "rightbar.sass",
+    "checked": true
+  },
+  {
+    "url": "status-line.sass",
+    "checked": true
+  },
+  {
+    "url": "dashboard-layout.sass",
+    "checked": true
+  },
+  {
+    "url": "users-list.sass",
+    "checked": true
+  },
+  {
+    "url": "profile-head.sass",
+    "checked": true
+  },
+  {
+    "url": "profile-content.sass",
+    "checked": true
+  },
+  {
+    "url": "tests/profile-content-new.sass",
+    "checked": false,
+    "description": "Отображение времени за аниме и мангой."
+  },
+  {
+    "url": "tests/profile-achievements.sass",
+    "checked": false,
+    "description": "Маленький блок достижений."
+  },
+  {
+    "url": "profile-history_animation.sass",
+    "checked": false,
+    "description": "Для тех, у кого не отображаются полосы аниме и манги в профиле."
+  },
+  {
+    "url": "profile-cover.sass",
+    "checked": true,
+    "disabled": true,
+    "description": "Этот файл зависит от настройки \"Вид профиля\"."
+  },
+  {
+    "url": "achievements.sass",
+    "checked": true
+  },
+  {
+    "url": "tests/b-achievements.sass",
+    "checked": false,
+    "description": "Строгие тёмные уведомления вместо цветных."
+  },
+  {
+    "url": "tests/b-input.sass",
+    "checked": false,
+    "description": "Более \"материальные\" поля ввода."
+  },
+  {
+    "url": "tests/b-video.sass",
+    "checked": false,
+    "description": "Изменённыё вид превью видео."
+  },
+  {
+    "url": "tests/video-variant-switcher.sass",
+    "checked": false,
+    "description": "Переключатель dub/sub/raw на play.shikimori.org."
+  },
+  {
+    "url": "tests/b-video_variant.sass",
+    "checked": false,
+    "description": "Выбор видео на play.shikimori.org."
+  },
+  {
+    "url": "tests/p-messages-menu.sass",
+    "checked": false,
+    "description": "Закреплённые табы в почте."
+  },
+  {
+    "url": "tests/p-profiles-favorites.sass",
+    "checked": false,
+    "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
+  },
+  {
+    "url": "user-settings.sass",
+    "checked": true
+  }
+]
