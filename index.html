@@ -62,13 +62,13 @@
             <label for="user_id" class="md-list_title inactive required">
               <span class="md-icon ic-user"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
             </label>
-            <span class="md-list_content">
+            <div class="md-list_content">
               <div class="md-input fullwidth">
                 <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" required aria-describedby="hint_cover_url" placeholder="8764532">
                 <div class="md-divider"></div>
                 <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.org">shikimori.org</a></span>
               </div>
-            </span>
+            </div>
           </div>
 
 
@@ -76,14 +76,14 @@
             <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
               <span class="md-icon ic-image"></span>Обложка профиля
             </label>
-            <span class="md-list_content">
+            <div class="md-list_content">
               <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
                 <input type="text" id="user_cover" name="cover" @change="checkImage" v-model="user.user_cover" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
                 <div class="md-divider"></div>
                 <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
                 <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
               </div>
-            </span>
+            </div>
           </div>
 
 
@@ -91,14 +91,14 @@
             <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
               <span class="md-icon ic-wallpaper"></span>Фон сайта
             </label>
-            <span class="md-list_content">
+            <div class="md-list_content">
               <div class="md-input fullwidth" :class="{ error: errors.user_background }">
                 <input type="text" id="user_background" name="background" @change="checkImage" v-model="user.user_background" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
                 <div class="md-divider"></div>
                 <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
                 <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
               </div>
-            </span>
+            </div>
           </div>
 
 
@@ -249,7 +249,7 @@
           <div class="md-list_hidden theme-files">
             <p class="text-hint">Здесь вы можете включить или исключить из сборки темы отдельные файлы. Смело меняйте шрифты (названия файлов начинаются на <code>font-</code>) и тестируйте новые функции. Остальное – на свой страх и риск.</p>
 
-            <h4>Категории</h4>
+            <h6>Категории</h6>
             <div class="md-container">
               <folder
                 foldername="modules"
@@ -267,7 +267,7 @@
               </folder>
             </div>
 
-            <h4>Файлы</h4>
+            <h6>Основные файлы</h6>
             <div class="md-container">
               <file v-for="(file, index) in file_list"
                 v-if="file.url.substring(0, file.url.lastIndexOf('/')) != 'tests' &&

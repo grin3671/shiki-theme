@@ -7,11 +7,8 @@ Vue.component('folder', {
       state: 0,
     }
   },
-  template: '<div class="v-folder md-area" :class="this.state ? \'expanded\' : \'collapsed\'">' +
-              '<div class="md-list flex"' +
-                ' @click="toggle"' +
-                ' :aria-expanded="this.state ? \'true\' : \'false\'"' +
-                '>' +
+  template: '<div class="v-folder md-area">' +
+              '<label class="md-list flex">' +
                 '<span class="md-list_title--twoline">' +
                   '<span><slot name="name"></slot></span>' +
                   '<span><slot name="info"></slot></span>' +
@@ -19,11 +16,14 @@ Vue.component('folder', {
                 '<span class="md-icon ic-folder"' +
                   ' :class="this.state ? \'active\' : \'\'"' +
                 '></span>' +
-                '<span class="md-list_control md-icon ic-collapse"' +
+                '<span class="md-list_control"' +
                   ' :class="this.state ? \'active\' : \'\'"' +
-                '></span>' +
-              '</div>' +
-              '<div class="md-container">' +
+                '>' +
+                  '<input type="checkbox" @change="toggle">' +
+                  '<span class="md-icon ic-collapse"></span>' +
+                '</span>' +
+              '</label>' +
+              '<div role="group" :aria-expanded="this.state ? \'true\' : \'false\'">' +
                 '<file v-for="(file, index) in file_list"' +
                   ' v-if="foldername == file.url.substring(0, file.url.lastIndexOf(\'/\'))"' +
                   ' :file="file"' +
@@ -58,7 +58,7 @@ Vue.component('file', {
               '></md-control>' +
               '<span :class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
               '<span :data-url="file.url">{{ file.title ? file.title : file_name }}</span>' +
-              '<div class="md-list_description" v-if="file.description">{{ file.description }}</div>' +
+              '<span class="md-list_description" v-if="file.description">{{ file.description }}</span>' +
             '</label>',
   methods: {
     onChange: function () {

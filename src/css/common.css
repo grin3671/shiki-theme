@@ -52,6 +52,13 @@ h4 {
   text-transform: uppercase;
 }
 
+h6 {
+  margin: 1.5rem 0 .5rem 3.5rem;
+  color: #747474;
+  font-size: .875em;
+  font-weight: normal;
+}
+
 code {
   padding: .0625em .375em;
   margin: 0;
@@ -74,6 +81,10 @@ p {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+[aria-expanded='false'] {
+  display: none;
 }
 
 
@@ -256,9 +267,6 @@ p:last-child {
   content: 'expand_more';
   transition: .12s ease-in-out;
 }
-.ic-collapse.active::before {
-  transform: rotate(180deg);
-}
 .ic-user::before {
   content: 'person';
 }
@@ -316,7 +324,8 @@ p:last-child {
   margin: .5em 0;
 }
 
-.md-container > input {
+.md-container > input,
+.md-list_control input[type='checkbox'] {
   position: absolute;
   opacity: 0;
 }
@@ -388,9 +397,11 @@ p:last-child {
   float: right;
   padding: .5em;
 }
+.md-list_control > input:checked + .ic-collapse::before,
 input:checked + .md-list .md-list_control {
   transform: rotate(180deg);
 }
+.md-list_control > input:focus + .md-icon::after,
 input:focus + .md-list .md-list_control::after {
   transform: scale(1);
   opacity: .16;
@@ -450,15 +461,6 @@ input:checked + .md-list + .md-list_hidden {
   .md-area:not(:last-child)::after {
     right: -1em;
   }
-}
-
-
-.md-area > .md-container {
-  padding: .5em 0;
-  margin: 0;
-}
-.md-area.collapsed > .md-container {
-  display: none;
 }
 
 
