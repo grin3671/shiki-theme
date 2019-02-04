@@ -39,9 +39,9 @@
         <h2 class="display1">Настройка темы</h2>
         <p>Настройте тему, а затем нажмите желтую кнопку, чтобы начать сборку темы. Когда она будет завершена, вы сможете скопировать готовый код секцией ниже.</p>
         <form action="/" @submit.prevent="createTheme" class="md-container">
-          <div class="md-list">
+          <div class="md-list md-panel">
             <span class="md-list_title inactive" id="label_user_cover">
-              <span class="md-icon ic-flip"></span>Вид профиля
+              <span class="md-icon ic-flip" aria-hidden="true"></span>Вид профиля
             </span>
             <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_user_cover">
               <label class="md-control">
@@ -58,9 +58,9 @@
           </div>
 
 
-          <div class="md-list" v-if="user.selected_layout == 'cover'">
+          <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
             <label for="user_id" class="md-list_title inactive required">
-              <span class="md-icon ic-user"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
+              <span class="md-icon ic-user" aria-hidden="true"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
             </label>
             <div class="md-list_content">
               <div class="md-input fullwidth">
@@ -72,9 +72,9 @@
           </div>
 
 
-          <div class="md-list" v-if="user.selected_layout == 'cover'">
+          <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
             <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
-              <span class="md-icon ic-image"></span>Обложка профиля
+              <span class="md-icon ic-image" aria-hidden="true"></span>Обложка профиля
             </label>
             <div class="md-list_content">
               <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
@@ -87,9 +87,9 @@
           </div>
 
 
-          <div class="md-list">
+          <div class="md-list md-panel">
             <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
-              <span class="md-icon ic-wallpaper"></span>Фон сайта
+              <span class="md-icon ic-wallpaper" aria-hidden="true"></span>Фон сайта
             </label>
             <div class="md-list_content">
               <div class="md-input fullwidth" :class="{ error: errors.user_background }">
@@ -103,9 +103,9 @@
 
 
           <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
-          <div class="md-list collapsed">
+          <div class="md-list md-panel collapsed">
             <label for="color_settings" class="md-list_title inactive">
-              <span class="md-icon ic-pallete"></span>Цветовая палитра
+              <span class="md-icon ic-pallete" aria-hidden="true"></span>Цветовая палитра
             </label>
             <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
@@ -163,9 +163,9 @@
 
 
           <input type="checkbox" id="extra_settings" class="field-checkbox" name="extra">
-          <div class="md-list collapsed">
+          <div class="md-list md-panel collapsed">
             <label for="extra_settings" class="md-list_title inactive" id="label_color_scheme">
-              <span class="md-icon ic-scheme"></span>Цветовая схема
+              <span class="md-icon ic-scheme" aria-hidden="true"></span>Цветовая схема
             </label>
             <label for="extra_settings" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_color_scheme">
@@ -237,9 +237,9 @@
 
 
           <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
-          <div class="md-list collapsed">
+          <div class="md-list md-panel collapsed">
             <label for="theme_files" class="md-list_title inactive">
-              <span class="md-icon ic-build"></span>Файлы темы
+              <span class="md-icon ic-build" aria-hidden="true"></span>Файлы темы
             </label>
             <label for="theme_files" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
@@ -280,9 +280,9 @@
           </div>
 
 
-          <div class="md-list" v-if="support.file">
+          <div class="md-list md-panel" v-if="support.file">
             <label for="user_setting" class="md-list_title inactive">
-              <span class="md-icon ic-file"></span>Мои настройки
+              <span class="md-icon ic-file" aria-hidden="true"></span>Мои настройки
             </label>
             <span class="md-list_content">
               <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" v-on:change="readUserFile" accept=".sass, .scss, .css"></span>
@@ -376,7 +376,7 @@
 
         <div class="md-container">
           <input type="checkbox" id="sass_guideline" class="field-checkbox" name="sass">
-          <div class="md-list collapsed">
+          <div class="md-list md-panel collapsed">
             <label for="sass_guideline" class="md-list_title inactive">
               <span class="md-icon ic-code"></span>Переменные
             </label>

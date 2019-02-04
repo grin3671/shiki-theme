@@ -13,7 +13,7 @@ Vue.component('folder', {
                   '<span><slot name="name"></slot></span>' +
                   '<span><slot name="info"></slot></span>' +
                 '</span>' +
-                '<span class="md-icon ic-folder"' +
+                '<span class="md-icon ic-folder" aria-hidden="true"' +
                   ' :class="this.state ? \'active\' : \'\'"' +
                 '></span>' +
                 '<span class="md-list_control"' +

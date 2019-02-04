@@ -335,11 +335,6 @@ p:last-child {
   padding: .5em 1.5em;
   margin: 0 -1.5em;
 }
-.md-list::after {
-  content: '';
-  display: block;
-  clear: both;
-}
 @media (max-width: 599px) {
   .md-list {
     padding: .75em 1em;
@@ -347,41 +342,24 @@ p:last-child {
   }
 }
 
-.md-list .md-list_title {
-  display: inline-block;
-  margin-right: 1em;
-  line-height: 3em;
-}
-@media (min-width: 1000px) {
-  .md-list .md-list_title {
-    float: left;
-    min-width: 200px;
-  }
-}
-.md-list .md-list_title.inactive {
-  color: #757575;
-  line-height: 2.5em;
-}
-
 
 .md-list .md-list_title--twoline {
   display: block;
   padding: .25em 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .md-list_title--twoline > :first-child,
 .md-list_title--twoline > :last-child {
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
 }
 .md-list_title--twoline > :first-child {
-  color: #444;
-  font-weight: 500;
-  line-height: 1.5em;
+  line-height: 1.5;
 }
 .md-list_title--twoline > :last-child {
-  line-height: 1em;
+  line-height: 1;
 }
 .md-list_title--twoline + .md-list_description {
   padding: .5em 0;
@@ -389,16 +367,12 @@ p:last-child {
 }
 
 
-.md-list .md-list_title .md-icon {
-  margin-right: 1em;
-}
-
 .md-list .md-list_control {
   float: right;
   padding: .5em;
 }
 .md-list_control > input:checked + .ic-collapse::before,
-input:checked + .md-list .md-list_control {
+input:checked + .md-list .md-list_control::before {
   transform: rotate(180deg);
 }
 .md-list_control > input:focus + .md-icon::after,
@@ -406,22 +380,11 @@ input:focus + .md-list .md-list_control::after {
   transform: scale(1);
   opacity: .16;
 }
-.md-list_control.ic-collapse {
+.md-list_control {
   cursor: pointer;
-  transition: .12s ease-in-out;
 }
 
-.md-list .md-list_content {
-  width: calc(100% - 200px - 1em);
-}
-@media (min-width: 1000px) {
-  .md-list .md-list_content {
-    float: left;
-  }
-}
-.md-list.collapsed .md-list_content {
-  width: calc(100% - 200px - 1em - 2.5em);
-}
+
 
 .md-list_content-placeholder {
   color: #747474;
@@ -468,11 +431,6 @@ input:checked + .md-list + .md-list_hidden {
 .md-list.flex {
   display: flex;
 }
-.md-list.flex .md-list_title--twoline {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
 .md-list.flex .md-list_title--twoline + .md-icon {
   order: -1;
   padding: .5em;
@@ -509,39 +467,42 @@ input:checked + .md-list + .md-list_hidden {
 
 
 
-form.md-container > .md-list {
+.md-panel {
   display: flex;
+  align-items: flex-start;
 }
 
-form.md-container > .md-list > .md-list_title {
+.md-panel > .md-list_title {
+  display: flex;
+  align-items: center;
   min-width: 200px;
-  margin-right: 2.5em;
+  margin-right: 2em;
   color: #757575;
-  line-height: 1;
 }
 
-form.md-container > .md-list > .md-list_title .md-icon {
+.md-panel > .md-list_title .md-icon {
   padding: .5em;
   margin: 0 1.5em 0 -.5em;
   line-height: 1;
 }
 
-form.md-container > .md-list > .md-list_content {
-  width: 100%;
+.md-panel > .md-list_content {
+  flex-grow: 1;
 }
 
-form.md-container > .md-list > .md-list_control {
+.md-panel > .md-list_control {
   order: 1;
+  margin-left: auto;
 }
 
-@media (max-width: 999px) {
-  form.md-container > .md-list {
+@media (max-width: 719px) {
+  .md-panel {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  form.md-container > .md-list > .md-list_content {
-    width: auto;
+  .md-panel > .md-list_content {
     order: 1;
+    width: 100%;
   }
 }
 
@@ -1030,11 +991,11 @@ img {
   display: inline-block;
   vertical-align: baseline;
   width: 1.25em;
-  margin-left: .25em;
+  margin-left: .75em;
   background: #DDDDDD;
   border-radius: 50%;
   color: #757575;
-  line-height: 1.25em;
+  line-height: 1.25;
   text-align: center;
   text-decoration: none;
   opacity: .8;
@@ -1365,15 +1326,6 @@ img {
     max-width: 100%;
     padding: 4em 1.5em;
     margin: auto;
-  }
-
-  .md-list .md-list_content {
-    clear: both;
-  }
-  .md-list .md-list_content,
-  .md-list.collapsed .md-list_content {
-    display: block;
-    width: auto;
   }
 }
 
