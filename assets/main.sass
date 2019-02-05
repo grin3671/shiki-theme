@@ -2487,8 +2487,8 @@ header.head,
   line-height: 20px
 
 .yellow-fade
-  background: rgba(249, 247, 19, 0.16)
-  outline-color: rgba(249, 247, 19, 0.16)
+  background: rgba($color-accent, 0.16)
+  outline-color: rgba($color-accent, 0.16)
 
 .b-replies
   padding: 8px 0 0
@@ -4832,65 +4832,33 @@ header.head h2
   to
     -webkit-transform: rotate(1080deg)
     transform: rotate(1080deg)
- 
 
 @keyframes spin
   to
     -webkit-transform: rotate(1080deg)
     transform: rotate(1080deg)
- 
 
 @-webkit-keyframes shape-shift-before
   to
     -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
     transform: skewX(-45deg) translate(.875em, -.875em)
- 
 
 @keyframes shape-shift-before
   to
     -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
     transform: skewX(-45deg) translate(.875em, -.875em)
- 
 
 @-webkit-keyframes shape-shift-after
   to
     -webkit-transform: skewX(45deg) translate(.875em, .875em)
     transform: skewX(45deg) translate(.875em, .875em)
- 
 
 @keyframes shape-shift-after
   to
     -webkit-transform: skewX(45deg) translate(.875em, .875em)
     transform: skewX(45deg) translate(.875em, .875em)
- 
 
-/* Всплывающие окна */
-.b-catalog_entry-tooltip .inner a.name
-  font-size: .875rem
 
-.b-catalog_entry-tooltip .inner .text
-  font-size: .8125rem
-  line-height: 1.25rem
-  margin-bottom: .5rem
-
-.b-catalog_entry-tooltip .inner .line
-  font-size: .8125rem
-  line-height: 1.5rem
-
-.b-catalog_entry-tooltip .inner .line.name
-  line-height: 1.5rem
-  margin-bottom: 0
-
-.b-catalog_entry-tooltip .inner .rating
-  bottom: 0
-  font-family: inherit
-  font-size: 1.5rem
-  line-height: 1
-
-.b-catalog_entry-tooltip .inner .rating .text
-  margin: .5rem .5rem 0
-  font-size: .75rem
-  line-height: 1rem
 
 /**
  * .b-shiki_editor
@@ -4903,7 +4871,6 @@ header.head h2
   margin: 0
   background: transparent
   border: 0
-
 
 // Кнопки BBCode
 .b-shiki_editor aside.buttons
