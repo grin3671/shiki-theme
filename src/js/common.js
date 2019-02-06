@@ -552,10 +552,11 @@ var vm = new Vue({
       }
 
       // Загрузка списка файлов
-      switchDisabled(document.getElementById('create_css'));
       this.status.isFileLoading = true;
       this.text.fileLoading = 'Загрузка списка файлов…';
       loadConfig(function (branch) {
+        switchDisabled(document.getElementById('create_css'));
+
         // Открытие нового экземпляра sass.js
         instances[branch].sass = new Sass();
         instances[branch].sass.options({
@@ -712,6 +713,7 @@ var vm = new Vue({
 
 
     // Загрузка файлов
+    switchDisabled(document.getElementById('create_css'));
     this.switchBranches(window.location.hostname == 'grin3671.github.io' ? 'master' : 'dev');
   },
 });
