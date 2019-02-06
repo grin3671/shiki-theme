@@ -103,7 +103,7 @@
 
 
           <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
-          <div class="md-list md-panel collapsed">
+          <div class="md-list md-panel">
             <label for="color_settings" class="md-list_title inactive">
               <span class="md-icon ic-pallete" aria-hidden="true"></span>Цветовая палитра
             </label>
@@ -159,11 +159,13 @@
                 :index="'color_header_background'"
               ></color-variable>
             </div>
+
+            <hr class="md-divider">
           </div>
 
 
           <input type="checkbox" id="extra_settings" class="field-checkbox" name="extra">
-          <div class="md-list md-panel collapsed">
+          <div class="md-list md-panel">
             <label for="extra_settings" class="md-list_title inactive" id="label_color_scheme">
               <span class="md-icon ic-scheme" aria-hidden="true"></span>Цветовая схема
             </label>
@@ -233,11 +235,13 @@
                 :index="'color_text_disabled'"
               ></color-variable>
             </div>
+
+            <hr class="md-divider">
           </div>
 
 
           <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
-          <div class="md-list md-panel collapsed">
+          <div class="md-list md-panel">
             <label for="theme_files" class="md-list_title inactive">
               <span class="md-icon ic-build" aria-hidden="true"></span>Файлы темы
             </label>
@@ -277,6 +281,8 @@
                 :key="index"
               ></file>
             </div>
+
+            <hr class="md-divider">
           </div>
 
 
@@ -376,13 +382,13 @@
 
         <div class="md-container">
           <input type="checkbox" id="sass_guideline" class="field-checkbox" name="sass">
-          <div class="md-list md-panel collapsed">
+          <div class="md-list md-panel">
             <label for="sass_guideline" class="md-list_title inactive">
               <span class="md-icon ic-code"></span>Переменные
             </label>
             <label for="sass_guideline" class="md-list_control md-icon ic-collapse"></label>
             <span class="md-list_content">
-              <span class="md-list_content-placeholder">Список переменных с описанием из работы</span>
+              <span class="md-list_content-placeholder">Список переменных с описанием их работы</span>
             </span>
           </div>
           <div class="md-list_hidden">

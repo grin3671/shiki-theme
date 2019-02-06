@@ -141,6 +141,8 @@ Vue.component('color-variable', {
             '</div>',
 });
 
+var instances = {};
+
 var vm = new Vue({
   el: '#page',
   data: {
@@ -151,7 +153,7 @@ var vm = new Vue({
     status: {
       isCompiled: false,
       isCreating: false,
-      isFileLoading: true,
+      isFileLoading: false,
       isNotify: false,
     },
     support: {
@@ -159,8 +161,8 @@ var vm = new Vue({
       file: false,
     },
     text: {
-      fileLoading: 'Идет загрузка файлов темы...',
-      notify_message: 'Идет создание темы...',
+      fileLoading: 'Загрузка файлов…',
+      notify_message: 'Создание темы…',
     },
     user: {
       user_id: null,
@@ -176,6 +178,7 @@ var vm = new Vue({
       hasPallete: false,
       hasScheme: false,
       hasFile: false,
+      selected_branch: 'master',
     },
     scheme: {
       // NOTE: Порядок соответствует color_scheme
@@ -211,6 +214,9 @@ var vm = new Vue({
     color_pallete: {},
     color_scheme: {},
     variables: {},
+    theme: {
+      branches: ['master'],
+    },
   },
   watch: {
     "scheme.color_primary": function () {
@@ -369,11 +375,9 @@ var vm = new Vue({
 
 
 
-      scss.writeFile('base.sass', sass_setting + baseImport);
-
-
-
-      scss.compile('@import "base";', function(result) {
+      var theme_sass = instances[this.user.selected_branch].sass;
+      theme_sass.writeFile('base.sass', sass_setting + baseImport);
+      theme_sass.compile('@import "base";', function(result) {
         console.log("compiled", result);
         if (result.status === 0) {
           vm.status.isCompiled = true;
@@ -529,6 +533,121 @@ var vm = new Vue({
 
       this.loadColorSet('scheme', this.user.selected_scheme);
     },
+    loadThemeFiles: function (branch) {
+      if (instances.hasOwnProperty(branch)) {
+        if (instances[branch].loaded) return true;
+      } else {
+        // Сохранение настроек ветки
+        instances[branch] = {};
+        instances[branch].loaded = false;
+        instances[branch].title = branch == 'master' ? 'stable' : branch;
+      };
+
+      // Определение пути загрузки файлов
+      var base;
+      if (branch == 'dev') {
+        base = '..'
+      } else {
+        base = 'https://raw.githubusercontent.com/grin3671/shiki-theme/' + branch;
+      }
+
+      // Загрузка списка файлов
+      switchDisabled(document.getElementById('create_css'));
+      this.status.isFileLoading = true;
+      this.text.fileLoading = 'Загрузка списка файлов…';
+      loadConfig(function (branch) {
+        // Открытие нового экземпляра sass.js
+        instances[branch].sass = new Sass();
+        instances[branch].sass.options({
+          style: Sass.style.expanded,
+          indentedSyntax: true,
+        });
+
+        // Загрузка файлов
+        console.log('Load files from /' + branch + '…');
+        var loaded = 0;
+        var sources = [];
+
+        instances[branch].filelist.forEach(function(file, i, list) {
+          vm.text.fileLoading = 'Загрузка файлов темы… ' + loaded + '/' + list.length;
+          // Загрузка файла
+          XHR(base + '/assets/' + file.url, function(source) {
+            sources[i] = source;
+            vm.text.fileLoading = 'Загрузка файлов темы… ' + ++loaded + '/' + list.length;
+
+            if (loaded == list.length) {
+              instances[branch].loaded = true;
+              vm.text.fileLoading = 'Регистрация файлов';
+              writeFiles(branch, sources);
+            }
+          });
+        });
+      });
+
+      function loadConfig (callback) {
+        switch (branch) {
+          case 'dev':
+            XHR(base + '/config/theme_files.json', function(files) {
+              vm.theme.branches.push(branch);
+              instances[branch].filelist = JSON.parse(files);
+              callback(branch);
+            }, function (error) {
+              console.error('Local config not found!');
+              // Load from web
+              vm.loadThemeFiles('master');
+            });
+            break;
+          default:
+            XHR(base + '/config/theme_files.json', function(files) {
+              instances[branch].filelist = JSON.parse(files);
+              callback(branch);
+            });
+            break;
+        }
+      }
+
+      function writeFiles (branch, sources) {
+        var files = {};
+
+        // Save files order
+        for (var i = 0; i < sources.length; i++) {
+          files[instances[branch].filelist[i].url] = sources[i];
+        }
+
+        // Register multiple files
+        instances[branch].sass.writeFile(files, function callback(result) {
+          if (result) {
+            vm.switchBranches(branch);
+            vm.text.fileLoading = 'Готово!';
+            vm.status.isFileLoading = false;
+            vm.updateSelectedFiles();
+            switchDisabled(document.getElementById('create_css'));
+          }
+        });
+      }
+    },
+    loadThemeBranches: function (event) {
+      if (this.theme.branches.includes('gh-pages')) return;
+
+      event.target.setAttribute('disabled', 'disabled');
+
+      // Загрузка списка веток
+      XHR('https://api.github.com/repos/grin3671/shiki-theme/branches', function(list) {
+        var branches = JSON.parse(list);
+
+        for (var i = 0; i < branches.length; i++) {
+          if (branches[i].name != 'master') {
+            vm.theme.branches.push(branches[i].name);
+          }
+        }
+      });
+    },
+    switchBranches: function (branch) {
+      if (this.loadThemeFiles(branch)) {
+        this.file_list = instances[branch].filelist;
+        this.user.selected_branch = branch;
+      }
+    },
     saveSelectedFiles: function () {
       this.saveLocal('selected_files', JSON.stringify(this.getFilelist('object')));
     },
@@ -572,12 +691,6 @@ var vm = new Vue({
 
     // Подготовка сборщика
     Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
-    scss = new Sass();
-
-    scss.options({
-      style: Sass.style.expanded,
-      indentedSyntax: true,
-    });
 
 
     // Загрузка списка цветовых схем
@@ -597,20 +710,13 @@ var vm = new Vue({
       vm.variables = JSON.parse(config);
     });
 
-    XHR('./config/theme_files.json', function(files) {
-      vm.file_list = JSON.parse(files);
-      scss.preloadFiles('../../assets/', '', vm.getFilelist('url'), function callback() {
-        // Запускается по окончанию процесса вне зависимости от успешности предзагрузки.
-        vm.status.isFileLoading = false;
-        vm.updateSelectedFiles();
-        switchDisabled(document.getElementById('create_css'));
-      });
-    });
+
+    // Загрузка файлов
+    this.switchBranches(window.location.hostname == 'grin3671.github.io' ? 'master' : 'dev');
   },
 });
 
 
-var scss;
 var user_sass;
 var user_css;
 
@@ -635,13 +741,15 @@ function switchDisabled(elem) {
 }
 
 
-function XHR (url, callback) {
+function XHR (url, callback, error) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.onreadystatechange = function() {
     if (xhr.readyState != 4) return;
     if (xhr.status == 200) {
       callback(xhr.responseText);
+    } else {
+      if (error) error(xhr.statusText);
     }
   }
   xhr.send();
