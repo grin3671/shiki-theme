@@ -155,6 +155,7 @@ var vm = new Vue({
       isCreating: false,
       isFileLoading: false,
       isNotify: false,
+      isBranchLoaded: false,
     },
     support: {
       copy: true,
@@ -628,7 +629,7 @@ var vm = new Vue({
       }
     },
     loadThemeBranches: function (event) {
-      if (this.theme.branches.includes('gh-pages')) return;
+      if (this.status.isBranchLoaded) return;
 
       event.target.setAttribute('disabled', 'disabled');
 
@@ -636,8 +637,10 @@ var vm = new Vue({
       XHR('https://api.github.com/repos/grin3671/shiki-theme/branches', function(list) {
         var branches = JSON.parse(list);
 
+        vm.status.isBranchLoaded = true;
+
         for (var i = 0; i < branches.length; i++) {
-          if (branches[i].name != 'master') {
+          if (branches[i].name != 'master' && branches[i].name != 'gh-pages') {
             vm.theme.branches.push(branches[i].name);
           }
         }

@@ -28,6 +28,19 @@ a {
   text-decoration-skip: ink;
 }
 
+input,
+select,
+button {
+  background: transparent;
+  border: 0;
+  font-size: inherit;
+}
+
+button:disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
 strong,
 h1, h2, h4, h5, h6,
 .strong {
@@ -312,6 +325,19 @@ p:last-child {
 .ic-folder.active::before {
   content: 'folder_open';
 }
+.ic-settings::before {
+  content: 'settings';
+}
+.ic-branch::before {
+  content: 'developer_board';
+}
+.ic-cloud_download::before {
+  content: 'cloud_download';
+}
+[disabled] > .ic-cloud_download::before,
+.ic-cloud_download.active::before {
+  content: 'cloud_done';
+}
 
 
 
@@ -328,6 +354,7 @@ p:last-child {
 .md-list_control input[type='checkbox'] {
   position: absolute;
   opacity: 0;
+  pointer-events: none;
 }
 
 .md-list {
@@ -370,6 +397,12 @@ p:last-child {
 .md-list .md-list_control {
   float: right;
   padding: .5em;
+}
+.md-list_control:focus {
+  outline: none;
+}
+.md-list_control .md-icon {
+  pointer-events: none;
 }
 .md-list_control > input:checked + .ic-collapse::before,
 input:checked + .md-list .md-list_control::before {
@@ -1016,6 +1049,37 @@ img {
 .icon-author:hover,
 .icon-github:hover {
   opacity: 1;
+}
+
+
+
+.tooltiped {
+  position: relative;
+}
+.tooltiped:hover::after {
+  opacity: 1;
+}
+.tooltiped::after {
+  content: attr(aria-label);
+  position: absolute;
+  padding: .5rem 1rem;
+  margin: .25rem .5rem;
+  background: rgba(97,97,97,.8);
+  border-radius: 3px;
+  color: #eee;
+  font-size: .875rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: .24s ease-in-out;
+  opacity: 0;
+}
+.tooltiped-left::after {
+  top: 0;
+  right: 100%;
+  transform: translateX(1rem);
+}
+.tooltiped-left:hover::after {
+  transform: translateX(0);
 }
 
 

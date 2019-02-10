@@ -253,6 +253,28 @@
           <div class="md-list_hidden theme-files">
             <p class="text-hint">Здесь вы можете включить или исключить из сборки темы отдельные файлы. Смело меняйте шрифты (названия файлов начинаются на <code>font-</code>) и тестируйте новые функции. Остальное – на свой страх и риск.</p>
 
+            <div class="md-list md-panel">
+              <label for="theme_branch" class="md-list_title inactive" id="label_color_scheme">
+                <span class="md-icon ic-branch" aria-hidden="true"></span>Ветка разработки
+              </label>
+              <button type="button"
+                      class="md-list_control tooltiped tooltiped-left"
+                      aria-label="Загрузить все ветки"
+                      @click="loadThemeBranches">
+                <span class="md-icon ic-cloud_download"></span>
+              </button>
+              <span class="md-list_content">
+                <span class="md-list_content-placeholder">
+                  <select id="theme_branch"
+                          v-model="user.selected_branch"
+                          @change="switchBranches(user.selected_branch)">
+                    <option v-for="branch in theme.branches"
+                            :value="branch">{{ branch == 'master' ? 'Стабильная' : branch }}</option>
+                  </select>
+                </span>
+              </span>
+            </div>
+
             <h6>Категории</h6>
             <div class="md-container">
               <folder
