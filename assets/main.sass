@@ -1343,16 +1343,13 @@ input[type=checkbox]:checked:disabled,
     border-radius: 2px
     line-height: 32px
     z-index: 2
- 
 
   .p-contests .b-contest_match .next-match
     right: 0
     left: auto
- 
 
   .p-contests .b-contest_match .next-match:before
     margin: 0
- 
 
   .p-contests .b-contest_match .prev-match:before,
   .p-contests .b-contest_match .next-match:before
@@ -1375,7 +1372,6 @@ input[type=checkbox]:checked:disabled,
     -moz-osx-font-smoothing: grayscale
     /* Support for IE. */
     font-feature-settings: 'liga'
- 
 
   .p-contests .b-contest_match .prev-match:before
     content: 'chevron_left'
@@ -1472,12 +1468,11 @@ input[type=checkbox]:checked:disabled,
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
- 
 
-  .p-contests .match-day .match-link .winner:before,
-  .p-contests .match-day .match-link .loser:before
+  .p-contests .match-day .match-link .draw:before,
+  .p-contests .match-day .match-link .loser:before,
+  .p-contests .match-day .match-link .winner:before
     display: none
- 
 
   .p-contests .match-day .matches-num
     width: auto
@@ -1487,15 +1482,15 @@ input[type=checkbox]:checked:disabled,
     color: #FFF
     font-size: 12px
     line-height: 20px
- 
 
-  .p-contests .match-day .winner .matches-num
-    background-color: #66bb6a
- 
+  .p-contests .match-day .draw .matches-num
+    background-color: #4f91e8
 
   .p-contests .match-day .loser .matches-num
     background-color: #ef5350
- 
+
+  .p-contests .match-day .winner .matches-num
+    background-color: #66bb6a
 /* END of Мобильная версия */
 /* END of ТУРНИРЫ */
 
