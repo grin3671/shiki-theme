@@ -1264,6 +1264,10 @@ input[type=checkbox]:checked:disabled,
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part:before
   border-right-color: inherit
 
+.p-contests .results .cc-result .c-rounds .label
+  color: $color-text-secondary
+  font-size: .875rem
+
 .p-contests .results .cc-result .c-rounds .match-day:before
   display: none
 
@@ -1339,16 +1343,13 @@ input[type=checkbox]:checked:disabled,
     border-radius: 2px
     line-height: 32px
     z-index: 2
- 
 
   .p-contests .b-contest_match .next-match
     right: 0
     left: auto
- 
 
   .p-contests .b-contest_match .next-match:before
     margin: 0
- 
 
   .p-contests .b-contest_match .prev-match:before,
   .p-contests .b-contest_match .next-match:before
@@ -1371,7 +1372,6 @@ input[type=checkbox]:checked:disabled,
     -moz-osx-font-smoothing: grayscale
     /* Support for IE. */
     font-feature-settings: 'liga'
- 
 
   .p-contests .b-contest_match .prev-match:before
     content: 'chevron_left'
@@ -1468,12 +1468,11 @@ input[type=checkbox]:checked:disabled,
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
- 
 
-  .p-contests .match-day .match-link .winner:before,
-  .p-contests .match-day .match-link .loser:before
+  .p-contests .match-day .match-link .draw:before,
+  .p-contests .match-day .match-link .loser:before,
+  .p-contests .match-day .match-link .winner:before
     display: none
- 
 
   .p-contests .match-day .matches-num
     width: auto
@@ -1483,15 +1482,15 @@ input[type=checkbox]:checked:disabled,
     color: #FFF
     font-size: 12px
     line-height: 20px
- 
 
-  .p-contests .match-day .winner .matches-num
-    background-color: #66bb6a
- 
+  .p-contests .match-day .draw .matches-num
+    background-color: #4f91e8
 
   .p-contests .match-day .loser .matches-num
     background-color: #ef5350
- 
+
+  .p-contests .match-day .winner .matches-num
+    background-color: #66bb6a
 /* END of Мобильная версия */
 /* END of ТУРНИРЫ */
 
@@ -2487,8 +2486,8 @@ header.head,
   line-height: 20px
 
 .yellow-fade
-  background: rgba(249, 247, 19, 0.16)
-  outline-color: rgba(249, 247, 19, 0.16)
+  background: mix($color-background, $color-accent, 48%)
+  outline-color: mix($color-background, $color-accent, 48%)
 
 .b-replies
   padding: 8px 0 0
@@ -3017,12 +3016,6 @@ pre
 /* END of Поиск клубов */
 
 /* END of CLUB */
-
-
-
-/* TODO: replace */
-.p-contests .results .cc-result .c-rounds .label
-  font-size: .875rem
 
 
 
@@ -4832,65 +4825,33 @@ header.head h2
   to
     -webkit-transform: rotate(1080deg)
     transform: rotate(1080deg)
- 
 
 @keyframes spin
   to
     -webkit-transform: rotate(1080deg)
     transform: rotate(1080deg)
- 
 
 @-webkit-keyframes shape-shift-before
   to
     -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
     transform: skewX(-45deg) translate(.875em, -.875em)
- 
 
 @keyframes shape-shift-before
   to
     -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
     transform: skewX(-45deg) translate(.875em, -.875em)
- 
 
 @-webkit-keyframes shape-shift-after
   to
     -webkit-transform: skewX(45deg) translate(.875em, .875em)
     transform: skewX(45deg) translate(.875em, .875em)
- 
 
 @keyframes shape-shift-after
   to
     -webkit-transform: skewX(45deg) translate(.875em, .875em)
     transform: skewX(45deg) translate(.875em, .875em)
- 
 
-/* Всплывающие окна */
-.b-catalog_entry-tooltip .inner a.name
-  font-size: .875rem
 
-.b-catalog_entry-tooltip .inner .text
-  font-size: .8125rem
-  line-height: 1.25rem
-  margin-bottom: .5rem
-
-.b-catalog_entry-tooltip .inner .line
-  font-size: .8125rem
-  line-height: 1.5rem
-
-.b-catalog_entry-tooltip .inner .line.name
-  line-height: 1.5rem
-  margin-bottom: 0
-
-.b-catalog_entry-tooltip .inner .rating
-  bottom: 0
-  font-family: inherit
-  font-size: 1.5rem
-  line-height: 1
-
-.b-catalog_entry-tooltip .inner .rating .text
-  margin: .5rem .5rem 0
-  font-size: .75rem
-  line-height: 1rem
 
 /**
  * .b-shiki_editor
@@ -4903,7 +4864,6 @@ header.head h2
   margin: 0
   background: transparent
   border: 0
-
 
 // Кнопки BBCode
 .b-shiki_editor aside.buttons
