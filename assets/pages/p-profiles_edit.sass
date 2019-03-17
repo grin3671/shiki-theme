@@ -1,0 +1,43 @@
+/* Страница редактирования аккаунта */
+.p-profiles-edit
+  .account
+    .c-column .block:not(:last-child)
+      margin-bottom: 3rem
+
+  .account .change-password
+    max-width: 375px
+    margin-top: .25em
+    margin-bottom: 2em
+    &::after
+      content: ''
+      clear: both
+      display: block
+
+    a
+      @extend %md-button-raised
+      float: right
+      font-size: 0
+
+      &:hover
+        text-decoration: none
+
+      &::after
+        content: 'Изменить'
+        vertical-align: top
+        font-size: .875rem
+
+  &[data-locale=en]
+    .account .change-password a::after
+      content: 'Change'
+
+  // «Отображать над статистикой»
+  .edit_user_preferences .about-options
+    position: absolute
+    right: 0
+    margin: .75rem 0
+    background: transparent !important
+    text-align: right
+    z-index: 1
+
+    .b-input label
+      line-height: 1.5rem

@@ -1,0 +1,50 @@
+
+.b-catalog_entry
+  .image-cutter
+    border-radius: 2px
+
+  &.planned, &.watching, &.completed, &.rewatching, &.on_hold, &.dropped
+    .image-decor
+      @extend %material-icons
+
+      &::before
+        top: auto !important
+        right: 8px !important
+        bottom: 8px !important
+        width: 1.5em !important
+        height: auto !important
+        border: none
+        border-radius: 100% !important
+        box-shadow: 0 2px 4px 1px rgba(0,0,0,.24)
+        color: #FFF
+        font-size: 24px !important
+        line-height: 1.5 !important
+        text-align: center
+
+      &::after
+        display: none
+
+  &.planned .image-decor::before
+    content: 'event'
+    background: #FAFAFA
+    color: darken($color-info, 8%)
+
+  &.watching .image-decor::before
+    content: 'play_arrow'
+    background: $color-info
+
+  &.rewatching .image-decor::before
+    content: 'replay'
+    background: $color-info
+
+  &.completed .image-decor::before
+    content: 'done'
+    background: $color-success
+
+  &.on_hold .image-decor::before
+    content: 'schedule'
+    background: #757575
+
+  &.dropped .image-decor::before
+    content: 'delete'
+    background: $color-danger

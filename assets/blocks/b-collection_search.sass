@@ -1,0 +1,29 @@
+/* Поиск клубов и коллекций */
+.b-collection_search
+  .field
+    margin-bottom: 1.5rem
+
+    input
+      padding: .75rem 1rem
+      background: $color-background-secondary
+      border-color: $color-border
+      border-radius: 2px
+      font-size: 1rem
+
+    .clear
+      position: absolute
+      top: 0
+      right: 0
+      padding: .625rem
+      color: $color-text-hint
+      font-size: 0
+      line-height: 0
+
+      &:hover
+        color: $color-text-secondary
+        text-decoration: none
+
+      @extend %material-icons
+      &::before
+        content: 'clear'
+        position: static

@@ -1,0 +1,100 @@
+/* Опросы */
+.b-poll
+  margin: .5rem 0
+  line-height: inherit
+
+  // Текстовый блок
+  .poll
+    margin-bottom: .5em
+
+    // Название опроса
+    .name
+
+    // Текст опроса
+    .text
+
+  // Контейнер для вариантов в опросе
+  .poll-variants
+    padding: .25em 0
+    margin: 0
+
+    // Вариант в опросе
+    .poll-variant
+      padding: .25em 0
+      line-height: 1.5em
+
+      // Текст варианта
+      label
+        margin-bottom: 0
+        border: 0
+        color: $color-text-primary
+
+      // Вариант в опросе (завершенный)
+      &.result
+        margin-bottom: .5em
+
+        // Полосы
+        .bar
+          .bar, .line
+            height: 4px
+            margin-bottom: 0
+            border-radius: 2px
+            line-height: 4px
+
+          .bar
+            &.s0, &.s1, &.s2, &.s3
+              background-color: $color-primary
+
+          .line
+            background-color: $color-border
+
+        .votes-percent
+          margin-right: 1em
+          color: $color-text-disabled
+          font-size: .75em
+          line-height: inherit
+
+        .votes-total
+          margin-left: 1em
+          color: $color-text-hint
+          font-size: .75em
+          line-height: inherit
+
+        // Отметка выбранного пользователем варианта
+        label .voted-for
+          padding-left: 1em
+          color: $color-success
+
+          &::after, &::before
+            display: none
+
+  // Кнопки голосования
+  .poll-actions
+    .vote
+      @extend %md-button-raised
+
+    .abstain
+      @extend %md-button-flat
+
+/* Псевдо переключатель */
+.b-radio
+  input[type='radio']
+    pointer-events: none
+
+    & + .radio-label::before
+      content: ''
+      display: inline-block
+      vertical-align: top
+      width: 18px
+      height: 18px
+      margin: 3px 18px 0 0
+      border-radius: 100%
+      border: 1.5px solid $color-text-hint
+      box-sizing: border-box
+      box-shadow: 0 0 0 2.75px $color-background inset
+
+    &:checked + .radio-label::before
+      width: 18px
+      height: 18px
+      background-color: $color-primary
+      border: 1.5px solid $color-primary

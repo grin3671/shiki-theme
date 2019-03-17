@@ -4,9 +4,11 @@
 .p-club_pages .edit_comment .preview .b-comment .inner header
   display: block
 
-/* Ссылки в превью новостей не переносятся на новую строку */
-.b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
-  display: block
+.edit-page .preview .b-comment > .inner > header
+  display: none
+
+.edit-page .preview .b-comment > .inner > .body
+  padding-left: 0
 
 /* Максимальная ширина элементов */
 img
@@ -16,74 +18,17 @@ img
 textarea
   vertical-align: top
 
-/* Убираем запятые в тегах */
-.b-entry-info .line .b-tag span:after
-  display: none
-
 /**/
 /**/
 /**/
 
 /* ОСНОВНОЙ ФАЙЛ */
-header.head h1,
-header.head h2,
-input
-  font-family: inherit
-
-.buttons,
-.ac_results .name,
-.b-animes-menu .total-rates,
-.b-club .name-logo:hover .name,
-.b-comment > .inner header .name-date a.name,
-.b-comments .comments-expander,
-.b-comments .comments-expander:hover,
-.b-comments .comments-hider,
-.b-comments .comments-hider:hover,
-.b-comments .comments-loader,
-.b-comments .comments-loader:hover,
-.b-comments .faye-loader,
-.b-comments .faye-loader:hover,
-.b-comments .messages-postloader,
-.b-comments .messages-postloader:hover,
-.b-entry-info .line .value,
-.b-forum .faye-loader,
-.b-forum .faye-loader:hover,
 .b-header_filters .filter-line .title,
 .b-header_filters .filter-line a.current,
-.b-mention s,
-.b-options-floated .selected.always-active,
-.b-quote,
-.b-rate .score-notice,
-.b-rate .text-score,
-.b-table th,
-.b-topic > .inner header .name-date a.name,
-.b-user.detailed .history .line .event,
-.collapsed,
-.completable-block .name,
-.l-page .menu-toggler .toggler:after,
-.p-anime_videos-index .c-anime_video_episodes .title,
-.p-anime_videos-index .c-videos .title,
-.p-anime_videos-index .same-videos .title,
 .p-statistics-index .forum-nav .sections a,
-.p-user_rates-index .list-groups .summary.lines,
-.p-userlist_comparer .comparer table .name a,
-.tooltip-details .b-nothing_here.centered
+.p-userlist_comparer .comparer table .name a
   color: inherit
 
-.b-comments .comments-expander:active,
-.b-comments .comments-hider:active,
-.b-comments .comments-loader:active,
-.b-forum .faye-loader:active,
-.block-list li.selected,
-.block-list-alt li.selected,
-.b-block_list li.selected,
-.p-animes-show .other-names.click-loader,
-.p-mangas-show .other-names.click-loader
-  color: inherit !important
-
-@media screen and (max-width:767px)
-  .b-options-floated.mobile-phone a.selected
-    color: inherit
 
 
 
@@ -98,6 +43,22 @@ $layout-gutter: 16px !default
 $layout-margin: 16px !default
 $layout-margin-tablet: $layout-margin * 1.5 !default
 
+// Дополнительные цвета
+$color-success: #66bb6a
+$color-warning: #ef8d50
+$color-danger: #ef5350
+$color-info: #4f91e8
+$color-offtop: #f58ebb
+$color-violet: #a64fe8
+$color-yellow: #e8dc4f
+$color-magenta: #e84fde
+
+// 
+$border-round: 50%
+$border-rounded: 3px
+$color-black: #212121
+$color-white: #fafafa
+$font-size: 16px
 
 
 
@@ -110,14 +71,20 @@ html
 body
   position: relative
   min-height: 100%
+  background-color: $color-background
+  color: $color-text-primary
   font-size: 16px
   font-weight: 400
-  line-height: 1.25
+  line-height: 1.5
   // overflow-x: hidden /* блокирует работу position: sticky */
+
+  @media (max-width: 1024px)
+    background-color: $color-background !important
 
 .l-page
   min-height: 100%
   padding: 72px $layout-margin 0
+  background: $color-background
 
   @media (min-width: 960px)
     padding-right: $layout-margin-tablet
@@ -129,118 +96,47 @@ body
   text-align: center
   line-height: 2em
 
-.l-footer:before
-  content: 'shiki-theme v#{$ver}-#{$release}'
-  display: block
-  float: left
-  position: static
-  left: auto
-  bottom: auto
-  width: auto
-  height: auto
-  background: none
+  &::before
+    content: 'shiki-theme v#{$ver}-#{$release}'
+    display: block
+    float: left
+    position: static
+    bottom: auto
+    left: auto
+    width: auto
+    height: auto
+    background: none
+    color: $color-text-hint
+    font-weight: 700
 
-/* НЕ УДАЛЯТЬ! Информация для устранения неполадок */
-body[data-user *= ":2727,"] .l-footer:before
-  content: 'shiki-theme v#{$ver}-#{$release}'
+  /* НЕ УДАЛЯТЬ! Информация для устранения неполадок */
+  body[data-user *= ':2727,'] &::before
+    content: 'shiki-theme v#{$ver}-#{$release}'
 
-.l-footer:after
-  display: none
+  &::after
+    display: none
 
-.l-footer:before,
-.l-footer .copyright,
-.l-footer .links
-  padding: 0
-  font: inherit
-  font-size: .75em
+  &::before,
+  .copyright,
+  .links
+    padding: 0
+    font: inherit
+    font-size: .75em
 
-.l-footer .links
-  clear: both
-  display: inline-block
-  vertical-align: top
-  text-align: center
+  .copyright
+    color: $color-text-secondary
 
-.l-footer .links a:last-child
-  margin: 0
+  .links
+    clear: both
+    display: inline-block
+    vertical-align: top
+    text-align: center
 
+    a
+      color: $color-text-hint
 
-
-
-
-/* ВЫСОТА СТРОКИ */
-.cc-2a > .c-column,
-.block,
-.b-db_entry,
-.p-animes .b-db_entry > *:last-child
-  line-height: inherit
-
-@media only screen and (min-width: 768px)
-  .cc-2 > .c-column,
-  .p-animes-show .cc-related-authors > .c-column,
-  .p-mangas-show .cc-related-authors > .c-column
-    line-height: inherit
-
-.cc-3-flex > .c-column
-  line-height: inherit
-
-
-
-
-
-/* ЗАКРУГЛЕНИЕ */
-.b-comments .comments-loader,
-.b-comments .comments-hider,
-.b-comments .comments-expander,
-.b-comments .messages-postloader,
-.b-forum .faye-loader,
-.collapsed,
-.tipsy-inner,
-.button,
-.b-button,
-.b-contests-menu .results,
-.b-link_button,
-input[type=submit],
-.btn,
-.b-comments-notifier,
-.p-animes_collection-index .pagination .link,
-.p-mangas_collection-index .pagination .link,
-.p-recommendations-index .pagination .link,
-.p-userlist_comparer-show .pagination .link,
-.b-catalog_entry .image-cutter,
-.b-main_search .input,
-.b-lang_trigger,
-.b-user_rate .rate-show .note,
-.c-poster img,
-.c-actions > *,
-.b-user_rate .rate-show .rate-number .item-add,
-.p-animes-show .watch-online,
-.p-animes-show .upload-video,
-.p-mangas-show .watch-online,
-.p-mangas-show .upload-video,
-.b-tag,
-.b-entry-info .line .b-tag,
-.b-catalog_entry-tooltip .inner .line .value .tag,
-.b-topic > .inner header img,
-.b-quote,
-.p-clubs-index header.head a.misc,
-.p-user_rates-index .l-content .filter input,
-.p-user_rates-index .list-lines tr td .new-value input,
-.p-user_rates-index .list-lines tr.edit-form form,
-.p-user_rates-index .list-lines tr.edit-form .remove,
-.p-profiles-show .b-stats_bar a.title,
-.b-stats_bar .bar,
-.profile-actions > a,
-.l-page .b-anime_status_tag:before,
-.p-profiles .profile-head .c-history .entry img,
-header.head h1 a.back,
-header.head h2 a.back,
-.edit-page a.cancel,
-.editor-controls > span,
-.tooltip-inner,
-.b-topic-preview > .editor-container .hide,
-.b-input,
-.b-input input
-  border-radius: .125rem
+      &:last-child
+        margin: 0
 
 
 
@@ -275,7 +171,6 @@ header.head h2 a.back,
 .m8,
 .m10,
 .m12,
-.m13,
 .m15,
 .m20,
 .m25,
@@ -284,281 +179,104 @@ header.head h2 a.back,
 .m50
   margin-bottom: .5rem !important
 
+.m10,
+.m13
+  margin-bottom: 0 !important
+
+
+
 h3
-  font-size: 1.125rem
+  border-color: $color-border
+  color: $color-text-secondary
+  font-size: 1rem
   line-height: 1.5
   margin-bottom: .5rem
   text-overflow: ellipsis
   white-space: nowrap
   overflow: hidden
 
+
+
 hr
   margin: .5rem 0
+  background-color: $color-border
   background-image: none
 
-.ajax-loading.vk-like
-  min-height: 1.5rem
 
-.b-ajax:before
-  opacity: .75
 
-.b-ajax:after
-  width: 1.5rem
-  height: 1.5rem
-  margin-top: -.75rem
-  margin-left: -.75rem
-  background: transparent
-  border: .1875rem solid
-  border-right-color: transparent
-  border-radius: 50%
-  color: $color-primary
-  -webkit-animation: spin 2s linear infinite
-  animation: spin 2s linear infinite
-  box-sizing: border-box
-  pointer-events: all
+.block, .c-column
+  line-height: inherit !important
 
-/* Списки */
-.b-list
-  margin: .5rem 0 1rem 2rem
+.block
+  margin-bottom: .5rem
 
-.b-list li
-  margin: 0
-  line-height: 1.5
-  list-style-type: disc
-  list-style-image: none
 
-.b-list li + li
-  margin: .5rem 0 0 0
-
-.b-list .b-list li + li
-  margin: 0
-
-.b-height_shortener
-  position: relative
-  padding-left: 0
-  cursor: s-resize
-
-.b-comment .b-height_shortener,
-.b-dialog .b-height_shortener,
-.p-clubs .b-height_shortener
-  padding-left: 3.5rem
-
-.buttons .cancel
-  vertical-align: top
-  margin-right: .5rem
-  border: 0
-
-.b-form .cancel
-  margin-left: 0
-
-.b-form .cancel:hover
-  text-decoration: none
 
 .b-errors
   margin-bottom: .5rem
   line-height: inherit
 
-.red,
-.b-errors .subheadline
-  margin-bottom: 0
+  .subheadline
+    margin-bottom: 0
+    border: 0
+
+.red
   border: 0
 
-.b-review-topic .b-height_shortener
-  padding-left: 0
-  cursor: default
 
-.b-height_shortener .shade
-  right: 0
-  left: 0
-  width: auto
-  height: 2.5rem
-  margin-top: -2.5rem
 
-.b-height_shortener .expand
+.b-mention
+  color: $color-link
+  &:hover
+    color: $color-link-hover
+  &:active
+    color: $color-link-active
+
+  s
+    color: inherit
+
+
+
+.b-menu-line
+  line-height: 1.5
+
+
+
+.b-nothing_here
+  margin-left: 0
+  color: $color-text-disabled
+  font-size: .875rem
+  line-height: 2.5rem
+
+  a
+    color: $color-link
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+  .tooltip-details &.centered
+    color: inherit
+
+
+
+.b-replies
+  padding: 8px 0 0
+  color: $color-text-hint
   font-size: .875rem
 
-.b-comment.b-comment-info
-  font-size: .875rem
-  text-align: left
-  line-height: 1.5rem
 
-.b-comment.b-comment-info > span
-  margin-right: .5rem
 
-.b-comments .comments-loader,
-.b-comments .comments-hider,
-.b-comments .comments-expander,
-.b-comments .messages-postloader,
-.b-forum .faye-loader,
-.collapsed
-  padding: .4375rem 2.5rem
-  margin: 0
-  margin-bottom: .5rem
-  line-height: 1.5rem
-
-.b-dropzone
-  padding: .5rem 1rem 3rem
-  background-color: $color-area-normal
-  border: 1px dashed $color-border
-  border-radius: .125rem
-
-.b-dropzone:hover
-  border-color: $color-primary
-
-.b-dropzone:before
-  margin: .5rem 0
-  font-size: 14px
-
-.b-dropzone .thank-you
-  margin-bottom: .5rem
-
-.b-dropzone input[type=file]
-  bottom: 1rem
-
-.b-dropzone:before,
-.b-dropzone input[type=file]
+.b-separator
   color: $color-text-disabled
 
-.b-dropzone:hover:before,
-.b-dropzone:hover input[type=file]
-  color: $color-text-secondary
 
-.b-forum .faye-loader
-  padding: .4375rem .5rem
-
-.b-comments .comments-collapser
-  width: 2.5rem
-  padding: .5rem
-  margin: 0
-  border: 0
-  font-size: 0
-  line-height: 0
-
-.b-comments .comments-collapser:before
-  content: 'expand_less'
-  display: block
-
-
-.b-image
-  display: inline-block
-  vertical-align: top
-  margin-bottom: .25rem
-
-/* Кнопки управления изображениями */
-.b-image img
-  vertical-align: top
-  border-radius: .125rem
-
-.b-gallery .b-image
-  padding: .125rem
-
-.b-gallery .b-image .controls
-  margin: .125rem
-  text-align: right
-
-/* Кнопки */
-.b-image .mobile-edit,
-.b-image .delete,
-.b-image.deletable .confirm,
-.b-image.deletable .cancel,
-.p-user_rates-index .list-posters .user_rate .edit-user_rate
-  width: auto
-  height: auto
-  padding: .5rem
-  margin-top: .25rem !important
-  margin-right: .25rem !important
-  border-radius: .125rem
-
-@media screen and (min-width: 1024px)
-  .b-image .mobile-edit,
-  .b-image .delete,
-  .b-image.deletable .confirm,
-  .b-image.deletable .cancel,
-  .p-user_rates-index .list-posters .user_rate .edit-user_rate
-    background-color: transparent
-
-.b-image .delete,
-.b-image .confirm,
-.b-image .cancel,
-.b-image .move-left,
-.b-image .move-right,
-.b-image .mobile-edit
-  z-index: 8
-
-.b-image .mobile-edit,
-.b-gallery .grid_sizer .controls
-  margin-top: .375rem !important
-  margin-right: .375rem !important
-
-@media screen and (min-width: 767px)
-  .p-user_rates-index .list-posters .user_rate .edit-user_rate
-    background-color: transparent
-
-/* Настройки иконок */
-.b-image .mobile-edit:before,
-.b-image .delete:before,
-.b-image.deletable .confirm:before,
-.b-image.deletable .cancel:before,
-.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
-  width: 1.5rem
-  font-size: 1.5rem
-
-.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
-  position: static
-  height: auto
-  background: transparent
-
-/* Затемнение */
-.b-gallery .b-image .controls,
-.user_rate .b-catalog_entry:after
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  background-image: linear-gradient(rgba(0,0,0,.6) 0%, transparent 40%)
-  border-radius: .125rem
-
-.user_rate .b-catalog_entry:after
-  content: ''
-  opacity: 0
-  pointer-events: none
-
-.b-image:hover,
-.b-image.deletable img,
-.b-image.deletable:after,
-.b-image.mobile-editing:after,
-.p-user_rates-index .list-posters .user_rate:hover .b-catalog_entry:after
-  opacity: 1
-
-/* Вид иконки */
-.b-image .mobile-edit:before,
-.p-user_rates-index .list-posters .user_rate .edit-user_rate:before
-  content: 'edit'
-
-.b-image .delete:before
-  content: 'delete'
-
-.b-image .confirm:before
-  content: 'check'
-
-.b-image .cancel:before
-  content: 'close'
-/* END of Кнопки управления изображениями */
-
-.b-modal > .inner
-  padding: 1rem 1.5rem
-  border-radius: .125rem
-  box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.24)
-
-.b-modal .subheadline
-  font-size: 20px
-  font-weight: 400
-  text-transform: none
 
 .b-prgrph,
 .b-spoiler_prgrph
   margin-bottom: .5rem !important
+
+
 
 .b-show_more,
 .b-show_more-more .hide-more
@@ -566,45 +284,42 @@ hr
   padding: 0 .5rem
   margin: .25rem 0
   border-radius: .625rem
+  color: $color-text-secondary
   font-size: .875rem
-
-.b-source
-  margin-top: .5rem
-  margin-bottom: 1rem
-
-.b-spoiler label
-  font-size: inherit
-  letter-spacing: initial
-
-.b-spoiler .content .before,
-.b-spoiler .content .after
-  font-size: inherit
-  letter-spacing: initial
-
-.b-nothing_here
-  margin-left: 0
-  font-size: .875rem
-  line-height: 2.5rem
-
-header.head h1,
-header.head h2
-  font-family: inherit
-
-header.head .notice
-  margin: .5rem 0
-  font-size: .875rem
+  font-weight: bold
   line-height: 1.25rem
 
-header.head h1 ~ .notice,
-header.head h2 ~ .notice
-  margin-top: -.5rem
+  &:hover
+    background-color: $color-area-hover
+    color: $color-text-secondary
 
-.b-breadcrumbs
-  margin: 0
-  line-height: 1rem
 
-.b-breadcrumbs > span:after
-  content: '»'
+
+// TODO: check this element
+.text
+  margin-left: 0 !important
+
+
+
+.yellow-fade
+  background: mix($color-background, $color-accent, 48%)
+  outline-color: mix($color-background, $color-accent, 48%)
+
+
+// TODO: check this element
+// NOTE: .b-comment.b-comment-info
+.b-comment-info
+  color: $color-text-hint
+  font-size: .875rem
+  text-align: left
+  line-height: 1.5rem
+
+  & > span
+    margin-right: .5rem
+
+
+
+
 
 /* Всплывающая подсказка */
 .tipsy
@@ -619,451 +334,25 @@ header.head h2 ~ .notice
 .tipsy-inner
   padding: .375rem 1rem
   background-color: #616161
+  border-radius: 2px
   color: #eee
   text-align: left
   box-shadow: none
 
-input
-  font-family: inherit
-  font-size: inherit
 
-/* Кнопки */
-.button,
-.b-button,
-.b-form input[type=submit],
-.b-topic-preview > .editor-container .hide,
-.edit-page a.cancel
-  display: inline-block
 
-input[type=submit],
-.button,
-.b-button,
-.b-form input[type=submit],
-.b-contests-menu .results,
-.b-link_button,
-.b-shiki_editor .links .b-button.ok,
-.b-shiki_editor .images .b-button.ok,
-.b-shiki_editor .quotes .b-button.ok,
-.b-shiki_editor .email .b-button.ok,
-.b-shiki_editor .upload .b-button.ok,
-.edit-page a.cancel
-  min-width: 5.5rem
-  padding: 0 1rem
-  margin-right: .5rem
-  font-size: .875rem
-  line-height: 2rem !important
-  text-align: center
-  text-decoration: none !important
-  text-transform: uppercase
-  transition: .16s cubic-bezier(.4,0,.6,1)
 
-input[type=submit]:last-child,
-.b-button:last-child,
-.b-form input[type=submit]:last-child
-  margin-right: 0
 
-input[type=submit]:hover
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
 
-/* TODO: new variable $btn_disabled_color (L: #9E9E9E; D: #757575) */
-.b-button[disabled],
-.b-button.disabled,
-.b-button[disabled]:hover,
-.b-button.disabled:hover,
-.b-form input[type=submit][disabled],
-.b-form input[type=submit].disabled,
-.b-form input[type=submit][disabled]:hover,
-.b-form input[type=submit].disabled:hover
-  background-color: $color-button-hover
-  box-shadow: none
-  color: $color-text-disabled !important
 
-.b-shiki_editor .links .b-button.ok,
-.b-shiki_editor .images .b-button.ok,
-.b-shiki_editor .quotes .b-button.ok,
-.b-shiki_editor .email .b-button.ok,
-.b-shiki_editor .upload .b-button.ok
-  min-width: auto
-  margin-left: 1rem
 
-.b-shiki_editor .links input,
-.b-shiki_editor .images input,
-.b-shiki_editor .quotes input,
-.b-shiki_editor .email input,
-.b-shiki_editor .upload input
-  vertical-align: middle
-  margin-top: 0px
-
-.edit-page a.cancel,
-.b-topic-preview > .editor-container .hide
-  background-color: transparent
-
-.b-topic-preview > .editor-container .hide
-  vertical-align: top
-  border: 0
-
-.b-topic
-  overflow: visible
-
-.b-topic > .inner
-  overflow: visible
-
-.b-topic-preview > .inner > footer
-  overflow: hidden
-
-/* Чекбоксы */
-/* TODO: L: border-color normal #757575 disabled #BDBDBD */
-/*       D: border-color normal #FFFFFF disabled rgba(255,255,255,.3) */
-input[type=checkbox],
-.b-input input[type=checkbox]
-  display: inline-block
-  vertical-align: top
-  width: 1.125rem !important
-  height: 1.125rem
-  padding: 0
-  margin: .1875rem 1rem .1875rem 0
-  background-color: transparent
-  background-repeat: no-repeat
-  background-size: 1.125rem
-  background-position: -.125rem -.125rem
-  border: .125rem solid $color-text-hint
-  border-radius: .125rem
-  box-sizing: border-box
-  transition: .24s cubic-bezier(.4, 0, .2, 1)
-  -webkit-appearance: none
-  -moz-appearance: none
-  appearance: none
-
-input[type=checkbox]:checked,
-.b-input input[type=checkbox]:checked
-  background-color: $color-primary
-  background-image: url("data\:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNi4xN0w0LjgzIDEybC0xLjQyIDEuNDFMOSAxOSAyMSA3bC0xLjQxLTEuNDF6Ii8+PC9zdmc+")
-  border-color: transparent
-
-input[type=checkbox]:disabled,
-.b-input input[type=checkbox]:disabled
-  border-color: $color-text-disabled
-
-input[type=checkbox]:checked:disabled,
-.b-input input[type=checkbox]:checked:disabled
-  background-color: $color-text-disabled
-  border-color: transparent
-
-/* Формы */
-.b-form
-  overflow: visible
-
-.b-form:after
-  content: ''
-  display: block
-  clear: both
-
-.b-input input,
-.b-input textarea
-  padding: .3125rem 1rem
-  line-height: 1.25rem
-
-.b-input textarea
-  padding: .4375rem 1rem
-
-.b-input input[disabled]
-  background: transparent
-  border-width: 0
-  border-bottom-width: .125rem
-  padding: .375rem 0 .25rem
-  color: #9E9E9E !important
-
-/* TODO: check moz & ms browsers */
-.b-input input::-webkit-input-placeholder,
-.b-input textarea::-webkit-input-placeholder,
-.b-shiki_editor .body .editor textarea::-webkit-input-placeholder
-  padding: 0
-  line-height: inherit
-
-.b-input input:-moz-placeholder,
-.b-input textarea:-moz-placeholder,
-.b-shiki_editor .body .editor textarea:-moz-placeholder
-  padding: 0
-  line-height: inherit
-
-.b-input input::-moz-placeholder,
-.b-input textarea::-moz-placeholder,
-.b-shiki_editor .body .editor textarea::-moz-placeholder
-  padding: 0
-  line-height: inherit
-
-.b-input input:-ms-input-placeholder,
-.b-input textarea:-ms-input-placeholder,
-.b-shiki_editor .body .editor textarea:-ms-input-placeholder
-  padding: 0
-  line-height: inherit
-
-.b-input select
-  height: 2rem
-  padding: 2px .5rem
-  font-size: .875rem
-  line-height: 2rem
-
-  &:disabled
-    opacity: .5
-
-.b-input .hint
-  font-size: .75rem
-  line-height: 1.25rem
-
-.b-input label
-  line-height: 1.5
-
-.buttons
-  font-family: inherit
-  font-size: inherit
-
-.b-form .buttons
-  margin-top: .5rem
-
-.btn
-  line-height: 2rem
-
-.b-contests-menu .results
-  float: none
-  display: block
-  margin: .5rem 0
-
-.b-link_button
-  margin-bottom: .5rem
-
-.b-link_button.maxi
-  padding: 0
-  font-size: 1rem
-  line-height: 2.5rem
-
-.b-contests-menu .results,
-.b-forums > .b-link_button.maxi,
-.b-link_button.create-topic
-  margin-right: 0
-
-.history-interval,
-.mischeadline,
-.b-input,
-.prgrph,
-.spoiler-prgrph,
-.review-votes_count
-  margin-bottom: .5rem !important
-
-.text
-  margin-left: 0 !important
-
-.tooltip-inner .close
-  top: 0
-  right: 0
-  width: 2rem
-  padding: .4375rem
-  background: transparent
-  border-radius: 50%
-  color: inherit
-  font-size: 1.125rem
-
-.tooltip-inner .close:after
-  content: 'close'
-
-.block-list li,
-.block-list-alt li
-  line-height: 1.5rem
-  margin: 2px -.5rem
-  padding: 0 .5rem
-
-.b-block_list li
-  padding: 0 .5rem
-  margin: 0 -.5rem
-  font-family: inherit
-  line-height: 1.5rem
-
-.b-comments-notifier
-  top: 0 !important
-  width: 2rem
-  height: 2rem
-  margin-top: 4rem
-  line-height: 2rem
-
-.block,
 .b-topic .body
   line-height: 1.25
 
-.b-pages-container,
-.b-topic > .inner > .body,
-.b-db_entry > div:last-child .text
+.b-topic > .inner > .body
   line-height: 1.5
 
-.b-user.named_avatar .name
-  margin: auto
 
-/* FIX: BACKFACE VISIBILITY */
-.b-collection-filters > .block:nth-child(3) > .b-list > li::after,
-.b-collection-filters > .block:nth-child(3) > .b-list > li::before,
-.l-top_menu .inner > a:first-child,
-.l-top_menu .menu-items > .entry > a,
-.p-user_rates .mylist-block + .block > .b-list > li:after,
-.p-user_rates .mylist-block + .block > .b-list > li:before
-  -webkit-backface-visibility: hidden
-  -moz-backface-visibility: hidden
-  backface-visibility: hidden
-
-/* Table */
-.b-table
-  td
-    padding: .25em 0
-    line-height: 1.5
-
-    &.num
-      white-space: nowrap
-
-  tr.border
-    border-color: $color-border
-
-
-
-
-/**
- * PAGINATION
- * Изменение кнопок назад/вперед и увеличение текста
- */
-
-.p-animes_collection-index,
-// .p-mangas_collection-index,
-// .p-userlist_comparer-show,
-.p-recommendations-index
-  .pagination
-    margin: 8px auto
-    color: inherit
-    font-size: .875em
-    font-weight: normal
-    line-height: 48px
-
-    &:last-child
-      margin: 8px auto 0
-
-    .no-hover
-      vertical-align: top
-
-    .link
-      @extend %md-icon
-      @extend %md-icon-hover
-      font-size: 0
-
-      &.disabled:hover
-        background: transparent
-
-      &.link-prev::before
-        content: 'chevron_left'
-
-      &.link-next::before
-        content: 'chevron_right'
-
-
-
-
-
-/**
- * SUBHEADER
- * Изменение подзаголовков разделов и ссылок в них.
- */
-
-.headline
-  padding: 8px 0
-  margin: 8px 0
-  background: none
-  border: 0
-  font-size: 24px
-  font-weight: 400
-  line-height: 32px
-  text-transform: none
-
-.mischeadline,
-.c-my_list .title,
-.subheadline,
-.midheadline,
-.b-stats_bar .title,
-.profile-content .activity .title,
-.lifetime .title
-  padding: 16px 0
-  margin-bottom: 0
-  background-color: transparent
-  border: 0
-  font-size: .875rem
-  line-height: 1rem
-  text-transform: uppercase
-  overflow: initial
-
-.p-db_entries-edit_field .subheadline
-  overflow: hidden
-
-.midheadline > a,
-.subheadline > a
-  vertical-align: top
-  margin: -.5rem -1rem
-
-.midheadline > a,
-.subheadline > a,
-.b-form .cancel,
-.b-shiki_editor footer .unpreview,
-.b-shiki_editor footer .preview,
-.b-topic-preview > .editor-container .hide
-  display: inline-block
-  padding: 0 1rem
-  background-color: transparent
-  border-radius: .125rem
-  font-size: .875rem
-  line-height: 2rem !important
-  text-transform: uppercase
-
-.headline > a:before,
-.midheadline > a:before,
-.subheadline > a:before
-  right: 0
-  left: 0
-  text-align: right
-  opacity: 0
-  pointer-events: auto
-
-.headline.linkheadline > a,
-.linkheadline.midheadline > a,
-.linkheadline.subheadline > a
-  text-decoration: none
-
-.subheadline .misc-link
-  float: right
-
-.subheadline-input
-  padding: 5px 8px
-  margin-top: 8px !important
-  border-radius: 2px !important
-  font-size: 14px
-  line-height: inherit !important
-
-@media screen and (max-width: 767px)
-  .subheadline-input
-    padding-bottom: 5px !important
-    padding-top: 5px !important
-
-.subheadline-buttons
-  right: 0
-  margin: 0
-
-.subheadline-buttons + .subheadline
-  padding-right: 3rem
-
-/* HOVER */
-.headline > a:hover,
-.midheadline > a:hover,
-.subheadline > a:hover
-  text-decoration: none
-
-.subheadline-buttons .item-edit
-  @extend %md-icon
-  @extend %md-icon-hover
-
-  &::before
-    content: 'edit'
 
 // также является .subheadline-buttons .item-edit
 // BUG: шикимори
@@ -1073,845 +362,9 @@ input[type=checkbox]:checked:disabled,
 
   &::before
     content: 'edit'
-
-
-@media only screen and (min-width: 768px)
-  .b-options-floated.r-edit
-    margin-right: 48px
- 
 /* END of SUBHEADER */
 
 
-
-
-
-/**
- * ТУРНИРЫ
- */
-.p-contests .match-container.b-ajax:after
-  z-index: 10
-
-.p-contests .b-contest_match
-  padding: 16px 0
-  margin-bottom: 0
-
-.p-contests .b-contest_match .current-match .match-members:last-child
-  margin-bottom: 0 !important
-
-.p-contests .match-day
-  position: relative
-  margin-bottom: 16px
-  text-align: center
-
-.p-contests .match-day:before
-  content: ''
-  display: block
-  position: absolute
-  top: 10px
-  right: 0
-  left: 0
-  height: 1px
-
-.p-contests .match-day > .date
-  position: relative
-  display: inline-block
-  padding: 0 16px
-  margin-bottom: 4px
-  text-align: center
-  text-transform: uppercase
-
-.p-contests .match-day > .date .from,
-.p-contests .match-day > .date .to
-  margin-right: 8px
-
-.p-contests .match-day > .date .to
-  margin-left: 8px
-
-.p-contests .match-day .match-link
-  padding-left: 0
-  text-align: left
-
-.p-contests .match-day .match-link .c-column
-  line-height: 32px
-
-// Ничья
-.p-contests .match-day .match-link .draw
-  padding-left: 0
-
-  &::before
-    position: static
-    top: 0
-    left: 0
-    width: 12px
-    height: 12px
-    margin: 10px 4px
-    margin-right: 16px
-
-.p-contests .match-day .match-link .voted:before,
-.p-contests .match-day .match-link .winner:before,
-.p-contests .match-day .match-link .loser:before,
-.p-contests .match-day .match-link .created:before,
-.p-contests .match-day .match-link .started:before,
-.p-contests .match-day .match-link .finished:before
-  display: inline-block
-  vertical-align: top
-  width: 18px
-  padding-right: 0
-  padding-left: 0
-  margin: 7px 0
-  margin-right: 14px
-  font-size: 18px
-  font-weight: normal !important
-
-.p-contests .match-day .match-link .created:before
-  color: #9B9B9B
-  content: "lock"
-  padding-right: 0
-
-.p-contests .match-day .match-link .started:before,
-.p-contests .match-day .match-link.voted-abstain .started:before
-  content: "check_box_outline_blank"
-  color: #757575
-
-.p-contests .match-day .match-link.voted-abstain .started:before
-  color: #9B9B9B
-
-.p-contests .match-day .match-link.voted-left .started:first-child:before,
-.p-contests .match-day .match-link.voted-right .started:last-child:before
-  content: "check_box"
-
-.p-contests .match-day .match-link.voted-left .started:last-child:before,
-.p-contests .match-day .match-link.voted-right .started:first-child:before
-  content: 'indeterminate_check_box'
-
-.p-contests .match-day .match-link .winner:before
-  content: "thumb_up"
-
-.p-contests .match-day .match-link .loser:before
-  content: "thumb_down"
-  padding-right: 0
-
-.p-contests .match-day .match-link.voted-left .started:first-child:before,
-.p-contests .match-day .match-link.voted-right .started:last-child:before,
-.p-contests .match-day .match-link .winner:before
-  color: #66BB6A /* Зеленый цвет */
-
-.p-contests .match-day .match-link.voted-left .started:last-child:before,
-.p-contests .match-day .match-link.voted-right .started:first-child:before,
-.p-contests .match-day .match-link .loser:before
-  color: #EF5350 /* Красный цвет */
-
-.p-contests .match-day .matches-num
-  display: inline-block
-  width: 56px
-  padding-right: 0
-  font-size: 16px
-
-.p-contests-show .cc-round_stats > .c-column:first-child:last-child > .block:last-child
-  padding: 4px 0
-
-.p-contests-show .warning
-  margin-top: 0
-  margin-bottom: 16px
-
-.p-contests .rating .member
-  height: auto
-
-.p-contests-users .subheadline a:hover
-  background: none
-
-.p-contests .b-contest_match .votes-percents
-  border-radius: 4px
-  font-size: 14px
-  line-height: 24px
-
-.p-contests .b-contest_match .votes-percents span
-  float: left
-  position: relative
-  white-space: nowrap
-  z-index: 1
-
-.p-contests .b-contest_match .votes-percents .left-part
-  position: relative
-  border-radius: inherit
-  padding-left: 8px
-
-.p-contests .b-contest_match .votes-percents .left-part > span
-  color: $color-text-on-accent
-
-.p-contests .b-contest_match .votes-percents .right-part
-  position: absolute
-  top: 0
-  right: 0
-  padding-right: 8px
-
-.p-contests .b-contest_match .votes-percents .right-part span
-  float: right
-
-.p-contests .b-contest_match .votes-percents .left-part,
-.p-contests .b-contest_match .votes-percents .right-part
-  height: auto
-
-.p-contests .b-contest_match .votes-percents .right-part:before
-  left: -24px
-  border-right-width: 24px
-  border-top-width: 48px
-
-.p-contests .b-contest_match .votes-percents .left-part:hover .right-part:before
-  border-right-width: 24px
-
-.p-contests .b-contest_match .votes-percents .right-part:before,
-.p-contests .b-contest_match .votes-percents .left-part:hover .right-part:before
-  border-right-color: inherit
-
-.p-contests .results .cc-result .c-rounds .label
-  color: $color-text-secondary
-  font-size: .875rem
-
-.p-contests .results .cc-result .c-rounds .match-day:before
-  display: none
-
-.p-contests .results .cc-result .c-rounds .match-day .match
-  padding-bottom: 0
-  line-height: 32px
-  text-align: left
-
-.p-contests .results .cc-result .c-rounds .match-link
-  display: inline-block
-
-/* Кнопки турнира */
-.b-contest_match .vs .action
-  display: inline-block
-  vertical-align: top
-  min-width: 112px
-  padding: 0
-  margin: .25rem 0
-  background-color: transparent
-  border-radius: 2px
-  font-size: .875rem
-  font-weight: 700
-  text-align: center
-  text-transform: uppercase
-  transition: .16s cubic-bezier(0.4, 0.0, 0.6, 1)
-  user-select: none
-
-.b-contest_match .vs .action:hover
-  background-color: rgba($color-primary, .12)
-
-.b-contest_match .vs .action:active
-  background-color: rgba($color-primary, .24)
-
-/* Текст внутри кнопки */
-.b-contest_match .vs .actions .action span
-  padding: 0 1rem
-  line-height: 2rem
-
-.b-contest_match .vs .actions .action span,
-.b-contest_match .vs .actions .action span:hover,
-.b-contest_match .vs .actions .action span:active
-  color: $color-primary
-  border: 0
-  -webkit-tap-highlight-color: transparent
-
-/* Убираем желтое свечение постеров */
-.b-contest_match .current-match .match-members .match-member > .b-catalog_entry.yellow-fade
-  background: transparent
-  outline-color: transparent
-
-@media (min-width: 481px)
-  .p-contests .b-contest_match .prev-match:hover,
-  .p-contests .b-contest_match .next-match:hover
-    background-color: transparent
-
-/* BUG: font-size нужно указать внутри соответствующего элемента */
-@media only screen and (min-width: 768px)
-  .b-contest_match .vs
-    font-size: inherit
-
-  .b-contest_match .vs .label
-    font-family: inherit
-    font-size: 64px
-
-/* Мобильная версия */
-@media (max-width: 480px)
-  .p-contests .b-contest_match .prev-match,
-  .p-contests .b-contest_match .next-match
-    position: absolute
-    left: 0
-    width: auto
-    padding: 8px
-    border-radius: 2px
-    line-height: 32px
-    z-index: 2
-
-  .p-contests .b-contest_match .next-match
-    right: 0
-    left: auto
-
-  .p-contests .b-contest_match .next-match:before
-    margin: 0
-
-  .p-contests .b-contest_match .prev-match:before,
-  .p-contests .b-contest_match .next-match:before
-    display: block
-    font-family: 'Material Icons'
-    font-size: 24px
-    line-height: 1
-
-    text-transform: none
-    letter-spacing: normal
-    word-wrap: normal
-    white-space: nowrap
-    direction: ltr
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale
-    /* Support for IE. */
-    font-feature-settings: 'liga'
-
-  .p-contests .b-contest_match .prev-match:before
-    content: 'chevron_left'
-
-  .p-contests .b-contest_match .next-match:before
-    content: 'chevron_right'
-
-  .p-contests .b-contest_match .current-match
-    clear: both
-    padding: 0
-
-  .p-contests .b-contest_match .current-match .match-members
-    padding-top: 96px
-    margin-bottom: 4px
-
-  .p-contests .b-contest_match .current-match .match-member
-    position: relative
-    width: 48%
-    z-index: 2
-
-  .p-contests .b-contest_match .current-match .match-member:first-child
-    float: left
-
-  .p-contests .b-contest_match .current-match .match-member:last-child
-    float: right
-
-  .p-contests .b-contest_match .match-losers
-    display: block
-    padding: 0
-
-  /* Контейнер подсказок и кнопок турнира */
-  .p-contests .b-contest_match .vs
-    position: absolute
-    top: 0
-    width: 100%
-    padding: 3rem 0 0
-    margin: 0
-    font-size: inherit
-
-  /* Блок кнопок турнира */
-  .b-contest_match .vs .actions
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    font-size: inherit
-
-  /* Кнопка "К следующей паре" */
-  .b-contest_match .vs .action:nth-child(2)
-    display: none
-
-  /* Подсказка: "Кликните по одному из двух вариантов" */
-  /* Подсказка: "Ваш голос учтён!" */
-  /* Подсказка: "Вы воздержались в этом голосовании" */
-  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
-  /* Подсказка: "Голосование ещё не началось" */
-  .b-contest_match .vs .invitation,
-  .b-contest_match .vs .vote-voted,
-  .b-contest_match .vs .vote-abstained,
-  .b-contest_match .vs .thanks,
-  .b-contest_match .vs .hint
-    font-size: 1rem
-    line-height: 40px
-    margin: 0
-
-  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
-  .b-contest_match .vs .thanks
-    position: absolute
-    top: 0
-    right: 0
-    left: 0
-
-  .b-contest_match .vs .vote-abstained[style = "display: none;"] ~ .thanks
-    display: none !important
-
-  /* Иконка VS */
-  .b-contest_match .vs .label
-    display: inline-block
-    position: absolute
-    top: 192px
-    right: 0
-    left: 0
-    width: 72px
-    height: 72px
-    margin: auto
-    border-radius: 100%
-    font-size: 24px
-    line-height: 72px
-    text-transform: uppercase
-    z-index: 6
-
-@media (max-width: 1024px)
-  .p-contests .match-day .match-link .c-column
-    text-overflow: ellipsis
-    white-space: nowrap
-    overflow: hidden
-
-  .p-contests .match-day .match-link .draw:before,
-  .p-contests .match-day .match-link .loser:before,
-  .p-contests .match-day .match-link .winner:before
-    display: none
-
-  .p-contests .match-day .matches-num
-    width: auto
-    padding: 0 4px
-    margin-right: 8px
-    border-radius: 2px
-    color: #FFF
-    font-size: 12px
-    line-height: 20px
-
-  .p-contests .match-day .draw .matches-num
-    background-color: #4f91e8
-
-  .p-contests .match-day .loser .matches-num
-    background-color: #ef5350
-
-  .p-contests .match-day .winner .matches-num
-    background-color: #66bb6a
-/* END of Мобильная версия */
-/* END of ТУРНИРЫ */
-
-
-
-
-
-/**
- * Опросы
- */
-
-/* Контейнер */
-.b-poll
-  margin: .5rem 0
-  line-height: inherit
-
-/* Текстовый блок */
-.b-poll .poll
-  margin-bottom: .0
-
-/* Название опроса */
-.b-poll .poll .name
-
-/* Текст опроса */
-.b-poll .poll .text
-
-/* Контейнер для вариантов в опросе */
-.b-poll .poll-variants
-  padding: .5em 0
-  margin: 0
-
-/* Вариант в опросе */
-.b-poll .poll-variants .poll-variant
-  line-height: 1.5em
-  margin-bottom: .5em
-
-/* Вариант в опросе (завершенный) */
-.b-poll .poll-variants .poll-variant.result
-  margin-bottom: .75em
-
-/* Отступ от текста варианта */
-.b-poll .poll-variants .poll-variant label
-  margin-bottom: .25em
-
-/* Псевдо переключатель */
-.b-radio input[type="radio"]+.radio-label:before
-  content: ''
-  display: inline-block
-  vertical-align: top
-  position: relative
-  width: 18px
-  height: 18px
-  margin: 3px 18px 0 0
-  border-radius: 100%
-  border: 1.5px solid $color-primary
-  box-sizing: border-box
-  box-shadow: 0 0 0 2.75px $color-background inset
-  text-align: center
-  cursor: pointer
-
-.b-radio input[type="radio"]:checked+.radio-label:before
-  width: 18px
-  height: 18px
-  background-color: $color-primary
-  border: 1.5px solid $color-primary
-
-/* Кнопки голосования */
-.b-poll .poll-actions .vote,
-.b-poll .poll-actions .abstain
-  display: inline-block
-  vertical-align: top
-  min-width: 112px
-  padding: 0 1rem
-  margin: .375rem 0
-  background-color: $color-primary
-  border-radius: 2px
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.24)
-  font-size: .875rem
-  font-weight: 700
-  line-height: 2.25rem
-  text-align: center
-  text-transform: uppercase
-  transition: .16s cubic-bezier(0.4, 0.0, 0.6, 1)
-
-.b-poll .poll-actions .vote:not(:last-child),
-.b-poll .poll-actions .abstain:not(:last-child)
-  margin-right: .5rem
-
-.b-poll .poll-actions .vote:hover,
-.b-poll .poll-actions .abstain:hover
-  background-color: $color-primary-darker
-  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.24), 0 3px 12px 2px rgba(0, 0, 0, 0.16)
-
-@media (min-width: 960px)
-  .b-poll .poll-actions .vote,
-  .b-poll .poll-actions .abstain
-    margin-top: .5rem
-    margin-bottom: .5rem
-    box-shadow: none
-    font-size: .8125rem
-    line-height: 2rem
-
-  .b-poll .poll-actions .vote:hover,
-  .b-poll .poll-actions .abstain:hover
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.24)
-
-/* Вспомогательная информация: процент и сумма голосов */
-.b-poll .poll-variants .poll-variant.result .votes-percent,
-.b-poll .poll-variants .poll-variant.result .votes-total
-  line-height: inherit
-  font-size: .75em
-
-.b-poll .poll-variants .poll-variant.result .votes-percent
-  color: $color-text-disabled
-  margin-right: 1em
-
-.b-poll .poll-variants .poll-variant.result .votes-total
-  color: $color-text-hint
-  margin-left: 1em
-
-/* Отметка своего варианта */
-.b-poll .poll-variants .poll-variant.result label .voted-for
-  padding-left: 0
-  margin-left: 1em
-  color: #66BB6A
-
-.b-poll .poll-variants .poll-variant.result label .voted-for:after,
-.b-poll .poll-variants .poll-variant.result label .voted-for:before
-  display: none
-
-/* Полосы */
-.b-poll .poll-variants .poll-variant.result .bar .line,
-.b-poll .poll-variants .poll-variant.result .bar .bar
-  height: 4px
-  line-height: 4px
-  margin-bottom: 0
-  border-radius: 2px
-
-/* Цвет полос */
-.b-poll .poll-variants .poll-variant.result .bar .line
-  background-color: $color-border
-
-.b-poll .poll-variants .poll-variant.result .bar .bar.s0,
-.b-poll .poll-variants .poll-variant.result .bar .bar.s1,
-.b-poll .poll-variants .poll-variant.result .bar .bar.s2,
-.b-poll .poll-variants .poll-variant.result .bar .bar.s3
-  background-color: $color-primary
-
-/* END of ОПРОСЫ */
-
-
-
-
-
-/* ROUNDED IMAGES */
-.b-dialog > .inner header img,
-.b-message > .inner header img,
-.p-user_rates-index .l-menu .avatar img,
-.avatar > img
-  border-radius: 100%
-/* END of ROUNDED IMAGES */
-
-
-
-/**
- * ANIME PAGE
- */
-.b-db_entry
-  margin-bottom: 8px
-
-.b-db_entry-note .name-container
-  padding: .25rem 0
-
-.b-db_entry-note .name-container .name
-  font-size: 1rem
-
-.b-db_entry-note .name-container .note
-  margin-top: 4px
-  font-size: .875rem
-  line-height: 1rem
-
-.b-db_entry-note .name-container .note > span
-  display: inline-block /* thx @NedStar */
-  vertical-align: top
-
-.b-db_entry-note .name-container .b-user_rate
-  margin-top: .375rem
-
-.b-db_entry > .c-about .c-info-left,
-.b-db_entry > .c-about .c-info-right,
-.b-db_entry > .c-about .c-info-left:last-child,
-.b-db_entry > .c-about .c-info-right:last-child
-  margin-bottom: 8px !important
-
-.b-db_entry > .c-about .contest_winners
-  margin-top: 0
-  margin-bottom: 15px
-
-.p-animes .b-db_entry > *:last-child
-  clear: left
-  padding-top: 0
-  margin-left: 0 !important
-
-@media only screen and (min-width: 768px)
-  .p-people-show .b-db_entry > .c-about
-    float: none
-    margin-left: 30%
-    overflow: hidden
-
-.b-lang_trigger
-  position: absolute
-  top: -53px
-  right: 0
-  width: 40px
-  height: 40px
-  padding: 10px 0
-  margin: 4px
-  font-size: 12px
-  line-height: 20px
-  text-align: center
-  text-transform: uppercase
-  cursor: pointer /* eventListener повешен на этот элемент */
-
-.b-lang_trigger:before,
-.b-lang_trigger:after
-  display: none
-
-.b-lang_trigger span
-  border: 0
-
-.midheadline,
-.m10
-  margin-bottom: 0 !important
-
-.b-user_rate .rate-show .note
-  padding: .5rem 1rem
-  font-size: .875rem
-  line-height: 1.25rem
-  max-height: 10rem /* thx Dark_zarich */
-  overflow-x: hidden
-  overflow-y: auto /* thx Dark_zarich */
-
-.b-user_rate .rate-show .note:before
-  content: 'Заметка'
-  display: block
-  font-size: 10px
-
-.b-forums .forum .topics
-  margin-left: 8px
-  margin-top: 0
-
-/* ADD TO LIST BUTTON */
-.b-add_to_list
-  min-width: 0
-
-.b-add_to_list .trigger,
-.b-add_to_list .option
-  border: 0
-
-.b-add_to_list .trigger,
-.b-add_to_list .option
-  padding: .5rem 1rem .5rem 3rem
-  border: 0
-  line-height: 1.5rem
-
-/* thx @bot.AkiKawasaki */
-.b-add_to_list .trigger
-  border-radius: .125rem
-
-.b-add_to_list .option:last-child
-  border-radius: 0 0 .125rem .125rem
-
-.b-add_to_list .trigger + .expanded-options
-  margin-top: -.125rem
-
-.b-add_to_list .plus,
-.b-add_to_list .edit,
-.b-add_to_list .trigger-arrow
-  width: 2.5rem
-  height: 2.5rem
-  padding: .5rem
-  margin: -.5rem -1rem -.5rem 0
-  color: inherit !important
-
-.b-add_to_list .plus,
-.b-add_to_list .edit
-  position: absolute
-  left: 0
-  margin-left: 0 !important
-  margin-right: .5rem !important
-
-.b-add_to_list .trigger-arrow
-  position: relative
-
-.b-add_to_list .expanded-options .option .text
-  padding-left: 0
-
-/* DENSE ATL_BUTTON */
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option
-  padding: 0 1rem 0 2.25rem
-  line-height: 2rem
-
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .plus,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .edit,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger-arrow
-  width: 2rem
-  height: 2rem
-  padding: .4375rem
-  margin: 0 -1rem 0 .25rem
-
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .plus,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .edit
-  margin-right: .25rem !important
-/* END of DENSE ATL_BUTTON */
-
-/* ATL_BUTTON in NEWS */
-.b-catalog_entry-tooltip .b-add_to_list
-  width: auto
-  max-width: 224px
-
-.b-catalog_entry-tooltip .b-add_to_list .trigger
-  font-size: .875rem
-  line-height: 1.5rem
-
-.b-catalog_entry-tooltip .b-add_to_list .option
-  font-size: .875rem
-
-.b-catalog_entry-tooltip .b-add_to_list .trigger,
-.b-catalog_entry-tooltip .b-add_to_list .add-trigger,
-.b-catalog_entry-tooltip .b-add_to_list .remove-trigger
-  max-width: 224px
-/* END of ATL_BUTTON in NEWS */
-
-/* FIX ORIGINAL STYLE */
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:hover .trigger-arrow::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:hover .trigger-arrow::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger:active .trigger-arrow::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option:active .trigger-arrow::before
-  color: inherit
-
-/* FIX: ADD_TO_LIST LAYOUT IN NOTES (issue #7) */
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger
-  padding: 0 1rem 0 2rem
-
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger + .expanded-options
-  margin-top: 0
-/* END of ADD TO LIST BUTTON */
-
-.b-catalog_entry.planned .image-decor::before,
-.b-catalog_entry.watching .image-decor::before,
-.b-catalog_entry.completed .image-decor::before,
-.b-catalog_entry.rewatching .image-decor::before,
-.b-catalog_entry.on_hold .image-decor::before,
-.b-catalog_entry.dropped .image-decor::before
-  display: none
-
-.b-catalog_entry.planned .image-decor::after,
-.b-catalog_entry.watching .image-decor::after,
-.b-catalog_entry.completed .image-decor::after,
-.b-catalog_entry.rewatching .image-decor::after,
-.b-catalog_entry.on_hold .image-decor::after,
-.b-catalog_entry.dropped .image-decor::after
-  top: auto !important
-  right: 8px !important
-  bottom: 8px !important
-  width: 36px !important
-  height: auto
-  border: none
-  border-radius: 100%
-  box-shadow: 0 2px 4px 1px rgba(0,0,0,.24)
-  color: #FFF
-  font-size: 22px !important
-  line-height: 36px !important
-
-.b-catalog_entry.planned .image-decor::after
-  content: "event"
-  background: #FAFAFA
-  color: #1976D2
-
-.b-catalog_entry.watching .image-decor::after
-  content: "play_arrow"
-  background: #1E88E5
-
-.b-catalog_entry.rewatching .image-decor::after
-  content: "replay"
-  background: #1E88E5
-
-.b-catalog_entry.completed .image-decor::after
-  content: "done"
-  background: #43A047
-
-.b-catalog_entry.on_hold .image-decor::after
-  content: "schedule"
-  background: #757575
-
-.b-catalog_entry.dropped .image-decor::after
-  content: "delete"
-  background: #E53935
-
-.b-db_entry-note .name-container
-  margin-left: 64px
-  line-height: inherit
-
-header.head,
-.block,
-.b-add_to_list,
-.b-user_rate .rate-show
-  margin-bottom: .5rem
-
-.l-page > div > header.head
-  margin-bottom: 1.5rem
 
 .p-profiles-edit .l-page > div > header.head,
 .p-dialogs .l-page > div > header.head,
@@ -1919,286 +372,26 @@ header.head,
   margin-bottom: 0
 
 
+.p-dialogs header.head,
+.p-messages header.head,
+.p-profiles-edit header.head
+  padding: 16px 16px 8px
+  margin: -16px -16px 0
 
 
 
-.b-db_entry .c-actions
-  .b-tooltipped
-    @extend %md-icon
-    @extend %md-icon-hover
 
-    @media (max-width: 480px) and (orientation: portrait)
-      display: table
-      width: 100%
-      margin: 0 0 8px !important
 
-    &::before
-      display: table-cell
-      float: none
 
-    &::after
-      padding-left: .5rem
-      color: inherit
-      font-size: .875rem
-      line-height: 1.125rem
 
-  .fav-add:hover
-    color: $color-accent !important
-  .fav-remove
-    color: $color-accent !important
-    &:hover::before
-      color: inherit
 
 
-
-
-
-@media screen and (min-width: 1200px)
-  .p-animes-show .c-image .b-user_rate,
-  .p-mangas-show .c-image .b-user_rate
-    margin: 0
-
-.b-rate
-  padding: 6px 0
-
-.b-rate:last-child
-  margin-bottom: 15px
-
-.b-rate .text-score
-  vertical-align: top
-
-.b-rate .score-value
-  line-height: 36px
-
-.b-rate .score-notice
-  font-size: 10px
-  margin-top: -46px
-  text-transform: uppercase
-
-.b-review-topic .b-rate .score-notice
-  margin-top: -58px
-
-.b-user_rate .rate-show .episodes
-  margin-bottom: 8px
-  font-size: 14px
-  line-height: 32px
-
-.b-user_rate .rate-show .rate-number
-  margin-right: 0
-
-.b-user_rate .rate-show .rate-number .current-episodes,
-.b-user_rate .rate-show .rate-number .sep,
-.b-user_rate .rate-show .rate-number .total-episodes
-  display: inline-block
-  vertical-align: top
-  line-height: 32px
-
-.b-user_rate .rate-show .rate-number .item-add
-  display: inline-block
-  vertical-align: top
-  width: 40px
-  height: 40px
-  padding: 8px
-  margin: -4px 0 0 8px
-
-.b-user_rate .rate-show .rate-number .item-add:before
-  width: 24px !important
-  font-family: 'Material Icons' !important
-  font-size: 24px !important
-  font-weight: 400 !important
-  line-height: 1 !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-user_rate .rate-show .rate-number .item-add:before
-  content: 'add'
-
-.b-rate .stars:after
-  font-size: 36px !important
-  font-family: 'Material Icons' !important
-  line-height: 1 !important
-  font-weight: 400 !important
-
-  text-transform: none
-  letter-spacing: -6px
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-rate .stars.background:after
-  content: 'star_border star_border star_border star_border star_border'
-
-.b-rate .stars.score-1:after
-  content: 'star_half'
-
-.b-rate .stars.score-2:after
-  content: 'star'
-
-.b-rate .stars.score-3:after
-  content: 'star star_half'
-
-.b-rate .stars.score-4:after
-  content: 'star star'
-
-.b-rate .stars.score-5:after
-  content: 'star star star_half'
-
-.b-rate .stars.score-6:after
-  content: 'star star star'
-
-.b-rate .stars.score-7:after
-  content: 'star star star star_half'
-
-.b-rate .stars.score-8:after
-  content: 'star star star star'
-
-.b-rate .stars.score-9:after
-  content: 'star star star star star_half'
-
-.b-rate .stars.score-10:after
-  content: 'star star star star star'
-
-.watch-online-placeholer
-  margin: 2rem auto .5rem
-
-.b-link_button.watch-online:before,
-.b-link_button.upload-video:before,
-.b-link_button.create-topic:before
-  display: none
-
-.b-entry-info
-  margin: 0
-  font-size: .875rem
-
-.b-entry-info .line
-  line-height: 1.5rem
-
-.b-tag,
-.b-entry-info .line .b-tag,
-.b-catalog_entry-tooltip .inner .line .value .tag
-  padding: 0 8px
-  margin: 0 4px 0 0
-  border: 0
-  font-size: .625rem
-  line-height: 20px
-  text-transform: uppercase
-
-.b-tag:hover,
-.b-entry-info .line .b-tag:hover,
-.b-catalog_entry-tooltip .inner .line .value .tag:hover
-  padding: 0 8px
-  margin: 0 4px 0 0
-
-.b-tag
-  font-size: .875rem
-  line-height: 24px
-
-.b-catalog_entry-tooltip .inner .line .value .tag,
-.b-catalog_entry-tooltip .inner .line .value .tag:hover
-  padding: 0 6px
-  line-height: 18px
-
-@media screen and (min-width: 1200px)
-  .p-animes_collection-index.x1200 .cc-entries > .c-column
-    width: 18.4%
-    margin-right: 2%
-    border-radius: 2px
-
-/* Anime/Manga Sidebar */
-.b-animes-menu .friend-rate
-  line-height: 1.5rem
-  white-space: nowrap /* thx @NedStar */
-
-.b-animes-menu .site-icon
-  margin-top: .25rem
-  margin-right: .75rem
-
-.b-external_link
-  font-size: .875rem
-  line-height: 1.5rem
-
-.b-external_link .linkeable,
-.b-external_link a
-  display: block
-  margin-left: 2rem
-
-.b-animes-menu .b-external_link .linkeable:before,
-.b-animes-menu .b-external_link a:before
-  width: 1.125rem
-  height: 1.125rem
-  margin-top: .1875rem
-  margin-left: -2rem
-  background-size: 1rem
-  background-position: center
-  background-repeat: no-repeat
-
-.b-external_link .linkeable:hover,
-.b-external_link a:hover
-  text-decoration: underline
-
-
-
-
-
-/**
- * COMMENT
- * Изменение всех комментариев, новостей, диалогов, топиков.
- */
-
-.b-comment,
-.b-dialog,
-.b-message
-  position: relative
-  padding-top: .75rem !important
-  padding-bottom: .75rem
-  margin-bottom: 0
-  border: 0
-
-.b-comments
-  line-height: inherit
-
-.b-dialog
-  position: relative
-
-.b-topic
-  padding-top: .5rem
-
-.b-comment > .inner .was_updated
-  margin: 0
-  color: $color-text-disabled
-
-/* Исправление для предпросмотра комментария во всплывающем окне */
-.tooltip-inner .b-message
-  padding-top: 0 !important
-  padding-bottom: 0
 
 /* inset dividers */
-.b-dialog:before,
-.b-message:before,
-.b-comment:before,
-.b-comments .comments-loaded:before
+.b-dialog::before,
+.b-message::before,
+.b-comment::before,
+.b-comments .comments-loaded::before
   content: ''
   position: absolute
   bottom: 0
@@ -2206,26 +399,18 @@ header.head,
   left: 3.5rem
   height: 1px
 
-.b-generated_news:before
+.b-generated_news::before
   left: 0
 
 .b-comments .comments-loaded .b-comment:last-child
   margin: 0
 
-.b-dialog:last-child:before,
-.b-message:last-child:before,
-.b-comment:last-child:before,
-.tooltip-inner .b-message:before
+.b-dialog:last-child::before,
+.b-message:last-child::before,
+.b-comment:last-child::before
   display: none
 
-.b-comment .body,
-.b-dialog .body,
-.b-message .body,
-.b-topic .body
-  padding: 4px 0
-  padding-left: 0
-  line-height: inherit
-  word-break: break-word /* FIXES: issue #8 */
+
 
 /* Левый отступ комментариев от края экрана */
 .b-comment > .inner > .body,
@@ -2238,7 +423,7 @@ header.head,
 .b-topic-preview > .inner > footer
   padding-left: 3.5rem
 
-/* Фикс отступа в новостях и новостных топиках */
+// Фикс отступа в новостях и новостных топиках
 .b-dialog .b-message > .inner > .body,
 .b-topic-preview.mini > .inner > header,
 .b-topic-minified > .inner > header,
@@ -2248,486 +433,47 @@ header.head,
 .p-clubs-show .b-topic-preview.mini > .inner > .body
   padding-left: 0
 
-/* Предпросмотр описания и страниц клуба */
+// Предпросмотр описания и страниц клуба
 .edit_club .b-shiki_editor .b-comment .inner .body,
-.edit_club_page .b-shiki_editor .b-comment .inner .body,
 .new_club_page .b-shiki_editor .b-comment .inner .body
   padding-left: 0
 
-@media screen and (max-width: 767px)
+.p-polls-new .b-comment > .inner > .body
+  padding-left: 0
+
+@media (max-width: 767px)
   .b-topic-preview > .b-comments
     padding-left: 0
-  
+
   .b-topic-preview > .inner > .body,
   .b-topic-preview > .inner > footer
     padding-left: 3.5rem
 
-@media screen and (min-width: 767px)
+@media (min-width: 767px)
   .b-news-topic > .b-comments
     padding-left: 3.5rem
 /* END of Левый отступ комментариев от края экрана */
 
-.b-comment > .inner header,
-.b-dialog > .inner header,
-.b-message > .inner header,
-.b-topic > .inner header
-  margin-bottom: 0
 
-.b-dialog > .inner header,
-.b-message > .inner header
-  padding-top: .25rem
-  padding-bottom: .25rem
 
-.b-topic > .inner header img
-  width: 2.5rem
-  margin: .25rem 1rem 0 0
 
-.b-comment > .inner header img,
-.b-message > .inner header img,
-.b-dialog > .inner header img
-  width: 2.5rem
-  margin: .25rem 1rem 0 0
-  border-radius: 100%
 
-.b-topic > .inner header .name-date,
-.b-comment > .inner header .name-date
-  padding: .25rem 0
-  line-height: 2rem
 
-.b-topic > .inner header .name-date
-  line-height: 20px
 
-.b-message > .inner header .name-date,
-.b-dialog > .inner header .name-date
-  line-height: 2rem
 
-.b-topic .name-date .name,
-.b-comment .name-date .name,
-.b-dialog .name-date .name
-  font-size: 1rem
-
-.b-message > .inner header .name-date a.name,
-.b-topic > .inner header .name-date a.name,
-.b-comment > .inner header .name-date a.name,
-.b-dialog > .inner header .name-date a.name
-  display: block
-  margin-right: .5rem
-  line-height: 1.25rem
-
-.b-topic > .inner header .name-date a.name,
-.b-topic > .inner header .name-date .about,
-.b-topic > .inner > header .about a,
-.b-topic > .inner > header .about > span,
-.b-message header .broadcast-by
-  display: inline-block
-  vertical-align: top
-  line-height: inherit
-
-.b-topic > .inner header .name-date .about,
-.b-message header .broadcast-by
-  margin-right: .5rem
-
-.b-message header .broadcast-by
-  padding: 0
-  font-size: .875rem
-
-.b-topic > .inner > header .name-date a
-  font-size: 1rem
-
-.b-topic > .inner > header .about > span
-  color: #9E9E9E
-  padding: 0 .5rem 0 0
-  font-size: .875rem
-
-.b-topic > .inner > header .about a
-  font-size: 1rem
-
-.b-comment > .inner header .name-date a.name:hover
-  text-decoration: none
-
-.b-message > .inner header .name-date .time,
-.b-topic > .inner header .name-date .time,
-.b-comment > .inner header .name-date .time,
-.b-dialog > .inner header .name-date .time
-  position: relative
-  padding-top: 0
-  padding-left: 0
-  margin-right: .5rem
-  line-height: 1.25rem
-
-.b-message > .inner header .name-date .time > time,
-.b-comment > .inner header .name-date .time > time,
-.b-topic > .inner header .name-date .time > time
-  display: block
-  font-size: .875rem
-  line-height: inherit
-
-.b-topic > .inner header .name-date .time
-  font-size: .875rem
-  line-height: inherit
-
-.b-comment > .inner header .name-date .time:hover
-  text-decoration: underline
-
-.b-comment header .hash
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  margin: 0 /* Сброс стандартного стиля */
-  opacity: 0
-  z-index: 1
-
-.b-comment .inner .name-date a.name .normal
-  vertical-align: top
-
-@media only screen and (min-width: 1025px)
-  .b-topic > .inner header .name-date,
-  .b-comment > .inner header .name-date
-    padding: .25rem 0
-    line-height: 1.5rem
- 
-
-  .b-comment > .inner header .name-date a.name,
-  .b-comment > .inner header .name-date .time,
-  .b-dialog > .inner header .name-date a.name,
-  .b-dialog > .inner header .name-date .time
-    display: inline-block
-    vertical-align: top
-    line-height: inherit
- 
-
-  .b-message > .inner header .name-date .time > time,
-  .b-comment > .inner header .name-date .time > time
-    display: block
-    font-size: 13px
-    line-height: inherit
- 
-
-  .p-dialogs .b-message > .inner header
-    padding-top: 0
-    padding-bottom: 0
- 
-
-  .p-dialogs .b-message > .inner header .name-date
-    line-height: 32px
- 
-
-  .p-dialogs .b-message > .inner header .name-date a.name,
-  .p-dialogs .b-message > .inner header .name-date .time
-    display: inline-block
-    vertical-align: top
-    line-height: inherit
- 
-
-  .b-comment > .inner header img,
-  .b-message > .inner header img,
-  .b-dialog > .inner header img
-    margin: 6px 16px 0 0
- 
-
-  .b-topic > .inner header .name-date .time
-    display: inline-block
-    vertical-align: top
-    line-height: inherit
- 
-
-.p-messages .b-message > .inner header .name-date a.name,
-.p-messages .b-message > .inner header .name-date .time
-  display: inline-block !important
-  vertical-align: top
-  padding-top: 0
-  line-height: inherit !important
-
-@media screen and (max-width: 1024px)
-  .b-dialog .time
-    display: block !important
-    padding-left: 0 !important
-    font-size: 14px !important
-    line-height: 20px !important
- 
-
-  .b-dialog > .inner header .name-date time
-    display: block
-    line-height: inherit
- 
-
-  .b-dialog .b-message > .inner header .name-date .time
-    display: inline-block !important
-    vertical-align: top
-    padding-left: 0 !important
-    line-height: inherit !important
- 
-
-  .b-dialog .b-message .inner header .name-date .name
-    display: inline-block !important
-    vertical-align: top
- 
-
-.b-dialog > .inner header .name-date .time,
-.b-message > .inner header .name-date .time
-  color: #9E9E9E
-
-.b-dialog .b-message
-  position: static
-  margin: 0
-  padding: 0 !important
-  overflow: visible
-
-.b-dialog .b-message .inner header
-  padding: 4px 0
-
-.b-dialog .b-message .inner header img
-  width: 20px
-  margin: 0 8px 0 0
-
-.b-dialog .b-message .inner header .name-date
-  line-height: 20px
-
-.yellow-fade
-  background: mix($color-background, $color-accent, 48%)
-  outline-color: mix($color-background, $color-accent, 48%)
-
-.b-replies
-  padding: 8px 0 0
-
-.b-quote
-  padding: .5rem 1rem
-  margin: .5rem 0
-  border-style: solid
-
-.b-quote .quoteable
-  margin: 0 0 .5rem
-  line-height: 20px
-
-.b-quote .quoteable:before
-  float: left
-  margin-right: 8px
-
-.b-quote .b-quote
-  margin-left: 0 !important
-
-.b-topic > .inner header:after
-  content: '' /* TODO: check this.  thx @NedStar */
-  clear: both
-  display: none
-
-.b-topic .body
-  line-height: 1.25
-
-.b-topic-preview > .inner header
-  margin-bottom: 0
-
-.b-topic-preview > .inner .status-line
-  margin-top: -4px
-  margin-bottom: 8px
-  font-size: 14px
-  line-height: 20px
-
-.b-topic-preview > .inner .status-line .author
-  padding: 0
-
-.b-topic-preview > .inner .status-line .b-link
-  padding: 0 8px
-
-.b-topic-preview > .inner .status-line .additional
-  padding-left: .5rem
-  margin-left: .5rem
-
-.b-topic-preview > .inner .status-line .additional .comments,
-.b-topic-preview > .inner .status-line .additional .likes
-  color: inherit
-
-.b-topic-preview > .inner .status-line .additional .comments:before,
-.b-topic-preview > .inner .status-line .additional .likes:before
-  vertical-align: top
-  padding-right: 8px
-  color: $color-text-hint
-
-.b-topic-preview > .inner .status-line .additional .comments:before,
-.b-topic-preview > .inner .status-line .additional .likes:before
-  padding-right: 8px
-  font-family: 'Material Icons'
-  font-size: 18px
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-topic-preview > .inner .status-line .additional .comments:before
-  content: "mode_comment"
-
-.b-topic-preview > .inner .status-line .additional .likes:before
-  content: "thumb_up"
-
-.b-topic-preview > .inner .status-line .additional .b-review_votes
-  margin-left: 1rem
-
-.b-collection-topic .b-review_votes
-  display: inline-block
-  font-size: inherit
-  line-height: inherit
-
-.b-review-topic .review-votes_count
-  font-size: .875rem
 
 /* Просмотр комментариев во всплывающей подсказке */
-.tooltip .b-comment
-  padding-top: 0 !important
-  padding-bottom: 0
+.tooltip
+  .b-comment,
+  .b-message
+    padding-top: 0 !important
+    padding-bottom: 0
 
-.tooltip .b-comment:before
-  display: none
-
-/* Иконки коллекций */
-.b-collection-topic > .inner .status-line .collection-size
-  color: inherit
-
-.b-collection-topic > .inner .status-line .collection-size:before,
-.b-review_votes:before
-  vertical-align: top
-  width: 1.125rem
-  padding-right: .5rem
-  color: $color-text-hint
-  font-size: 1.125rem
-
-.b-collection-topic > .inner .status-line .collection-size:before
-  content: 'collections_bookmark'
-
-.b-review_votes:before
-  content: 'thumbs_up_down'
-
-.b-review_votes .votes-for
-  color: #66BB6A
-
-.b-review_votes .votes-against
-  color: #EF5350
-
-/* Кнопки голосования в рецензиях и коллекциях */
-.b-topic .footer-vote
-  padding: 0
-  margin-top: 1rem
-  margin-bottom: 1rem
-  background: transparent
-  border: 0
-  color: inherit
-  font-size: .875rem
-  line-height: inherit
-
-.b-topic .footer-vote:after
-  content: ''
-  display: block
-  clear: both
-
-.b-topic .footer-vote .star
-  vertical-align: top
-  padding: .5rem
-  line-height: 0
-
-.b-topic .footer-vote .star:before
-  content: 'thumbs_up_down'
-  width: 1.5rem
-  padding: 0
-  font-size: 1.5rem
-
-.b-topic .footer-vote .notice
-  margin: 0 1.5rem 0 1rem
-  line-height: 2.5rem
-
-.b-topic .footer-vote .vote-group
-  float: right
-
-.b-topic .footer-vote .vote-group .vote
-  min-width: 5.5rem
-  padding: 0 1rem
-  margin: .25rem 0
-  background-color: $color-area-active
-  border: 0
-  border-radius: .125rem
-  color: inherit
-  font-size: .875rem
-  font-weight: 700
-  line-height: 2rem
-  text-transform: uppercase
-  opacity: 1
-  transition: background-color .24s ease, color .24s ease
-
-.b-topic .footer-vote .vote-group .vote:not(:last-child)
-  margin-right: .5rem
-
-.b-topic .footer-vote .vote-group .vote.yes.selected,
-.b-topic .footer-vote .vote-group .vote.yes:hover
-  background-color: #4CAF50
-  background-color: #66BB6A
-  color: #FFFFFF
-
-.b-topic .footer-vote .vote-group .vote.no.selected,
-.b-topic .footer-vote .vote-group .vote.no:hover
-  background-color: #F44336
-  background-color: #EF5350
-  color: #FFFFFF
-
-.b-topic .footer-vote .vote-group .vote.yes:before,
-.b-topic .footer-vote .vote-group .vote.no:before
-  vertical-align: middle
-  width: 1.125rem
-  padding: 0
-  margin-right: .875rem
-  font-size: 1.125rem
-
-.b-topic .footer-vote .vote-group .vote.yes:before
-  content: 'thumb_up'
-
-.b-topic .footer-vote .vote-group .vote.no:before
-  content: 'thumb_down'
-
-.b-topic .footer-vote .vote-group .separator
-  display: none
-/* END of Кнопки голосования в рецензиях и коллекциях */
+    &::before
+      display: none
 
 
 
-
-/**
- * COMMENT DOESN'T SLIDE
- * Большие комментарии, топики не должны сдвигаться margin'ами.
- * Либо translate3d либо никак.
- */
-
-.b-topic.aside-expanded > .inner,
-.b-dialog.aside-expanded > .inner,
-.b-message.aside-expanded > .inner,
-.b-comment.aside-expanded > .inner,
-.b-topic.aside-expanded > .b-comments
-  margin-left: 0
-
-.b-topic.aside-expanded > .inner aside.buttons,
-.b-dialog.aside-expanded > .inner aside.buttons,
-.b-message.aside-expanded > .inner aside.buttons,
-.b-comment.aside-expanded > .inner aside.buttons
-  position: absolute
-  top: 0
-  right: 0
-  left: 0
-  width: auto
-  height: 100%
-  margin: 0 -16px
-  padding: 8px 16px
-  border: 0
-  overflow-y: auto
-  z-index: 3
 
 .buttons span[title]::after
   vertical-align: top
@@ -2735,582 +481,19 @@ header.head,
   font-size: 16px
   line-height: 18px
 
-.item-mobile.selected
-  color: $color-text-secondary
-
-/* OPEN DIALOG BY CLICK */
-.b-dialog .to_dialog
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  margin: 0 -16px
-  font-size: 0
-
-.b-dialog:hover .to_dialog
-  background-color: rgba(0, 0, 0, .05)
-  z-index: 0
-
-.b-dialog img,
-.b-dialog a,
-.b-dialog .buttons,
-.b-dialog .b-new_marker,
-.b-dialog .b-spoiler
-  position: relative
-  z-index: 2
-/* END of OPEN DIALOG BY CLICK */
-
-
-/**
- * BBCode: CODE
- * Новый тег отвечающий за оформление программных кодов.
- */
-
-code
-  vertical-align: middle
-  padding: .5px 4px
-  background-color: rgba(32,32,32,0.05)
-  border-radius: 2px
-  font-size: .875rem
-
-pre
-  position: relative
-
-.b-code
-  padding: 1rem
-  margin: .5rem 0
-  background: #303030
-  border-radius: 2px
-  font-size: .875rem
-  font-style: normal
-  font-weight: normal
-  text-align: left
-
-@media (min-width: 960px)
-  .b-code:before
-    content: attr(data-language)
-    position: absolute
-    top: 1rem
-    right: .5rem
-    padding: 0 .5rem
-    background-color: #747474
-    border-radius: 2px
- 
-
-  .tooltip-details .b-code:before
-    display: none
- 
-/* END of CODE */
-
-/* CODE: SUBLIME 3 MATERIAL THEME'S COLOR */
-.b-code
-  background: #263238
-
-.hljs-selector-tag
-  color: #FF5370
-
-.hljs-selector-id
-  color: #FAD430
-
-.hljs-selector-class
-  color: #FFCB6B
-
-.hljs-selector-pseudo,
-.hljs-meta
-  color: #C792EA
-
-.hljs-attribute
-  color: #80CBC4
-
-.hljs-built_in
-  color: #89DDFF
-
-.hljs-number
-  color: #F77669
-
-.hljs-string
-  color: #C3E88D
-
-.hljs-comment
-  color: #5C7E8C
-/* END of CODE' THEME */
-
-/* -------------- */
-/* END of COMMENT */
-/* -------------- */
-
-
-/* TOAST */
-#toast-container
-  line-height: 1.5rem
-
-.toast-top-right
-  top: auto
-  bottom: 0
-  right: 0
-  left: 0
-
-#toast-container > div
-  width: 100%
-  max-width: 25rem
-  padding: .875rem 1.5rem
-  margin: auto
-
-.toast-message
-  display: inline-block
-  vertical-align: top
-  line-height: 1.5rem
-
-#toast-container > .toast-success
-  background-color: #323232
-  background-image: none !important
-
-#toast-container > .toast-error
-  background-color: #323232
-  background-image: none !important
-
-#toast-container > .toast-error:before
-  content: 'error_outline'
-  float: left
-  display: inline-block
-  vertical-align: top
-  margin: -4px 1.5rem -4px 0
-  font-size: 2rem
-  font-family: 'Material Icons'
-  line-height: 1
-  box-sizing: border-box
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-/* END of TOAST */
-
-
-
-
-
-/* CLUB */
-.p-clubs-show .b-topic-preview.mini
-  margin-bottom: .5rem
-
-/* / app / assets / stylesheets / pages / p-clubs / b-clubs-menu.sass */
-.b-clubs-menu
-  .club-actions
-    margin-bottom: .5rem
-
-    .b-tooltipped
-      @extend %md-icon
-      @extend %md-icon-hover
-      width: auto
-      height: auto
-      line-height: 0
-
-      @media (max-width: 480px) and (orientation: portrait)
-        display: block
-        margin: 0 !important
-
-        &::after
-          padding-left: 1.5rem
-          color: $color-text-primary
-          font-size: inherit
-          line-height: 1.5
-
-    .edit-club:before
-      content: 'build'
-
-    .broadcast:before
-      content: 'speaker_notes'
-
-    .upload:before
-      content: 'attach_file'
-
-    .join:before,
-    .invite:before
-      content: 'person_add'
-
-    .leave:before
-      content: 'directions_run'
-
-
-/* Навигация в клубах: "контент" */
-.b-pages
-  max-width: 15rem
-  padding: 0 1rem
-  margin: 0 0 1.5rem 2rem
-  border-radius: 2px
-
-.b-pages .title
-  font-size: .875rem
-  line-height: 3rem
-  text-transform: uppercase
-
-.b-pages .section
-  margin: 0 0 .5rem
-
-/* Названия страниц клубов */
-.p-club_pages .l-content .subheadline,
-.p-club_pages .l-content .subheadline > a
-  max-width: 100%
-  white-space: normal
-
-/* CLUB PAGE EDITOR */
-@media screen and (max-width: 767px)
-  .edit_club_page .cc-2a > .c-column
-    width: 100%
- 
-
-  .edit_club_page .cc-2a > .c-column:nth-child(1n+1)
-    clear: left
- 
-
-/* FIX: CLUB'S BUTTONS */
-.p-clubs-edit .pages .button
-  margin-right: .5rem
-
-.p-clubs-edit .pages .club_page-layout,
-.p-clubs-edit .pages .club_page-actions
-  font-size: .875rem
-  padding-left: 1rem
-
-.p-clubs-edit .pages .club_page-actions .b-js-link
-  margin-right: .5rem
-/* END of CLUB'S BUTTONS */
-
-
-/* Поиск клубов и коллекций */
-.b-collection_search .field
-  margin-bottom: 1.5rem
-
-.b-collection_search .field input
-  border-radius: 2px
-  padding: .75rem 1rem
-  font-size: 1rem
-
-.b-collection_search .field .clear
-  position: absolute
-  top: 0
-  right: 0
-  padding: .625rem
-  font-size: 0
-  line-height: 0
-
-.b-collection_search .field .clear:hover
-  text-decoration: none
-
-.b-collection_search .field .clear:before
-  content: 'clear'
-  position: static
-  font-size: 1.5rem
-/* END of Поиск клубов */
-
-/* END of CLUB */
-
-
-
-
-
-/**
- * INDEX
- * Изменения главной страницы.
- *
- */
-
-.p-dashboards-show .c-my_list
-  padding: 0
-  background: initial
-  border: none
-
-.p-dashboards-show .c-my_list .title .switch,
-.p-dashboards-show .c-my_list .title .link
-  float: right
-
-.p-dashboards-show .cc-news .c-generated_news .b-topic .name-date a
-  font-size: 16px !important
-
-
-.b-forums
-  margin-bottom: .5rem
-  line-height: inherit
-
-@media screen and (max-width: 767px)
-  .p-dashboards-show .cc-second
-    margin-bottom: .5rem
-
-/* Изменение новостей на главной */
-.p-dashboards-show .cc-news .c-news_topics .b-topic
-  padding: 1rem 0 1.5rem
-  border-top-width: 1px
-
-@media screen and (max-width: 767px)
-  .p-dashboards-show .cc-news .c-news_topics .b-topic
-    margin-bottom: 0
- 
-
-@media only screen and (min-width: 768px)
-  .p-dashboards-show .cc-news .c-news_topics .b-topic
-    margin-bottom: 0
- 
-
-.p-dashboards-show .cc-news .c-news_topics .b-topic .name-date a
-  padding: 0 0 .25rem
-  font-size: 22px !important
-  font-weight: 400 !important
-  line-height: 1.65
-  white-space: normal
-
-.p-dashboards-show .cc-news .c-news_topics .b-topic .b-anime_status_tag
-  display: none
-/* КОНЕЦ – Изменение новостей на главной */
-
-
-
-/* Change Forum Button */
-/* NOTE: Цвета настраиваются в общем блоке ЦВЕТА */
-.p-dashboards-show .b-forums > .b-link_button.maxi
-  position: relative
-  margin-bottom: 0
-  background-color: transparent
-  font-size: 0
-  line-height: 0
-  text-align: left
-  overflow: visible
-
-.p-dashboards-show .b-forums > .b-link_button.maxi:after
-  display: inline-block
-  vertical-align: top
-  padding: 0 1rem
-  margin: .5rem -1rem
-  border-radius: .125rem
-  font-size: .875rem
-  line-height: 2rem
-
-.p-dashboards-show[data-locale="ru"] .b-forums > .b-link_button.maxi:after
-  content: 'Форум'
-
-.p-dashboards-show[data-locale="en"] .b-forums > .b-link_button.maxi:after
-  content: 'Forum'
-/* END of Change Forum Button */
-
-/* Ссылки на текущие турниры */
-.p-dashboards-show .contests .contest
-  margin: 0 -.5rem
-
-.p-dashboards-show .contests .contest a
-  display: block
-  padding: 0 .5rem
-  font-size: .875rem
-  line-height: 2rem
-  text-overflow: ellipsis
-  white-space: nowrap
-  overflow: hidden
-
-.p-dashboards-show .contests .contest a:hover
-  text-decoration: none
-/* END of Ссылки на текущие турниры */
-
-/* ТЕМЫ ДНЯ */
-.b-hot_topics
-  padding: .5rem 1rem
-  margin: -.5rem -1rem 0 -1rem
-  background-color: initial
-  border: 0
-
-.b-hot_topics .topic
-  font-size: .875rem
-  line-height: 2rem
-  text-align: left
-
-.b-hot_topics .topic.subject
-  font-size: .875rem
-  line-height: 2rem
-  text-align: left
-  text-transform: uppercase
-  white-space: nowrap
-
-.b-hot_topics .topic a
-  padding: 0 .75rem 0 2.5rem
-  border-radius: 1rem
-
-.b-hot_topics .topic a:hover
-  text-decoration: none
-
-.b-hot_topics .topic a .poster
-  width: 2rem
-  height: 2rem
-  margin: 0 0 0 -2.5rem
-  border-radius: 100%
-
-@media screen and (max-width: 767px)
-  .b-hot_topics
-    overflow: hidden
-    overflow-x: auto
-    white-space: nowrap
-
-  .b-hot_topics:before,
-  .b-hot_topics:after
-    content: ''
-    position: absolute
-    left: 0
-    width: 1rem
-    height: 2rem
-    background-image: linear-gradient(-90deg, transparent, $color-background)
-    z-index: 1
-
-  .b-hot_topics:after
-    left: auto
-    right: 0
-    margin-top: -2rem
-    background-image: linear-gradient(90deg, transparent, $color-background)
-
-  .b-hot_topics .topic 
-    float: none
-    display: inline-block
-    vertical-align: top
-    width: auto
-    max-width: 100%
-
-  .b-hot_topics .topic,
-  .b-hot_topics .topic:nth-child(4n),
-  .b-hot_topics .topic:nth-child(6n)
-    margin-right: 1rem
-
-  .b-hot_topics .topic:nth-child(5),
-  .b-hot_topics .topic:nth-child(6),
-  .b-hot_topics .topic:nth-child(7),
-  .b-hot_topics .topic:nth-child(8),
-  .b-hot_topics .topic:nth-child(9)
-    display: inline-block
-
-@media screen and (max-width: 1024px)
-  .b-hot_topics
-    padding: 14px 16px
-    margin: -16px -16px 0 -16px
-    border: 0
- 
-
-  .b-hot_topics .topic a .poster
-    display:none
- 
-
-@media only screen and (min-width: 1025px)
-  .b-hot_topics .topic
-    margin-right: .5%
-    width: 10.6666%
- 
-
-
-
-
-
-/**
- * FORUM
- * СТРАНИЦЫ ФОРУМА
- */
-
-.p-topics .l-menu .b-forums,
-.block2,
-.contests.block
-  margin-bottom: 1.5rem
-  line-height: 1.5rem
-
-.b-forums .forum
-  clear: both
-  position: relative
-  min-height: 1.5rem
-  line-height: 1.5rem
-  padding: 0 .5rem
-  margin: 0 -.5rem
-
-.b-forums .forum .link-with-input .link
-  display: inline-block
-  vertical-align: top
-  position: absolute
-  right: 0
-  left: 0
-  padding-left: .5rem
-
-.b-forums .forum input
-  position: absolute
-  left: 0
-  width: 2rem
-  height: 1.5rem
-  margin-right: .25rem
-  border: 0
-  opacity: 0
-  z-index: 1
-  -webkit-appearance: none
-  -moz-appearance: none
-  appearance: none
-
-.b-forums .forum .link-with-input input + .link
-  padding-left: 2.25rem
-
-.b-forums .forum input + .link:before
-  content: 'check_box_outline_blank'
-  display: block
-  position: absolute
-  top: 0
-  left: 0.375rem
-  width: 1.125rem
-  margin: 0.1875rem 0
-
-  font-family: 'Material Icons' !important
-  font-size: 1.125rem !important
-  font-weight: 400 !important
-  line-height: 1 !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-forums .forum input:hover + .link:before
-  opacity: .9
-
-.b-forums .forum input:checked + .link:before
-  content: 'check_box'
-
-.b-forums .forum input:disabled + .link:before
-  color: #BDBDBD
-
-.b-forums .forum .topics
-  font-size: .75rem
-
-/* FIX: TOPIC UPDATE ICON (issue #5) */
-.p-topics header h1 a.reload:hover:after
-  position: static
-/* END of FORUM */
-
-
-
 
 
 /**
  * PROFILE
  * ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
  */
+.p-profiles-show .b-stats_bar a.title
+  padding: .5rem 1rem
+  margin: .5rem -1rem
+  border-radius: 2px
+
+.p-profiles-show .b-stats_bar a.title:hover
+  text-decoration: none !important
 
 /* Убираем лишние overflow */
 .p-profiles-show .profile-content
@@ -3325,35 +508,13 @@ pre
 @media screen and (max-width: 767px)
   .cc-2 > .c-column
     margin-bottom: 1rem
- 
 
   .p-profiles-show .profile-content .activity:last-child
     margin-bottom: 1.25rem !important
- 
-
-/* Полосы аниме/манги */
-.b-stats_bar .bar .first,
-.b-stats_bar .bar .second
-  color: inherit
-
-.b-stats_bar.anime .bar
-  color: $color-text-on-primary
-
-.b-stats_bar.manga .bar
-  color: $color-text-on-accent
-
-.b-stats_bar .bar .third
-  color: $color-text-primary
-
-.b-stats_bar.anime .bar .second
-  background-color: rgba($color-primary, .72)
-
-.b-stats_bar.manga .bar .second
-  background-color: rgba($color-accent, .72)
 
 .line:nth-child(even) > .bar-container > .bar,
 .line:nth-child(even) > .bar-container > .bar:hover
-  background-color: rgba($color-primary, .72) /* thx NedStar */
+  background-color: mix($color-primary, $color-background, 72%) /* thx NedStar */
 
 /* Столбики активности */
 .bar.vertical
@@ -3392,372 +553,172 @@ pre
     font-weight: normal
     line-height: inherit
 
-/* User aliases */
-.p-profiles .profile-head .c-brief header h1
-  vertical-align: top
 
-.p-profiles .profile-head .c-brief header h1.aliases
-  cursor: help
-
-.p-profiles .profile-head .c-brief header h1.aliases:after
-  display: inline-block
-  vertical-align: top
-  width: 2rem
-  height: 2rem
-  margin: 0
-  margin-left: .5rem
-  color: inherit
-  font-family: 'Material Icons'
-  font-size: 1.125rem
-  line-height: 2rem
-  text-align: center
-  cursor: help
-  opacity: .5
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.p-profiles .profile-head .c-brief header h1.aliases:after
-  content: 'label'
-
-.p-profiles-show header.head .misc
-  vertical-align: top
-  padding: 0 1rem
-  margin: 0
-  font-size: .875rem
-  line-height: 3rem
-
-.p-profiles .profile-head .c-brief header .notice
-  font-size: .75em
-  line-height: 1.25rem
 
 /* FIX: update 2017-03-19 */
 .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
   clear: none
 
-/* Списки аниме/манги */
-.b-stats_bar .stat_names .stat_name:after
-  display: none
-
-.b-stats_bar .stat_names .stat_name
-  padding: 0 1rem 0 0
-  font-size: .875rem
-  line-height: 2rem
-
-.b-stats_bar .stat_names .stat_name a
-  display: block
-  line-height: inherit
 
 /* Выпадающий список аниме/манги в профиле */
-@media screen and (max-width: 599px)
+@media (max-width: 599px)
   .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
     position: relative
- 
 
-  .b-stats_bar .stat_names .stat_name
-    display: none
- 
+  .b-stats_bar
+    .stat_names
+      position: absolute
+      top: 0
+      min-width: 165px
+      border-radius: .125rem
 
-  .b-stats_bar .stat_names:hover .stat_name
-    display: block
- 
+      &:hover
+        padding: 3rem 0 .5rem
+        background-color: $color-background-dialog
+        z-index: 10
 
-  .b-stats_bar .stat_names .stat_name,
-  .b-stats_bar .stat_names .stat_name a
-    padding: 0 1rem 0 0
- 
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,.32)
+        z-index: -1
 
-  .b-stats_bar .stat_names .stat_name a
-    display: block
-    margin: 0 -1rem
- 
+      &::before
+        content: 'arrow_drop_down'
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        width: 2rem
+        height: 2rem
+        padding: .25rem
+        margin: .5rem .25rem
+        border-radius: 100%
+        font-size: 1.5rem
+        font-family: 'Material Icons'
+        line-height: 1
+        box-sizing: border-box
+        pointer-events: auto
 
-  .b-stats_bar .stat_names .stat_name a:hover
-    background-color: rgba(0,0,0,.24)
-    text-decoration: none
- 
+        text-transform: none
+        letter-spacing: normal
+        word-wrap: normal
+        white-space: nowrap
+        direction: ltr
 
-  .b-stats_bar .stat_names
-    position: absolute
-    top: 0
-    min-width: 165px
-    border-radius:  .125rem
- 
+        -webkit-font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+        -moz-osx-font-smoothing: grayscale
+        font-feature-settings: 'liga'
 
-  .b-stats_bar .stat_names:hover
-    padding: 3rem 0 .5rem
-    z-index: 10
- 
+      &:hover .stat_name
+        display: block
 
-  .b-stats_bar .stat_names:after
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,.32)
-    z-index: -1
- 
+      .stat_name
+        display: none
+        padding: 0 1rem
 
-  .b-stats_bar .stat_names:before
-    content: 'arrow_drop_down'
-    display: block
-    position: absolute
-    top: 0
-    right: 0
-    width: 2rem
-    height: 2rem
-    padding: .25rem
-    margin: .5rem .25rem
-    border-radius: 100%
-    font-size: 1.5rem
-    font-family: 'Material Icons'
-    line-height: 1
-    box-sizing: border-box
-    pointer-events: auto
-
-    text-transform: none
-    letter-spacing: normal
-    word-wrap: normal
-    white-space: nowrap
-    direction: ltr
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale
-    /* Support for IE. */
-    font-feature-settings: 'liga'
- 
-
-  .b-stats_bar .stat_names .stat_name,
-  .b-stats_bar .stat_names .stat_name a 
-    padding: 0 1rem
- 
-/* Конец: Выпадающий список аниме/манги в профиле */
+        a
+          display: block
+          padding: 0 1rem
+          margin: 0 -1rem
+          &:hover
+            background-color: rgba(0,0,0,.24)
+            text-decoration: none
 
 
 
-/* СТРАНИЦА РЕДАКТИРОВАНИЯ АККАУНТА */
-.p-profiles-edit .account .c-column .block:not(:last-child)
-  margin-bottom: 3rem
+.p-profiles
+  .profile-head
+    .c-brief
+      header
+        h1
+          vertical-align: top
+          font-size: 1.5em
+          line-height: 1
 
-.p-profiles-edit .account .change-password
-  max-width: 375px
-  margin-top: 1rem
-  margin-bottom: 3rem
+          &.aliases
+            cursor: help
+            @extend %material-icons
 
-.change-password::after
-  content: ''
-  clear: both
-  display: block
+            &::before
+              content: 'label'
+              display: inline-block
+              vertical-align: top
+              float: right
+              margin-left: .5rem
+              opacity: .5
 
-.change-password a[href *= '/edit/password']
-  float: right
-  font-size: 0
-  line-height: 0
+            &::after
+              display: none
 
-.change-password a[href *= '/edit/password']::after
-  content: 'Изменить'
-  display: inline-block
-  padding: .375rem 1rem
-  background: $color-primary
-  border-radius: 2px
-  color: $color-text-on-primary
-  font-size: .875rem
-  font-weight: bold
-  text-decoration: none
-  text-transform: uppercase
-  line-height: 1.25rem
-  transition: 0.16s cubic-bezier(0.4, 0, 0.6, 1)
+        .misc
+          vertical-align: top
+          padding: .5rem 1rem
+          margin: 0
+          font-size: .875rem
+          line-height: 1.5rem
 
-.change-password a[href *= '/edit/password']:hover::after
-  background-color: $color-primary-darker
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)
+        .notice
+          font-size: .75em
+          line-height: 1.25rem
 
-[data-locale='en'] .change-password a[href *= '/edit/password']::after
-  content: 'Change'
-/**/
-/**/
-/**/
+      .avatar
+        @media (min-width: 768px)
+          margin: .5rem 2rem 3rem 1rem
 
-.edit_user_preferences .b-options-floated.about-options
-  position: absolute
-  right: 0
-  margin: 1rem 0
-  background: transparent !important
-  text-align: right
-  z-index: 1
+        .profile-actions
+          margin-top: 1rem
+          margin-right: -.75rem
+          margin-left: -.75rem
 
-.edit_user_preferences .about-options .b-input
-  margin-bottom: 0 !important
+        img
+          display: block
+          margin: auto
+          @media (min-width: 768px)
+            width: 160px
+            height: 160px
 
-.edit_user_preferences .about-options .b-input label
-  line-height: 1.5rem
+    // Информация
+    .c-info
+      .c-lists-info
+        .b-stats_bar
+          overflow: visible
+          margin-bottom: 0
+          &::after
+            clear: none
 
+      .c-additionals
+        margin-top: 8px
+        margin-bottom: 8px
 
-.b-list_switchers .switcher
-  @extend %md-icon
-  @extend %md-icon-hover
+        b
+          padding-right: 8px
+          font-size: 0
+          &::after
+            content: 'Активность на сайте:'
+            font-size: 14px
 
-  &.list::before
-    content: 'view_list'
-
-  &.lines::before
-    content: 'view_headline'
-
-  &.posters::before
-    content: 'view_module'
-
-  &.selected
-    color: $color-accent
+  &[data-locale='en'] .profile-head .c-info .c-additionals b::after
+    content: 'Activity:'
 
 
-.p-user_rates-index .l-menu .avatar img
-  width: 10rem
-  height: 10rem
 
-.p-user_rates-index .l-content thead tr
-  font-size: 13px
-  line-height: 2rem
 
-.p-user_rates-index .list-lines tr td .rate-text
-  font-size: .875rem
-  line-height: 1.25rem
-
-.p-user_rates-index .list-lines tr td .new-value input
-  height: 1.5rem
-  font-size: 1rem
-  line-height: 1.5rem
-
-.p-user_rates-index .list-lines tr.edit-form form
-  padding: 1rem
-  margin: .5rem 0
-  border-style: solid
-  border-width: 1px
-
-.p-user_rates-index .list-lines tr.edit-form .b-input
-  vertical-align: top
-
-.p-user_rates-index .list-lines tr.edit-form .b-input.text textarea
-  font-size: .875rem
-  resize: vertical
-
-.b-user_rate .rate-edit .b-input.integer input,
-.p-user_rates-index .list-lines tr.edit-form .b-input.integer input
-  width: 7rem
-
-.p-profiles-show .b-stats_bar a.title
-  padding: .5rem 1rem
-  margin: .5rem -1rem
-
-.p-profiles-show .b-stats_bar a.title:hover
-  text-decoration: none !important
-
-.p-user_rates-index .list-lines tr.edit-form .buttons
-  margin-top: 0
-
-.p-user_rates-index .list-lines tr.edit-form .remove
-  @extend %md-icon
-  @extend %md-icon-hover
-  margin: -.25rem 0 !important
-  border: 0
-  font-size: 0
-
-  &::before
-    content: 'delete'
-
-/* Комментарий на постере */
-.p-user_rates-index .list-posters .user_rate > .text
-  bottom: 4rem
-  padding: .25rem .5rem
-  background: rgba(0,0,0,.6)
-  border-radius: 0 0 .125rem .125rem
-
-.p-user_rates-index .list-posters .user_rate > .text:before
-  display: none
-
-.p-user_rates-index .list-posters .user_rate.b-ajax:after
-  margin-top: -1.5rem
-
-.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
-  overflow: visible
-
-.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
-  margin-bottom: 0
-
-.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
-  clear: none
-
-.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar.manga
-  margin-top: 8px
-
-.b-stats_bar .bar
-  height: auto
-
-.b-stats_bar .bar .first,
-.b-stats_bar .bar .second,
-.b-stats_bar .bar .third
-  font-size: .75rem
-  line-height: 1.25rem
-
-.p-profiles .profile-head .c-brief .avatar .profile-actions
-  margin-top: 1rem
-  margin-right: -.75rem
-  margin-left: -.75rem
 
 .profile-actions > a
   @extend %md-icon
   @extend %md-icon-hover
 
-.p-profiles .profile-head .c-brief .avatar > img
-  display: block
-  margin: auto
 
-@media only screen and (min-width: 768px)
-  .p-profiles .profile-head .c-brief .avatar
-    margin: .5rem 2rem 3rem 1rem
- 
 
-  .p-profiles .profile-head .c-brief .avatar > img
-    width: 160px
-    height: 160px
 
-/* TODO: replace */
-.b-catalog-entry-embedded .b-catalog_entry
-  margin-bottom: 0 !important
 
-/* TODO: replace */
-.l-page .b-anime_status_tag:before
-  vertical-align: text-bottom
-  padding: 0 .25rem
-  border: 0
-  font-size: .625rem
-  line-height: 1rem
-  text-transform: uppercase
 
-/* TODO: replace */
-.b-topic
-  margin-bottom: .5rem
-
-/* TODO: replace */
-.m13
-  margin-bottom: 0 !important
 
 /* USER PROFILE |> HISTORY ENTRY */
 .p-profiles .profile-head .c-history .entry
@@ -3772,7 +733,7 @@ pre
   padding-top: .5rem
   margin-top: 0
 
-.p-profiles .profile-head .c-history .entry:before
+.p-profiles .profile-head .c-history .entry::before
   content: ''
   display: block
   position: absolute
@@ -3782,7 +743,7 @@ pre
   height: 1px
   pointer-events: none
 
-.p-profiles .profile-head .c-history .entry:last-child:before
+.p-profiles .profile-head .c-history .entry:last-child::before
   display: none
 
 /* Полноразмерная ссылка .entry, работает только для .c-history & .l-menu */
@@ -3791,12 +752,11 @@ pre
   padding: .5rem .5rem
   margin: -.5rem
 
-@media screen and (min-width: 960px)
+@media (min-width: 960px)
   .p-profiles .profile-head .c-history .entry a
     padding: .75rem .5rem
- 
 
-.p-profiles .profile-head .c-history .entry a:after
+.p-profiles .profile-head .c-history .entry a::after
   content: ''
   clear: both
   display: block
@@ -3809,109 +769,97 @@ pre
   margin: 0 16px 0 0
   max-height: 72px
   max-width: 40px
+  border-radius: 2px
 
 .p-profiles .profile-head .c-history .entry .misc
   font-size: .75em
 
-/* Страница истории пользователя */
-.p-user_history-index .history-page .history-interval p
-  line-height: 1.5rem
-  margin-bottom: 0
-
-.b-user_rate-extended > .midheadline
-  overflow: hidden
-
-.p-user_rates-index .l-content .filter input
-  padding: .5rem 1rem
-  font-size: .875rem
-
-/* Страница сравнения списков */
-.p-userlist_comparer .notice span
-  padding: 1.5px 4px !important
-  border-radius: 2px
-
-/* Цвета списков */
-.p-userlist_comparer .comparer table .abslt-difr,
-.p-userlist_comparer .legend .abslt-difr,
-.p-userlist_comparer .notice span:nth-child(6)
-  background: rgba(244, 67, 54, .5) !important
-
-.p-userlist_comparer .comparer table .slightly-difr,
-.p-userlist_comparer .legend .slightly-difr,
-.p-userlist_comparer .notice span:nth-child(4)
-  background: rgba(255, 138, 128, .5) !important
-
-.p-userlist_comparer .comparer table .almost-same,
-.p-userlist_comparer .legend .almost-same,
-.p-userlist_comparer .notice span:nth-child(3)
-  background: rgba(185, 246, 202, .5) !important
-
-.p-userlist_comparer .comparer table .exact-same,
-.p-userlist_comparer .legend .exact-same,
-.p-userlist_comparer .notice span:nth-child(5)
-  background: rgba(76, 175, 80, .5) !important
-
-.p-profiles .profile-head .c-info .c-additionals
-  margin-top: 8px
-  margin-bottom: 8px
-
-.p-profiles .profile-head .c-info .c-additionals b
-  padding-right: 8px
-  font-size: 0
-
-.p-profiles .profile-head .c-info .c-additionals b:after
-  font-size: 14px
-
-.p-profiles[data-locale="ru"] .profile-head .c-info .c-additionals b:after
-  content: 'Активность на сайте:'
-
-.p-profiles[data-locale="en"] .profile-head .c-info .c-additionals b:after
-  content: 'Activity:'
-
-/* Время за аниме и манга */
-.p-profiles .lifetime .bar, .p-profiles .lifetime .times
-  line-height: 0
-
-.p-profiles-show .lifetime .bar
-  height: 1.25rem
-
-.b-stats_bar.lifetime .bar .first
-  background: $color-primary
-  opacity: .72
-
-.p-profiles-show .lifetime .cuts .cut
-  width: 0
-  height: 0
-  margin: .5rem -.25rem
-  background: transparent
-  border: .375rem solid transparent
-  border-bottom-color: $color-background
-  z-index: 1
-
-.p-profiles-show .lifetime .times .time
-  color: $color-text-disabled
-  font-size: .625rem
-  line-height: 1.25rem
-  text-transform: uppercase
-
-.p-profiles-show .lifetime .times .time.checked
-  color: $color-primary
-
-.p-profiles-show .lifetime .times .time.checked:before
-  display: none
-  color: $color-primary
-  opacity: .72
 
 
 
 
 
-/**
- * Иконки совместимости для профиля
- */
 
-/* Исправление видимости */
-/* Спасибо Kana Kuroki и Dewopalaxy */
+
+.p-profiles-show
+  .b-stats_bar
+    // Список аниме
+    &.anime
+      a.title
+        color: $color-primary !important
+        &:hover
+          background-color: rgba($color-primary, .12)
+
+      .bar
+        color: $color-text-on-primary
+
+        .first
+          background: $color-primary
+        .second
+          background: mix($color-primary, $color-background, 72%)
+
+    // Список манги
+    &.manga
+      a.title
+        color: $color-accent !important
+        &:hover
+          background-color: rgba($color-accent, .12)
+
+      .bar
+        color: $color-text-on-accent
+
+        .first
+          background: $color-accent
+        .second
+          background: mix($color-accent, $color-background, 72%)
+
+    // Время за аниме и мангой
+    &.lifetime
+      display: block
+
+      .bar
+        height: .5rem
+
+        .first
+          background: $color-primary
+
+      .cuts .cut
+        width: 0
+        height: 0
+        margin: 0 -.25rem
+        background: transparent
+        border: .25rem solid transparent
+        border-bottom-color: $color-background
+        z-index: 1
+
+      .times
+        line-height: 0
+
+        .time
+          color: $color-text-disabled
+          font-size: .625rem
+          line-height: 1.25rem
+          text-transform: uppercase
+
+          &.checked
+            color: $color-primary
+            font-weight: bold
+
+            &::before
+              display: none
+              color: $color-primary
+              opacity: .72
+
+
+
+
+
+
+
+
+/* Иконки совместимости для профиля */
+// Исправление видимости
+// Спасибо Kana Kuroki и Dewopalaxy
 .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
   position: relative
   overflow: visible
@@ -3935,9 +883,12 @@ pre
       font-size: 0
       line-height: 0
       margin: 4px 0 !important
-
       &::before
         content: 'compare_arrows'
+      &::after
+        content: 'Найти похожих пользователей'
+      [data-locale='en'] &::after
+        content: 'Find similar users'
 
     // Убираем иконку совместимости в чужих профилях
     a[href ^= '/comparer']::before
@@ -3953,48 +904,64 @@ pre
       font-size: 0
       line-height: 0
       margin: 4px 0 !important
-
       &::before
         content: 'people'
 
-      &.zero::before
-        content: 'people_outline'
+      &.zero
+        &::before
+          content: 'people_outline'
+        &::after
+          content: 'Нет совместимости'
+        [data-locale='en'] &::after
+          content: 'No compatibility'
 
       // Низкая совместимость
       &.weak
         background-color: #F9FBE7
         color: #CDDC39 !important
-
         &:hover
           background-color: #F0F4C3
           color: #C0CA33 !important
+        &::after
+          content: 'Низкая совместимость'
+        [data-locale='en'] &::after
+          content: 'Low compatibility'
 
       // Средняя совместимость
       &.moderate
         background-color: #F1F8E9
         color: #8BC34A !important
-
         &:hover
           background-color: #DCEDC8
           color: #7CB342 !important
+        &::after
+          content: 'Средняя совместимость'
+        [data-locale='en'] &::after
+          content: 'Medium compatibility'
 
       // Высокая совместимость
       &.high
         background-color: #E8F5E9
         color: #4CAF50 !important
-
         &:hover
           background-color: #C8E6C9
           color: #43A047 !important
+        &::after
+          content: 'Высокая совместимость'
+        [data-locale='en'] &::after
+          content: 'High compatibility'
 
       // Полная совместимость
       &.full
         background-color: #E1F5FE
         color: #03A9F4 !important
-
         &:hover
           background-color: #B3E5FC
           color: #039BE5 !important
+        &::after
+          content: 'Полная совместимость'
+        [data-locale='en'] &::after
+          content: 'Full compatibility'
 
     // Скрытый список
     .link-replacement
@@ -4015,6 +982,7 @@ pre
       top: -.125rem
       right: -.5rem
       padding: 0 .25rem
+      background-color: $color-accent
       border-radius:  2px
       color: #fff
       font-size: .75rem
@@ -4025,369 +993,16 @@ pre
       &::after
         display: none
 
-// Текст подсказок для совместимости
-[data-locale="ru"] .b-stats_bar .compatibility > a[href $= '=similar']::after
-  content: 'Найти похожих пользователей'
-[data-locale="en"] .b-stats_bar .compatibility > a[href $= '=similar']::after
-  content: 'Find similar users'
 
-[data-locale="ru"] .b-stats_bar .compatibility .text.zero::after
-  content: 'Нет совместимости'
-[data-locale="en"] .b-stats_bar .compatibility .text.zero::after
-  content: 'No compatibility'
 
-[data-locale="ru"] .b-stats_bar .compatibility .text.weak::after
-  content: 'Низкая совместимость'
-[data-locale="en"] .b-stats_bar .compatibility .text.weak::after
-  content: 'Low compatibility'
-
-[data-locale="ru"] .b-stats_bar .compatibility .text.moderate::after
-  content: 'Средняя совместимость'
-[data-locale="en"] .b-stats_bar .compatibility .text.moderate::after
-  content: 'Medium compatibility'
-
-[data-locale="ru"] .b-stats_bar .compatibility .text.high::after
-  content: 'Высокая совместимость'
-[data-locale="en"] .b-stats_bar .compatibility .text.high::after
-  content: 'High compatibility'
-
-[data-locale="ru"] .b-stats_bar .compatibility .text.full::after
-  content: 'Полная совместимость'
-[data-locale="en"] .b-stats_bar .compatibility .text.full::after
-  content: 'Full compatibility'
-
-
-
-
-
-
-
-
-
-
-
-/* CHIP | USER PLATES */
-.b-user16
-  vertical-align: middle
-  max-width: 100%
-  margin: 0 .5rem 0 0
-  background-color: #eee
-  border-radius: .5rem
-  font-size: .875rem
-  font-weight: 400
-  text-transform: initial
-  text-overflow: ellipsis
-  overflow: hidden
-
-.b-user16,
-.b-quote .quoteable a.b-user16
-  padding: 0 .5rem 0 1.25rem
-
-.b-user16,
-.b-user16 a
-  line-height: 0 !important /* BUG: Лишний перенос строки в разметке thx オプティカル */
-
-.b-user16 > span,
-.b-user16 > a > span
-  line-height: 1rem !important
-
-.b-user16:hover
-  color: #f2f2f2 !important
-  background-color: #747474
-
-.b-user16:after
-  display: none !important
-
-.b-user16:hover a
-  color: #fff !important
-  text-decoration: none
-
-.b-user16 > a > span
-  padding: 0
-
-.b-user16:hover span
-  text-decoration: none
-
-.b-user16 img
-  vertical-align: top
-  width: 16px !important
-  padding: 0
-  margin: 0 .375rem 0 -1.25rem !important
-  margin-top: 0 !important /* TODO: check it */
-  border-radius: .5rem
-
-.b-animes-menu .friend-rate .b-user16
-  display: inline-block
-
-.b-comment-info a.b-user16,
-.p-anime_videos-index .c-video_stats .uploader .b-user16
-  padding-left: 1.25rem /* thx @Dewopalaxy */
-
-.b-log_entry .b-user16,
-.b-source .contributors .b-user16,
-.b-source .mal .b-user16,
-.b-source .source .b-user16
-  margin-right: .5rem
-
-.b-user16:last-child
-  margin-right: 0 !important
-
-.b-quote .quoteable a,
-.status-line > span:first-child
-  margin-right: .5rem
-
-.status-line .b-user16:last-child
-  margin-right: .5rem !important
-
-/* BUG: Лишний пробел в разметке */
-.b-quote .quoteable a.bubbled-processed
-  margin-right: .25rem !important /* thx @Dewopalaxy */
-
-/* BUG: Лишний пробел в разметке */
-.b-quote .quoteable a.bubbled-processed > img
-  margin-right: .125rem !important /* thx @Dewopalaxy */
-
-/* COLOR */
-.b-user16,
-.b-user16 a
-  color: #212121 !important
-/* END of USER PLATES */
-
-.b-source .contributors,
-.b-source .mal,
-.b-source .source
-  padding: 0
-
-.was_updated > div:first-child > span:first-child
-  margin-right: .5rem /* thx @Dewopalaxy */
-
-/* MODERATION LIST */
-.b-log_entry
-  position: relative
-  padding-right: 2.5rem !important
-  font-size: .875rem
-
-.b-log_entry,
-.b-log_entry .spoiler.collapse span:before,
-.b-log_entry .spoiler.collapsed:before
-  padding: .375rem 0
-  line-height: 1.25rem
-
-.b-log_entry .spoiler.collapse,
-.b-log_entry .spoiler.collapsed,
-.b-log_entry .spoiler.collapse span,
-.b-log_entry .spoiler.collapsed span
-  position: absolute
-  top: 0
-  right: 0
-  margin: 0
-  border: 0
-
-.b-log_entry .spoiler.collapse span:before,
-.b-log_entry .spoiler.collapsed:before
-  display: inline-block
-  vertical-align: top
-  position: relative
-  width: 1.5rem
-
-.b-log_entry.b-ban
-  padding-right: 0 !important
-
-.b-abuse_request .remove,
-.b-log_entry span,
-.b-log_entry .date 
-  padding-right: .5rem
-
-.b-log_entry .date,
-.b-log_entry>.reason
-  vertical-align: top
-  font-size: inherit
-
-.b-log_entry span a
-  vertical-align: top
-
-.b-log_entry>.reason a
-  color: inherit
-
-.b-log_entry .spoiler.collapse,
-.b-log_entry .spoiler.collapsed,
-.b-log_entry .spoiler.collapse span,
-.b-log_entry .spoiler.collapsed span
-  font-size: 0
-  line-height: 0
-
-.b-log_entry .spoiler.collapse span:before,
-.b-log_entry .spoiler.collapsed:before
-  position: absolute
-  top: 0
-  right: 0
-  width: 2rem
-  font-family: 'Material Icons'
-  font-size: 1.125rem
-  font-weight: 400 !important
-  text-align: center
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-log_entry .spoiler.collapse span:before
-  content: 'expand_less'
-
-.b-log_entry .spoiler.collapsed:before
-  content: 'expand_more'
-
-@media screen and (min-width: 1025px)
-  .b-log_entry,
-  .b-log_entry .spoiler.collapse span:before,
-  .b-log_entry .spoiler.collapsed:before
-    padding: .125rem 0
-    line-height: 1.25rem
-
-
-.b-ban
-  padding: .125rem 0
-  font-size: .875rem
-  line-height: 1.25rem
-
-  a,
-  .link
-    color: $color-link
-
-    &:hover
-      color: $color-link-hover
-
-      .id-label
-        color: inherit
-
-    &:active
-      color: $color-link-active
-
-  & > span
-    padding-right: .5rem
-
-  .abuser
-    vertical-align: top
-    color: $color-link
-    font-size: inherit
-
-    &::before,
-    &::after
-      color: $color-text-disabled
-
-    &:hover
-      color: $color-link-hover
-
-    &:active
-      color: $color-link-active
-
-  .comment-hash
-    color: $color-text-disabled
-
-    &:hover
-      color: $color-link-hover
-
-    &:active
-      color: $color-link-active
-
-  .date
-    padding-right: .5rem
-    color: $color-text-hint
-    font-size: inherit
-
-  .duration
-    color: $color-text-hint
-    font-size: inherit
-
-  .id-label
-    color: $color-text-disabled
-
-  .moderator
-    float: right
-    position: static
-    margin: 0 0 0 .5rem
-
-    span
-      padding-left: .5rem
-
-
-
-
-/* FIX */
-.b-abuse_request .marker
-  margin: -5px 8px 0 0 !important /* thx @Dewopalaxy */
-/* END of MODERATION LIST */
-
-
-
-
-
-/**
- * MATERIAL ICON
- * Замена иконок.
- *
- * ПРАВИЛА:
- * Следующие настройки касаются только иконок. Их цвета, родители и их положение настраивается отдельно.
- * Иконки должны располагаться в псевдоэлементе :before
- * Иконки используются в двух вариантах: 18px и 24px
- * Следовательно родители иконок должны быть высотой 32px или 40px
- *
- * BUG:
- * IE doesn't support Materail Icon's font format [.woff2]
- */
-
-@font-face
-  font-family: 'Material Icons'
-  font-style: normal
-  font-weight: 400
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot) format('eot'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype')
 
 /* Стили Material Icons */
-.b-collection-topic > .inner .status-line .collection-size:before,
-.b-review_votes:before,
-.b-topic .footer-vote .star:before,
-.b-topic .footer-vote .vote-group .vote:before,
-.b-image .mobile-edit:before,
-.b-image .delete:before,
-.b-image.deletable .confirm:before,
-.b-image.deletable .cancel:before,
-.l-top_menu .menu-items > .entry > a[href *= "/forum"]:before,
-.p-user_rates-index .list-posters .user_rate .edit-user_rate:before,
-.b-collection_search .field .clear:before,
-.tooltip-inner .close,
-.p-contests .match-day .match-link .voted:before,
-.p-contests .match-day .match-link .winner:before,
-.p-contests .match-day .match-link .loser:before,
-.p-contests .match-day .match-link .created:before,
-.p-contests .match-day .match-link .started:before,
-.p-contests .match-day .match-link .finished:before,
-.b-catalog_entry.planned .image-decor::after,
-.b-catalog_entry.watching .image-decor::after,
-.b-catalog_entry.completed .image-decor::after,
-.b-catalog_entry.rewatching .image-decor::after,
-.b-catalog_entry.on_hold .image-decor::after,
-.b-catalog_entry.dropped .image-decor::after,
+.l-top_menu .menu-items > .entry > a[href *= '/forum']::before,
 .l-top_menu .menu-items > .entry.calendar > a::before,
 .l-top_menu .menu-items > .entry.info > a::before,
 .l-top_menu .menu-items > .entry > .contest::before,
 .l-top_menu .menu-items > .entry > a::before,
 .l-top_menu .menu-items > a::before,
-.b-status-line .section.created_at time::before,
-.b-status-line .section.changed_at time::before,
-.b-status-line .section.additional .collection-size::before,
-.b-status-line .section.additional .comments::before,
-.b-status-line .section.additional .b-review_votes::before,
 .l-page .menu-toggler .toggler::before
   font-family: 'Material Icons' !important
   font-weight: normal !important
@@ -4410,26 +1025,15 @@ pre
 
 
 /* LARGE ICON */
-.l-top_menu .menu-mobile .search:before,
-.l-top_menu .menu-mobile .menu:before,
-.l-top_menu .menu-mobile #sign_in:before,
-.l-top_menu .menu-userbox .search:before,
-.l-top_menu .menu-userbox .menu:before,
-.l-top_menu .menu-userbox #sign_in:before,
-.l-top_menu .to-mobile-forum:before,
-.l-top_menu .menu-items .submenu-toggler:before,
-.l-top_menu .menu-items .submenu-toggler.active:before,
-.item-mobile:before,
-.b-add_to_list .trigger-arrow:before,
-.b-add_to_list.expanded .trigger-arrow:before,
-.b-add_to_list.watching .edit:before,
-.b-add_to_list.rewatching .edit:before,
-.b-add_to_list.on_hold .edit:before,
-.b-add_to_list.dropped .edit:before,
-.b-add_to_list .plus:before,
-.b-add_to_list.completed .edit:before,
-.b-add_to_list.planned .edit:before,
-.b-comments .comments-collapser:before
+.b-add_to_list .trigger-arrow::before,
+.b-add_to_list.expanded .trigger-arrow::before,
+.b-add_to_list.watching .edit::before,
+.b-add_to_list.rewatching .edit::before,
+.b-add_to_list.on_hold .edit::before,
+.b-add_to_list.dropped .edit::before,
+.b-add_to_list .plus::before,
+.b-add_to_list.completed .edit::before,
+.b-add_to_list.planned .edit::before
   width: 24px !important
   font-family: 'Material Icons' !important
   font-size: 24px !important
@@ -4451,218 +1055,47 @@ pre
   /* Support for IE. */
   font-feature-settings: 'liga'
 
-.headline > a:before,
-.midheadline > a:before,
-.subheadline > a:before
-  display: block
-  font-family: 'Material Icons' !important
-  font-size: 18px !important
-  font-weight: 400 !important
-  line-height: 32px !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.headline > a:before,
-.midheadline > a:before,
-.subheadline > a:before
-  content: 'chevron_right'
-
 
 /* Иконки списка аниме/манги пользователя */
-.b-add_to_list .plus:before
-  content: "add"
+.b-add_to_list .plus::before
+  content: 'add'
 
-.b-add_to_list.planned .edit:before
-  content: "event"
+.b-add_to_list.planned .edit::before
+  content: 'event'
 
-.b-add_to_list.watching .edit:before
-  content: "play_arrow"
+.b-add_to_list.watching .edit::before
+  content: 'play_arrow'
 
-.b-add_to_list.completed .edit:before
-  content: "done"
+.b-add_to_list.completed .edit::before
+  content: 'done'
 
-.b-add_to_list.rewatching .edit:before
-  content: "replay"
+.b-add_to_list.rewatching .edit::before
+  content: 'replay'
 
-.b-add_to_list.on_hold .edit:before
-  content: "query_builder"
+.b-add_to_list.on_hold .edit::before
+  content: 'query_builder'
 
-.b-add_to_list.dropped .edit:before
-  content: "delete"
+.b-add_to_list.dropped .edit::before
+  content: 'delete'
 
-.b-add_to_list .trigger-arrow:before
-  content: "arrow_drop_down"
+.b-add_to_list .trigger-arrow::before
+  content: 'arrow_drop_down'
   transition: 240ms
 
-.b-add_to_list.expanded .trigger-arrow:before
-  content: "arrow_drop_down"
+.b-add_to_list.expanded .trigger-arrow::before
+  content: 'arrow_drop_down'
   transform: rotate(180deg)
 
-/* Иконки профиля */
-.profile-actions .mail:before
-  content: "mail"
-
-.profile-actions .talk:before
-  content: "message"
-
-.profile-actions .fav-add:before
-  content: "person_add"
-
-.profile-actions .fav-remove:before
-  content: "person"
-
-.profile-actions .fav-remove:hover:before
-  content: "person_outline"
-  color: inherit
-
-.profile-actions .ignore-add:before
-  content: "do_not_disturb_on"
-
-.profile-actions .ignore-remove:before
-  content: "do_not_disturb_off"
-
-.profile-actions .settings:before
-  content: "settings"
-
-.profile-actions .ban:before
-  content: "gavel"
-
-/* Иконки под постером аниме/манги/персонажа и т.д. */
-.c-actions .edit:before
-  content: "build"
-
-.c-actions .fav-remove:hover:before,
-.c-actions .fav-add:before
-  content: "favorite_border"
-
-.c-actions .fav-add:hover:before,
-.c-actions .fav-remove:before
-  content: "favorite"
-
-.c-actions .new_review:before
-  content: "rate_review"
-
-.c-actions .new_comment:before
-  content: "chat_bubble"
-
-/* Специальная иконка открывающая меню комментария/топика и т.д. */
-.item-mobile:before
-  content: "more_vert"
-
-/* Иконка "закрыть" */
-.b-dialog.aside-expanded > .inner > .item-mobile:before,
-.b-message.aside-expanded > .inner > .item-mobile:before,
-.b-comment.aside-expanded > .inner > .item-mobile:before
-  content: "clear"
-
-.p-dialogs header.head,
-.p-messages header.head,
-.p-profiles-edit header.head
-  padding: 16px 16px 8px
-  margin: -16px -16px 0
 
 
 
-header.head h1,
-header.head h2
-  padding: 8px 0
-  line-height: 32px
-  color: inherit
-
-  a.back
-    @extend %md-icon
-    @extend %md-icon-hover
-
-    &:nth-child(n)
-      margin: -4px 24px -4px -8px !important
-
-      @media (min-width: 1025px)
-        margin: -4px 16px -4px 0 !important
-
-    &::before
-      content: 'arrow_back'
-      position: static
-      color: inherit
-
-    &::after
-      display: none
-
-
-
-.buttons
-  margin-right: 0
-
-.delete-controls > span,
-.moderation-controls > span,
-.main-controls > span,
-.main-controls > a,
-.buttons .item-edit
-  width: 220px
-  padding: 11px 16px
-  margin-right: auto !important
-  margin-left: auto !important
-  line-height: 18px !important
-
-@media only screen and (min-width: 1025px)
-  .delete-controls > span,
-  .moderation-controls > span,
-  .main-controls > span,
-  .main-controls > a,
-  .buttons .item-edit
-    width: 32px
-    height: 32px
-    padding: 7px
-    margin-left: 8px !important
-    border-radius: 2px
-    line-height: 18px !important
- 
-
-.item-mobile
-  position: relative
-  width: 40px
-  height: 40px
-  padding: 8px
-  margin: 4px 0
-  margin-left: 8px !important
-  border-radius: 100%
-  z-index: 4
 
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .plus::before,
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .edit::before,
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .trigger-arrow::before,
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .plus::before,
 .b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .trigger-arrow::before,
-.buttons .item-summary:before,
-.buttons .item-ignore:before,
-.buttons .item-quote:before,
-.buttons .item-reply:before,
-.buttons .item-edit:before,
-.buttons .item-delete:before,
-.buttons .item-moderation:before,
-.buttons .item-cancel:before,
-.buttons .item-request-reject:before,
-.buttons .item-apply:before,
-.buttons .item-request-confirm:before,
-.buttons .item-delete-confirm:before,
-.buttons .item-abuse:before,
-.buttons .item-spoiler:before,
-.buttons .item-offtopic:before,
-.buttons .item-delete-cancel:before,
-.buttons .item-moderation-cancel:before
+.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .trigger-arrow::before
   vertical-align: top
   width: 18px !important
   font-family: 'Material Icons' !important
@@ -4685,1227 +1118,46 @@ header.head h2
   /* Support for IE. */
   font-feature-settings: 'liga'
 
-.buttons .item-ignore:before
-  content: "do_not_disturb_on"
 
-.buttons .item-quote:before
-  content: "format_quote"
 
-.buttons .item-reply:before
-  content: "reply"
 
-.buttons .item-edit:before
-  content: "mode_edit"
 
-.buttons .item-delete:before
-  content: "delete"
 
-.buttons .item-moderation:before
-  content: "flag"
 
-.buttons .item-cancel:before,
-.buttons .item-request-reject:before,
-.buttons .item-delete-cancel:before,
-.buttons .item-moderation-cancel:before
-  content: "clear"
 
-.buttons .item-spoiler:before
-  content: "sms_failed"
 
-.buttons .item-abuse:before
-  content: "pan_tool"
 
-.buttons .item-offtopic:before
-  content: "speaker_notes_off"
 
-.buttons .item-summary:before
-  content: "check_circle"
 
-.buttons .item-delete-confirm:before
-  content: "delete"
 
-.buttons .item-apply:before,
-.buttons .item-request-confirm:before,
-.buttons .item-delete-confirm:before
-  content: "done"
 
-.l-top_menu .menu-mobile .menu:before,
-.l-top_menu .menu-userbox .menu:before,
-.l-top_menu .menu-mobile .search:before,
-.l-top_menu .menu-userbox .search:before
-  width: 24px !important
-  font-family: 'Material Icons' !important
-  font-size: 24px !important
-  font-weight: 400 !important
-  line-height: 1 !important
 
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
 
-.l-top_menu .menu-mobile .menu:before,
-.l-top_menu .menu-userbox .menu:before
-  content: "menu"
 
-.l-top_menu .menu-mobile .search:before,
-.l-top_menu .menu-userbox .search:before
-  content: "search"
 
-.tooltip-inner
-  min-height: 56px
-  padding: 14px 16px
-  border: 0
+
+/* TODO: replace */
+.b-catalog-entry-embedded
+  .b-catalog_entry
+    margin-bottom: 0 !important
+
+/* TODO: replace */
+.b-user_rate-extended > .midheadline
   overflow: hidden
-  box-shadow: 0 4px 10px 2px rgba(0,0,0,0.24)
 
-.tooltip-arrow
-  display: none
-
-/**
- * Simple <paper-spinner>
- * MIT License
- * Copyright (c) 2015 Chris Nager
- * https://github.com/chrisnager/simple-paper-spinner
- */
-
-.tooltip-details
-  min-height: 140px
-
-.tooltip-details .ajax-loading
-  display: inline-block
-  position: absolute
-  top: 50%
-  left: 50%
-  width: 1.75em
-  height: 1.75em
-  min-height: 0
-  margin: -.875rem 0 0 -.875rem
-  background-image: none
-  border-radius: 50%
-  box-shadow: inset 0 0 0 0.1875em
-  overflow: hidden
-  will-change: transform
-  -webkit-animation: spin 2666ms linear infinite
-  animation: spin 2666ms linear infinite
-  -webkit-clip-path: circle(.875em at center)
-  clip-path: circle(.875em at center)
-
-.tooltip-details .ajax-loading:after,
-.tooltip-details .ajax-loading:before
-  content: ""
-  position: absolute
-  width: 7em
-  height: 1.75em
-  background-color: inherit
-
-.tooltip-details .ajax-loading:after
-  -webkit-transform: skewX(-80deg) translate(.875em, .875em)
-  transform: skewX(-80deg) translate(.875em, .875em)
-  -webkit-animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
-  animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
-
-.tooltip-details .ajax-loading:before
-  -webkit-transform: skewX(80deg) translate(.875em, -.875em)
-  transform: skewX(80deg) translate(.875em, -.875em)
-  -webkit-animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
-  animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
-
-@-webkit-keyframes spin
-  to
-    -webkit-transform: rotate(1080deg)
-    transform: rotate(1080deg)
-
-@keyframes spin
-  to
-    -webkit-transform: rotate(1080deg)
-    transform: rotate(1080deg)
-
-@-webkit-keyframes shape-shift-before
-  to
-    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
-    transform: skewX(-45deg) translate(.875em, -.875em)
-
-@keyframes shape-shift-before
-  to
-    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
-    transform: skewX(-45deg) translate(.875em, -.875em)
-
-@-webkit-keyframes shape-shift-after
-  to
-    -webkit-transform: skewX(45deg) translate(.875em, .875em)
-    transform: skewX(45deg) translate(.875em, .875em)
-
-@keyframes shape-shift-after
-  to
-    -webkit-transform: skewX(45deg) translate(.875em, .875em)
-    transform: skewX(45deg) translate(.875em, .875em)
-
-
-
-/**
- * .b-shiki_editor
- */
-.b-topic > .editor-container
-  margin-top: 1rem
-
-.b-shiki_editor .body .preview
-  padding: 0
-  margin: 0
-  background: transparent
-  border: 0
-
-// Кнопки BBCode
-.b-shiki_editor aside.buttons
-  margin: 0
-
-.buttons 
-  .editor-controls
-    overflow-x: auto
-
-    .b-tooltipped
-      @extend %md-icon
-      @extend %md-icon-hover
-
-  // Иконки текстового редактора
-  .editor-bold::before
-    content: 'format_bold'
-
-  .editor-italic::before
-    content: 'format_italic'
-
-  .editor-underline::before
-    content: 'format_underlined'
-
-  .editor-strike::before
-    content: 'strikethrough_s'
-
-  .editor-link::before
-    content: 'insert_link'
-
-  .editor-image::before
-    content: 'insert_photo'
-
-  .editor-quote::before
-    content: 'format_quote'
-
-  .editor-spoiler::before
-    content: 'error_outline'
-
-  .editor-file::before
-    content: 'attach_file'
-
-  .editor-smiley::before
-    content: 'insert_emoticon'
-
-  // FIX: увеличиваем активную область под размер кнопки
-  .editor-file
-    position: relative
-
-    span,
-    a
-      top: 0
-      left: 0
-      width: 40px
-      height: 40px
-      margin: 0 !important
-
-    input
-      left: 0
-      width: 40px
-      height: 40px
-      border: 0
-      font-size: 40px
-
-// FIX: кнопка скрывается при
-// @media screen and (max-width: 1024px) and (min-width: 768px) and (orientation: portrait)
-.b-shiki_editor aside.buttons .editor-strike
-  display: inline-block
-
-
-.b-shiki_editor aside.markers
-  height: auto
-  padding: .75rem 0
-
-.b-shiki_editor .links,
-.b-shiki_editor .images,
-.b-shiki_editor .quotes,
-.b-shiki_editor .email,
-.b-shiki_editor .upload
-  height: 3rem
-  line-height: 2rem
-
-.b-shiki_editor .hidden-block p
-  padding: .5rem !important
-
-.b-shiki_editor .links .link-value,
-.b-shiki_editor .images .link-value,
-.b-shiki_editor .quotes .link-value,
-.b-shiki_editor .email .link-value,
-.b-shiki_editor .upload .link-value
-  width: 14rem
-  height: 2rem
-  padding: 0 1rem
-  margin: 0
-  border-radius: 2px
-  line-height: 2rem
-
-.b-shiki_editor .links .button.ok,
-.b-shiki_editor .images .button.ok,
-.b-shiki_editor .quotes .button.ok,
-.b-shiki_editor .email .button.ok,
-.b-shiki_editor .upload .button.ok
-  display: inline-block
-  vertical-align: top
-  padding: 0 1rem
-  margin-right: 0
-  margin-left: 1rem
-  font-size: .875rem
-  line-height: 2rem
-  border-radius: 2px
-
-.b-shiki_editor .images input,
-.b-shiki_editor .quotes input,
-.b-shiki_editor .email input
-  margin-left: 1rem !important
-  width: 20rem !important
-
-/* Полоса загрузки. thx Dewopalaxy */
-.b-upload_progress.active
-  height: 1.5rem
-
-.b-upload_progress .bar
-  min-width: 0
-  height: 4px
-  background-color: $color-primary
-  color: $color-text-primary
-  font-size: .875rem
-  border-radius: 2px
-  text-align: left
-  text-indent: 1rem
-  line-height: 2rem
-  overflow: visible
-
-.b-upload_progress .bar::first-letter
-  text-transform: uppercase
-
-.b-shiki_editor .body .editor textarea
-  padding: .5rem 1rem
-  margin: 0
-  border-radius: 2px
-  font-size: 1rem
-  line-height: 1.25rem
-
-.b-shiki_editor footer input[type=submit],
-.b-shiki_editor footer .unpreview,
-.b-shiki_editor footer .preview
-  vertical-align: top
-  margin-right: 8px
-
-.b-shiki_editor footer .preview
-  margin-right: 0
-
-.b-shiki_editor.previewed footer .unpreview
-  border: 0
-  font-size: 0
-
-.b-shiki_editor.previewed footer .unpreview:after
-  content: 'Назад'
-  vertical-align: top
-  font-size: 14px
-
-.b-shiki_editor footer .cancel
-  border: 0
-
-.b-shiki_editor footer .cancel:hover
-  color: #3F51B5
-
-
-
-.b-shiki_editor.previewed .body .preview .b-comment
-  padding: 0 !important
-
-.b-shiki_editor footer
-  margin-top: 1rem
-
-.about-bb_codes
-  font-size: 0 !important
-  padding: 0 1rem
-  margin-top: 0 !important
-  border-radius: .125rem
-  line-height: 2rem !important
-
-.about-bb_codes:before
-  content: 'help' /* NOT 'help_outline' (!) see updated guideline (2016-12) */
-  display: inline-block
-  vertical-align: top
-  font-family: 'Material Icons' !important
-  font-size: 24px !important
-  line-height: 32px !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-@media only screen and (min-width: 768px)
-  .about-bb_codes:before
-    font-family: inherit !important
-    font-size: 14px !important
-    text-transform: uppercase
- 
-
-  [data-locale="ru"] .about-bb_codes:before
-    content: 'Справка'
- 
-
-  [data-locale="en"] .about-bb_codes:before
-    content: 'Help'
- 
-/* END of SHIKI_EDITOR */
-/* END of TEXTEDITOR */
-
-.b-abuse_marker,
-.b-broadcast_marker,
-.b-new_marker,
-.b-offtopic_marker,
-.b-summary_marker
-  width: auto !important
-  margin: 0 !important
-  margin-top: 1px !important
-  margin-left: 8px !important
-
-.b-spoiler_marker
-  width: auto
-
-.b-abuse_marker:before,
-.b-broadcast_marker:before,
-.b-new_marker:before,
-.b-offtopic_marker:before,
-.b-spoiler_marker:before,
-.b-summary_marker:before
-  position: static !important
-  width: auto !important
-  padding: 0 4px !important
-  margin-top: 8px
-  border: 0 !important
-  border-radius: 2px
-  font-size: 10px !important
-  line-height: 16px !important
-  text-transform: capitalize
-
-.b-shiki_editor .b-summary_marker,
-.b-shiki_editor .b-summary_marker:before,
-.b-shiki_editor .b-offtopic_marker,
-.b-shiki_editor .b-offtopic_marker:before
-  vertical-align: top
-  padding: 0 8px !important
-  margin: 0 !important
-  font-size: 12px !important
-  line-height: 24px !important
-
-.b-shiki_editor .b-summary_marker,
-.b-shiki_editor .b-offtopic_marker
-  padding: 0 !important
-  margin-left: 8px !important
-/* END of SHIKI_EDITOR */
-
-
-
-
-
-/* FLOATED OPTIONS */
-.b-options-floated
-  margin-top: 16px
-  font-size: 14px
-  line-height: 16px
-
-@media screen and (min-width: 768px)
-  .b-options-floated.before-buttons-2
-    padding-right: 112px
- 
-
-.p-profiles-edit .b-options-floated,
-.p-dialogs .b-options-floated,
-.p-messages .b-options-floated
-  position: static
-  margin: 0 -16px 8px
-  padding: 0
-  text-align: left
-  white-space: nowrap
-  overflow: hidden
-  overflow-x: auto
-
-.p-profiles-edit .b-options-floated > a,
-.p-dialogs .b-options-floated > a,
-.p-messages .b-options-floated > a
-  display: inline-block
-  width: auto
-  min-width: 88px
-  height: 48px
-  padding: 0 12px
-  font-size: 14px
-  line-height: 48px
-  text-align: center
-  text-transform: uppercase
-
-.p-profiles-edit .b-options-floated > a
-  width: auto
-
-.p-profiles-edit .b-options-floated > a:hover,
-.p-dialogs .b-options-floated > a:hover,
-.p-messages .b-options-floated > a:hover
-  text-decoration: none
-
-@media screen and (min-width: 481px)
-  .p-profiles-edit .b-options-floated > a,
-  .p-dialogs .b-options-floated > a,
-  .p-messages .b-options-floated > a
-    width: auto
- 
-
-.b-options-floated a span.brackets,
-.b-options-floated .link span.brackets
-  display: inline-block
-  vertical-align: text-top
-  min-width: 20px
-  height: 16px
-  padding: 0 4px
-  border-radius: 4px
-  color: $color-text-on-accent
-  font-size: 10px
-  line-height: 16px
-  text-align: center
-
-.b-options-floated a:after,
-.b-options-floated .link:after
-  padding: 0 .375rem
-  color: $color-text-disabled
-
-.p-profiles-edit .b-options-floated > a:after,
-.p-dialogs .b-options-floated > a:after,
-.p-messages .b-options-floated > a:after,
-.b-options-floated a span.brackets:before,
-.b-options-floated a span.brackets:after,
-.b-options-floated .link span.brackets:before,
-.b-options-floated .link span.brackets:after
-  display: none
-
-@media screen and (min-width: 481px)
-  .p-dialogs header.head,
-  .p-messages header.head,
-  .p-profiles-edit header.head
-    padding: 0
-    margin: 0
-    background-color: transparent
- 
-
-  .p-profiles-edit .b-options-floated,
-  .p-dialogs .b-options-floated,
-  .p-messages .b-options-floated
-    position: initial
-    margin: 0 -16px 8px
-    padding: 0
-    background-color: transparent
-    text-align: right
- 
-/* END of FLOATED OPTIONS */
-
-/* USER'S MAIL ICONS – READ ALL & DELETE ALL */
-.p-dialogs .misc-links,
-.p-messages .mass-actions
-  position: absolute
-  top: 56px
-  right: 0
-  margin: 0
-
-.p-messages .mass-actions .action + .action
-  margin-left: 8px
-
-
-
-
-
-// Действия с почтой
-.p-dialogs .misc-links > a
-  @extend %md-icon
-  @extend %md-icon-hover
-  @extend %md-tooltip
-  @extend %md-tooltip-left
-  position: relative
-  font-size: 0
-  line-height: 0
-
-  &::before
-    content: 'low_priority'
-    transform: scale(-1, 1)
-
-.p-dialogs[data-locale='ru'] .misc-links > a::after
-  content: 'Непрочитанные начиная со старых'
-
-.p-dialogs[data-locale='en'] .misc-links > a::after
-  content: 'Unread messages from oldest one'
-
-
-
-// Действия с почтой
-.p-messages .mass-actions .action
-  vertical-align: top
-
-  &::after
-    display: none
-
-  a
-    @extend %md-icon
-    @extend %md-icon-hover
-    @extend %md-tooltip
-    @extend %md-tooltip-left
-    position: relative
-    border: 0
-    font-size: 0
-    line-height: 1
-
-  &:nth-child(1) > a::before
-    content: 'done_all'
-
-  &:nth-child(2) > a::before
-    content: 'delete_sweep'
-
-// Текст для действий с почтой
-.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(1) > a:after
-  content: 'Прочитать всё'
-
-.p-messages[data-locale="en"] .mass-actions > .action:nth-child(1) > a:after
-  content: 'Mark all messages as read'
-
-.p-messages[data-locale="ru"] .mass-actions > .action:nth-child(2) > a:after
-  content: 'Удалить всё'
-
-.p-messages[data-locale="en"] .mass-actions > .action:nth-child(2) > a:after
-  content: 'Remove all messages'
-
-/* END of USER'S MAIL ICONS */
-
-/* DB ENTRY NOTES */
-/* TODO: MERGE WITH .c-history .entry */
-.b-db_entry-note
-  position: relative
-  padding: 8px 0 !important
-  margin: 0
-  border: 0
-
-.b-db_entry-note:before
-  content: ''
-  position: absolute
-  right: -16px
-  top: 0
-  left: 56px
-  height: 1px
-
-.cc > .b-db_entry-note:first-child::before,
-.block_m > .b-db_entry-note:first-child::before
-  display: none
-
-@media only screen and (min-width: 768px)
-  .c-column:first-child:last-child .cc > .b-db_entry-note:nth-child(2)::before
-    display: none
-
-/* FIX */
-.b-db_entry-note:before
-  right: 0
-  left: 64px
-
-.p-db_entries-related .b-db_entry-note
-  padding: 16px 0
-/* END of DB ENTRY NOTES*/
-
-/* MENU ENTRY REVIEW & CLUBS */
-/* TODO: MERGE WITH .c-history .entry */
-/* TODO: where [.calendar .entry]? */
-.p-topics .l-menu .calendar .entry,
-.p-topics .l-menu .reviews .entry,
-.p-topics .l-menu .clubs .entry
-  position: relative
-  padding: 8px 0
-  margin: 0
-  border: 0
-  overflow: initial
-
-.p-topics .l-menu .calendar .entry:first-child,
-.p-topics .l-menu .reviews .entry:first-child,
-.p-topics .l-menu .clubs .entry:first-child
-  padding-top: 8px
-  margin-top: 0
-
-.p-topics .l-menu .calendar .entry:before,
-.p-topics .l-menu .reviews .entry:before,
-.p-topics .l-menu .clubs .entry:before
-  content: ''
-  position: absolute
-  right: -8px
-  bottom: 0
-  left: 56px
-  height: 1px
-  pointer-events: none
-
-.p-topics .l-menu .calendar .entry:last-child:before,
-.p-topics .l-menu .reviews .entry:last-child:before,
-.p-topics .l-menu .clubs .entry:last-child:before
-  display: none
-
-/* Полноразмерная ссылка .entry, работает только для .l-menu */
-.p-topics .l-menu .calendar .entry a,
-.p-topics .l-menu .reviews .entry a,
-.p-topics .l-menu .clubs .entry a
-  display: block
-  padding: 8px
-  margin: -8px
-
-.p-topics .l-menu .calendar .entry a:after,
-.p-topics .l-menu .reviews .entry a:after,
-.p-topics .l-menu .clubs .entry a:after
-  content: ''
-  clear: both
-  display: block
-
-.p-topics .l-menu .calendar .entry:hover .title,
-.p-topics .l-menu .reviews .entry:hover .title,
-.p-topics .l-menu .clubs .entry:hover .title
-  text-decoration: none
-
-/* ADDITIONS */
-.p-topics .l-menu .reviews .entry img
-  min-width: 40px
-  max-height: 64px
-  margin: 2px 16px 2px 0
-  border-radius: 2px
-
-.p-topics .l-menu .clubs .entry img
-  width: 40px
-  min-width: 40px
-  height: 40px
-  margin: 2px 16px 2px 0
-  border-radius: 2px
-/* END of MENU ENTRY REVIEW & CLUBS */
-
-/* SIDEMENU LINKS */
-.p-topics .l-menu .sticky-topics .topic,
-.p-topics .l-menu .contests .contest
-  padding: 8px
-  margin: 0 -8px
-  border: 0
-
-.p-topics .l-menu .sticky-topics .topic:first-child,
-.p-topics .l-menu .contests .contest:first-child
-  padding-top: 8px
-  margin-top: 0
-
-.p-topics .l-menu .sticky-topics .topic .title,
-.p-topics .l-menu .contests .contest .title
-  line-height: 20px
-
-.p-topics .l-menu .sticky-topics .topic:hover .title,
-.p-topics .l-menu .contests .contest:hover .title
-  text-decoration: none
-
-.p-topics .l-menu .sticky-topics .topic .title:after,
-.p-topics .l-menu .contests .contest .title:after
-  display: none
-
-.p-topics .l-menu .sticky-topics .topic .notice,
-.p-topics .l-menu .contests .contest .notice
-  margin-top: 2px
-  line-height: 18px
-/* END of SIDEMENU LINKS */
-
-
-
-/* Стилизованные кнопки на страницах поиска аниме и манги */
-.p-user_rates .mylist-block + .block + .block + .block > .b-list,
-.b-collection-filters > .block:nth-child(3) > .b-list
-  margin-left: 0 !important
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li,
-.b-collection-filters > .block:nth-child(3) > .b-list > li
-  position: relative
-  margin-bottom: .5rem
-  background-color: $color-primary
-  border-radius: 2px
-  font-size: .875rem
-  line-height: 2rem
-  text-align: center
-  text-transform: uppercase
-  list-style: none
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:before,
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:after,
-.b-collection-filters > .block:nth-child(3) > .b-list > li::before,
-.b-collection-filters > .block:nth-child(3) > .b-list > li::after
-  content: ''
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  border-radius: inherit
-  opacity: 0
-  z-index: 0
-  transition: opacity .3s
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:before,
-.b-collection-filters > .block:nth-child(3) > .b-list > li:before
-  box-shadow: 0 1px 3px rgba(0,0,0,.56)
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:after,
-.b-collection-filters > .block:nth-child(3) > .b-list > li::after
-  background-color: rgba(0,0,0,.12)
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:hover:before,
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li:hover:after,
-.b-collection-filters > .block:nth-child(3) > .b-list > li:hover::before,
-.b-collection-filters > .block:nth-child(3) > .b-list > li:hover::after
-  opacity: 1
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li > a,
-.b-collection-filters > .block:nth-child(3) > .b-list > li > a
-  position: relative
-  display: block
-  color: $color-text-on-primary !important
-  z-index: 1
-
-.p-user_rates .mylist-block + .block + .block + .block > .b-list > li > a:hover,
-.b-collection-filters > .block:nth-child(3) > .b-list > li > a:hover
-  color: $color-text-on-primary !important
-  text-decoration: none
-/* END of Стилизованные кнопки на страницах поиска аниме и манги */
-
-
-
-
-
-/**
- * Фильтры на страницах поиска
- */
-
-/* Настройка пунктов */
-.b-collection-filters .block-list li,
-.b-collection-filters .b-block_list li
-  position: relative
-  padding: 0 .5rem
-  margin: 0 -.5rem
-  font-size: .875rem
-  line-height: 2rem
-
-/* Отступ для подпунктов */
-.b-collection-filters .block-list li.sub,
-.b-collection-filters .b-block_list li.sub
-  padding-left: 2.5rem
-
-/* Скрываем чекбокс, располагаем над псевдоэлементом */
-.b-collection-filters .block-list li > input,
-.b-collection-filters .b-block_list li > input
-  position: absolute
-  left: .3125rem
-  width: 2rem
-  height: 2rem
-  border: 0
-  opacity: 0
-  -webkit-appearance: none
-  -moz-appearance: none
-  appearance: none
-
-/* Псевдоэлемент с иконкой чекбокса */
-.b-collection-filters .block-list li:before,
-.b-collection-filters .b-block_list li:before
-  display: inline-block
-  vertical-align: top
-  width: 1.125rem
-  margin: .4375rem .875rem .4375rem 0
-  font-family: 'Material Icons'
-  font-size: 1.125rem
-  line-height: 1
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-/* Фильтры на страницах поиска – ПОДСКАЗКИ */
-/* Положение подсказки */
-.b-collection-filters .block-list .b-question,
-.b-collection-filters .b-block_list .b-question
-  display: inline-block !important
-  vertical-align: top
-  position: absolute
-  right: .3125rem
-
-/* Иконка подсказки */
-.b-collection-filters .block-list .b-question:before,
-.b-collection-filters .b-block_list .b-question:before
-  display: block
-  width: 1.125rem
-  height: auto
-  margin: .4375rem
-  background-color: transparent
-  font-family: 'Material Icons'
-  font-size: 1.125rem
-  line-height: 1
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-/* Фильтры на страницах поиска – ПЕРЕКЛЮЧАТЕЛИ */
-/* Положение переключателя */
-.b-collection-filters .filter
-  top: 0
-
-.b-collection-filters .block-list .filter,
-.b-collection-filters .b-block_list .filter
-  float: right
-  position: relative
-  right: auto
-  margin: 0 0 0 .5rem
-
-/* Положение переключателя с иконками подсказок */
-.b-collection-filters .block-list.ratings .filter,
-.b-collection-filters .block-list.genres .filter,
-.b-collection-filters .block-list li.sub .filter,
-.b-collection-filters .b-block_list.ratings .filter,
-.b-collection-filters .b-block_list.genres .filter,
-.b-collection-filters .b-block_list li.sub .filter
-  margin-right: 2rem
-
-/* Сбрасываем стандартные стили */
-.b-collection-filters .block-list .filter:before,
-.b-collection-filters .b-block_list .filter:before
-  display: block
-  width: auto
-  font-family: inherit
-  font-size: .75rem
-  line-height: inherit
-  text-transform: lowercase
-
-/* Добавляем понятные текстовые обозначения */
-[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-add:before
-  content: 'Исключить'
-
-[data-locale="en"] .b-collection-filters .b-block_list .filter.item-add:before
-  content: 'Exclude'
-
-[data-locale="ru"] .b-collection-filters .b-block_list .filter.item-minus:before
-  content: 'Добавить'
-
-[data-locale="en"] .b-collection-filters .b-block_list .filter.item-minus:before
-  content: 'Include'
-
-/* Настройка иконок */
-.b-collection-filters .block-list li:before
-  content: 'check_box_outline_blank'
-
-.b-collection-filters .block-list li.selected:before
-  content: 'check_box'
-
-.b-collection-filters .block-list.orders li:before
-  content: 'radio_button_unchecked'
-
-.b-collection-filters .block-list.orders li.selected:before
-  content: 'radio_button_checked'
-
-.b-collection-filters .block-list .b-question:before
-  content: 'help_outline'
-
-.b-collection-filters .b-block_list li:before
-  content: 'check_box_outline_blank'
-
-.b-collection-filters .b-block_list li.selected:before
-  content: 'check_box'
-
-.b-collection-filters .b-block_list.orders li:before
-  content: 'radio_button_unchecked'
-
-.b-collection-filters .b-block_list.orders li.selected:before
-  content: 'radio_button_checked'
-
-.b-collection-filters .b-block_list .b-question:before
-  content: 'help_outline'
-
-/* Фильтры на страницах поиска – Размер для ПК */
-@media (min-width: 1025px)
-  .b-collection-filters .block-list li
-    line-height: 1.5rem
- 
-
-  .b-collection-filters .block-list li:before
-    margin: .1875rem .875rem .1875rem 0
- 
-
-  .b-collection-filters .block-list .b-question:before
-    margin: .1875rem
- 
-
-  .b-collection-filters .block-list li > input
-    width: 1.5rem
-    height: 1.5rem
- 
-
-  /* new class */
-  .b-collection-filters .b-block_list li
-    line-height: 1.5rem
- 
-
-  .b-collection-filters .b-block_list li:before
-    margin: .1875rem .875rem .1875rem 0
- 
-
-  .b-collection-filters .b-block_list .b-question:before
-    margin: .1875rem
- 
-
-  .b-collection-filters .b-block_list li > input
-    width: 1.5rem
-    height: 1.5rem
- 
-/* END of Фильтры на страницах поиска */
-
-/* "Мой список" в фильтрах поиска */
-// Меняем название на более доступное
-.b-collection-filters
-  .mylist-block
-    .subheadline
-      font-size: 0
-      line-height: 0
-
-      &::after
-        font-size: .875rem
-        line-height: 1rem
-
-      [data-locale='ru'] &::after
-        content: 'Мой список'
-
-      [data-locale='en'] &::after
-        content: 'My List'
-
-    // Кнопка переключателя
-    .item-sign
-      @extend %md-icon
-      @extend %md-icon-hover
-      margin-right: 0 !important
-
-      &::before
-        content: 'playlist_add_check'
-
-
-
-/* Страница видео */
-.b-video_player .cc-player_controls .episode-num input
-  margin: .75rem .25rem
-
-.b-video_player .cc-player_controls a.c-control:hover
-  text-decoration: none
-
-.b-video_player .cc-player_controls .cc-navigation > .c-control > span,
-.b-video_player .cc-player_controls .cc-navigation > .c-control > b
-  display: inline-block
-  vertical-align: top
-  margin: .25rem auto
-  line-height: 2.5rem
-
-.b-video_player .cc-player_controls .cc-navigation > .c-control > b
-  margin-left: .5rem
-
-@media screen and (max-width: 480px) and (orientation: portrait)
-  .b-video_player .cc-player_controls .cc-navigation > .c-control > span,
-  .b-video_player .cc-player_controls .cc-navigation > .c-control > b
-    display: none
-
-.b-video_player .cc-player_controls .label,
-.b-video_player .cc-player_controls .episode-title .video-link
-  font-size: .75rem
-
-.b-video_player .cc-player_controls .episode-title .video-link a
-  display: block
-  line-height: inherit
-  border: 0
-
-.b-video_player .cc-player_controls .cc-options > .c-video_stats
-  margin: .25rem auto
-
-.p-anime_videos-index .c-videos .video-variant-switcher,
-.p-anime_videos-index .c-video_stats
-  font-size: .875rem
-
-.b-video_player .cc-player_controls .c-control:hover
-  text-decoration: none
-
-/* Подзаголовки на странице видео */
-.p-anime_videos-index .same-videos .title,
-.p-anime_videos-index .c-anime_video_episodes .title,
-.p-anime_videos-index .c-videos .title
-  padding: 1rem 0
-  margin: 0
-  font-size: .875rem
-  font-weight: 700
-  line-height: 1rem
-  text-transform: uppercase
-
-.p-anime_videos-index.x1000 .c-videos .title
-  font-size: 0
-  line-height: 0
-
-.p-anime_videos-index.x1000 .c-videos .title:after
-  font-size: .875rem
-  line-height: 1rem
-
-.p-anime_videos-index.x1000[data-locale="ru"] .c-videos .title:after
-  content: 'Варианты'
-
-.p-anime_videos-index.x1000[data-locale="en"] .c-videos .title:after
-  content: 'Variants'
-
-/* Переключатели в вариантах видео */
-.p-anime_videos-index .c-videos .video-variant-switcher
-  float: right
-  margin: 0
-  border: 0
-  line-height: 1rem
-  text-transform: capitalize
-
-.p-anime_videos-index .c-videos .video-variant-switcher:not(:first-child):after
-  content: '/'
-  padding: 0 .375rem
-  font-weight: normal
-
-.b-video_variant.active a
-  border: 0
-
-/* Иконки */
-.b-video_player .cc-player_controls .c-control .icon
-  width: 2.5rem !important
-  height: 2.5rem
-  padding: .5rem
-  margin: .25rem auto !important
-  border-radius: 2px
-
-.b-video_player .cc-player_controls .c-control .icon:before
-  width: 1.5rem
-  font-family: 'Material Icons'
-  font-size: 1.5rem !important
-  line-height: 1
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-.b-video_player .cc-player_controls .create-user_rate .icon:before
-  content: 'add'
-
-.b-video_player .cc-player_controls .increment-user_rate .icon:before
-  content: 'done'
-
-.b-video_player .cc-player_controls .next .icon:before
-  content: 'skip_next'
-
-.b-video_player .cc-player_controls .prev .icon:before
-  content: 'skip_previous'
-
-.b-video_player .cc-player_controls .report .icon:before
-  content: 'flag'
-
-.b-video_player .cc-player_controls .show-options .icon:before
-  content: 'settings'
-
-.b-video_player .cc-player_controls .upload .icon:before
-  content: 'cloud_upload'
-
-.b-video_player .cc-player_controls .edit .icon:before
-  content: 'build'
-
-/**/
-/**/
-/**/
-
-/* SVG-графики на страницах о сайте и индустрии аниме */
-.highcharts-root
-  .highcharts-background
-    fill: $color-background
-
-  .highcharts-yaxis-grid .highcharts-grid-line,
-  .highcharts-xaxis .highcharts-tick,
-  .highcharts-xaxis .highcharts-axis-line
-    stroke: $color-border
-
-  .highcharts-legend-item text
-    color: $color-text-primary !important
-    fill: $color-text-primary !important
-
-  .highcharts-legend-item.highcharts-legend-item-hidden text
-    color: $color-text-secondary !important
-    fill: $color-text-secondary !important
-
-  .highcharts-axis-labels text
-    color: $color-text-hint !important
-    fill: $color-text-hint !important
-
-  .highcharts-text-outline
-    display: none
-
-  .highcharts-text-outline ~ tspan
-    color: $color-text-primary !important
-    fill: $color-text-primary !important
-/* END of ОСНОВНОЙ ФАЙЛ */
-/**/
-/**/
-/**/
+/* TODO: check it */
+// .b-topic > .inner header .name-date a.name,
+// .b-topic > .inner header .name-date .about,
+// .b-topic > .inner > header .about a,
+// .b-topic > .inner > header .about > span
+//   display: inline-block
+//   vertical-align: top
+//   line-height: inherit
+
+/* TODO: check it */
+.b-comment .body,
+.b-dialog .body,
+.b-message .body,
+.b-topic .body
+  word-break: break-word /* FIXES: issue #8 */

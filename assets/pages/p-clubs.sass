@@ -1,0 +1,60 @@
+// Страница со списком клубов
+.p-clubs-index
+  header.head
+    a.misc
+      color: $color-text-hint !important
+
+// Страница редактирования
+.p-clubs-edit
+  .pages
+    .b-button
+      margin-right: .5rem
+
+    .club_page-layout
+      padding-left: 1rem
+      font-size: .875rem
+
+    .club_page-actions
+      padding-left: 1rem
+      font-size: .875rem
+
+      .b-js-link
+        margin-right: .5rem
+
+// Меню
+.b-clubs-menu
+  .club-actions
+    margin-bottom: .5rem
+
+    .b-tooltipped
+      @extend %md-icon
+      @extend %md-icon-hover
+      width: auto
+      height: auto
+      line-height: 0
+
+      @media (max-width: 480px) and (orientation: portrait)
+        display: block
+        margin: 0 !important
+
+        &::after
+          padding-left: 1.5rem
+          color: $color-text-primary
+          font-size: inherit
+          line-height: 1.5
+
+    .edit-club::before
+      content: 'build'
+
+    .broadcast::before
+      content: 'speaker_notes'
+
+    .upload::before
+      content: 'attach_file'
+
+    .join::before,
+    .invite::before
+      content: 'person_add'
+
+    .leave::before
+      content: 'directions_run'

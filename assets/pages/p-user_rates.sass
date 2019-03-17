@@ -1,0 +1,178 @@
+/* Пользовательские списки */
+.p-user_rates-index .l-content
+  .b-options-floated
+    span
+      &::before, &::after
+        color: $color-text-disabled
+
+  .order-control
+    color: $color-text-primary
+
+  .order-control:hover
+    background-color: $color-area-normal
+    color: $color-text-primary
+
+  .order-control:active
+    color: $color-link-active
+
+
+
+.p-user_rates-index .stat-categories
+  .category
+    height: 20px
+    color: $color-link
+    &:hover, &.active
+      color: $color-link-hover
+    &:active, &.active:hover
+      color: $color-link-active
+
+
+
+.p-user_rates-index .list-lines
+  thead tr
+    font-size: 13px
+    line-height: 2rem
+
+  .selectable:hover
+    background-color: $color-area-normal
+
+  tr
+    td
+      .anime-remove
+        &:hover, &.selected
+          color: $color-link-hover
+        &:active
+          color: $color-link-active
+
+      .anime-status
+        &:hover
+          color: $color-link-hover
+        &:active
+          color: $color-link-active
+
+      .rate-text
+        color: $color-text-secondary
+        font-size: .875rem
+        line-height: 1.25rem
+
+      .episodes_total
+        color: $color-text-secondary
+
+      .new-value
+        input
+          height: 1.5rem
+          background: $color-background-secondary
+          border-color: $color-border
+          border-radius: 2px
+          color: $color-text-primary !important
+          font-size: 1rem
+          line-height: 1.5rem
+
+    &.edit-form
+      form
+        padding: 1rem
+        margin: .5rem 0
+        background: $color-area-normal
+        border: 1px solid $color-border
+        border-radius: 2px
+
+      .b-input
+        vertical-align: top
+
+        &.integer input
+          width: 7rem
+
+        &.text
+
+          textarea
+            font-size: .875rem
+            resize: vertical
+
+      .buttons
+        margin-top: 0
+
+      .remove
+        @extend %md-icon
+        @extend %md-icon-hover
+        margin: -.25rem 0 !important
+        border: 0
+        font-size: 0
+
+        &::before
+          content: 'delete'
+
+    .index
+      width: 2em
+      padding-right: .5em
+      color: $color-text-hint
+
+    .name
+      a
+        color: $color-link
+        &:hover
+          color: $color-link-hover
+        &:active
+          color: $color-link-active
+
+
+
+.p-user_rates-index .list-posters
+  .user_rate
+    .b-catalog_entry::after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-image: linear-gradient(rgba(0,0,0,.6) 0%, transparent 40%)
+      border-radius: .125rem
+      opacity: 0
+      pointer-events: none
+
+    &:hover .b-catalog_entry::after
+      opacity: 1
+
+    &.b-ajax::after
+      margin-top: -1.5rem
+
+    .edit-user_rate
+      @extend %md-icon
+      @extend %md-icon-hover
+      margin-top: .25rem !important
+      margin-right: .25rem !important
+      background-color: transparent
+      // background-color: $color-primary
+      &::before
+        content: 'edit'
+        position: static
+        height: auto
+        background: transparent
+        // background-color: $color-primary
+
+    & > .text
+      padding: .5rem
+      background: rgba(0,0,0,.8)
+      border-radius: 0 0 2px 2px
+      &::before
+        display: none
+
+
+
+.p-user_rates-index .list-groups
+  .summary
+    &.posters
+      padding: .5em 1em
+      background: $color-background-secondary
+      border-color: $color-border
+      border-radius: 2px
+
+    &.lines
+      font: inherit
+      font-size: .875em
+      color: inherit
+
+    .stat-value
+      &::after
+        padding: 0 3px
+        color: $color-text-disabled

@@ -1,0 +1,74 @@
+.p-animes-show,
+.p-mangas-show
+  .other-names.click-loader
+    background-color: $color-area-normal
+    border-color: $color-area-hover
+    color: inherit !important
+    &:hover
+      background-color: $color-area-hover
+      border-color: $color-area-active
+    &:active
+      background-color: $color-area-active
+      border-color: $color-border
+
+@media screen and (min-width: 1200px)
+  .p-animes-show .c-image .b-user_rate,
+  .p-mangas-show .c-image .b-user_rate
+    margin: 0
+
+.watch-online-placeholer
+  margin: 2rem auto .5rem
+
+
+// Sidebar
+.b-animes-menu
+  .friend-rate
+    padding: 2px 0
+    line-height: 1.25rem
+    // white-space: nowrap /* thx @NedStar */
+
+    .status
+      margin-left: .5rem
+      font-size: .75em
+
+  .total-rates
+    color: inherit
+
+  .site-icon
+    margin-top: .25rem
+    margin-right: .75rem
+
+  .menu-topics-block
+    .entry
+      font-size: .875rem
+      line-height: 1.5rem
+
+      .time
+        color: $color-text-hint
+        font-size: .75rem
+
+    .history-entry-tooltip
+      .tooltip-details
+        a
+          font-size: .875rem
+
+  .b-external_link
+    font-size: .875rem
+    line-height: 1.5rem
+
+    a, .linkeable
+      display: block
+      margin-left: 2rem
+      color: $color-text-primary !important
+
+      &:hover
+        text-decoration: underline
+
+      &::before
+        width: 1.125rem
+        height: 1.125rem
+        margin-top: .1875rem
+        margin-left: -2rem
+        background-size: 1rem
+        background-position: center
+        background-repeat: no-repeat

@@ -1,0 +1,43 @@
+// Many different markers
+body[data-locale] .b-abuse_marker
+  @extend %shiki-marker
+  color: #ef5350
+
+body[data-locale] .b-broadcast_marker
+  @extend %shiki-marker
+  color: #ef8d50
+
+body[data-locale] .b-offtopic_marker
+  @extend %shiki-marker
+  color: #f58ebb
+
+  &.active:hover
+    color: $color-text-disabled
+
+  &.off:hover
+    color: #f58ebb
+
+body[data-locale] .b-summary_marker
+  @extend %shiki-marker
+  color: #66bb6a
+
+  &.active:hover
+    color: $color-text-disabled
+
+  &.off:hover
+    color: #66bb6a
+
+body[data-locale] .b-spoiler_marker
+  @extend %shiki-marker
+  color: #ef8d50
+
+body[data-locale] .b-new_marker
+  @extend %shiki-marker
+  display: none
+  color: #4f91e8
+
+  &.active:hover
+    color: $color-text-disabled
+
+  &.off:hover
+    color: #4f91e8

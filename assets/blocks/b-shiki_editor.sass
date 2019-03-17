@@ -1,0 +1,145 @@
+
+.b-shiki_editor
+  aside.markers
+    height: auto
+    padding: .5rem 0
+
+  aside.buttons
+    margin: 0
+
+    // FIX: кнопка скрывается при
+    // @media screen and (max-width: 1024px) and (min-width: 768px) and (orientation: portrait)
+    .editor-strike
+      display: inline-block
+
+  .hidden-block
+    height: auto
+    line-height: 3em
+
+    p
+      padding: 0 !important
+      white-space: nowrap
+      overflow-x: auto
+
+    label
+      vertical-align: top
+      margin: 0
+
+      & + label
+        margin-left: .5rem
+
+    .link-value
+      vertical-align: top
+      width: 16rem !important // в оригинальном стиле
+      height: 36px
+      padding: 0 .75rem
+      margin: .375rem 0
+      margin-left: .5rem !important // в оригинальном стиле
+      background: $color-background
+      border: 2px solid $color-primary
+      border-right-width: 0
+      border-radius: 4px 0 0 4px
+      color: $color-text-primary
+      line-height: 32px
+
+    .b-button.ok
+      @extend %md-button-raised
+      min-width: 0
+      border-radius: 0 4px 4px 0
+
+
+  .body
+    .editor
+      textarea
+        padding: .5rem 1rem
+        margin: 0
+        background: $color-background-secondary
+        border-radius: 2px
+        font-size: 1rem
+        line-height: 1.25rem
+
+        // TODO: check moz & ms browsers
+        &::-webkit-input-placeholder
+          padding: 0
+          line-height: inherit
+
+        &:-moz-placeholder
+          padding: 0
+          line-height: inherit
+
+        &::-moz-placeholder
+          padding: 0
+          line-height: inherit
+
+        &:-ms-input-placeholder
+          padding: 0
+          line-height: inherit
+
+    .preview
+      padding: 0
+      margin: 0
+      background: transparent
+      border: 0
+
+  &.previewed .body
+    .preview
+      .b-comment
+        padding: 0 !important
+
+  footer
+    margin-top: .25em
+
+    input[type=submit],
+    .unpreview,
+    .preview
+      margin: .375rem .5rem .375rem 0
+
+    .about-bb_codes
+      @extend %material-icons
+      padding: .5rem
+      margin: .25rem 0
+      border-radius: 3px
+      color: $color-text-hint
+      font-size: 0
+      line-height: inherit
+      transition: .16s cubic-bezier(.4,0,.6,1)
+      transition: .3s
+
+      &:hover
+        text-decoration: none
+        color: $color-text-hint
+
+      &:active
+        color: $color-text-hint
+
+      &::before
+        content: 'help'
+        font-size: 1rem
+
+      &::after
+        content: 'Справка'
+        display: none
+        vertical-align: top
+        font-size: .875rem
+
+      [data-locale='en'] &::after
+        content: 'Help'
+
+      @media (min-width: 768px)
+        padding: .5rem 1rem
+        margin: .375rem 0
+        font-weight: bold
+        line-height: 1.25rem
+        text-transform: uppercase
+
+        &:hover
+          background: rgba($color-text-hint, .12)
+
+        &:active
+          background: rgba($color-text-hint, .24)
+
+        &::before
+          display: none
+
+        &::after
+          display: inline

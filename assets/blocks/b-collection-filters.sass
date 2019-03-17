@@ -1,0 +1,174 @@
+/* Фильтры на страницах поиска */
+.b-collection-filters
+  .b-block_list
+    li
+      position: relative
+      padding: .25em .5em
+      margin: 0 -.5em
+      font-size: 1rem
+      line-height: 1.5
+      @extend %material-icons
+
+      &::before
+        content: 'check_box_outline_blank'
+        display: inline-block
+        vertical-align: top
+        margin: 0 .75rem 0 0
+        color: $color-text-hint
+
+      &.selected::before
+        content: 'check_box'
+        color: $color-primary
+
+      &.selected
+        color: inherit
+
+      &.sub
+        padding-left: 2.75rem
+
+      input
+        position: absolute
+        width: 1.25rem
+        height: 1.25rem
+        margin: .125rem 0 0 -2.125rem
+        opacity: 0
+
+      .b-question
+        position: absolute
+        right: .5rem
+        @extend %material-icons
+
+        &::before
+          content: 'help_outline'
+          width: 1em
+          height: auto
+          margin: 0
+          background: transparent
+          color: $color-text-hint
+
+      .filter
+        float: right
+        position: relative
+        right: auto
+        margin: 0 0 0 .5rem
+        color: $color-primary
+        font-weight: bold
+
+        &:hover
+          color: $color-accent
+
+        &::before
+          display: block
+          width: auto
+          font-family: inherit
+          font-size: .75rem
+          line-height: 1.5rem
+          text-transform: lowercase
+
+        &.item-add::before
+          content: 'Исключить'
+
+        [data-locale='en'] &.item-add::before
+          content: 'Exclude'
+
+        &.item-minus::before
+          content: 'Добавить'
+
+        [data-locale='en'] &.item-minus::before
+          content: 'Include'
+
+    // Иконки radio-переключателей
+    &.orders
+      li
+        &::before
+          content: 'radio_button_unchecked'
+
+        &.selected::before
+          content: 'radio_button_checked'
+
+    // Положение фильтра при наличии иконки с подсказкой
+    &.ratings,
+    &.genres,
+    li.sub
+      .filter
+        margin-right: 2rem
+
+  // "Мой список" в фильтрах поиска
+  // Меняем название на более доступное
+  .mylist-block
+    .subheadline
+      font-size: 0
+      line-height: 0
+
+      &::after
+        content: 'Мой список'
+        font-size: .875rem
+        line-height: 1rem
+
+      [data-locale='en'] &::after
+        content: 'My List'
+
+    // Кнопка переключателя
+    .item-sign
+      @extend %md-icon
+      @extend %md-icon-hover
+      margin-right: 0 !important
+
+      &::before
+        content: 'playlist_add_check'
+
+
+
+// Стилизованные кнопки на страницах поиска аниме и манги
+// TODO: replace md-button
+.p-user_rates .mylist-block + .block + .block + .block > .b-list,
+.b-collection-filters > .block:nth-child(3) > .b-list
+  margin-left: 0 !important
+
+  & > li
+    position: relative
+    margin-bottom: .5rem
+    background-color: $color-primary
+    border-radius: 2px
+    font-size: .875rem
+    font-weight: bold
+    line-height: 2rem
+    text-align: center
+    text-transform: uppercase
+    list-style: none
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      border-radius: inherit
+      opacity: 0
+      z-index: 0
+      transition: opacity .3s
+      -webkit-backface-visibility: hidden
+      -moz-backface-visibility: hidden
+      backface-visibility: hidden
+
+    &::before
+      box-shadow: 0 1px 3px rgba(0,0,0,.56)
+
+    &::after
+      background-color: rgba(0,0,0,.12)
+
+    &:hover::before,
+    &:hover::after
+      opacity: 1
+
+    & > a
+      position: relative
+      display: block
+      color: $color-text-on-primary !important
+      z-index: 1
+
+      &:hover
+        color: $color-text-on-primary !important
+        text-decoration: none

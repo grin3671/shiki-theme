@@ -1,0 +1,81 @@
+/* Переключатели для подзаголовков */
+.b-options-floated
+  margin-top: 16px
+  font-size: 14px
+  font-weight: 700
+  line-height: 16px
+
+  &.before-buttons-2
+    @media (min-width: 768px)
+      padding-right: 112px
+
+  &.r-edit
+    @media (min-width: 768px)
+      margin-right: 48px
+
+  a, .link
+    color: $color-link
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+    &::after
+      padding: 0 .375rem
+      color: $color-text-disabled
+
+    span.brackets
+      display: inline-block
+      vertical-align: text-top
+      min-width: 20px
+      height: 16px
+      padding: 0 4px
+      background-color: $color-accent
+      border-radius: 4px
+      color: $color-text-on-accent
+      font-size: 10px
+      font-weight: 700
+      line-height: 16px
+      text-align: center
+
+      &::before, &::after
+        display: none
+
+  // страница контестов - options-floated, отображающий количество участников
+  &.count
+    color: $color-text-hint
+
+  // список пользователя
+  .action
+    color: $color-link
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+  .selected
+    color: $color-link-hover
+    &:hover
+      color: $color-link-active
+    &.always-active
+      color: inherit
+      &:hover
+        color: $color-link-hover
+      &:active
+        color: $color-link-active
+
+  &.mobile-desktop,
+  &.mobile-phone_portrait,
+  &.mobile-phone,
+  &.mobile-tablet
+    a
+      color: $color-link
+      &:hover
+        color: $color-link-hover
+      &:active
+        color: $color-link-active
+
+      &.selected
+        color: inherit
+        &:hover
+          color: $color-link-active

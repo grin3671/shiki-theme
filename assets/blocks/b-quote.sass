@@ -1,0 +1,32 @@
+/* Цитаты */
+.b-quote
+  padding: .5rem 1rem
+  margin: .5rem 0
+  background: $color-background-secondary
+  border-color: $color-border
+  border-style: solid
+  border-radius: 2px
+  color: inherit
+
+  .quoteable
+    margin: 0 0 .5rem
+    line-height: 20px
+
+    &::before
+      float: left
+      margin-right: 8px
+      color: $color-text-hint
+
+    a
+      padding-right: 0
+      margin-right: .375rem
+
+  .b-quote
+    margin-left: 0 !important
+    background: $color-area-normal
+
+    .b-quote
+      background: $color-background-secondary
+
+      .b-quote
+        background: $color-area-normal

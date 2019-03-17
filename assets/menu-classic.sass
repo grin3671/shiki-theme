@@ -40,6 +40,9 @@ $font-size: 16px
       color: inherit !important
       font-weight: bold
       line-height: 1
+      -webkit-backface-visibility: hidden
+      -moz-backface-visibility: hidden
+      backface-visibility: hidden
 
       [data-locale='en'] &
         text-transform: uppercase
@@ -372,19 +375,25 @@ $font-size: 16px
     @media only screen and (min-width: 1025px)
       display: none
 
-[data-locale="ru"] .l-top_menu .menu-items > .entry.calendar > a::after
+[data-locale='ru'] .l-top_menu .menu-items > .entry.calendar > a::after
   content: 'Календарь онгоингов'
 
-[data-locale="en"] .l-top_menu .menu-items > .entry.calendar > a::after
+[data-locale='en'] .l-top_menu .menu-items > .entry.calendar > a::after
   content: 'Calendar'
 
-[data-locale="ru"] .l-top_menu .menu-items > .entry.info > a::after
+[data-locale='ru'] .l-top_menu .menu-items > .entry.info > a::after
   content: 'Информация'
 
-[data-locale="en"] .l-top_menu .menu-items > .entry.info > a::after
+[data-locale='en'] .l-top_menu .menu-items > .entry.info > a::after
   content: 'Info'
 /* END of Текст вместо иконок в верхнем меню */
 
+
+/* FIX: BACKFACE VISIBILITY */
+.l-top_menu .menu-items > .entry > a
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  backface-visibility: hidden
 
 
 /* Уведомления о голосованиях */
@@ -496,6 +505,7 @@ $font-size: 16px
   height: 2rem
   padding: 0
   margin: 0
+  border-radius: 2px
   transition: background .3s
 
 .b-main_search.hovered .popup
@@ -529,14 +539,20 @@ $font-size: 16px
 
 
 /* TOPMENU | SEARCHRESULT */
-.ac_results.menu-suggest,
-.completable-block.menu-suggest
-  border: 0
-  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
-
 .ac_results,
 .completable-block
+  background: $color-background-dialog
+  color: $color-text-primary !important
   font-size: .75rem
+  &.menu-suggest
+    margin-top: -17px
+    margin-left: 6px
+    border: 0
+    box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
+
+  .name
+    color: inherit
+    font-size: 14px
 
 .ac_odd
   background-color: $color-background
@@ -555,14 +571,6 @@ $font-size: 16px
 .b-main_search ul.popup,
 .b-main_search.hovered .popup
   margin: 0
-
-.ac_results.menu-suggest,
-.completable-block.menu-suggest
-  margin-top: -17px
-  margin-left: 6px
-
-.ac_results .name
-  font-size: 14px
 
 .ac_results .name > strong
   background-color: #ff0

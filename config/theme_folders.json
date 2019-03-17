@@ -1,0 +1,22 @@
+[
+  {
+    "url": "blocks",
+    "title": "Стили блоков"
+  },
+  {
+    "url": "pages",
+    "title": "Стили страниц"
+  },
+  {
+    "url": "modules",
+    "title": "Material Design 2014"
+  },
+  {
+    "url": "mixins",
+    "title": "Миксины"
+  },
+  {
+    "url": "tests",
+    "title": "Для тестирования"
+  }
+]

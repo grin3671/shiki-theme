@@ -1,0 +1,59 @@
+.b-status-line
+  margin-top: .125rem
+  margin-bottom: .5rem
+  font-size: .875rem
+  line-height: 1.25rem
+
+  .section
+    vertical-align: top
+    padding-left: .5rem
+    margin-left: .5rem
+    border-color: $color-border
+
+    &.about
+      span.about
+        padding-left: .5rem
+
+      .b-link
+        padding-left: .5rem
+
+      .author
+        padding-left: .5rem
+
+    &.created_at time,
+    &.changed_at time,
+    &.additional .collection-size,
+    &.additional .comments,
+    &.additional .b-review_votes
+      @extend %material-icons
+      &::before
+        display: inline-block
+        vertical-align: top
+        padding: 0
+        margin-right: .375rem
+        color: $color-text-disabled
+        font-size: 1.125rem !important
+
+
+    &.created_at
+      time::before
+        content: 'create'
+
+    &.changed_at
+      time::before
+        content: 'history'
+
+    &.additional
+      .collection-size
+        margin-right: 1rem
+        color: inherit
+
+        &::before
+          content: 'collections_bookmark'
+          content: 'widgets'
+
+      .comments::before
+        content: 'mode_comment'
+
+      .b-review_votes
+        margin-left: 1rem

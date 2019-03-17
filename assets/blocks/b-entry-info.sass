@@ -1,0 +1,28 @@
+.b-entry-info
+  margin: 0
+  font-size: .875rem
+
+  .line
+    line-height: 1.5rem
+
+    a
+      color: $color-link
+      &:hover
+        color: $color-link-hover
+      &:active
+        color: $color-link-active
+
+    .b-tag
+      @extend %shiki-tag
+      font-size: 10px
+      line-height: 20px
+
+      // Убираем запятые в тегах
+      & > span::after
+        display: none
+
+    .key
+      color: $color-text-hint
+
+    .value
+      color: inherit

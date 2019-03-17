@@ -1,0 +1,66 @@
+.b-shiki_editor
+  .hidden-block
+    .link-value
+      &[placeholder *= 'стран'] + .ok::before
+        content: 'Ссылка'
+
+      [data-locale='en'] &[placeholder *= 'page'] + .ok::before
+        content: 'Page URL'
+
+      &[placeholder *= 'аним'] + .ok::before
+        content: 'Аниме'
+
+      [data-locale='en'] &[placeholder *= 'anim'] + .ok::before
+        content: 'Anime'
+
+      &[placeholder *= 'манг'] + .ok::before
+        content: 'Манга'
+
+      [data-locale='en'] &[placeholder *= 'mang'] + .ok::before
+        content: 'Manga'
+
+      &[placeholder *= 'рано'] + .ok::before
+        content: 'Ранобэ'
+
+      [data-locale='en'] &[placeholder *= 'nove'] + .ok::before
+        content: 'Light Novel'
+
+      &[placeholder *= 'перс'] + .ok::before
+        content: 'Персонаж'
+
+      [data-locale='en'] &[placeholder *= 'cter'] + .ok::before
+        content: 'Character'
+
+      &[placeholder *= 'чело'] + .ok::before
+        content: 'Человек'
+
+      [data-locale='en'] &[placeholder *= 'pers'] + .ok::before
+        content: 'Person'
+
+    .b-button.ok
+      position: relative
+
+      &::before
+        position: absolute
+        height: 1rem
+        padding: 0 4px
+        margin-top: -.875rem
+        margin-left: calc(-16.25rem - 2px)
+        font-size: 10px
+        color: $color-primary
+        background: $color-background
+        line-height: 1rem
+        text-transform: none
+        pointer-events: none
+
+      &[data-type="images"]::before
+        content: 'Изображение'
+
+      [data-locale='en'] &[data-type="images"]::before
+        content: 'Image'
+
+      &[data-type="quotes"]::before
+        content: 'Имя пользователя'
+
+      [data-locale='en'] &[data-type="quotes"]::before
+        content: 'Username'

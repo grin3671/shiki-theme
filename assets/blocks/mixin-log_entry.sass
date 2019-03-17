@@ -1,0 +1,161 @@
+
+$word-spacing: .375em !default
+
+.b-ban,
+.b-log_entry
+  position: relative
+  padding: .5rem 0
+  padding-right: 2.5rem !important
+  font-size: .875rem
+  line-height: 1.5rem
+
+  @media (min-width: 1025px)
+    padding: .25rem 0
+
+  & > span
+    padding-right: $word-spacing
+
+  .date
+    color: $color-text-hint
+    font-size: inherit
+
+  a, .link
+    color: $color-link
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+    &:hover .id-label
+      color: inherit
+
+  .id-label
+    color: $color-text-disabled
+
+  .b-user16
+    span
+      padding-right: .5rem
+
+  // Icon instead plain text
+  .spoiler.collapse
+    position: absolute
+    top: 0
+    right: 0
+    padding: .375rem
+    // margin: -.25rem 0 /* для position: relative */
+    border-radius: $border-rounded
+    color: $color-text-hint
+    transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+    // NOTE: !important in default css
+    &:hover
+      background: $color-area-hover !important
+      color: $color-text-secondary
+
+    @extend %material-icons
+    &::before
+      content: 'expand_more'
+      font-size: 1.25rem !important
+      transition: inherit
+
+    &.triggered::before
+      transform: rotate(180deg)
+
+    @extend %md-tooltip
+    @extend %md-tooltip-left
+    &::after
+      content: 'Показать правку'
+      margin: 0 .75rem
+
+    [data-locale=en] &::after
+      content: 'Show details'
+
+    &.triggered::after
+      content: 'Свернуть'
+
+    [data-locale=en] &.triggered::after
+      content: 'Hide'
+
+  // rewrite style in html
+  .spoiler.collapsed,
+  .spoiler.collapse .action
+    display: none !important
+
+
+/* Модерация */
+.b-ban
+  .abuser
+    vertical-align: top
+    color: $color-link
+    font-size: inherit
+
+    &::before,
+    &::after
+      color: $color-text-disabled
+
+    &:hover
+      color: $color-link-hover
+
+    &:active
+      color: $color-link-active
+
+  .comment-hash
+    color: $color-text-disabled
+
+    &:hover
+      color: $color-link-hover
+
+    &:active
+      color: $color-link-active
+
+  .duration
+    color: $color-text-hint
+    font-size: inherit
+
+  .moderator
+    padding-left: $word-spacing
+
+    & > span
+      padding-left: $word-spacing
+
+
+/* Список правок */
+.b-log_entry
+  // remove padding from last span
+  .state + span
+    padding-right: 0
+
+  .change-details
+    margin: .5em 0 0
+
+    .reason
+      margin-bottom: .5rem
+
+      span
+        padding-right: $word-spacing
+        color: $color-text-hint
+
+    .field-changes
+      .changes .change
+        margin-bottom: .5rem
+
+      .label
+        padding-right: $word-spacing
+        color: $color-text-hint
+
+
+/* Жалобы */
+.b-abuse_request
+  .outdated
+    font-size: inherit
+    &::before, &::after
+      color: $color-text-hint
+
+  .remove
+    padding-right: $word-spacing
+
+  /* FIX */
+  .marker
+    vertical-align: baseline !important
+    padding: 0 .375em !important
+    margin: 0 .5rem 0 0 !important /* thx @Dewopalaxy */

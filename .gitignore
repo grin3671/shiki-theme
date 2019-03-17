@@ -1,0 +1,7 @@
+config/theme_palletes.json
+config/theme_schemes.json
+config/theme_variables.json
+config/user_preferences.json
+src/
+vendor/
+index.html

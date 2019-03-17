@@ -1,0 +1,35 @@
+/* TOAST */
+.toast-message
+  display: inline-block
+  vertical-align: top
+  line-height: 1.5rem
+
+.toast-top-right
+  top: auto
+  bottom: 0
+  right: 0
+  left: 0
+
+#toast-container
+  line-height: 1.5rem
+
+#toast-container > div
+  width: 100%
+  max-width: 25rem
+  padding: .75rem 1.5rem
+  margin: auto
+  background-size: 0
+  border-radius: 0
+
+#toast-container > .toast-error
+  @extend %material-icons
+  &::before
+    content: 'error_outline'
+    float: left
+    margin: 0 1rem 0 -.5rem
+    font-size: 1.5rem !important
+
+.toast,
+.toast-success,
+.toast-error
+  background-color: #323232

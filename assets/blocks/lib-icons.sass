@@ -1,0 +1,50 @@
+// Дейсвтия в профиле
+.profile-actions
+  .mail::before
+    content: 'mail'
+
+  .talk::before
+    content: 'message'
+
+  .fav-add::before
+    content: 'person_add'
+
+  .fav-remove::before
+    content: 'person'
+    color: $color-accent
+
+  .fav-remove:hover::before
+    content: 'person_outline'
+    color: inherit
+
+  .ignore-add::before
+    content: 'do_not_disturb_on'
+
+  .ignore-remove::before
+    content: 'do_not_disturb_off'
+
+  .settings::before
+    content: 'settings'
+
+  .ban::before
+    content: 'gavel'
+
+
+// Дейсвтия над аниме
+.c-actions
+  .edit::before
+    content: 'build'
+
+  .fav-remove:hover::before,
+  .fav-add::before
+    content: 'favorite_border'
+
+  .fav-add:hover::before,
+  .fav-remove::before
+    content: 'favorite'
+
+  .new_review::before
+    content: 'rate_review'
+
+  .new_comment::before
+    content: 'chat_bubble'

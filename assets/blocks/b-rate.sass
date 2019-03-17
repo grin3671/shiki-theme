@@ -1,0 +1,64 @@
+/* Звёзды рейтинга */
+.b-rate
+  padding: 6px 0
+
+  &:last-child
+    margin-bottom: 15px
+
+  .text-score
+    vertical-align: top
+    color: inherit
+
+  .score-notice
+    color: inherit
+    font-size: 10px
+    margin-top: -46px
+    text-transform: uppercase
+
+    // FIX: position in review
+    .b-review-topic &
+      margin-top: -58px
+
+  .score-value
+    line-height: 36px
+
+  .stars
+    @extend %material-icons
+    &::before
+      width: auto !important
+      font-size: 36px !important
+      letter-spacing: -6px
+    &::after
+      display: none
+
+    &.background
+      color: $color-border
+      &::before
+        content: 'star_border star_border star_border star_border star_border'
+
+    &.hover
+      color: $color-accent
+
+    &.score
+      color: $color-primary
+
+    &.score-1::before
+      content: 'star_half'
+    &.score-2::before
+      content: 'star'
+    &.score-3::before
+      content: 'star star_half'
+    &.score-4::before
+      content: 'star star'
+    &.score-5::before
+      content: 'star star star_half'
+    &.score-6::before
+      content: 'star star star'
+    &.score-7::before
+      content: 'star star star star_half'
+    &.score-8::before
+      content: 'star star star star'
+    &.score-9::before
+      content: 'star star star star star_half'
+    &.score-10::before
+      content: 'star star star star star'

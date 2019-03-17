@@ -1,0 +1,80 @@
+// b-add_to_list.sass
+.b-add_to_list
+  min-width: 0
+  margin-bottom: .5rem
+
+  .trigger, .option
+    padding: .5rem 1rem .5rem 3rem
+    border: 0
+    font-size: .875rem
+    line-height: 1.5rem
+
+  // thx @bot.AkiKawasaki
+  .trigger
+    border-radius: $border-rounded
+
+  .option:last-child
+    border-radius: 0 $border-rounded $border-rounded 0
+
+  .plus, .edit, .trigger-arrow
+    width: 2.5rem
+    height: 2.5rem
+    padding: .5rem
+    margin: -.5rem -1rem -.5rem 0
+    color: inherit !important
+
+  .plus, .edit
+    position: absolute
+    left: 0
+    margin-left: 0 !important
+    margin-right: .5rem !important
+
+  .trigger-arrow
+    position: relative
+
+  .expanded-options
+    margin-top: $border-rounded
+
+    .option
+      font-size: .875rem
+
+      .text
+        padding-left: 0
+
+
+  .b-db_entry-note .name-container .b-user_rate &
+    .trigger, .option
+      padding: 0 1rem 0 2rem
+      line-height: 2rem
+
+      &:hover,
+      &:active
+        .plus, .edit, .trigger-arrow
+          &::before
+            color: inherit
+
+    .plus, .edit, .trigger-arrow
+      width: 2rem
+      height: 2rem
+      padding: .4375rem
+      margin: 0 -1rem 0 .25rem
+
+    .plus, .edit
+      margin-right: .25rem !important
+
+    .expanded-options
+      margin-top: 0
+
+
+  .b-catalog_entry-tooltip &
+    width: auto
+    max-width: 224px
+
+    .trigger, .option
+      font-size: .875rem
+
+    .trigger
+      line-height: 1.5rem
+
+    .trigger, .add-trigger, .remove-trigger
+      max-width: 224px

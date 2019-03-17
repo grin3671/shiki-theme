@@ -1,0 +1,99 @@
+.b-input
+  margin-bottom: .5rem
+
+  &:last-child
+    margin-bottom: 0
+
+  input, textarea
+    padding: .3125rem 1rem
+    background: $color-background-secondary
+    border-color: $color-border
+    border-radius: 2px
+    font-family: inherit
+    font-size: inherit
+    line-height: 1.25rem
+
+    // TODO: check moz & ms browsers
+    &::-webkit-input-placeholder
+      padding: 0
+      color: $color-text-disabled
+      line-height: inherit
+
+    &:-moz-placeholder
+      padding: 0
+      color: $color-text-disabled
+      line-height: inherit
+
+    &::-moz-placeholder
+      padding: 0
+      color: $color-text-disabled
+      line-height: inherit
+
+    &:-ms-input-placeholder
+      padding: 0
+      color: $color-text-disabled
+      line-height: inherit
+
+  // TODO: L: border-color normal #757575 disabled #BDBDBD
+  //       D: border-color normal #FFFFFF disabled rgba(255,255,255,.3)
+  input[type=checkbox]
+    display: inline-block
+    vertical-align: top
+    width: 1.125rem !important
+    height: 1.125rem
+    padding: 0
+    margin: .1875rem 1rem .1875rem 0
+    background-color: transparent
+    background-repeat: no-repeat
+    background-size: 1.125rem
+    background-position: -.125rem -.125rem
+    border: .125rem solid $color-text-hint
+    border-radius: .125rem
+    box-sizing: border-box
+    transition: .24s cubic-bezier(.4, 0, .2, 1)
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+    &:disabled
+      border-color: $color-text-disabled
+
+    &:checked
+      background-color: $color-primary
+      background-image: url('data\:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNOSAxNi4xN0w0LjgzIDEybC0xLjQyIDEuNDFMOSAxOSAyMSA3bC0xLjQxLTEuNDF6Ii8+PC9zdmc+')
+      border-color: transparent
+
+    &:checked:disabled
+      background-color: $color-text-disabled
+      border-color: transparent
+
+  input[disabled]
+    padding: .375rem 0 .25rem
+    background: transparent
+    border-width: 0
+    border-bottom-width: .125rem
+    color: #9E9E9E !important
+
+  textarea
+    padding: .4375rem 1rem
+
+  select
+    height: 2rem
+    padding: 2px .5rem
+    background: $color-background-secondary
+    font-family: inherit
+    font-size: .875rem
+    line-height: 2rem
+
+    &:disabled
+      opacity: .5
+
+  label
+    line-height: 1.5
+
+  .error
+
+  .hint
+    color: $color-text-disabled
+    font-size: .75rem
+    line-height: 1.25rem

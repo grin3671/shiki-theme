@@ -1,0 +1,45 @@
+/* SVG-графики на страницах о сайте и индустрии аниме */
+.highcharts-root
+  .highcharts-background
+    fill: $color-background
+
+  .highcharts-yaxis-grid .highcharts-grid-line,
+  .highcharts-xaxis .highcharts-tick,
+  .highcharts-xaxis .highcharts-axis-line
+    stroke: $color-border
+
+  .highcharts-legend-item text
+    color: $color-text-primary !important
+    fill: $color-text-primary !important
+
+  .highcharts-legend-item.highcharts-legend-item-hidden text
+    color: $color-text-secondary !important
+    fill: $color-text-secondary !important
+
+  .highcharts-axis-labels text
+    color: $color-text-hint !important
+    fill: $color-text-hint !important
+
+  .highcharts-text-outline
+    display: none
+
+  .highcharts-text-outline ~ tspan
+    color: $color-text-primary !important
+    fill: $color-text-primary !important
+
+
+
+.p-statistics-index #total,
+.p-statistics-index #by_kind,
+.p-statistics-index #by_rating,
+.p-statistics-index #by_genre,
+.p-statistics-index #by_studio
+  min-width: 0 !important
+  overflow-x: auto
+
+.highcharts-container
+  max-width: 100%
+
+text,
+.highcharts-tooltip text tspan:last-child
+  font-weight: bold

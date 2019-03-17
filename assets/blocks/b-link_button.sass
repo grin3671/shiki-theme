@@ -1,0 +1,41 @@
+/* Еще кнопка */
+.b-link_button
+  @extend %md-button
+  display: block
+  margin: 0 0 .5em
+  background-color: $color-area-normal
+  color: $color-text-primary
+  font-size: 15px !important
+  text-transform: none
+
+  &:last-child
+    margin-bottom: 0
+
+  &:hover
+    background-color: $color-area-hover
+
+  &:active
+    background-color: $color-area-active
+
+  &.maxi
+    padding: 0
+    font-size: 1rem
+    line-height: 2.5rem
+  
+  &.dark
+    @extend %md-button-raised
+    display: block
+    margin: 0 auto .5em
+    text-transform: none
+
+    &:disabled
+      background-color: mix($color-background, $color-text-disabled)
+      color: $color-text-disabled
+
+  &.join-club,
+  &.watch-online,
+  &.is-licensed,
+  &.upload-video,
+  &.create-topic
+    &::before
+      display: none

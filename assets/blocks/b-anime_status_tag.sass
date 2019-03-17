@@ -1,0 +1,41 @@
+
+.b-anime_status_tag
+  @extend %shiki-marker
+  margin: 0
+
+  &.released
+    color: $color-success
+
+  &.anons
+    color: $color-warning
+
+  &.ongoing
+    color: $color-info
+
+  &.episode
+    color: $color-info
+
+  &.summary
+    color: $color-violet
+
+  &.news
+    color: $color-warning
+
+  &.review
+    color: $color-magenta
+
+  &.collection
+    color: mix($color-offtop, $color-success, 50%)
+
+  &.cosplay
+    color: $color-yellow
+
+  &.offtopic
+    color: $color-offtop
+
+  &.ignored
+    vertical-align: top
+    color: $color-danger
+
+  &.broadcast
+    color: $color-magenta

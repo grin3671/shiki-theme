@@ -1,0 +1,79 @@
+/* ТЕМЫ ДНЯ */
+.b-hot_topics
+  padding: .5rem 1rem
+  margin: -.5rem -1rem 0 -1rem
+  background-color: initial
+  border: 0
+
+  @media (max-width: 767px)
+    overflow: hidden
+    overflow-x: auto
+    white-space: nowrap
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      width: 1rem
+      height: 2rem
+      background-image: linear-gradient(-90deg, transparent, $color-background)
+      z-index: 1
+
+    &::after
+      left: auto
+      right: 0
+      margin-top: -2rem
+      background-image: linear-gradient(90deg, transparent, $color-background)
+
+  @media (max-width: 1024px)
+    padding: 14px 16px
+    margin: -16px -16px 0 -16px
+    border: 0
+
+  .topic
+    font-size: .875rem
+    line-height: 2rem
+    text-align: left
+
+    @media (max-width: 767px)
+      float: none
+      vertical-align: top
+      width: auto
+      max-width: 100%
+
+      &:nth-child(n)
+        display: inline-block
+        margin-right: 1rem
+
+      &:last-child
+        margin-right: 0
+
+    @media (min-width: 1025px)
+      width: 10.6666%
+      margin-right: .5%
+
+    &.subject
+      color: $color-text-primary
+      font-size: .875rem
+      font-weight: bold
+      line-height: 2rem
+      text-align: left
+      text-transform: uppercase
+      white-space: nowrap
+
+    a
+      padding: 0 .75rem 0 2.5rem
+      background-color: $color-area-normal
+      border-radius: 1rem
+      color: $color-text-primary
+
+      &:hover
+        background-color: $color-area-hover
+        text-decoration: none
+
+      .poster
+        width: 2rem
+        height: 2rem
+        margin: 0 0 0 -2.5rem
+        border-radius: 100%

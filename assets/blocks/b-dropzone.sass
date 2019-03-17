@@ -1,0 +1,24 @@
+.b-dropzone
+  padding: .5rem 1rem 3rem
+  background-color: $color-area-normal
+  border: 1px dashed $color-border
+  border-radius: .125rem
+
+  &:hover
+    border-color: $color-primary
+
+    &::before,
+    input[type=file]
+      color: $color-text-secondary
+
+  &::before
+    margin: .5rem 0
+    color: $color-text-disabled
+    font-size: 14px
+
+  .thank-you
+    margin-bottom: .5rem
+
+  input[type=file]
+    bottom: 1rem
+    color: $color-text-disabled
