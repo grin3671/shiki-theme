@@ -185,6 +185,11 @@ body
 
 
 
+div.body
+  line-height: inherit
+
+
+
 h3
   border-color: $color-border
   color: $color-text-secondary
@@ -263,7 +268,7 @@ hr
 .b-replies
   padding: 8px 0 0
   color: $color-text-hint
-  font-size: .875rem
+  font-size: .75rem
 
 
 
@@ -321,48 +326,9 @@ hr
 
 
 
-/* Всплывающая подсказка */
-.tipsy
-  padding: .875rem
-  font-size: .875rem
-  opacity: .9 !important
-  pointer-events: none
-
-.tipsy-arrow
-  display: none
-
-.tipsy-inner
-  padding: .375rem 1rem
-  background-color: #616161
-  border-radius: 2px
-  color: #eee
-  text-align: left
-  box-shadow: none
 
 
 
-
-
-
-
-
-.b-topic .body
-  line-height: 1.25
-
-.b-topic > .inner > .body
-  line-height: 1.5
-
-
-
-// также является .subheadline-buttons .item-edit
-// BUG: шикимори
-.p-profiles-show .about .item-edit
-  @extend %md-icon
-  @extend %md-icon-hover
-
-  &::before
-    content: 'edit'
-/* END of SUBHEADER */
 
 
 
@@ -475,14 +441,6 @@ hr
 
 
 
-.buttons span[title]::after
-  vertical-align: top
-  padding-left: 12px
-  font-size: 16px
-  line-height: 18px
-
-
-
 /**
  * PROFILE
  * ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
@@ -553,6 +511,14 @@ hr
     font-weight: normal
     line-height: inherit
 
+
+// NOTE: также является .subheadline-buttons .item-edit
+.p-profiles-show .about .item-edit
+  @extend %md-icon
+  @extend %md-icon-hover
+
+  &::before
+    content: 'edit'
 
 
 /* FIX: update 2017-03-19 */
@@ -709,17 +675,6 @@ hr
 
 
 
-
-.profile-actions > a
-  @extend %md-icon
-  @extend %md-icon-hover
-
-
-
-
-
-
-
 /* USER PROFILE |> HISTORY ENTRY */
 .p-profiles .profile-head .c-history .entry
   position: relative
@@ -815,7 +770,9 @@ hr
 
     // Время за аниме и мангой
     &.lifetime
-      display: block
+      .title
+        display: block
+        width: auto
 
       .bar
         height: .5rem
@@ -984,7 +941,7 @@ hr
       padding: 0 .25rem
       background-color: $color-accent
       border-radius:  2px
-      color: #fff
+      color: $color-text-on-accent
       font-size: .75rem
       line-height: 1rem
 
@@ -1022,113 +979,6 @@ hr
   -moz-osx-font-smoothing: grayscale
   /* Support for IE. */
   font-feature-settings: 'liga'
-
-
-/* LARGE ICON */
-.b-add_to_list .trigger-arrow::before,
-.b-add_to_list.expanded .trigger-arrow::before,
-.b-add_to_list.watching .edit::before,
-.b-add_to_list.rewatching .edit::before,
-.b-add_to_list.on_hold .edit::before,
-.b-add_to_list.dropped .edit::before,
-.b-add_to_list .plus::before,
-.b-add_to_list.completed .edit::before,
-.b-add_to_list.planned .edit::before
-  width: 24px !important
-  font-family: 'Material Icons' !important
-  font-size: 24px !important
-  font-weight: 400 !important
-  line-height: 1 !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-
-/* Иконки списка аниме/манги пользователя */
-.b-add_to_list .plus::before
-  content: 'add'
-
-.b-add_to_list.planned .edit::before
-  content: 'event'
-
-.b-add_to_list.watching .edit::before
-  content: 'play_arrow'
-
-.b-add_to_list.completed .edit::before
-  content: 'done'
-
-.b-add_to_list.rewatching .edit::before
-  content: 'replay'
-
-.b-add_to_list.on_hold .edit::before
-  content: 'query_builder'
-
-.b-add_to_list.dropped .edit::before
-  content: 'delete'
-
-.b-add_to_list .trigger-arrow::before
-  content: 'arrow_drop_down'
-  transition: 240ms
-
-.b-add_to_list.expanded .trigger-arrow::before
-  content: 'arrow_drop_down'
-  transform: rotate(180deg)
-
-
-
-
-
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .trigger .trigger-arrow::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .plus::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .edit::before,
-.b-db_entry-note .name-container .b-user_rate .b-add_to_list .option .trigger-arrow::before
-  vertical-align: top
-  width: 18px !important
-  font-family: 'Material Icons' !important
-  font-size: 18px !important
-  font-weight: 400 !important
-  line-height: 1 !important
-
-  text-transform: none
-  letter-spacing: normal
-  word-wrap: normal
-  white-space: nowrap
-  direction: ltr
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale
-  /* Support for IE. */
-  font-feature-settings: 'liga'
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

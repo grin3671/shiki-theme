@@ -103,6 +103,10 @@
     "checked": true
   },
   {
+    "url": "blocks/lib-tipsy.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/lib-toastr.sass",
     "checked": true
   },
@@ -312,6 +316,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-user.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-user16.sass",
     "checked": true
   },
@@ -338,6 +346,10 @@
   },
   {
     "url": "pages/p-animes_collection.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-club_pages.sass",
     "checked": true
   },
   {

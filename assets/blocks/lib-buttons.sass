@@ -191,8 +191,7 @@
 .delete-controls > span,
 .moderation-controls > span,
 .main-controls > span,
-.main-controls > a,
-.buttons .item-edit
+.main-controls > a
   vertical-align: top
   width: 220px
   padding: 11px 16px
@@ -201,6 +200,10 @@
   color: $color-text-hint !important
   line-height: 18px !important
   transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+  &[class *= 'item-']::before
+    display: inline-block
+    vertical-align: top
 
   @media (min-width: 1025px)
     width: 32px
@@ -213,3 +216,10 @@
   &:hover
     background-color: $color-button-hover
     color: $color-text-secondary !important
+
+.buttons > [class *= 'item-']
+  &::after
+    vertical-align: top
+    padding-left: 12px
+    font-size: 16px
+    line-height: 18px

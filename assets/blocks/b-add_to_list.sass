@@ -3,6 +3,18 @@
   min-width: 0
   margin-bottom: .5rem
 
+  .plus,
+  .edit,
+  &.planned .edit,
+  &.on_hold .edit,
+  &.watching .edit,
+  &.rewatching .edit,
+  &.completed .edit,
+  &.dropped .edit,
+  .trigger-arrow,
+  &.expanded .trigger-arrow
+    @extend %material-icons
+
   .trigger, .option
     padding: .5rem 1rem .5rem 3rem
     border: 0
@@ -29,11 +41,38 @@
     margin-left: 0 !important
     margin-right: .5rem !important
 
+  &.planned .edit::before
+    content: 'event'
+
+  &.on_hold .edit::before
+    content: 'query_builder'
+
+  &.watching .edit::before
+    content: 'play_arrow'
+
+  &.rewatching .edit::before
+    content: 'replay'
+
+  &.completed .edit::before
+    content: 'done'
+
+  &.dropped .edit::before
+    content: 'delete'
+
   .trigger-arrow
     position: relative
+    &::before
+      content: 'arrow_drop_down'
+      transition: .24s
+
+  &.expanded .trigger-arrow
+    &::before
+      content: 'arrow_drop_down'
+      transform: rotate(180deg)
 
   .expanded-options
-    margin-top: $border-rounded
+    padding-top: $border-rounded
+    margin-top: -$border-rounded
 
     .option
       font-size: .875rem
@@ -58,11 +97,13 @@
       height: 2rem
       padding: .4375rem
       margin: 0 -1rem 0 .25rem
+      @extend %material-icons-18
 
     .plus, .edit
       margin-right: .25rem !important
 
     .expanded-options
+      padding-top: 0
       margin-top: 0
 
 
