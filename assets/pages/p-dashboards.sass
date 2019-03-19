@@ -110,17 +110,17 @@
 
     &::after
       content: 'Форум'
-      display: inline-block
-      vertical-align: top
-      padding: 0 1rem
-      margin: .5rem -1rem
-      border-radius: .125rem
+      @extend %md-button
+      min-width: 0
+      margin-left: -1rem
       color: $color-primary !important
-      font-size: .875rem
-      line-height: 2rem
 
-    &:hover::after
+    &:hover::after,
+    &:focus::after
       background-color: rgba($color-primary, .12)
+
+    &:active::after
+      background-color: rgba($color-primary, .24)
 
   &[data-locale='en']
     .b-forums > .b-link_button.maxi::after

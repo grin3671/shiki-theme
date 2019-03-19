@@ -25,22 +25,10 @@
           color: $color-text-primary !important
 
         .tag
-          padding: 0 8px
-          margin: 0 4px 0 0
-          background-color: $color-area-normal
-          border: 0
-          border-radius: $border-rounded
-          color: $color-text-secondary
+          @extend %shiki-tag
           font-size: 10px
           line-height: 20px
           text-transform: uppercase
-          &:hover
-            padding: 0 8px
-            margin: 0 4px 0 0
-            background-color: $color-button-hover
-            color: $color-text-primary
-          &:active
-            background-color: $color-border
 
     .rating
       bottom: 0

@@ -94,7 +94,6 @@
       .remove
         @extend %md-icon
         @extend %md-icon-hover
-        margin: -.25rem 0 !important
         border: 0
         font-size: 0
 
@@ -139,10 +138,13 @@
     .edit-user_rate
       @extend %md-icon
       @extend %md-icon-hover
-      margin-top: .25rem !important
-      margin-right: .25rem !important
       background-color: transparent
-      // background-color: $color-primary
+      color: #fff !important
+      &:last-child
+        margin-right: .25rem !important
+      &:hover
+        background-color: $color-primary
+        color: $color-text-on-primary !important
       &::before
         content: 'edit'
         position: static
