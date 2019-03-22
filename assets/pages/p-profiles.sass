@@ -1,0 +1,507 @@
+/**
+ * PROFILE
+ * ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
+ */
+// Убираем лишние overflow
+.p-profiles-show .profile-content
+  overflow: visible
+
+// Настраиваем равномерные отступы
+.p-profiles .profile-content .cc-2,
+.p-profiles .profile-content .about,
+.p-profiles .profile-content .cc-2 .c-right .cc-2a
+  margin-bottom: 1rem !important
+
+@media screen and (max-width: 767px)
+  .cc-2 > .c-column
+    margin-bottom: 1rem
+
+  .p-profiles-show .profile-content .activity:last-child
+    margin-bottom: 1.25rem !important
+
+.line:nth-child(even) > .bar-container > .bar,
+.line:nth-child(even) > .bar-container > .bar:hover
+  background-color: mix($color-primary, $color-background, 72%) /* thx NedStar */
+
+/* Столбики активности */
+.bar.vertical
+  padding: 0
+  border: none
+
+.bar.vertical .line
+  border: none
+
+.bar.vertical .line .bar-container .value
+  font-size: .75rem
+  line-height: 1.25rem
+
+/* Горизонтальные полосы */
+.bar.horizontal .line
+  padding: 0
+  margin: 0
+  line-height: 1.25em
+
+  .bar-container
+    .bar
+      height: 1.25em
+      text-align: right
+
+    .value
+      float: none
+      display: inline-block
+      vertical-align: top
+      padding-right: .25em
+      color: $color-text-on-primary
+      font-size: .75em
+      line-height: inherit
+
+  .x_label
+    font-size: .75em
+    font-weight: normal
+    line-height: inherit
+
+
+// NOTE: также является .subheadline-buttons .item-edit
+.p-profiles-show .about .item-edit
+  @extend %md-icon
+  @extend %md-icon-hover
+
+  &::before
+    content: 'edit'
+
+
+/* FIX: update 2017-03-19 */
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
+  clear: none
+
+
+/* Выпадающий список аниме/манги в профиле */
+@media (max-width: 599px)
+  .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+    position: relative
+
+  .b-stats_bar
+    .stat_names
+      position: absolute
+      top: 0
+      min-width: 165px
+      border-radius: .125rem
+
+      &:hover
+        padding: 3rem 0 .5rem
+        background-color: $color-background-dialog
+        z-index: 10
+
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,.32)
+        z-index: -1
+
+      &::before
+        content: 'arrow_drop_down'
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        width: 2rem
+        height: 2rem
+        padding: .25rem
+        margin: .5rem .25rem
+        border-radius: 100%
+        font-size: 1.5rem
+        font-family: 'Material Icons'
+        line-height: 1
+        box-sizing: border-box
+        pointer-events: auto
+
+        text-transform: none
+        letter-spacing: normal
+        word-wrap: normal
+        white-space: nowrap
+        direction: ltr
+
+        -webkit-font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+        -moz-osx-font-smoothing: grayscale
+        font-feature-settings: 'liga'
+
+      &:hover .stat_name
+        display: block
+
+      .stat_name
+        display: none
+        padding: 0 1rem
+
+        a
+          display: block
+          padding: 0 1rem
+          margin: 0 -1rem
+          &:hover
+            background-color: rgba(0,0,0,.24)
+            text-decoration: none
+
+
+
+.p-profiles
+  .profile-head
+    .c-brief
+      header
+        h1
+          vertical-align: top
+          font-size: 1.5em
+          line-height: 1
+
+          &.aliases
+            cursor: help
+            @extend %material-icons
+
+            &::before
+              content: 'label'
+              display: inline-block
+              vertical-align: top
+              float: right
+              margin-left: .5rem
+              opacity: .5
+
+            &::after
+              display: none
+
+        .misc
+          vertical-align: top
+          padding: .5rem 1rem
+          margin: 0
+          font-size: .875rem
+          line-height: 1.5rem
+
+        .notice
+          font-size: .75em
+          line-height: 1.25rem
+
+      .avatar
+        @media (min-width: 768px)
+          margin: .5rem 2rem 3rem 1rem
+
+        .profile-actions
+          margin-top: 1rem
+          margin-right: -.75rem
+          margin-left: -.75rem
+
+        img
+          display: block
+          margin: auto
+          @media (min-width: 768px)
+            width: 160px
+            height: 160px
+
+    // Информация
+    .c-info
+      .c-lists-info
+        .b-stats_bar
+          overflow: visible
+          margin-bottom: 0
+          &::after
+            clear: none
+
+      .c-additionals
+        margin-top: 8px
+        margin-bottom: 8px
+
+        b
+          padding-right: 8px
+          font-size: 0
+          &::after
+            content: 'Активность на сайте:'
+            font-size: 14px
+
+  &[data-locale='en'] .profile-head .c-info .c-additionals b::after
+    content: 'Activity:'
+
+
+
+
+/* USER PROFILE |> HISTORY ENTRY */
+.p-profiles .profile-head .c-history .entry
+  position: relative
+  padding: .5rem 0
+  margin: 0
+  border: 0
+  overflow: initial
+
+.p-profiles .profile-head .c-history .entry,
+.p-profiles .profile-head .c-history .entry:first-child
+  padding-top: .5rem
+  margin-top: 0
+
+.p-profiles .profile-head .c-history .entry::before
+  content: ''
+  display: block
+  position: absolute
+  right: -.5rem
+  bottom: 0
+  left: 3.5rem
+  height: 1px
+  pointer-events: none
+
+.p-profiles .profile-head .c-history .entry:last-child::before
+  display: none
+
+/* Полноразмерная ссылка .entry, работает только для .c-history & .l-menu */
+.p-profiles .profile-head .c-history .entry a
+  display: block
+  padding: .5rem .5rem
+  margin: -.5rem
+
+@media (min-width: 960px)
+  .p-profiles .profile-head .c-history .entry a
+    padding: .75rem .5rem
+
+.p-profiles .profile-head .c-history .entry a::after
+  content: ''
+  clear: both
+  display: block
+
+.p-profiles .profile-head .c-history .entry:hover .title
+  text-decoration: none
+/* END of FULLENTRY LINK */
+
+.p-profiles .profile-head .c-history .entry img
+  margin: 0 16px 0 0
+  max-height: 72px
+  max-width: 40px
+  border-radius: 2px
+
+.p-profiles .profile-head .c-history .entry .misc
+  font-size: .75em
+
+
+
+
+
+
+
+.p-profiles-show
+  .b-stats_bar
+    // Список аниме
+    &.anime
+      a.title
+        @extend %md-button-flat
+        margin-left: -1rem
+
+      .bar
+        color: $color-text-on-primary
+
+        .first
+          background: $color-primary
+        .second
+          background: mix($color-primary, $color-background, 72%)
+
+    // Список манги
+    &.manga
+      a.title
+        @extend %md-button-flat
+        margin-left: -1rem
+        color: $color-accent
+
+        &:hover,
+        &:focus
+          background: rgba($color-accent, .12)
+          color: $color-accent
+
+        &:active
+          background: rgba($color-accent, .24)
+          color: $color-accent
+
+      .bar
+        color: $color-text-on-accent
+
+        .first
+          background: $color-accent
+        .second
+          background: mix($color-accent, $color-background, 72%)
+
+    // Время за аниме и мангой
+    &.lifetime
+      .title
+        display: block
+        width: auto
+
+      .bar
+        height: .5rem
+
+        .first
+          background: $color-primary
+
+      .cuts .cut
+        width: 0
+        height: 0
+        margin: 0 -.25rem
+        background: transparent
+        border: .25rem solid transparent
+        border-bottom-color: $color-background
+        z-index: 1
+
+      .times
+        line-height: 0
+
+        .time
+          color: $color-text-disabled
+          font-size: .625rem
+          line-height: 1.25rem
+          text-transform: uppercase
+
+          &.checked
+            color: $color-primary
+            font-weight: bold
+
+            &::before
+              display: none
+              color: $color-primary
+              opacity: .72
+
+
+
+
+
+
+
+
+/* Иконки совместимости для профиля */
+// Исправление видимости
+// Спасибо Kana Kuroki и Dewopalaxy
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar
+  position: relative
+  overflow: visible
+
+  .compatibility
+    a
+      font-size: 0
+
+      &:hover
+        text-decoration: none
+
+.b-stats_bar
+  .compatibility
+    // Иконка в личном профиле
+    a[href $= '=similar']
+      @extend %md-icon
+      @extend %md-icon-hover
+      @extend %md-tooltip
+      @extend %md-tooltip-left
+      position: relative
+      font-size: 0
+      line-height: 0
+      margin: 4px 0 !important
+      &::before
+        content: 'compare_arrows'
+      &::after
+        content: 'Найти похожих пользователей'
+      [data-locale='en'] &::after
+        content: 'Find similar users'
+
+    // Убираем иконку совместимости в чужих профилях
+    a[href ^= '/comparer']::before
+      display: none
+
+    // Иконка в чужом профиле
+    .text:first-child
+      @extend %md-icon
+      @extend %md-icon-hover
+      @extend %md-tooltip
+      @extend %md-tooltip-left
+      position: relative
+      font-size: 0
+      line-height: 0
+      margin: 4px 0 !important
+      &::before
+        content: 'people'
+
+      &.zero
+        &::before
+          content: 'people_outline'
+        &::after
+          content: 'Нет совместимости'
+        [data-locale='en'] &::after
+          content: 'No compatibility'
+
+      // Низкая совместимость
+      &.weak
+        background-color: #F9FBE7
+        color: #CDDC39 !important
+        &:hover
+          background-color: #F0F4C3
+          color: #C0CA33 !important
+        &::after
+          content: 'Низкая совместимость'
+        [data-locale='en'] &::after
+          content: 'Low compatibility'
+
+      // Средняя совместимость
+      &.moderate
+        background-color: #F1F8E9
+        color: #8BC34A !important
+        &:hover
+          background-color: #DCEDC8
+          color: #7CB342 !important
+        &::after
+          content: 'Средняя совместимость'
+        [data-locale='en'] &::after
+          content: 'Medium compatibility'
+
+      // Высокая совместимость
+      &.high
+        background-color: #E8F5E9
+        color: #4CAF50 !important
+        &:hover
+          background-color: #C8E6C9
+          color: #43A047 !important
+        &::after
+          content: 'Высокая совместимость'
+        [data-locale='en'] &::after
+          content: 'High compatibility'
+
+      // Полная совместимость
+      &.full
+        background-color: #E1F5FE
+        color: #03A9F4 !important
+        &:hover
+          background-color: #B3E5FC
+          color: #039BE5 !important
+        &::after
+          content: 'Полная совместимость'
+        [data-locale='en'] &::after
+          content: 'Full compatibility'
+
+    // Скрытый список
+    .link-replacement
+      cursor: help
+
+      // Недоступные для просмотра данные без фона
+      .text:first-child,
+      &:hover .text:first-child
+        background-color: transparent !important
+
+    // Символ пробела в HTML (sic!)
+    .text + .text
+      display: none
+
+    // Числовое обозначение совместимости
+    .rate
+      position: absolute
+      top: -.125rem
+      right: -.5rem
+      padding: 0 .25rem
+      background-color: $color-accent
+      border-radius:  2px
+      color: $color-text-on-accent
+      font-size: .75rem
+      line-height: 1rem
+
+      // Скобки
+      &::before,
+      &::after
+        display: none

@@ -1,0 +1,139 @@
+/**
+ * Headline
+ * Изменение подзаголовков разделов и ссылок в них.
+ */
+header.head
+  margin-bottom: 1.5rem
+
+  h1, h2
+    padding: .5rem 0
+    font-family: inherit
+    font-size: 1.5rem
+    line-height: 2rem
+    color: inherit
+
+    a.back
+      @extend %md-icon
+      @extend %md-icon-hover
+
+      &:nth-child(n)
+        margin: -4px 24px -4px -8px !important
+
+        @media (min-width: 1025px)
+          margin: -4px 16px -4px 0 !important
+
+      &::before
+        content: 'arrow_back'
+        position: static
+        color: inherit
+
+      &::after
+        display: none
+
+  .misc, a.edit
+    color: $color-text-disabled
+
+  a.misc, a.edit
+    color: $color-link
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+  .notice
+    margin: .5rem 0
+    margin-top: -.5rem
+    font-size: .875rem
+    line-height: 1.25rem
+
+
+
+.headline
+  padding: 8px 0
+  margin: 8px 0
+  background: none
+  border: 0
+  font-size: 24px
+  font-weight: normal
+  line-height: 32px
+  text-transform: none
+
+
+
+%headline
+  padding: 16px
+  margin: 0 -16px
+  background-color: transparent
+  border: 0
+  font-size: .875rem
+  font-weight: 700
+  line-height: 1rem
+  text-transform: uppercase
+
+
+
+.midheadline,
+.subheadline,
+.mischeadline
+  @extend %headline
+
+
+
+.headline, .midheadline, .subheadline
+  & > a
+    @extend %md-button-flat
+    @extend %material-icons-18
+    min-width: 0
+    margin: -.625rem -1rem
+
+    &::before
+      content: 'chevron_right'
+      right: 0
+      left: 0
+      width: auto !important
+      margin-top: -6px
+      text-align: right
+      line-height: 32px !important
+      opacity: 0
+      pointer-events: auto
+
+    &:hover
+      text-decoration: none
+
+  &.linkheadline > a
+    color: $color-primary !important
+    text-decoration: none
+
+
+
+.subheadline .misc-link
+  float: right
+
+
+
+.subheadline-input
+  padding: 5px 8px
+  margin-top: 8px !important
+  border-radius: 2px !important
+  font-size: 14px
+  line-height: inherit !important
+
+  @media (max-width: 767px)
+    padding-bottom: 5px !important
+    padding-top: 5px !important
+
+
+
+.subheadline-buttons
+  right: 0
+  margin: 0
+
+  .item-edit
+    @extend %md-icon
+    @extend %md-icon-hover
+
+    &::before
+      content: 'edit'
+
+  & + .subheadline
+    padding-right: 3rem

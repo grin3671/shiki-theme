@@ -1,0 +1,69 @@
+.b-image
+  display: inline-block
+  vertical-align: top
+  margin-bottom: .25rem
+
+  &:hover
+    opacity: 1
+
+  img
+    vertical-align: top
+    border-radius: 2px
+
+  .marker
+    right: 4px
+    bottom: 4px
+    left: auto
+    padding: 0 8px
+    background: rgba(0, 0, 0, 0.8)
+    border-radius: 3px
+    color: #fff
+    font-size: .75em
+    line-height: 20px
+
+  // mixins/image_editable.sass
+  .controls
+    bottom: 0
+    left: 0
+    background-image: linear-gradient(rgba(0,0,0,.6) 0%, transparent 40%)
+    border-radius: 2px
+
+  &.deletable
+    img
+      opacity: 1
+
+  .delete, .confirm, .cancel, .move-left, .move-right, .mobile-edit
+    z-index: 8
+
+  .delete, .confirm, .cancel, .mobile-edit
+    @extend %md-icon
+    @extend %md-icon-hover
+    background: transparent
+
+    &:nth-child(n)
+      margin-right: 4px !important
+
+  .delete::before
+    content: 'delete'
+
+  .confirm
+    display: none
+
+    &::before
+      content: 'check'
+
+  .cancel
+    display: none
+
+    &::before
+      content: 'close'
+
+  .mobile-edit
+    margin-top: .375rem !important
+    margin-right: .375rem !important
+
+    &::before
+      content: 'edit'
+
+    @media (min-width: 1025px)
+      display: none

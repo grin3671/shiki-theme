@@ -1,0 +1,111 @@
+/* MENU ENTRY REVIEW & CLUBS */
+// TODO: MERGE WITH .c-history .entry
+// TODO: where [.calendar .entry]?
+.p-topics
+  header h1 a.reload
+    color: $color-text-secondary !important
+    // FIX: TOPIC UPDATE ICON (issue #5)
+    &:hover::after
+      position: static
+
+  // Menu entry
+  .l-menu
+    .b-forums
+      margin-bottom: 1.5rem
+      line-height: 1.5rem
+
+    // +menu-block-with-image
+    .calendar, .clubs, .reviews
+      .entry
+        position: relative
+        padding: 8px 0
+        margin: 0
+        border: 0
+        overflow: initial
+
+        &:first-child
+          padding-top: 8px
+          margin-top: 0
+
+        &::before
+          content: ''
+          position: absolute
+          right: -8px
+          bottom: 0
+          left: 56px
+          height: 1px
+          background-color: $color-border
+          pointer-events: none
+
+        &:last-child::before
+          display: none
+
+        a
+          display: block
+          padding: 8px
+          margin: -8px
+          color: $color-text-primary
+
+          &::after
+            content: ''
+            clear: both
+            display: block
+
+        &:hover a
+          background-color: $color-area-normal
+          color: $color-text-primary
+
+        &:hover .title
+          text-decoration: none
+
+        .misc
+          color: $color-text-hint !important
+
+          &.date
+            color: $color-text-disabled !important
+
+    .clubs .entry img
+      width: 40px
+      min-width: 40px
+      height: 40px
+      margin: 2px 16px 2px 0
+      border-radius: 2px
+
+    .reviews .entry img
+      min-width: 40px
+      max-height: 64px
+      margin: 2px 16px 2px 0
+      border-radius: 2px
+
+    // +menu-block-with-text-link
+    .sticky-topics .topic,
+    .contests .contest
+      padding: 8px
+      margin: 0 -8px
+      border: 0
+
+      &:first-child
+        padding-top: 8px
+        margin-top: 0
+
+      &:hover
+        background-color: $color-area-normal
+
+      .title
+        color: $color-text-primary
+        line-height: 20px
+
+        &::after
+          display: none
+
+      &:hover .title
+        color: $color-text-primary
+        text-decoration: none
+
+      &:active .title
+        color: $color-text-primary
+
+      .notice
+        margin-top: 2px
+        color: $color-text-hint
+        line-height: 18px

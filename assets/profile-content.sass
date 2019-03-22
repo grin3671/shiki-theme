@@ -3,36 +3,39 @@
  */
 
 /* Lifetime */
-.p-profiles .lifetime
-  margin-bottom: 0
-  min-height: 0
+.p-profiles
+  .lifetime
+    margin-bottom: 0
+    min-height: 0
 
-  .bar,
-  .times
-    display: none
+    .bar,
+    .times
+      display: none
 
-  .title .value
-    height: 16px
-    margin-top: 0
-    line-height: 16px
+    .title
+      @extend %headline
+      .value
+        height: 16px
+        margin-top: 0
+        line-height: 16px
 
-  .title > .label
-    font-size: 0
-    line-height: 0
+      & > .label
+        font-size: 0
+        line-height: 0
 
-    &::before
-      display: block
-      font-size: 0.875rem
-      line-height: 1rem
+        &::before
+          content: 'Активность'
+          display: block
+          font-size: 0.875rem
+          line-height: 1rem
 
-.profile-content .activity .title
-  display: none
+  &[data-locale='en'] .lifetime .title > .label::before
+    content: 'Time spent'
 
-.p-profiles[data-locale="ru"] .lifetime .title > .label:before
-  content: 'Активность'
-
-.p-profiles[data-locale="en"] .lifetime .title > .label:before
-  content: 'Time spent'
+  .activity
+    .title
+      @extend %headline
+      display: none
 
 
 /* Layout */

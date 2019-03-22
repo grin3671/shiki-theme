@@ -197,22 +197,20 @@
       z-index: 1
 
   .c-brief .avatar .profile-actions
-    a
-      margin-left: .25rem
+    @media (min-width: 320px) and (max-width: 600px)
+      a:first-child
+        margin-right: 0 !important
 
     @media (min-width: 320px)
       display: block
       position: absolute
       top: 50%
       width: 100%
-      padding: .75rem
+      padding: .75rem 1rem
       margin: 0 auto
       text-align: left
 
-      a:first-child
-        float: right
-        margin: 0 .25rem
-
+      a:first-child,
       .fav-add,
       .fav-remove
         float: right

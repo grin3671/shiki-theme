@@ -1,0 +1,31 @@
+%shiki-comment
+  @extend %shiki-entry
+  border-top: 0
+  margin-bottom: 0
+
+  .inner
+    .name-date
+      a.name
+        .normal
+          vertical-align: top
+          color: $color-text-primary
+          font-size: inherit
+
+    .body
+      .ban
+        .b-user16
+          margin-right: 0
+
+        .resolution
+          color: $color-warning
+
+          a
+            color: $color-warning
+
+  // раскрытое меню в мобильной версии
+  &.aside-expanded
+    aside.buttons
+      border-top: 0
+
+    aside.markers
+      position: static

@@ -1,0 +1,56 @@
+
+.p-dialogs,
+.p-messages,
+.p-profiles-edit
+  .l-page > div > header.head
+    margin-bottom: 0
+
+  header.head
+    padding: 16px 16px 8px
+    margin: -16px -16px 0
+    background-color: $color-area-hover
+
+    @media (min-width: 481px)
+      padding: 0
+      margin: 0
+      background-color: transparent
+
+  .b-options-floated
+    position: static
+    padding: 0
+    margin: 0 -16px 8px
+    background-color: $color-area-hover
+    text-align: left
+    white-space: nowrap
+    overflow: hidden
+    overflow-x: auto
+
+    @media (min-width: 481px)
+      position: initial
+      padding: 0
+      margin: 0 -16px 8px
+      background-color: transparent
+      text-align: right
+
+    & > a
+      display: inline-block
+      width: auto
+      min-width: 88px
+      height: 48px
+      padding: 0 12px
+      color: $color-text-secondary
+      font-size: 14px
+      font-weight: 700
+      line-height: 48px
+      text-align: center
+      text-transform: uppercase
+
+      &:hover
+        text-decoration: none
+
+      &::after
+        display: none
+
+      &.selected
+        border-bottom: 2px solid $color-accent
+        color: $color-text-primary !important

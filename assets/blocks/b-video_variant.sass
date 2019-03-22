@@ -10,6 +10,18 @@
   &.active
     background-color: $color-primary
 
+    a
+      border: 0
+      color: rgba($color-text-on-primary, .8)
+
+      &:hover span
+        color: $color-text-on-primary
+
+    .video-author,
+    .episode-num,
+    .video-id
+      color: $color-text-on-primary !important
+
   a
     display: block
     padding: 8px 12px
@@ -49,18 +61,6 @@
 
     &:hover span
       color: $color-text-hint
-
-  &.active
-    a
-      color: rgba($color-text-on-primary, .8)
-
-      &:hover span
-        color: $color-text-on-primary
-
-    .video-author,
-    .episode-num,
-    .video-id
-      color: $color-text-on-primary !important
 
   .video-author
     float: none

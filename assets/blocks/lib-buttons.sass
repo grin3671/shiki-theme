@@ -1,0 +1,221 @@
+// Специальная иконка открывающая меню комментария/топика и т.д.
+.item-mobile
+  @extend %md-icon
+  @extend %md-icon-hover
+  position: relative
+  margin: 4px 0 4px 8px !important
+  border-radius: 100%
+  z-index: 4
+
+  &::before
+    content: 'more_vert'
+
+  &.selected
+    color: $color-text-secondary
+
+  &.selected::before
+    content: 'clear'
+
+  @media (min-width: 1025px)
+    display: none
+
+
+.buttons
+  margin-right: 0
+  color: inherit
+  font-family: inherit
+  font-size: inherit
+  font-weight: 700
+
+
+  .editor-controls
+    overflow-x: auto
+
+    .b-tooltipped
+      @extend %md-icon
+      @extend %md-icon-hover
+      &.selected
+        color: $color-accent !important
+
+  // Иконки управления shiki-entry
+  .item-save
+    @extend %material-icons-18
+    &::before
+      content: 'save'
+
+  .item-moderation
+    @extend %material-icons-18
+    &::before
+      content: 'flag'
+
+  .item-preview
+    @extend %material-icons-18
+    &::before
+      content: 'visibility'
+
+  .item-unpreview
+    @extend %material-icons-18
+    &::before
+      content: 'visibility_off'
+
+  .item-quote
+    @extend %material-icons-18
+    &::before
+      content: 'format_quote'
+
+  .item-reply
+    @extend %material-icons-18
+    &::before
+      content: 'reply'
+
+  .item-edit
+    @extend %material-icons-18
+    &::before
+      content: 'mode_edit'
+
+  .item-delete,
+  .item-delete-confirm
+    @extend %material-icons-18
+    &::before
+      content: 'delete'
+
+  .item-apply,
+  .item-request-confirm
+    @extend %material-icons-18
+    &::before
+      content: 'done'
+
+  .item-cancel,
+  .item-request-reject,
+  .item-delete-cancel,
+  .item-moderation-cancel
+    @extend %material-icons-18
+    &::before
+      content: 'clear'
+
+  .item-subscribe
+    @extend %material-icons-18
+    &::before
+      content: 'star'
+
+  .item-offtopic
+    @extend %material-icons-18
+    &::before
+      content: 'speaker_notes_off'
+    &.selected
+      color: $color-danger
+
+  .item-summary
+    @extend %material-icons-18
+    &::before
+      content: 'check_circle'
+    &.selected
+      color: $color-success
+
+  .item-spoiler
+    @extend %material-icons-18
+    &::before
+      content: 'sms_failed'
+
+  .item-abuse
+    @extend %material-icons-18
+    &::before
+      content: 'pan_tool'
+
+  .item-ban
+    @extend %material-icons-18
+    &::before
+      content: 'gavel'
+
+  .item-ignore
+    @extend %material-icons-18
+    &::before
+      content: 'do_not_disturb_on'
+    &.selected
+      @extend %material-icons-18
+      &::before
+        content: 'do_not_disturb_off'
+
+
+  // Иконки текстового редактора
+  .editor-bold::before
+    content: 'format_bold'
+
+  .editor-italic::before
+    content: 'format_italic'
+
+  .editor-underline::before
+    content: 'format_underlined'
+
+  .editor-strike::before
+    content: 'strikethrough_s'
+
+  .editor-link::before
+    content: 'insert_link'
+
+  .editor-image::before
+    content: 'insert_photo'
+
+  .editor-quote::before
+    content: 'format_quote'
+
+  .editor-spoiler::before
+    content: 'error_outline'
+
+  .editor-file::before
+    content: 'attach_file'
+
+  .editor-smiley::before
+    content: 'insert_emoticon'
+
+
+  // FIX: увеличиваем активную область под размер кнопки
+  .editor-file
+    position: relative
+
+    span,
+    a
+      top: 0
+      left: 0
+      width: 40px
+      height: 40px
+      margin: 0 !important
+
+    input
+      left: 0
+      width: 40px
+      height: 40px
+      border: 0
+      font-size: 40px
+
+.buttons [class *= 'item-']
+  vertical-align: top
+  width: 220px
+  padding: 11px 16px
+  margin-right: auto !important
+  margin-left: auto !important
+  color: $color-text-hint !important
+  line-height: 18px !important
+  transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+  @media (min-width: 1025px)
+    width: 32px
+    height: 32px
+    padding: 7px
+    margin-left: 8px !important
+    border-radius: 2px
+    line-height: 18px !important
+
+  &:hover
+    background-color: $color-button-hover
+    color: $color-text-secondary !important
+
+  &::before
+    display: inline-block
+    vertical-align: top
+
+  &::after
+    vertical-align: top
+    padding-left: 12px
+    font-size: 16px
+    line-height: 18px

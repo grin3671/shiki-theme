@@ -1,0 +1,52 @@
+.b-dialog
+  @extend %shiki-comment
+
+  // !important в исходном стиле
+  .time
+    @media (max-width: 1024px)
+      display: block !important
+      padding-left: 0 !important
+      font-size: .875em !important
+
+  // Open Dialog by Click
+  .to_dialog
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    margin: 0 -16px
+    font-size: 0
+
+  &:hover .to_dialog
+    background-color: rgba($color-text-primary, .05)
+    z-index: 0
+
+  img:not([alt]),
+  a,
+  .buttons,
+  .b-new_marker,
+  .b-spoiler
+    position: relative
+    z-index: 2
+
+  // Сообщение-ответ
+  .b-message
+    position: static
+    margin: 0
+    padding: 0 !important
+    overflow: visible
+
+    .inner
+      header
+        img
+          width: 24px
+          margin: 0 12px 0 0
+
+        .name-date
+          line-height: inherit
+
+          .time
+            @media (max-width: 1024px)
+              display: inline !important
+              padding-left: .5em !important

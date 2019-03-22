@@ -1,0 +1,40 @@
+
+.p-animes_collection-index,
+// .p-mangas_collection-index,
+// .p-userlist_comparer-show,
+.p-recommendations-index
+  &.x1200
+    @media screen and (min-width: 1200px)
+      .cc-entries > .c-column
+        width: 18.4%
+        margin-right: 2%
+
+  .pagination
+    margin: 8px auto
+    color: inherit
+    font-size: .875em
+    font-weight: normal
+    line-height: 48px
+
+    &:last-child
+      margin: 8px auto 0
+
+    .no-hover
+      vertical-align: top
+
+    .link
+      @extend %md-icon
+      @extend %md-icon-hover
+      font-size: 0
+
+      &.disabled
+        color: $color-text-disabled !important
+        &:hover
+          background: transparent
+          color: $color-text-disabled !important
+
+      &.link-prev::before
+        content: 'chevron_left'
+
+      &.link-next::before
+        content: 'chevron_right'

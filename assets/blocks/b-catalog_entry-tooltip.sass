@@ -1,6 +1,7 @@
 .b-catalog_entry-tooltip
   .inner
     a.name
+      color: $color-text-primary !important
       font-size: .875rem
 
     .text
@@ -19,6 +20,16 @@
       .key
         color: $color-text-secondary
 
+      .value
+        a
+          color: $color-text-primary !important
+
+        .tag
+          @extend %shiki-tag
+          font-size: 10px
+          line-height: 20px
+          text-transform: uppercase
+
     .rating
       bottom: 0
       color: $color-text-secondary
@@ -28,6 +39,7 @@
 
       .text
         margin: .5rem .5rem 0
+        color: $color-text-hint
         font-size: .75rem
         line-height: 1rem
 

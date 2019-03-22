@@ -1,0 +1,44 @@
+/* Страница сравнения списков */
+.p-userlist_comparer
+  .comparer
+    table
+      .selectable:hover
+        background-color: $color-area-hover
+
+      a
+        color: inherit
+
+      .name a
+        color: $color-link
+        &:hover
+          color: $color-link-hover
+        &:active
+          color: $color-link-active
+
+  .notice
+    span
+      padding: 1.5px 4px !important
+      border-radius: 2px
+      // .abslt-difr
+      &:nth-child(6)
+        background: rgba(244, 67, 54, .5) !important
+      // .slightly-difr
+      &:nth-child(4)
+        background: rgba(255, 138, 128, .5) !important
+      // .almost-same
+      &:nth-child(3)
+        background: rgba(185, 246, 202, .5) !important
+      // .exact-same
+      &:nth-child(5)
+        background: rgba(76, 175, 80, .5) !important
+
+  .comparer table,
+  .legend
+    .abslt-difr
+      background: rgba(244, 67, 54, .5) !important
+    .slightly-difr
+      background: rgba(255, 138, 128, .5) !important
+    .almost-same
+      background: rgba(185, 246, 202, .5) !important
+    .exact-same
+      background: rgba(76, 175, 80, .5) !important

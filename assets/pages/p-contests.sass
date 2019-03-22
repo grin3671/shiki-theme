@@ -1,0 +1,424 @@
+/**
+ * ТУРНИРЫ
+ */
+.p-contests .match-container.b-ajax::after
+  z-index: 10
+
+.p-contests .b-contest_match
+  padding: 16px 0
+  margin-bottom: 0
+
+.p-contests .b-contest_match .current-match .match-members:last-child
+  margin-bottom: 0 !important
+
+.p-contests .match-day
+  position: relative
+  margin-bottom: 16px
+  text-align: center
+
+.p-contests .match-day::before
+  content: ''
+  display: block
+  position: absolute
+  top: 10px
+  right: 0
+  left: 0
+  height: 1px
+
+.p-contests .match-day > .date
+  position: relative
+  display: inline-block
+  padding: 0 16px
+  margin-bottom: 4px
+  text-align: center
+  text-transform: uppercase
+
+.p-contests .match-day > .date .from,
+.p-contests .match-day > .date .to
+  margin-right: 8px
+
+.p-contests .match-day > .date .to
+  margin-left: 8px
+
+.p-contests .match-day .match-link
+  padding-left: 0
+  text-align: left
+  &:hover, &.active
+    background: $color-background-secondary
+  &:active
+    background-color: $color-area-normal
+
+// NOTE: !important in main.sass (.c-column)
+.p-contests .match-day .match-link .c-column
+  line-height: 32px !important
+
+// Ничья
+.p-contests .match-day .match-link .draw
+  padding-left: 0
+
+  &::before
+    position: static
+    top: 0
+    left: 0
+    width: 12px
+    height: 12px
+    margin: 10px 4px
+    margin-right: 16px
+
+.p-contests .match-day .match-link
+  .voted, .winner, .loser, .created, .started, .finished
+    @extend %material-icons-18
+    &::before
+      display: inline-block
+      vertical-align: top
+      padding-right: 0
+      padding-left: 0
+      margin: 7px 0
+      margin-right: 14px
+
+  .created::before
+    content: 'lock'
+    color: $color-text-disabled
+    padding-right: 0
+
+  .winner::before
+    content: 'thumb_up'
+
+  .loser::before
+    content: 'thumb_down'
+    padding-right: 0
+
+.p-contests .match-day .match-link .started::before,
+.p-contests .match-day .match-link.voted-abstain .started::before
+  content: 'check_box_outline_blank'
+  color: #757575
+
+.p-contests .match-day .match-link.voted-abstain .started::before
+  color: $color-text-disabled
+
+.p-contests .match-day .match-link.voted-left .started:first-child::before,
+.p-contests .match-day .match-link.voted-right .started:last-child::before
+  content: 'check_box'
+
+.p-contests .match-day .match-link.voted-left .started:last-child::before,
+.p-contests .match-day .match-link.voted-right .started:first-child::before
+  content: 'indeterminate_check_box'
+
+.p-contests .match-day .match-link.voted-left .started:first-child::before,
+.p-contests .match-day .match-link.voted-right .started:last-child::before,
+.p-contests .match-day .match-link .winner::before
+  color: #66BB6A /* Зеленый цвет */
+
+.p-contests .match-day .match-link.voted-left .started:last-child::before,
+.p-contests .match-day .match-link.voted-right .started:first-child::before,
+.p-contests .match-day .match-link .loser::before
+  color: #EF5350 /* Красный цвет */
+
+.p-contests .match-day .matches-num
+  display: inline-block
+  width: 56px
+  padding-right: 0
+  font-size: 16px
+
+.p-contests-show .cc-round_stats > .c-column:first-child:last-child > .block:last-child
+  padding: 4px 0
+
+.p-contests-show .warning
+  margin-top: 0
+  margin-bottom: 16px
+
+.p-contests .rating .member
+  height: auto
+
+.p-contests-users .subheadline a:hover
+  background: none
+
+.p-contests .b-contest_match .votes-percents
+  border-radius: 4px
+  font-size: 14px
+  line-height: 24px
+
+.p-contests .b-contest_match .votes-percents span
+  float: left
+  position: relative
+  white-space: nowrap
+  z-index: 1
+
+.p-contests .b-contest_match .votes-percents .left-part
+  position: relative
+  border-radius: inherit
+  padding-left: 8px
+  background-color: $color-accent
+  &:hover
+    background-color: $color-accent
+
+.p-contests .b-contest_match .votes-percents .left-part > span
+  color: $color-text-on-accent
+
+.p-contests .b-contest_match .votes-percents .right-part
+  position: absolute
+  top: 0
+  right: 0
+  padding-right: 8px
+
+.p-contests .b-contest_match .votes-percents .right-part span
+  float: right
+
+.p-contests .b-contest_match .votes-percents .left-part,
+.p-contests .b-contest_match .votes-percents .right-part
+  height: auto
+
+.p-contests .b-contest_match .votes-percents .right-part::before
+  left: -24px
+  border-right-width: 24px
+  border-top-width: 48px
+
+.p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
+  border-right-width: 24px
+
+.p-contests .b-contest_match .votes-percents .right-part::before,
+.p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
+  border-right-color: inherit
+
+.p-contests .results .cc-result .c-rounds .label
+  color: $color-text-secondary
+  font-size: .875rem
+
+.p-contests .results .cc-result .c-rounds .match-day::before
+  display: none
+
+.p-contests .results .cc-result .c-rounds .match-day .match
+  padding-bottom: 0
+  line-height: 32px
+  text-align: left
+
+.p-contests .results .cc-result .c-rounds .match-link
+  display: inline-block
+
+/* Кнопки турнира */
+.b-contest_match .vs .action
+  display: inline-block
+  vertical-align: top
+  min-width: 112px
+  padding: 0
+  margin: .25rem 0
+  background-color: transparent
+  border-radius: 2px
+  font-size: .875rem
+  font-weight: 700
+  text-align: center
+  text-transform: uppercase
+  transition: .16s cubic-bezier(0.4, 0.0, 0.6, 1)
+  user-select: none
+
+.b-contest_match .vs .action:hover
+  background-color: rgba($color-primary, .12)
+
+.b-contest_match .vs .action:active
+  background-color: rgba($color-primary, .24)
+
+/* Текст внутри кнопки */
+.b-contest_match .vs .actions .action span
+  padding: 0 1rem
+  line-height: 2rem
+
+.b-contest_match .vs .actions .action span,
+.b-contest_match .vs .actions .action span:hover,
+.b-contest_match .vs .actions .action span:active
+  color: $color-primary
+  border: 0
+  -webkit-tap-highlight-color: transparent
+
+/* Убираем желтое свечение постеров */
+.b-contest_match .current-match .match-members .match-member > .b-catalog_entry.yellow-fade
+  background: transparent
+  outline-color: transparent
+
+.p-contests
+  .b-contest_match
+    .prev-match, .next-match
+      color: $color-text-hint !important
+      &:hover
+        background-color: $color-button-hover
+        color: $color-text-secondary !important
+
+@media (min-width: 481px)
+  .p-contests .b-contest_match .prev-match:hover,
+  .p-contests .b-contest_match .next-match:hover
+    background-color: transparent
+
+/* BUG: font-size нужно указать внутри соответствующего элемента */
+@media (min-width: 768px)
+  .b-contest_match .vs
+    font-size: inherit
+
+  .b-contest_match .vs .label
+    font-family: inherit
+    font-size: 64px
+
+/* Мобильная версия */
+@media (max-width: 480px)
+  .p-contests .b-contest_match .prev-match,
+  .p-contests .b-contest_match .next-match
+    position: absolute
+    left: 0
+    width: auto
+    padding: 8px
+    border-radius: 2px
+    line-height: 32px
+    z-index: 2
+
+  .p-contests .b-contest_match .next-match
+    right: 0
+    left: auto
+
+  .p-contests .b-contest_match .next-match::before
+    margin: 0
+
+  .p-contests .b-contest_match .prev-match::before,
+  .p-contests .b-contest_match .next-match::before
+    display: block
+    font-family: 'Material Icons'
+    font-size: 24px
+    line-height: 1
+
+    text-transform: none
+    letter-spacing: normal
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale
+    /* Support for IE. */
+    font-feature-settings: 'liga'
+
+  .p-contests .b-contest_match .prev-match::before
+    content: 'chevron_left'
+
+  .p-contests .b-contest_match .next-match::before
+    content: 'chevron_right'
+
+  .p-contests .b-contest_match .current-match
+    clear: both
+    padding: 0
+
+  .p-contests .b-contest_match .current-match .match-members
+    padding-top: 96px
+    margin-bottom: 4px
+
+  .p-contests .b-contest_match .current-match .match-member
+    position: relative
+    width: 48%
+    z-index: 2
+
+  .p-contests .b-contest_match .current-match .match-member:first-child
+    float: left
+
+  .p-contests .b-contest_match .current-match .match-member:last-child
+    float: right
+
+  .p-contests .b-contest_match .match-losers
+    display: block
+    padding: 0
+
+  /* Контейнер подсказок и кнопок турнира */
+  .p-contests .b-contest_match .vs
+    position: absolute
+    top: 0
+    width: 100%
+    padding: 3rem 0 0
+    margin: 0
+    font-size: inherit
+
+  /* Блок кнопок турнира */
+  .b-contest_match .vs .actions
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    font-size: inherit
+
+  /* Кнопка "К следующей паре" */
+  .b-contest_match .vs .action:nth-child(2)
+    display: none
+
+  /* Подсказка: "Кликните по одному из двух вариантов" */
+  /* Подсказка: "Ваш голос учтён!" */
+  /* Подсказка: "Вы воздержались в этом голосовании" */
+  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
+  /* Подсказка: "Голосование ещё не началось" */
+  .b-contest_match .vs .invitation,
+  .b-contest_match .vs .vote-voted,
+  .b-contest_match .vs .vote-abstained,
+  .b-contest_match .vs .thanks,
+  .b-contest_match .vs .hint
+    font-size: 1rem
+    line-height: 40px
+    margin: 0
+
+  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
+  .b-contest_match .vs .thanks
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+
+  .b-contest_match .vs .vote-abstained[style = 'display: none;'] ~ .thanks
+    display: none !important
+
+  /* Иконка VS */
+  .b-contest_match .vs .label
+    display: inline-block
+    position: absolute
+    top: 192px
+    right: 0
+    left: 0
+    width: 72px
+    height: 72px
+    margin: auto
+    border-radius: 100%
+    font-size: 24px
+    line-height: 72px
+    text-transform: uppercase
+    z-index: 6
+
+@media (max-width: 1024px)
+  .p-contests .match-day .match-link .c-column
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+  .p-contests .match-day .match-link .draw::before,
+  .p-contests .match-day .match-link .loser::before,
+  .p-contests .match-day .match-link .winner::before
+    display: none
+
+  .p-contests .match-day .matches-num
+    width: auto
+    padding: 0 4px
+    margin-right: 8px
+    border-radius: 2px
+    color: #FFF
+    font-size: 12px
+    line-height: 20px
+
+  .p-contests .match-day .draw .matches-num
+    background-color: #4f91e8
+
+  .p-contests .match-day .loser .matches-num
+    background-color: #ef5350
+
+  .p-contests .match-day .winner .matches-num
+    background-color: #66bb6a
+
+
+.p-contests .contest-match .vs .refrain,
+.p-contests .contest-match .votes-percents,
+.p-contests .contest-match .vs > div:first-child,
+.p-contests .contest-match .vs .next
+  font-weight: bold

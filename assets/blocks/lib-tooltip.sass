@@ -1,0 +1,115 @@
+// lib/bubble.scss
+.tooltip-inner
+  min-height: 3.5rem
+  padding: 1rem
+  background: $color-background-dialog
+  border: 0
+  border-radius: 2px
+  box-shadow: 0 4px 10px 2px rgba(0,0,0,0.24)
+  color: $color-text-primary !important
+  overflow: hidden
+
+.tooltip-arrow
+  display: none
+
+// lib/tooltip.sass
+.tooltip-inner
+  .close
+    top: .25em
+    right: .25em
+    width: auto
+    padding: .375em
+    background: transparent
+    border-radius: 50%
+    color: inherit
+    font-size: 1rem
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+
+
+    @extend %material-icons
+    &::before
+      content: 'close'
+      font-size: 20px !important
+
+    &::after
+      display: none
+
+
+/**
+ * Simple <paper-spinner>
+ * MIT License
+ * Copyright (c) 2015 Chris Nager
+ * https://github.com/chrisnager/simple-paper-spinner
+ */
+.tooltip-details
+  .ajax-loading
+    display: block
+    top: 50%
+    left: 50%
+    width: 1.75em
+    height: 1.75em
+    min-height: 0
+    margin: 3em auto
+    background: $color-background-dialog
+    background-image: none
+    border-radius: 50%
+    box-shadow: inset 0 0 0 0.1875em
+    overflow: hidden
+    will-change: transform
+    -webkit-animation: spin 2666ms linear infinite
+    animation: spin 2666ms linear infinite
+    -webkit-clip-path: circle(.875em at center)
+    clip-path: circle(.875em at center)
+
+    &::after,
+    &::before
+      content: ''
+      position: absolute
+      width: 7em
+      height: 1.75em
+      background-color: inherit
+
+    &::after
+      -webkit-transform: skewX(-80deg) translate(.875em, .875em)
+      transform: skewX(-80deg) translate(.875em, .875em)
+      -webkit-animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+      animation: shape-shift-after 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+
+    &::before
+      -webkit-transform: skewX(80deg) translate(.875em, -.875em)
+      transform: skewX(80deg) translate(.875em, -.875em)
+      -webkit-animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+      animation: shape-shift-before 1066.4ms cubic-bezier(.4, 0, .2, 1) infinite alternate
+
+@-webkit-keyframes spin
+  to
+    -webkit-transform: rotate(1080deg)
+    transform: rotate(1080deg)
+
+@keyframes spin
+  to
+    -webkit-transform: rotate(1080deg)
+    transform: rotate(1080deg)
+
+@-webkit-keyframes shape-shift-before
+  to
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
+    transform: skewX(-45deg) translate(.875em, -.875em)
+
+@keyframes shape-shift-before
+  to
+    -webkit-transform: skewX(-45deg) translate(.875em, -.875em)
+    transform: skewX(-45deg) translate(.875em, -.875em)
+
+@-webkit-keyframes shape-shift-after
+  to
+    -webkit-transform: skewX(45deg) translate(.875em, .875em)
+    transform: skewX(45deg) translate(.875em, .875em)
+
+@keyframes shape-shift-after
+  to
+    -webkit-transform: skewX(45deg) translate(.875em, .875em)
+    transform: skewX(45deg) translate(.875em, .875em)

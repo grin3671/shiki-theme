@@ -1,0 +1,121 @@
+/* Контейнер для видеоплеера */
+.b-video_player
+  .cc-player_controls
+    .cc-navigation
+      & > .c-control
+        & > b,
+        & > span
+          display: inline-block
+          vertical-align: top
+          margin: .25rem auto
+          line-height: 2.5rem
+
+          @media (max-width: 480px) and (orientation: portrait)
+            display: none
+
+        & > b
+          margin-left: .5rem
+
+    .cc-options
+      & > .c-video_stats
+        margin: .25rem auto
+
+  .cc-player_controls
+    a.c-control
+      display: block
+      color: $color-link
+
+      &:hover
+        color: $color-link-hover
+        text-decoration: none
+
+      &:active
+        color: $color-link-active
+
+    .c-control
+      color: $color-link
+
+      &:hover
+        color: $color-link-hover
+        text-decoration: none
+
+      &:active
+        color: $color-link-active
+
+      &.selected
+        color: $color-link-hover
+
+        &:hover
+          color: $color-link-active
+
+      .icon
+        @extend %md-icon
+        @extend %md-icon-hover
+        margin: .25rem auto !important
+
+      &:hover .icon
+        background-color: $color-button-hover
+
+    .label
+      font-size: .75rem
+
+    .episode-num
+      color: $color-text-secondary !important
+
+      input
+        margin: .75rem .25rem
+
+      .video-link
+        a
+          color: $color-link
+
+          &:hover
+            color: $color-link-hover
+
+          &:active
+            color: $color-link-active
+
+    .episode-title
+      color: $color-text-primary !important
+
+      .video-link
+        font-size: .75rem
+
+        a
+          display: block
+          border: 0
+          color: $color-link
+          line-height: inherit
+
+          &:hover
+            color: $color-link-hover
+
+          &:active
+            color: $color-link-active
+
+    .next .icon::before
+      content: 'skip_next'
+
+    .prev .icon::before
+      content: 'skip_previous'
+
+    .create-user_rate .icon::before
+      content: 'add'
+
+    .show-options .icon::before
+      content: 'settings'
+
+    .edit .icon::before
+      content: 'build'
+
+    .upload .icon::before
+      content: 'cloud_upload'
+
+    .increment-user_rate .icon::before
+      content: 'done'
+
+    .delete .icon::before
+      content: 'delete'
+
+    .report .icon::before
+      content: 'flag'

@@ -1,0 +1,85 @@
+// =forum_entry
+// .b-comment,
+// .b-dialog,
+// .b-message,
+// .b-topic
+%shiki-entry
+  position: relative
+  padding-top: .75rem !important
+  padding-bottom: .75rem
+
+  & > .inner
+    header
+      padding-top: .25rem
+      padding-bottom: .25rem
+      margin-bottom: 0
+
+      img
+        width: 40px
+        margin: 0 16px 0 0
+        border-radius: 2px
+        @media (min-width: 1025px)
+          margin-top: 4px
+
+      .name-date
+        font-size: inherit
+        line-height: inherit
+        @media (max-width: 1024px)
+          line-height: 1.25rem
+
+        a.name
+          margin-right: .5rem
+          color: inherit
+          line-height: inherit
+          &:hover
+            color: $color-link-hover
+          &:active
+            color: $color-link-active
+
+        .time
+          position: relative
+          padding-top: 0
+          padding-left: 0
+          color: $color-text-hint
+          font-size: .875rem
+          line-height: 1.25rem
+
+          time
+            font-size: .875rem
+            line-height: inherit
+
+    .was_updated
+      padding-left: 3.5rem
+      margin-bottom: 0
+      color: $color-text-disabled
+
+      div
+        vertical-align: top
+        font-size: .75rem
+        line-height: inherit
+
+      .b-user16
+        padding-left: 14px
+        margin-left: 4px
+
+        img
+          margin-top: 2px
+
+  // раскрытое меню в мобильной версии
+  &.aside-expanded
+    & > .inner
+      margin-left: 0
+
+      aside.buttons
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        width: auto
+        height: 100%
+        padding: 8px 16px
+        margin: 0 -16px
+        background-color: rgba($color-background, .9)
+        border: 0
+        overflow-y: auto
+        z-index: 3

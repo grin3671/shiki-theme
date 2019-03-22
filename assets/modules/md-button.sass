@@ -1,0 +1,48 @@
+%md-button
+  display: inline-block
+  vertical-align: top
+  min-width: 92px
+  padding: .375rem 1rem
+  margin: .375rem .5rem .375rem 0
+  background: transparent
+  border: 0
+  border-radius: $border-rounded
+  font-size: .875rem
+  font-weight: bold
+  line-height: 1.5rem
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  transition: .3s
+  transition: .16s cubic-bezier(.4, 0, .6, 1)
+  user-select: none
+
+  &:last-child
+    margin-right: 0
+
+%md-button-flat
+  @extend %md-button
+  color: $color-primary
+
+  &:hover,
+  &:focus
+    background: rgba($color-primary, .12)
+    color: $color-primary
+
+  &:active
+    background: rgba($color-primary, .24)
+    color: $color-primary
+
+%md-button-raised
+  @extend %md-button
+  background: $color-primary
+  color: $color-text-on-primary
+
+  &:hover,
+  &:focus
+    background: lighten($color-primary, 8%)
+    color: $color-text-on-primary
+
+  &:active
+    background: darken($color-primary, 2%)
+    color: $color-text-on-primary

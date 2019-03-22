@@ -35,3 +35,13 @@
   -moz-osx-font-smoothing: grayscale
   /* Support for IE. */
   font-feature-settings: 'liga'
+
+%material-icons-18
+  @extend %material-icons
+  &::before
+    font-size: 18px !important
+
+%material-icons-20
+  @extend %material-icons
+  &::before
+    font-size: 20px !important

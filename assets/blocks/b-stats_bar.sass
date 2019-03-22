@@ -1,0 +1,51 @@
+.b-stats_bar
+  .title
+    @extend %headline
+    color: $color-text-hint
+
+  a.title
+    color: $color-link
+
+    &:hover
+      color: $color-link-hover
+
+    &:active
+      color: $color-link-active
+
+  .bar
+    height: auto
+    border-radius: 2px
+
+    .first, .second, .third
+      color: inherit
+      font-size: .75rem
+      line-height: 1.25rem
+
+    .third
+      background: $color-border
+      color: $color-text-primary
+
+  .stat_names
+    font-size: .875rem
+    line-height: 2rem
+
+    .stat_name
+      padding: 0 1rem 0 0
+
+      &::after
+        display: none
+
+      a
+        display: block
+        color: $color-text-primary
+
+        &:hover
+          color: $color-link-hover
+
+        &:active
+          color: $color-link-active
+
+      .size
+        &::before,
+        &::after
+          color: $color-text-disabled

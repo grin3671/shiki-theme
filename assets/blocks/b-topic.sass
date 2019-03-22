@@ -1,0 +1,116 @@
+.b-topic
+  @extend %shiki-entry
+  margin-bottom: 0
+  line-height: inherit
+
+  & > .editor-container
+    margin-top: 1rem
+
+  & > .inner
+
+    & > header
+
+      .name-date a
+        font-size: inherit
+
+      .about
+        margin-right: .5rem
+
+        & >  span
+          color: $color-text-hint
+          padding: 0 .5rem 0 0
+          font-size: .875rem
+
+        a
+          font-size: 1rem
+          font-weight: bold
+
+  // Кнопки голосования в рецензиях и коллекциях 
+  .footer-vote
+    padding: 0
+    margin-top: 1rem
+    margin-bottom: 1rem
+    background: transparent
+    border: 0
+    color: inherit
+    font-size: inherit
+    line-height: inherit
+
+    &::after
+      content: ''
+      display: block
+      clear: both
+
+    .star
+      vertical-align: top
+      padding: .5rem
+      line-height: 0
+      @extend %material-icons
+      &::before
+        content: 'thumbs_up_down'
+        width: 1.5rem
+        padding: 0
+        font-size: 1.5rem
+
+    .notice
+      margin: 0 1.5rem 0 1rem
+      line-height: 2.5rem
+
+    .vote-group
+      float: right
+
+      .separator
+        display: none
+
+      .vote
+        min-width: 5.5rem
+        padding: 0 1rem
+        margin: .25rem 0
+        background-color: $color-area-active
+        border: 0
+        border-radius: .125rem
+        color: inherit
+        font-size: .875rem
+        font-weight: 700
+        line-height: 2rem
+        text-transform: uppercase
+        opacity: 1
+        transition: background-color .24s ease, color .24s ease
+
+        &:not(:last-child)
+          margin-right: .5rem
+
+        @extend %material-icons
+        &.yes::before, &.no::before
+          display: inline
+          vertical-align: middle
+          padding: 0
+          margin-right: .875rem
+          font-size: 1.125rem !important
+
+        &.yes
+          &.selected, &:hover
+            background-color: #4CAF50
+            background-color: #66BB6A
+            color: #FFFFFF
+
+          &::before
+            content: 'thumb_up'
+
+        &.no
+          &.selected, &:hover
+            background-color: #F44336
+            background-color: #EF5350
+            color: #FFFFFF
+
+          &::before
+            content: 'thumb_down'
+
+  // Блок комментариев к топику
+  & > .b-comments
+    margin-top: 0
+
+  // Комментарии в топике с расскрытым меню
+  &.aside-expanded
+    & > .b-comments
+      margin-left: 0

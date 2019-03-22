@@ -1,0 +1,68 @@
+.b-button
+  @extend %md-button-flat
+
+a.b-button
+  color: $color-primary
+
+
+.b-form input[type=submit]
+  @extend %md-button-raised
+
+  &[disabled],
+  &.disabled
+    background-color: $color-button-hover
+    box-shadow: none
+    color: $color-text-disabled !important
+
+.b-form .cancel
+  @extend %md-button-flat
+
+  &:hover
+    text-decoration: none
+
+// Кнопка "Отмена" в редактировании аниме в своём списке
+.buttons > div,
+// buttons (25px for <1024px & 15px for >1025px)
+.buttons a
+  line-height: 1.5rem !important
+
+
+.b-button + .b-js-link
+  @extend %md-button-flat
+
+
+// .b-shiki_editor footer .unpreview
+// .b-shiki_editor.previewed footer .unpreview
+.b-shiki_editor footer .unpreview:not(.link)
+  @extend %md-button-flat
+  font-size: 0
+
+  &::after
+    content: 'Редактировать'
+    vertical-align: top
+    font-size: .875rem
+
+  [data-locale=en] &::after
+    content: 'Edit'
+
+.b-topic-preview > .editor-container .hide
+  @extend %md-button-flat
+
+.b-shiki_editor footer .cancel
+  @extend %md-button-flat
+
+.b-contests-menu .results
+  @extend %md-button-raised
+  display: block
+  float: none
+  margin: .5rem 0
+  border-radius: 2px
+  font-size: 0
+
+  &:hover
+    text-decoration: none
+
+  &::after
+    content: attr(title)
+    vertical-align: top
+    font-size: .875rem

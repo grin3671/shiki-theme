@@ -1,0 +1,61 @@
+/* Вывод основных данных из БД */
+.b-db_entry
+  line-height: inherit
+
+  & > .c-about
+    .c-info-left,
+    .c-info-right,
+    .c-info-left:last-child,
+    .c-info-right:last-child
+      margin-bottom: 8px !important
+
+    .contest_winners
+      margin-top: 0
+      margin-bottom: 1em
+
+    .p-people-show &
+      @media (min-width: 768px)
+        float: none
+        margin-left: 30%
+        overflow: hidden
+
+  // .c-description
+  & > div:last-child
+    .text
+      line-height: 1.5
+
+    .p-animes &
+      clear: left
+      padding-top: 0
+      margin-left: 0
+      line-height: inherit
+
+  .c-poster img
+    border-radius: 2px
+
+  .c-actions
+    .b-tooltipped
+      @extend %md-icon
+      @extend %md-icon-hover
+
+      @media (max-width: 480px) and (orientation: portrait)
+        display: table
+        width: 100%
+        margin: 0 0 8px !important
+
+      &::before
+        display: table-cell
+        float: none
+
+      &::after
+        padding-left: .5rem
+        color: inherit
+        font-size: .875rem
+        line-height: 1.125rem
+
+    .fav-add:hover
+      color: $color-accent !important
+    .fav-remove
+      color: $color-accent !important
+      &:hover::before
+        color: inherit

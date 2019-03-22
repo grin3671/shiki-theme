@@ -1,0 +1,61 @@
+/* Страница видео */
+.p-anime_videos-index
+  .c-videos
+    .video-variant-switcher
+      float: right
+      margin: 0
+      border: 0
+      color: $color-link
+      font-size: .875rem
+      font-weight: 700
+      line-height: 1rem
+      text-transform: capitalize
+      &:hover, &.active
+        color: $color-link-hover
+      &:active, &.active:hover
+        color: $color-link-active
+
+      &:not(:first-child)::after
+        content: '/'
+        padding: 0 .375rem
+        color: $color-text-disabled
+        font-weight: normal
+
+  .c-video_stats
+    font-size: .875rem
+
+    .views_count
+      color: $color-text-hint
+
+    .uploader .b-user16
+      padding-left: 0
+      line-height: 1.25rem
+
+      img
+        margin-top: 0
+
+  .same-videos .title,
+  .c-anime_video_episodes .title,
+  .c-videos .title
+    padding: 1rem 0
+    margin: 0
+    color: $color-text-hint
+    color: inherit
+    font-size: .875rem
+    font-weight: 700
+    line-height: 1rem
+    text-transform: uppercase
+
+  &.x1000
+    .c-videos
+      .title
+        font-size: 0
+        line-height: 0
+
+        &::after
+          content: 'Варианты'
+          font-size: .875rem
+          line-height: 1rem
+
+    &[data-locale='en'] .c-videos .title::after
+          content: 'Variants'

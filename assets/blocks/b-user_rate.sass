@@ -1,0 +1,45 @@
+/* Форма выставления оценки и редактирования комментария под постером */
+.b-user_rate
+  .rate-show
+    margin-bottom: .5rem
+
+    .episodes
+      margin-bottom: 8px
+      font-size: 14px
+      line-height: 32px
+
+    .note
+      padding: .5rem 1rem
+      background: $color-area-normal
+      border-radius: 2px
+      color: $color-text-hint
+      font-size: .875rem
+      line-height: 1.25rem
+      max-height: 10rem /* thx Dark_zarich */
+      overflow-x: hidden
+      overflow-y: auto /* thx Dark_zarich */
+
+      &::before
+        content: 'Заметка'
+        display: block
+        font-size: 10px
+        font-weight: bold
+
+    .rate-number
+      margin-right: 0
+
+      .current-episodes, .b-separator, .total-episodes
+        display: inline-block
+        vertical-align: top
+        line-height: 32px
+
+      .item-add
+        @extend %md-icon
+        @extend %md-icon-hover
+        margin: -4px 0 0 8px !important
+        &::before
+          content: 'add'
+
+  .rate-edit
+    .b-input.integer input
+      width: 7rem

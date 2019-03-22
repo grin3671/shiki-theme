@@ -1,0 +1,45 @@
+// Действия с почтой
+.p-messages .mass-actions
+  position: absolute
+  top: 56px
+  right: 0
+  margin: 0
+
+  .action
+    vertical-align: top
+
+    & + .action
+      margin-left: 8px
+
+    &::after
+      display: none
+
+    a
+      @extend %md-icon
+      @extend %md-icon-hover
+      @extend %md-tooltip
+      @extend %md-tooltip-left
+      position: relative
+      border: 0
+      font-size: 0
+      line-height: 1
+
+    &:nth-child(1) > a
+      &::before
+        content: 'done_all'
+
+      &::after
+        content: 'Прочитать всё'
+
+    &:nth-child(2) > a
+      &::before
+        content: 'delete_sweep'
+
+      &::after
+        content: 'Удалить всё'
+
+.p-messages[data-locale='en'] .mass-actions .action:nth-child(1) > a::after
+  content: 'Mark all messages as read'
+
+.p-messages[data-locale='en'] .mass-actions .action:nth-child(2) > a::after
+  content: 'Remove all messages'

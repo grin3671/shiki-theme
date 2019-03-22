@@ -1,0 +1,21 @@
+%shiki-marker
+  width: auto
+  padding: 2px .5em
+  margin: .25rem 0 .25rem .5rem
+  border: 1px solid
+  border-radius: 2px
+  font-size: .75rem
+  font-weight: bold
+  line-height: 1.5
+  white-space: nowrap
+  transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+  &::before
+    display: none !important
+
+  &::after
+    content: attr(data-text)
+    text-transform: capitalize
+
+  &.off
+    color: $color-text-disabled

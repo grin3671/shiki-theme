@@ -27,11 +27,20 @@
     "checked": false
   },
   {
+    "url": "main.sass",
+    "checked": true
+  },
+  {
     "url": "color.sass",
     "checked": true
   },
   {
     "url": "modules/material-icons.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
+    "url": "modules/md-button.sass",
     "disabled": true,
     "checked": true
   },
@@ -46,7 +55,23 @@
     "checked": true
   },
   {
-    "url": "main.sass",
+    "url": "modules/shiki-entry.sass",
+    "checked": true
+  },
+  {
+    "url": "modules/shiki-comment.sass",
+    "checked": true
+  },
+  {
+    "url": "modules/shiki-marker.sass",
+    "checked": true
+  },
+  {
+    "url": "modules/shiki-plashka.sass",
+    "checked": true
+  },
+  {
+    "url": "modules/shiki-tag.sass",
     "checked": true
   },
   {
@@ -58,23 +83,329 @@
     "checked": true
   },
   {
-    "url": "b-catalog_entry-tooltip.sass",
+    "url": "blocks/lib-buttons.sass",
     "checked": true
   },
   {
-    "url": "b-to-top.sass",
+    "url": "blocks/lib-collapse.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-headlines.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-highcharts.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-icons.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-tipsy.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-toastr.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/lib-tooltip.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/mixin-log_entry.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-add_to_list.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-ajax.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-anime_status_tag.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-block_list.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-breadcrumbs.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-catalog_entry.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-catalog_entry-tooltip.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-club.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-code.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-collection-filters.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-collection_search.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-comment.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-comments-notifier.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-comments.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-db_entry.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-db_entry-note.sass",
+    "checked": true,
+    "description": "«Связанное» и «Авторы» на страницах энциклопедии."
+  },
+  {
+    "url": "blocks/b-dialog.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-dropzone.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-entry-info.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-form.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-forum.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-forums.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-gallery.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-height_shortener.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-hot_topics.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-image.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-input.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-lang_trigger.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-link_button.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-list.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-list_switchers.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-message.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-modal.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-options_floated.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-poll.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-quote.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-rate.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-review_votes.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-shiki_editor.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-shiki_marker.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-source.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-spoiler.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-stats_bar.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-status-line.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-table.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-tag.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-to_top.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-topic.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-upload_progress.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-user.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-user16.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-user_rate.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-video_player.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-video_variant.sass",
+    "checked": true,
+    "description": "Выбор видео на play.shikimori.org."
+  },
+  {
+    "url": "pages/p-anime_videos.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-animes.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-animes_collection.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-club_pages.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-clubs.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-contests.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-dashboards.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-dialogs.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-messages.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-profiles.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-profiles--b-options_floated.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-profiles_edit.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-topics.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-user_history.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-user_rates.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-userlist_comparer.sass",
+    "checked": true
+  },
+  {
+    "url": "b-buttons.sass",
     "checked": true
   },
   {
     "url": "rightbar.sass",
-    "checked": true
-  },
-  {
-    "url": "status-line.sass",
-    "checked": true
-  },
-  {
-    "url": "dashboard-layout.sass",
     "checked": true
   },
   {
@@ -108,7 +439,12 @@
     "url": "profile-cover.sass",
     "checked": true,
     "disabled": true,
-    "description": "Этот файл зависит от настройки \"Вид профиля\"."
+    "description": "Этот файл зависит от настройки «Вид профиля»."
+  },
+  {
+    "url": "avatar-round.sass",
+    "checked": true,
+    "title": "Круглые аватарки"
   },
   {
     "url": "achievements.sass",
@@ -133,11 +469,6 @@
     "url": "tests/video-variant-switcher.sass",
     "checked": false,
     "description": "Переключатель dub/sub/raw на play.shikimori.org."
-  },
-  {
-    "url": "tests/b-video_variant.sass",
-    "checked": false,
-    "description": "Выбор видео на play.shikimori.org."
   },
   {
     "url": "tests/p-messages-menu.sass",

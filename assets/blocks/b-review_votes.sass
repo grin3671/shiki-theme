@@ -1,0 +1,20 @@
+.b-review_votes
+  color: inherit
+  font-size: inherit
+  line-height: inherit
+  @extend %material-icons
+  &::before
+    content: 'thumbs_up_down'
+    display: inline-block
+    vertical-align: top
+    color: $color-text-disabled
+    font-size: 1.125rem !important
+
+  span
+    color: $color-text-disabled
+
+  .votes-for
+    color: #66BB6A
+
+  .votes-against
+    color: #EF5350

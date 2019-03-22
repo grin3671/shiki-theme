@@ -1,0 +1,22 @@
+
+.b-list_switchers .switcher
+  @extend %md-icon
+  @extend %md-icon-hover
+
+  &.list::before
+    content: 'view_list'
+
+  &.lines::before
+    content: 'view_headline'
+
+  &.posters::before
+    content: 'view_module'
+
+  &.popularity::before
+    content: 'trending_up'
+
+  &.alphabet::before
+    content: 'sort_by_alpha'
+
+  &.selected
+    color: $color-accent !important
