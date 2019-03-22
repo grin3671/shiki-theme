@@ -211,6 +211,7 @@ var vm = new Vue({
       color_header_background_shade: '#2D2D2D',
       color_header_text: '#FAFAFA',
     },
+    folders: [],
     file_list: [],
     color_pallete: {},
     color_scheme: {},
@@ -582,6 +583,8 @@ var vm = new Vue({
               vm.text.fileLoading = 'Регистрация файлов';
               writeFiles(branch, sources);
             }
+          }, function (error) {
+            console.error('File ' + file.url + ' not found!');
           });
         });
       });
@@ -712,6 +715,11 @@ var vm = new Vue({
     // Загрузка списка переменных
     XHR('./config/theme_variables.json', function(config) {
       vm.variables = JSON.parse(config);
+    });
+
+    // Загрузка списка папок
+    XHR('./config/theme_folders.json', function(config) {
+      vm.folders = JSON.parse(config);
     });
 
 

@@ -278,25 +278,22 @@
             <h6>Категории</h6>
             <div class="md-container">
               <folder
-                foldername="modules"
+                v-for="(folder, index) in folders"
+                :foldername="folder.url"
                 :file_list="file_list"
               >
-                <template slot="name">Модули Material Design 2014</template>
-                <template slot="info">shiki-theme/assets/modules/</template>
-              </folder>
-              <folder
-                foldername="tests"
-                :file_list="file_list"
-              >
-                <template slot="name">Для тестирования</template>
-                <template slot="info">shiki-theme/assets/tests/</template>
+                <template slot="name">{{ folder.title }}</template>
+                <template slot="info">shiki-theme/assets/{{ folder.url }}/</template>
               </folder>
             </div>
 
             <h6>Основные файлы</h6>
             <div class="md-container">
               <file v-for="(file, index) in file_list"
-                v-if="file.url.substring(0, file.url.lastIndexOf('/')) != 'tests' &&
+                v-if="file.url.substring(0, file.url.lastIndexOf('/')) != 'blocks' &&
+                      file.url.substring(0, file.url.lastIndexOf('/')) != 'pages' &&
+                      file.url.substring(0, file.url.lastIndexOf('/')) != 'tests' &&
+                      file.url.substring(0, file.url.lastIndexOf('/')) != 'adapted' &&
                       file.url.substring(0, file.url.lastIndexOf('/')) != 'modules'"
                 :file="file"
                 :index="index"
