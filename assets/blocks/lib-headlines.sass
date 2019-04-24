@@ -111,6 +111,23 @@ header.head
 
 
 
+// misc-links in headlines; thx @anorva
+.subheadline .misc-links
+  padding-left: .5em
+  & > a
+    color: $color-link
+    font-size: .875rem
+    &:hover
+      color: $color-link-hover
+    &:active
+      color: $color-link-active
+    &.selected
+      color: $color-link-hover
+      &:hover
+        color: $color-link-active
+
+
+
 .subheadline-input
   padding: 5px 8px
   margin-top: 8px !important
