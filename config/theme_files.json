@@ -75,12 +75,9 @@
     "checked": true
   },
   {
-    "url": "menu-classic.sass",
-    "checked": true
-  },
-  {
-    "url": "menu-icon.sass",
-    "checked": true
+    "url": "menu-updated.sass",
+    "checked": true,
+    "description": "Стили для обновлённого верхнего меню."
   },
   {
     "url": "blocks/lib-buttons.sass",
@@ -491,6 +488,11 @@
     "url": "tests/p-profiles-favorites.sass",
     "checked": false,
     "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
+  },
+  {
+    "url": "tests/stat_names.sass",
+    "checked": false,
+    "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
   },
   {
     "url": "user-settings.sass",

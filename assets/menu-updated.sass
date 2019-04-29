@@ -1,0 +1,318 @@
+/* Верхнее меню v2 */
+$menu-height: 48px
+$menu-background: $color-header-background
+$menu-text: mix($color-header-text, $menu-background, 96%)
+$menu-icon: mix($menu-text, $menu-background, 76%)
+$menu-background-hover: mix($menu-text, $menu-background, 8%)
+$menu-background-active: mix($menu-text, $menu-background, 10%)
+$search-background: mix($menu-text, $menu-background, 12%)
+
+.l-top_menu-v2
+  height: $menu-height
+  background-color: $color-header-background
+  border: 0
+  box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
+  color: $menu-text
+
+
+  // Общее
+  @media (min-width: 768px)
+    .menu-dropdown.main,
+    .logo-container
+      margin-right: 1em
+
+
+  // Лого
+  .logo-container
+    padding: 0 8px
+    color: inherit
+    font-size: 20px
+    font-weight: bold
+
+    &::after
+      content: attr(title)
+
+    .glyph
+      margin: 0 1em 0 0
+
+    .logo
+      display: none
+
+  // Кнопки меню
+  .menu-icon,
+  .menu-dropdown > button
+    height: $menu-height
+
+  .menu-icon:focus,
+  .menu-dropdown > button:focus
+    background-color: $menu-background-hover
+
+  .menu-icon:hover,
+  .menu-dropdown:hover > button
+    @media (min-width: 768px)
+      background-color: $menu-background-hover
+
+  .icon-other
+    @extend %material-icons
+
+  .menu-icon
+    $badge-size: 22px
+    padding: .75em
+    @extend %material-icons
+    &::before
+      color: $menu-icon
+
+    &[class]::after
+      width: $badge-size
+      height: $badge-size
+      margin-top: -$badge-size / 2
+      margin-left: $badge-size / 2
+      background-color: $color-accent
+      border: 0
+      color: $color-text-on-accent
+      font-size: .75em
+      font-weight: bold
+      line-height: $badge-size
+
+    &.contest::after
+      content: 'check'
+      font-family: 'Material Icons' !important
+      font-size: 18px !important
+      font-weight: 400 !important
+      line-height: $badge-size !important
+
+      letter-spacing: normal
+      text-transform: none
+      word-wrap: normal
+      white-space: nowrap
+      direction: ltr
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale
+      /* Support for IE. */
+      font-feature-settings: 'liga'
+
+  .menu-dropdown
+    & > button
+      padding: 0 .75em
+      background: transparent
+      @extend %material-icons
+
+      & > span
+        margin: auto 1em
+        font-size: inherit
+
+    &.active
+      & > button
+        background-color: $menu-background-active
+
+    &.main
+      & > button:not(.mobile)
+        padding-left: .75em
+
+        span
+          margin-left: 1em
+
+    &.profile
+      & > button
+        img
+          height: 32px
+          margin-right: -6px
+          border-radius: 50%
+
+
+  // Выпадающее меню
+  .submenu
+    background-color: $menu-background-active
+    border-color: $menu-background-active
+
+    & > .legend
+      padding: .5rem .75rem
+      margin-top: .25rem
+      font-size: .75em
+      line-height: 1.5rem
+
+      &:first-child
+        margin: 0
+
+    & > a
+      padding: .5em .75em
+      color: inherit
+      @extend %material-icons
+      &::before
+        margin-right: 16px
+        color: $menu-icon
+
+      @media (min-width: 768px)
+        height: auto
+        font-size: inherit
+        line-height: 1.5em
+
+
+  // Иконки
+
+  .icon-anime_list
+    &::before
+      content: 'video_library'
+      background: none
+
+  .icon-manga_list
+    &::before
+      content: 'library_books'
+      background: none
+
+  .icon-characters
+    &::before
+      content: 'people'
+
+  .icon-profile
+    &::before
+      content: 'person'
+
+  .icon-mail
+    &::before
+      content: 'mail'
+
+  .icon-home
+    &::before
+      content: 'home'
+
+  .menu-icon.search::before
+    content: 'search'
+
+  .icon-anime::before
+    content: 'ondemand_video'
+
+  .icon-manga::before
+    content: 'photo_album'
+
+  .icon-ranobe::before
+    content: 'book'
+
+  .icon-clubs::before
+    content: 'pages'
+
+  .icon-collections::before
+    content: 'widgets'
+
+  .icon-reviews::before
+    content: 'rate_review'
+
+  .menu-icon.forum::before,
+  .icon-forum::before
+    content: 'forum'
+
+  .icon-calendar::before
+    content: 'today'
+
+  .menu-icon.contest::before,
+  .icon-contests::before
+    content: 'equalizer'
+    transform: scale(-1, 1)
+
+  .icon-info::before
+    content: 'info'
+
+  .icon-socials::before
+    content: 'share'
+
+  .menu-icon.moderation::before,
+  .icon-moderation::before
+    content: 'flag'
+
+  .menu-icon.mail::before,
+  .icon-mail::before
+    content: 'mail'
+
+  .icon-achievements::before
+    content: 'dns'
+
+  .icon-settings::before
+    content: 'settings'
+
+  .icon-site_rules::before
+    content: 'assignment_late'
+
+  .icon-faq::before
+    content: 'help'
+
+  .icon-sign_out::before
+    content: 'open_in_new'
+
+  .icon-people::before
+    content: 'people'
+
+  .icon-users::before
+    content: 'supervisor_account'
+
+  .menu-icon.trigger::before,
+  .icon-other::before
+    content: 'menu'
+
+  .icon-anime_list::before,
+  .icon-manga_list::before,
+  .icon-characters::before
+    @media (min-width: 768px)
+      height: auto
+      margin: 0 1rem 0 0
+
+
+  // Поиск
+  .global-search
+    width: 100%
+    color: inherit
+
+    input
+      display: block
+      padding: 0 48px
+      background: $search-background
+      border: 0
+      border-radius: 3px
+      color: inherit
+      font-size: inherit
+      line-height: 40px
+
+      &::placeholder
+        color: inherit
+
+    .clear,
+    .search-marker
+      bottom: 0
+      width: auto
+      height: 24px
+      margin: auto
+      font-size: inherit
+
+
+    .clear
+      top: 0
+      right: .75em
+      width: auto
+      &:hover, &:active
+        color: $color-accent
+
+      @extend %material-icons
+      &::before
+        content: 'clear'
+        color: inherit
+
+    .hotkey-marker
+      right: .75rem
+      width: 21px
+      border-color: mix($menu-text, $menu-background, 48%)
+      color: mix($menu-text, $menu-background, 48%)
+
+    .search-marker
+      left: .75rem
+      @extend %material-icons
+      &::before
+        content: 'search'
+
+  &.is-global-search .global-search
+    input
+      background-color: #fff
+      color: #212121
