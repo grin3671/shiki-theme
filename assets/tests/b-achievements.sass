@@ -16,7 +16,6 @@
       background: rgba(66, 66, 66, .9)
       border-color: #424242
       color: #fff
-
       &:hover
         background: #424242
 
@@ -26,34 +25,41 @@
       img
         border-radius: 3px
 
-    .name
-      margin: 0
-      font-size: .875em
+    .content
+      .name
+        margin: 0
+        font-size: .875em
 
-      .level
-        color: #eee
-        font-size: inherit
+        .level
+          color: #eee
+          font-size: inherit
 
-      .icon
-        top: 0
-        right: 0
-        left: auto
-        padding: 8px
-        margin: 4px
-        border-radius: 50%
-        font-size: 24px
-        cursor: pointer
+        .icon
+          top: 0
+          right: 0
+          left: auto
+          padding: 8px
+          margin: 4px
+          border-radius: 50%
+          font-size: 24px
+          cursor: pointer
 
-        @extend %material-icons
-        &::before
-          content: 'close'
+          @extend %material-icons
+          &::before
+            content: 'close'
 
-    .title a,
-    .name a
-      color: #fff !important
+      .title a,
+      .name a
+        color: #fff !important
 
-    .name a
-      text-decoration: none !important
+      .name a
+        text-decoration: none !important
 
     &.gained .title a::after
       content: '!'
+
+    &.lost .title a::before
+      content: '😱 '
+      display: inline-block
+      margin: -8px 4px -8px 0
+      font-size: 24px
