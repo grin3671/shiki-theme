@@ -151,6 +151,9 @@
         height: auto
         background: transparent
         // background-color: $color-primary
+      // NOTE: по умолчанию иконка редактирования скрыта; thx @Keeper Yu
+      @media (min-width: 768px)
+        display: none
 
     & > .text
       padding: .5rem

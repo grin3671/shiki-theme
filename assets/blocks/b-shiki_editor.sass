@@ -1,8 +1,10 @@
 
 .b-shiki_editor
   aside.markers
+    position: relative
     height: auto
-    padding: .5rem 0
+    padding: .5rem 0 0
+    z-index: 1
 
   aside.buttons
     margin: 0
@@ -84,7 +86,7 @@
   &.previewed .body
     .preview
       .b-comment
-        padding: 0 !important
+        padding-bottom: 0
 
   footer
     margin-top: .25em

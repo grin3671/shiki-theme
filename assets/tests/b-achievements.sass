@@ -16,66 +16,50 @@
       background: rgba(66, 66, 66, .9)
       border-color: #424242
       color: #fff
-
       &:hover
         background: #424242
-    
 
     .image
-      float: left
-      margin: -4px 1em -4px -4px
-      border-radius: 3px
-      max-height: 56px
+      margin: -4px -4px -4px auto
 
-    .name
-      margin: 0
-      font-size: .875em
+      img
+        border-radius: 3px
 
-      .level
-        color: #eee
-        font-size: inherit
+    .content
+      .name
+        margin: 0
+        font-size: .875em
 
-      .icon
-        top: 0
-        right: 0
-        left: auto
-        padding: 8px
-        margin: 4px
-        border-radius: 50%
-        cursor: pointer
+        .level
+          color: #eee
+          font-size: inherit
 
-        &::before
-          content: 'close'
-          width: 1em
-          margin: 0
+        .icon
+          top: 0
+          right: 0
+          left: auto
+          padding: 8px
+          margin: 4px
+          border-radius: 50%
+          font-size: 24px
+          cursor: pointer
 
-          font-family: 'Material Icons'
-          font-weight: normal
-          font-style: normal
-          font-size: 24px // Preferred icon size
-          display: inline-block
-          line-height: 1
-          text-transform: none
-          letter-spacing: normal
-          word-wrap: normal
-          white-space: nowrap
-          direction: ltr
+          @extend %material-icons
+          &::before
+            content: 'close'
 
-          /* Support for all WebKit browsers. */
-          -webkit-font-smoothing: antialiased
-          /* Support for Safari and Chrome. */
-          text-rendering: optimizeLegibility
-          /* Support for Firefox. */
-          -moz-osx-font-smoothing: grayscale
-          /* Support for IE. */
-          font-feature-settings: 'liga'
+      .title a,
+      .name a
+        color: #fff !important
 
-    .title a,
-    .name a
-      color: #fff !important
-
-    .name a
-      text-decoration: none !important
+      .name a
+        text-decoration: none !important
 
     &.gained .title a::after
       content: '!'
+
+    &.lost .title a::before
+      content: '😱 '
+      display: inline-block
+      margin: -8px 4px -8px 0
+      font-size: 24px

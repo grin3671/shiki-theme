@@ -26,7 +26,7 @@
     border-radius: $border-rounded
 
   .option:last-child
-    border-radius: 0 $border-rounded $border-rounded 0
+    border-radius: 0 0 $border-rounded $border-rounded
 
   .plus, .edit, .trigger-arrow
     width: 2.5rem
@@ -74,11 +74,12 @@
       transform: rotate(180deg)
 
   .expanded-options
-    padding-top: $border-rounded
     margin-top: -$border-rounded
 
     .option
       font-size: .875rem
+      &:first-child
+        padding-top: 8px + $border-rounded
 
       .text
         padding-left: 0
