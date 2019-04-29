@@ -1,5 +1,5 @@
 /* Верхнее меню v2 */
-$menu-height: 48px
+$menu-height: 56px
 $menu-background: $color-header-background
 $menu-text: mix($color-header-text, $menu-background, 96%)
 $menu-icon: mix($menu-text, $menu-background, 76%)
@@ -8,6 +8,10 @@ $menu-background-active: mix($menu-text, $menu-background, 10%)
 $search-background: mix($menu-text, $menu-background, 12%)
 
 .l-top_menu-v2
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
   height: $menu-height
   background-color: $color-header-background
   border: 0
@@ -40,6 +44,10 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
   // Кнопки меню
   .menu-icon,
+  .menu-dropdown
+    margin-right: 0
+
+  .menu-icon,
   .menu-dropdown > button
     height: $menu-height
 
@@ -57,7 +65,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
   .menu-icon
     $badge-size: 22px
-    padding: .75em
+    padding: 1em
     @extend %material-icons
     &::before
       color: $menu-icon
@@ -70,35 +78,18 @@ $search-background: mix($menu-text, $menu-background, 12%)
       background-color: $color-accent
       border: 0
       color: $color-text-on-accent
+      font-family: inherit
       font-size: .75em
       font-weight: bold
       line-height: $badge-size
 
     &.contest::after
-      content: 'check'
-      font-family: 'Material Icons' !important
-      font-size: 18px !important
-      font-weight: 400 !important
-      line-height: $badge-size !important
-
-      letter-spacing: normal
-      text-transform: none
-      word-wrap: normal
-      white-space: nowrap
-      direction: ltr
-
-      /* Support for all WebKit browsers. */
-      -webkit-font-smoothing: antialiased
-      /* Support for Safari and Chrome. */
-      text-rendering: optimizeLegibility
-      /* Support for Firefox. */
-      -moz-osx-font-smoothing: grayscale
-      /* Support for IE. */
-      font-feature-settings: 'liga'
+      content: attr(data-count)
+      display: none
 
   .menu-dropdown
     & > button
-      padding: 0 .75em
+      padding: 0 1em
       background: transparent
       @extend %material-icons
 
@@ -112,7 +103,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     &.main
       & > button:not(.mobile)
-        padding-left: .75em
+        padding-left: 1em
 
         span
           margin-left: 1em
@@ -124,14 +115,24 @@ $search-background: mix($menu-text, $menu-background, 12%)
           margin-right: -6px
           border-radius: 50%
 
+          @media (max-width: 767px)
+            margin: 0
+
 
   // Выпадающее меню
   .submenu
     background-color: $menu-background-active
+    border: 0
     border-color: $menu-background-active
+    border-radius: 0 0 $border-rounded $border-rounded
+
+    &::after
+      content: ''
+      display: block
+      height: .5em
 
     & > .legend
-      padding: .5rem .75rem
+      padding: .5rem 1rem
       margin-top: .25rem
       font-size: .75em
       line-height: 1.5rem
@@ -140,17 +141,22 @@ $search-background: mix($menu-text, $menu-background, 12%)
         margin: 0
 
     & > a
-      padding: .5em .75em
+      padding: .5em 1em
       color: inherit
-      @extend %material-icons
-      &::before
-        margin-right: 16px
-        color: $menu-icon
 
       @media (min-width: 768px)
         height: auto
         font-size: inherit
         line-height: 1.5em
+
+      &:active, &.active
+        background: mix($menu-text, $menu-background-active, 8%)
+        color: inherit
+
+      @extend %material-icons
+      &::before
+        margin-right: 16px
+        color: $menu-icon
 
 
   // Иконки
@@ -258,7 +264,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
   .icon-characters::before
     @media (min-width: 768px)
       height: auto
-      margin: 0 1rem 0 0
+      margin: 0
 
 
   // Поиск
@@ -269,7 +275,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
     input
       display: block
       padding: 0 48px
+      margin: ($menu-height - 40px) / 2 0
       background: $search-background
+      background: rgba($menu-text, .12)
       border: 0
       border-radius: 3px
       color: inherit
@@ -302,9 +310,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     .hotkey-marker
       right: .75rem
-      width: 21px
       border-color: mix($menu-text, $menu-background, 48%)
       color: mix($menu-text, $menu-background, 48%)
+      line-height: 19px
 
     .search-marker
       left: .75rem
@@ -312,7 +320,18 @@ $search-background: mix($menu-text, $menu-background, 12%)
       &::before
         content: 'search'
 
-  &.is-global-search .global-search
-    input
-      background-color: #fff
-      color: #212121
+    .search-results
+      top: $menu-height
+
+  // Настройки поиска в активном состоянии
+  &.is-search-focus
+    .global-search
+      input
+        background-color: #fff
+        color: #212121
+
+      .hotkey-marker
+        display: none
+
+      .search-marker
+        color: #212121 !important
