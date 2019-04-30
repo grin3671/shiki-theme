@@ -66,7 +66,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
     &::before
       color: $menu-icon
 
-    &[class]::after
+    &.contest::after,
+    &.mail:after
+      top: auto
       width: $badge-size
       height: $badge-size
       margin-top: -$badge-size / 2
@@ -113,6 +115,22 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
           @media (max-width: 767px)
             margin: 0
+
+        @media (max-width: 767px)
+          &[data-unread_count]:after
+            $badge-size: 22px
+            top: auto
+            width: $badge-size
+            height: $badge-size
+            margin-top: -$badge-size / 2
+            margin-left: $badge-size / 2
+            background-color: $color-accent
+            border: 0
+            color: $color-text-on-accent
+            font-family: inherit
+            font-size: .75em
+            font-weight: bold
+            line-height: $badge-size
 
 
   // Выпадающее меню
@@ -167,35 +185,25 @@ $search-background: mix($menu-text, $menu-background, 12%)
   .icon-manga_list,
   .icon-characters
     &::before
+      background: none
       @media (max-width: 767px)
         height: auto
         margin: 0 16px 0 0
 
-  .icon-anime_list
-    &::before
-      content: 'video_library'
-      background: none
+  .icon-anime_list::before
+    content: 'video_library'
 
-  .icon-manga_list
-    &::before
-      content: 'library_books'
-      background: none
+  .icon-manga_list::before
+    content: 'library_books'
 
-  .icon-characters
-    &::before
-      content: 'people'
+  .icon-characters::before
+    content: 'face'
 
-  .icon-profile
-    &::before
-      content: 'person'
+  .icon-profile::before
+    content: 'person'
 
-  .icon-mail
-    &::before
-      content: 'mail'
-
-  .icon-home
-    &::before
-      content: 'home'
+  .icon-home::before
+    content: 'home'
 
   .menu-icon.search::before
     content: 'search'
@@ -210,7 +218,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     content: 'book'
 
   .icon-clubs::before
-    content: 'pages'
+    content: 'group_work'
 
   .icon-collections::before
     content: 'widgets'
@@ -245,7 +253,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     content: 'mail'
 
   .icon-achievements::before
-    content: 'dns'
+    content: 'stars'
 
   .icon-settings::before
     content: 'settings'
@@ -263,7 +271,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     content: 'people'
 
   .icon-users::before
-    content: 'supervisor_account'
+    content: 'account_circle'
 
   .menu-icon.trigger::before,
   .icon-other::before
@@ -321,6 +329,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       top: 0
       right: .75em
       width: auto
+      color: inherit
       &:hover, &:active
         color: $color-accent
 
@@ -344,6 +353,52 @@ $search-background: mix($menu-text, $menu-background, 12%)
     .search-results
       top: $menu-height
       background: $color-background-dialog
+
+      .nothing_found::before
+        background-color: $color-danger
+
+      .nothing_found,
+      .search-mode
+        padding: .25em .5em
+        border: 0
+        color: inherit
+        font-size: inherit
+        line-height: 2
+
+        &::before
+          margin: 0 1.75em 0 .5em !important
+
+      .b-db_entry-variant-list_item
+        padding: .25em .5em
+
+      .search-mode
+        &:hover
+          background: linear-gradient(270deg, transparent, transparent)
+          @media (min-width: 1025px)
+            &::before
+              background: rgba($color-accent, 0.4)
+
+      .nothing_found,
+      .b-db_entry-variant-list_item,
+      .search-mode
+
+        &::before
+          width: 4px
+          border-radius: 2px
+
+        &.active,
+        &:focus
+          background: linear-gradient(270deg, transparent, transparent)
+          &::before
+            background: $color-accent
+
+      .search-mode,
+      .b-db_entry-variant-list_item
+        &:active
+          background: linear-gradient(270deg, transparent, transparent)
+
+          &::before
+            background: darken($color-accent, 5%)
 
   // Настройки поиска в активном состоянии
   &.is-search-mobile
