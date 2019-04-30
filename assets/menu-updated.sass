@@ -8,10 +8,6 @@ $menu-background-active: mix($menu-text, $menu-background, 10%)
 $search-background: mix($menu-text, $menu-background, 12%)
 
 .l-top_menu-v2
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
   height: $menu-height
   background-color: $color-header-background
   border: 0
@@ -160,6 +156,12 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
 
   // Иконки
+  .icon-avatar
+    img
+      width: 32px
+      height: 32px
+      margin: 0 -8px 0 0
+      border-radius: 50%
 
   .icon-anime_list
     &::before
@@ -270,7 +272,18 @@ $search-background: mix($menu-text, $menu-background, 12%)
   // Поиск
   .global-search
     width: 100%
+    max-width: 1200px
+    margin: auto
     color: inherit
+
+    .x1000 &
+      max-width: 1000px
+
+    & + .menu-icon
+       margin-left: auto
+
+    & ~ .menu-dropdown.profile
+       margin-left: 0
 
     input
       display: block
@@ -322,9 +335,23 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     .search-results
       top: $menu-height
+      background: $color-background-dialog
 
   // Настройки поиска в активном состоянии
-  &.is-search-focus
+  &.is-search-mobile
+    .global-search
+      @media (max-width: 1024px)
+        top: 0
+        padding: 0
+        background: #fff
+        z-index: 10
+
+        .search-results
+          margin-top: 0
+
+  // Настройки поиска в активном состоянии
+  &.is-search-focus,
+  &.is-search-mobile
     .global-search
       input
         background-color: #fff

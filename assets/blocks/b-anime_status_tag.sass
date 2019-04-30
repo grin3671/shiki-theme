@@ -1,7 +1,8 @@
 
-.b-anime_status_tag
+.b-anime_status_tag[class]
   @extend %shiki-marker
   margin: 0
+  background: transparent
 
   &.released
     color: $color-success
@@ -12,7 +13,8 @@
   &.ongoing
     color: $color-info
 
-  &.episode
+  &.episode,
+  &.studio
     color: $color-info
 
   &.summary
