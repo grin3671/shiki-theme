@@ -374,6 +374,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     .search-results
       top: $menu-height
       background: $color-background-dialog
+      color: $color-text-primary
 
       .nothing_found::before
         background-color: $color-danger
@@ -390,7 +391,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
           margin: 0 1.75em 0 .5em !important
 
       .b-db_entry-variant-list_item
-        padding: .25em .5em
+        padding: .75em .5em
 
       .search-mode
         &:hover
@@ -405,6 +406,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         &::before
           width: 4px
+          margin: 0 16px 0 0
           border-radius: 2px
 
         &.active,

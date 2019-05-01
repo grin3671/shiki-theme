@@ -4,7 +4,10 @@
     flex-shrink: 0
 
   & > .info
+    line-height: inherit
+
     .line
+      align-items: flex-start
       margin-bottom: .25rem
       font-size: inherit
 
@@ -13,7 +16,18 @@
         color: $color-text-secondary
         font-weight: normal
 
+      .value
+        margin: 0
+
+        & > a,
+        & > div,
+        & > span
+          margin-top: 2px
+          margin-bottom: 2px
+
     .name
+      margin-bottom: 4px
+
       .b-link
         font-size: inherit
         line-height: inherit
