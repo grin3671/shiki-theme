@@ -14,6 +14,11 @@ $search-background: mix($menu-text, $menu-background, 12%)
   box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
   color: $menu-text
 
+  .menu-logo
+    @media (max-width: 767px)
+      .menu-dropdown
+        margin-right: .5em
+
 
   // Общее
   @media (min-width: 768px)
@@ -113,8 +118,14 @@ $search-background: mix($menu-text, $menu-background, 12%)
           margin-right: -6px
           border-radius: 50%
 
-          @media (max-width: 767px)
+        @media (max-width: 767px)
+          padding: 0 8px
+
+          img
+            width: 40px
+            height: 40px
             margin: 0
+
 
         @media (max-width: 767px)
           &[data-unread_count]:after
@@ -172,8 +183,15 @@ $search-background: mix($menu-text, $menu-background, 12%)
         margin-right: 16px
         color: $menu-icon
 
+        @media (max-width: 767px)
+          margin-right: 32px
+
 
   // Иконки
+  .menu-icon
+    &.trigger
+      width: auto
+
   .icon-avatar
     img
       width: 32px
@@ -284,6 +302,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
       height: auto
       margin: 0
 
+  .icon-play::before
+    content: 'play_circle_filled'
+
 
   // Поиск
   .global-search
@@ -320,15 +341,15 @@ $search-background: mix($menu-text, $menu-background, 12%)
     .search-marker
       bottom: 0
       width: auto
-      height: 24px
+      height: 40px
+      padding: 8px
       margin: auto
       font-size: inherit
 
 
     .clear
       top: 0
-      right: .75em
-      width: auto
+      right: .5em
       color: inherit
       &:hover, &:active
         color: $color-accent
@@ -345,7 +366,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       line-height: 19px
 
     .search-marker
-      left: .75rem
+      left: .5rem
       @extend %material-icons
       &::before
         content: 'search'
@@ -402,8 +423,10 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
   // Настройки поиска в активном состоянии
   &.is-search-mobile
-    .global-search
-      @media (max-width: 1024px)
+    @media (max-width: 1024px)
+      margin-bottom: 0
+
+      .global-search
         top: 0
         padding: 0
         background: #fff
