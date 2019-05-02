@@ -88,7 +88,6 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     &.contest::after
       content: attr(data-count)
-      display: none
 
   .menu-dropdown
     & > button
@@ -96,7 +95,23 @@ $search-background: mix($menu-text, $menu-background, 12%)
       background: transparent
       @extend %material-icons
 
-      & > span
+      a
+        height: $menu-height
+        padding: 0
+        margin: 0
+        color: inherit
+        font-size: inherit
+        @media (min-width: 768px)
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          height: auto
+          padding: inherit
+          margin: 0
+
+      span
         margin: auto 1em
         font-size: inherit
 
