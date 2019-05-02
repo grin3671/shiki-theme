@@ -110,6 +110,11 @@ $search-background: mix($menu-text, $menu-background, 12%)
           height: auto
           padding: inherit
           margin: 0
+        @media (min-width: 1025px)
+          &:hover
+            background-color: mix($menu-text, $menu-background-active, 8%)
+          &:active
+            background-color: mix($menu-text, $menu-background-active, 12%)
 
       span
         margin: auto 1em
@@ -200,6 +205,20 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         @media (max-width: 767px)
           margin-right: 32px
+
+      &.icon-mail
+        span.unread
+          margin-left: auto
+          color: inherit
+          font-size: .875em
+
+          span
+            color: inherit
+
+        @media (min-width: 1025px)
+          &:hover
+            span.unread span
+              color: inherit
 
 
   // Иконки
