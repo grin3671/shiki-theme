@@ -1,0 +1,43 @@
+.b-video
+  img
+    backface-visibility: hidden
+
+  .video-link
+    border-radius: $border-rounded
+    @extend %material-icons
+    &::before
+      content: 'play_arrow'
+      height: auto
+      padding: .05em
+      margin: auto
+      font-size: 2.5rem !important
+      transform: translate3d(-50%, -50%, 0)
+
+  .name
+    top: 0
+    left: 0
+    min-width: 100%
+    padding: 2px 8px 2px
+    background: linear-gradient(rgba(0,0,0,.56), transparent)
+    font-size: .75rem
+    line-height: 20px
+    text-align: left
+    backface-visibility: hidden
+
+  .marker
+    background: rgba(0,0,0,.8)
+    border-radius: $border-rounded
+    color: #fff
+    font-size: .75em
+    font-style: normal
+    font-weight: bold
+    backface-visibility: hidden
+    z-index: 2
+    @extend %material-icons
+    &::before
+      content: 'play_arrow'
+      display: inline-block
+      vertical-align: top
+      padding: 0
+      margin: 1px 4px 0 -6px
+      font-size: 18px !important

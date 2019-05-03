@@ -11,15 +11,20 @@
     border-radius: 2px
 
   .marker
-    right: 4px
-    bottom: 4px
-    left: auto
-    padding: 0 8px
-    background: rgba(0, 0, 0, 0.8)
-    border-radius: 3px
+    border-radius: $border-rounded
     color: #fff
     font-size: .75em
-    line-height: 20px
+    font-style: normal
+    font-weight: bold
+    z-index: 2
+    @extend %material-icons
+    &::before
+      content: 'fullscreen'
+      display: inline-block
+      vertical-align: top
+      padding: 0
+      margin: 1px 4px 0 -6px
+      font-size: 18px !important
 
   // mixins/image_editable.sass
   .controls

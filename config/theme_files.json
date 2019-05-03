@@ -333,6 +333,11 @@
     "checked": true
   },
   {
+    "url": "blocks/b-video.sass",
+    "checked": true,
+    "description": "Изменённыё вид превью видео."
+  },
+  {
     "url": "blocks/b-video_player.sass",
     "checked": true
   },
@@ -472,11 +477,6 @@
   {
     "url": "tests/b-oauth_application.sass",
     "checked": false
-  },
-  {
-    "url": "tests/b-video.sass",
-    "checked": false,
-    "description": "Изменённыё вид превью видео."
   },
   {
     "url": "tests/video-variant-switcher.sass",
