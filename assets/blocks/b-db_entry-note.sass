@@ -1,5 +1,22 @@
 /* "Связанное" и "Авторы" аниме и манги */
 .b-db_entry-variant-list_item
+  position: relative
+  padding: 12px 0
+  margin: 0
+  border: 0
+
+  &:first-child
+    padding-top: 12px
+
+  &::before
+    content: ''
+    position: absolute
+    right: -16px
+    top: 0
+    left: 56px
+    height: 1px
+    background-color: $color-border
+
   .image
     flex-shrink: 0
 
@@ -29,77 +46,30 @@
       margin-bottom: 4px
 
       .b-link
+        color: inherit
         font-size: inherit
         line-height: inherit
-
-
-
-.b-db_entry-note
-  position: relative
-  padding: 8px 0
-  margin: 0
-  border: 0
-
-  &::before
-    content: ''
-    position: absolute
-    right: -16px
-    top: 0
-    left: 56px
-    height: 1px
-    background-color: $color-border
-
-  .name-container
-    padding: .25rem 0
-    margin-left: 64px
-    line-height: inherit
-
-    .name
-      color: $color-text-primary
-      font-size: 1rem
-
-      &:hover
-        color: $color-link-hover
-
-      &:active
-        color: $color-link-active
-
-    .note
-      margin-top: 4px
-      color: $color-text-hint
-      font-size: .875rem
-      line-height: 1rem
-
-      & > span
-        display: inline-block /* thx @NedStar */
-        vertical-align: top
-
-        &::after
-          color: $color-text-disabled
-
-      .relation + .additional
-        &::before,
-        &::after
-          color: $color-text-disabled
 
     .b-user_rate
       margin-top: .375rem
 
 
-// NOTE: ???
-.cc > .b-db_entry-note:first-child::before,
-.block_m > .b-db_entry-note:first-child::before
+// NOTE: fix devider visibility in column
+.block > .b-db_entry-variant-list_item:first-child::before,
+.block_m > .b-db_entry-variant-list_item:first-child::before
   display: none
 
 @media only screen and (min-width: 768px)
-  .c-column:first-child:last-child .cc > .b-db_entry-note:nth-child(2)::before
+  .c-column:first-child:last-child .block > .b-db_entry-variant-list_item:nth-child(2)::before
     display: none
 
 
-// NOTE: ???
-.b-db_entry-note::before
+// NOTE: fix devider position
+.b-db_entry-variant-list_item::before
   right: 0
   left: 64px
 
-.p-db_entries-related .b-db_entry-note
+
+// NOTE: ???
+.p-db_entries-related .b-db_entry-variant-list_item
   padding: 16px 0
