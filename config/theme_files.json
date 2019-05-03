@@ -71,10 +71,6 @@
     "checked": true
   },
   {
-    "url": "modules/shiki-tag.sass",
-    "checked": true
-  },
-  {
     "url": "menu-updated.sass",
     "checked": true,
     "description": "Стили для обновлённого верхнего меню."

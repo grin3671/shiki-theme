@@ -1,46 +1,83 @@
 
-.b-anime_status_tag[class]
-  @extend %shiki-marker
+.b-anime_status_tag
   margin: 0
   background: transparent
 
   &.released
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-success
 
   &.anons
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-warning
 
   &.ongoing
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-info
 
-  &.episode,
-  &.studio
+  &.episode
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-info
+
+  &.studio
+    @extend %shiki-marker
+    background-color: transparent
+    color: #6e66eb
+    @media screen and (min-width: 1025px)
+      &[href]
+        &:hover
+          background-color: #6e66eb
+          border: 1px solid #6e66eb
+          color: #fff
 
   &.other
-    color: inherit
+    @extend %shiki-marker
+    background-color: transparent
+    border-color: transparent
+    color: $color-text-secondary
 
   &.summary
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-violet
 
   &.news
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-warning
+    border-color: $color-warning
 
   &.review
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-magenta
 
   &.collection
+    @extend %shiki-marker
+    background-color: transparent
     color: mix($color-offtop, $color-success, 50%)
 
   &.cosplay
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-yellow
 
   &.offtopic
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-offtop
 
   &.ignored
+    @extend %shiki-marker
     vertical-align: top
+    background-color: transparent
     color: $color-danger
 
   &.broadcast
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-magenta

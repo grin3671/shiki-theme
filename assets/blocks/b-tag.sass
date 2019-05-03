@@ -1,2 +1,30 @@
 .b-tag
-  @extend %shiki-tag
+  padding: 0 6px !important
+  margin: 1px 4px 1px 0
+  border: 1px solid transparent
+  border-radius: $border-rounded
+  color: $color-text-primary
+  font-size: 14px !important
+  font-weight: normal
+  line-height: 22px !important
+  transition: .16s cubic-bezier(.4, 0, .6, 1)
+  &[href]
+    color: $color-text-secondary
+    border: 1px solid rgba($color-text-secondary, .32)
+
+    &:hover,
+    &:focus,
+    &.active
+      margin: 1px 4px 1px 0
+      background-color: rgba($color-text-secondary, .12)
+      border-color: $color-text-secondary
+      color: $color-text-primary
+    
+    &:active
+      background-color: rgba($color-text-secondary, .24)
+      border-color: $color-text-secondary
+
+  &:hover
+    margin: 1px 4px 1px 0
+    background-color: transparent
+    color: $color-text-secondary
