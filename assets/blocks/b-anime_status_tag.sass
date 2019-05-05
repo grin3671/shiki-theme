@@ -34,12 +34,15 @@
       background-color: #6e66eb
       border: 1px solid #6e66eb
       color: #fff
-      @media screen and (min-width: 1025px)
-        &:hover
+      @media (min-width: 1025px)
+        &:hover, &:active
           background-color: #6e66eb
           border: 1px solid #6e66eb
           color: #fff
           opacity: .9
+
+        &:active
+          opacity: 1
 
   &.other
     @extend %shiki-marker
