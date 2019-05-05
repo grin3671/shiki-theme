@@ -33,6 +33,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
     color: inherit
     font-size: 20px
     font-weight: bold
+    @media (min-width: 768px)
+      padding: 0 24px 0 8px
+      margin-right: 0
 
     &::after
       content: attr(title)
@@ -125,6 +128,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
         background-color: $menu-background-active
 
     &.main
+      @media (min-width: 768px)
+        margin-right: 0
+
       & > button:not(.mobile)
         padding-left: 1em
 
@@ -207,6 +213,10 @@ $search-background: mix($menu-text, $menu-background, 12%)
           margin-right: 32px
 
       &.icon-mail
+        span.text
+          display: block
+          position: static
+
         span.unread
           margin-left: auto
           color: inherit
@@ -347,8 +357,36 @@ $search-background: mix($menu-text, $menu-background, 12%)
     margin: auto
     color: inherit
 
-    .x1000 &
-      max-width: 1000px
+    @media (min-width: 1025px)
+      padding: 0 1em
+
+      .x1000 &
+        max-width: 1000px
+
+      & > label
+        position: relative
+        display: block
+
+      .search-results
+        right: 16px
+        left: 16px
+        width: auto
+
+    @media (min-width: 1720px)
+      .x1000 &
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        padding: 0 1.5em
+
+    @media (min-width: 1920px)
+      .x1200 &
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        padding: 0 1.5em
 
     & + .menu-icon
        margin-left: auto
@@ -384,7 +422,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     .clear
       top: 0
       right: .5em
-      color: inherit
+      color: #757575
       &:hover, &:active
         color: $color-accent
 
@@ -407,6 +445,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     .search-results
       top: $menu-height
+      padding: .5em 0
       background: $color-background-dialog
       color: $color-text-primary
 
@@ -427,9 +466,12 @@ $search-background: mix($menu-text, $menu-background, 12%)
       .b-db_entry-variant-list_item
         padding: .75em .5em
 
+        &:hover
+          background: mix($color-text-primary, $color-background-dialog, 8%)
+
       .search-mode
         &:hover
-          background: linear-gradient(270deg, transparent, transparent)
+          background: mix($color-text-primary, $color-background-dialog, 12%)
           @media (min-width: 1025px)
             &::before
               background: rgba($color-accent, 0.4)
@@ -437,6 +479,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       .nothing_found,
       .b-db_entry-variant-list_item,
       .search-mode
+        border: 0
 
         &::before
           width: 4px
@@ -445,17 +488,26 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         &.active,
         &:focus
-          background: linear-gradient(270deg, transparent, transparent)
+          background: mix($color-text-primary, $color-background-dialog, 8%)
           &::before
             background: $color-accent
 
       .search-mode,
       .b-db_entry-variant-list_item
         &:active
-          background: linear-gradient(270deg, transparent, transparent)
+          background: mix($color-text-primary, $color-background-dialog, 12%)
 
           &::before
             background: darken($color-accent, 5%)
+
+      .b-db_entry-variant-list_item
+        &::before
+          width: auto
+          margin: 0
+          background: $color-border !important
+
+        &:first-child::before
+          display: none
 
   // Настройки поиска в активном состоянии
   &.is-search-mobile
@@ -465,7 +517,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       .global-search
         top: 0
         padding: 0
-        background: #fff
+        background: $menu-background
         z-index: 10
 
         .search-results

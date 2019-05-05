@@ -3,6 +3,9 @@
   margin: 0
   background: transparent
 
+  .line-container .line &
+    margin: 2px 4px 2px 0
+
   &.released
     @extend %shiki-marker
     background-color: transparent
@@ -27,17 +30,21 @@
     @extend %shiki-marker
     background-color: transparent
     color: #6e66eb
-    @media screen and (min-width: 1025px)
-      &[href]
+    &[href]
+      background-color: #6e66eb
+      border: 1px solid #6e66eb
+      color: #fff
+      @media screen and (min-width: 1025px)
         &:hover
           background-color: #6e66eb
           border: 1px solid #6e66eb
           color: #fff
+          opacity: .9
 
   &.other
     @extend %shiki-marker
     background-color: transparent
-    border-color: rgba($color-text-secondary, .72)
+    border-color: rgba($color-text-secondary, .32)
     color: $color-text-secondary
 
   &.summary
