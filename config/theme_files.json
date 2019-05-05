@@ -71,16 +71,9 @@
     "checked": true
   },
   {
-    "url": "modules/shiki-tag.sass",
-    "checked": true
-  },
-  {
-    "url": "menu-classic.sass",
-    "checked": true
-  },
-  {
-    "url": "menu-icon.sass",
-    "checked": true
+    "url": "menu-updated.sass",
+    "checked": true,
+    "description": "Стили для обновлённого верхнего меню."
   },
   {
     "url": "blocks/lib-buttons.sass",
@@ -220,7 +213,7 @@
     "checked": true
   },
   {
-    "url": "blocks/b-hot_topics.sass",
+    "url": "blocks/b-hot_topics-v2.sass",
     "checked": true
   },
   {
@@ -300,6 +293,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-subposter-actions.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-table.sass",
     "checked": true
   },
@@ -313,6 +310,10 @@
   },
   {
     "url": "blocks/b-topic.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-topic-preview.sass",
     "checked": true
   },
   {
@@ -330,6 +331,11 @@
   {
     "url": "blocks/b-user_rate.sass",
     "checked": true
+  },
+  {
+    "url": "blocks/b-video.sass",
+    "checked": true,
+    "description": "Изменённыё вид превью видео."
   },
   {
     "url": "blocks/b-video_player.sass",
@@ -473,11 +479,6 @@
     "checked": false
   },
   {
-    "url": "tests/b-video.sass",
-    "checked": false,
-    "description": "Изменённыё вид превью видео."
-  },
-  {
     "url": "tests/video-variant-switcher.sass",
     "checked": false,
     "description": "Переключатель dub/sub/raw на play.shikimori.org."
@@ -491,6 +492,11 @@
     "url": "tests/p-profiles-favorites.sass",
     "checked": false,
     "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
+  },
+  {
+    "url": "tests/stat_names.sass",
+    "checked": false,
+    "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
   },
   {
     "url": "user-settings.sass",

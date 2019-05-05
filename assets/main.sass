@@ -87,7 +87,7 @@ body
 
 .l-page
   min-height: 100%
-  padding: 72px $layout-margin 0
+  padding: 16px $layout-margin 0
   background: $color-background
 
   @media (min-width: 960px)
@@ -348,6 +348,7 @@ input
 .b-comment::before,
 .b-comments .comments-loaded::before
   content: ''
+  display: block
   position: absolute
   bottom: 0
   right: 0
@@ -364,52 +365,6 @@ input
 .b-message:last-child::before,
 .b-comment:last-child::before
   display: none
-
-
-
-
-
-/* Левый отступ комментариев от края экрана */
-.b-comment > .inner > .body,
-.b-dialog > .inner > .body,
-.b-message > .inner > .body,
-.b-topic > .inner > .body,
-.b-topic > .inner > footer,
-.b-topic-preview > .b-comments,
-.b-topic-preview > .inner > .body,
-.b-topic-preview > .inner > footer
-  padding-left: 3.5rem
-
-// Фикс отступа в новостях и новостных топиках
-.b-dialog .b-message > .inner > .body,
-.b-topic-preview.mini > .inner > header,
-.b-topic-minified > .inner > header,
-.b-generated_news-topic > .inner > header,
-.b-generated_news > .inner > header,
-.b-generated_news > .inner > .body,
-.p-clubs-show .b-topic-preview.mini > .inner > .body
-  padding-left: 0
-
-// Предпросмотр описания и страниц клуба
-.edit_club .b-shiki_editor .b-comment .inner .body,
-.new_club_page .b-shiki_editor .b-comment .inner .body
-  padding-left: 0
-
-.p-polls-new .b-comment > .inner > .body
-  padding-left: 0
-
-@media (max-width: 767px)
-  .b-topic-preview > .b-comments
-    padding-left: 0
-
-  .b-topic-preview > .inner > .body,
-  .b-topic-preview > .inner > footer
-    padding-left: 3.5rem
-
-@media (min-width: 767px)
-  .b-news-topic > .b-comments
-    padding-left: 3.5rem
-/* END of Левый отступ комментариев от края экрана */
 
 
 

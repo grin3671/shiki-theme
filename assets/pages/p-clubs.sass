@@ -17,38 +17,6 @@
 
 // Меню
 .b-clubs-menu
-  .club-actions
+  .b-subposter-actions
     margin-bottom: .5rem
-
-    .b-tooltipped
-      @extend %md-icon
-      @extend %md-icon-hover
-      width: auto
-      height: auto
-      line-height: 0
-
-      @media (max-width: 480px) and (orientation: portrait)
-        display: block
-        margin: 0 !important
-
-        &::after
-          padding-left: 1.5rem
-          color: $color-text-primary
-          font-size: inherit
-          line-height: 1.5
-
-    .edit-club::before
-      content: 'build'
-
-    .broadcast::before
-      content: 'speaker_notes'
-
-    .upload::before
-      content: 'attach_file'
-
-    .join::before,
-    .invite::before
-      content: 'person_add'
-
-    .leave::before
-      content: 'directions_run'
+    line-height: inherit

@@ -1,41 +1,93 @@
 
 .b-anime_status_tag
-  @extend %shiki-marker
   margin: 0
+  background: transparent
+
+  .line-container .line &
+    margin: 2px 4px 2px 0
 
   &.released
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-success
 
   &.anons
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-warning
 
   &.ongoing
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-info
 
   &.episode
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-info
 
+  &.studio
+    @extend %shiki-marker
+    background-color: transparent
+    color: #6e66eb
+    &[href]
+      background-color: #6e66eb
+      border: 1px solid #6e66eb
+      color: #fff
+      @media (min-width: 1025px)
+        &:hover, &:active
+          background-color: #6e66eb
+          border: 1px solid #6e66eb
+          color: #fff
+          opacity: .9
+
+        &:active
+          opacity: 1
+
+  &.other
+    @extend %shiki-marker
+    background-color: transparent
+    border-color: rgba($color-text-secondary, .32)
+    color: $color-text-secondary
+
   &.summary
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-violet
 
   &.news
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-warning
+    border-color: $color-warning
 
   &.review
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-magenta
 
   &.collection
+    @extend %shiki-marker
+    background-color: transparent
     color: mix($color-offtop, $color-success, 50%)
 
   &.cosplay
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-yellow
 
   &.offtopic
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-offtop
 
   &.ignored
+    @extend %shiki-marker
     vertical-align: top
+    background-color: transparent
     color: $color-danger
 
   &.broadcast
+    @extend %shiki-marker
+    background-color: transparent
     color: $color-magenta

@@ -70,7 +70,8 @@
     content: 'edit'
 
 
-/* FIX: update 2017-03-19 */
+/* FIX: update 2017-03-19 & update 2019-04-19 */
+.p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::before,
 .p-profiles .profile-head .c-info .c-lists-info .b-stats_bar::after
   clear: none
 
@@ -181,6 +182,45 @@
         .notice
           font-size: .75em
           line-height: 1.25rem
+
+          // Исправление тултипа в профиле
+          & > span
+            &:last-child
+              display: inline-block
+              position: relative
+              cursor: help
+
+              &::after
+                content: ''
+                display: block
+                position: absolute
+                right: 0
+                bottom: 0
+                left: 0
+                border-bottom: 1px dashed $color-border
+
+              &:hover .b-tooltipped::after
+                transform: translateX(-50%) translateY(0)
+                opacity: .9
+
+
+              .b-tooltipped
+                border: 0
+                pointer-events: none
+                @extend %md-tooltip
+                @extend %md-tooltip-top
+                &::after
+                  content: attr(original-title)
+                  left: 50%
+                  margin: .25rem 0
+
+            @media (max-width: 599px)
+              &:last-child
+                display: table
+                margin: auto
+
+              &:nth-last-child(2)::after
+                display: none
 
       .avatar
         @media (min-width: 768px)

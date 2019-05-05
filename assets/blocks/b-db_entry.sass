@@ -31,31 +31,4 @@
       line-height: inherit
 
   .c-poster img
-    border-radius: 2px
-
-  .c-actions
-    .b-tooltipped
-      @extend %md-icon
-      @extend %md-icon-hover
-
-      @media (max-width: 480px) and (orientation: portrait)
-        display: table
-        width: 100%
-        margin: 0 0 8px !important
-
-      &::before
-        display: table-cell
-        float: none
-
-      &::after
-        padding-left: .5rem
-        color: inherit
-        font-size: .875rem
-        line-height: 1.125rem
-
-    .fav-add:hover
-      color: $color-accent !important
-    .fav-remove
-      color: $color-accent !important
-      &:hover::before
-        color: inherit
+    border-radius: $border-rounded

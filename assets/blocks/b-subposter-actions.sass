@@ -1,0 +1,79 @@
+.b-subposter-actions
+  @media (max-width: 480px) and (orientation: portrait)
+    display: block
+
+.b-subposter-action
+  @extend %md-icon
+  @extend %md-icon-hover
+
+  @media (max-width: 480px) and (orientation: portrait)
+    display: flex
+    width: 100%
+    height: auto
+    margin: 0 0 .25em 0 !important
+
+    &::before
+      height: auto
+
+    &::after
+      padding-left: 1.5em
+      color: $color-text-primary
+      font-size: inherit
+      line-height: 1.5
+
+  // /* Устаревший вариант */
+  // @media (max-width: 480px) and (orientation: portrait)
+  //   display: table
+  //   width: 100%
+  //   margin: 0 0 8px !important
+
+  // &::before
+  //   display: table-cell
+  //   float: none
+
+  // &::after
+  //   padding-left: .5rem
+  //   color: inherit
+  //   font-size: .875rem
+  //   line-height: 1.125rem
+
+  &.selected,
+  &.fav-add:hover,
+  &.fav-remove:not(:hover)
+    color: $color-accent !important
+
+
+  // db_entry
+  &.fav-add::before,
+  &.fav-remove:hover::before
+    content: 'favorite_border'
+
+  &.fav-remove::before,
+  &.fav-add:hover::before
+    content: 'favorite'
+
+  &.edit::before
+    content: 'build'
+
+  &.new_review::before
+    content: 'rate_review'
+
+  &.new_comment::before
+    content: 'chat_bubble'
+
+
+  // club
+  &.edit-alt::before
+    content: 'build'
+
+  &.upload::before
+    content: 'attach_file'
+
+  &.broadcast::before
+    content: 'speaker_notes'
+
+  &.invite::before
+    content: 'person_add'
+
+  &.leave::before
+    content: 'directions_run'
