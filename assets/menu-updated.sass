@@ -52,15 +52,15 @@ $search-background: mix($menu-text, $menu-background, 12%)
     margin-right: 0
 
   .menu-icon,
-  .menu-dropdown > button
+  .menu-dropdown > span
     height: $menu-height
 
   .menu-icon:focus,
-  .menu-dropdown > button:focus
+  .menu-dropdown > span:focus
     background-color: $menu-background-hover
 
   .menu-icon:hover,
-  .menu-dropdown:hover > button
+  .menu-dropdown:hover > span
     @media (min-width: 768px)
       background-color: $menu-background-hover
 
@@ -93,7 +93,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       content: attr(data-count)
 
   .menu-dropdown
-    & > button
+    & > span
       padding: 0 1em
       background: transparent
       @extend %material-icons
@@ -124,21 +124,21 @@ $search-background: mix($menu-text, $menu-background, 12%)
         font-size: inherit
 
     &.active
-      & > button
+      & > span
         background-color: $menu-background-active
 
     &.main
       @media (min-width: 768px)
         margin-right: 0
 
-      & > button:not(.mobile)
+      & > span:not(.mobile)
         padding-left: 1em
 
         span
           margin-left: 1em
 
     &.profile
-      & > button
+      & > span
         img
           height: 32px
           margin-right: -6px
@@ -219,11 +219,17 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         span.unread
           margin-left: auto
+          padding-left: .5em
           color: inherit
           font-size: .875em
 
           span
             color: inherit
+
+            &:not(:last-child)::after
+              background: $color-text-disabled
+              height: 14px
+              margin: -2px 4px 0
 
         @media (min-width: 1025px)
           &:hover
