@@ -1,3 +1,11 @@
+/**
+ * Сборщик shiki-builder
+ * Инструмент для сборки shiki-theme для сайта shikimori.org
+ * https://github.com/grin3671/shiki-theme
+ * MIT License
+ * Copyright (c) 2017 grin3671
+ */
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css');
 
