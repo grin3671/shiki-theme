@@ -84,6 +84,10 @@
     "checked": true
   },
   {
+    "url": "blocks/lib-columns.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/lib-headlines.sass",
     "checked": true
   },
@@ -149,6 +153,10 @@
   },
   {
     "url": "blocks/b-collection-filters.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-collection_item.sass",
     "checked": true
   },
   {

@@ -1,0 +1,57 @@
+.b-collection_item
+  padding: 3px
+  margin: 0 0 .5em 0
+  border: 1px dashed transparent
+
+  &:last-child
+    margin-bottom: 0
+
+  &.sortable-ghost
+    padding: 3px
+    border: 1px dashed $color-border
+
+    .drag-handle
+      color: $color-text-disabled !important // defualt
+
+    .delete,
+    .drag-handle
+      margin-top: 0
+
+  &.sortable-drag
+    .drag-handle
+      color: $color-link-active !important // defualt
+
+  &::after
+    content: ''
+    display: block
+    clear: both
+
+  .delete,
+  .drag-handle
+    @extend %md-icon
+    @extend %md-icon-hover
+    position: static
+    width: auto
+    margin: 0 8px 0 0 !important // rewrite %md-icon
+
+  .delete
+    float: left
+    &::before
+      content: 'delete'
+
+  .drag-handle
+    float: right
+    margin-right: 0 !important // rewrite %md-icon
+    &::before
+      content: 'more_vertmore_vert'
+      letter-spacing: -18px
+      text-align: left
+      text-indent: -3px
+
+  .b-input
+    input
+      width: 100%
+
+  // rewrite inline styles
+  .b-input[class]
+    margin: 0 48px

@@ -1,5 +1,6 @@
 .p-animes-show,
-.p-mangas-show
+.p-mangas-show,
+.p-ranobe-show
   .other-names.click-loader
     background-color: $color-area-normal
     border-color: $color-area-hover
@@ -11,10 +12,17 @@
       background-color: $color-area-active
       border-color: $color-border
 
-@media screen and (min-width: 1200px)
-  .p-animes-show .c-image .b-user_rate,
-  .p-mangas-show .c-image .b-user_rate
-    margin: 0
+  @media (min-width: 768px)
+    // Исправление разделителей и внутренних отступов в Связанном (без Авторов)
+    .cc-related-authors > .c-column:first-child:last-child
+      .b-db_entry-variant-list_item:nth-child(2)
+        padding-top: 12px
+      & .cc > .b-db_entry-variant-list_item:nth-child(2)::before
+        display: none
+
+  @media (min-width: 1200px)
+    .c-image .b-user_rate
+      margin: 0
 
 .watch-online-placeholer
   margin: 2rem auto .5rem

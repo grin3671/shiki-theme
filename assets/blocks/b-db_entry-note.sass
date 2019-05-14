@@ -18,7 +18,8 @@
     background-color: $color-border
 
   .image
-    flex-shrink: 0
+    img
+      display: block
 
   & > .info
     line-height: inherit
@@ -52,16 +53,19 @@
     .b-user_rate
       margin-top: .375rem
 
+      // Fix morr's styles
+      .b-add_to_list
+        .plus::before,
+        &.planned .edit::before,
+        &.rewatching .edit::before
+          font-size: 18px !important
+
 
 // NOTE: fix devider visibility in column
 .cc > .b-db_entry-variant-list_item:first-child::before,
 .block > .b-db_entry-variant-list_item:first-child::before,
 .block_m > .b-db_entry-variant-list_item:first-child::before
   display: none
-
-@media only screen and (min-width: 768px)
-  .c-column:first-child:last-child .block > .b-db_entry-variant-list_item:nth-child(2)::before
-    display: none
 
 
 // NOTE: fix devider position
