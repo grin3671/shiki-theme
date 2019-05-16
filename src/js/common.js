@@ -1,6 +1,6 @@
 /**
  * Сборщик shiki-builder
- * Инструмент для сборки shiki-theme для сайта shikimori.org
+ * Инструмент для сборки shiki-theme для сайта shikimori.one
  * https://github.com/grin3671/shiki-theme
  * MIT License
  * Copyright (c) 2017 grin3671

@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/common.css?1">
   </head>
   <body>
     <div id="page" class="page">
@@ -29,7 +29,7 @@
           <a href="#nav_guideline">Переменные</a>
           <hr class="md-divider">
           <a href="https://github.com/grin3671/shiki-theme" class="btn btn-icon icon-github">Код на GitHub.com</a>
-          <a href="https://shikimori.org/grin3671" class="btn btn-icon icon-author">Профиль автора</a>
+          <a href="https://shikimori.one/grin3671" class="btn btn-icon icon-author">Профиль автора</a>
         </nav>
       </header>
 
@@ -66,7 +66,7 @@
               <div class="md-input fullwidth">
                 <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" required aria-describedby="hint_cover_url" placeholder="8764532">
                 <div class="md-divider"></div>
-                <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.org">shikimori.org</a></span>
+                <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.one">shikimori.one</a></span>
               </div>
             </div>
           </div>
@@ -321,7 +321,7 @@
         <hr class="md-divider">
 
         <p>Свои правила, в силу <a href="https://developer.mozilla.org/ru/docs/Web/Guide/CSS/Getting_Started/Cascading_and_inheritance">особенностей CSS</a>, рекомендуется указывать внизу стиля.</p>
-        <p>Если у вас что-то сломалось – проверьте <a href="https://github.com/grin3671/shiki-theme/commits/gh-pages">последние обновления</a> и обновитесь, если ваша версия темы устарела. Если обновление не помогло, пожалуйста, <a href="https://shikimori.org/grin3671">сообщите мне</a> об ошибке!</p>
+        <p>Если у вас что-то сломалось – проверьте <a href="https://github.com/grin3671/shiki-theme/commits/gh-pages">последние обновления</a> и обновитесь, если ваша версия темы устарела. Если обновление не помогло, пожалуйста, <a href="https://shikimori.one/grin3671">сообщите мне</a> об ошибке!</p>
         <p>Поддержать разработку можно <span class="strong"><span style="color: red">Я</span>ндекс</span> Деньгами: <code>41001258665103</code></p>
       </section>
 
@@ -373,7 +373,7 @@
         <h2 class="display1">FAQ</h2>
         <div class="section_faq">
           <h3 id="how_find_my_id">Как узнать мой ID?</h3>
-          <p>Заходите в свой профиль на сайте shikimori.org, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
+          <p>Заходите в свой профиль на сайте shikimori.one, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
           <p>
             <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре">
           </p>
@@ -633,8 +633,10 @@
       </div>
     </div>
 
+    <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53674489, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53674489" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
     <script src="./vendor/sass.js/sass.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.min.js"></script>
-    <script src="./src/js/common.js"></script>
+    <script src="./src/js/common.js?1"></script>
   </body>
 </html>
