@@ -5,20 +5,6 @@
   align-items: stretch
   align-content: stretch
 
-.p-achievements-index .cc-achievements .b-achievement
-  display: inline-flex
-  flex-direction: column-reverse
-  justify-content: flex-end
-  float: none
-  background: $color-background-dialog
-  border-radius: 2px
-  box-shadow: 0 0 0 1px rgba(0,0,0,.08)
-  overflow: hidden
-  transition: box-shadow .16s ease
-
-.p-achievements-index .cc-achievements .b-achievement:hover
-  box-shadow: 0 2px 8px 1px rgba(0,0,0,.12)
-
 @media (min-width: 768px)
   .p-achievements-index .cc-achievements .b-achievement:nth-child(n)
     width: calc(25% - (16px * 3 / 4))
@@ -38,53 +24,6 @@
   .p-achievements-index .cc-franchises-genres .c-genres,
   .p-achievements-index .cc-franchises-genres .c-franchises
     width: 100%
-
-
-.b-achievement .c-image,
-.b-achievement .c-about
-  width: 100%
-
-.b-achievement .c-image
-  padding-top: 50%
-
-.b-achievement .c-image .inner .border
-  border: 0
-
-.b-achievement .c-about
-  padding: 16px
-  white-space: normal
-
-.b-achievement .c-about .title
-  margin: 0 0 8px
-  line-height: 20px
-
-.b-achievement .c-about .hint
-  color: $color-text-hint
-
-.b-achievement .c-about .percent
-  color: $color-text-hint
-
-.b-achievement .c-about .progress
-  margin: 0 0 8px
-  background-color: $color-border
-
-.b-achievement .c-about .progress .bar
-  background-color: $color-primary
-
-.b-achievement .c-about .text
-  margin: 0
-  font-size: 14px
-
-// Цвета заголовка ачивки
-.b-achievement .c-about a.title
-  color: $color-text-primary
-
-  &:hover
-    color: $color-link-hover
-
-  &:active
-    color: $color-link-active
-
 
 .p-achievements-index .tipsy
   display: none !important
@@ -167,13 +106,6 @@
 .p-achievements-index .c-franchises .b-badge.level-0:not(:hover) .no-image,
 .p-achievements-index .c-franchises .b-badge.unavailable:not(:hover) .no-image
   opacity: 0.5
-
-// sort icon
-.b-list_switchers .switcher.popularity:before
-  content: 'trending_up'
-
-.b-list_switchers .switcher.alphabet:before
-  content: 'sort_by_alpha'
 
 // всплывашка
 .p-achievements-index .b-list_switchers .switcher

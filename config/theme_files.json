@@ -116,6 +116,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-achievement.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-add_to_list.sass",
     "checked": true
   },
@@ -346,19 +350,6 @@
     "description": "Изменённыё вид превью видео."
   },
   {
-    "url": "blocks/b-video_player.sass",
-    "checked": true
-  },
-  {
-    "url": "blocks/b-video_variant.sass",
-    "checked": true,
-    "description": "Выбор видео на play.shikimori.org."
-  },
-  {
-    "url": "pages/p-anime_videos.sass",
-    "checked": true
-  },
-  {
     "url": "pages/p-animes.sass",
     "checked": true
   },
@@ -487,11 +478,6 @@
     "checked": false
   },
   {
-    "url": "tests/video-variant-switcher.sass",
-    "checked": false,
-    "description": "Переключатель dub/sub/raw на play.shikimori.org."
-  },
-  {
     "url": "tests/p-messages-menu.sass",
     "checked": false,
     "description": "Закреплённые табы в почте."
@@ -505,6 +491,16 @@
     "url": "tests/stat_names.sass",
     "checked": false,
     "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
+  },
+  {
+    "url": "tests/td-table.sass",
+    "checked": false,
+    "description": "Простые таблицы для BBCode."
+  },
+  {
+    "url": "tests/td-spoiler.sass",
+    "checked": false,
+    "description": "Серые спойлеры (изменения по всему сайту)."
   },
   {
     "url": "user-settings.sass",

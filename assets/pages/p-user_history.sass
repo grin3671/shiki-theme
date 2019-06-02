@@ -8,10 +8,9 @@
       margin-bottom: .5rem
 
       p
+        padding: 4px 0
         margin-bottom: 0
         line-height: 1.5rem
-        &:hover
-          background-color: $color-area-normal
 
         a
           color: $color-link
@@ -22,3 +21,27 @@
 
         .date
           color: $color-text-hint
+
+        .destroy
+          position: relative
+          width: auto
+          padding: 6px
+          margin: -4px 0 -4px 4px
+          border-radius: $border-rounded
+          color: $color-text-hint
+          transition: .16s cubic-bezier(.4, 0, .6, 1)
+          &:hover
+            background: $color-area-hover
+            color: $color-text-secondary
+            text-decoration: none
+
+          @extend %material-icons
+          &::before
+            content: 'delete'
+            font-size: 20px !important
+
+          @extend %md-tooltip
+          @extend %md-tooltip-left
+          &::after
+            content: 'Удалить'
+            margin: 0 .75rem

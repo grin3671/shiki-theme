@@ -1,0 +1,74 @@
+.b-achievement
+  display: inline-flex
+  flex-direction: column-reverse
+  justify-content: flex-end
+  width: 100%
+  background: $color-background-dialog
+  border-radius: $border-rounded
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08)
+  overflow: hidden
+  transition: box-shadow .16s ease
+  &:hover
+    box-shadow: 0 2px 8px 1px rgba(0,0,0,.12)
+
+  .gained
+    top: 8px
+    right: 8px
+    width: auto
+    height: auto
+    padding: 4px
+    background: #ff9800
+    border: 0
+    color: #fffbf4
+    font-size: 0
+    line-height: 0
+    box-shadow: 0 2px 3px 1px rgba(45, 27, 0, 0.7)
+    @extend %material-icons
+    &::before
+      content: 'star'
+
+  .c-image
+    width: 100%
+    padding-top: 50%
+
+    .inner
+      a
+        .no-image
+          background: lighten($color-background-dialog, 12%)
+
+        .border
+          border: 0
+
+  .c-about
+    width: 100%
+    padding: 1em
+    white-space: normal
+
+    a.title
+      color: $color-text-primary
+      &:hover
+        color: $color-link-hover
+      &:active
+        color: $color-link-active
+
+    .title
+      margin: 0 0 8px
+      line-height: 20px
+
+    .percent,
+    .hint
+      color: $color-text-hint
+
+    .progress
+      height: 4px
+      margin: 0 0 8px
+      background-color: $color-border
+      border-radius: 4px
+      overflow: hidden
+
+      .bar
+        background-color: $color-primary
+
+    .text
+      margin: 0
+      font-size: 14px
