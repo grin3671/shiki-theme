@@ -493,14 +493,19 @@
     "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
   },
   {
+    "url": "tests/td-spoiler.sass",
+    "checked": false,
+    "description": "Серые спойлеры (изменения по всему сайту)."
+  },
+  {
     "url": "tests/td-table.sass",
     "checked": false,
     "description": "Простые таблицы для BBCode."
   },
   {
-    "url": "tests/td-spoiler.sass",
+    "url": "tests/td-tabs.sass",
     "checked": false,
-    "description": "Серые спойлеры (изменения по всему сайту)."
+    "description": "Фирменные табы с --ripple и --vertical."
   },
   {
     "url": "user-settings.sass",
