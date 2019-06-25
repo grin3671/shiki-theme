@@ -23,11 +23,16 @@ a.b-button
 // Кнопка "Отмена" в редактировании аниме в своём списке
 .buttons > div,
 // buttons (25px for <1024px & 15px for >1025px)
-.buttons a
+.buttons a:not(.b-button)
   line-height: 1.5rem !important
 
 
 .b-button + .b-js-link
+  @extend %md-button-flat
+
+
+// Кнопка отмена (Клуб > Настройки > Страницы)
+.b-button + .cancel
   @extend %md-button-flat
 
 
