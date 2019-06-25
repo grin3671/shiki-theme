@@ -7,7 +7,7 @@
     display: none
 
   & > .c-forum
-    @media (max-width: 767px) and (orientation: landscape)
+    @media (min-width: 480px) and (max-width: 767px)
       width: 100%
 
       .b-forums,
@@ -45,6 +45,9 @@
 
     .cc-inner
       display: none
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
+    width: 37%
 
   @media (max-width: 767px)
     margin-bottom: .5rem
