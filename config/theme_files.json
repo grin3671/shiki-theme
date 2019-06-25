@@ -478,6 +478,11 @@
     "checked": false
   },
   {
+    "url": "tests/p-achievements-grid.sass",
+    "checked": false,
+    "description": "Улучшенная сетка достижений. https://caniuse.com/#feat=css-grid"
+  },
+  {
     "url": "tests/p-messages-menu.sass",
     "checked": false,
     "description": "Закреплённые табы в почте."
