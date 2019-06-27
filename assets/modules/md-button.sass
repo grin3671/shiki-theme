@@ -17,6 +17,9 @@
   transition: .16s cubic-bezier(.4, 0, .6, 1)
   user-select: none
 
+  &:focus
+    outline: none
+
   &:last-child
     margin-right: 0
 
@@ -40,9 +43,9 @@
 
   &:hover,
   &:focus
-    background: lighten($color-primary, 8%)
+    background: mix(#fff, $color-primary, 12)
     color: $color-text-on-primary
 
   &:active
-    background: darken($color-primary, 2%)
+    background: mix(#000, $color-primary, 12)
     color: $color-text-on-primary
