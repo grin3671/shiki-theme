@@ -29,7 +29,7 @@
 
   .c-image
     width: 100%
-    padding-top: 50%
+    padding-top: 66.6667%
 
     .inner
       a
@@ -43,6 +43,9 @@
     width: 100%
     padding: 1em
     white-space: normal
+
+    & + .c-image
+      padding-top: 50%
 
     a.title
       color: $color-text-primary
@@ -72,3 +75,8 @@
     .text
       margin: 0
       font-size: 14px
+
+// TODO: replace to &-rule and b-badge file
+.p-achievements .p-achievements-global .b-achievement,
+.p-achievements .p-achievements-global .b-badge
+  max-width: 328px
