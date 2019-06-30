@@ -42,7 +42,7 @@
   &:hover, &.active
     background: $color-background-secondary
   &:active
-    background-color: $color-area-normal
+    background-color: $color-area-normal !important // in shiki style
 
 // NOTE: !important in main.sass (.c-column)
 .p-contests .match-day .match-link .c-column
@@ -156,9 +156,12 @@
   top: 0
   right: 0
   padding-right: 8px
+  background-color: $color-primary
+  border-color: $color-primary
 
 .p-contests .b-contest_match .votes-percents .right-part span
   float: right
+  color: $color-text-on-primary
 
 .p-contests .b-contest_match .votes-percents .left-part,
 .p-contests .b-contest_match .votes-percents .right-part
@@ -168,6 +171,10 @@
   left: -24px
   border-right-width: 24px
   border-top-width: 48px
+
+.p-contests .b-contest_match .votes-percents .left-part:hover .right-part
+  background-color: $color-primary
+  border-color: $color-primary
 
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
   border-right-width: 24px
