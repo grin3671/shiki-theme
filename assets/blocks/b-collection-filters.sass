@@ -120,55 +120,16 @@
 
 
 // Стилизованные кнопки на страницах поиска аниме и манги
-// TODO: replace md-button
 .p-user_rates .mylist-block + .block + .block + .block > .b-list,
 .b-collection-filters > .block:nth-child(3) > .b-list
   margin-left: 0 !important
 
   & > li
-    position: relative
-    margin-bottom: .5rem
-    background-color: $color-primary
-    border-radius: 2px
-    font-size: .875rem
-    font-weight: bold
-    line-height: 2rem
-    text-align: center
-    text-transform: uppercase
     list-style: none
 
-    &::before,
-    &::after
-      content: ''
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      border-radius: inherit
-      opacity: 0
-      z-index: 0
-      transition: opacity .3s
-      -webkit-backface-visibility: hidden
-      -moz-backface-visibility: hidden
-      backface-visibility: hidden
-
-    &::before
-      box-shadow: 0 1px 3px rgba(0,0,0,.56)
-
-    &::after
-      background-color: rgba(0,0,0,.12)
-
-    &:hover::before,
-    &:hover::after
-      opacity: 1
-
     & > a
-      position: relative
+      @extend %md-button-raised
       display: block
-      color: $color-text-on-primary !important
-      z-index: 1
 
       &:hover
-        color: $color-text-on-primary !important
         text-decoration: none

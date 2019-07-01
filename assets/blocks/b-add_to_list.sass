@@ -1,4 +1,13 @@
 // b-add_to_list.sass
+
+// Colors
+$color-planned: mix(desaturate($color-info, 32%), $color-background, 32%)
+$color-on_hold: mix($color-text-disabled, $color-background, 32%)
+$color-watching: mix($color-info, $color-background, 24%)
+$color-rewatching: $color-watching
+$color-completed: mix($color-success, $color-background, 24%)
+$color-dropped: mix($color-danger, $color-background, 24%)
+
 .b-add_to_list
   min-width: 0
   margin-bottom: .5rem
@@ -15,30 +24,86 @@
   &.expanded .trigger-arrow
     @extend %material-icons
 
-  .trigger, .option
-    padding: .5rem 1rem .5rem 3rem
-    border: 0
+  .trigger,
+  .option
+    border-width: 1px
     font-size: .875rem
     line-height: 1.5rem
 
-  // thx @bot.AkiKawasaki
+    .text
+      &:hover
+        text-decoration: none
+
+      .status-name
+        overflow: hidden
+        text-overflow: ellipsis
+
   .trigger
-    border-radius: $border-rounded
+    display: flex
+    flex-direction: row-reverse
+    padding: 0
+    border-radius: $border-rounded // thx @bot.AkiKawasaki
+    line-height: 40px
 
-  .option:last-child
-    border-radius: 0 0 $border-rounded $border-rounded
+    .add-trigger,
+    .edit-trigger
+      display: flex
+      width: 100%
+      padding:  0 .5em 0 0
+      border-right: 1px solid
+      border-color: inherit
+      overflow: hidden
+      cursor: pointer // this element trigger function
+      &:hover
+        background-color: rgba(255,255,255,.08)
 
-  .plus, .edit, .trigger-arrow
+  &.planned .trigger,
+  &.planned .option
+    background: $color-planned
+    border-color: darken($color-planned, 8)
+    color: mix($color-text-primary, $color-planned, 72)
+
+  &.on_hold .trigger,
+  &.on_hold .option
+    background: $color-on_hold
+    border-color: darken($color-on_hold, 8)
+    color: mix($color-text-primary, $color-on_hold, 72)
+
+  &.watching .trigger,
+  &.watching .option
+    background: $color-watching
+    border-color: darken($color-watching, 8)
+    color: mix($color-text-primary, $color-watching, 72)
+
+  &.rewatching .trigger,
+  &.rewatching .option
+    background: $color-rewatching
+    border-color: darken($color-rewatching, 8)
+    color: mix($color-text-primary, $color-rewatching, 72)
+
+  &.completed .trigger,
+  &.completed .option
+    background: $color-completed
+    border-color: darken($color-completed, 8)
+    color: mix($color-text-primary, $color-completed, 72)
+
+  &.dropped .trigger,
+  &.dropped .option
+    background: $color-dropped
+    border-color: darken($color-dropped, 8)
+    color: mix($color-text-primary, $color-dropped, 72)
+
+  .plus,
+  .edit,
+  .trigger-arrow
     width: 2.5rem
     height: 2.5rem
     padding: .5rem
-    margin: -.5rem -1rem -.5rem 0
+    margin: 0
     color: inherit !important
 
-  .plus, .edit
-    position: absolute
-    left: 0
-    margin-left: 0 !important
+  .plus,
+  .edit
     margin-right: .5rem !important
 
   .plus::before
@@ -64,6 +129,8 @@
 
   .trigger-arrow
     position: relative
+    &:hover
+      background-color: rgba(255,255,255,.08)
     &::before
       content: 'arrow_drop_down'
       transition: .24s
@@ -74,12 +141,25 @@
       transform: rotate(180deg)
 
   .expanded-options
-    margin-top: -$border-rounded
 
     .option
+      position: relative
+      padding: 0 1rem
       font-size: .875rem
-      &:first-child
-        padding-top: 8px + $border-rounded
+      line-height: 40px
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background: #fff
+        opacity: 0
+        pointer-events: none
+      &:hover::before
+        opacity: .08
+        // background-color: lighten($color-background-dialog, 4)
 
       .text
         padding-left: 0
@@ -87,7 +167,8 @@
 
   .b-db_entry-variant-list_item > .info .b-user_rate &
     .trigger, .option
-      padding: 0 1rem 0 2rem
+      padding: 0
+      border-left-width: 1px
       line-height: 2rem
 
       &:hover,
@@ -100,15 +181,18 @@
       width: 2rem
       height: 2rem
       padding: .4375rem
-      margin: 0 -1rem 0 .25rem
       @extend %material-icons-18
 
     .plus, .edit
       margin-right: .25rem !important
 
     .expanded-options
+      position: relative
       padding-top: 0
       margin-top: 0
+
+      .option
+        padding: 0 1rem
 
 
   .b-catalog_entry-tooltip &
@@ -119,7 +203,22 @@
       font-size: .875rem
 
     .trigger
-      line-height: 1.5rem
+      line-height: 40px
 
     .trigger, .add-trigger, .remove-trigger
       max-width: 224px
+
+
+
+  .b-db_entry-variant-list_item > .info .b-user_rate &,
+  .b-catalog_entry-tooltip &
+    // element with only one action
+    .trigger .edit-trigger
+      border: 0
+
+    // fix hover state
+    form[data-method='PATCH']
+      .trigger:hover
+        .edit-trigger,
+        .trigger-arrow
+          background-color: rgba(255,255,255,.08)

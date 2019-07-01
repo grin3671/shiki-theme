@@ -2,60 +2,28 @@
 code
   vertical-align: middle
   padding: .5px 4px
-  background-color: rgba(32,32,32,0.05)
+  background-color: rgba($color-text-primary,.08)
   border-radius: 2px
   font-size: .875rem
 
-pre
-  position: relative
+pre[data-dynamic='code_highlight']
+  margin: .5rem 0
 
 .b-code
   padding: 1rem
-  margin: .5rem 0
-  background: #263238
-  border-radius: 2px
-  font-size: .875rem
+  border-radius: 3px
   font-style: normal
   font-weight: normal
+  line-height: 1.5
   text-align: left
 
-  @media (min-width: 960px)
-    &::before
-      content: attr(data-language)
-      position: absolute
-      top: 1rem
-      right: .5rem
-      padding: 0 .5rem
-      background-color: #747474
-      border-radius: 2px
+  &::before
+    top: 1rem
+    right: 1rem
 
-    .tooltip-details &::before
-      display: none
+  .tooltip-details &::before
+    display: none
 
-.hljs-selector-tag
-  color: #FF5370
-
-.hljs-selector-id
-  color: #FAD430
-
-.hljs-selector-class
-  color: #FFCB6B
-
-.hljs-selector-pseudo,
-.hljs-meta
-  color: #C792EA
-
-.hljs-attribute
-  color: #80CBC4
-
-.hljs-built_in
-  color: #89DDFF
-
-.hljs-number
-  color: #F77669
-
-.hljs-string
-  color: #C3E88D
-
-.hljs-comment
-  color: #5C7E8C
+.hljs-keyword,
+.hljs-literal
+  color: inherit

@@ -1,0 +1,120 @@
+/**
+ * Вкладки
+ */
+$break_vertical: 960px
+
+.b-tabs
+  // Контейнер
+  &.--vertical
+    @media (min-width: $break_vertical)
+      display: flex
+      border: 1px solid $color-border
+      border-radius: $border-rounded
+
+      // Список переключателей
+      .b-tabs_list
+        flex-direction: column
+        flex-shrink: 0
+        width: 200px
+        padding: 8px 0
+        border-right: 1px solid $color-border
+
+      // Переключатель
+      .b-tabs_switch
+        padding: 8px 16px
+        margin: 0
+        border: 0
+        border-radius: 0
+        line-height: 24px
+        text-align: left
+
+      // Содержимое вкладки
+      .b-tabs_panel
+        flex-grow: 1
+        padding: 18px 24px
+
+  // Список переключателей
+  .b-tabs_list
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    overflow-y: auto
+
+  // Переключатель
+  .b-tabs_switch
+    display: block
+    flex-shrink: 0
+    min-width: 148px
+    padding: 8px 14px
+    margin: 8px
+    border: 2px solid $color-border
+    border-radius: 18px
+    color: $color-text-hint
+    font-weight: bold
+    line-height: 1
+    text-align: center
+    cursor: pointer
+    transition: .24s ease
+    user-select: none
+
+    &:hover
+      background: rgba($color-text-hint, 0.12)
+
+    &:active
+      background: rgba($color-primary, 0.24)
+      border-color: $color-primary
+
+    &.active
+      background: rgba($color-primary, 0.12)
+      border-color: $color-primary
+      color: $color-primary
+      cursor: default
+
+  // Содержимое вкладки
+  .b-tabs_panel
+    padding: 12px 8px
+
+  // Анимация переключения
+  &.--ripple
+    .b-tabs_switch
+      position: relative
+      overflow: hidden
+      -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+      &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 72%
+        padding-top: 72%
+        background: inherit
+        border-radius: 50%
+        opacity: 0
+        transform: translate3d(-50%, -50%, 0)
+        pointer-events: none
+
+      &:not(.active):hover::after
+        animation: 1s switch-focus--vertical ease infinite
+
+      &.active::after
+        animation: switch-tap--vertical .24s cubic-bezier(0.55, 0.06, 0.68, 0.19)
+
+@keyframes switch-focus--vertical
+  0%,
+  100%
+    opacity: .8
+    transform: translate3d(-50%, -50%, 0)
+
+  50%
+    opacity: .8
+    transform: translate3d(-50%, -50%, 0) scale(0.95)
+
+
+@keyframes switch-tap--vertical
+  0%
+    opacity: .8
+
+  100%
+    opacity: 0
+    transform: translate3d(-50%, -50%, 0) scale(2.5)

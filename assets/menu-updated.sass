@@ -364,7 +364,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     color: inherit
 
     @media (min-width: 1025px)
-      padding: 0 1em
+      padding: 0 $layout-margin-tablet
 
       .x1000 &
         max-width: 1000px
@@ -374,8 +374,8 @@ $search-background: mix($menu-text, $menu-background, 12%)
         display: block
 
       .search-results
-        right: 16px
-        left: 16px
+        right: $layout-margin-tablet
+        left: $layout-margin-tablet
         width: auto
 
     @media (min-width: 1820px)
@@ -384,7 +384,6 @@ $search-background: mix($menu-text, $menu-background, 12%)
         top: 0
         right: 0
         left: 0
-        padding: 0 1.5em
 
     @media (min-width: 2020px)
       .x1200 &
@@ -392,7 +391,6 @@ $search-background: mix($menu-text, $menu-background, 12%)
         top: 0
         right: 0
         left: 0
-        padding: 0 1.5em
 
     & + .menu-icon
        margin-left: auto

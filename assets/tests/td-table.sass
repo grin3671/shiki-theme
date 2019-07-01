@@ -1,0 +1,23 @@
+// Table
+.table
+  display: table
+  width: 100%
+  border-collapse: collapse
+
+  & > br,
+  & > div > br
+    display: none
+
+  & > div
+    display: table-row
+    border: 0
+
+  & > .header
+    display: table-row
+    font-weight: bold
+    background: rgba(149, 149, 149, .5)
+
+  & > div > div
+    display: table-cell
+    padding: 8px
+    border: 1px solid rgba(149, 149, 149, 1)

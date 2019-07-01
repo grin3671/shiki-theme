@@ -4,10 +4,6 @@
 .p-contests .match-container.b-ajax::after
   z-index: 10
 
-.p-contests .b-contest_match
-  padding: 16px 0
-  margin-bottom: 0
-
 .p-contests .b-contest_match .current-match .match-members:last-child
   margin-bottom: 0 !important
 
@@ -46,7 +42,7 @@
   &:hover, &.active
     background: $color-background-secondary
   &:active
-    background-color: $color-area-normal
+    background-color: $color-area-normal !important // in shiki style
 
 // NOTE: !important in main.sass (.c-column)
 .p-contests .match-day .match-link .c-column
@@ -160,9 +156,12 @@
   top: 0
   right: 0
   padding-right: 8px
+  background-color: $color-primary
+  border-color: $color-primary
 
 .p-contests .b-contest_match .votes-percents .right-part span
   float: right
+  color: $color-text-on-primary
 
 .p-contests .b-contest_match .votes-percents .left-part,
 .p-contests .b-contest_match .votes-percents .right-part
@@ -172,6 +171,10 @@
   left: -24px
   border-right-width: 24px
   border-top-width: 48px
+
+.p-contests .b-contest_match .votes-percents .left-part:hover .right-part
+  background-color: $color-primary
+  border-color: $color-primary
 
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
   border-right-width: 24px
@@ -195,57 +198,10 @@
 .p-contests .results .cc-result .c-rounds .match-link
   display: inline-block
 
-/* Кнопки турнира */
-.b-contest_match .vs .action
-  display: inline-block
-  vertical-align: top
-  min-width: 112px
-  padding: 0
-  margin: .25rem 0
-  background-color: transparent
-  border-radius: 2px
-  font-size: .875rem
-  font-weight: 700
-  text-align: center
-  text-transform: uppercase
-  transition: .16s cubic-bezier(0.4, 0.0, 0.6, 1)
-  user-select: none
-
-.b-contest_match .vs .action:hover
-  background-color: rgba($color-primary, .12)
-
-.b-contest_match .vs .action:active
-  background-color: rgba($color-primary, .24)
-
-/* Текст внутри кнопки */
-.b-contest_match .vs .actions .action span
-  padding: 0 1rem
-  line-height: 2rem
-
-.b-contest_match .vs .actions .action span,
-.b-contest_match .vs .actions .action span:hover,
-.b-contest_match .vs .actions .action span:active
-  color: $color-primary
-  border: 0
-  -webkit-tap-highlight-color: transparent
-
 /* Убираем желтое свечение постеров */
 .b-contest_match .current-match .match-members .match-member > .b-catalog_entry.yellow-fade
   background: transparent
   outline-color: transparent
-
-.p-contests
-  .b-contest_match
-    .prev-match, .next-match
-      color: $color-text-hint !important
-      &:hover
-        background-color: $color-button-hover
-        color: $color-text-secondary !important
-
-@media (min-width: 481px)
-  .p-contests .b-contest_match .prev-match:hover,
-  .p-contests .b-contest_match .next-match:hover
-    background-color: transparent
 
 /* BUG: font-size нужно указать внутри соответствующего элемента */
 @media (min-width: 768px)
@@ -258,134 +214,8 @@
 
 /* Мобильная версия */
 @media (max-width: 480px)
-  .p-contests .b-contest_match .prev-match,
-  .p-contests .b-contest_match .next-match
-    position: absolute
-    left: 0
-    width: auto
-    padding: 8px
-    border-radius: 2px
-    line-height: 32px
-    z-index: 2
-
-  .p-contests .b-contest_match .next-match
-    right: 0
-    left: auto
-
-  .p-contests .b-contest_match .next-match::before
-    margin: 0
-
-  .p-contests .b-contest_match .prev-match::before,
-  .p-contests .b-contest_match .next-match::before
-    display: block
-    font-family: 'Material Icons'
-    font-size: 24px
-    line-height: 1
-
-    text-transform: none
-    letter-spacing: normal
-    word-wrap: normal
-    white-space: nowrap
-    direction: ltr
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale
-    /* Support for IE. */
-    font-feature-settings: 'liga'
-
-  .p-contests .b-contest_match .prev-match::before
-    content: 'chevron_left'
-
-  .p-contests .b-contest_match .next-match::before
-    content: 'chevron_right'
-
-  .p-contests .b-contest_match .current-match
-    clear: both
-    padding: 0
-
-  .p-contests .b-contest_match .current-match .match-members
-    padding-top: 96px
-    margin-bottom: 4px
-
-  .p-contests .b-contest_match .current-match .match-member
-    position: relative
-    width: 48%
-    z-index: 2
-
-  .p-contests .b-contest_match .current-match .match-member:first-child
-    float: left
-
-  .p-contests .b-contest_match .current-match .match-member:last-child
-    float: right
-
-  .p-contests .b-contest_match .match-losers
-    display: block
-    padding: 0
-
-  /* Контейнер подсказок и кнопок турнира */
-  .p-contests .b-contest_match .vs
-    position: absolute
-    top: 0
-    width: 100%
-    padding: 3rem 0 0
-    margin: 0
-    font-size: inherit
-
-  /* Блок кнопок турнира */
-  .b-contest_match .vs .actions
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    font-size: inherit
-
-  /* Кнопка "К следующей паре" */
-  .b-contest_match .vs .action:nth-child(2)
-    display: none
-
-  /* Подсказка: "Кликните по одному из двух вариантов" */
-  /* Подсказка: "Ваш голос учтён!" */
-  /* Подсказка: "Вы воздержались в этом голосовании" */
-  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
-  /* Подсказка: "Голосование ещё не началось" */
-  .b-contest_match .vs .invitation,
-  .b-contest_match .vs .vote-voted,
-  .b-contest_match .vs .vote-abstained,
-  .b-contest_match .vs .thanks,
-  .b-contest_match .vs .hint
-    font-size: 1rem
-    line-height: 40px
-    margin: 0
-
-  /* Подсказка: "На сегодня всё! Спасибо за участие!" */
-  .b-contest_match .vs .thanks
-    position: absolute
-    top: 0
-    right: 0
-    left: 0
-
   .b-contest_match .vs .vote-abstained[style = 'display: none;'] ~ .thanks
     display: none !important
-
-  /* Иконка VS */
-  .b-contest_match .vs .label
-    display: inline-block
-    position: absolute
-    top: 192px
-    right: 0
-    left: 0
-    width: 72px
-    height: 72px
-    margin: auto
-    border-radius: 100%
-    font-size: 24px
-    line-height: 72px
-    text-transform: uppercase
-    z-index: 6
 
 @media (max-width: 1024px)
   .p-contests .match-day .match-link .c-column
@@ -422,3 +252,170 @@
 .p-contests .contest-match .vs > div:first-child,
 .p-contests .contest-match .vs .next
   font-weight: bold
+
+
+// New
+.b-contest_match
+  display: flex
+  padding: 1em 0
+  margin-bottom: 0
+
+  // Исправление отступов для завершенных турниров
+  &[data-model *= 'finished']
+    @media (max-width: 767px)
+      .current-match .match-members
+        padding-top: 56px
+
+      .vs .hint
+        top: 4px
+
+  .prev-match,
+  .next-match
+    @extend %material-icons
+    display: flex
+    width: auto
+    height: auto
+    max-height: 288px
+    padding: 8px
+    margin: 4px 8px 4px 0
+    border-radius: 2px
+    color: $color-text-hint
+    &:hover
+      color: $color-text-secondary
+
+    &::before
+      height: 1em
+      margin: auto
+
+    @media (max-width: 767px)
+      position: absolute
+      left: 0
+      z-index: 2
+
+      &:hover
+        background-color: $color-button-hover
+
+    @media (min-width: 768px)
+      &:hover
+        background-color: transparent
+
+      &::before
+        border-radius: 50%
+        font-size: 48px !important
+
+      &:hover::before
+        background-color: $color-button-hover
+
+  .prev-match
+    &::before
+      content: 'chevron_left'
+
+  .next-match
+    order: 1
+    margin: 4px 0 4px 8px
+    @media (max-width: 767px)
+      right: 0
+      left: auto
+
+    &::before
+      content: 'chevron_right'
+
+  .current-match
+    flex-grow: 1
+    @media (max-width: 767px)
+      clear: both
+      padding: 0
+
+    .match-members
+      display: flex
+      line-height: inherit
+      @media (max-width: 767px)
+        padding-top: 96px
+        margin-bottom: 1em
+
+      .match-member:last-child
+        margin-left: auto
+
+  .match-member
+    @media (max-width: 480px)
+      float: left
+      position: relative
+      width: 48%
+      z-index: 2
+
+      &:last-child
+        float: right
+
+  .vs
+    margin: auto
+
+    // Иконка VS
+    .label
+      @media (max-width: 480px)
+        display: inline-block
+        position: absolute
+        top: 60px
+        right: 0
+        bottom: 0
+        left: 0
+        width: 72px
+        height: 72px
+        margin: auto
+        background: $color-background
+        border-radius: 100%
+        font-size: 24px
+        line-height: 72px
+        text-transform: uppercase
+        z-index: 6
+
+    .invitation,
+    .vote-voted,
+    .vote-abstained,
+    .thanks,
+    .hint,
+    .not-selected
+      padding: 0
+      margin-bottom: 1em
+      font-size: .875em
+      line-height: inherit
+      @media (max-width: 767px)
+        position: absolute
+        top: 52px
+        right: 0
+        left: 0
+        font-size: 1rem
+        line-height: 40px
+        margin: 0
+
+    .thanks
+      @media (max-width: 767px)
+        top: 4px
+
+    .actions
+      line-height: 0
+      @media (max-width: 767px)
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+
+      .action
+        display: inline-block
+        vertical-align: top
+        padding: 0
+        margin: 0
+
+        &:nth-child(2)
+          margin-left: 1em
+
+        span
+          @extend %md-button-flat
+
+      @media (max-width: 480px)
+        .action:nth-child(2)
+          display: none
+
+  .match-losers
+    @media (max-width: 480px)
+      display: block
+      padding: 0
