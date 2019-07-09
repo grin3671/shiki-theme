@@ -11,33 +11,35 @@
     margin: 0
 
     // FIX: кнопка скрывается при
+    // @media screen and (max-width: 767px) and (min-width: 481px)
+    .editor-bold,
+    .editor-italic,
+    .editor-underline,
     // @media screen and (max-width: 1024px) and (min-width: 768px) and (orientation: portrait)
     .editor-strike
       display: inline-block
 
-  .hidden-block
-    height: auto
-    line-height: 3em
+  .controls
+    height: auto // overwrite shiki style
+    margin-bottom: 0 // overwrite shiki style
 
-    p
-      padding: 0 !important
-      white-space: nowrap
-      overflow-x: auto
+  .links,
+  .images,
+  .quotes,
+  .upload
+    flex-wrap: nowrap
+    padding: 6px 0
+    overflow-x: auto
 
-    label
-      vertical-align: top
-      margin: 0
-
-      & + label
-        margin-left: .5rem
+    .input-container
+      height: auto // overwrite shiki style
 
     .link-value
       vertical-align: top
       width: 16rem !important // в оригинальном стиле
       height: 36px
       padding: 0 .75rem
-      margin: .375rem 0
-      margin-left: .5rem !important // в оригинальном стиле
+      margin: 0
       background: $color-background
       border: 2px solid $color-primary
       border-right-width: 0
@@ -45,11 +47,21 @@
       color: $color-text-primary
       line-height: 32px
 
+      &:focus
+        border-color: $color-primary
+
     .b-button.ok
       @extend %md-button-raised
       min-width: 0
+      margin: 0
       border-radius: 0 4px 4px 0
 
+  .images,
+  .links
+    span
+      margin-bottom: 0 // overwrite shiki style
+      line-height: inherit // overwrite shiki style
+      white-space: nowrap
 
   .body
     .editor
