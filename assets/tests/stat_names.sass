@@ -52,3 +52,18 @@
       &[data-type='completed']
         & > a::before
           background-color: $color-accent
+
+    .b-stats_bar &
+      .size::before
+        content: '–'
+        color: $color-text-hint
+        padding-right: 3px
+
+      .size::after
+        display: none
+
+      & > a:hover
+        text-decoration: none
+
+        .size::before
+          color: inherit
