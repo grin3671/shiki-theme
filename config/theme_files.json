@@ -478,6 +478,16 @@
     "checked": false
   },
   {
+    "url": "tests/b-shiki_editor-input_label.sass",
+    "checked": false,
+    "description": "Подписи к текстовым полям в редакторе."
+  },
+  {
+    "url": "tests/b-shiki_editor-smileys.sass",
+    "checked": false,
+    "description": "Всплывающее окно со смайлами."
+  },
+  {
     "url": "tests/p-achievements-grid.sass",
     "checked": false,
     "description": "Улучшенная сетка достижений. https://caniuse.com/#feat=css-grid"
@@ -493,9 +503,19 @@
     "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
   },
   {
+    "url": "tests/p-user_rates-mylist.sass",
+    "checked": false,
+    "description": "Иконки списков на странице списков."
+  },
+  {
     "url": "tests/stat_names.sass",
     "checked": false,
     "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
+  },
+  {
+    "url": "tests/td-icons.sass",
+    "checked": false,
+    "description": "Добавление к кнопкам иконок с помощью data-icon."
   },
   {
     "url": "tests/td-spoiler.sass",

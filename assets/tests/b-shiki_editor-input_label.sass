@@ -1,5 +1,8 @@
 .b-shiki_editor
-  .hidden-block
+  .links,
+  .images,
+  .quotes,
+  .upload
     .link-value
       &[placeholder *= 'стран'] + .ok::before
         content: 'Ссылка'
@@ -53,14 +56,14 @@
         text-transform: none
         pointer-events: none
 
-      &[data-type="images"]::before
+      &[data-type='images']::before
         content: 'Изображение'
 
-      [data-locale='en'] &[data-type="images"]::before
+      [data-locale='en'] &[data-type='images']::before
         content: 'Image'
 
-      &[data-type="quotes"]::before
+      &[data-type='quotes']::before
         content: 'Имя пользователя'
 
-      [data-locale='en'] &[data-type="quotes"]::before
+      [data-locale='en'] &[data-type='quotes']::before
         content: 'Username'
