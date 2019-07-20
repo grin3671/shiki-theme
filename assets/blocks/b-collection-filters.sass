@@ -3,10 +3,12 @@
   .b-block_list
     li
       position: relative
-      padding: .25em .5em
-      margin: 0 -.5em
+      padding: .25em .75em
+      margin: 2px -.75em
+      border-radius: $border-rounded
       font-size: 1rem
       line-height: 1.5
+      transition: .16s cubic-bezier(.4, 0, .6, 1)
       @extend %material-icons
 
       &::before
