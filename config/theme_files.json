@@ -350,6 +350,10 @@
     "description": "Изменённыё вид превью видео."
   },
   {
+    "url": "blocks/ti-tags.sass",
+    "checked": true
+  },
+  {
     "url": "pages/p-animes.sass",
     "checked": true
   },
