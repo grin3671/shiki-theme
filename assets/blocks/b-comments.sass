@@ -1,31 +1,28 @@
 .b-comments
   line-height: inherit
 
-  .comments-loader-wrapper,
-  .comments-hider,
-  .comments-expander
+  .comments-loader, .comments-hider, .comments-expander
     @extend %shiki-plashka
 
-  .comments-loader-wrapper
-    .comments-collapser
-      @extend %material-icons
-      width: 2.5rem
-      padding: .5rem
-      margin: 0
-      border: 0
-      color: $color-link
-      font-size: 0
-      line-height: 0
+  .comments-collapser
+    @extend %material-icons
+    width: 2.5rem
+    padding: .5rem
+    margin: 0
+    border: 0
+    color: $color-link
+    font-size: 0
+    line-height: 0
 
-      &:hover
-        color: $color-link-hover
+    &:hover
+      color: $color-link-hover
 
-      &:active
-        color: $color-link-active
+    &:active
+      color: $color-link-active
 
-      &::before
-        content: 'expand_less'
-        display: block
+    &::before
+      content: 'expand_less'
+      display: block
 
   .faye-loader
     @extend %shiki-plashka
