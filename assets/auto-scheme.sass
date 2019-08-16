@@ -1,0 +1,47 @@
+// Функции для расчёта цветов
+// Calculate brightness
+@function brightness($color)
+  @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100
+
+// Return contrast color
+@function color-contrast($color)
+  $brightness: brightness($color)
+  $light: brightness(#fff)
+  $dark: brightness(#121212)
+  @return if(abs($brightness - $light) > abs($brightness - $dark), #fff, #121212)
+
+
+
+
+
+// Перерасчёт
+$color-text-default: color-contrast($color-background)
+$color-text-primary: mix($color-text-default, $color-background, 94%) // MD says 87%
+$color-text-secondary: mix($color-text-default, $color-background, 68%) // MD says 60%
+$color-text-hint: mix($color-text-default, $color-background, 54%) // MD says 60%
+$color-text-disabled: mix($color-text-default, $color-background, 38%)
+$color-border: mix($color-text-default, $color-background, 12%)
+
+// Opacity values
+$val-hover: if($color-text-default == #fff, 8%, 4%) // if dark – 8
+$val-active: if($color-text-default == #fff, 12%, 8%) // if dark – 12
+$val-selected: if($color-text-default == #fff, 12%, 8%) // if dark – 12
+
+// Вычисляемые цвета
+$color-area-normal: rgba($color-text-default, $val-hover / 100%)
+$color-button-hover: $color-area-normal
+
+// Замена background-normal / hover / active
+$color-background-normal: mix($color-text-primary, $color-background, 5%)
+$color-area-hover: mix($color-text-primary, $color-background-normal, $val-hover)
+$color-area-active: mix($color-text-primary, $color-background-normal, $val-active)
+
+// Замена background-secondary
+$color-background-secondary: mix($color-text-primary, $color-background, 7%)
+
+// Замена background-dialog
+$color-background-dialog: lighten($color-background, 5%)
+
+$color-tooltip: mix($color-background, #545454, 8%)
+
+$release: $release + '--auto-scheme'
