@@ -7,28 +7,31 @@
 @function color-contrast($color)
   $brightness: brightness($color)
   $light: brightness(#fff)
-  $dark: brightness(#121212)
-  @return if(abs($brightness - $light) > abs($brightness - $dark), #fff, #121212)
+  $dark: brightness(#000) // 121212
+  @return if(abs($brightness - $light) > abs($brightness - $dark), #fff, #000) // 121212
 
 
+
+// Определение основной схемы
+$color-text-default: color-contrast($color-background)
+$theme-dark: if($color-text-default == #fff, true, false)
 
 
 
 // Перерасчёт
-$color-text-default: color-contrast($color-background)
-$color-text-primary: mix($color-text-default, $color-background, 94%) // MD says 87%
+$color-text-primary: mix($color-text-default, $color-background, 87%) // MD says 87%
 $color-text-secondary: mix($color-text-default, $color-background, 68%) // MD says 60%
 $color-text-hint: mix($color-text-default, $color-background, 54%) // MD says 60%
 $color-text-disabled: mix($color-text-default, $color-background, 38%)
 $color-border: mix($color-text-default, $color-background, 12%)
 
 // Opacity values
-$val-hover: if($color-text-default == #fff, 8%, 4%) // if dark – 8
-$val-active: if($color-text-default == #fff, 12%, 8%) // if dark – 12
-$val-selected: if($color-text-default == #fff, 12%, 8%) // if dark – 12
+$val-hover: if($theme-dark, 8%, 4%)
+$val-active: if($theme-dark, 12%, 8%)
+$val-selected: if($theme-dark, 12%, 8%)
 
 // Вычисляемые цвета
-$color-area-normal: rgba($color-text-default, $val-hover / 100%)
+$color-area-normal: rgba($color-text-primary, $val-hover / 100%)
 $color-button-hover: $color-area-normal
 
 // Замена background-normal / hover / active
