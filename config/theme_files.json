@@ -267,6 +267,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-oauth_application.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-options_floated.sass",
     "checked": true
   },
@@ -482,10 +486,6 @@
     "url": "tests/b-input.sass",
     "checked": false,
     "description": "Более \"материальные\" поля ввода."
-  },
-  {
-    "url": "tests/b-oauth_application.sass",
-    "checked": false
   },
   {
     "url": "tests/b-shiki_editor-input_label.sass",

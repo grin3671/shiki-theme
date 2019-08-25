@@ -534,6 +534,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     .global-search
       input
         background-color: #fff
+        box-shadow: 0 0 2px 0 rgba(0,0,0,.2) inset
         color: #212121
 
       .hotkey-marker
@@ -541,3 +542,13 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
       .search-marker
         color: #212121 !important
+
+
+//
+.l-top_menu-v2
+  position: sticky
+  top: 0
+
+  .submenu
+    max-height: calc(100vh - 112px)
+    overflow-y: auto
