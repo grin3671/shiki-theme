@@ -3,15 +3,11 @@
  * Иконки должны располагаться в псевдоэлементе ::before
  * Стандартный размер иконок 24px, уменьшенный – 20px
  *
- * NOTE: Версия шрифта устарела, поддерживаются не все иконки из каталога
+ * NOTE: Шрифт может не поддерживаться в старых браузерах
  * BUG: IE doesn't support Materail Icon's font format [.woff2]
  */
 
-@font-face
-  font-family: 'Material Icons'
-  font-style: normal
-  font-weight: 400
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot) format('eot'), url(https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype')
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 %material-icons::before
   display: block
@@ -37,6 +33,8 @@
   -moz-osx-font-smoothing: grayscale
   /* Support for IE. */
   font-feature-settings: 'liga'
+
+  overflow: hidden
 
 %material-icons-18
   @extend %material-icons
