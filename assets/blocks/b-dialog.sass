@@ -50,3 +50,8 @@
             @media (max-width: 1024px)
               display: inline !important
               padding-left: .5em !important
+
+    // margin bug chrome77 fixes fix
+    & > .inner .body,
+    & > header > .name-date
+      margin-left: 0 !important
