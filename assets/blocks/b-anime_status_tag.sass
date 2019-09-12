@@ -3,6 +3,9 @@
   margin: 0
   background: transparent
 
+  &[href]
+    backface-visibility: hidden
+
   .line-container .line &
     margin: 2px 4px 2px 0
 
@@ -29,16 +32,16 @@
   &.studio
     @extend %shiki-marker
     background-color: transparent
-    color: #6e66eb
+    color: $color-primary
     &[href]
-      background-color: #6e66eb
-      border: 1px solid #6e66eb
-      color: #fff
+      background-color: $color-primary
+      border: 1px solid $color-primary
+      color: $color-text-on-primary
       @media (min-width: 1025px)
         &:hover, &:active
-          background-color: #6e66eb
-          border: 1px solid #6e66eb
-          color: #fff
+          background-color: $color-primary
+          border: 1px solid $color-primary
+          color: $color-text-on-primary
           opacity: .9
 
         &:active
