@@ -214,8 +214,16 @@
     display: inline-block
     vertical-align: top
 
+  &.selected::before
+    display: inline-block
+
   &::after
     vertical-align: top
+    padding-left: 12px
+    font-size: 16px
+    line-height: 18px
+
+  &.selected::after
     padding-left: 12px
     font-size: 16px
     line-height: 18px

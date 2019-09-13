@@ -76,8 +76,7 @@
 /* Изменение новостей на главной */
 .p-dashboards-show .cc-news
   .c-news_topics
-    @media screen and (min-width: 1025px)
-      line-height: inherit
+    line-height: inherit
 
     .b-topic
       padding: 1rem 0 1.5rem
@@ -88,16 +87,20 @@
         padding: 0 0 .25rem
         font-size: 22px !important
         font-weight: 400 !important
-        line-height: 1.65
+        line-height: 1.5
         white-space: normal
 
       .b-anime_status_tag
         display: none
 
-  /* FIX: исправление стандартного правила */
-  .c-generated_news .b-topic
-    .name-date a
-      font-size: 16px !important
+  .c-generated_news
+    line-height: inherit
+
+    .b-topic
+      border-color: $color-border
+
+      .name-date a
+        font-size: 16px !important
 
 
 
