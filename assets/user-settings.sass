@@ -22,7 +22,7 @@ body
 
 @if variable-exists(image-cover)
   /* Моя обложка в профиле */
-  .p-profiles .profile-head[data-user-id = '#{$id}'] .c-brief:before
+  .p-profiles .profile-head[data-user-id = '#{$id}']::before
     /* background-image: url(https://image.ibb.co/gT5kZJ/bd8W6VB.jpg); /* Пример */
     background-image: $image-cover /* Моя обложка */
     background-position: center 50% /* Последнее значение (50% - по центру) отвечает за вертикальное смещение */

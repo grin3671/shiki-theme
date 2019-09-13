@@ -4,125 +4,84 @@
  */
 .p-profiles .profile-head
   position: relative
-  min-height: 15.5rem
-  padding-top: 3rem
-  margin-top: -1rem
-  overflow: visible
 
-  @media (min-width: 600px)
-    background-color: inherit
+  // До тех пор пока используется аватарка по центру и история
+  @media (min-width: 320px) and (max-width: 480px)
+    padding-top: 48px + 80px
 
-  @media (min-width: 960px)
-    padding-top: 0
-    margin-top: 0
+  // До тех пор пока используется аватарка по центру
+  @media (min-width: 481px) and (max-width: 959px)
+    padding-top: 48px
 
-  .c-info
-    margin-bottom: .5rem
-    overflow: visible
-
-    @media (min-width: 600px)
-      margin-left: 11.5rem
-
-    @media (min-width: 768px)
-      margin-left: 12.5rem
-
-    @media (min-width: 960px)
-      margin-left: 13.5rem // Отступ от аватарки
-      margin-right: calc(23% + 3.5rem) // Отступ от истории
-      margin-bottom: 1.5rem
+  // До тех пор пока используется полоска истории
+  @media (max-width: 959px)
+    margin-top: -16px
 
   .c-brief
     position: relative
-    margin: -3rem -1rem 1rem
-    overflow: hidden
+    text-align: center
 
-    @media (min-width: 600px)
-      margin: -3rem -1rem 0
-      overflow: visible
+    // Приподняятая область на всю ширину экрана
+    @media (min-width: 320px) and (max-width: 480px)
+      padding: 12px 16px
+      margin: 0 -16px 1em
 
-    @media (min-width: 768px)
-      overflow: visible
-
-    @media (min-width: 960px)
-      max-height: 504px
-      margin: 0
-      overflow: visible
-
-    &::before
-      content: ''
-      display: block
-      height: 0
-      padding-bottom: 0
-
-      @media (min-width: 320px)
-        padding-bottom: 48px
-
-      @media (min-width: 600px)
-        padding-bottom: 56px
-
-      @media (min-width: 960px)
-        padding-bottom: 0
+    // Убираем отрицательные отступы
+    @media (min-width: 481px)
+      display: flex
+      padding: 12px 0
+      text-align: left
 
     .avatar
-      @media (min-width: 320px)
+      position: static
+      max-width: 80px
+      // min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
+      margin: 0
+      margin-right: 24px
+      text-align: center
+
+      @media (max-width: 480px)
         float: none
-        max-width: 100%
-        margin: 1rem auto 0
-
-      @media (min-width: 320px) and (max-width: 599px)
         position: relative
-        height: 160px
-
-      @media (min-width: 600px)
-        position: absolute
-        max-width: 160px
-        margin: 1rem 1rem 1rem .5rem
-
-      @media (min-width: 960px)
-        margin: 1rem 2rem 1rem 0
+        max-width: 100%
+        min-height: 72px
+        margin: 0 0 12px
 
       img
-        @media (min-width: 320px)
-          display: block
+        vertical-align: top // фикс отступа
+
+        @media (min-width: 320px) and (max-width: 480px)
           width: 36%
           max-width: 160px
-          margin: auto
+          transform: translateY(calc(-50% - 12px))
+          margin-bottom: -18%
 
-        @media (min-width: 320px) and (max-width: 599px)
+      .profile-actions
+        display: block
+        margin-top: 8px
+
+        @media (min-width: 320px) and (max-width: 480px)
           position: absolute
           top: 0
-          bottom: 0
-          left: 0
+          width: 100%
+          margin: 0
+          text-align: left
+
+          a:first-child,
+          .fav-add,
+          .fav-remove
+            float: right
+
+          a:first-child
+            margin-right: 0 !important
+
+        @media (min-width: 481px)
+          position: absolute
+          top: 0
           right: 0
 
-        @media (min-width: 600px)
-          width: 160px
-
-    header
-      @media (min-width: 320px)
-        clear: both
-        margin: 0
-        text-align: center
-
-      @media (min-width: 320px) and (max-width: 599px)
-        background-color: inherit !important
-
-      @media (min-width: 600px)
-        clear: none
-        padding: 1rem 0 .5rem
-        margin-left: 12.5rem
-        text-align: left
-
-      @media (min-width: 768px)
-        margin-left: 13.5rem
-
-      .notice
-        @media (min-width: 320px) and (max-width: 599px)
-          padding: .5rem 1rem
-
   .c-mobile-actions
-    @media (min-width: 320px)
-      display: none
+    display: none
 
   .c-history
     margin-bottom: 3rem
@@ -131,8 +90,9 @@
       margin-bottom: 2rem
 
     // Полоска истории поверх обложки
-    @media (min-width: 320px) and (max-width: 959px)
+    @media (max-width: 959px)
       display: block
+      float: none
       position: absolute
       top: 0
       right: 0
@@ -186,51 +146,18 @@
         span.misc
           display: none
 
-    @media (min-width: 600px) and (max-width: 959px)
-      padding: .25rem 1rem
+    // Без обложки
+    @media (max-width: 319px)
+      position: relative
+      width: calc(100% + 32px)
+      margin-bottom: 1em
 
     @media (min-width: 960px)
       display: block
       position: relative
-      top: 1rem
-      margin-left: 3.5rem
+      margin-top: 8px
+      margin-left: 56px
       z-index: 1
-
-  .c-brief .avatar .profile-actions
-    @media (min-width: 320px) and (max-width: 600px)
-      a:first-child
-        margin-right: 0 !important
-
-    @media (min-width: 320px)
-      display: block
-      position: absolute
-      top: 50%
-      width: 100%
-      padding: .75rem 1rem
-      margin: 0 auto
-      text-align: left
-
-      a:first-child,
-      .fav-add,
-      .fav-remove
-        float: right
-
-    @media (min-width: 600px)
-      position: static
-      width: auto
-      padding: 0
-      margin-top: 1rem
-      margin-right: -12px
-      margin-left: -12px
-      text-align: center
-
-      a:first-child
-        float: none
-        margin: 0
-
-      .fav-add,
-      .fav-remove
-        float: none // thx @anorva
 /* END of PROFILE HEAD */
 /**/
 /**/
