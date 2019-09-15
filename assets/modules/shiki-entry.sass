@@ -4,11 +4,15 @@
 // .b-message,
 // .b-topic
 %shiki-entry
-  position: relative
-  padding-top: .75rem !important
-  padding-bottom: .75rem
+  padding-top: 0
 
   & > .inner
+    padding: .75rem 0
+
+    aside.markers
+      @media (max-width: 1024px)
+        padding-right: 48px // offset for item-mobile
+
     header
       min-height: 32px
       padding-top: 4px
@@ -23,11 +27,12 @@
           margin-top: 4px
 
       .name-date
+        margin-left: 0
         font-size: inherit
         line-height: inherit
 
-        @media (min-width: 768px)
-          margin-left: 0
+        @media (max-width: 1024px)
+          padding-right: 48px // offset for item-mobile
 
         @media (max-width: 1024px)
           line-height: 1.25rem
@@ -76,6 +81,9 @@
         img
           margin-top: 2px
 
+  .item-mobile
+    top: .75rem
+
   // раскрытое меню в мобильной версии
   &.aside-expanded
     & > .inner
@@ -85,9 +93,10 @@
         position: absolute
         top: 0
         right: 0
+        bottom: 1px
         left: 0
         width: auto
-        height: 100%
+        height: auto
         padding: 8px 16px
         margin: 0 -16px
         background-color: rgba($color-background, .9)

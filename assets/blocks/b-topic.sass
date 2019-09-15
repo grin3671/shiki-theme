@@ -121,3 +121,16 @@
   &.aside-expanded
     & > .b-comments
       margin-left: 0
+
+  &:not(:last-child)
+    position: relative
+
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      bottom: 0
+      right: 0
+      left: 0
+      height: 1px
+      background-color: $color-border
