@@ -1,7 +1,15 @@
 
 .b-catalog_entry
-  .image-cutter
-    border-radius: 2px
+  .cover
+    .image-cutter
+      border-radius: 2px
+
+    .title
+      color: $color-text-primary !important
+
+    .misc
+      span
+        color: $color-text-hint
 
   &.planned, &.watching, &.completed, &.rewatching, &.on_hold, &.dropped
     .image-decor
