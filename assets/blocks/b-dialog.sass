@@ -20,6 +20,7 @@
 
   &:hover .to_dialog
     background-color: rgba($color-text-primary, .05)
+    outline: 24px solid rgba($color-text-primary, .05)
     z-index: 0
 
   img:not([alt]),
@@ -55,3 +56,16 @@
     & > .inner .body,
     & > header > .name-date
       margin-left: 0 !important
+
+  &:not(:last-child)
+    position: relative
+
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      bottom: 0
+      right: 0
+      left: 3.5rem
+      height: 1px
+      background-color: $color-border
