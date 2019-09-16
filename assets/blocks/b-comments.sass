@@ -24,6 +24,17 @@
       content: 'expand_less'
       display: block
 
+  .comments-loaded
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      bottom: 0
+      right: 0
+      left: 3.5rem
+      height: 1px
+      background-color: $color-border
+
   .faye-loader
     @extend %shiki-plashka
 

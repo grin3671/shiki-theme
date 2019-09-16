@@ -1,5 +1,7 @@
 .b-dialog
   @extend %shiki-comment
+  padding: 0 16px
+  margin: 0 -16px
 
   // !important в исходном стиле
   .time
@@ -33,12 +35,12 @@
 
   // Сообщение-ответ
   .b-message
-    position: static
     margin: 0
-    padding: 0 !important
     overflow: visible
 
     .inner
+      position: static
+
       header
         img
           width: 24px
