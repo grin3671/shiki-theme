@@ -1,0 +1,18 @@
+.b-collection-topic
+  & > .inner
+    .see-more
+      border-color: $color-border
+      border-width: 2px
+      transition: .16s cubic-bezier(.4, 0, .6, 1)
+
+      &:hover,
+      &:hover .circle
+        border-color: $color-link-hover
+
+      &:active,
+      &:active .circle
+        border-color: $color-link-active
+
+      .text
+        position: absolute
+        top: 0
