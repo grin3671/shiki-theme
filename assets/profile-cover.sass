@@ -3,33 +3,18 @@
  */
 #profiles_show
   .l-page
-    @media (min-width: 960px)
-      margin-top: 132px
+    @media (min-width: 768px)
+      margin-top: 180px // мини фон-обложка
 
 
-.p-profiles
-  .profile-head
-    .c-brief
-      @media (min-width: 481px)
-        height: 104px
+.p-profiles .profile-head
+  @media (min-width: 768px) and (max-width: 959px)
+    padding-top: 16px // fix пространства для истории
 
-        .avatar
-          img
-            width: auto
-
-          .profile-actions
-            position: static
-
-      .avatar
-        align-self: flex-end
-        min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
-
-
-.p-profiles .profile-head[data-user-id = '#{$id}']
   // Обложка
   &::before
     content: ''
-    display: block
+    display: none
     height: 72px
     margin: 0 -16px
     background-repeat: no-repeat
@@ -49,19 +34,33 @@
 
     @media (min-width: 768px)
       height: 296px
+      margin-top: -228px
 
     @media (min-width: 960px)
       height: 408px
-      margin: -204px -24px 0
+      margin: -252px -24px 0
 
   .c-brief
     @media (min-width: 320px) and (max-width: 480px)
       background-color: $color-background-dialog
       box-shadow: 0 6px 8px -2px rgba(0, 0, 0, .24)
 
-    .avatar img
-      @media (min-width: 481px)
-        box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16)
+    @media (min-width: 768px)
+      height: 104px
+
+      .avatar
+        align-self: flex-end
+        min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
+
+        img
+          width: auto
+
+        .profile-actions
+          position: static
+
+  .c-history
+    @media (min-width: 768px) and (max-width: 959px)
+      top: -180px // fix истории для фона-обложки
 /* END of PROFILE COVER */
 
 /* Полупрозрачное меню в профиле */
