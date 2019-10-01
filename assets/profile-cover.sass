@@ -1,106 +1,66 @@
 /**
  * PROFILE COVER
  */
+#profiles_show
+  .l-page
+    @media (min-width: 768px)
+      margin-top: 180px // мини фон-обложка
+
+
 .p-profiles .profile-head
-  .c-brief
-    @media (min-width: 480px)
-      min-height: 16rem
-      margin-bottom: 1rem
+  @media (min-width: 768px) and (max-width: 959px)
+    padding-top: 16px // fix пространства для истории
 
-    @media (min-width: 600px)
-      min-height: 19rem
+  // Обложка
+  &::before
+    content: ''
+    display: none
+    height: 72px
+    margin: 0 -16px
+    background-repeat: no-repeat
+    background-size: cover
 
-    @media (min-width: 960px)
-      min-height: 0
+    @media (max-width: 319px)
+      display: none !important
 
-  .c-info
-    @media (min-width: 600px)
-      margin-left: 0
+    @media (min-width: 320px) and (max-width: 480px)
+      height: 16px
+      padding-bottom: 56.25%
+      margin-top: -128px
+
+    @media (min-width: 481px)
+      height: 268px
+      margin-top: -48px
 
     @media (min-width: 768px)
-      margin-left: 0
+      height: 296px
+      margin-top: -228px
 
     @media (min-width: 960px)
-      margin-left: 13.5rem
+      height: 408px
+      margin: -252px -24px 0
 
-  &[data-user-id = '#{$id}']
-    .c-brief
-      @media (min-width: 320px)
-        background-color: $color-background-dialog
-        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, .24)
+  .c-brief
+    @media (min-width: 320px) and (max-width: 480px)
+      background-color: $color-background-dialog
+      box-shadow: 0 6px 8px -2px rgba(0, 0, 0, .24)
 
-      @media (min-width: 600px)
-        max-height: 380px
-        padding-bottom: 112px
-        margin: -3rem -1rem 1rem
-        background-color: inherit
-        box-shadow: none
-
-      @media (min-width: 960px)
-        max-height: 520px
-        margin: -4.5rem -1.5rem 0
-
-      // Обложка
-      &::before
-        @media (min-width: 320px)
-          content: ''
-          display: block
-          height: 0
-          padding-bottom: 56.25%
-          background-repeat: no-repeat
-          background-size: cover
-
-        @media (min-width: 600px)
-          height: 268px
-          max-height: inherit
-          padding-bottom: 0
-
-        @media (min-width: 960px)
-          height: 408px
+    @media (min-width: 768px)
+      height: 104px
 
       .avatar
-        @media (min-width: 320px) and (max-width: 599px)
-          margin-top: -80px
-
-        @media (min-width: 600px)
-          position: absolute
-          top: auto
-          right: auto
-          bottom: 0
-          left: 0
-          max-width: 160px
-          margin: 1.5rem 1rem
-          z-index: 2
-
-        @media (min-width: 960px)
-          margin: 1.5rem 2rem
+        align-self: flex-end
+        min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
 
         img
-          @media (min-width: 600px)
-            box-shadow: 0 2px 8px 1px rgba(0, 0, 0, .16)
+          width: auto
 
-      header
-        @media (min-width: 960px)
-          padding: 1rem calc(23% + 4.5rem) 1rem .5rem
+        .profile-actions
+          position: static
 
-    .c-info
-      @media (min-width: 960px)
-        width: 77%
-        padding-right: 2.5rem
-        padding-left: 1rem
-        margin-left: -1rem
-
-    .c-history
-      @media (min-width: 960px)
-        float: none
-        position: absolute
-        right: 0
-        top: 520px
-        width: 23%
-        padding: .5rem 0
-        margin: 0
-        margin-top: -184px
-        z-index: 3
+  .c-history
+    @media (min-width: 768px) and (max-width: 959px)
+      top: -180px // fix истории для фона-обложки
 /* END of PROFILE COVER */
 
 /* Полупрозрачное меню в профиле */
@@ -108,7 +68,7 @@
   #profiles_show
     .l-top_menu-v2
       background-color: transparent
-      background-image: linear-gradient($color-header-background, transparent)
+      background-image: linear-gradient(rgba($color-header-background,.48), transparent)
       box-shadow: none
       z-index: 11
 

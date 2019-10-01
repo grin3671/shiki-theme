@@ -152,7 +152,13 @@
   .profile-head
     .c-brief
       header
+        flex-grow: 1
+        margin-bottom: 0 // overwrite shiki style
+        overflow: visible // overwrite shiki style
+        white-space: normal // overwrite shiki style
+
         h1
+          display: inline-block
           vertical-align: top
           font-size: 1.5em
           line-height: 1
@@ -174,14 +180,19 @@
 
         .misc
           vertical-align: top
-          padding: .5rem 1rem
+          padding: 8px 16px
           margin: 0
+          font-family: inherit
           font-size: .875rem
           line-height: 1.5rem
+
+          @media (max-width: 767px)
+            padding: 8px 0
 
         .notice
           font-size: .75em
           line-height: 1.25rem
+          margin-bottom: 0 // overwrite shiki style
 
           // Исправление тултипа в профиле
           & > span
@@ -214,7 +225,7 @@
                   left: 50%
                   margin: .25rem 0
 
-            @media (max-width: 599px)
+            @media (max-width: 480px)
               &:last-child
                 display: table
                 margin: auto
@@ -223,29 +234,22 @@
                 display: none
 
       .avatar
-        @media (min-width: 768px)
-          margin: .5rem 2rem 3rem 1rem
-
-        .profile-actions
-          margin-top: 1rem
-          margin-right: -.75rem
-          margin-left: -.75rem
-
         img
           display: block
           margin: auto
-          @media (min-width: 768px)
-            width: 160px
-            height: 160px
 
     // Информация
     .c-info
+      overflow: visible
       .c-lists-info
         .b-stats_bar
           overflow: visible
           margin-bottom: 0
           &::after
             clear: none
+
+          .bar
+            width: auto
 
       .c-additionals
         margin-top: 8px
@@ -418,11 +422,15 @@
   overflow: visible
 
   .compatibility
-    a
-      font-size: 0
+    a,
+    span.link-replacement
+      position: relative // for «.rate»
+      margin-top: 0 // overwrite shiki style
+      font-size: 0 // hide «similar users» in own profile
 
-      &:hover
-        text-decoration: none
+    // Ссылка в личном профиле: «Похожие пользователи»
+    a:hover
+        text-decoration: none // NOTE: overwrite shiki style
 
 .b-stats_bar
   .compatibility
@@ -545,3 +553,11 @@
       &::before,
       &::after
         display: none
+
+
+// График активности
+.p-profiles-show
+  .profile-content
+    .activity
+      .title
+        margin-bottom: 0 // overwrite shiki style
