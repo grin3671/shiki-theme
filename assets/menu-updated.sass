@@ -69,7 +69,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
   .menu-icon
     $badge-size: 22px
-    padding: 1em
+    padding: 1em !important // overwrite possible future morr's edits
     @extend %material-icons
     &::before
       color: $menu-icon
@@ -91,6 +91,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     &.contest::after
       content: attr(data-count)
+
+    &.trigger
+      width: auto
 
   .menu-dropdown
     & > span
@@ -238,10 +241,6 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
 
   // Иконки
-  .menu-icon
-    &.trigger
-      width: auto
-
   .icon-avatar
     img
       width: 20px
@@ -345,6 +344,10 @@ $search-background: mix($menu-text, $menu-background, 12%)
   .menu-icon.trigger::before,
   .icon-other::before
     content: 'menu'
+
+  .menu-icon.trigger::before
+    width: auto // overwrite shiki
+    background: none // facepalm
 
   .icon-anime_list::before,
   .icon-manga_list::before,

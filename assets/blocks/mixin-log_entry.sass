@@ -6,7 +6,6 @@ $word-spacing: .375em !default
 .b-user_rate_log
   position: relative
   padding: .5rem 0
-  padding-right: 2.5rem !important
   font-size: .875rem
   line-height: 1.5rem
 
@@ -39,11 +38,10 @@ $word-spacing: .375em !default
 
   // Icon instead plain text
   .spoiler.collapse
-    position: absolute
-    top: 0
-    right: 0
-    padding: .375rem
-    // margin: -.25rem 0 /* для position: relative */
+    position: relative
+    top: 6px
+    padding: 6px !important // overwrite .triggered changes
+    margin: -10px 0 -10px auto
     border-radius: $border-rounded
     color: $color-text-hint
     transition: .16s cubic-bezier(.4, 0, .6, 1)
@@ -56,11 +54,13 @@ $word-spacing: .375em !default
     @extend %material-icons
     &::before
       content: 'expand_more'
-      font-size: 1.25rem !important
+      font-size: 20px !important
       transition: inherit
 
-    &.triggered::before
-      transform: rotate(180deg)
+    &.triggered
+      margin: -10px 0 -10px auto
+      &::before
+        transform: rotate(180deg)
 
     @extend %md-tooltip
     @extend %md-tooltip-left
@@ -81,6 +81,12 @@ $word-spacing: .375em !default
   .spoiler.collapsed,
   .spoiler.collapse .action
     display: none !important
+
+  .state
+    & ~ .spoiler.collapse,
+    & ~ .spoiler.collapsed
+      @media (min-width: 768px)
+        margin-left: 0
 
 
 /* Модерация */
@@ -145,6 +151,11 @@ $word-spacing: .375em !default
       .label
         padding-right: $word-spacing
         color: $color-text-hint
+
+  .moderation
+    a
+      background: #222 !important
+      color: #fff !important
 
   & > .reason
     font-size: inherit
