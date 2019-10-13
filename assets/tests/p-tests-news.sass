@@ -1,0 +1,39 @@
+.p-tests-news
+  .generated-news
+
+  .generated-news-line
+    position: relative
+    min-height: 66px
+    padding: 8px 0
+    margin: 0
+
+    &:not(:last-child)::after
+      content: ''
+      position: absolute
+      right: 48px
+      bottom: 0
+      left: 0
+      height: 1px
+      background: $color-border
+
+    .poster
+      padding-left: 16px
+
+    .info
+      .name
+        margin-bottom: 4px
+        color: $color-text-primary
+        line-height: 1.5
+
+      .status-time
+        .kind
+          margin-right: 8px
+          color: $color-text-secondary
+          font-size: 12px
+
+        .b-anime_status_tag
+          margin: 0 8px 0 0
+
+        .time
+          color: $color-text-help
+          font-size: 12px
