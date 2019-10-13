@@ -1,5 +1,9 @@
 .p-tests-news
-  .generated-news
+  .b-topic
+    .b-status-line
+      .section.additional
+        padding-left: 1em
+        white-space: nowrap
 
   .generated-news-line
     position: relative
@@ -7,11 +11,11 @@
     padding: 8px 0
     margin: 0
 
-    &:not(:last-child)::after
+    &:not(:nth-child(2))::after
       content: ''
       position: absolute
       right: 48px
-      bottom: 0
+      top: 0
       left: 0
       height: 1px
       background: $color-border
@@ -37,3 +41,23 @@
         .time
           color: $color-text-hint
           font-size: 12px
+
+  .headline
+    .buttons
+      .options
+        @extend %md-icon
+        @extend %md-icon-hover
+        &::before
+          content: 'tune'
+
+// TODO: separate files
+.b-topic.b-news_wall-topic.b-news-topic
+  & > .inner
+    .name-date .name
+      color: $color-text-primary
+
+    footer .b-shiki_swiper
+      border-radius: $border-rounded
+
+  .b-anime_status_tag
+    background-color: rgba($color-background, .8)
