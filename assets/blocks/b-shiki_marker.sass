@@ -1,43 +1,43 @@
 // Many different markers
 body[data-locale] .b-abuse_marker
   @extend %shiki-marker
-  color: #ef5350
+  color: $color-danger
 
 body[data-locale] .b-broadcast_marker
   @extend %shiki-marker
-  color: #ef8d50
+  color: $color-warning
 
 body[data-locale] .b-offtopic_marker
   @extend %shiki-marker
-  color: #f58ebb
+  color: $color-offtop
 
   &.active:hover
     color: $color-text-disabled
 
   &.off:hover
-    color: #f58ebb
+    color: $color-offtop
 
 body[data-locale] .b-summary_marker
   @extend %shiki-marker
-  color: #66bb6a
+  color: $color-success
 
   &.active:hover
     color: $color-text-disabled
 
   &.off:hover
-    color: #66bb6a
+    color: $color-success
 
 body[data-locale] .b-spoiler_marker
   @extend %shiki-marker
-  color: #ef8d50
+  color: $color-warning
 
 body[data-locale] .b-new_marker
   @extend %shiki-marker
   display: none
-  color: #4f91e8
+  color: $color-info
 
   &.active:hover
     color: $color-text-disabled
 
   &.off:hover
-    color: #4f91e8
+    color: $color-info

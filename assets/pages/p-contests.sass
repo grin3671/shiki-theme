@@ -103,12 +103,12 @@
 .p-contests .match-day .match-link.voted-left .started:first-child::before,
 .p-contests .match-day .match-link.voted-right .started:last-child::before,
 .p-contests .match-day .match-link .winner::before
-  color: #66BB6A /* Зеленый цвет */
+  color: $color-success /* Зеленый цвет */
 
 .p-contests .match-day .match-link.voted-left .started:last-child::before,
 .p-contests .match-day .match-link.voted-right .started:first-child::before,
 .p-contests .match-day .match-link .loser::before
-  color: #EF5350 /* Красный цвет */
+  color: $color-danger /* Красный цвет */
 
 .p-contests .match-day .matches-num
   display: inline-block
@@ -238,13 +238,13 @@
     line-height: 20px
 
   .p-contests .match-day .draw .matches-num
-    background-color: #4f91e8
+    background-color: $color-info
 
   .p-contests .match-day .loser .matches-num
-    background-color: #ef5350
+    background-color: $color-danger
 
   .p-contests .match-day .winner .matches-num
-    background-color: #66bb6a
+    background-color: $color-success
 
 
 .p-contests .contest-match .vs .refrain,

@@ -21,7 +21,7 @@
 
 .line:nth-child(even) > .bar-container > .bar,
 .line:nth-child(even) > .bar-container > .bar:hover
-  background-color: mix($color-primary, $color-background, 72%) /* thx NedStar */
+  background-color: $color-primary-reduced /* thx NedStar */
 
 /* Столбики активности */
 .bar.vertical
@@ -342,7 +342,7 @@
         .first
           background: $color-primary
         .second
-          background: mix($color-primary, $color-background, 72%)
+          background: $color-primary-reduced
 
     // Список манги
     &.manga
@@ -353,11 +353,11 @@
 
         &:hover,
         &:focus
-          background: rgba($color-accent, .12)
+          background: $color-overlay-accent-hovered
           color: $color-accent
 
         &:active
-          background: rgba($color-accent, .24)
+          background: $color-overlay-accent-pressed
           color: $color-accent
 
       .bar
@@ -366,7 +366,7 @@
         .first
           background: $color-accent
         .second
-          background: mix($color-accent, $color-background, 72%)
+          background: $color-accent-reduced
 
     // Время за аниме и мангой
     &.lifetime
@@ -407,6 +407,10 @@
               color: $color-primary
               opacity: .72
 
+  .cc-favourites
+    .c-column
+      &:nth-child(n+9)
+        margin-top: .5em
 
 
 
