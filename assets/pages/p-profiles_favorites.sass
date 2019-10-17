@@ -1,0 +1,29 @@
+.p-profiles-favorites
+  .item-back
+    @extend %md-icon
+    @extend %md-icon-hover
+    &::before
+      content: 'done'
+
+  .cc-favourites.sortable
+    .b-catalog_entry
+      @extend %material-icons
+      &::before
+        content: 'reorder'
+        top: .25em
+        right: .25em
+        padding: 4px
+        background: $color-background-translucent
+        color: $color-text-hint
+        box-shadow: none
+
+      @media (min-width: 1025px)
+        &:hover::before
+          color: $color-text-primary
+
+      &:active::before
+        color: $color-text-primary
+    
+    &.draggable .b-catalog_entry
+      &:before
+        color: $color-text-hint !important
