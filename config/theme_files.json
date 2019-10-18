@@ -555,11 +555,6 @@
     "description": "Фирменные табы с --ripple и --vertical."
   },
   {
-    "url": "tests/p-tests-news.sass",
-    "checked": false,
-    "description": "Черновик новостной страницы."
-  },
-  {
     "url": "user-settings.sass",
     "checked": true
   }
