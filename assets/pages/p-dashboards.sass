@@ -2,64 +2,58 @@
  * Dashboard Layout
  * Изменение положения блоков на главной странице
  */
-.p-dashboards-show .v1 .cc-second
-  .cc-inner
-    display: none
-
-  & > .c-forum
-    @media (min-width: 480px) and (max-width: 767px)
-      width: 100%
-
-      .b-forums,
-      .contests
-        float: left
-        width: 48%
-
-      .b-forums
-        margin-right: 4%
-
-  @media (min-width: 768px)
-    float: right
-    width: 30.33333%
-    margin-bottom: 0
-
-    & > .cc-inner
-      display: block
-      float: none
-      width: 100%
-      margin: 0
-
-      & > .c-content,
-      & > .c-my_list
-        float: none
-        width: 100%
-        padding: 0
-
-    & > .c-forum
-      float: none
-      width: 100%
-
-      & > .b-forums,
-      & > .block:last-child
-        margin-bottom: 1.5rem
-
+.p-dashboards-show
+  .cc-second
     .cc-inner
       display: none
 
-  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
-    width: 37%
+    & > .c-forum
+      @media (min-width: 480px) and (max-width: 767px)
+        width: 100%
 
-  @media (max-width: 767px)
-    margin-bottom: .5rem
-/* END of Dashboard Layout */
+        .b-forums,
+        .contests
+          float: left
+          width: 48%
+
+        .b-forums
+          margin-right: 4%
+
+    @media (min-width: 768px)
+      float: right
+      width: 30.33333%
+      margin-bottom: 0
+
+      & > .cc-inner
+        display: block
+        float: none
+        width: 100%
+        margin: 0
+
+        & > .c-content,
+        & > .c-my_list
+          float: none
+          width: 100%
+          padding: 0
+
+      & > .c-forum
+        float: none
+        width: 100%
+
+        & > .b-forums,
+        & > .block:last-child
+          margin-bottom: 1.5rem
+
+      .cc-inner
+        display: none
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
+      width: 37%
+
+    @media (max-width: 767px)
+      margin-bottom: .5rem
 
 
-
-/**
- * INDEX
- * Изменения главной страницы.
- */
-.p-dashboards-show .v1
   .c-my_list
     padding: 0
     background: initial
@@ -72,51 +66,46 @@
         float: right
 
 
+  // Изменение новостей на главной
+  .cc-news
+    .c-news_topics
+      line-height: inherit
 
-/* Изменение новостей на главной */
-.p-dashboards-show .v1 .cc-news
-  .c-news_topics
-    line-height: inherit
+      .b-topic
+        margin-bottom: 0
+        border-top-width: 0
 
-    .b-topic
-      margin-bottom: 0
-      border-top-width: 0
+        & > .inner
+          padding: 8px 0 24px
 
-      & > .inner
-        padding: 8px 0 24px
+          header
+            .name-date
+              padding-right: 0
 
-        header
-          .name-date
-            padding-right: 0
+        &:first-child > .inner
+          padding-top: 0
 
-      &:first-child > .inner
-        padding-top: 0
+        .name-date a
+          padding: 0 0 .25rem
+          font-size: 22px !important
+          font-weight: 400 !important
+          line-height: 1.5
+          white-space: normal
 
-      .name-date a
-        padding: 0 0 .25rem
-        font-size: 22px !important
-        font-weight: 400 !important
-        line-height: 1.5
-        white-space: normal
+        .b-anime_status_tag
+          display: none
 
-      .b-anime_status_tag
-        display: none
+    .c-generated_news
+      line-height: inherit
 
-  .c-generated_news
-    line-height: inherit
+      .b-topic
+        border-color: $color-border
 
-    .b-topic
-      border-color: $color-border
-
-      .name-date a
-        font-size: 16px !important
-
+        .name-date a
+          font-size: 16px !important
 
 
-
-/* Change Forum Button */
-/* NOTE: Цвета настраиваются в общем блоке ЦВЕТА */
-.p-dashboards-show .v1
+  // Change Forum Button
   .b-forums > .b-link_button.maxi
     position: relative
     margin-bottom: 0
@@ -146,8 +135,7 @@
       content: 'Forum'
 
 
-/* Ссылки на текущие турниры */
-.p-dashboards-show .v1
+  // Ссылки на текущие турниры
   .contests .contest
     margin: 0 -.5rem
 
