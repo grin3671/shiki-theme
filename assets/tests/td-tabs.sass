@@ -3,7 +3,7 @@
  */
 $break_vertical: 960px
 
-.b-tabs
+.u-tabs
   // Контейнер
   &.--vertical
     @media (min-width: $break_vertical)
@@ -12,7 +12,7 @@ $break_vertical: 960px
       border-radius: $border-rounded
 
       // Список переключателей
-      .b-tabs_list
+      & > div:not([data-tab])
         flex-direction: column
         flex-shrink: 0
         width: 200px
@@ -20,7 +20,7 @@ $break_vertical: 960px
         border-right: 1px solid $color-border
 
       // Переключатель
-      .b-tabs_switch
+      [data-tab-switch]
         padding: 8px 16px
         margin: 0
         border: 0
@@ -28,19 +28,19 @@ $break_vertical: 960px
         text-align: left
 
       // Содержимое вкладки
-      .b-tabs_panel
+      [data-tab]
         flex-grow: 1
         padding: 18px 24px
 
   // Список переключателей
-  .b-tabs_list
+  & > div:not([data-tab])
     display: flex
     flex-direction: row
     flex-wrap: nowrap
     overflow-y: auto
 
   // Переключатель
-  .b-tabs_switch
+  [data-tab-switch]
     display: block
     flex-shrink: 0
     min-width: 148px
@@ -70,12 +70,12 @@ $break_vertical: 960px
       cursor: default
 
   // Содержимое вкладки
-  .b-tabs_panel
+  [data-tab]
     padding: 12px 8px
 
   // Анимация переключения
   &.--ripple
-    .b-tabs_switch
+    [data-tab-switch]
       position: relative
       overflow: hidden
       -webkit-tap-highlight-color: rgba(0,0,0,0)

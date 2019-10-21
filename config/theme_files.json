@@ -20,12 +20,12 @@
   {
     "url": "font-arial.sass",
     "cat": "font",
-    "checked": true
+    "checked": false
   },
   {
     "url": "font-roboto.sass",
     "cat": "font",
-    "checked": false
+    "checked": true
   },
   {
     "url": "font-roboto_condensed.sass",
