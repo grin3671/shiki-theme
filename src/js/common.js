@@ -705,7 +705,7 @@ var vm = new Vue({
 
 
     // Подготовка сборщика
-    Sass.setWorkerUrl('./vendor/sass.js/sass.worker.min.js');
+    Sass.setWorkerUrl('./vendor/sass.js/sass.worker.js');
 
 
     // Загрузка списка цветовых схем
