@@ -27,6 +27,12 @@
   font-size: inherit
   font-weight: 700
 
+  // Кнопка "Отмена" в редактировании аниме в своём списке
+  & > div,
+  // buttons (25px for <1024px & 15px for >1025px)
+  & a:not(.b-button)
+    line-height: 1.5rem !important
+
 
   .editor-controls
     overflow-x: auto

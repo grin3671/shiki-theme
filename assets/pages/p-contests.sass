@@ -419,3 +419,20 @@
     @media (max-width: 480px)
       display: block
       padding: 0
+
+
+.b-contests-menu .results
+  @extend %md-button-raised
+  display: block
+  float: none
+  margin: .5rem 0
+  border-radius: 2px
+  font-size: 0
+
+  &:hover
+    text-decoration: none
+
+  &::after
+    content: attr(title)
+    vertical-align: top
+    font-size: .875rem

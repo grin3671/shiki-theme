@@ -1,0 +1,119 @@
+// Ачивки
+.p-achievements-index
+  .cc-achievements
+    display: flex
+    flex-wrap: wrap
+    align-items: stretch
+    align-content: stretch
+
+  @media (min-width: 768px)
+    .cc-achievements .b-achievement:nth-child(n)
+      width: calc(25% - (16px * 3 / 4))
+      margin-right: 16px
+      margin-bottom: 16px
+
+    .cc-achievements .b-achievement:nth-child(4n+4)
+      margin-right: 0
+
+    .cc-franchises-genres .c-genres .b-achievement:nth-child(n)
+      margin-right: 16px
+      margin-bottom: 16px
+
+    .cc-franchises-genres .c-genres .b-achievement:nth-child(4n+4)
+      margin-right: 0
+
+    .cc-franchises-genres .c-genres,
+    .cc-franchises-genres .c-franchises
+      width: 100%
+
+  .tipsy
+    display: none !important
+
+  .c-franchises
+    .b-badge
+      position: relative
+      background: rgba(0,0,0, .4)
+      border-radius: 3px
+      overflow: hidden
+      transition: .24s ease
+
+      .no-image,
+      img
+        border-radius: inherit
+        transition: .24s ease
+
+      &::after,
+      &::before
+        display: block
+        position: absolute
+        top: auto
+        right: 0
+        bottom: 0
+        left: 0
+        width: auto
+        height: auto
+        padding: 12px 12px 6px
+        border-radius: 0 0 3px 3px
+        color: #fff
+        font-size: 14px
+        font-weight: bold
+        line-height: 20px
+        text-shadow: 0 0 1px black, 0 1px 5px rgba(0,0,0,.32)
+        backface-visibility: hidden
+        transition: .24s ease
+        opacity: 1
+        z-index: 1
+
+      &:hover::after,
+      &:hover::before
+        transform: translate3d(0, 100%, 0)
+
+      &[original-title]::before
+        content: attr(original-title)
+
+      &[title]::before
+        content: attr(title)
+
+      &::before
+        padding-right: 48px
+        background: linear-gradient(transparent, rgba(0,0,0,.32))
+        text-align: left
+
+      &::after
+        content: attr(data-progress) '%'
+        background: none
+        text-align: right
+
+      &.level-0.unavailable:not(:hover) .no-image
+        opacity: .2
+
+      &.level-0:not(:hover) .no-image,
+      &.unavailable:not(:hover) .no-image,
+        opacity: .5
+
+  // всплывашка
+  .b-list_switchers
+    .switcher
+      @extend %md-tooltip
+      @extend %md-tooltip-top
+
+      &[title]::after
+        content: attr(title)
+        width: auto
+
+      &[original-title]::after
+        content: attr(original-title)
+        width: auto
+
+  .cc-franchises-genres
+    // Фикс вылезающих за пределы страницы тултипов
+    @media (max-width: 767px)
+      .c-franchises
+        padding: 0 16px
+        margin: 0 -16px
+        overflow: hidden
+
+
+// TODO: replace
+.b-badge .no-image
+  border-radius: inherit

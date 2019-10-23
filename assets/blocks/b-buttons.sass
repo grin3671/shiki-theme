@@ -1,0 +1,18 @@
+.b-button
+  @extend %md-button-flat
+
+a.b-button
+  color: $color-primary
+
+  @media (min-width: 1025px)
+    &:hover
+      color: $color-primary
+
+  &:active
+    color: $color-primary
+
+
+  & + .b-js-link,
+  // Кнопка отмена (Клуб > Настройки > Страницы)
+  & + .cancel
+    @extend %md-button-flat

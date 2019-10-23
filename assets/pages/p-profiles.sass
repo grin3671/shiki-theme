@@ -565,3 +565,163 @@
     .activity
       .title
         margin-bottom: 0 // overwrite shiki style
+
+
+// PROFILE HEAD
+.p-profiles .profile-head
+  position: relative
+
+  // До тех пор пока используется аватарка по центру и история
+  @media (min-width: 320px) and (max-width: 480px)
+    padding-top: 48px + 80px
+
+  // До тех пор пока используется аватарка по центру
+  @media (min-width: 481px) and (max-width: 959px)
+    padding-top: 48px
+
+  // До тех пор пока используется полоска истории
+  @media (max-width: 959px)
+    margin-top: -16px
+
+  .c-brief
+    position: relative
+    text-align: center
+
+    // Приподняятая область на всю ширину экрана
+    @media (min-width: 320px) and (max-width: 480px)
+      padding: 12px 16px
+      margin: 0 -16px 1em
+
+    // Убираем отрицательные отступы
+    @media (min-width: 481px)
+      display: flex
+      padding: 12px 0
+      text-align: left
+
+    .avatar
+      flex-shrink: 0
+      position: static
+      max-width: 80px
+      // min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
+      margin: 0
+      margin-right: 24px
+      text-align: center
+
+      @media (max-width: 480px)
+        float: none
+        position: relative
+        max-width: 100%
+        min-height: 72px
+        margin: 0 0 12px
+
+      img
+        vertical-align: top // фикс отступа
+
+        @media (min-width: 320px) and (max-width: 480px)
+          width: 36%
+          max-width: 160px
+          transform: translateY(calc(-50% - 12px))
+          margin-bottom: -18%
+
+      .profile-actions
+        display: block
+        margin-top: 8px
+
+        @media (min-width: 320px) and (max-width: 480px)
+          position: absolute
+          top: 0
+          width: 100%
+          margin: 0
+          text-align: left
+
+          a:first-child,
+          .fav-add,
+          .fav-remove
+            float: right
+
+          a:first-child
+            margin-right: 0 !important
+
+        @media (min-width: 481px)
+          position: absolute
+          top: 0
+          right: 0
+
+  .c-mobile-actions
+    display: none
+
+  .c-history
+    margin-bottom: 3rem
+
+    &.x3
+      margin-bottom: 2rem
+
+    // Полоска истории поверх обложки
+    @media (max-width: 959px)
+      display: block
+      float: none
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      width: auto
+      padding: 0 1rem
+      margin: 0 -1rem
+      background-color: rgba(0, 0, 0, .48)
+      white-space: nowrap
+      overflow-x: auto
+      z-index: 1
+
+      .subheadline
+        display: inline-block
+        vertical-align: top
+
+        a
+          color: #eee !important
+
+          &::before
+            display: none
+
+      .b-block_list
+        display: inline-block
+        vertical-align: top
+        padding: .5rem
+        margin-left: .5rem
+
+      .entry
+        display: inline-block !important
+        vertical-align: top
+        min-width: 112px
+        height: 2rem
+        padding-right: .5rem
+        padding-left: .5rem
+        margin-left: .5rem
+        border-radius: 1rem
+        overflow: hidden
+
+        .image-name
+          float: left
+          width: 32px
+          height: 32px
+          margin: -8px 8px -8px -8px
+          border-radius: 50%
+          font-size: 0
+          line-height: 0
+          overflow: hidden
+
+        &::before,
+        span.misc
+          display: none
+
+    // Без обложки
+    @media (max-width: 319px)
+      position: relative
+      width: calc(100% + 32px)
+      margin-bottom: 1em
+
+    @media (min-width: 960px)
+      display: block
+      position: relative
+      margin-top: 8px
+      margin-left: 56px
+      z-index: 1

@@ -77,9 +77,13 @@
     "checked": true
   },
   {
-    "url": "menu-updated.sass",
+    "url": "layouts/l-menu.sass",
     "checked": true,
-    "description": "Стили для обновлённого верхнего меню."
+    "description": "Обновлённое верхнего меню."
+  },
+  {
+    "url": "layouts/l-sidebar.sass",
+    "checked": true
   },
   {
     "url": "blocks/lib-buttons.sass",
@@ -147,6 +151,10 @@
   },
   {
     "url": "blocks/b-breadcrumbs.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-buttons.sass",
     "checked": true
   },
   {
@@ -372,6 +380,10 @@
     "checked": true
   },
   {
+    "url": "pages/p-achievements.sass",
+    "checked": true
+  },
+  {
     "url": "pages/p-animes.sass",
     "checked": true
   },
@@ -440,34 +452,12 @@
     "checked": true
   },
   {
-    "url": "b-buttons.sass",
-    "checked": true
-  },
-  {
-    "url": "rightbar.sass",
-    "checked": true
-  },
-  {
-    "url": "users-list.sass",
-    "checked": true
-  },
-  {
-    "url": "profile-head.sass",
+    "url": "pages/p-users.sass",
     "checked": true
   },
   {
     "url": "profile-content.sass",
     "checked": true
-  },
-  {
-    "url": "tests/profile-content-new.sass",
-    "checked": false,
-    "description": "Отображение времени за аниме и мангой."
-  },
-  {
-    "url": "tests/profile-achievements.sass",
-    "checked": false,
-    "description": "Маленький блок достижений."
   },
   {
     "url": "profile-history_animation.sass",
@@ -486,8 +476,14 @@
     "title": "Круглые аватарки"
   },
   {
-    "url": "achievements.sass",
-    "checked": true
+    "url": "tests/profile-content-new.sass",
+    "checked": false,
+    "description": "Отображение времени за аниме и мангой."
+  },
+  {
+    "url": "tests/profile-achievements.sass",
+    "checked": false,
+    "description": "Маленький блок достижений."
   },
   {
     "url": "tests/b-achievements.sass",

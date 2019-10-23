@@ -6,3 +6,18 @@
     // content: ''
     display: block
     // clear: both
+
+  input[type=submit]
+    @extend %md-button-raised
+
+    &[disabled],
+    &.disabled
+      background-color: $color-button-hover
+      box-shadow: none
+      color: $color-text-disabled !important
+
+  .cancel
+    @extend %md-button-flat
+
+    &:hover
+      text-decoration: none

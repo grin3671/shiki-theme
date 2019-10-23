@@ -1,4 +1,3 @@
-
 .b-shiki_editor
   aside.markers
     position: relative
@@ -108,6 +107,23 @@
     .unpreview,
     .preview
       margin: .375rem .5rem .375rem 0
+
+    // .b-shiki_editor footer .unpreview
+    // .b-shiki_editor.previewed footer .unpreview
+    .unpreview:not(.link)
+      @extend %md-button-flat
+      font-size: 0
+
+      &::after
+        content: 'Редактировать'
+        vertical-align: top
+        font-size: .875rem
+
+      [data-locale=en] &::after
+        content: 'Edit'
+
+    .cancel
+      @extend %md-button-flat
 
     .about-bb_codes
       position: relative
