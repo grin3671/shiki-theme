@@ -18,6 +18,18 @@
     "description": "ВАЖНО! Выключите этот файл, если хотите сами настраивать цвета схемы."
   },
   {
+    "url": "css-variables.sass",
+    "checked": true
+  },
+  {
+    "url": "main.sass",
+    "checked": true
+  },
+  {
+    "url": "color.sass",
+    "checked": true
+  },
+  {
     "url": "font-arial.sass",
     "cat": "font",
     "checked": false
@@ -31,18 +43,6 @@
     "url": "font-roboto_condensed.sass",
     "cat": "font",
     "checked": false
-  },
-  {
-    "url": "css-variables.sass",
-    "checked": true
-  },
-  {
-    "url": "main.sass",
-    "checked": true
-  },
-  {
-    "url": "color.sass",
-    "checked": true
   },
   {
     "url": "modules/material-icons.sass",
