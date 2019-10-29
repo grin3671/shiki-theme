@@ -11,7 +11,7 @@
     content: 'more_vert'
 
   &.selected
-    color: $color-text-secondary
+    color: var(--color-text-secondary)
 
   &.selected::before
     content: 'clear'
@@ -41,7 +41,7 @@
       @extend %md-icon
       @extend %md-icon-hover
       &.selected
-        color: $color-accent !important
+        color: var(--color-accent) !important
 
   // Иконки управления shiki-entry
   .item-save
@@ -109,14 +109,14 @@
     &::before
       content: 'speaker_notes_off'
     &.selected
-      color: $color-danger
+      color: var(--color-danger)
 
   .item-summary
     @extend %material-icons-18
     &::before
       content: 'local_offer'
     &.selected
-      color: $color-success
+      color: var(--color-success)
 
   .item-spoiler
     @extend %material-icons-18
@@ -200,7 +200,7 @@
   padding: 11px 16px
   margin-right: auto !important
   margin-left: auto !important
-  color: $color-text-hint !important
+  color: var(--color-text-hint) !important
   line-height: 18px !important
   transition: .16s cubic-bezier(.4, 0, .6, 1)
 
@@ -213,8 +213,8 @@
     line-height: 18px !important
 
   &:hover
-    background-color: $color-button-hover
-    color: $color-text-secondary !important
+    background-color: var(--color-overlay-text-hovered)
+    color: var(--color-text-secondary) !important
 
   &::before
     display: inline-block

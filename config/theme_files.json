@@ -33,6 +33,10 @@
     "checked": false
   },
   {
+    "url": "css-variables.sass",
+    "checked": true
+  },
+  {
     "url": "main.sass",
     "checked": true
   },
@@ -79,11 +83,12 @@
   {
     "url": "layouts/l-menu.sass",
     "checked": true,
-    "description": "Обновлённое верхнего меню."
+    "description": "Обновлённое верхнее меню."
   },
   {
     "url": "layouts/l-sidebar.sass",
-    "checked": true
+    "checked": true,
+    "description": "Боковое меню."
   },
   {
     "url": "blocks/lib-buttons.sass",
@@ -453,10 +458,6 @@
   },
   {
     "url": "pages/p-users.sass",
-    "checked": true
-  },
-  {
-    "url": "profile-content.sass",
     "checked": true
   },
   {

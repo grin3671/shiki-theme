@@ -16,12 +16,15 @@
   @extend %material-icons
 
 %md-icon-hover
-  color: $color-text-hint !important
+  color: var(--color-text-hint) !important
 
   &:hover
-    background-color: $color-button-hover
-    color: $color-text-secondary !important
+    background-color: var(--color-overlay-text-hovered)
+    color: var(--color-text-secondary) !important
     text-decoration: none
+
+  &:active
+    background-color: var(--color-overlay-text-pressed)
 
 %md-icon-small
   width: 32px

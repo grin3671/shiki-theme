@@ -1,19 +1,19 @@
 .b-dropzone
   padding: .5rem 1rem 3rem
-  background-color: $color-area-normal
-  border: 1px dashed $color-border
-  border-radius: .125rem
+  background-color: var(--color-surface)
+  border: 1px dashed var(--color-border)
+  border-radius: var(--border-rounded)
 
   &:hover
-    border-color: $color-primary
+    border-color: var(--color-primary)
 
     &::before,
     input[type=file]
-      color: $color-text-secondary
+      color: var(--color-text-secondary)
 
   &::before
     margin: .5rem 0
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
     font-size: 14px
 
   .thank-you
@@ -21,4 +21,4 @@
 
   input[type=file]
     bottom: 1rem
-    color: $color-text-disabled
+    color: var(--color-text-disabled)

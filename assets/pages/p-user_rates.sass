@@ -3,28 +3,28 @@
   .b-options-floated
     span
       &::before, &::after
-        color: $color-text-disabled
+        color: var(--color-text-disabled)
 
   .order-control
-    color: $color-text-primary
+    color: var(--color-text-primary)
 
   .order-control:hover
-    background-color: $color-area-normal
-    color: $color-text-primary
+    background-color: var(--color-overlay-text-hovered)
+    color: var(--color-text-primary)
 
   .order-control:active
-    color: $color-link-active
+    color: var(--color-link-active)
 
 
 
 .p-user_rates-index .stat-categories
   .category
     height: 20px
-    color: $color-link
+    color: var(--color-link)
     &:hover, &.active
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active, &.active:hover
-      color: $color-link-active
+      color: var(--color-link-active)
 
 
 
@@ -34,37 +34,37 @@
     line-height: 2rem
 
   .selectable:hover
-    background-color: $color-area-normal
+    background-color: var(--color-overlay-text-hovered)
 
   tr
     td
       .anime-remove
         &:hover, &.selected
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
       .anime-status
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
       .rate-text
-        color: $color-text-secondary
+        color: var(--color-text-secondary)
         font-size: .875rem
         line-height: 1.25rem
 
       .episodes_total
-        color: $color-text-secondary
+        color: var(--color-text-secondary)
 
       .new-value
         input
           height: 1.5rem
-          background: $color-background-secondary
-          border-color: $color-border
+          background: var(--color-surface)
+          border-color: var(--color-border)
           border-radius: 2px
-          color: $color-text-primary !important
+          color: var(--color-text-primary) !important
           font-size: 1rem
           line-height: 1.5rem
 
@@ -72,8 +72,8 @@
       form
         padding: 1rem
         margin: .5rem 0
-        background: $color-area-normal
-        border: 1px solid $color-border
+        background: var(--color-surface)
+        border: 1px solid var(--color-border)
         border-radius: 2px
 
       .b-input
@@ -103,15 +103,15 @@
     .index
       width: 2em
       padding-right: .5em
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
     .name
       a
-        color: $color-link
+        color: var(--color-link)
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
 
 
@@ -143,8 +143,8 @@
       &:last-child
         margin-right: .25rem !important
       &:hover
-        background-color: $color-primary
-        color: $color-text-on-primary !important
+        background-color: var(--color-primary)
+        color: var(--color-text-on-primary) !important
       &::before
         content: 'edit'
         position: static
@@ -168,8 +168,8 @@
   .summary
     &.posters
       padding: .5em 1em
-      background: $color-background-secondary
-      border-color: $color-border
+      background: var(--color-surface)
+      border-color: var(--color-border)
       border-radius: 2px
 
     &.lines
@@ -180,7 +180,7 @@
       &.library
         padding: 8px
         margin-top: 2em
-        border-color: $color-border
+        border-color: var(--color-border)
 
       &.list
         margin: 1em 0 2em
@@ -188,4 +188,4 @@
     .stat-value
       &::after
         padding: 0 3px
-        color: $color-text-disabled
+        color: var(--color-text-disabled)

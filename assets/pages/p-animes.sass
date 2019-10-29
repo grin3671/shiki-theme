@@ -2,15 +2,15 @@
 .p-mangas-show,
 .p-ranobe-show
   .other-names
-    background-color: $color-area-normal
-    border-color: $color-area-hover
+    background-color: var(--color-surface)
+    border-color: var(--color-border)
     color: inherit !important
     &:hover
-      background-color: $color-area-hover
-      border-color: $color-area-active
+      background-color: var(--color-surface-hover)
+      border-color: var(--color-border)
     &:active
-      background-color: $color-area-active
-      border-color: $color-border
+      background-color: var(--color-surface-active)
+      border-color: var(--color-border)
 
   @media (min-width: 768px)
     // Исправление разделителей и внутренних отступов в Связанном (без Авторов)
@@ -52,7 +52,7 @@
       line-height: 1.5rem
 
       .time
-        color: $color-text-hint
+        color: var(--color-text-hint)
         font-size: .75rem
 
     .history-entry-tooltip
@@ -67,7 +67,7 @@
     a, .linkeable
       display: block
       margin-left: 2rem
-      color: $color-text-primary !important
+      color: var(--color-text-primary) !important
 
       &:hover
         text-decoration: underline

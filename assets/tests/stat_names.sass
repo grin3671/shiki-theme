@@ -28,7 +28,7 @@
       width: .5rem
       height: .5rem
       margin: .75rem .5rem .75rem 0
-      background: $color-border
+      background: var(--color-border)
       border-radius: 50%
 
     .anime &
@@ -36,27 +36,27 @@
       &[data-type='watching,rewatching'],
       &[data-type='on_hold']
         & > a::before
-          background-color: $color-primary-reduced
+          background-color: var(--color-primary-reduced)
 
       &[data-type='completed']
         & > a::before
-          background-color: $color-primary
+          background-color: var(--color-primary)
 
     .manga &
       &[data-type='planned'],
       &[data-type='watching,rewatching'],
       &[data-type='on_hold']
         & > a::before
-          background-color: $color-accent-reduced
+          background-color: var(--color-accent-reduced)
 
       &[data-type='completed']
         & > a::before
-          background-color: $color-accent
+          background-color: var(--color-accent)
 
     .b-stats_bar &
       .size::before
         content: '–'
-        color: $color-text-hint
+        color: var(--color-text-hint)
         padding-right: 3px
 
       .size::after

@@ -39,15 +39,15 @@
       height: 36px
       padding: 0 .75rem
       margin: 0
-      background: $color-background
-      border: 2px solid $color-primary
+      background: var(--color-background)
+      border: 2px solid var(--color-primary)
       border-right-width: 0
       border-radius: 4px 0 0 4px
-      color: $color-text-primary
+      color: var(--color-text-primary)
       line-height: 32px
 
       &:focus
-        border-color: $color-primary
+        border-color: var(--color-primary)
 
     .b-button.ok
       @extend %md-button-raised
@@ -67,7 +67,7 @@
       textarea
         padding: .5rem 1rem
         margin: 0
-        background: $color-background-secondary
+        background: var(--color-surface)
         border-radius: 2px
         font-size: 1rem
         line-height: 1.25rem
@@ -130,7 +130,7 @@
       padding: .5rem
       margin: .25rem 0 .25rem auto
       border-radius: 3px
-      color: $color-text-hint
+      color: var(--color-text-hint)
       font-size: 0
       line-height: inherit
       transition: .16s cubic-bezier(.4,0,.6,1)
@@ -138,10 +138,10 @@
 
       &:hover
         text-decoration: none
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
       &:active
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
       @extend %material-icons
       &::before
@@ -168,10 +168,10 @@
         text-transform: uppercase
 
         &:hover
-          background: $color-overlay-text-hovered
+          background: var(--color-overlay-text-hovered)
 
         &:active
-          background: $color-overlay-text-pressed
+          background: var(--color-overlay-text-pressed)
 
         &::before
           display: none

@@ -3,8 +3,8 @@
   @extend %md-button
   display: block
   margin: 0 0 .5em
-  background-color: $color-area-normal
-  color: $color-text-primary
+  background-color: var(--color-surface)
+  color: var(--color-text-primary)
   font-size: 15px !important
   text-transform: none
 
@@ -12,10 +12,10 @@
     margin-bottom: 0
 
   &:hover
-    background-color: $color-area-hover
+    background-color: var(--color-surface-hover)
 
   &:active
-    background-color: $color-area-active
+    background-color: var(--color-surface-active)
 
   &.maxi
     padding: 0
@@ -29,8 +29,8 @@
     text-transform: none
 
     &:disabled
-      background-color: mix($color-background, $color-text-disabled)
-      color: $color-text-disabled
+      background-color: var(--color-text-disabled)
+      color: var(--color-text-hint)
 
   &.join-club,
   &.watch-online,

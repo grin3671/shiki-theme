@@ -6,7 +6,7 @@
   margin: .375rem .5rem .375rem 0
   background: transparent
   border: 0
-  border-radius: $border-rounded
+  border-radius: var(--border-rounded)
   font-size: .875rem
   font-weight: bold
   line-height: 1.5rem
@@ -25,27 +25,27 @@
 
 %md-button-flat
   @extend %md-button
-  color: $color-primary
+  color: var(--color-primary)
 
   &:hover,
   &:focus
-    background: $color-overlay-primary-hovered
-    color: $color-primary
+    background: var(--color-overlay-primary-hovered)
+    color: var(--color-primary)
 
   &:active
-    background: $color-overlay-primary-pressed
-    color: $color-primary
+    background: var(--color-overlay-primary-pressed)
+    color: var(--color-primary)
 
 %md-button-raised
   @extend %md-button
-  background: $color-primary
-  color: $color-text-on-primary
+  background: var(--color-primary)
+  color: var(--color-text-on-primary)
 
   &:hover,
   &:focus
-    background: mix(#fff, $color-primary, 12%)
-    color: $color-text-on-primary
+    background: var(--color-primary-hovered)
+    color: var(--color-text-on-primary)
 
   &:active
-    background: mix(#000, $color-primary, 12%)
-    color: $color-text-on-primary
+    background: var(--color-primary-pressed)
+    color: var(--color-text-on-primary)

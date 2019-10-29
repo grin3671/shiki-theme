@@ -99,7 +99,7 @@
       line-height: inherit
 
       .b-topic
-        border-color: $color-border
+        border-color: var(--color-border)
 
         .name-date a
           font-size: 16px !important
@@ -121,14 +121,14 @@
       @extend %md-button
       min-width: 0
       margin-left: -1rem
-      color: $color-primary !important
+      color: var(--color-primary) !important
 
     &:hover::after,
     &:focus::after
-      background-color: $color-overlay-primary-hovered
+      background-color: var(--color-overlay-primary-hovered)
 
     &:active::after
-      background-color: $color-overlay-primary-pressed
+      background-color: var(--color-overlay-primary-pressed)
 
   &[data-locale='en']
     .b-forums > .b-link_button.maxi::after
@@ -140,12 +140,12 @@
     margin: 0 -.5rem
 
     &:hover
-      background-color: $color-area-normal
+      background-color: var(--color-overlay-text-hovered)
 
     a
       display: block
       padding: 0 .5rem
-      color: $color-text-primary !important
+      color: var(--color-text-primary) !important
       font-size: .875rem
       line-height: 2rem
       text-overflow: ellipsis
@@ -191,7 +191,7 @@
       top: 0
       left: 0
       height: 1px
-      background: $color-border
+      background: var(--color-border)
 
     .poster
       padding-left: 16px
@@ -199,7 +199,7 @@
     .info
       .name
         margin-bottom: 4px
-        color: $color-text-primary
+        color: var(--color-text-primary)
         line-height: 1.5
 
       .status-time
@@ -207,14 +207,14 @@
 
         .kind
           margin-right: 8px
-          color: $color-text-secondary
+          color: var(--color-text-secondary)
           font-size: 12px
 
         .b-anime_status_tag
           margin: 0 8px 0 0
 
         .time
-          color: $color-text-hint
+          color: var(--color-text-hint)
           font-size: 12px
 
       .genres
@@ -244,10 +244,10 @@
         margin-top: 1em
 
     .title
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
     a.title
-      color: $color-text-primary
+      color: var(--color-text-primary)
 
     .seasons
       margin: -4px
@@ -292,13 +292,13 @@
 .b-topic.b-news_wall-topic.b-news-topic
   & > .inner
     .name-date .name
-      color: $color-text-primary
+      color: var(--color-text-primary)
 
     footer .b-shiki_swiper
-      border-radius: $border-rounded
+      border-radius: var(--border-rounded)
 
   .b-anime_status_tag
-    background-color: $color-background-translucent
+    background-color: var(--color-background-translucent)
 
 
 .fc-2-3-m

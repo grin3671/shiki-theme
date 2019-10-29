@@ -30,15 +30,17 @@ header.head
       &::after
         display: none
 
-  .misc, a.edit
-    color: $color-text-disabled
+  .misc,
+  a.edit
+    color: var(--color-text-disabled)
 
-  a.misc, a.edit
-    color: $color-link
+  a.misc,
+  a.edit
+    color: var(--color-link)
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
   .notice
     margin: .5rem 0
@@ -101,7 +103,7 @@ header.head
       text-decoration: none
 
   &.linkheadline > a
-    color: $color-primary !important
+    color: var(--color-primary) !important
     text-decoration: none
 
 
@@ -115,16 +117,16 @@ header.head
 .subheadline .misc-links
   padding-left: .5em
   & > a
-    color: $color-link
+    color: var(--color-link)
     font-size: .875rem
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
     &.selected
-      color: $color-link-hover
+      color: var(--color-link-hover)
       &:hover
-        color: $color-link-active
+        color: var(--color-link-active)
 
 
 

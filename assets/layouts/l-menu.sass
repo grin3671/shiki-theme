@@ -1,18 +1,12 @@
 /* Верхнее меню v2 */
-$menu-height: 56px
-$menu-background: $color-header-background
-$menu-text: mix($color-header-text, $menu-background, 96%)
-$menu-icon: mix($menu-text, $menu-background, 76%)
-$menu-background-hover: mix($menu-text, $menu-background, 8%)
-$menu-background-active: mix($menu-text, $menu-background, 10%)
-$search-background: mix($menu-text, $menu-background, 12%)
-
 .l-top_menu-v2
-  height: $menu-height
-  background-color: $color-header-background
+  --menu-height: 56px
+  --badge-size: 22px
+  height: var(--menu-height)
+  background-color: var(--color-menu-background)
   border: 0
   box-shadow: 0 2px 8px 2px rgba(0,0,0,.24)
-  color: $menu-text
+  color: var(--color-menu-text-primary)
 
   .menu-logo
     @media (max-width: 767px)
@@ -53,41 +47,40 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
   .menu-icon,
   .menu-dropdown > span
-    height: $menu-height
+    height: var(--menu-height)
 
   .menu-icon:focus,
   .menu-dropdown > span:focus
-    background-color: $menu-background-hover
+    background-color: var(--color-menu-background-hover)
 
   .menu-icon:hover,
   .menu-dropdown:hover > span
     @media (min-width: 768px)
-      background-color: $menu-background-hover
+      background-color: var(--color-menu-background-hover)
 
   .icon-other
     @extend %material-icons
 
   .menu-icon
-    $badge-size: 22px
     padding: 1em !important // overwrite possible future morr's edits
     @extend %material-icons
     &::before
-      color: $menu-icon
+      color: var(--color-menu-icon)
 
     &.contest::after,
     &.mail:after
       top: auto
-      width: $badge-size
-      height: $badge-size
-      margin-top: -$badge-size / 2
-      margin-left: $badge-size / 2
-      background-color: $color-accent
+      width: var(--badge-size)
+      height: var(--badge-size)
+      margin-top: calc(var(--badge-size) / -2)
+      margin-left: calc(var(--badge-size) / 2)
+      background-color: var(--color-accent)
       border: 0
-      color: $color-text-on-accent
+      color: var(--color-text-on-accent)
       font-family: inherit
       font-size: .75em
       font-weight: bold
-      line-height: $badge-size
+      line-height: var(--badge-size)
 
     &.contest::after
       content: attr(data-count)
@@ -102,7 +95,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       @extend %material-icons
 
       a
-        height: $menu-height
+        height: var(--menu-height)
         padding: 0
         margin: 0
         color: inherit
@@ -118,9 +111,9 @@ $search-background: mix($menu-text, $menu-background, 12%)
           margin: 0
         @media (min-width: 1025px)
           &:hover
-            background-color: mix($menu-text, $menu-background-active, 8%)
+            background-color: var(--color-overlay-text-hovered)
           &:active
-            background-color: mix($menu-text, $menu-background-active, 12%)
+            background-color: var(--color-overlay-text-pressed)
 
       span
         margin: auto 1em
@@ -128,7 +121,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     &.active
       & > span
-        background-color: $menu-background-active
+        background-color: var(--color-menu-background-active)
 
     &.main
       @media (min-width: 768px)
@@ -158,27 +151,26 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         @media (max-width: 767px)
           &[data-unread_count]:after
-            $badge-size: 22px
             top: auto
-            width: $badge-size
-            height: $badge-size
-            margin-top: -$badge-size / 2
-            margin-left: $badge-size / 2
-            background-color: $color-accent
+            width: var(--badge-size)
+            height: var(--badge-size)
+            margin-top: calc(var(--badge-size) / -2)
+            margin-left: calc(var(--badge-size) / 2)
+            background-color: var(--color-accent)
             border: 0
-            color: $color-text-on-accent
+            color: var(--color-text-on-accent)
             font-family: inherit
             font-size: .75em
             font-weight: bold
-            line-height: $badge-size
+            line-height: var(--badge-size)
 
 
   // Выпадающее меню
   .submenu
-    background-color: $menu-background-active
+    background-color: var(--color-menu-background-active)
     border: 0
-    border-color: $menu-background-active
-    border-radius: 0 0 $border-rounded $border-rounded
+    border-color: var(--color-menu-background-active)
+    border-radius: 0 0 var(--border-rounded) var(--border-rounded)
 
     &::after
       content: ''
@@ -204,13 +196,13 @@ $search-background: mix($menu-text, $menu-background, 12%)
         line-height: 1.5em
 
       &:active, &.active
-        background: mix($menu-text, $menu-background-active, 8%)
+        background: var(--color-overlay-text-pressed)
         color: inherit
 
       @extend %material-icons
       &::before
         margin-right: 16px
-        color: $menu-icon
+        color: var(--color-menu-icon)
 
         @media (max-width: 767px)
           margin-right: 32px
@@ -230,7 +222,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
             color: inherit
 
             &:not(:last-child)::after
-              background: $color-text-disabled
+              background: var(--color-text-disabled)
               height: 14px
               margin: -2px 4px 0
 
@@ -368,7 +360,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
     color: inherit
 
     @media (min-width: 1025px)
-      padding: 0 $layout-margin-tablet
+      padding: 0 var(--layout-margin-tablet)
 
       .x1000 &
         max-width: 1000px
@@ -378,8 +370,8 @@ $search-background: mix($menu-text, $menu-background, 12%)
         display: block
 
       .search-results
-        right: $layout-margin-tablet
-        left: $layout-margin-tablet
+        right: var(--layout-margin-tablet)
+        left: var(--layout-margin-tablet)
         width: auto
 
     @media (min-width: 1820px)
@@ -405,9 +397,8 @@ $search-background: mix($menu-text, $menu-background, 12%)
     input
       display: block
       padding: 0 48px
-      margin: ($menu-height - 40px) / 2 0
-      background: $search-background
-      background: rgba($menu-text, .12)
+      margin: calc((var(--menu-height) - 40px) / 2) 0
+      background: var(--color-menu-search-fade)
       border: 0
       border-radius: 3px
       color: inherit
@@ -432,7 +423,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       right: .5em
       color: #757575
       &:hover, &:active
-        color: $color-accent
+        color: var(--color-accent)
 
       @extend %material-icons
       &::before
@@ -441,8 +432,8 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
     .hotkey-marker
       right: .75rem
-      border-color: mix($menu-text, $menu-background, 48%)
-      color: mix($menu-text, $menu-background, 48%)
+      border-color: var(--color-menu-text-disabled)
+      color: var(--color-menu-text-disabled)
       line-height: 19px
 
     .search-marker
@@ -452,13 +443,13 @@ $search-background: mix($menu-text, $menu-background, 12%)
         content: 'search'
 
     .search-results
-      top: $menu-height
+      top: var(--menu-height)
       padding: .5em 0
-      background: $color-background-dialog
-      color: $color-text-primary
+      background: var(--color-background-dialog)
+      color: var(--color-text-primary)
 
       .nothing_found::before
-        background-color: $color-danger
+        background-color: var(--color-danger)
 
       .nothing_found,
       .search-mode
@@ -475,14 +466,14 @@ $search-background: mix($menu-text, $menu-background, 12%)
         padding: .75em .5em
 
         &:hover
-          background: mix($color-text-primary, $color-background-dialog, 8%)
+          background: var(--color-overlay-text-hovered)
 
       .search-mode
         &:hover
-          background: mix($color-text-primary, $color-background-dialog, 12%)
+          background: var(--color-overlay-text-hovered)
           @media (min-width: 1025px)
             &::before
-              background: rgba($color-accent, 0.4)
+              background: var(--color-accent-fade)
 
       .nothing_found,
       .b-db_entry-variant-list_item,
@@ -496,23 +487,23 @@ $search-background: mix($menu-text, $menu-background, 12%)
 
         &.active,
         &:focus
-          background: mix($color-text-primary, $color-background-dialog, 8%)
+          background: var(--color-overlay-text-selected)
           &::before
-            background: $color-accent
+            background: var(--color-accent)
 
       .search-mode,
       .b-db_entry-variant-list_item
         &:active
-          background: mix($color-text-primary, $color-background-dialog, 12%)
+          background: var(--color-overlay-text-pressed)
 
           &::before
-            background: darken($color-accent, 5%)
+            background: var(--color-accent-fade)
 
       .b-db_entry-variant-list_item
         &::before
           width: auto
           margin: 0
-          background: $color-border !important
+          background: var(--color-border) !important
 
         &:first-child::before
           display: none
@@ -525,7 +516,7 @@ $search-background: mix($menu-text, $menu-background, 12%)
       .global-search
         top: 0
         padding: 0
-        background: $menu-background
+        background: var(--color-menu-background)
         z-index: 10
 
         .search-results

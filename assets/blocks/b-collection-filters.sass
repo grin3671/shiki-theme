@@ -5,7 +5,7 @@
       position: relative
       padding: .25em .75em
       margin: 2px -.75em
-      border-radius: $border-rounded
+      border-radius: var(--border-rounded)
       font-size: 1rem
       line-height: 1.5
       transition: .16s cubic-bezier(.4, 0, .6, 1)
@@ -16,11 +16,11 @@
         display: inline-block
         vertical-align: top
         margin: 0 .75rem 0 0
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
       &.selected::before
         content: 'check_box'
-        color: $color-primary
+        color: var(--color-primary)
 
       &.selected
         color: inherit
@@ -46,18 +46,18 @@
           height: auto
           margin: 0
           background: transparent
-          color: $color-text-hint
+          color: var(--color-text-hint)
 
       .filter
         float: right
         position: relative
         right: auto
         margin: 0 0 0 .5rem
-        color: $color-primary
+        color: var(--color-primary)
         font-weight: bold
 
         &:hover
-          color: $color-accent
+          color: var(--color-accent)
 
         &::before
           display: block

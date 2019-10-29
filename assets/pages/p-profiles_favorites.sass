@@ -13,17 +13,17 @@
         top: .25em
         right: .25em
         padding: 4px
-        background: $color-background-translucent
-        color: $color-text-hint
+        background: var(--color-background-translucent)
+        color: var(--color-text-hint)
         box-shadow: none
 
       @media (min-width: 1025px)
         &:hover::before
-          color: $color-text-primary
+          color: var(--color-text-primary)
 
       &:active::before
-        color: $color-text-primary
+        color: var(--color-text-primary)
     
     &.draggable .b-catalog_entry
       &:before
-        color: $color-text-hint !important
+        color: var(--color-text-hint) !important

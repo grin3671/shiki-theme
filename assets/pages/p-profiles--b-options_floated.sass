@@ -8,7 +8,7 @@
   header.head
     padding: 16px 16px 8px
     margin: -16px -16px 0
-    background-color: $color-area-hover
+    background-color: var(--color-surface-hover)
 
     @media (min-width: 481px)
       padding: 0
@@ -19,7 +19,7 @@
     position: static
     padding: 0
     margin: 0 -16px 8px
-    background-color: $color-area-hover
+    background-color: var(--color-surface-hover)
     text-align: left
     white-space: nowrap
     overflow: hidden
@@ -38,7 +38,7 @@
       min-width: 88px
       height: 48px
       padding: 0 12px
-      color: $color-text-secondary
+      color: var(--color-text-secondary)
       font-size: 14px
       font-weight: 700
       line-height: 48px
@@ -52,5 +52,5 @@
         display: none
 
       &.selected
-        border-bottom: 2px solid $color-accent
-        color: $color-text-primary !important
+        border-bottom: 2px solid var(--color-accent)
+        color: var(--color-text-primary) !important

@@ -12,9 +12,9 @@
       display: block
       padding: 8px
       margin: 8px 0
-      background: $color-background
+      background: var(--color-background)
       border-radius: 50% 0 0 50%
-      color: $color-text-hint
+      color: var(--color-text-hint)
       font-size: 0
       font-weight: normal
       line-height: 0
@@ -42,8 +42,8 @@
 
       &:hover::before,
       &.selected::before
-        background: $color-primary
-        color: $color-text-on-primary
+        background: var(--color-primary)
+        color: var(--color-text-on-primary)
 
       &[data-id='planned']::before
         content: 'today'
@@ -72,9 +72,9 @@
         right: 0
         padding: 2px 4px
         margin: 6px 4px
-        background: $color-accent
+        background: var(--color-accent)
         border-radius: 2px
-        color: $color-text-on-accent
+        color: var(--color-text-on-accent)
         font-size: 14px
         font-weight: bold
         line-height: .8

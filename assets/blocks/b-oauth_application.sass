@@ -8,7 +8,7 @@
       display: inline-block
       vertical-align: top
       padding: 0 0 0 16px
-      background: $color-area-normal
+      background: var(--color-surface)
       border-radius: 3px 10px 10px 3px
       line-height: 20px
       color: inherit
@@ -18,13 +18,13 @@
         text-decoration: none
 
       &:hover, &:focus
-        background: $color-area-hover
+        background: var(--color-surface-hover)
 
       &:active
-        background: $color-area-active
+        background: var(--color-surface-active)
 
       &:focus
-        color: $color-link-hover
+        color: var(--color-link-hover)
 
       .name
         padding: 0 8px
@@ -45,8 +45,8 @@
     
     &:hover, &:focus
       .name
-        color: $color-link-hover
+        color: var(--color-link-hover)
     
     &:active
       .name
-        color: $color-link-active
+        color: var(--color-link-active)

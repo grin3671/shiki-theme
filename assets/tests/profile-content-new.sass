@@ -1,9 +1,4 @@
-// Вычисления
-$color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary, 8%), darken($color-primary, 8%))
-
-/**
- * График активности
- */
+// График активности
 // Блок в профиле
 [data-locale='ru'] .profile-content .activity .title
   font-size: 0
@@ -57,7 +52,7 @@ $color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary,
   transition: .16s
 
 .graph.vertical .line .bar-container:hover .bar
-  background: $color-primary-hover
+  background: var(--color-primary-hovered)
 
 .graph.vertical .line .bar-container .bar::after
   content: attr(title)
@@ -88,13 +83,13 @@ $color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary,
     padding: 16px 0
     margin: 0
     background: none
-    color: $color-text-hint
+    color: var(--color-text-hint)
     font-weight: bold
     line-height: 16px
     text-align: right
 
   .graph.vertical:not(:hover) .line:last-child .bar-container .bar
-    background: $color-primary-hover
+    background: var(--color-primary-hovered)
 
   .graph.vertical:not(:hover) .line:last-child .bar-container .bar::after
     opacity: .9
@@ -118,10 +113,10 @@ $color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary,
 .profile-content .lifetime .bar
   height: 8px
   border-radius: 8px
-  background-color: $color-border
+  background-color: var(--color-border)
 
 .profile-content .lifetime .bar .first
-  background: $color-primary
+  background: var(--color-primary)
   border-radius: 0 8px 8px 0
   opacity: 1
 
@@ -140,7 +135,7 @@ $color-primary-hover: if(lightness($color-primary) < 85, lighten($color-primary,
   top: -2px
   width: 12px
   height: 12px
-  border: 2px solid $color-background
+  border: 2px solid var(--color-background)
   border-radius: 50%
   margin: 0 0 0 -6px
 

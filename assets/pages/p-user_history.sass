@@ -13,26 +13,26 @@
         line-height: 1.5rem
 
         a
-          color: $color-link
+          color: var(--color-link)
           &:hover
-            color: $color-link-hover
+            color: var(--color-link-hover)
           &:active
-            color: $color-link-active
+            color: var(--color-link-active)
 
         .date
-          color: $color-text-hint
+          color: var(--color-text-hint)
 
         .destroy
           position: relative
           width: auto
           padding: 6px
           margin: -4px 0 -4px 4px
-          border-radius: $border-rounded
-          color: $color-text-hint
+          border-radius: var(--border-rounded)
+          color: var(--color-text-hint)
           transition: .16s cubic-bezier(.4, 0, .6, 1)
           &:hover
-            background: $color-area-hover
-            color: $color-text-secondary
+            background: var(--color-overlay-text-hovered)
+            color: var(--color-text-secondary)
             text-decoration: none
 
           @extend %material-icons

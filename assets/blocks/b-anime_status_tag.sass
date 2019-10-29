@@ -12,36 +12,36 @@
   &.released
     @extend %shiki-marker
     background-color: transparent
-    color: $color-success
+    color: var(--color-success)
 
   &.anons
     @extend %shiki-marker
     background-color: transparent
-    color: $color-warning
+    color: var(--color-warning)
 
   &.ongoing
     @extend %shiki-marker
     background-color: transparent
-    color: $color-info
+    color: var(--color-info)
 
   &.episode
     @extend %shiki-marker
     background-color: transparent
-    color: $color-info
+    color: var(--color-info)
 
   &.studio
     @extend %shiki-marker
     background-color: transparent
-    color: $color-primary
+    color: var(--color-primary)
     &[href]
-      background-color: $color-primary
-      border: 1px solid $color-primary
-      color: $color-text-on-primary
+      background-color: var(--color-primary)
+      border: 1px solid var(--color-primary)
+      color: var(--color-text-on-primary)
       @media (min-width: 1025px)
         &:hover, &:active
-          background-color: $color-primary
-          border: 1px solid $color-primary
-          color: $color-text-on-primary
+          background-color: var(--color-primary)
+          border: 1px solid var(--color-primary)
+          color: var(--color-text-on-primary)
           opacity: .9
 
         &:active
@@ -50,47 +50,47 @@
   &.other
     @extend %shiki-marker
     background-color: transparent
-    border-color: rgba($color-text-secondary, .32)
-    color: $color-text-secondary
+    border-color: var(--color-text-hint)
+    color: var(--color-text-secondary)
 
   &.summary
     @extend %shiki-marker
     background-color: transparent
-    color: $color-violet
+    color: var(--color-violet)
 
   &.news
     @extend %shiki-marker
     background-color: transparent
-    color: $color-warning
-    border-color: $color-warning
+    color: var(--color-warning)
+    border-color: var(--color-warning)
 
   &.review
     @extend %shiki-marker
     background-color: transparent
-    color: $color-magenta
+    color: var(--color-magenta)
 
   &.collection
     @extend %shiki-marker
     background-color: transparent
-    color: mix($color-offtop, $color-success, 50%)
+    color: var(--color-violet)
 
   &.cosplay
     @extend %shiki-marker
     background-color: transparent
-    color: $color-yellow
+    color: var(--color-yellow)
 
   &.offtopic
     @extend %shiki-marker
     background-color: transparent
-    color: $color-offtop
+    color: var(--color-offtop)
 
   &.ignored
     @extend %shiki-marker
     vertical-align: top
     background-color: transparent
-    color: $color-danger
+    color: var(--color-danger)
 
   &.broadcast
     @extend %shiki-marker
     background-color: transparent
-    color: $color-magenta
+    color: var(--color-magenta)

@@ -2,26 +2,26 @@
   padding: 2px 6px !important
   margin: 2px 4px 2px 0
   border: 1px solid transparent
-  border-radius: $border-rounded
-  color: $color-text-primary
+  border-radius: var(--border-rounded)
+  color: var(--color-text-primary)
   font-size: 14px !important
   font-weight: normal
   line-height: 18px !important
   transition: .16s cubic-bezier(.4, 0, .6, 1)
   &[href]
-    background-color: rgba(mix($color-text-primary, $color-background-secondary, 8%), .72)
-    border: 1px solid $color-background-secondary
+    background-color: var(--color-surface)
+    border: 1px solid var(--color-border)
 
     &:hover,
     &:focus,
     &.active
       margin: 2px 4px 2px 0
-      background-color: mix($color-text-primary, $color-background-secondary, 8%)
-      border-color: $color-background-secondary
-      color: $color-text-primary
+      background-color: var(--color-surface-hover)
+      border-color: var(--color-border)
+      color: var(--color-text-primary)
 
     &:active
-      background-color: mix($color-text-primary, $color-background-secondary, 12%)
+      background-color: var(--color-surface-active)
 
   &:last-child
     margin-right: 0
@@ -29,4 +29,4 @@
   &:hover
     margin: 2px 4px 2px 0
     background-color: transparent
-    color: $color-text-secondary
+    color: var(--color-text-secondary)

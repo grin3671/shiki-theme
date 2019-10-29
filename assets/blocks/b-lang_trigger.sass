@@ -6,7 +6,7 @@
   width: 40px
   height: 40px
   margin: 4px
-  background-color: $color-area-normal
+  background-color: var(--color-surface)
   border-radius: 2px
   font-size: 12px
   font-weight: bold
@@ -17,17 +17,17 @@
   user-select: none
 
   &:hover
-    background-color: $color-button-hover
+    background-color: var(--color-surface-hover)
 
   &::before, &::after
     display: none
 
   span
     border: 0
-    color: $color-text-hint
+    color: var(--color-text-hint)
 
     &:hover
-      color: $color-text-secondary
+      color: var(--color-text-secondary)
 
   &:hover span
-    color: $color-text-secondary
+    color: var(--color-text-secondary)

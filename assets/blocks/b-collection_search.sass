@@ -5,26 +5,26 @@
 
     input
       padding: .5rem 1rem
-      background: $color-background-secondary
-      border-color: $color-border
-      border-radius: 2px
+      background: var(--color-surface)
+      border-color: var(--color-border)
+      border-radius: var(--border-rounded)
       font-size: 1rem
       line-height: inherit
 
       &::placeholder
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
     .clear
       position: absolute
       top: 0
       right: 0
       padding: .625rem
-      color: $color-text-hint
+      color: var(--color-text-hint)
       font-size: 0
       line-height: 0
 
       &:hover
-        color: $color-text-secondary
+        color: var(--color-text-secondary)
         text-decoration: none
 
       @extend %material-icons

@@ -1,6 +1,3 @@
-
-$word-spacing: .375em !default
-
 .b-ban,
 .b-log_entry,
 .b-user_rate_log
@@ -13,24 +10,24 @@ $word-spacing: .375em !default
     padding: .25rem 0
 
   & > span
-    padding-right: $word-spacing
+    padding-right: var(--word-spacing)
 
   .date
-    color: $color-text-hint
+    color: var(--color-text-hint)
     font-size: inherit
 
   a, .link
-    color: $color-link
+    color: var(--color-link)
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
     &:hover .id-label
       color: inherit
 
   .id-label
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
 
   .b-user16
     span
@@ -42,14 +39,14 @@ $word-spacing: .375em !default
     top: 6px
     padding: 6px !important // overwrite .triggered changes
     margin: -10px 0 -10px auto
-    border-radius: $border-rounded
-    color: $color-text-hint
+    border-radius: var(--border-rounded)
+    color: var(--color-text-hint)
     transition: .16s cubic-bezier(.4, 0, .6, 1)
 
     // NOTE: !important in default css
     &:hover
-      background: $color-area-hover !important
-      color: $color-text-secondary
+      background: var(--color-surface-hover) !important
+      color: var(--color-text-secondary)
 
     @extend %material-icons
     &::before
@@ -93,37 +90,37 @@ $word-spacing: .375em !default
 .b-ban
   .abuser
     vertical-align: top
-    color: $color-link
+    color: var(--color-link)
     font-size: inherit
 
     &::before,
     &::after
-      color: $color-text-disabled
+      color: var(--color-text-disabled)
 
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
 
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
   .comment-hash
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
 
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
 
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
   .duration
-    color: $color-text-hint
+    color: var(--color-text-hint)
     font-size: inherit
 
   .moderator
-    padding-left: $word-spacing
+    padding-left: var(--word-spacing)
 
     & > span
-      padding-left: $word-spacing
+      padding-left: var(--word-spacing)
 
 
 /* Список правок */
@@ -139,8 +136,8 @@ $word-spacing: .375em !default
       margin-bottom: .5rem
 
       span
-        padding-right: $word-spacing
-        color: $color-text-hint
+        padding-right: var(--word-spacing)
+        color: var(--color-text-hint)
 
     .field-changes
       word-break: break-word
@@ -149,8 +146,8 @@ $word-spacing: .375em !default
         margin-bottom: .5rem
 
       .label
-        padding-right: $word-spacing
-        color: $color-text-hint
+        padding-right: var(--word-spacing)
+        color: var(--color-text-hint)
 
   .moderation
     a
@@ -166,10 +163,10 @@ $word-spacing: .375em !default
   .outdated
     font-size: inherit
     &::before, &::after
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
   .remove
-    padding-right: $word-spacing
+    padding-right: var(--word-spacing)
 
   /* FIX */
   .marker

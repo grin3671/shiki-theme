@@ -24,13 +24,13 @@
         left: -16px
         width: 16px
         height: 32px
-        background-image: linear-gradient(-90deg, transparent, $color-background)
+        background-image: linear-gradient(-90deg, transparent, var(--color-background))
         z-index: 1
 
       &::after
         right: -16px
         left: auto
-        background-image: linear-gradient(90deg, transparent, $color-background)
+        background-image: linear-gradient(90deg, transparent, var(--color-background))
 
   @media (max-width: 1024px)
     padding: 16px
@@ -55,9 +55,9 @@
   .b-link
     max-width: 17.5%
     padding: 0 .75rem 0 2.5rem
-    background-color: $color-area-normal
+    background-color: var(--color-surface)
     border-radius: 1rem
-    color: $color-text-primary
+    color: var(--color-text-primary)
 
     @media (max-width: 767px)
       max-width: 100%
@@ -69,7 +69,7 @@
         display: none
 
     &:hover
-      background-color: $color-area-hover
+      background-color: var(--color-surface-hover)
       text-decoration: none
 
     .poster

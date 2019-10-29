@@ -11,7 +11,7 @@
   background: transparent
   border: 0
   border-radius: 4px 4px 0 0
-  caret-color: $color-primary
+  caret-color: var(--color-primary)
   cursor: pointer
 
   &:focus,
@@ -46,7 +46,7 @@
   background: transparent !important
   border: 0
   border-radius: 4px 4px 0 0
-  caret-color: $color-primary
+  caret-color: var(--color-primary)
   cursor: pointer
 
   &:focus,
@@ -65,21 +65,21 @@
 .b-input select,
 .b-input textarea,
 .b-shiki_editor .body .editor textarea
-  box-shadow: 0 -1px 0 0 $color-border inset
+  box-shadow: 0 -1px 0 0 var(--color-border) inset
   transition: box-shadow .24s cubic-bezier(0.4, 0, 0.6, 1)
 
   &:hover
-    box-shadow: 0 -2px 0 0 $color-border inset
+    box-shadow: 0 -2px 0 0 var(--color-border) inset
 
   &:focus
-    box-shadow: 0 -2px 0 0 $color-primary inset
+    box-shadow: 0 -2px 0 0 var(--color-primary) inset
 
   &:invalid
     box-shadow: 0 -1px 0 0 #f44336 inset !important
 
   &:disabled
     opacity: .5
-    box-shadow: 0 -1px 0 0 $color-border inset
+    box-shadow: 0 -1px 0 0 var(--color-border) inset
 
 .b-input input[type=checkbox],
 .b-input input[type=radio]
