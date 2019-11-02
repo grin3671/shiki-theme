@@ -17,17 +17,17 @@
   --color-primary-reduced: #0d796f;
   --color-primary-hovered: #149e92;
   --color-primary-pressed: #009083;
-  --color-overlay-primary-hovered: rgba(0, 150, 136, 0.12);
-  --color-overlay-primary-selected: rgba(0, 150, 136, 0.16);
-  --color-overlay-primary-pressed: rgba(0, 150, 136, 0.24);
+  --color-overlay-primary-hovered: rgba(0, 150, 136, 0.08);
+  --color-overlay-primary-selected: rgba(0, 150, 136, 0.12);
+  --color-overlay-primary-pressed: rgba(0, 150, 136, 0.16);
   /* Акцентирующий цвет */
   --color-accent: #FFAB40;
   --color-text-on-accent: #212121;
   --color-accent-reduced: #c5893c;
   --color-accent-fade: #936b38;
-  --color-overlay-accent-hovered: rgba(255, 171, 64, 0.12);
-  --color-overlay-accent-selected: rgba(255, 171, 64, 0.16);
-  --color-overlay-accent-pressed: rgba(255, 171, 64, 0.24);
+  --color-overlay-accent-hovered: rgba(255, 171, 64, 0.08);
+  --color-overlay-accent-selected: rgba(255, 171, 64, 0.12);
+  --color-overlay-accent-pressed: rgba(255, 171, 64, 0.16);
   /* Фоновые цвета */
   --color-background: #303030;
   --color-background-translucent: rgba(48, 48, 48, 0.9);
