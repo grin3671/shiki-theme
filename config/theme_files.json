@@ -432,10 +432,6 @@
     "checked": true
   },
   {
-    "url": "pages/p-messages.sass",
-    "checked": true
-  },
-  {
     "url": "pages/p-oauth_applications.sass",
     "checked": true
   },
@@ -445,6 +441,10 @@
   },
   {
     "url": "pages/p-profiles--b-options_floated.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-messages.sass",
     "checked": true
   },
   {
@@ -493,17 +493,17 @@
   },
   {
     "url": "tests/profile-update.1.sass",
-    "checked": false,
+    "checked": true,
     "description": "Отображение времени за аниме и мангой."
   },
   {
     "url": "tests/profile-update.1.1.sass",
-    "checked": false,
+    "checked": true,
     "description": "Маленький блок достижений."
   },
   {
     "url": "tests/md-textfields.sass",
-    "checked": false,
+    "checked": true,
     "description": "Более \"материальные\" поля ввода."
   },
   {
