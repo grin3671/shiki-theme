@@ -487,7 +487,7 @@
     "description": "Маленький блок достижений."
   },
   {
-    "url": "tests/b-achievements.sass",
+    "url": "tests/b-achievements_notifier.sass",
     "checked": false,
     "description": "Строгие тёмные уведомления вместо цветных."
   },
@@ -500,11 +500,6 @@
     "url": "tests/b-shiki_editor-input_label.sass",
     "checked": false,
     "description": "Подписи к текстовым полям в редакторе."
-  },
-  {
-    "url": "tests/b-shiki_editor-smileys.sass",
-    "checked": false,
-    "description": "Всплывающее окно со смайлами."
   },
   {
     "url": "tests/p-achievements-grid.sass",
@@ -535,16 +530,6 @@
     "url": "tests/td-icons.sass",
     "checked": false,
     "description": "Добавление к кнопкам иконок с помощью data-icon."
-  },
-  {
-    "url": "tests/td-spoiler.sass",
-    "checked": false,
-    "description": "Серые спойлеры (изменения по всему сайту)."
-  },
-  {
-    "url": "tests/td-table.sass",
-    "checked": false,
-    "description": "Простые таблицы для BBCode."
   },
   {
     "url": "tests/td-tabs.sass",
