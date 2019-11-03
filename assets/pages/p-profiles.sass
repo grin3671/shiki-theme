@@ -408,8 +408,34 @@
               opacity: .72
 
   .cc-favourites
-    .c-column
-      &:nth-child(n+9)
+    // Горизонтальный скролл для избранного
+    @media (max-width: 959px)
+      margin: 0 -4px
+      white-space: nowrap
+      overflow-x: auto
+
+      .c-column
+        display: inline-block !important
+        vertical-align: top
+        float: none
+        width: calc((100vw - 24px) / 2)
+        padding: 0 4px
+        margin-right: 0
+
+        @media (min-width: 360px)
+          width: calc((100vw - 24px) / 3)
+
+        @media (min-width: 480px)
+          width: calc((100vw - 24px) / 4)
+
+        @media (min-width: 600px)
+          width: calc((100vw - 24px) / 5)
+
+        @media (min-width: 720px)
+          width: calc((100vw - 24px) / 6)
+
+    @media (min-width: 960px)
+      .c-column:nth-child(n + 9)
         margin-top: .5em
 
 
@@ -822,3 +848,77 @@
 
     .size
       font-size: .75em
+
+
+
+// Маленькие полоски аниме/манги
+// TODO: merge
+.p-profiles-show
+  .b-stats_bar
+    .bar
+      border-radius: 4px
+      line-height: 8px
+
+      div
+        vertical-align: top
+        font-size: 0
+        line-height: inherit
+
+
+
+// Точки перед названиями списков
+// TODO: merge
+.stat_names
+  display: flex
+  flex-direction: column
+  @media (min-width: 600px)
+    flex-direction: row
+    flex-wrap: wrap
+
+  .stat_name
+    & > a::before
+      content: ''
+      display: inline-block
+      vertical-align: top
+      width: .5rem
+      height: .5rem
+      margin: .75rem .5rem .75rem 0
+      background: var(--color-border)
+      border-radius: 50%
+
+    .anime &
+      &[data-type='planned'],
+      &[data-type='watching,rewatching'],
+      &[data-type='on_hold']
+        & > a::before
+          background-color: var(--color-primary-reduced)
+
+      &[data-type='completed']
+        & > a::before
+          background-color: var(--color-primary)
+
+    .manga &
+      &[data-type='planned'],
+      &[data-type='watching,rewatching'],
+      &[data-type='on_hold']
+        & > a::before
+          background-color: var(--color-accent-reduced)
+
+      &[data-type='completed']
+        & > a::before
+          background-color: var(--color-accent)
+
+    .b-stats_bar &
+      .size::before
+        content: '–'
+        color: var(--color-text-hint)
+        padding-right: 3px
+
+      .size::after
+        display: none
+
+      & > a:hover
+        text-decoration: none
+
+        .size::before
+          color: inherit

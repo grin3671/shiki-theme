@@ -135,6 +135,11 @@
     "checked": true
   },
   {
+    "url": "blocks/b-achievements_notifier.sass",
+    "checked": true,
+    "description": "Строгие тёмные уведомления вместо цветных."
+  },
+  {
     "url": "blocks/b-add_to_list.sass",
     "checked": true
   },
@@ -381,6 +386,16 @@
     "description": "Изменённыё вид превью видео."
   },
   {
+    "url": "blocks/td-icons.sass",
+    "checked": true,
+    "description": "Добавление к кнопкам иконок с помощью data-icon."
+  },
+  {
+    "url": "blocks/td-tabs.sass",
+    "checked": true,
+    "description": "Фирменные табы с --ripple и --vertical."
+  },
+  {
     "url": "blocks/ti-tags.sass",
     "checked": true
   },
@@ -477,64 +492,19 @@
     "title": "Круглые аватарки"
   },
   {
-    "url": "tests/profile-content-new.sass",
+    "url": "tests/profile-update.1.sass",
     "checked": false,
     "description": "Отображение времени за аниме и мангой."
   },
   {
-    "url": "tests/profile-achievements.sass",
+    "url": "tests/profile-update.1.1.sass",
     "checked": false,
     "description": "Маленький блок достижений."
   },
   {
-    "url": "tests/b-achievements_notifier.sass",
-    "checked": false,
-    "description": "Строгие тёмные уведомления вместо цветных."
-  },
-  {
-    "url": "tests/b-input.sass",
+    "url": "tests/md-textfields.sass",
     "checked": false,
     "description": "Более \"материальные\" поля ввода."
-  },
-  {
-    "url": "tests/b-shiki_editor-input_label.sass",
-    "checked": false,
-    "description": "Подписи к текстовым полям в редакторе."
-  },
-  {
-    "url": "tests/p-achievements-grid.sass",
-    "checked": false,
-    "description": "Улучшенная сетка достижений. https://caniuse.com/#feat=css-grid"
-  },
-  {
-    "url": "tests/p-messages-menu.sass",
-    "checked": false,
-    "description": "Закреплённые табы в почте."
-  },
-  {
-    "url": "tests/p-profiles-favorites.sass",
-    "checked": false,
-    "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
-  },
-  {
-    "url": "tests/p-user_rates-mylist.sass",
-    "checked": false,
-    "description": "Иконки списков на странице списков."
-  },
-  {
-    "url": "tests/stat_names.sass",
-    "checked": false,
-    "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
-  },
-  {
-    "url": "tests/td-icons.sass",
-    "checked": false,
-    "description": "Добавление к кнопкам иконок с помощью data-icon."
-  },
-  {
-    "url": "tests/td-tabs.sass",
-    "checked": false,
-    "description": "Фирменные табы с --ripple и --vertical."
   },
   {
     "url": "user-settings.sass",
