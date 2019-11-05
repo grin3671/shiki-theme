@@ -492,6 +492,11 @@
     "title": "Круглые аватарки"
   },
   {
+    "url": "tests/immersive-cover.sass",
+    "checked": true,
+    "description": "Обложка-фон с большим отступом от меню."
+  },
+  {
     "url": "tests/profile-update.1.sass",
     "checked": true,
     "description": "Отображение времени за аниме и мангой."

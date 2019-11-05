@@ -1,0 +1,11 @@
+@media (min-width: 960px)
+  body
+    // Обложка из сборщика устанавливается фоном
+    background: var(--user-cover) center top / cover no-repeat fixed !important
+
+  #profiles_show .l-page
+    margin-top: 352px // размер не отличается от обычной обложки
+    border-radius: 8px 8px 0 0 // небольшое закругление углов центральной области
+
+  .p-profiles .profile-head::before
+    display: none !important // обычная обложка скрыта
