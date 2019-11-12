@@ -1,20 +1,22 @@
-// График активности
-// Блок в профиле
-[data-locale='ru'] .profile-content .activity .title
-  font-size: 0
-  line-height: 0
+/* График активности */
+.p-profiles-show
+  &[data-locale='ru']
+    .profile-content .activity .title
+      font-size: 0
+      line-height: 0
 
-[data-locale='ru'] .profile-content .activity .title::after
-  content: 'График активности'
-  font-size: 14px
-  line-height: 16px
+      &::after
+        content: 'График активности'
+        font-size: 14px
+        line-height: 16px
 
-@media (min-width: 960px)
-  .p-profiles-show .profile-content .graph.vertical.x26
-    display: none
+  @media (min-width: 960px)
+    .profile-content
+      .graph.vertical.x26
+        display: none
 
-  .p-profiles-show .profile-content .graph.vertical.x34
-    display: block
+      .graph.vertical.x34
+        display: block
 
 // Настройки размеров графика
 .graph.vertical.bar .line
