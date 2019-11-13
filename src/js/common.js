@@ -137,7 +137,13 @@ var vm = new Vue({
       selected_layout: 'cover',
       selected_palette: 'light',
       selected_files: '{}',
-      selected_imports: [],
+      selected_imports: [
+        'main.css',
+        'profile-cover.css',
+        'font-roboto.css',
+        'profile-update.1.css',
+        'profile-update.1.1.css',
+      ],
       // Используется только для предпросмотра темы
       avatar: '',
       // Не сохраняются в localStorage, вычисляются после загрузки страницы
