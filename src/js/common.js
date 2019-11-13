@@ -8,145 +8,102 @@
 
 'use strict';
 
-Vue.component('folder', {
-  props: ['foldername', 'file_list'],
-  data: function () {
-    return {
-      state: 0,
+Vue.component('palette-preview', {
+  props: ['color'],
+  template: '<div class="palette_preview" :style="{ backgroundColor: color[0], color: color[1] }">' +
+              '<slot></slot>' +
+            '</div>',
+});
+
+Vue.component('color-preview', {
+  props: ['value', 'palette', 'text'],
+  computed: {
+    readability: function () {
+      return tinycolor.readability(this.text, this.value).toFixed(1);
+    },
+    colorText: function () {
+      return tinycolor.mostReadable(this.value, ["#fff", "#000"]).toHexString();
     }
   },
-  template: '<div class="v-folder md-area">' +
-              '<label class="md-list flex">' +
-                '<span class="md-list_title--twoline">' +
-                  '<span><slot name="name"></slot></span>' +
-                  '<span><slot name="info"></slot></span>' +
-                '</span>' +
-                '<span class="md-icon ic-folder" aria-hidden="true"' +
-                  ' :class="this.state ? \'active\' : \'\'"' +
-                '></span>' +
-                '<span class="md-list_control"' +
-                  ' :class="this.state ? \'active\' : \'\'"' +
-                '>' +
-                  '<input type="checkbox" @change="toggle">' +
-                  '<span class="md-icon ic-collapse"></span>' +
-                '</span>' +
-              '</label>' +
-              '<div role="group" :aria-expanded="this.state ? \'true\' : \'false\'">' +
-                '<file v-for="(file, index) in file_list"' +
-                  ' v-if="foldername == file.url.substring(0, file.url.lastIndexOf(\'/\'))"' +
-                  ' :file="file"' +
-                  ' :index="index"' +
-                  ' :key="index"' +
-                '></file>' +
+  template: '<label class="color_preview">' +
+              '<div class="md-icon color_visibility" v-if="text" :class="{ color_warning: readability < 4 }">' +
+                '<span class="" :style="{ color: colorText }">{{ readability }}</span>' +
+              '</div>' +
+              '<span class="palette_name" v-if="palette || text">{{ text ? \'Цвет текста\' : palette.name }}</span>' +
+              '<code v-if="palette || text">{{ value }}</code>' +
+              '<input type="color" :value="value" @input="$emit(\'input\', $event.target.value)">' +
+              '<span class="color_options">' +
+                '<slot></slot>' +
+              '</span>' +
+            '</label>',
+});
+
+
+Vue.component('palette-select', {
+  props: ['value', 'options'],
+  data: function () {
+    return {
+      state: false,
+    }
+  },
+  computed: {
+    selected: function () {
+      return this.value;
+    },
+  },
+  template: '<div class="md-select">' +
+              '<div class="md-select_trigger" :class="{ active: state }" @click="open()">' +
+                '<theme-list :theme="options[selected]"></theme-list>' +
+              '</div>' +
+              '<div class="md-list" v-if="state">' +
+                '<theme-list v-for="(option, index) in options" ' +
+                  ':theme="option" ' +
+                  ':index="index" ' +
+                  ':key="index" ' +
+                  ':selected="selected" ' +
+                  '@select="select($event)" ' +
+                  '></theme-list>' +
+              '</div>' +
+            '</div>',
+  mounted: function () {
+    // Закрыть окно выбора при клике снаружи
+    document.addEventListener('click', this.close);
+    this.$el.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  },
+  methods: {
+    close: function () {
+      this.state = false;
+    },
+    open: function (theme) {
+      this.state = this.state ? !1 : !0;
+    },
+    select: function (theme) {
+      this.state = false;
+      this.$emit('input', theme);
+    },
+  },
+});
+
+
+Vue.component('theme-list', {
+  props: ['theme', 'selected', 'index'],
+  template: '<div class="md-select_container" @click="click($event)" :class="{ selected: selected === index }">' +
+              '<div class="theme-preview">' +
+                '<div class="theme-preview--primary" :style="{ backgroundColor: theme.palette.color_primary }"></div>' +
+                '<div class="theme-preview--accent" :style="{ backgroundColor: theme.palette.color_accent }"></div>' +
+              '</div>' +
+              '<div class="theme-info">' +
+                '<div class="title">{{ theme.title }}</div>' +
+                '<div class="info">Палитра от <span>{{ theme.author }}</span></div>' +
               '</div>' +
             '</div>',
   methods: {
-    toggle: function () {
-      this.state = this.state ? 0 : 1;
+    click: function () {
+      this.$emit('select', this.index);
     },
   },
-});
-
-Vue.component('file', {
-  props: ['file', 'index'],
-  computed: {
-    file_name: function () {
-      return this.file.url.substring(this.file.url.lastIndexOf('/') + 1);
-    },
-  },
-  template: '<label class="v-file md-list md-control" ' +
-              ':class="file.disabled ? \'disabled\' : \'\'" ' +
-            '>' +
-              '<md-control ' +
-                'v-model="file.checked" ' +
-                ':type="file.cat ? \'radio\' : \'checkbox\'"' +
-                ':name="file.cat" ' +
-                ':disabled="file.disabled" ' +
-                '@change="onChange" ' +
-              '></md-control>' +
-              '<span :class="file.cat ? \'md-radio\' : \'md-checkbox\'"></span>' +
-              '<span :data-url="file.url">{{ file.title ? file.title : file_name }}</span>' +
-              '<span class="md-list_description" v-if="file.description">{{ file.description }}</span>' +
-            '</label>',
-  methods: {
-    onChange: function () {
-      this.$root.changeFiles(this.file.cat, this.index);
-    },
-  },
-});
-
-Vue.component('md-control', {
-  model: {
-    prop: 'checked',
-    event: 'change',
-  },
-  props: ['type', 'name', 'checked', 'disabled'],
-  template: '<input ' +
-              ':type="type" ' +
-              ':name="name" ' +
-              ':checked="checked" ' +
-              ':disabled="disabled" ' +
-              '@change="$emit(\'change\', $event.target.checked)" ' +
-            '>',
-});
-
-Vue.component('color-scheme', {
-  props: ['name', 'value'],
-  template: '<label class="md-control">' +
-              '<input type="radio" ' +
-                'name="scheme" ' +
-                ':value="value" ' +
-                'v-model="$root.user.selected_scheme" ' +
-                '@change="$root.loadColorSet(\'scheme\')" ' +
-              '>' +
-              '<span class="md-radio"></span>' +
-              '<span><slot>{{ name }}</slot></span>' +
-            '</label>',
-});
-
-Vue.component('color-pallete', {
-  props: ['name', 'value'],
-  template: '<label class="md-control">' +
-              '<input type="radio" ' +
-                'name="color_pallete" ' +
-                ':value="value" ' +
-                'v-model="$root.user.selected_pallete" ' +
-                '@change="$root.loadColorSet(\'pallete\')" ' +
-              '>' +
-              '<span class="md-radio"></span>' +
-              '<span><slot>{{ name }}</slot></span>' +
-            '</label>',
-});
-
-Vue.component('color-variable', {
-  props: ['variable', 'index'],
-  computed: {
-    sass_name: function () {
-      return '$' + this.index.replace(/_/g, '-');
-    },
-  },
-  template: '<div class="md-list">' +
-              '<input type="color" class="md-list_control" ' +
-                ':id="index" ' +
-                ':name="index" ' +
-                'v-model="$root.scheme[index]" ' +
-                '@change="$root.changeColorSet(variable.category)">' +
-              '<input type="text" class="md-list_control" ' +
-                'v-model="$root.scheme[index]" ' +
-                '@change="$root.changeColorSet(variable.category)">' +
-              '<template v-if="variable.name">' +
-                '<div class="md-list_title md-list_title--twoline">' +
-                  '<label :for="index">{{ variable.name }}</label>' +
-                  '<span><code>{{ sass_name }}</code></span>' +
-                '</div>' +
-              '</template>' +
-              '<template v-else>' +
-                '<label class="md-list_title" :for="index">' +
-                  '<span>{{ sass_name }}</span>' +
-                '</label>' +
-              '</template>' +
-              '<span class="md-list_description">{{ variable.description }}</span>' +
-            '</div>',
 });
 
 var instances = {};
@@ -161,7 +118,7 @@ var vm = new Vue({
     status: {
       isCompiled: false,
       isCreating: false,
-      isFileLoading: false,
+      isFileLoading: true,
       isNotify: false,
       isBranchLoaded: false,
     },
@@ -178,50 +135,92 @@ var vm = new Vue({
       user_background: '',
       user_cover: '',
       selected_layout: 'cover',
-      selected_pallete: 'teal_orange',
-      selected_scheme: 'light',
+      selected_palette: 'light',
       selected_files: '{}',
+      selected_imports: [],
       // Используется только для предпросмотра темы
       avatar: '',
       // Не сохраняются в localStorage, вычисляются после загрузки страницы
-      hasPallete: false,
+      hasPalette: false,
       hasScheme: false,
       hasFile: false,
       selected_branch: 'master',
+    },
+    customTheme: {
+      palette: {},
+      helpers: [
+        'autoMainText',
+        'autoLinks',
+        'autoMenuBg',
+        'autoMain',
+        'autoMenu',
+        'autoScheme',
+      ],
+    },
+    builderData: {
+      theme: {
+
+      },
+      imports: {
+
+      },
+      helpers: {
+        autoMainText: {
+          name: 'Текст на основных цветах',
+          desc: 'Цвет текста на элементах основного и акцентирующего цвета.',
+        },
+        autoLinks: {
+          name: 'Ссылки',
+          desc: 'Цвета копируются из основных цветов. Ссылка при нажатии затемняется.',
+        },
+        autoMenuBg: {
+          name: 'Фон меню',
+          desc: 'Цвет копируется из «Диалоги» для соответствия цветов областей на мобильном экране.',
+        },
+        autoMain: {
+          name: 'Зависящие от основных',
+          desc: 'Осветлённые и затемнённые основные цвета для эффектов наведения, нажатия и пр.',
+          disabled: true,
+        },
+        autoMenu: {
+          name: 'Цвета внутри меню',
+          desc: 'Цвет текста, иконок, фона при наведении и прочего.',
+          disabled: true,
+        },
+        autoScheme: {
+          name: 'Прочие цвета схемы',
+          desc: 'Различные цвета текстов, иконок, границ, фоны «Поверхностей», «Диалогов» и пр.',
+          disabled: true,
+        },
+      }
     },
     scheme: {
       // NOTE: Порядок соответствует color_scheme
       color_background: '#FAFAFA',
       color_background_dialog: '#FFFFFF',
-      color_background_secondary: '#F5F5F5',
-      color_area_normal: '#EEEEEE',
-      color_area_hover: '#E0E0E0',
-      color_area_active: '#DDDDDD',
-      color_button_hover: '#E0E0E0',
+      color_surface: '#EEEEEE',
+      color_surface_hover: '#E0E0E0',
+      color_surface_active: '#DDDDDD',
       color_border: '#DDDDDD',
       color_text_primary: '#212121',
       color_text_secondary: '#424242',
       color_text_hint: '#757575',
       color_text_disabled: '#9E9E9E',
-      // NOTE: Свойства color_pallete
+      // NOTE: Свойства color_palette
       color_primary: '#009688',
       color_accent: '#FFAB40',
       color_link: '#009688',
       color_link_hover: '#FFAB40',
       color_link_active: '#FF9100',
-      color_header_background: '#333333',
+      color_menu_background: '#333333',
       // NOTE: Вычисляемые свойства
-      color_primary_darker: '#008478',
-      color_primary_lighter: '#1FA396',
       color_text_on_primary: '#FAFAFA',
       color_text_on_accent: '#212121',
-      color_border_hover: '#C2C2C2',
-      color_header_background_shade: '#2D2D2D',
-      color_header_text: '#FAFAFA',
     },
     folders: [],
     file_list: [],
-    color_pallete: {},
+    branches: {},
+    color_palette: {},
     color_scheme: {},
     variables: {},
     theme: {
@@ -229,42 +228,324 @@ var vm = new Vue({
     },
   },
   watch: {
-    "scheme.color_primary": function () {
-      if (this.scheme.color_primary.length === 7) {
-        this.scheme.color_text_on_primary = isLight(hexToRgb(this.scheme.color_primary)) ? '#212121' : '#FAFAFA';
-        this.scheme.color_primary_darker = additionColor(this.scheme.color_primary, '#000000', 12);
-        this.scheme.color_primary_lighter = additionColor(this.scheme.color_primary, '#FFFFFF', 12);
+    "user.selected_imports": function () {
+      if (this.user.selected_imports.indexOf('profile-cover.css') == -1) {
+        this.user.selected_layout = 'simple';
+      } else {
+        this.user.selected_layout = 'cover';
       }
     },
-    "scheme.color_accent": function () {
-      if (this.scheme.color_accent.length === 7) {
-        this.scheme.color_text_on_accent = isLight(hexToRgb(this.scheme.color_accent)) ? '#212121' : '#FAFAFA';
+  },
+  computed: {
+    // Текст
+    color_text_primary: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 87) : this.scheme.color_text_primary;
+      },
+      set: function (color) {
+        this.scheme.color_text_primary = color;
       }
     },
-    "scheme.color_border": function () {
-      if (this.scheme.color_border.length === 7) {
-        this.scheme.color_border_hover = additionColor(this.scheme.color_border, '#000000', 12);
+    color_text_secondary: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 68) : this.scheme.color_text_secondary;
+      },
+      set: function (color) {
+        this.scheme.color_text_secondary = color;
       }
     },
-    "scheme.color_header_background": function () {
-      if (this.scheme.color_header_background.length === 7) {
-        this.scheme.color_header_background_shade = additionColor(this.scheme.color_header_background, '#000000', 12);
-        this.scheme.color_header_text = isLight(hexToRgb(this.scheme.color_header_background)) ? '#212121' : '#FAFAFA';
+    color_text_hint: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 54) : this.scheme.color_text_hint;
+      },
+      set: function (color) {
+        this.scheme.color_text_hint = color;
       }
     },
-    "user.selected_layout": function () {
-      for (var i = 0; i < this.file_list.length; i++) {
-        if (this.file_list[i]['url'] == 'profile-cover.sass') {
-          this.file_list[i].checked = this.user.selected_layout == 'cover' ? true : false;
-        }
+    color_text_disabled: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 38) : this.scheme.color_text_disabled;
+      },
+      set: function (color) {
+        this.scheme.color_text_disabled = color;
       }
-
-      this.saveLocal('selected_layout', this.user.selected_layout);
-      this.saveSelectedFiles();
+    },
+    color_overlay_text_hovered: function () {
+      return tinycolor(this.color_text_primary).setAlpha(.04).toRgbString();
+    },
+    color_overlay_text_selected: function () {
+      return tinycolor(this.color_text_primary).setAlpha(.08).toRgbString();
+    },
+    color_overlay_text_pressed: function () {
+      return tinycolor(this.color_text_primary).setAlpha(.12).toRgbString();
+    },
+    // Ссылки
+    color_link: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoLinks') ? this.color_primary : this.scheme.color_link;
+      },
+      set: function (color) {
+        this.scheme.color_link = color;
+      }
+    },
+    color_link_hover: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoLinks') ? this.color_accent : this.scheme.color_link_hover;
+      },
+      set: function (color) {
+        this.scheme.color_link_hover = color;
+      }
+    },
+    color_link_active: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoLinks') ? tinycolor(this.color_accent).darken(12).toString() : this.scheme.color_link_active;
+      },
+      set: function (color) {
+        this.scheme.color_link_active = color;
+      }
+    },
+    // Основной
+    color_primary: {
+      get: function () {
+        return this.scheme.color_primary;
+      },
+      set: function (color) {
+        this.scheme.color_primary = color;
+      }
+    },
+    color_text_on_primary: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMainText') ? this.getMixedColor(this.color_primary, 87) : this.scheme.color_text_on_primary;
+      },
+      set: function (color) {
+        this.scheme.color_text_on_primary = color;
+      }
+    },
+    color_primary_reduced: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_primary, 72).toHexString() : this.scheme.color_primary_reduced;
+      },
+      set: function (color) {
+        this.scheme.color_primary_reduced = color;
+      }
+    },
+    color_primary_hovered: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#fff', 8).toHexString() : this.scheme.color_primary_hovered;
+      },
+      set: function (color) {
+        this.scheme.color_primary_hovered = color;
+      }
+    },
+    color_primary_pressed: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#000', 4).toHexString() : this.scheme.color_primary_pressed;
+      },
+      set: function (color) {
+        this.scheme.color_primary_pressed = color;
+      }
+    },
+    color_overlay_primary_hovered: function () {
+      return tinycolor(this.color_primary).setAlpha(.08).toRgbString();
+    },
+    color_overlay_primary_selected: function () {
+      return tinycolor(this.color_primary).setAlpha(.12).toRgbString();
+    },
+    color_overlay_primary_pressed: function () {
+      return tinycolor(this.color_primary).setAlpha(.16).toRgbString();
+    },
+    // Акцентирующий
+    color_accent: {
+      get: function () {
+        return this.scheme.color_accent;
+      },
+      set: function (color) {
+        this.scheme.color_accent = color;
+      }
+    },
+    color_text_on_accent: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMainText') ? this.getMixedColor(this.color_accent, 87) : this.scheme.color_text_on_accent;
+      },
+      set: function (color) {
+        this.scheme.color_text_on_accent = color;
+      }
+    },
+    color_accent_reduced: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 72).toHexString() : this.scheme.color_accent_reduced;
+      },
+      set: function (color) {
+        this.scheme.color_accent_reduced = color;
+      }
+    },
+    color_accent_fade: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 48).toHexString() : this.scheme.color_accent_fade;
+      },
+      set: function (color) {
+        this.scheme.color_accent_fade = color;
+      }
+    },
+    color_overlay_accent_hovered: function () {
+      return tinycolor(this.color_accent).setAlpha(.08).toRgbString();
+    },
+    color_overlay_accent_selected: function () {
+      return tinycolor(this.color_accent).setAlpha(.12).toRgbString();
+    },
+    color_overlay_accent_pressed: function () {
+      return tinycolor(this.color_accent).setAlpha(.16).toRgbString();
+    },
+    // Фоновые цвета
+    color_background: {
+      get: function () {
+        return this.scheme.color_background;
+      },
+      set: function (color) {
+        this.scheme.color_background = color;
+      }
+    },
+    color_background_translucent: function () {
+      return tinycolor(this.color_background).setAlpha(.9).toRgbString();
+    },
+    color_background_dialog: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? tinycolor(this.color_background).lighten(5).toHexString() : this.scheme.color_background_dialog;
+      },
+      set: function (color) {
+        this.scheme.color_background_dialog = color;
+      }
+    },
+    color_surface: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, this.color_text_primary, 5).toHexString() : this.scheme.color_surface;
+      },
+      set: function (color) {
+        this.scheme.color_surface = color;
+      }
+    },
+    color_surface_hover: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 8 : 4) : this.scheme.color_surface_hover;
+      },
+      set: function (color) {
+        this.scheme.color_surface_hover = color;
+      }
+    },
+    color_surface_active: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 12 : 8) : this.scheme.color_surface_active;
+      },
+      set: function (color) {
+        this.scheme.color_surface_active = color;
+      }
+    },
+    color_border: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 12) : this.scheme.color_border;
+      },
+      set: function (color) {
+        this.scheme.color_border = color;
+      }
+    },
+    // Цвета меню
+    color_menu_background: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenuBg') ? this.color_background_dialog : this.scheme.color_menu_background;
+      },
+      set: function (color) {
+        this.scheme.color_menu_background = color;
+      }
+    },
+    color_menu_background_fade: function () {
+      return tinycolor(this.color_menu_background).setAlpha(.48).toRgbString();
+    },
+    color_menu_text_primary: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 87) : this.scheme.color_menu_text_primary;
+      },
+      set: function (color) {
+        this.scheme.color_menu_text_primary = color;
+      }
+    },
+    color_menu_text_disabled: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 38) : this.scheme.color_menu_text_disabled;
+      },
+      set: function (color) {
+        this.scheme.color_menu_text_disabled = color;
+      }
+    },
+    color_menu_icon: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 76) : this.scheme.color_menu_icon;
+      },
+      set: function (color) {
+        this.scheme.color_menu_icon = color;
+      }
+    },
+    color_menu_search: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 12) : this.scheme.color_menu_search;
+      },
+      set: function (color) {
+        this.scheme.color_menu_search = color;
+      }
+    },
+    color_menu_search_fade: function () {
+      return tinycolor(this.color_menu_text_primary).setAlpha(.12).toRgbString();
+    },
+    color_menu_background_hover: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 8 : 4) : this.scheme.color_menu_background_hover;
+      },
+      set: function (color) {
+        this.scheme.color_menu_background_hover = color;
+      }
+    },
+    color_menu_background_active: {
+      get: function () {
+        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 12 : 8) : this.scheme.color_menu_background_active;
+      },
+      set: function (color) {
+        this.scheme.color_menu_background_active = color;
+      }
+    },
+    // Цвета кнопок списков
+    color_planned: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 32).toHexString() : this.sheme.color_planned;
+    },
+    color_onhold: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#9e9e9e', 32).toHexString() : this.sheme.color_onhold;
+    },
+    color_watching: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 24).toHexString() : this.sheme.color_watching;
+    },
+    color_rewatching: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? this.color_watching : this.sheme.color_rewatching;
+    },
+    color_completed: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#c6e97f', 24).toHexString() : this.sheme.color_completed;
+    },
+    color_dropped: function () {
+      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#ef5350', 24).toHexString() : this.sheme.color_dropped;
     },
   },
   methods: {
+    getMixedColor: function (color, amount) {
+      return tinycolor.mix(color, tinycolor(color).isLight() ? '#000' : '#fff', amount).toHexString();
+    },
+    setColor: function (type, color) {
+      if (color == 'invert') {
+        var oldColor = tinycolor(this.scheme[type]).toHsl();
+        var newValue = (Math.abs((oldColor.l * 100) - 100) / 100);
+        color = tinycolor.fromRatio({ h: oldColor.h, s: oldColor.s, l: newValue }).toHexString();
+      }
+      this.scheme[type] = color;
+      this.saveCustomTheme();
+    },
     setId: function () {
+      // Вырезает из адреса аватарки ID пользователя
       var str = this.user.user_id;
       if ( ~this.user.user_id.indexOf(".") ) {
         this.user.avatar = this.user.user_id;
@@ -276,45 +557,19 @@ var vm = new Vue({
       this.user.user_id = isNaN(str) ? '' : str;
       this.saveLocal('user_id', this.user.user_id);
     },
-    /**
-     * Загрузка набора цветов из палитры/схемы в текущий набор цветов
-     * @param  {string} type 'pallete' or 'scheme'
-     * @param  {string} x    'custom' – special settings
-     */
-    loadColorSet: function (type, x) {
-      var user_color = 'selected_' + type;
-      var current_color = 'color_' + type;
-      var x = x === 'custom' ? x : this.user[user_color];
-
-      for (var key in this[current_color][x]['colors']) {
-        this.scheme[key] = this[current_color][x]['colors'][key];
+    setLayout: function (value) {
+      // Когда пользователь меняет вид профиля удаляем или добавляем css-файл
+      var i = this.user.selected_imports.indexOf('profile-cover.css');
+      switch (value) {
+        case 'cover':
+          if (i < 0) this.user.selected_imports.push('profile-cover.css');
+          break;
+        case 'simple':
+          if (i) this.user.selected_imports.splice(i, 1);
+          break;
       }
-
-      this.saveLocal(user_color, this.user[user_color]);
-    },
-    changeColorSet: function (type) {
-      var template;
-
-      template = this['color_' + type]['custom']['colors']; // this.color_scheme.['custom']['colors']
-
-      if (this.user['selected_' + type] !== 'custom') {
-        this.user['has' + wordCapitlize(type)] = true;
-        this.user['selected_' + type] = 'custom';
-      }
-
-      for (var key in template) {
-        template[key] = this.scheme[key];
-      }
-
-      this.saveLocal('custom_' + type, JSON.stringify(template));
-    },
-    changeFiles: function (name, value) {
-      if (name && value) {
-        for (var i = 0; i < this.file_list.length; i++) {
-          if (this.file_list[i]['cat'] == name && i !== value) this.file_list[i]['checked'] = false;
-        }
-      }
-      this.saveSelectedFiles();
+      this.saveLocal('selected_layout', value);
+      this.saveImports();
     },
     checkImage: function (e) {
       var img, type, image;
@@ -338,142 +593,84 @@ var vm = new Vue({
       this.saveLocal(type, image);
     },
     createTheme: function () {
-      switchDisabled(document.getElementById('create_css'));
-      document.getElementById('output_css').value = '';
-      this.status.isCreating = true;
-      this.status.isNotify = true;
-
-
-
-      var sass_setting = '';
-      var user_setting;
-
-
-
-      for (var key in this.scheme) {
-        sass_setting += '$' + key + ': ' + this.scheme[key] + '; ';
-      }
-
-      if (this.user.user_id)                    sass_setting += '$id: ' + this.user.user_id + '; ';
-      if (this.user.selected_layout == 'cover') sass_setting += '$image-cover: url(' + this.user.user_cover + '); ';
-      if (this.user.user_background) {
-        sass_setting += '$image-background: url(' + this.user.user_background + '); '
+      let isSassBuilder = this.user.hasPatreonAccount;
+      let output_newcss = '';
+      if (isSassBuilder) {
+        // 
       } else {
-        sass_setting += '$image-background: none; '
-      };
+        // Если пользователь ничего не менял в файлах то делаем импорт файлов
+        let import_url = '@import url(https://shiki-theme.web.app/import/';
 
-
-
-      if (user_sass) {
-        user_sass.compile(sass_setting + user_css, function callback(result) {
-          console.log('Статус компиляции пользовательского стиля:', result.status);
-          if (result.status === 0) {
-            user_setting = shikiCssAdaptation(result.text);
-          } else {
-            console.error('В процессе компиляции пользовательского стиля произошла ошибка:', result);
-          }
+        // Чтобы сохранить порядок подключения файлов
+        var arr = this.builderData.imports;
+        var keys = Object.keys(arr);
+        var selected = keys.filter(file => this.user.selected_imports.indexOf(file) != -1);
+        selected.forEach(function(file, index) {
+          output_newcss += '/* ' + arr[file].title + ' */\n';
+          output_newcss += import_url + file + ');\n';
         });
-      }
 
-
-
-      var baseImport = '';
-      var compileFileList = this.getFilelist('checked');
-      for (var i = 0; i < compileFileList.length; i++) {
-        baseImport += '@import "' + compileFileList[i] + '"; ';
-      }
-
-
-
-      var theme_sass = instances[this.user.selected_branch].sass;
-      theme_sass.writeFile('base.sass', sass_setting + baseImport);
-      theme_sass.compile('@import "base";', function(result) {
-        console.log("compiled", result);
-        if (result.status === 0) {
-          vm.status.isCompiled = true;
-          vm.status.isCreating = false;
-          vm.status.isNotify = false;
-
-
-          var css = shikiCssAdaptation(result.text);
-          css += vm.user.hasFile ? user_setting ? user_setting : user_css : '';
-          document.getElementById('output_css').value = css;
-
-
-          switchDisabled(document.getElementById('create_css'));
+        // 
+        if (this.user.selected_palette != 'custom') {
+          output_newcss += '/* Тема «' + this.color_palette[this.user.selected_palette].title + '» */\n';
+          output_newcss += import_url + 'theme-' + this.user.selected_palette.replace(/-/g, '_') + '.css);\n';
+          output_newcss += '\n/* Настройки переменных темы */\n@media{:root {\n';
         } else {
-          vm.status.isCreating = false;
-          vm.text.notify_message = 'Произошла ошибка, попробуйте в следующий раз.';
+          // Конвертировать переменные из этого скрипта в css-переменные
+          output_newcss += '\n/* Настройки переменных темы */\n@media{:root {\n';
+
+          var arr = this.$options.computed;
+          var currentCategory = '';
+          Object.keys(arr).forEach(function(color, index) {
+            var value = arr[color].get ? arr[color].get.call(vm) : arr[color].call(vm);
+            var categoryName = currentCategory == vm.variables[color].block ? '' : '  /* ' + vm.variables[color].block + ' */\n';
+            currentCategory = vm.variables[color].block;
+            output_newcss += categoryName + '  --' + color.replace(/_/g, '-') + ': ' + value + ';\n';
+          });
+
+          output_newcss += '\n';
         }
-      });
-    },
-    getFilelist: function (key) {
-      var filelist = key === 'object' ? {} : [];
-      for (var i = 0; i < this.file_list.length; i++) {
-        switch (key) {
-          case 'object':
-            filelist[this.file_list[i]['url']] = this.file_list[i]['checked'];
-            break;
-          case 'checked':
-            if (this.file_list[i][key]) filelist.push(this.file_list[i]['url']);
-            break;
-          default:
-            filelist.push(this.file_list[i][key]);
-            break;
+
+        output_newcss += '  /* Обложка профиля */\n'
+        output_newcss += '  --user-cover: url(' + this.user.user_cover + ');\n';
+        output_newcss += '  /* Фон сайта */\n'
+        output_newcss += '  --user-background: ' + (this.user.user_background ? 'url(' + this.user.user_background + ');\n' : 'none;\n');
+        // Закрыть root
+        output_newcss += '}}\n';
+
+        // Свойства обложки
+        if (this.user.selected_layout == 'cover') {
+          output_newcss += '\n/* Моя обложка в профиле */\n';
+          if (this.user.user_id) {
+            output_newcss += '.p-profiles .profile-head[data-user-id="' + this.user.user_id + '"]::before {\n';
+          } else {
+            output_newcss += '.p-profiles .profile-head::before {\n';
+          }
+          output_newcss += '  display: block; /* Отображение обложки */\n';
+          output_newcss += '  background-position: center 50%;\n';
+          output_newcss += '}\n';
         }
+
+        vm.status.isCompiled = true;
+
+        document.getElementById('output_css').value = output_newcss;
       }
-      return filelist;
     },
     copyTheme: function () {
       document.getElementById('output_css').select();
       document.execCommand('copy');
     },
-    readUserFile: function (event) {
-      if (!event.target.files.length) {
-        user_sass = undefined;
-        user_css = undefined;
-        vm.user.hasFile = false;
-        return;
-      }
-
-      var file  = event.target.files[0],
-          reader = new FileReader(),
-          ex     = getExtension(file.name);
-
-      // Closure to capture the file information.
-      reader.onloadend = function(evt) {
-        if (evt.target.readyState == FileReader.DONE) {
-          if (ex == 'sass' || ex == 'scss') {
-            console.log('Загруженный файл будет преобразован препроцессором Sass и добавлен в конец стиля.');
-
-            user_sass = new Sass();
-
-            user_sass.options({
-              style: Sass.style.expanded,
-              indentedSyntax: ex == 'sass' ? true : false,
-            });
-
-            user_css = evt.target.result;
-            vm.user.hasFile = true;
-          } else if (ex == 'css' && file.type == 'text/css') {
-            console.log('Загружен css-файл. Он будет добавлен в конец стиля без изменений.');
-
-            user_css = evt.target.result;
-            vm.user.hasFile = true;
-          }
-        }
-      };
-
-      reader.readAsText(file, 'UTF-8');
-    },
     saveLocal: function (key, value) {
       localStorage.setItem(key, value);
+    },
+    saveImports: function () {
+      this.saveLocal('selected_imports', JSON.stringify(this.user.selected_imports));
     },
     // Скачивание своих настроек
     // NOTE: возможно, потребуется дать разрешение на скачивание в браузере
     getMySettings: function () {
       // Подготавливаем данные
-      this.user.custom_pallete = this.color_pallete[this.user.selected_pallete].colors;
+      this.user.custom_palette = this.color_palette[this.user.selected_palette].colors;
       this.user.custom_scheme = this.color_scheme[this.user.selected_scheme].colors;
 
       // Создаём файл
@@ -491,188 +688,99 @@ var vm = new Vue({
       event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
       link.dispatchEvent(event);
     },
-    loadUserPallete: function () {
-      // TODO: delete on next update
-      // Временный вариант для поддержки палитр в массивах
-      if (localStorage.getItem('user_pallete') !== null) {
-        var user_pallete = JSON.parse(localStorage.getItem('user_pallete'));
-
-        if (Array.isArray(user_pallete)) {
-          this.color_pallete['custom']['colors'].color_primary           = user_pallete[0];
-          this.color_pallete['custom']['colors'].color_accent            = user_pallete[1];
-          this.color_pallete['custom']['colors'].color_link              = user_pallete[2];
-          this.color_pallete['custom']['colors'].color_link_hover        = user_pallete[3];
-          this.color_pallete['custom']['colors'].color_link_active       = user_pallete[4];
-          this.color_pallete['custom']['colors'].color_header_background = user_pallete[5];
-
-          // Меняем старую запись на новую
-          this.saveLocal('custom_pallete', JSON.stringify(this.color_pallete['custom']['colors']));
-          localStorage.removeItem('user_pallete');
-
-          this.user.hasPallete = true;
-        }
-      }
-
-      // Проверяем localStorage на наличие custom_pallete. Если есть, то загружаем массив и отображаем кнопку для переключения.
-      if (localStorage.getItem('custom_pallete') !== null) {
-        var user_pallete = JSON.parse(localStorage.getItem('custom_pallete'));
-
-        if (typeof user_pallete === 'object') {
-          for (var key in user_pallete) {
-            this.color_pallete['custom']['colors'][key] = user_pallete[key];
-          }
-
-          this.user.hasPallete = true;
-        }
-      }
-
-      this.loadColorSet('pallete', this.user.selected_pallete);
-    },
-    loadUserScheme: function () {
-      if (localStorage.getItem('custom_scheme') !== null) {
-        var user_scheme = JSON.parse(localStorage.getItem('custom_scheme'));
-
-        if (typeof user_scheme === 'object') {
-          for (var key in user_scheme) {
-            this.color_scheme['custom']['colors'][key] = user_scheme[key];
-          }
-
-          this.user.hasScheme = true;
-        }
-      }
-
-      this.loadColorSet('scheme', this.user.selected_scheme);
-    },
-    loadThemeFiles: function (branch) {
-      if (instances.hasOwnProperty(branch)) {
-        if (instances[branch].loaded) return true;
-      } else {
-        // Сохранение настроек ветки
-        instances[branch] = {};
-        instances[branch].loaded = false;
-        instances[branch].title = branch == 'master' ? 'stable' : branch;
-      };
-
-      // Определение пути загрузки файлов
-      var base;
-      if (branch == 'dev') {
-        base = '..'
-      } else {
-        base = 'https://raw.githubusercontent.com/grin3671/shiki-theme/' + branch;
-      }
-
-      // Загрузка списка файлов
-      this.status.isFileLoading = true;
-      this.text.fileLoading = 'Загрузка списка файлов…';
-      loadConfig(function (branch) {
-        switchDisabled(document.getElementById('create_css'));
-
-        // Открытие нового экземпляра sass.js
-        instances[branch].sass = new Sass();
-        instances[branch].sass.options({
-          style: Sass.style.expanded,
-          indentedSyntax: true,
-        });
-
-        // Загрузка файлов
-        console.log('Load files from /' + branch + '…');
-        var loaded = 0;
-        var sources = [];
-
-        instances[branch].filelist.forEach(function(file, i, list) {
-          vm.text.fileLoading = 'Загрузка файлов темы… ' + loaded + '/' + list.length;
-          // Загрузка файла
-          XHR(base + '/assets/' + file.url, function(source) {
-            sources[i] = source;
-            vm.text.fileLoading = 'Загрузка файлов темы… ' + ++loaded + '/' + list.length;
-
-            if (loaded == list.length) {
-              instances[branch].loaded = true;
-              vm.text.fileLoading = 'Регистрация файлов';
-              writeFiles(branch, sources);
-            }
-          }, function (error) {
-            console.error('File ' + file.url + ' not found!');
-          });
-        });
+    getCurrentPalette: function () {
+      let obj = {};
+      let arr = this.$options.computed;
+      Object.keys(arr).forEach(function(item, index) {
+        if (arr[item].get) obj[item] = arr[item].get.call(vm);
       });
+      return obj;
+    },
+    saveCustomTheme: function (theme) {
+      var newTheme = {},
+          localThemes = {};
 
-      function loadConfig (callback) {
-        switch (branch) {
-          case 'dev':
-            XHR(base + '/config/theme_files.json', function(files) {
-              vm.theme.branches.push(branch);
-              instances[branch].filelist = JSON.parse(files);
-              callback(branch);
-            }, function (error) {
-              console.error('Local config not found!');
-              // Load from web
-              vm.loadThemeFiles('master');
-            });
-            break;
-          default:
-            XHR(base + '/config/theme_files.json', function(files) {
-              instances[branch].filelist = JSON.parse(files);
-              callback(branch);
-            });
-            break;
+      // Собираем текущие цвета темы из computed-свойств
+      newTheme = this.createCustomTheme(theme);
+      // Устанавливаем цвета в список палитр
+      if (this.customTheme.helpers.length != this.defaultHelpers().length) newTheme.helpers = this.customTheme.helpers;
+      if (this.color_palette.custom) this.color_palette[newTheme.value] = newTheme;
+
+      // Создаём еще одну вложенность для сохранения
+      localThemes[newTheme.value] = newTheme;
+
+      // Сохраняем тему
+      this.saveLocal('custom_theme', JSON.stringify(localThemes));
+
+
+      if (this.user.selected_palette == 'custom') return;
+      this.$set(this.color_palette, newTheme.value, newTheme);
+      this.user.selected_palette = newTheme.value;
+      this.selectTheme(newTheme.value);
+    },
+    createCustomTheme: function (theme) {
+      var localTheme = typeof theme == 'object';
+      // Создать новую запись в списке, если её еще нет
+      var newTheme = {};
+      newTheme.title = localTheme ? theme.title : 'Моя тема';
+      newTheme.value = localTheme ? theme.value : 'custom';
+      newTheme.author = localTheme ? theme.author : 'id' + this.user.user_id;
+      newTheme.helpers = localTheme ? theme.helpers : null;
+      newTheme.palette = localTheme ? theme.palette : this.getCurrentPalette();
+      return newTheme;
+    },
+    loadUserTheme: function () {
+      // Если в локальных настройках есть темы, то добавляем их в список тем
+      if (localStorage.getItem('custom_theme') !== null) {
+        // Список тем в локальных настройках
+        var localThemeList = JSON.parse(localStorage.getItem('custom_theme'));
+        // Список тем, загруженных в скрипт.
+        var vuejsThemeList = this.color_palette;
+
+        for (var theme in localThemeList) {
+          // Если имена совпадают — пропускаем.
+          if (!vuejsThemeList.hasOwnProperty(theme)) this.$set(vuejsThemeList, theme, localThemeList[theme]);
         }
       }
-
-      function writeFiles (branch, sources) {
-        var files = {};
-
-        // Save files order
-        for (var i = 0; i < sources.length; i++) {
-          files[instances[branch].filelist[i].url] = sources[i];
-        }
-
-        // Register multiple files
-        instances[branch].sass.writeFile(files, function callback(result) {
-          if (result) {
-            vm.switchBranches(branch);
-            vm.text.fileLoading = 'Готово!';
-            vm.status.isFileLoading = false;
-            vm.updateSelectedFiles();
-            switchDisabled(document.getElementById('create_css'));
-          }
-        });
+      this.selectTheme(this.user.selected_palette);
+      this.status.isFileLoading = false;
+    },
+    selectTheme: function (theme) {
+      this.saveLocal('selected_palette', theme);
+      this.loadThemeSet(this.color_palette[theme] ? theme : 'light');
+    },
+    loadThemeSet: function (theme) {
+      var theme = this.color_palette[theme];
+      for (var key in theme.palette) {
+        // Устанавливаем значения computed-свойств из палитры
+        this[key] = theme.palette[key];
+      }
+      // Если в теме не используются хелперы — отключаем
+      if (theme.helpers) {
+        this.customTheme.helpers = theme.helpers;
+      // Если в теме нет хелперов — значит всё включаем
+      } else {
+        this.customTheme.helpers = this.defaultHelpers();
       }
     },
-    loadThemeBranches: function (event) {
-      if (this.status.isBranchLoaded) return;
-
-      event.target.setAttribute('disabled', 'disabled');
-
-      // Загрузка списка веток
-      XHR('https://api.github.com/repos/grin3671/shiki-theme/branches', function(list) {
-        var branches = JSON.parse(list);
-
-        vm.status.isBranchLoaded = true;
-
-        for (var i = 0; i < branches.length; i++) {
-          if (branches[i].name != 'master' && branches[i].name != 'gh-pages') {
-            vm.theme.branches.push(branches[i].name);
-          }
-        }
-      });
-    },
-    switchBranches: function (branch) {
-      if (this.loadThemeFiles(branch)) {
-        this.file_list = instances[branch].filelist;
-        this.user.selected_branch = branch;
+    saveCustomHelpers: function () {
+      if (this.user.selected_palette !== 'custom') return;
+      if (localStorage.getItem('custom_theme') !== null) {
+        var localThemeList = JSON.parse(localStorage.getItem('custom_theme'));
+        localThemeList[this.user.selected_palette].helpers = this.customTheme.helpers.length == this.defaultHelpers().length ? null : this.customTheme.helpers;
+        this.saveLocal('custom_theme', JSON.stringify(localThemeList));
       }
     },
-    saveSelectedFiles: function () {
-      this.saveLocal('selected_files', JSON.stringify(this.getFilelist('object')));
-    },
-    updateSelectedFiles: function () {
-      var x = JSON.parse(this.user.selected_files);
-      for (var i = 0; i < this.file_list.length; i++) {
-        if (x.hasOwnProperty(this.file_list[i].url)) {
-          this.file_list[i].checked = x[this.file_list[i].url];
-        }
-      }
+    defaultHelpers: function () {
+      // Восстановить значения по умолчанию
+      return [
+        'autoMainText',
+        'autoLinks',
+        'autoMenuBg',
+        'autoMain',
+        'autoMenu',
+        'autoScheme',
+      ];
     },
   },
   mounted: function () {
@@ -682,14 +790,16 @@ var vm = new Vue({
       'user_cover',
       'user_background',
       'selected_layout',
-      'selected_pallete',
-      'selected_scheme',
-      'selected_files',
+      'selected_palette',
+      'selected_imports',
     ];
 
     for (var i = 0; i < localSettings.length; i++) {
       var x = localStorage.getItem(localSettings[i]);
-      if (x !== null) this.user[localSettings[i]] = x;
+      if (x !== null) {
+        if (x[0] == '{' || x[0] == '[') x = JSON.parse(x);
+        this.$set(this.user, localSettings[i], x);
+      }
     }
 
 
@@ -704,36 +814,30 @@ var vm = new Vue({
     }
 
 
-    // Подготовка сборщика
-    Sass.setWorkerUrl('./vendor/sass.js/sass.worker.js');
-
-
-    // Загрузка списка цветовых схем
-    XHR('./config/theme_schemes.json', function(config) {
-      vm.color_scheme = JSON.parse(config);
-      vm.loadUserScheme();
-    });
-
-    // Загрузка списка цветовых палитр
-    XHR('./config/theme_palletes.json', function(config) {
-      vm.color_pallete = JSON.parse(config);
-      vm.loadUserPallete();
-    });
-
     // Загрузка списка переменных
     XHR('./config/theme_variables.json', function(config) {
       vm.variables = JSON.parse(config);
     });
 
-    // Загрузка списка папок
-    XHR('./config/theme_folders.json', function(config) {
-      vm.folders = JSON.parse(config);
+
+    // Загрузка списка тем
+    XHR('./config/theme_list.json', function(config) {
+      vm.$set(vm, 'color_palette', JSON.parse(config));
+      // Загружаем темы пользователя
+      Vue.nextTick(function () {
+        vm.loadUserTheme();
+      });
     });
 
 
-    // Загрузка файлов
+    // Список файлов для импорта
+    XHR('./config/theme_imports.json', function(files) {
+      vm.builderData.imports = JSON.parse(files);
+    });
+
+
+    // Включение кнопки
     switchDisabled(document.getElementById('create_css'));
-    this.switchBranches(window.location.hostname == 'grin3671.github.io' ? 'master' : 'dev');
   },
 });
 
@@ -789,7 +893,7 @@ document.addEventListener('click', function () {
 
 
 /**
- * Get file extension from its name
+ * Get file extension from filename
  * @fname  {string}   File name
  * @return {string}   File extension
  * Author: VisioN (https://stackoverflow.com/a/12900504)
@@ -800,140 +904,4 @@ function getExtension (fname) {
 
 function wordCapitlize (word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
-
-function isLight (r, g, b) {
-  b = r[2];
-  g = r[1];
-  r = r[0];
-  var a = 1 - (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return (a < 0.5);
-}
-
-function hexToRgb(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? [
-    parseInt(result[1], 16),
-    parseInt(result[2], 16),
-    parseInt(result[3], 16)
-  ] : null;
-}
-
-function additionColor (c1, c2, o2) {
-  var i,
-      c1 = hexToRgb(c1),
-      c2 = hexToRgb(c2),
-      o2 = o2 / 100,
-      r = [];
-
-  for (i = 0; i < 3; i++) {
-    r.push(calcColor(c1[i], c2[i], o2));
-  }
-
-  r = rgbToHex(r[0], r[1], r[2]);
-
-  return r;
-
-  function calcColor (c1, c2, o2) {
-    return Math.round((c2 * o2) + (1 - o2) * c1);
-  }
-}
-
-function rgbToHex(r, g, b) {
-  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-
-  function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-  }
-}
-
-/**
- * Color contrast script for http://webaim.org/resources/contrastchecker/
- * Authored by Jared Smith.
- * Nothing here is too earth shattering, but if you're reading this,
- * you must be interested.
- * Feel free to steal, borrow, or use this code however you would like.
- * The color picker is jscolor - http://jscolor.com/
- */
-function checkcontrast(background, color) {
-
-  var L1 = getL(color.substring(1));
-  var L2 = getL(background.substring(1));
-  
-  if (L1 !== false && L2 !== false) {
-
-    var ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
-    console.info('Contrast Ratio Test Result', (Math.round(ratio * 100) / 100) + ":1");
-
-    if (ratio >= 7) {
-      console.info('Normal AAA', 'Pass');
-    } else {
-      console.info('Normal AAA', 'Fail');
-    }
-
-    if (ratio >= 4.5) {
-      console.info('Normal AA', 'Pass');
-      console.info('Big AAA', 'Pass');
-    } else {
-      console.info('Normal AA', 'Fail');
-      console.info('Big AAA', 'Fail');
-    }
-
-    if (ratio >= 3) {
-      console.info('Big AA', 'Pass');
-      return ratio;
-    } else {
-      console.info('Big AA', 'Fail');
-      return ratio;
-    }
-  } else {
-    console.info('Contrast Ratio Test', 'Fail');
-    return false;
-  }
-
-  function getL(color) {
-    if(color.length == 3) {
-      var R = getsRGB(color.substring(0,1) + color.substring(0,1));
-      var G = getsRGB(color.substring(1,2) + color.substring(1,2));
-      var B = getsRGB(color.substring(2,3) + color.substring(2,3));
-      update = true;
-    } else if (color.length == 6) {
-      var R = getsRGB(color.substring(0,2));
-      var G = getsRGB(color.substring(2,4));
-      var B = getsRGB(color.substring(4,6));
-      update = true;
-    } else {
-      update = false;
-    }
-
-    if (update == true) {
-      var L = (0.2126 * R + 0.7152 * G + 0.0722 * B);
-      return L;
-    } else {
-      return false;
-    }
-  }
-
-  function getsRGB(color) {
-    color = getRGB(color);
-    if(color !== false) {
-      color = color / 255;
-      color = (color <= 0.03928) ? color/12.92 : Math.pow(((color + 0.055)/1.055), 2.4);
-      return color;
-    } else {
-      return false;
-    }
-  }
-
-  function getRGB(color) {
-    try {
-      var color = parseInt(color, 16);
-    } catch (err) {
-      var color = false;
-    }
-
-    return color;
-  }
 }

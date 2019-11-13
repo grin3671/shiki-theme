@@ -1,0 +1,94 @@
+{
+  "default": {
+    "title": "Палитра Shikimori",
+    "value": "default",
+    "author": "morr",
+    "scheme": "light",
+    "palette": {
+      "color_primary": "#4682B4",
+      "color_accent": "#B78BC7",
+      "color_background": "#ffffff",
+      "color_menu_background": "#343434",
+      "color_link": "#176093",
+      "color_link_hover": "#dd5202",
+      "color_link_active": "#ff0202"
+    },
+    "helpers": [
+      "autoMain",
+      "autoMainText",
+      "autoScheme",
+      "autoMenu"
+    ]
+  },
+  "light": {
+    "title": "Стандартная светлая",
+    "value": "light",
+    "author": "grin3671",
+    "scheme": "light",
+    "palette": {
+      "color_primary": "#009688",
+      "color_accent": "#ffd740",
+      "color_background": "#fafafa",
+      "color_menu_background": "#343434"
+    },
+    "helpers": [
+      "autoMain",
+      "autoMainText",
+      "autoLinks",
+      "autoScheme",
+      "autoMenu"
+    ]
+  },
+  "dark": {
+    "title": "Стандартная тёмная",
+    "value": "dark",
+    "author": "grin3671",
+    "scheme": "dark",
+    "palette": {
+      "color_primary": "#2196f3",
+      "color_accent": "#ffac1c",
+      "color_background": "#242424",
+      "color_menu_background": "#343434"
+    },
+    "helpers": [
+      "autoMain",
+      "autoMainText",
+      "autoLinks",
+      "autoScheme",
+      "autoMenu"
+    ]
+  },
+  "material-light": {
+    "title": "Material Light",
+    "value": "material-light",
+    "author": "MD Team",
+    "scheme": "light",
+    "palette": {
+      "color_primary": "#6200ee",
+      "color_accent": "#03dac5",
+      "color_background": "#ffffff"
+    }
+  },
+  "material-dark": {
+    "title": "Material Dark",
+    "value": "material-dark",
+    "author": "MD Team",
+    "scheme": "dark",
+    "palette": {
+      "color_primary": "#bb86fc",
+      "color_accent": "#03dac5",
+      "color_background": "#121212"
+    }
+  },
+  "firewatch-night": {
+    "title": "Firewatch Night",
+    "value": "firewatch-night",
+    "author": "grin3671",
+    "scheme": "dark",
+    "palette": {
+      "color_primary": "#7cc7e7",
+      "color_accent": "#eccf77",
+      "color_background": "#181c24"
+    }
+  }
+}

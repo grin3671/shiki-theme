@@ -1,0 +1,52 @@
+{
+  "main.css": {
+    "title": "Основной файл",
+    "url": "main.css",
+    "checked": true
+  },
+  "profile-cover.css": {
+    "title": "Стили обложки профиля",
+    "url": "profile-cover.css",
+    "checked": true
+  },
+  "immersive-cover.css": {
+    "title": "Полноэкранная обложка",
+    "desc": "Дополненительные стили обложки профиля",
+    "url": "immersive-cover.css",
+    "checked": false
+  },
+  "font-roboto.css": {
+    "title": "Шрифт Roboto",
+    "url": "font-roboto.css",
+    "checked": true
+  },
+  "font-roboto_condensed.css": {
+    "title": "Шрифт Roboto Сondensed",
+    "desc": "Лучше подходит для мобильных экранов / x1000",
+    "url": "font-roboto_condensed.css",
+    "checked": false
+  },
+  "md-textfields.css": {
+    "title": "Материальные поля ввода",
+    "url": "md-textfields.css",
+    "checked": false
+  },
+  "profile-update.1.css": {
+    "title": "Изменения профиля v1.0",
+    "url": "profile-update.1.css",
+    "desc": "Отображение дниметра, тонкие полосы графика активности.",
+    "checked": true
+  },
+  "profile-update.1.1.css": {
+    "title": "Изменения профиля v1.1",
+    "desc": "Изменение положения достижений и избранного (требуется v1.0).",
+    "url": "profile-update.1.1.css",
+    "checked": true
+  },
+  "profile-history_animation.css": {
+    "title": "Анимация переключения истории",
+    "desc": "Для тех, у кого не отображаются полосы аниме и манги в профиле.",
+    "url": "profile-history_animation.css",
+    "checked": false
+  }
+}
