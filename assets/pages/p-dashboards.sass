@@ -222,9 +222,18 @@
           padding: 2px 0 !important
           margin: 0 8px 0 0
 
+  // Больший отступ между кучей ссылок и первым блоком новостей
+  .block + .block2
+    margin-top: 24px
+
   .headline
-    padding: 0
-    margin-bottom: -6px !important
+    padding: 8px 16px
+    margin: 8px -16px
+
+    & > a
+      padding: 6px 16px
+      margin: -2px -16px
+      color: var(--color-primary) !important
 
     .buttons
       .options
@@ -279,33 +288,3 @@
         .b-link_button.maxi
           padding: 0 8px
 
-
-.b-news_wall
-  @media (min-width: 1025px)
-    margin: 0 -24px
-
-    .b-news_wall-topic
-      padding: 12px 24px
-
-
-// TODO: separate files
-.b-topic.b-news_wall-topic.b-news-topic
-  & > .inner
-    .name-date .name
-      color: var(--color-text-primary)
-
-    footer .b-shiki_swiper
-      border-radius: var(--border-rounded)
-
-  .b-anime_status_tag
-    background-color: var(--color-background-translucent)
-
-
-.fc-2-3-m
-  @media (min-width: 1025px)
-    margin: 0 -24px
-
-    & > .f-column
-      flex-grow: 0
-      min-width: 0
-      padding: 0 24px
