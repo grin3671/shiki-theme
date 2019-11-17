@@ -34,3 +34,14 @@
 
   &:hover::after
     transform: translateX(-50%) translateY(0)
+
+%md-tooltip-right
+  @extend %md-tooltip
+
+  &::after
+    left: 100%
+    bottom: 0
+    transform: translateX(-.75rem)
+
+  &:hover::after
+    transform: translateX(0)

@@ -1,0 +1,51 @@
+.b-feedback
+  position: relative
+  opacity: .6
+  transition: opacity .24s ease-in-out
+  z-index: 2
+
+  &:hover
+    opacity: 1
+
+  & > .hover-activator
+    display: none
+
+  // smaller index to prevent repeatable dialog open
+  & > .marker-positioner:hover
+    z-index: 2
+
+  // rewrite shikimori' css
+  body[data-locale] &
+    & > .marker-positioner
+      position: fixed
+      top: auto
+      bottom: 56px
+      width: auto
+      height: auto
+
+      & > .marker-text
+        position: relative
+        min-width: auto
+        height: auto
+        padding: 8px
+        margin: 8px
+        background: none
+        border-radius: 50%
+        transform: none
+        color: var(--color-text-hint)
+        transition: background .2s ease
+        @extend %material-icons
+        @extend %md-tooltip-right
+
+        &::before
+          content: 'bug_report'
+
+      &:hover > .marker-text
+        background-color: var(--color-overlay-text-hovered)
+
+        &::after
+          opacity: .9
+          transform: translateX(0)
+
+      &:active > .marker-text
+        background-color: var(--color-overlay-text-pressed)
