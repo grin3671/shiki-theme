@@ -102,25 +102,6 @@
       &.active::after
         animation: switch-tap--vertical .24s cubic-bezier(0.55, 0.06, 0.68, 0.19)
 
-@keyframes switch-focus--vertical
-  0%,
-  100%
-    opacity: .8
-    transform: translate3d(-50%, -50%, 0)
-
-  50%
-    opacity: .8
-    transform: translate3d(-50%, -50%, 0) scale(0.95)
-
-
-@keyframes switch-tap--vertical
-  0%
-    opacity: .8
-
-  100%
-    opacity: 0
-    transform: translate3d(-50%, -50%, 0) scale(2.5)
-
   &.--centered
     [data-tab-switch]
       &:first-child
@@ -142,12 +123,6 @@
       border: 0
       font-size: .875em
 
-      &:first-child
-        margin-left: auto
-
-      &:last-child
-        margin-right: auto
-
       &::before
         display: block
         margin: 4px auto
@@ -159,3 +134,22 @@
 
       &::after
         background: var(--color-overlay-primary-pressed)
+
+@keyframes switch-focus--vertical
+  0%,
+  100%
+    opacity: .8
+    transform: translate3d(-50%, -50%, 0)
+
+  50%
+    opacity: .8
+    transform: translate3d(-50%, -50%, 0) scale(0.95)
+
+
+@keyframes switch-tap--vertical
+  0%
+    opacity: .8
+
+  100%
+    opacity: 0
+    transform: translate3d(-50%, -50%, 0) scale(2.5)
