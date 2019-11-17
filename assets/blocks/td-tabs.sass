@@ -113,3 +113,34 @@
   100%
     opacity: 0
     transform: translate3d(-50%, -50%, 0) scale(2.5)
+
+  &.--anorva
+    [data-tab-switch]
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: flex-end
+      min-width: 96px
+      padding: 4px
+      margin: 4px 0
+      background: transparent
+      border: 0
+      font-size: .875em
+
+      &:first-child
+        margin-left: auto
+
+      &:last-child
+        margin-right: auto
+
+      &::before
+        display: block
+        margin: 4px auto
+        transition: transform .2s ease-in-out
+
+      &:hover::before,
+      &.active::before
+        transform: translateY(-4px)
+
+      &::after
+        background: var(--color-overlay-primary-pressed)
