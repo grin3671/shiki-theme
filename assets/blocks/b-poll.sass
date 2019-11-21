@@ -27,7 +27,7 @@
       label
         margin-bottom: 0
         border: 0
-        color: $color-text-primary
+        color: var(--color-text-primary)
 
       // Вариант в опросе (завершенный)
       &.result
@@ -43,27 +43,27 @@
 
           .bar
             &.s0, &.s1, &.s2, &.s3
-              background-color: $color-primary
+              background-color: var(--color-primary)
 
           .line
-            background-color: $color-border
+            background-color: var(--color-border)
 
         .votes-percent
           margin-right: 1em
-          color: $color-text-disabled
+          color: var(--color-text-disabled)
           font-size: .75em
           line-height: inherit
 
         .votes-total
           margin-left: 1em
-          color: $color-text-hint
+          color: var(--color-text-hint)
           font-size: .75em
           line-height: inherit
 
         // Отметка выбранного пользователем варианта
         label .voted-for
           padding-left: 1em
-          color: $color-success
+          color: var(--color-success)
 
           &::after, &::before
             display: none
@@ -89,12 +89,12 @@
       height: 18px
       margin: 3px 18px 0 0
       border-radius: 100%
-      border: 1.5px solid $color-text-hint
+      border: 1.5px solid var(--color-text-hint)
       box-sizing: border-box
-      box-shadow: 0 0 0 2.75px $color-background inset
+      box-shadow: 0 0 0 2.75px var(--color-background) inset
 
     &:checked + .radio-label::before
       width: 18px
       height: 18px
-      background-color: $color-primary
-      border: 1.5px solid $color-primary
+      background-color: var(--color-primary)
+      border: 1.5px solid var(--color-primary)

@@ -9,22 +9,22 @@
     width: auto
     height: 2.5rem
     margin-top: -2.5rem
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0), $color-background)
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), var(--color-background))
 
   .expand
     display: inline-block
     vertical-align: top
     padding: 0 .5rem
     border-radius: .625rem
-    color: $color-text-secondary
+    color: var(--color-text-secondary)
     font-size: .875rem
     line-height: 1.25rem
     transition: .16s
     user-select: none
 
     &:hover, &:active
-      background: $color-area-hover
-      color: $color-text-secondary
+      background: var(--color-surface-hover)
+      color: var(--color-text-secondary)
 
     @extend %material-icons
     &::before

@@ -2,10 +2,10 @@
 .b-quote
   padding: .5rem 1rem
   margin: .5rem 0
-  background: $color-background-secondary
-  border-color: $color-border
+  background: var(--color-surface)
+  border-color: var(--color-border)
   border-style: solid
-  border-radius: 2px
+  border-radius: var(--border-rounded)
   color: inherit
 
   .quoteable
@@ -15,7 +15,7 @@
     &::before
       float: left
       margin-right: 8px
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
     a
       padding-right: 0
@@ -23,10 +23,10 @@
 
   .b-quote
     margin-left: 0 !important
-    background: $color-area-normal
+    background: var(--color-surface-hover)
 
     .b-quote
-      background: $color-background-secondary
+      background: var(--color-surface)
 
       .b-quote
-        background: $color-area-normal
+        background: var(--color-surface-hover)

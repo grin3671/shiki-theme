@@ -5,11 +5,11 @@
       border-radius: 2px
 
     .title
-      color: $color-text-primary !important
+      color: var(--color-text-primary) !important
 
     .misc
       span
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
   &.planned, &.watching, &.completed, &.rewatching, &.on_hold, &.dropped
     .image-decor
@@ -35,19 +35,19 @@
   &.planned .image-decor::before
     content: 'event'
     background: #FAFAFA
-    color: darken($color-info, 8%)
+    color: var(--color-info)
 
   &.watching .image-decor::before
     content: 'play_arrow'
-    background: $color-info
+    background: var(--color-info)
 
   &.rewatching .image-decor::before
     content: 'replay'
-    background: $color-info
+    background: var(--color-info)
 
   &.completed .image-decor::before
     content: 'done'
-    background: $color-success
+    background: var(--color-success)
 
   &.on_hold .image-decor::before
     content: 'schedule'
@@ -55,4 +55,4 @@
 
   &.dropped .image-decor::before
     content: 'delete'
-    background: $color-danger
+    background: var(--color-danger)

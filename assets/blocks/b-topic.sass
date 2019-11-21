@@ -20,7 +20,7 @@
         margin-right: .5rem
 
         & >  span
-          color: $color-text-hint
+          color: var(--color-text-hint)
           padding: 0 .5rem 0 0
           font-size: .875rem
 
@@ -73,7 +73,7 @@
         min-width: 5.5rem
         padding: 0 1rem
         margin: .25rem 0
-        background-color: $color-area-active
+        background-color: var(--color-surface-active)
         border: 0
         border-radius: .125rem
         color: inherit
@@ -98,7 +98,7 @@
         &.yes
           &.selected, &:hover
             background-color: #4CAF50
-            background-color: $color-success
+            background-color: var(--color-success)
             color: #FFFFFF
 
           &::before
@@ -107,7 +107,7 @@
         &.no
           &.selected, &:hover
             background-color: #F44336
-            background-color: $color-danger
+            background-color: var(--color-danger)
             color: #FFFFFF
 
           &::before
@@ -133,7 +133,7 @@
       right: 0
       left: 0
       height: 1px
-      background-color: $color-border
+      background-color: var(--color-border)
 
   .tooltip &
     & > .inner

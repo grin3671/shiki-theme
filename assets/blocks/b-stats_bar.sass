@@ -1,16 +1,16 @@
 .b-stats_bar
   .title
     @extend %headline
-    color: $color-text-hint
+    color: var(--color-text-hint)
 
   a.title
-    color: $color-link
+    color: var(--color-link)
 
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
 
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
   .bar
     height: auto
@@ -22,8 +22,8 @@
       line-height: 1.25rem
 
     .third
-      background: $color-border
-      color: $color-text-primary
+      background: var(--color-border)
+      color: var(--color-text-primary)
 
   .stat_names
     font-size: .875rem
@@ -37,15 +37,15 @@
 
       a
         display: block
-        color: $color-text-primary
+        color: var(--color-text-primary)
 
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
 
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
       .size
         &::before,
         &::after
-          color: $color-text-disabled
+          color: var(--color-text-disabled)

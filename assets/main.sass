@@ -1,5 +1,5 @@
-/* BUGFIX */
-/* В превью комментария не отображается заголовок на страницах клубов */
+// BUGFIX
+// В превью комментария не отображается заголовок на страницах клубов
 .p-club_pages .new_comment .preview .b-comment .inner header,
 .p-club_pages .edit_comment .preview .b-comment .inner header
   display: block
@@ -10,89 +10,64 @@
 .edit-page .preview .b-comment > .inner > .body
   padding-left: 0
 
-/* Размер постеров в блоке «Лучшие работы» внутри тултипа */
+// Размер постеров в блоке «Лучшие работы» внутри тултипа
 .b-catalog_entry-tooltip .best-works .c-column
   width: 22%
 
-/* Fix кнопки загрузки на телефоне */
+// Fix кнопки загрузки на телефоне
 .b-shiki_editor aside.buttons .editor-file span
   display: block
 
-/* Максимальная ширина элементов */
+// Максимальная ширина элементов
 img
   max-width: 100%
 
-/* Убираем лишнее пространство под textarea */
+// Убираем лишнее пространство под textarea
 textarea
   vertical-align: top
 
-/* Убираем лишние элементы настроек */
+// Убираем лишние элементы настроек
 .page_background_color
   display: none /* thx NedStar */
 
-/**/
-/**/
-/**/
-
-/* ОСНОВНОЙ ФАЙЛ */
+// ОСНОВНОЙ ФАЙЛ
 .b-header_filters .filter-line .title,
 .b-header_filters .filter-line a.current,
 .p-statistics-index .forum-nav .sections a,
 .p-userlist_comparer .comparer table .name a
   color: inherit
 
-
-
-
-
-
 // НАСТРОЙКИ
-// Используется для дальнейших рассчётов размеров
-$layout-grid: 8px !default
-// Gutters are the spaces between columns. They help separate content.
-$layout-gutter: 16px !default
-// Margins are the space between content and the left and right edges of the screen.
-$layout-margin: 16px !default
-$layout-margin-tablet: $layout-margin * 1.5 !default
+:root
+  --color-black: #212121
+  --color-white: #fafafa
+  --color-info: #4f91e8
+  --color-success: #66bb6a
+  --color-warning: #ef8d50
+  --color-danger: #ef5350
+  --color-offtop: #f58ebb
+  --color-violet: #a64fe8
+  --color-yellow: #e8dc4f
+  --color-magenta: #e84fde
 
-// Дополнительные цвета
-$color-success: #66bb6a
-$color-warning: #ef8d50
-$color-danger: #ef5350
-$color-info: #4f91e8
-$color-offtop: #f58ebb
-$color-violet: #a64fe8
-$color-yellow: #e8dc4f
-$color-magenta: #e84fde
+  --layout-grid: 8px
+  // Расстояние между колонками
+  --layout-gutter: 16px
+  // Отступ от краёв области
+  --layout-margin: 16px
+  --layout-margin-tablet: calc(var(--layout-margin) * 1.5)
 
-// 
-$border-round: 50%
-$border-rounded: 3px
-$color-black: #212121
-$color-white: #fafafa
-$font-size: 16px
+  --border-round: 50%
+  --border-rounded: 3px
 
+  --font-size: 16px
+  --font-main: 'Arial', sans-serif
+  --font-alt: var(--font-main)
 
-// 
-// 
-$color-primary-reduced: mix($color-primary, $color-background, 72%)
-$color-accent-reduced: mix($color-accent, $color-background, 72%)
-// 
-$color-overlay-text-hovered:  rgba($color-text-primary, .04)
-$color-overlay-text-selected: rgba($color-text-primary, .08)
-$color-overlay-text-pressed:  rgba($color-text-primary, .12)
-
-$color-overlay-primary-hovered: rgba($color-primary, .12)
-$color-overlay-primary-pressed: rgba($color-primary, .24)
-
-$color-overlay-accent-hovered: rgba($color-accent, .12)
-$color-overlay-accent-pressed: rgba($color-accent, .24)
-
-$color-background-translucent: rgba($color-background, .9)
+  --word-spacing: .375em
 
 
-
-/* MAIN BLOCKS */
+// MAIN BLOCKS
 html
   height: 100%
   overflow-x: hidden
@@ -100,24 +75,25 @@ html
 body
   position: relative
   min-height: 100%
-  background-color: $color-background
-  color: $color-text-primary
+  background-color: var(--color-background)
+  background-image: var(--user-background)
+  color: var(--color-text-primary)
   font-size: 16px
   font-weight: 400
   line-height: 1.5
   // overflow-x: hidden /* блокирует работу position: sticky */
 
   @media (max-width: 1024px)
-    background-color: $color-background !important
+    background-color: var(--color-background) !important
 
 .l-page
   min-height: 100%
-  padding: 16px $layout-margin 0
-  background: $color-background
+  padding: 16px var(--layout-margin) 0
+  background: var(--color-background)
 
   @media (min-width: 960px)
-    padding-right: $layout-margin-tablet
-    padding-left: $layout-margin-tablet
+    padding-right: var(--layout-margin-tablet)
+    padding-left: var(--layout-margin-tablet)
 
 .l-footer
   padding: 0
@@ -135,10 +111,9 @@ body
     width: auto
     height: auto
     background: none
-    color: $color-text-hint
+    color: var(--color-text-hint)
     font-weight: 700
 
-  /* НЕ УДАЛЯТЬ! Информация для устранения неполадок */
   body[data-user *= ':2727,'] &::before
     content: 'shiki-theme v#{$ver}-#{$release}'
 
@@ -153,7 +128,7 @@ body
     font-size: .75em
 
   .copyright
-    color: $color-text-secondary
+    color: var(--color-text-secondary)
 
   .links
     clear: both
@@ -162,14 +137,13 @@ body
     text-align: center
 
     a
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
       &:last-child
         margin: 0
 
 
-
-/* RESET LAYOUT */
+// RESET LAYOUT
 @media (max-width: 1024px)
   .l-page
     .menu-slide-outer
@@ -186,8 +160,7 @@ body
         margin: 0 !important
 
 
-
-/* ОБЩИЕ КЛАССЫ */
+// ОБЩИЕ КЛАССЫ
 .p0,
 .m0,
 .m1,
@@ -220,8 +193,8 @@ div.body
 
 
 h3
-  border-color: $color-border
-  color: $color-text-secondary
+  border-color: var(--color-border)
+  color: var(--color-text-secondary)
   font-size: 1rem
   line-height: 1.5
   margin-bottom: .5rem
@@ -233,7 +206,7 @@ h3
 
 hr
   margin: .5rem 0
-  background-color: $color-border
+  background-color: var(--color-border)
   background-image: none
 
 
@@ -267,11 +240,11 @@ input
 
 
 .b-mention
-  color: $color-link
+  color: var(--color-link)
   &:hover
-    color: $color-link-hover
+    color: var(--color-link-hover)
   &:active
-    color: $color-link-active
+    color: var(--color-link-active)
 
   s
     color: inherit
@@ -285,16 +258,16 @@ input
 
 .b-nothing_here
   margin-left: 0
-  color: $color-text-disabled
+  color: var(--color-text-disabled)
   font-size: .875rem
   line-height: 2.5rem
 
   a
-    color: $color-link
+    color: var(--color-link)
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
   .tooltip-details &.centered
     color: inherit
@@ -303,13 +276,13 @@ input
 
 .b-replies
   padding: 8px 0 0
-  color: $color-text-hint
+  color: var(--color-text-hint)
   font-size: .75rem
 
 
 
 .b-separator
-  color: $color-text-disabled
+  color: var(--color-text-disabled)
 
 
 
@@ -325,14 +298,14 @@ input
   padding: 0 .5rem
   margin: .25rem 0
   border-radius: .625rem
-  color: $color-text-secondary
+  color: var(--color-text-secondary)
   font-size: .875rem
   font-weight: bold
   line-height: 1.25rem
 
   &:hover
-    background-color: $color-area-hover
-    color: $color-text-secondary
+    background-color: var(--color-surface-hover)
+    color: var(--color-text-secondary)
 
 
 
@@ -349,14 +322,14 @@ input
 
 
 .yellow-fade
-  background: mix($color-background, $color-accent, 48%)
-  outline-color: mix($color-background, $color-accent, 48%)
+  background: var(--color-accent-fade)
+  outline-color: var(--color-accent-fade)
 
 
 // TODO: check this element
 // NOTE: .b-comment.b-comment-info
 .b-comment-info
-  color: $color-text-hint
+  color: var(--color-text-hint)
   font-size: .875rem
   text-align: left
   line-height: 1.5rem
@@ -373,16 +346,16 @@ input
 
 
 
-/* TODO: replace */
+// TODO: replace
 .b-catalog-entry-embedded
   .b-catalog_entry
     margin-bottom: 0 !important
 
-/* TODO: replace */
+// TODO: replace
 .b-user_rate-extended > .midheadline
   overflow: hidden
 
-/* TODO: check it */
+// TODO: check it
 // .b-topic > .inner header .name-date a.name,
 // .b-topic > .inner header .name-date .about,
 // .b-topic > .inner > header .about a,
@@ -391,7 +364,7 @@ input
 //   vertical-align: top
 //   line-height: inherit
 
-/* TODO: check it */
+// TODO: check it
 .b-comment .body,
 .b-dialog .body,
 .b-message .body,

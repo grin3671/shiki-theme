@@ -3,28 +3,28 @@
   .b-options-floated
     span
       &::before, &::after
-        color: $color-text-disabled
+        color: var(--color-text-disabled)
 
   .order-control
-    color: $color-text-primary
+    color: var(--color-text-primary)
 
   .order-control:hover
-    background-color: $color-area-normal
-    color: $color-text-primary
+    background-color: var(--color-overlay-text-hovered)
+    color: var(--color-text-primary)
 
   .order-control:active
-    color: $color-link-active
+    color: var(--color-link-active)
 
 
 
 .p-user_rates-index .stat-categories
   .category
     height: 20px
-    color: $color-link
+    color: var(--color-link)
     &:hover, &.active
-      color: $color-link-hover
+      color: var(--color-link-hover)
     &:active, &.active:hover
-      color: $color-link-active
+      color: var(--color-link-active)
 
 
 
@@ -34,46 +34,72 @@
     line-height: 2rem
 
   .selectable:hover
-    background-color: $color-area-normal
+    background-color: var(--color-overlay-text-hovered)
 
   tr
     td
       .anime-remove
         &:hover, &.selected
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
       .anime-status
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
       .rate-text
-        color: $color-text-secondary
+        color: var(--color-text-secondary)
         font-size: .875rem
         line-height: 1.25rem
 
       .episodes_total
-        color: $color-text-secondary
+        color: var(--color-text-secondary)
 
       .new-value
         input
           height: 1.5rem
-          background: $color-background-secondary
-          border-color: $color-border
+          background: var(--color-surface)
+          border-color: var(--color-border)
           border-radius: 2px
-          color: $color-text-primary !important
+          color: var(--color-text-primary) !important
           font-size: 1rem
           line-height: 1.5rem
+
+      // Бейджи
+      .anons,
+      .rewatches:not(:empty),
+      .ongoing
+        display: inline-block
+        vertical-align: top
+        padding: 2px 6px
+        margin: .0625rem 0 0 .5rem
+        border-radius: 2px
+        box-shadow: inset 0 0 0 1px
+        font-size: 12px
+        font-weight: bold
+        white-space: nowrap
+
+        &::first-letter
+          text-transform: uppercase
+
+      .anons
+        color: var(--color-warning)
+
+      .rewatches:not(:empty)
+        color: var(--color-info)
+
+      .ongoing
+        color: var(--color-success)
 
     &.edit-form
       form
         padding: 1rem
         margin: .5rem 0
-        background: $color-area-normal
-        border: 1px solid $color-border
+        background: var(--color-surface)
+        border: 1px solid var(--color-border)
         border-radius: 2px
 
       .b-input
@@ -103,15 +129,15 @@
     .index
       width: 2em
       padding-right: .5em
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
     .name
       a
-        color: $color-link
+        color: var(--color-link)
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
 
 
@@ -143,8 +169,8 @@
       &:last-child
         margin-right: .25rem !important
       &:hover
-        background-color: $color-primary
-        color: $color-text-on-primary !important
+        background-color: var(--color-primary)
+        color: var(--color-text-on-primary) !important
       &::before
         content: 'edit'
         position: static
@@ -168,8 +194,8 @@
   .summary
     &.posters
       padding: .5em 1em
-      background: $color-background-secondary
-      border-color: $color-border
+      background: var(--color-surface)
+      border-color: var(--color-border)
       border-radius: 2px
 
     &.lines
@@ -180,7 +206,7 @@
       &.library
         padding: 8px
         margin-top: 2em
-        border-color: $color-border
+        border-color: var(--color-border)
 
       &.list
         margin: 1em 0 2em
@@ -188,4 +214,94 @@
     .stat-value
       &::after
         padding: 0 3px
-        color: $color-text-disabled
+        color: var(--color-text-disabled)
+
+
+
+// Кнопки списков сбоку
+@media (min-width: 1312px)
+  .p-user_rates-index .l-content > .mylist
+    position: fixed
+    top: 240px
+    right: auto
+    margin: 0 0 0 -80px
+    text-align: left
+
+    a
+      position: relative
+      display: block
+      padding: 8px
+      margin: 8px 0
+      background: var(--color-background)
+      border-radius: 50% 0 0 50%
+      color: var(--color-text-hint)
+      font-size: 0
+      font-weight: normal
+      line-height: 0
+
+      &:hover
+        text-decoration: none
+
+      &::before
+        display: block
+        width: 1em
+        padding: 8px
+        border-radius: 50%
+        font-family: 'Material Icons'
+        font-size: 24px
+        line-height: 1
+        overflow: hidden
+
+        letter-spacing: normal
+        text-transform: none
+        word-wrap: normal
+        white-space: nowrap
+        direction: ltr
+
+        -webkit-font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+        -moz-osx-font-smoothing: grayscale
+        font-feature-settings: 'liga'
+
+      &:hover::before,
+      &.selected::before
+        background: var(--color-primary)
+        color: var(--color-text-on-primary)
+
+      &[data-id='planned']::before
+        content: 'today'
+
+      &[data-id='watching']::before
+        content: 'play_arrow'
+
+      &[data-id='rewatching']::before
+        content: 'replay'
+
+      &[data-id='completed']::before
+        content: 'done'
+
+      &[data-id='on_hold']::before
+        content: 'inbox'
+
+      &[data-id='dropped']::before
+        content: 'delete'
+
+      &::after
+        display: none
+
+      span
+        position: absolute
+        top: 0
+        right: 0
+        padding: 2px 4px
+        margin: 6px 4px
+        background: var(--color-accent)
+        border-radius: 2px
+        color: var(--color-text-on-accent)
+        font-size: 14px
+        font-weight: bold
+        line-height: .8
+
+        &::before,
+        &::after
+          display: none

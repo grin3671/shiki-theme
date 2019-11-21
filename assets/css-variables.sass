@@ -1,0 +1,77 @@
+:root
+  /* Цвет текстов */
+  --color-text-primary: $color-text-primary
+  --color-text-secondary: $color-text-secondary
+  --color-text-hint: $color-text-hint
+  --color-text-disabled: $color-text-disabled
+  // Для фонов подкрашенных основным цветом при разных состояних
+  --color-overlay-text-hovered: rgba($color-text-primary, .04)
+  --color-overlay-text-selected: rgba($color-text-primary, .08)
+  --color-overlay-text-pressed: rgba($color-text-primary, .12)
+
+
+  /* Цвет ссылок */
+  --color-link: $color-link
+  --color-link-hover: $color-link-hover
+  --color-link-active: $color-link-active
+
+
+  /* Основной цвет */
+  --color-primary: $color-primary
+  --color-text-on-primary: $color-text-on-primary
+  // Используется для второй части полосок аниме/манги
+  --color-primary-reduced: mix($color-primary, $color-background, 72%)
+  // Используется для md-кнопок при наведении
+  --color-primary-hovered: mix(#fff, $color-primary, 8%)
+  // Используется для md-кнопок при нажатии
+  --color-primary-pressed: mix(#000, $color-primary, 4%)
+  // Для фонов подкрашенных основным цветом при разных состояних
+  --color-overlay-primary-hovered: rgba($color-primary, .08)
+  --color-overlay-primary-selected: rgba($color-primary, .12)
+  --color-overlay-primary-pressed: rgba($color-primary, .16)
+
+
+  /* Акцентирующий цвет */
+  --color-accent: $color-accent
+  --color-text-on-accent: $color-text-on-accent
+  // Используется для второй части полосок аниме/манги
+  --color-accent-reduced: mix($color-accent, $color-background, 72%)
+  // Используется для подсветки новых комментариев
+  --color-accent-fade: mix($color-accent, $color-background, 48%)
+  // Для фонов подкрашенных основным цветом при разных состояних
+  --color-overlay-accent-hovered: rgba($color-accent, .08)
+  --color-overlay-accent-selected: rgba($color-accent, .12)
+  --color-overlay-accent-pressed: rgba($color-accent, .16)
+
+
+  /* Фоновые цвета */
+  --color-background: $color-background
+  --color-background-translucent: rgba($color-background, .9)
+  --color-surface: $color-background-secondary
+  --color-surface-hover: $color-area-hover
+  --color-surface-active: $color-area-active
+  --color-background-dialog: $color-background-dialog
+
+  --color-border: $color-border
+
+
+  /* Цвета верхнего меню */
+  $color-menu-text: mix($color-header-text, $color-header-background, 96%)
+  --color-menu-background: $color-header-background
+  --color-menu-background-fade: rgba($color-header-background, .48)
+  --color-menu-text-primary: $color-menu-text
+  --color-menu-text-disabled: mix($color-menu-text, $color-header-background, 48%)
+  --color-menu-icon: mix($color-menu-text, $color-header-background, 76%)
+  --color-menu-background-hover: mix($color-menu-text, $color-header-background, 8%)
+  --color-menu-background-active: mix($color-menu-text, $color-header-background, 10%)
+  --color-menu-search: mix($color-menu-text, $color-header-background, 12%)
+  --color-menu-search-fade: rgba($color-menu-text, .12)
+
+
+  /* Цвета кнопок списков */
+  --color-planned: mix(#76d6ff, $color-background, 32%)
+  --color-onhold: mix(#9e9e9e, $color-background, 32%)
+  --color-watching: mix(#76d6ff, $color-background, 24%)
+  --color-rewatching: var(--color-watching)
+  --color-completed: mix(#c6e97f, $color-background, 24%)
+  --color-dropped: mix(#ef5350, $color-background, 24%)

@@ -13,7 +13,7 @@
   padding: 8px
   margin-bottom: 4%
   margin-right: 4%
-  background-color: $color-background-dialog
+  background-color: var(--color-background-dialog)
   border: 0
   border-radius: 2px
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.16)
@@ -47,14 +47,14 @@
     display: block
     padding: 16px 0
     margin: auto
-    color: $color-link
+    color: var(--color-link)
     text-align: center
 
     &:hover
-      color: $color-link-hover
+      color: var(--color-link-hover)
 
     &:active
-      color: $color-link-active
+      color: var(--color-link-active)
 
     .name
       position: absolute
@@ -77,7 +77,7 @@
       border-radius: 100%
 
   .info .last-online
-    color: $color-text-hint
+    color: var(--color-text-hint)
     text-align: center
 
   .history
@@ -91,16 +91,16 @@
         color: inherit
 
       .date
-        color: $color-text-disabled
+        color: var(--color-text-disabled)
 
       a .event
-        color: $color-link
+        color: var(--color-link)
 
         &:hover
-          color: $color-link-hover
+          color: var(--color-link-hover)
 
         &:active
-          color: $color-link-active
+          color: var(--color-link-active)
 
 @media (min-width: 540px)
   .p-users .b-user.detailed

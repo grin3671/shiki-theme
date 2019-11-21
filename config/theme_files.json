@@ -18,6 +18,18 @@
     "description": "ВАЖНО! Выключите этот файл, если хотите сами настраивать цвета схемы."
   },
   {
+    "url": "css-variables.sass",
+    "checked": true
+  },
+  {
+    "url": "main.sass",
+    "checked": true
+  },
+  {
+    "url": "color.sass",
+    "checked": true
+  },
+  {
     "url": "font-arial.sass",
     "cat": "font",
     "checked": false
@@ -31,14 +43,6 @@
     "url": "font-roboto_condensed.sass",
     "cat": "font",
     "checked": false
-  },
-  {
-    "url": "main.sass",
-    "checked": true
-  },
-  {
-    "url": "color.sass",
-    "checked": true
   },
   {
     "url": "modules/material-icons.sass",
@@ -79,11 +83,12 @@
   {
     "url": "layouts/l-menu.sass",
     "checked": true,
-    "description": "Обновлённое верхнего меню."
+    "description": "Обновлённое верхнее меню."
   },
   {
     "url": "layouts/l-sidebar.sass",
-    "checked": true
+    "checked": true,
+    "description": "Боковое меню."
   },
   {
     "url": "blocks/lib-buttons.sass",
@@ -128,6 +133,11 @@
   {
     "url": "blocks/b-achievement.sass",
     "checked": true
+  },
+  {
+    "url": "blocks/b-achievements_notifier.sass",
+    "checked": true,
+    "description": "Строгие тёмные уведомления вместо цветных."
   },
   {
     "url": "blocks/b-add_to_list.sass",
@@ -227,6 +237,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-feedback.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-form.sass",
     "checked": true
   },
@@ -280,6 +294,10 @@
   },
   {
     "url": "blocks/b-modal.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-news_wall-topic.sass",
     "checked": true
   },
   {
@@ -376,6 +394,16 @@
     "description": "Изменённыё вид превью видео."
   },
   {
+    "url": "blocks/td-icons.sass",
+    "checked": true,
+    "description": "Добавление к кнопкам иконок с помощью data-icon."
+  },
+  {
+    "url": "blocks/td-tabs.sass",
+    "checked": true,
+    "description": "Фирменные табы с --ripple и --vertical."
+  },
+  {
     "url": "blocks/ti-tags.sass",
     "checked": true
   },
@@ -412,10 +440,6 @@
     "checked": true
   },
   {
-    "url": "pages/p-messages.sass",
-    "checked": true
-  },
-  {
     "url": "pages/p-oauth_applications.sass",
     "checked": true
   },
@@ -425,6 +449,10 @@
   },
   {
     "url": "pages/p-profiles--b-options_floated.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-messages.sass",
     "checked": true
   },
   {
@@ -456,10 +484,6 @@
     "checked": true
   },
   {
-    "url": "profile-content.sass",
-    "checked": true
-  },
-  {
     "url": "profile-history_animation.sass",
     "checked": false,
     "description": "Для тех, у кого не отображаются полосы аниме и манги в профиле."
@@ -476,79 +500,24 @@
     "title": "Круглые аватарки"
   },
   {
-    "url": "tests/profile-content-new.sass",
-    "checked": false,
+    "url": "tests/immersive-cover.sass",
+    "checked": true,
+    "description": "Обложка-фон с большим отступом от меню."
+  },
+  {
+    "url": "tests/profile-update.1.sass",
+    "checked": true,
     "description": "Отображение времени за аниме и мангой."
   },
   {
-    "url": "tests/profile-achievements.sass",
-    "checked": false,
+    "url": "tests/profile-update.1.1.sass",
+    "checked": true,
     "description": "Маленький блок достижений."
   },
   {
-    "url": "tests/b-achievements.sass",
-    "checked": false,
-    "description": "Строгие тёмные уведомления вместо цветных."
-  },
-  {
-    "url": "tests/b-input.sass",
-    "checked": false,
+    "url": "tests/md-textfields.sass",
+    "checked": true,
     "description": "Более \"материальные\" поля ввода."
-  },
-  {
-    "url": "tests/b-shiki_editor-input_label.sass",
-    "checked": false,
-    "description": "Подписи к текстовым полям в редакторе."
-  },
-  {
-    "url": "tests/b-shiki_editor-smileys.sass",
-    "checked": false,
-    "description": "Всплывающее окно со смайлами."
-  },
-  {
-    "url": "tests/p-achievements-grid.sass",
-    "checked": false,
-    "description": "Улучшенная сетка достижений. https://caniuse.com/#feat=css-grid"
-  },
-  {
-    "url": "tests/p-messages-menu.sass",
-    "checked": false,
-    "description": "Закреплённые табы в почте."
-  },
-  {
-    "url": "tests/p-profiles-favorites.sass",
-    "checked": false,
-    "description": "Избранное в мобильной версии: большие обложки и горизонтальный скролл."
-  },
-  {
-    "url": "tests/p-user_rates-mylist.sass",
-    "checked": false,
-    "description": "Иконки списков на странице списков."
-  },
-  {
-    "url": "tests/stat_names.sass",
-    "checked": false,
-    "description": "Тонкие полоски списков аниме и манги + цветные идентификаторы."
-  },
-  {
-    "url": "tests/td-icons.sass",
-    "checked": false,
-    "description": "Добавление к кнопкам иконок с помощью data-icon."
-  },
-  {
-    "url": "tests/td-spoiler.sass",
-    "checked": false,
-    "description": "Серые спойлеры (изменения по всему сайту)."
-  },
-  {
-    "url": "tests/td-table.sass",
-    "checked": false,
-    "description": "Простые таблицы для BBCode."
-  },
-  {
-    "url": "tests/td-tabs.sass",
-    "checked": false,
-    "description": "Фирменные табы с --ripple и --vertical."
   },
   {
     "url": "user-settings.sass",

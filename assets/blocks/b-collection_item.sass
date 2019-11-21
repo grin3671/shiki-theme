@@ -8,10 +8,10 @@
 
   &.sortable-ghost
     padding: 3px
-    border: 1px dashed $color-border
+    border: 1px dashed var(--color-border)
 
     .drag-handle
-      color: $color-text-disabled !important // defualt
+      color: var(--color-text-disabled) !important // defualt
 
     .delete,
     .drag-handle
@@ -19,7 +19,7 @@
 
   &.sortable-drag
     .drag-handle
-      color: $color-link-active !important // defualt
+      color: var(--color-link-active) !important // defualt
 
   &::after
     content: ''

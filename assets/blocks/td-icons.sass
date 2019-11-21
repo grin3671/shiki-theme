@@ -1,0 +1,12 @@
+[data-icon]
+  @extend %material-icons
+  &::before
+    content: attr(data-icon)
+    display: inline-block
+    vertical-align: top
+    flex-shrink: 0
+    margin-right: 8px
+    margin-left: -4px
+    background-size: cover
+    background-position: center
+    overflow: hidden

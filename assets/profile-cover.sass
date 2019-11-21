@@ -1,6 +1,3 @@
-/**
- * PROFILE COVER
- */
 #profiles_show
   .l-page
     @media (min-width: 768px)
@@ -17,6 +14,7 @@
     display: none
     height: 72px
     margin: 0 -16px
+    background-image: var(--user-cover)
     background-repeat: no-repeat
     background-size: cover
 
@@ -42,8 +40,8 @@
 
   .c-brief
     @media (min-width: 320px) and (max-width: 480px)
-      background-color: $color-background-dialog
-      box-shadow: 0 6px 8px -2px rgba(0, 0, 0, .24)
+      background-color: var(--color-background-dialog)
+      box-shadow: 0 6px 8px -2px rgba(0,0,0,.24)
 
     @media (min-width: 768px)
       height: 104px
@@ -61,14 +59,14 @@
   .c-history
     @media (min-width: 768px) and (max-width: 959px)
       top: -180px // fix истории для фона-обложки
-/* END of PROFILE COVER */
 
-/* Полупрозрачное меню в профиле */
+
+// Полупрозрачное меню в профиле
 @media (min-width: 960px)
   #profiles_show
     .l-top_menu-v2
       background-color: transparent
-      background-image: linear-gradient(rgba($color-header-background,.48), transparent)
+      background-image: linear-gradient(var(--color-menu-background-fade), transparent)
       box-shadow: none
       z-index: 11
 
@@ -85,7 +83,7 @@
         right: 0
         left: 0
         height: 56px
-        background: $color-header-background
+        background: var(--color-menu-background)
         box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.24)
         z-index: 9
         opacity: 0
@@ -95,7 +93,3 @@
 
       &.active::before
         opacity: 1
-/* END of Полупрозрачное меню в профиле */
-/**/
-/**/
-/**/

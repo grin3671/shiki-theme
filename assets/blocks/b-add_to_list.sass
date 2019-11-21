@@ -1,13 +1,3 @@
-// b-add_to_list.sass
-
-// Colors
-$color-planned: mix(desaturate($color-info, 32%), $color-background, 32%)
-$color-on_hold: mix($color-text-disabled, $color-background, 32%)
-$color-watching: mix($color-info, $color-background, 24%)
-$color-rewatching: $color-watching
-$color-completed: mix($color-success, $color-background, 24%)
-$color-dropped: mix($color-danger, $color-background, 24%)
-
 .b-add_to_list
   min-width: 0
   margin-bottom: .5rem
@@ -26,7 +16,7 @@ $color-dropped: mix($color-danger, $color-background, 24%)
 
   .trigger,
   .option
-    border-width: 1px
+    border-width: 0
     font-size: .875rem
     line-height: 1.5rem
 
@@ -42,7 +32,7 @@ $color-dropped: mix($color-danger, $color-background, 24%)
     display: flex
     flex-direction: row-reverse
     padding: 0
-    border-radius: $border-rounded // thx @bot.AkiKawasaki
+    border-radius: var(--border-rounded) // thx @bot.AkiKawasaki
     line-height: 40px
 
     .add-trigger,
@@ -51,7 +41,7 @@ $color-dropped: mix($color-danger, $color-background, 24%)
       width: 100%
       padding:  0 .5em 0 0
       border-right: 1px solid
-      border-color: inherit
+      border-color: rgba(0,0,0,.12)
       overflow: hidden
       cursor: pointer // this element trigger function
       &:hover
@@ -59,39 +49,33 @@ $color-dropped: mix($color-danger, $color-background, 24%)
 
   &.planned .trigger,
   &.planned .option
-    background: $color-planned
-    border-color: darken($color-planned, 8)
-    color: mix($color-text-primary, $color-planned, 72)
+    background: var(--color-planned)
+    color: var(--color-text-primary)
 
   &.on_hold .trigger,
   &.on_hold .option
-    background: $color-on_hold
-    border-color: darken($color-on_hold, 8)
-    color: mix($color-text-primary, $color-on_hold, 72)
+    background: var(--color-onhold)
+    color: var(--color-text-primary)
 
   &.watching .trigger,
   &.watching .option
-    background: $color-watching
-    border-color: darken($color-watching, 8)
-    color: mix($color-text-primary, $color-watching, 72)
+    background: var(--color-watching)
+    color: var(--color-text-primary)
 
   &.rewatching .trigger,
   &.rewatching .option
-    background: $color-rewatching
-    border-color: darken($color-rewatching, 8)
-    color: mix($color-text-primary, $color-rewatching, 72)
+    background: var(--color-rewatching)
+    color: var(--color-text-primary)
 
   &.completed .trigger,
   &.completed .option
-    background: $color-completed
-    border-color: darken($color-completed, 8)
-    color: mix($color-text-primary, $color-completed, 72)
+    background: var(--color-completed)
+    color: var(--color-text-primary)
 
   &.dropped .trigger,
   &.dropped .option
-    background: $color-dropped
-    border-color: darken($color-dropped, 8)
-    color: mix($color-text-primary, $color-dropped, 72)
+    background: var(--color-dropped)
+    color: var(--color-text-primary)
 
   .plus,
   .edit,
@@ -168,7 +152,7 @@ $color-dropped: mix($color-danger, $color-background, 24%)
   .b-db_entry-variant-list_item > .info .b-user_rate &
     .trigger, .option
       padding: 0
-      border-left-width: 1px
+      border-left-width: 0
       line-height: 2rem
 
       &:hover,

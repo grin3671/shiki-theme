@@ -1,43 +1,43 @@
 // Many different markers
 body[data-locale] .b-abuse_marker
   @extend %shiki-marker
-  color: $color-danger
+  color: var(--color-danger)
 
 body[data-locale] .b-broadcast_marker
   @extend %shiki-marker
-  color: $color-warning
+  color: var(--color-warning)
 
 body[data-locale] .b-offtopic_marker
   @extend %shiki-marker
-  color: $color-offtop
+  color: var(--color-offtop)
 
   &.active:hover
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
 
   &.off:hover
-    color: $color-offtop
+    color: var(--color-offtop)
 
 body[data-locale] .b-summary_marker
   @extend %shiki-marker
-  color: $color-success
+  color: var(--color-success)
 
   &.active:hover
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
 
   &.off:hover
-    color: $color-success
+    color: var(--color-success)
 
 body[data-locale] .b-spoiler_marker
   @extend %shiki-marker
-  color: $color-warning
+  color: var(--color-warning)
 
 body[data-locale] .b-new_marker
   @extend %shiki-marker
   display: none
-  color: $color-info
+  color: var(--color-info)
 
   &.active:hover
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
 
   &.off:hover
-    color: $color-info
+    color: var(--color-info)

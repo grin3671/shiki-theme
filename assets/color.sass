@@ -1,16 +1,15 @@
-/* НАСТРОЙКА ЦВЕТОВ */
-/* Цвет текста ссылки по умолчанию */
+// Цвет текста ссылки по умолчанию
 a
-  color: $color-link
+  color: var(--color-link)
 
-/* Цвет ссылки при наведении */
+// Цвет ссылки при наведении
 a:hover
-  color: $color-link-hover
+  color: var(--color-link-hover)
 
-/* Цвет ссылки при нажатии */
-@media only screen and (min-width: 1025px)
+// Цвет ссылки при нажатии
+@media (min-width: 1025px)
   a:active
-    color: $color-link-active
+    color: var(--color-link-active)
 
 .b-abuse_request .ban-form .cancel,
 .b-bb_codes-examples .example a,
@@ -69,10 +68,7 @@ a:hover
 .p-statistics-index .forum-nav .sections a.selected,
 .b-animes-menu .menu-topics-block a.entry .name,
 .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a
-  color: $color-link
-  border-bottom-color: rgba($color-link, .3)
-
-
+  color: var(--color-link)
 
 
 .b-abuse_request .ban-form .cancel:hover,
@@ -156,9 +152,7 @@ a:hover
 .b-animes-menu .menu-topics-block a.entry:hover .name,
 .b-animes-menu .menu-topics-block a.entry .name:hover,
 .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:hover
-  color: $color-link-hover
-  border-bottom-color: rgba($color-link-hover, .3)
-
+  color: var(--color-link-hover)
 
 
 .b-header_filters .filter-line a:active,
@@ -176,9 +170,9 @@ a:hover
 .midheadline > a:active:before,
 .subheadline > a:active:before,
 .p-anime_videos-index .c-videos .video-variant-switcher.active:hover
-  color: $color-link-active
+  color: var(--color-link-active)
 
-@media only screen and (min-width: 1025px)
+@media (min-width: 1025px)
   .b-abuse_request .ban-form .cancel:active,
   .b-bb_codes-examples .example a:active,
   .b-bb_codes-examples .result a:active,
@@ -253,10 +247,7 @@ a:hover
   .b-form a.remove:active,
   .b-animes-menu .menu-topics-block a.entry .name:active,
   .b-animes-menu .menu-topics-block .history-entry-tooltip .tooltip-details a:active
-    color: $color-link-active
-    border-bottom-color: rgba($color-link-active, .3)
-
-
+    color: var(--color-link-active)
 
 
 .p-contests .match-day > .date,
@@ -265,13 +256,11 @@ a:hover
 .p-recommendations-index .l-content.ajax_request::before,
 .p-userlist_comparer-show .l-content.ajax_request::before,
 .b-ajax:before
-  background: $color-background
+  background: var(--color-background)
 
 .l-page:before
-  outline-color: $color-background
+  outline-color: var(--color-background)
 
-
-/* BLACK GREY WHITE */
 header.head h1,
 header.head h2,
 .b-input input,
@@ -289,10 +278,10 @@ header.head h2,
 .p-contests .match-day .match-link .c-column.created a,
 .p-moderations-missing_videos .missing-video>.info span,
 .p-profiles .profile-head .c-history .entry .title
-  color: $color-text-primary !important
+  color: var(--color-text-primary) !important
 
 
-/* Цвет основного текста в области при наведении */
+// Цвет основного текста в области при наведении
 .b-clubs-menu .b-link:hover,
 .b-clubs-menu .actions li:hover,
 .b-clubs-menu .actions .upload label:hover,
@@ -301,7 +290,7 @@ header.head h2,
 .b-clubs-menu .actions .leave a:hover,
 .b-forums .forum:hover .link-with-input .link,
 .p-profiles .profile-head .c-history .entry:hover .title
-  color: $color-text-primary !important
+  color: var(--color-text-primary) !important
 
 
 header.head .notice,
@@ -316,8 +305,7 @@ header.head .notice,
 .b-stats_bar .stat_names:hover:before,
 .p-contests .match-day > .date .from,
 .p-contests .match-day > .date .to
-  color: $color-text-secondary
-
+  color: var(--color-text-secondary)
 
 
 .midheadline,
@@ -333,13 +321,13 @@ header.head .notice,
 .p-contests .rating .member .position,
 .p-db_entries-edit .b-list .field,
 .p-profiles .profile-head .c-info .c-additionals b
-  color: $color-text-hint
+  color: var(--color-text-hint)
 
 .b-db_entry > .c-about .additional-links .key,
 .p-profiles .profile-head .c-history .entry .misc,
 .p-profiles-show .lifetime .title > .label:before,
 .p-profiles-show .profile-content .activity .title
-  color: $color-text-hint !important
+  color: var(--color-text-hint) !important
 
 
 header.head a.edit,
@@ -353,70 +341,68 @@ header.head .misc,
 .p-profiles .profile-head .c-brief header .notice span:after,
 .p-profiles .profile-head .c-info .c-additionals div:after,
 .p-statistics-index .forum-nav .sections a:after
-  color: $color-text-disabled
+  color: var(--color-text-disabled)
 
 .p-profiles .profile-head .c-history .entry .misc.date
-  color: $color-text-disabled !important
+  color: var(--color-text-disabled) !important
 
 
-/* PRIMARY COLOR */
+// PRIMARY COLOR
 .line:nth-child(odd) > .bar-container > .bar,
 .line:nth-child(odd) > .bar-container > .bar:hover
-  background-color: $color-primary
+  background-color: var(--color-primary)
 
 .b-forums .forum input:checked + .link:before,
 .tooltip-details .ajax-loading
-  color: $color-primary
-/* END of PRIMARY COLOR */
+  color: var(--color-primary)
 
 
-/* ACCENT COLOR */
+// ACCENT COLOR
 .menu .unread-count,
 .menu .entry:hover .unread-count,
 .menu .contest,
 .menu .entry:hover .contest
-  background-color: $color-accent
+  background-color: var(--color-accent)
 
 .menu .unread-count:hover,
 .menu .contest:hover
-  background-color: $color-accent !important
+  background-color: var(--color-accent) !important
 
 html.turbolinks-progress-bar:before,
 .turbolinks.turbolinks-progress-bar::before
-  background: $color-accent !important
-  box-shadow: 0 0 10px rgba($color-accent, .7) !important
+  background: var(--color-accent) !important
+  box-shadow: 0 0 10px var(--color-accent) !important
 
 .menu .unread-count,
 .menu:hover .unread-count,
 .menu .contest,
 .menu:hover .contest
-  color: $color-text-on-accent !important
-/* END of ACCENT COLOR */
+  color: var(--color-text-on-accent) !important
 
 
 .b-editable_grid tbody tr:nth-child(odd) td,
 .b-pages,
 .l-page .menu-toggler .toggler,
 .subheadline-input
-  background: $color-background-secondary
+  background: var(--color-surface)
 
 .editor textarea.b-comment,
 .editor textarea.b-message
-  background: $color-background-secondary !important
+  background: var(--color-surface) !important
 
 
-/* Области наведения */
+// Области наведения
 .b-forums .forum:hover,
 .b-stats_bar .stat_names:hover:before,
 .p-profiles .profile-head .c-history .entry:hover a
-  background-color: $color-area-normal
+  background-color: var(--color-overlay-text-hovered)
 
 
 
-/* ЦВЕТ ГРАНИЦ ЭЛЕМЕНТОВ */
+// ЦВЕТ ГРАНИЦ ЭЛЕМЕНТОВ
 .p-contests .match-day:before,
 .p-profiles .profile-head .c-history .entry:before
-  background-color: $color-border
+  background-color: var(--color-border)
 
 
 .b-pages,
@@ -430,15 +416,4 @@ html.turbolinks-progress-bar:before,
 .p-topics-create .topic_video,
 .p-topics-update .topic_video,
 .subheadline-input
-  border-color: $color-border
-/* END of НАСТРОЙКА ЦВЕТОВ */
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
+  border-color: var(--color-border)

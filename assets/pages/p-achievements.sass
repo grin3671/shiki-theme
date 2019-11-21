@@ -117,3 +117,85 @@
 // TODO: replace
 .b-badge .no-image
   border-radius: inherit
+
+
+// TODO: merge
+@supports (display: grid)
+  .p-achievements-index
+    .cc-achievements
+      display: grid
+      grid-gap: 1em
+      grid-template-columns: repeat(1, 1fr)
+      margin-bottom: 1em
+
+      @media (min-width: 480px)
+        grid-template-columns: repeat(2, 1fr)
+
+      @media (min-width: 720px)
+        grid-template-columns: repeat(3, 1fr)
+
+      @media (min-width: 960px)
+        grid-template-columns: repeat(4, 1fr)
+
+      .b-achievement:nth-child(n)
+        width: 100%
+        margin: 0
+
+    .cc-franchises-genres
+      margin-bottom: 16px
+
+      .c-franchises
+        .cc
+          display: grid
+          grid-gap: 12px 16px
+          grid-template-columns: repeat(2, 1fr)
+
+          @media (min-width: 480px)
+            grid-template-columns: repeat(4, 1fr)
+            grid-template-rows: repeat(16, max-content)
+            height: 0
+            padding-bottom: 277%
+
+          @media (min-width: 720px)
+            grid-template-columns: repeat(6, 1fr)
+            grid-template-rows: repeat(10, max-content)
+            height: 0
+            padding-bottom: 114%
+
+          @media (min-width: 960px)
+            grid-template-columns: repeat(8, 1fr)
+            grid-template-rows: repeat(8, max-content)
+            height: 0
+            padding-bottom: 67.8%
+
+        .b-badge
+          width: 100%
+          margin: 0
+
+          &.level-1:not(:nth-child(n+17))
+            grid-column-end: span 2
+            grid-row-end: span 2
+
+  .p-achievements-franchise
+    .cc
+      display: grid
+      grid-auto-flow: dense
+      grid-gap: 3px 4px
+      grid-template-columns: repeat(2, 1fr)
+
+      @media (min-width: 480px)
+        grid-template-columns: repeat(4, 1fr)
+
+      @media (min-width: 720px)
+        grid-template-columns: repeat(6, 1fr)
+
+      @media (min-width: 960px)
+        grid-template-columns: repeat(8, 1fr)
+
+    .b-badge
+      width: 100%
+      margin: 0
+
+      &.level-1
+        grid-column-end: span 2
+        grid-row-end: span 2

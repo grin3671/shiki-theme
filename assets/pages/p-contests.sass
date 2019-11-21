@@ -40,9 +40,9 @@
   padding-left: 0
   text-align: left
   &:hover, &.active
-    background: $color-background-secondary
+    background: var(--color-overlay-text-hovered)
   &:active
-    background-color: $color-area-normal !important // in shiki style
+    background: var(--color-overlay-text-pressed) !important // in shiki style
 
 // NOTE: !important in main.sass (.c-column)
 .p-contests .match-day .match-link .c-column
@@ -74,7 +74,7 @@
 
   .created::before
     content: 'lock'
-    color: $color-text-disabled
+    color: var(--color-text-disabled)
     padding-right: 0
 
   .winner::before
@@ -90,7 +90,7 @@
   color: #757575
 
 .p-contests .match-day .match-link.voted-abstain .started::before
-  color: $color-text-disabled
+  color: var(--color-text-disabled)
 
 .p-contests .match-day .match-link.voted-left .started:first-child::before,
 .p-contests .match-day .match-link.voted-right .started:last-child::before
@@ -103,12 +103,12 @@
 .p-contests .match-day .match-link.voted-left .started:first-child::before,
 .p-contests .match-day .match-link.voted-right .started:last-child::before,
 .p-contests .match-day .match-link .winner::before
-  color: $color-success /* Зеленый цвет */
+  color: var(--color-success) /* Зеленый цвет */
 
 .p-contests .match-day .match-link.voted-left .started:last-child::before,
 .p-contests .match-day .match-link.voted-right .started:first-child::before,
 .p-contests .match-day .match-link .loser::before
-  color: $color-danger /* Красный цвет */
+  color: var(--color-danger) /* Красный цвет */
 
 .p-contests .match-day .matches-num
   display: inline-block
@@ -144,24 +144,24 @@
   position: relative
   border-radius: inherit
   padding-left: 8px
-  background-color: $color-accent
+  background-color: var(--color-accent)
   &:hover
-    background-color: $color-accent
+    background-color: var(--color-accent)
 
 .p-contests .b-contest_match .votes-percents .left-part > span
-  color: $color-text-on-accent
+  color: var(--color-text-on-accent)
 
 .p-contests .b-contest_match .votes-percents .right-part
   position: absolute
   top: 0
   right: 0
   padding-right: 8px
-  background-color: $color-primary
-  border-color: $color-primary
+  background-color: var(--color-primary)
+  border-color: var(--color-primary)
 
 .p-contests .b-contest_match .votes-percents .right-part span
   float: right
-  color: $color-text-on-primary
+  color: var(--color-text-on-primary)
 
 .p-contests .b-contest_match .votes-percents .left-part,
 .p-contests .b-contest_match .votes-percents .right-part
@@ -173,8 +173,8 @@
   border-top-width: 48px
 
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part
-  background-color: $color-primary
-  border-color: $color-primary
+  background-color: var(--color-primary)
+  border-color: var(--color-primary)
 
 .p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
   border-right-width: 24px
@@ -184,7 +184,7 @@
   border-right-color: inherit
 
 .p-contests .results .cc-result .c-rounds .label
-  color: $color-text-secondary
+  color: var(--color-text-secondary)
   font-size: .875rem
 
 .p-contests .results .cc-result .c-rounds .match-day::before
@@ -238,13 +238,13 @@
     line-height: 20px
 
   .p-contests .match-day .draw .matches-num
-    background-color: $color-info
+    background-color: var(--color-info)
 
   .p-contests .match-day .loser .matches-num
-    background-color: $color-danger
+    background-color: var(--color-danger)
 
   .p-contests .match-day .winner .matches-num
-    background-color: $color-success
+    background-color: var(--color-success)
 
 
 .p-contests .contest-match .vs .refrain,
@@ -279,9 +279,9 @@
     padding: 8px
     margin: 4px 8px 4px 0
     border-radius: 2px
-    color: $color-text-hint
+    color: var(--color-text-hint)
     &:hover
-      color: $color-text-secondary
+      color: var(--color-text-secondary)
 
     &::before
       height: 1em
@@ -293,7 +293,7 @@
       z-index: 2
 
       &:hover
-        background-color: $color-button-hover
+        background-color: var(--color-overlay-text-hovered)
 
     @media (min-width: 768px)
       &:hover
@@ -304,7 +304,7 @@
         font-size: 48px !important
 
       &:hover::before
-        background-color: $color-button-hover
+        background-color: var(--color-overlay-text-hovered)
 
   .prev-match
     &::before
@@ -361,7 +361,7 @@
         width: 72px
         height: 72px
         margin: auto
-        background: $color-background
+        background: var(--color-background)
         border-radius: 100%
         font-size: 24px
         line-height: 72px

@@ -39,15 +39,15 @@
       height: 36px
       padding: 0 .75rem
       margin: 0
-      background: $color-background
-      border: 2px solid $color-primary
+      background: var(--color-background)
+      border: 2px solid var(--color-primary)
       border-right-width: 0
       border-radius: 4px 0 0 4px
-      color: $color-text-primary
+      color: var(--color-text-primary)
       line-height: 32px
 
       &:focus
-        border-color: $color-primary
+        border-color: var(--color-primary)
 
     .b-button.ok
       @extend %md-button-raised
@@ -67,7 +67,7 @@
       textarea
         padding: .5rem 1rem
         margin: 0
-        background: $color-background-secondary
+        background: var(--color-surface)
         border-radius: 2px
         font-size: 1rem
         line-height: 1.25rem
@@ -130,7 +130,7 @@
       padding: .5rem
       margin: .25rem 0 .25rem auto
       border-radius: 3px
-      color: $color-text-hint
+      color: var(--color-text-hint)
       font-size: 0
       line-height: inherit
       transition: .16s cubic-bezier(.4,0,.6,1)
@@ -138,10 +138,10 @@
 
       &:hover
         text-decoration: none
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
       &:active
-        color: $color-text-hint
+        color: var(--color-text-hint)
 
       @extend %material-icons
       &::before
@@ -168,10 +168,10 @@
         text-transform: uppercase
 
         &:hover
-          background: $color-overlay-text-hovered
+          background: var(--color-overlay-text-hovered)
 
         &:active
-          background: $color-overlay-text-pressed
+          background: var(--color-overlay-text-pressed)
 
         &::before
           display: none
@@ -185,3 +185,76 @@
         right: 0
         bottom: 0
         left: 0
+
+
+
+// Подписи к текстовым полям в редакторе
+.b-shiki_editor
+  .links,
+  .images,
+  .quotes,
+  .upload
+    .link-value
+      &[placeholder *= 'стран'] + .ok::before
+        content: 'Ссылка'
+
+      [data-locale='en'] &[placeholder *= 'page'] + .ok::before
+        content: 'Page URL'
+
+      &[placeholder *= 'аним'] + .ok::before
+        content: 'Аниме'
+
+      [data-locale='en'] &[placeholder *= 'anim'] + .ok::before
+        content: 'Anime'
+
+      &[placeholder *= 'манг'] + .ok::before
+        content: 'Манга'
+
+      [data-locale='en'] &[placeholder *= 'mang'] + .ok::before
+        content: 'Manga'
+
+      &[placeholder *= 'рано'] + .ok::before
+        content: 'Ранобэ'
+
+      [data-locale='en'] &[placeholder *= 'nove'] + .ok::before
+        content: 'Light Novel'
+
+      &[placeholder *= 'перс'] + .ok::before
+        content: 'Персонаж'
+
+      [data-locale='en'] &[placeholder *= 'cter'] + .ok::before
+        content: 'Character'
+
+      &[placeholder *= 'чело'] + .ok::before
+        content: 'Человек'
+
+      [data-locale='en'] &[placeholder *= 'pers'] + .ok::before
+        content: 'Person'
+
+    .b-button.ok
+      position: relative
+
+      &::before
+        position: absolute
+        height: 1rem
+        padding: 0 4px
+        margin-top: -.875rem
+        margin-left: calc(-16.25rem - 2px)
+        font-size: 10px
+        color: var(--color-primary)
+        background: var(--color-background)
+        line-height: 1rem
+        text-transform: none
+        pointer-events: none
+
+      &[data-type='images']::before
+        content: 'Изображение'
+
+      [data-locale='en'] &[data-type='images']::before
+        content: 'Image'
+
+      &[data-type='quotes']::before
+        content: 'Имя пользователя'
+
+      [data-locale='en'] &[data-type='quotes']::before
+        content: 'Username'

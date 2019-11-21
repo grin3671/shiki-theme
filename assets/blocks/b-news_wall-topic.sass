@@ -1,0 +1,44 @@
+.b-news_wall-topic
+  & > a
+    @media (min-width: 1024px)
+      &:hover .title
+        color: var(--color-link-hover)
+
+    &:active .title
+      color: var(--color-link-active)
+
+  .poster
+    margin-bottom: 4px
+
+  .status-line
+    time
+      margin: 0
+      color: var(--color-text-hint)
+      font-size: .75em
+      line-height: inherit
+
+    .comments
+      display: flex
+      margin: auto 0 auto auto
+      color: var(--color-text-secondary)
+      font-size: .875em
+      font-weight: bold
+
+      @extend %material-icons
+      &::before
+        content: 'chat_bubble'
+        font-size: 18px !important
+
+    .tags
+      margin-right: 8px
+      margin-bottom: 0
+
+      .b-anime_status_tag
+        &:not(:last-child)
+          margin: 4px 8px 4px 0
+
+        &:last-child
+          margin-left: 0
+
+  .title
+    color: var(--color-text-primary)

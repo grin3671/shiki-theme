@@ -1,10 +1,10 @@
 %shiki-plashka
   padding: .5rem 1.5rem
   margin: 0 0 .5rem
-  background-color: $color-area-normal
+  background-color: var(--color-surface)
   border: 0
-  border-color: $color-area-hover
-  border-radius: $border-rounded
+  border-color: var(--color-border)
+  border-radius: var(--border-rounded)
   color: inherit
   text-align: center
   line-height: 1.5
@@ -12,12 +12,12 @@
   transition: .16s cubic-bezier(.4, 0, .6, 1)
 
   &:hover
-    background-color: $color-area-hover
+    background-color: var(--color-surface-hover)
     border: 0
-    border-color: $color-area-active
+    border-color: var(--color-border)
     color: inherit
 
   &:active
-    background-color: $color-area-active
+    background-color: var(--color-surface-active)
     border: 0
-    border-color: $color-border
+    border-color: var(--color-border)

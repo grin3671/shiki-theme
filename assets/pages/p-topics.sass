@@ -3,7 +3,7 @@
 // TODO: where [.calendar .entry]?
 .p-topics
   header h1 a.reload
-    color: $color-text-secondary !important
+    color: var(--color-text-secondary) !important
     // FIX: TOPIC UPDATE ICON (issue #5)
     &:hover::after
       position: static
@@ -34,7 +34,7 @@
           bottom: 0
           left: 56px
           height: 1px
-          background-color: $color-border
+          background-color: var(--color-border)
           pointer-events: none
 
         &:last-child::before
@@ -44,7 +44,7 @@
           display: block
           padding: 8px
           margin: -8px
-          color: $color-text-primary
+          color: var(--color-text-primary)
 
           &::after
             content: ''
@@ -52,17 +52,17 @@
             display: block
 
         &:hover a
-          background-color: $color-area-normal
-          color: $color-text-primary
+          background-color: var(--color-overlay-text-hovered)
+          color: var(--color-text-primary)
 
         &:hover .title
           text-decoration: none
 
         .misc
-          color: $color-text-hint !important
+          color: var(--color-text-hint) !important
 
           &.date
-            color: $color-text-disabled !important
+            color: var(--color-text-disabled) !important
 
     .clubs .entry img
       width: 40px
@@ -89,25 +89,25 @@
         margin-top: 0
 
       &:hover
-        background-color: $color-area-normal
+        background-color: var(--color-overlay-text-hovered)
 
       .title
-        color: $color-text-primary
+        color: var(--color-text-primary)
         line-height: 20px
 
         &::after
           display: none
 
       &:hover .title
-        color: $color-text-primary
+        color: var(--color-text-primary)
         text-decoration: none
 
       &:active .title
-        color: $color-text-primary
+        color: var(--color-text-primary)
 
       .notice
         margin-top: 2px
-        color: $color-text-hint
+        color: var(--color-text-hint)
         line-height: 18px
 
 
@@ -117,5 +117,5 @@
 .p-topics-create,
 .p-topics-update
   .topic-video
-    background: $color-area-normal
-    border-color: $color-border
+    background: var(--color-surface)
+    border-color: var(--color-border)

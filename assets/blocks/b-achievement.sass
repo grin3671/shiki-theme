@@ -3,8 +3,8 @@
   flex-direction: column-reverse
   justify-content: flex-end
   width: 100%
-  background: $color-background-dialog
-  border-radius: $border-rounded
+  background: var(--color-background-dialog)
+  border-radius: var(--border-rounded)
   box-shadow: 0 0 0 1px rgba(0,0,0,.08)
   overflow: hidden
   transition: box-shadow .16s ease
@@ -34,7 +34,7 @@
     .inner
       a
         .no-image
-          background: lighten($color-background-dialog, 12%)
+          background: rgba(255,255,255,.12)
 
         .border
           border: 0
@@ -48,11 +48,11 @@
       padding-top: 50%
 
     a.title
-      color: $color-text-primary
+      color: var(--color-text-primary)
       &:hover
-        color: $color-link-hover
+        color: var(--color-link-hover)
       &:active
-        color: $color-link-active
+        color: var(--color-link-active)
 
     .title
       margin: 0 0 8px
@@ -60,17 +60,17 @@
 
     .percent,
     .hint
-      color: $color-text-hint
+      color: var(--color-text-hint)
 
     .progress
       height: 4px
       margin: 0 0 8px
-      background-color: $color-border
+      background-color: var(--color-border)
       border-radius: 4px
       overflow: hidden
 
       .bar
-        background-color: $color-primary
+        background-color: var(--color-primary)
 
     .text
       margin: 0
