@@ -1,12 +1,12 @@
 .b-subposter-actions
-  @media (max-width: 480px) and (orientation: portrait)
+  @media (max-width: 480px)
     display: block
 
 .b-subposter-action
   @extend %md-icon
   @extend %md-icon-hover
 
-  @media (max-width: 480px) and (orientation: portrait)
+  @media (max-width: 480px)
     display: flex
     width: 100%
     height: auto
@@ -16,6 +16,7 @@
       height: auto
 
     &::after
+      content: attr(data-text)
       padding-left: 1.5em
       color: var(--color-text-primary)
       font-size: inherit
