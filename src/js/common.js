@@ -762,7 +762,7 @@ var vm = new Vue({
     },
     selectColorPicker: function (color) {
       this.closeColorPicker();
-      this[this.colorPicker.palette] = color;
+      this.setColor(this.colorPicker.palette, color);
     },
     getMixedColor: function (color, amount) {
       return tinycolor.mix(color, tinycolor(color).isLight() ? '#000' : '#fff', amount).toHexString();
