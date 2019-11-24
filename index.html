@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?2">
+    <link rel="stylesheet" href="./src/css/common.css?4">
     <style></style>
   </head>
   <body>
@@ -116,7 +116,7 @@
               <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_palette }}</span>
             </span>
           </div>
-          <div class="md-list_hidden color-settings">
+          <div class="md-list_hidden color-settings" v-if="!status.isFileLoading">
             <p class="text-hint">Чтобы создать свою тему, достаточно настроить основной и акцентирующий цвет, а также выбрать цвет фона — все остальные цвета изменятся автоматически!</p>
 
             <h2>Готовые палитры</h2>
@@ -132,60 +132,140 @@
             <h2>Основные цвета</h2>
 
             <div class="content-flex">
-              <palette-preview :color="[color_primary, color_text_on_primary]">
-                <color-preview v-model="color_primary" :palette="variables.color_primary" @input="saveCustomTheme"></color-preview>
-                <color-preview v-model="color_text_on_primary" :text="color_primary" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_primary"
+                  palette="color_primary"
+                  :background="color_background"
+                  :text="color_text_on_primary"
+                  @input="saveCustomTheme"
+                ></color-preview>
+                <color-preview
+                  v-model="color_text_on_primary"
+                  palette="color_text_on_primary"
+                  :background="color_primary"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview :color="[color_accent, color_text_on_accent]">
-                <color-preview v-model="color_accent" :palette="variables.color_accent" @input="saveCustomTheme"></color-preview>
-                <color-preview v-model="color_text_on_accent" :text="color_accent" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_accent"
+                  palette="color_accent"
+                  :background="color_background"
+                  :text="color_text_on_accent"
+                  @input="saveCustomTheme"
+                ></color-preview>
+                <color-preview
+                  v-model="color_text_on_accent"
+                  palette="color_text_on_accent"
+                  :background="color_accent"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
             </div>
 
             <div class="content-flex">
-              <palette-preview class="small" :color="[color_link]">
-                <color-preview v-model="color_link" :palette="variables.color_link" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview small">
+                <color-preview
+                  v-model="color_link"
+                  palette="color_link"
+                  :background="color_background"
+                  text="auto"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview class="small" :color="[color_link_hover]">
-                <color-preview v-model="color_link_hover" :palette="variables.color_link_hover" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview small">
+                <color-preview
+                  v-model="color_link_hover"
+                  palette="color_link_hover"
+                  :background="color_background"
+                  text="auto"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview class="small" :color="[color_link_active]">
-                <color-preview v-model="color_link_active" :palette="variables.color_link_active" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview small">
+                <color-preview
+                  v-model="color_link_active"
+                  palette="color_link_active"
+                  :background="color_background"
+                  text="auto"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
             </div>
 
             <h2>Фоновые цвета</h2>
 
             <div class="content-flex">
-              <palette-preview :color="[color_background, color_text_primary]">
-                <color-preview v-model="color_background" :palette="variables.color_background" @input="saveCustomTheme">
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_background"
+                  palette="color_background"
+                  :text="color_text_primary"
+                  @input="saveCustomTheme"
+                >
                   <button type="button"
                           class="md-button_icon tooltiped tooltiped-right"
                           aria-label="Инвертировать цвет"
-                          @click="setColor('color_background', 'invert')">
+                          @click.stop="setColor('color_background', 'invert')">
                     <span class="md-icon ic-scheme"></span>
                   </button>
                 </color-preview>
-                <color-preview v-model="color_text_primary" :text="color_background" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+                <color-preview
+                  v-model="color_text_primary"
+                  palette="color_text_primary"
+                  :background="color_background"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview :color="[color_surface, color_text_primary]">
-                <color-preview v-model="color_surface" :palette="variables.color_surface" @input="saveCustomTheme"></color-preview>
-                <color-preview v-model="color_text_primary" :text="color_surface" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_surface"
+                  palette="color_surface"
+                  :text="color_text_primary"
+                  @input="saveCustomTheme"
+                ></color-preview>
+                <color-preview
+                  v-model="color_text_primary"
+                  palette="color_text_primary"
+                  :background="color_surface"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview :color="[color_background_dialog, color_text_primary]">
-                <color-preview v-model="color_background_dialog" :palette="variables.color_background_dialog" @input="saveCustomTheme"></color-preview>
-                <color-preview v-model="color_text_primary" :text="color_background_dialog" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_background_dialog"
+                  palette="color_background_dialog"
+                  :text="color_text_primary"
+                  @input="saveCustomTheme"
+                ></color-preview>
+                <color-preview
+                  v-model="color_text_primary"
+                  palette="color_text_primary"
+                  :background="color_background_dialog"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
 
-              <palette-preview :color="[color_menu_background, color_menu_text_primary]">
-                <color-preview v-model="color_menu_background" :palette="variables.color_menu_background" @input="saveCustomTheme"></color-preview>
-                <color-preview v-model="color_menu_text_primary" :text="color_menu_background" @input="saveCustomTheme"></color-preview>
-              </palette-preview>
+              <div class="palette_preview">
+                <color-preview
+                  v-model="color_menu_background"
+                  palette="color_menu_background"
+                  :text="color_menu_text_primary"
+                  @input="saveCustomTheme"
+                ></color-preview>
+                <color-preview
+                  v-model="color_menu_text_primary"
+                  palette="color_menu_text_primary"
+                  :background="color_menu_background"
+                  @input="saveCustomTheme"
+                ></color-preview>
+              </div>
             </div>
 
             <h2>Автоподбор цветов</h2>
@@ -390,6 +470,13 @@
 
       <footer class="copyright">shiki-theme</footer>
 
+
+      <color-picker v-if="colorPicker.state"
+        v-model="colorPicker.color"
+        @select="selectColorPicker($event)"
+        @close="closeColorPicker"
+      ></color-picker>
+
       <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }">
         <span></span>{{ text.notify_message }}
       </div>
@@ -400,6 +487,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?3"></script>
+    <script src="./src/js/common.js?4"></script>
   </body>
 </html>

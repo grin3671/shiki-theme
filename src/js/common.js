@@ -16,26 +16,234 @@ Vue.component('palette-preview', {
 });
 
 Vue.component('color-preview', {
-  props: ['value', 'palette', 'text'],
+  props: ['value', 'palette', 'background', 'text'],
   computed: {
+    color: function () {
+      return this.$root.variables[this.palette];
+    },
     readability: function () {
-      return tinycolor.readability(this.text, this.value).toFixed(1);
+      return tinycolor.readability(this.background, this.value).toFixed(1);
     },
     colorText: function () {
       return tinycolor.mostReadable(this.value, ["#fff", "#000"]).toHexString();
-    }
+    },
+    backgroundColor: function () {
+      return this.text ? this.value : this.background;
+    },
+    textColor: function () {
+      return this.text ? this.text == 'auto' ? tinycolor.mix(this.backgroundColor, tinycolor(this.backgroundColor).isLight() ? '#000' : '#fff', 87).toHexString() : this.text : this.value;
+    },
   },
-  template: '<label class="color_preview">' +
-              '<div class="md-icon color_visibility" v-if="text" :class="{ color_warning: readability < 4 }">' +
-                '<span class="" :style="{ color: colorText }">{{ readability }}</span>' +
+  template: '<div class="color_preview" :style="{ backgroundColor: backgroundColor, color: textColor }" @click="open()">' +
+              '<div class="md-icon color_visibility" v-if="!text" :class="{ color_warning: readability < 4 }">' +
+                '<span :style="{ color: colorText }">{{ readability }}</span>' +
               '</div>' +
-              '<span class="palette_name" v-if="palette || text">{{ text ? \'Цвет текста\' : palette.name }}</span>' +
+              '<span class="palette_name">{{ text ? color.name : \'Цвет текста\' }}</span>' +
               '<code v-if="palette || text">{{ value }}</code>' +
-              '<input type="color" :value="value" @input="$emit(\'input\', $event.target.value)">' +
+              // '<input type="color" :value="value" @input="$emit(\'input\', $event.target.value)">' +
               '<span class="color_options">' +
                 '<slot></slot>' +
               '</span>' +
-            '</label>',
+            '</div>',
+  methods: {
+    open: function () {
+      this.$root.openColorPicker(this.palette);
+    },
+  },
+});
+
+
+Vue.component('color-picker', {
+  props: ['value'],
+  mounted: function () {
+    // Сохранение значений цвета для палитры hsv
+    this.HueH = tinycolor(this.value).toHsv().h;
+    this.posX = tinycolor(this.value).toHsv().s;
+    this.posY = tinycolor(this.value).toHsv().v;
+  },
+  data: function () {
+    return {
+      HueH: 0,
+      posX: 0,
+      posY: 0,
+    }
+  },
+  computed: {
+    currentColor: {
+      get: function () {
+        return tinycolor.fromRatio({h: this.HueH, s: this.posX, v: this.posY}).toHexString();
+      },
+      set: function (color) {
+        var c = tinycolor(color);
+        var x = color.replace('#', '');
+        if (c.isValid() && c.getFormat() == 'hex' && x.length == 6) {
+          c = c.toHsv();
+          this.HueH = c.h;
+          this.posX = c.s;
+          this.posY = c.v;
+        }
+      },
+    },
+    rgb_output: {
+      get: function () {
+        return tinycolor.fromRatio({h: this.HueH, s: this.posX, v: this.posY}).toRgbString();
+      },
+      set: function (color) {
+        var c = tinycolor(color);
+        if (c.isValid() && c.getFormat() == 'rgb') {
+          c = c.toHsv();
+          this.HueH = c.h;
+          this.posX = c.s;
+          this.posY = c.v;
+        }
+      },
+    },
+    hsv_output: {
+      get: function () {
+        return tinycolor.fromRatio({h: this.HueH, s: this.posX, v: this.posY}).toHsvString();
+      },
+      set: function (color) {
+        var c = tinycolor(color);
+        if (c.isValid() && c.getFormat() == 'hsv') {
+          c = c.toHsv();
+          this.HueH = c.h;
+          this.posX = c.s;
+          this.posY = c.v;
+        }
+      },
+    },
+    hsl_output: {
+      get: function () {
+        return tinycolor.fromRatio({h: this.HueH, s: this.posX, v: this.posY}).toHslString();
+      },
+      set: function (color) {
+        var c = tinycolor(color);
+        if (c.isValid() && c.getFormat() == 'hsl') {
+          c = c.toHsv();
+          this.HueH = c.h;
+          this.posX = c.s;
+          this.posY = c.v;
+        }
+      },
+    },
+    hue_bg: function () {
+      return 'hsl(' + this.HueH + ', 100%, 50%)';
+    },
+    hue_left: function () {
+      return this.toPCT(this.HueH / 360);
+    },
+    color_text: function () {
+      return tinycolor.mix(this.currentColor, tinycolor(this.currentColor).isLight() ? '#000' : '#fff', 87).toHexString();
+    },
+    style: function () {
+      return {
+        x: this.posX * 100 + '%',
+        y: (100 - this.posY * 100) + '%',
+      }
+    },
+  },
+  template: '<div class="backdrop">' +
+              '<form action="/" @submit.prevent="select()" @reset.prevent="close()" class="modal color-picker">' +
+                '<input id="picker_pallete" type="radio" name="picker" value="pallete" checked>' +
+                '<input id="picker_pipette" type="radio" name="picker" value="pipette">' +
+                '<input id="picker_helper" type="radio" name="picker" value="helper">' +
+                '<div class="color-picker__header">' +
+                  '<label for="picker_pallete"><i class="material-icons">gradient</i><span>Палитра</span></label>' +
+                  '<label for="picker_pipette"><i class="material-icons">colorize</i><span>Пипетка</span></label>' +
+                  '<label for="picker_helper"><i class="material-icons">assistant</i><span>Помощь</span></label>' +
+                '</div>' +
+                '<div class="color-picker__slide">' +
+                  '<div class="color-picker__pallete" ref="pallete" :style="{ backgroundColor: hue_bg }" ' +
+                    '@mousedown="handleMouseDown" ' +
+                    '@touchmove="handleChange" ' +
+                    '@touchstart="handleChange" ' +
+                    '@contextmenu.stop.prevent ' +
+                    '>' +
+                    '<div class="color-picker__point" :style="{ top: style.y, left: style.x }"></div>' +
+                  '</div>' +
+                  '<div class="color-picker__block">' +
+                    '<input type="range" v-model="HueH" min="0" max="360">' +
+                    '<div class="color-picker__slider hue_bg" value="240" max="360">' +
+                      '<div class="color-picker__slider-thumb" :style="{ left: hue_left }"></div>' +
+                    '</div>' +
+                  '</div>' +
+                  '<hr>' +
+                  '<div class="color-picker__block clearfix">' +
+                    '<div style="display: flex">' +
+                      '<div class="picker_preview" :style="{ backgroundColor: currentColor, color: color_text }">' +
+                        '<span>{{ currentColor }}</span>' +
+                      '</div>' +
+                      '<div>' +
+                        '<div class="md-input fullwidth">' +
+                          '<input type="text" v-model="currentColor">' +
+                          '<div class="md-divider"></div>' +
+                        '</div>' +
+                        '<div class="md-input fullwidth">' +
+                          '<input type="text" v-model.lazy="rgb_output">' +
+                          '<div class="md-divider"></div>' +
+                        '</div>' +
+                        '<div class="md-input fullwidth">' +
+                          '<input type="text" v-model.lazy="hsl_output">' +
+                          '<div class="md-divider"></div>' +
+                        '</div>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="color-picker__footer">' +
+                  '<button type="reset">Отмена</button>' +
+                  '<button type="submit">Сохранить</button>' +
+                '</div>' +
+              '</form>' +
+            '</div>',
+  methods: {
+    toPCT: function (n) {
+      return Math.floor(n * 100) + '%';
+    },
+    handleChange: function (e, skip) {
+      !skip && e.preventDefault();
+      var container = this.$refs.pallete;
+      var containerWidth = container.clientWidth;
+      var containerHeight = container.clientHeight;
+      var xOffset = container.getBoundingClientRect().left + window.pageXOffset;
+      var yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+      var pageX = e.pageX || (e.touches ? e.touches[0].pageX : 0);
+      var pageY = e.pageY || (e.touches ? e.touches[0].pageY : 0);
+      var left = pageX - xOffset;
+      var top = pageY - yOffset;
+      if (left < 0) {
+        left = 0;
+      } else if (left > containerWidth) {
+        left = containerWidth;
+      }
+      if (top < 0) {
+        top = 0;
+      } else if (top > containerHeight) {
+        top = containerHeight;
+      }
+
+      // Результаты работы палитры HSV
+      this.posX = left / containerWidth;
+      this.posY = -(top / containerHeight) + 1;
+    },
+    handleMouseDown: function (e) {
+      // this.handleChange(e, true)
+      window.addEventListener('mousemove', this.handleChange);
+      window.addEventListener('mouseup', this.handleChange);
+      window.addEventListener('mouseup', this.handleMouseUp);
+    },
+    handleMouseUp: function (e) {
+      window.removeEventListener('mousemove', this.handleChange);
+      window.removeEventListener('mouseup', this.handleChange);
+      window.removeEventListener('mouseup', this.handleMouseUp);
+    },
+    close: function () {
+      this.$emit('close');
+    },
+    select: function () {
+      this.$emit('select', this.currentColor);
+    },
+  },
 });
 
 
@@ -232,6 +440,11 @@ var vm = new Vue({
     theme: {
       branches: ['master'],
     },
+    colorPicker: {
+      state: 0, // open or close
+      color: '#009688', // v-model
+      palette: 'color_primary', // link to variables
+    }
   },
   watch: {
     "user.selected_imports": function () {
@@ -538,6 +751,19 @@ var vm = new Vue({
     },
   },
   methods: {
+    openColorPicker: function (palette) {
+      // console.log(palette, this[palette], this.variables[palette].name);
+      this.colorPicker.palette = palette;
+      this.colorPicker.color = tinycolor(this[palette]).toHexString();
+      this.colorPicker.state = 1;
+    },
+    closeColorPicker: function () {
+      this.colorPicker.state = 0;
+    },
+    selectColorPicker: function (color) {
+      this.closeColorPicker();
+      this[this.colorPicker.palette] = color;
+    },
     getMixedColor: function (color, amount) {
       return tinycolor.mix(color, tinycolor(color).isLight() ? '#000' : '#fff', amount).toHexString();
     },
