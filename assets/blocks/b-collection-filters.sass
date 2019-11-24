@@ -17,13 +17,27 @@
         vertical-align: top
         margin: 0 .75rem 0 0
         color: var(--color-text-hint)
+        transition: inherit
+
+      &:hover
+        background-color: var(--color-overlay-text-hovered)
+
+      &:active
+        background-color: var(--color-overlay-text-pressed)
 
       &.selected::before
         content: 'check_box'
         color: var(--color-primary)
 
       &.selected
+        background-color: var(--color-overlay-primary-selected)
         color: inherit
+
+        &:hover
+          background-color: var(--color-overlay-primary-selected)
+
+        &:active
+          background-color: var(--color-overlay-primary-pressed)
 
       &.sub
         padding-left: 2.75rem

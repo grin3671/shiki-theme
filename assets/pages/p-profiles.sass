@@ -269,58 +269,66 @@
 
 
 /* USER PROFILE |> HISTORY ENTRY */
-.p-profiles .profile-head .c-history .entry
-  position: relative
-  padding: .5rem 0
-  margin: 0
-  border: 0
-  overflow: initial
+.p-profiles
+  .profile-head
+    .c-history
+      .entry
+        position: relative
+        padding: .5rem 0
+        margin: 0
+        border: 0
+        overflow: initial
 
-.p-profiles .profile-head .c-history .entry,
-.p-profiles .profile-head .c-history .entry:first-child
-  padding-top: .5rem
-  margin-top: 0
+        &,
+        &:first-child
+          padding-top: .5rem
+          margin-top: 0
 
-.p-profiles .profile-head .c-history .entry::before
-  content: ''
-  display: block
-  position: absolute
-  right: -.5rem
-  bottom: 0
-  left: 3.5rem
-  height: 1px
-  pointer-events: none
+        &::before
+          content: ''
+          display: block
+          position: absolute
+          right: -.5rem
+          bottom: 0
+          left: 3.5rem
+          height: 1px
+          pointer-events: none
 
-.p-profiles .profile-head .c-history .entry:last-child::before
-  display: none
+        &:last-child::before
+          display: none
 
-/* Полноразмерная ссылка .entry, работает только для .c-history & .l-menu */
-.p-profiles .profile-head .c-history .entry a
-  display: block
-  padding: .5rem .5rem
-  margin: -.5rem
+        // Полноразмерная ссылка .entry, работает только для .c-history & .l-menu
+        a
+          display: block
+          padding: .5rem .5rem
+          margin: -.5rem
+          transition: .16s cubic-bezier(.4, 0, .6, 1)
 
-@media (min-width: 960px)
-  .p-profiles .profile-head .c-history .entry a
-    padding: .75rem .5rem
+          @media (min-width: 960px)
+            padding: .75rem .5rem
 
-.p-profiles .profile-head .c-history .entry a::after
-  content: ''
-  clear: both
-  display: block
+          &::after
+            content: ''
+            clear: both
+            display: block
 
-.p-profiles .profile-head .c-history .entry:hover .title
-  text-decoration: none
-/* END of FULLENTRY LINK */
+        &:hover a
+          background-color: var(--color-overlay-text-hovered)
 
-.p-profiles .profile-head .c-history .entry img
-  margin: 0 16px 0 0
-  max-height: 72px
-  max-width: 40px
-  border-radius: 2px
+        &:active a
+          background-color: var(--color-overlay-text-pressed)
 
-.p-profiles .profile-head .c-history .entry .misc
-  font-size: .75em
+        &:hover .title
+          text-decoration: none
+
+        img
+          max-width: 40px
+          max-height: 72px
+          margin: 0 16px 0 0
+          border-radius: 2px
+
+        .misc
+          font-size: .75em
 
 
 

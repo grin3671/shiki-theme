@@ -15,7 +15,9 @@
       line-height: 1.5rem
 
     // +menu-block-with-image
-    .calendar, .clubs, .reviews
+    .calendar,
+    .clubs,
+    .reviews
       .entry
         position: relative
         padding: 8px 0
@@ -54,6 +56,9 @@
         &:hover a
           background-color: var(--color-overlay-text-hovered)
           color: var(--color-text-primary)
+
+        &:active a
+          background-color: var(--color-overlay-text-pressed)
 
         &:hover .title
           text-decoration: none
