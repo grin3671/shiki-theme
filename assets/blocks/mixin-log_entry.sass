@@ -125,12 +125,45 @@
 
 /* Список правок */
 .b-log_entry
+  padding: 8px 1rem
+  margin: 4px -1rem
+
+  &:nth-child(even):not(.yellow-fade)
+    background: var(--color-overlay-text-hovered)
+
+  & > span:first-child,
+  & .date,
+  & .author,
+  & .spoiler.collapse
+    order: -2
+
+  .spoiler.collapse
+    margin-left: auto !important
+
+  // this element separetes log to 2 line
+  // NOTE: "block" to properly work button "show all"
+  .spoiler.collapsed
+    display: block !important
+    flex-basis: 100%
+    order: -1
+    height: 0
+    opacity: 0
+    pointer-events: none
+
+    span
+      display: none // hide text
+
   // remove padding from last span
   .state + span
     padding-right: 0
 
   .change-details
     margin: .5em 0 0
+    word-break: break-all // long links break layout
+
+    img:not([data-id])
+      @media (min-resolution: 2dppx)
+        max-width: 112.5px
 
     .reason
       margin-bottom: .5rem
