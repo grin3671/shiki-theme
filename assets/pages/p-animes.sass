@@ -24,6 +24,97 @@
     .c-image .b-user_rate
       margin: 0
 
+  .c-info-right
+    .watch-online
+      margin-top: 2em
+
+      // subheader
+      &::before
+        content: 'Онлайн просмотр'
+        display: block
+        flex-basis: 100%
+        margin: 0 0 .5em
+        color: var(--color-text-hint)
+        font-size: .875em
+        font-weight: bold
+        text-transform: uppercase
+
+      .b-link_button
+        background: var(--color-surface)
+        color: inherit
+        font-size: 0 !important
+
+        &:hover
+          background: var(--color-surface-hover)
+
+        &:active
+          background: var(--color-surface-active)
+
+        // md play icon
+        &::before
+          content: 'play_arrow'
+          margin: 0 12px 0 -4px
+
+        &[title="Wakanim"]::before
+          color: #e3474b
+
+        &[title="Crunchyroll"]::before
+          color: #f78c25
+
+        &[title="Youtube"]::before
+          color: #c00
+
+        &[title="Netflix"]::before
+          color: #e50914
+
+        &[title="Hidive"]::before
+          color: #00aef0
+
+        &[title="Hulu"]::before
+          color: #3dbb3d
+
+        &[title="Amazon"]::before
+          color: #00A8E1
+
+        // shiki' external icon
+        &::after
+          content: attr(title)
+          margin: 0
+          font: inherit
+          font-size: 16px
+
+      .line
+        color: var(--color-text-hint)
+        font-size: .875em
+        line-height: inherit
+
+      div.kind
+        display: none
+
+      a.kind
+        color: var(--color-link)
+        font-size: .875em
+        line-height: inherit
+
+        &:hover
+          background: var(--color-link-hover)
+
+        &:active
+          background: var(--color-link-active)
+
+        // shiki' comma
+        &::after
+          color: var(--color-text-disabled)
+
+        span::after
+          content: 'transit_enterexit'
+          display: block
+          margin: 0 12px 0 -4px
+          font-family: 'Material Icons'
+          font-size: 16px
+          transform: rotate(180deg)
+          line-height: 1
+
 .watch-online-placeholer
   margin: 2rem auto .5rem
 
