@@ -1,0 +1,46 @@
+.b-news_line-topic
+  & > a[href]
+    padding: 2px 8px
+    border: 1px solid var(--color-border)
+    border-radius: 5px
+    transition: background .2s ease-in-out
+    &:hover
+      background-color: var(--color-overlay-text-hovered)
+    &:active
+      background-color: var(--color-overlay-text-pressed)
+
+  .title
+    margin: 2px 0 -2px
+    color: var(--color-text-primary) !important
+    font-size: .875em
+
+  .status-line
+    font-size: .75em
+    color: var(--color-text-hint)
+
+    & > span
+      padding: 0 4px
+
+    time
+      font-size: inherit
+      color: inherit
+
+    .author
+      img
+        height: 16px
+        border-radius: 50%
+
+    .comments
+      display: flex
+      align-self: flex-end
+      padding: 6px 0 6px 8px
+      line-height: 16px
+      font-weight: bold
+
+      @extend %material-icons
+      &::before
+        content: 'chat_bubble'
+        font-size: 16px !important
+
+    .b-anime_status_tag
+      margin: 2px 8px 2px 0
