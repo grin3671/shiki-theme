@@ -295,3 +295,33 @@
   .content-updates .inner > .b-news_line-topic
     @media (min-width: 1024px)
       margin-bottom: 8px
+
+  .my-list
+    padding: 0
+    background: transparent
+    border: 0
+
+    .label
+      padding: 0
+      color: inherit
+      font-size: 14px
+      font-weight: bold
+      line-height: 32px
+      text-transform: uppercase
+
+      .misc-links
+        margin-left: auto
+
+        a
+          display: inline-block
+          color: var(--color-link)
+          font-size: 14px
+          line-height: inherit
+
+          &:hover
+            color: var(--color-link-hover)
+          &:active
+            color: var(--color-link-active)
+
+          &::after
+            color: var(--color-text-disabled)

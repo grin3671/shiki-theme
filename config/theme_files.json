@@ -393,6 +393,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-user_rate-history.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-video.sass",
     "checked": true,
     "description": "Изменённыё вид превью видео."

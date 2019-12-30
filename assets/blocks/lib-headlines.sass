@@ -81,7 +81,9 @@ header.head
 
 
 
-.headline, .midheadline, .subheadline
+.headline,
+.midheadline,
+.subheadline
   & > a
     @extend %md-button-flat
     @extend %material-icons-18
@@ -106,27 +108,31 @@ header.head
     color: var(--color-primary) !important
     text-decoration: none
 
-
-
-.subheadline .misc-link
-  float: right
-
-
-
-// misc-links in headlines; thx @anorva
-.subheadline .misc-links
-  padding-left: .5em
-  & > a
-    color: var(--color-link)
-    font-size: .875rem
-    &:hover
-      color: var(--color-link-hover)
-    &:active
-      color: var(--color-link-active)
-    &.selected
-      color: var(--color-link-hover)
+  .misc-links
+    & > a
+      color: var(--color-link)
+      font-size: .875rem
       &:hover
+        color: var(--color-link-hover)
+      &:active
         color: var(--color-link-active)
+
+      &.selected
+        color: var(--color-link-hover)
+        &:hover
+          color: var(--color-link-active)
+
+      &::after
+        color: var(--color-text-disabled)
+
+
+.subheadline
+  .misc-link
+    float: right
+
+  // misc-links in headlines; thx @anorva
+  .misc-links
+    padding-left: .5em
 
 
 

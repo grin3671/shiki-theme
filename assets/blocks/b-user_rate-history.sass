@@ -1,0 +1,36 @@
+.b-user_rate-history
+  height: auto
+  padding: 8px
+  border: 1px solid var(--color-border)
+  border-radius: 3px
+  transition: background .2s ease-in-out
+
+  &:hover
+    background: var(--color-overlay-text-hovered)
+  &:active
+    background: var(--color-overlay-text-pressed)
+
+  img
+    border-radius: 2px
+
+  .title
+    color: var(--color-text-primary) !important
+
+  .progress
+    border-radius: 4px
+    background: var(--color-text-disabled)
+
+  .status-counter
+    color: var(--color-text-secondary)
+
+    .status
+      font-size: .875em
+
+    .counter
+      span
+        font-size: .75em
+
+  .score-time
+    time
+      color: var(--color-text-hint)
+      font-size: .75em
