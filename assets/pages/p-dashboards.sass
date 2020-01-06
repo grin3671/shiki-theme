@@ -296,13 +296,28 @@
     @media (min-width: 1024px)
       margin-bottom: 8px
 
+  .fc-user-sections
+    .f-user
+      @media (max-width: 767px)
+        margin-bottom: 1.5em
+        line-height: inherit
+
+    // rewrite shiki's css, return theme's default values
+    @media (max-width: 480px)
+      .midheadline
+        padding: 16px
+
+        & > a
+          padding-right: 16px
+          font-size: .875rem
+
   .my-list
     padding: 0
     background: transparent
     border: 0
 
     .label
-      padding: 0
+      padding: 8px 0 0
       color: inherit
       font-size: 14px
       font-weight: bold

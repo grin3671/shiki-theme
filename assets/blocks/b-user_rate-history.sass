@@ -17,8 +17,12 @@
     color: var(--color-text-primary) !important
 
   .progress
-    border-radius: 4px
     background: var(--color-text-disabled)
+    border-radius: 4px
+    overflow: hidden
+
+    .completed
+      background: var(--color-primary)
 
   .status-counter
     color: var(--color-text-secondary)
@@ -30,7 +34,51 @@
       span
         font-size: .75em
 
+  .action-time
+    .action
+      color: var(--color-text-secondary)
+      font-size: .875em
+
+    time
+      color: var(--color-text-hint)
+      font-size: .75em
+
   .score-time
     time
       color: var(--color-text-hint)
       font-size: .75em
+
+    .stars-container
+      .background,
+      .score
+        font-family: 'Material Icons'
+        &::after
+          letter-spacing: -1.8px
+
+      .background
+        color: var(--color-text-disabled)
+        &::after
+          content: 'star_border star_border star_border star_border star_border'
+
+      .score
+        color: var(--color-primary)
+        &.score-1::after
+          content: 'star_half'
+        &.score-2::after
+          content: 'star'
+        &.score-3::after
+          content: 'star star_half'
+        &.score-4::after
+          content: 'star star'
+        &.score-5::after
+          content: 'star star star_half'
+        &.score-6::after
+          content: 'star star star'
+        &.score-7::after
+          content: 'star star star star_half'
+        &.score-8::after
+          content: 'star star star star'
+        &.score-9::after
+          content: 'star star star star star_half'
+        &.score-10::after
+          content: 'star star star star star'
