@@ -4,24 +4,28 @@
     background: var(--color-surface)
 
   .arrow
+    position: fixed
     top: auto
-    bottom: 4px
-    width: 40px
-    height: 40px
+    bottom: 4px !important
+    left: 0 !important
+    width: 40px !important
+    height: 40px !important
     padding: 8px
     margin: 0 8px
     border-radius: 50%
-    color: var(--color-text-hint)
+    color: var(--color-text-hint) !important
     font: inherit
     pointer-events: none
-    transition: opacity .24s ease-in-out
-    z-index: 2
+    transition: opacity .24s ease-in-out !important
+    opacity: 0
+    z-index: 2 !important
     @extend %material-icons
     @extend %md-tooltip-right
 
     &::before
-      content: 'forward'
+      content: 'forward'!important
       display: block
+      text-shadow: none !important
       transform: rotate(-90deg)
 
     [data-locale="ru"] &::after
@@ -35,7 +39,7 @@
       width: 56px
 
       &:hover + .arrow
-        color: var(--color-text-hint)
+        color: var(--color-text-hint) !important
 
     .arrow
       opacity: .6
