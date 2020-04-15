@@ -340,3 +340,25 @@
 
           &::after
             color: var(--color-text-disabled)
+
+  @media (max-width: 1023px)
+    .mobile-slider-prev,
+    .mobile-slider-next
+      &::before
+        opacity: .8 !important
+
+      &::after,
+      &.bright::after
+        color: inherit !important
+        text-shadow: none
+        margin: 0 4px
+
+    .mobile-slider-prev
+      justify-content: flex-start
+      &::before
+        background: linear-gradient(90deg, var(--color-background), transparent) !important
+
+    .mobile-slider-next
+      justify-content: flex-end
+      &::before
+        background: linear-gradient(90deg, transparent, var(--color-background)) !important
