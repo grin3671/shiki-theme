@@ -60,6 +60,11 @@
     "checked": true
   },
   {
+    "url": "modules/md-scrollbar.sass",
+    "disabled": true,
+    "checked": true
+  },
+  {
     "url": "modules/md-tooltip.sass",
     "disabled": true,
     "checked": true

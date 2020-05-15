@@ -447,9 +447,12 @@
 
     .search-results
       top: var(--menu-height)
+      max-height: calc(100vh - var(--menu-height) - 56px)
       padding: .5em 0
       background: var(--color-background-dialog)
       color: var(--color-text-primary)
+      overflow: auto
+      @extend %md-scrollbar
 
       .nothing_found::before
         background-color: var(--color-danger)
