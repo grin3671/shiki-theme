@@ -1,9 +1,11 @@
 // Действия с почтой
 .p-dialogs .misc-links
   position: absolute
-  top: 56px
-  right: 0
-  margin: 0
+  top: 0
+  right: var(--layout-margin)
+
+  @media (min-width: 960px)
+    right: 0
 
   & > a
     @extend %md-icon
@@ -24,3 +26,21 @@
 
 .p-dialogs[data-locale='en'] .misc-links > a::after
   content: 'Unread messages from oldest one'
+
+
+// Скрываем subheadline, чтобы misc-links казались частью прилипающего меню
+.p-dialogs-index
+  @media (min-width: 960px)
+    .b-options-floated
+      & + .subheadline
+        position: sticky
+        top: 56px // menu-height
+        float: right
+        padding: 0
+        margin: -56px 0 0 // dialog bar height + margin
+        font-size: 0
+        overflow: visible
+        z-index: 100
+
+        .misc-links
+          top: 0
