@@ -350,6 +350,14 @@
     "checked": true
   },
   {
+    "url": "blocks/b-spoiler_block.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-spoiler_inline.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-stats_bar.sass",
     "checked": true
   },

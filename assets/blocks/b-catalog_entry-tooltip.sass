@@ -1,15 +1,20 @@
 .b-catalog_entry-tooltip
   .inner
+    display: flex
+    flex-wrap: wrap
+
     a.name
       color: var(--color-text-primary) !important
       font-size: .875rem
 
     .text
+      flex: 1 0 0
       margin-bottom: .5rem
       font-size: .875rem
       line-height: 1.5rem
 
     .line
+      flex: 1 0 100%
       margin-bottom: .25rem
       font-size: .875rem
       line-height: 1.5rem
@@ -21,6 +26,9 @@
       .key
         color: var(--color-text-secondary)
         font-weight: normal
+
+    .line-container
+      flex: 1 0 100%
 
     .rating
       bottom: 0
@@ -36,6 +44,12 @@
         line-height: 1rem
 
     .additional-images
+      flex: 0 0 48px
+      order: 1
+
       .link
         .title
           color: var(--color-text-secondary)
+
+    .best-works
+      flex: 1 0 100%

@@ -1,0 +1,76 @@
+.b-spoiler_block
+  position: relative
+  background-color: rgba(128,128,128,0.2)
+  border-radius: var(--border-rounded)
+
+  &::after
+    content: ''
+    display: table
+    min-height: 1px
+    margin-top: -1px
+    clear: both
+
+  & > button
+    display: flex
+    width: 100%
+    padding: 8px 16px
+    background: transparent !important
+    color: inherit
+    font-size: 16px
+    font-weight: bold
+    line-height: 24px
+    text-align: left
+
+    &::before
+      content: ''
+      position: absolute
+      top: 40px
+      right: 0
+      bottom: 0
+      left: 0
+      opacity: 0
+
+    &:hover::before
+      opacity: 1
+
+    &::after
+      content: 'show'
+      position: static
+      padding: 0 8px
+      margin: 0 0 0 auto
+      background-color: #f4f5f6
+      border-radius: 3px
+      color: #515155
+      font-family: monospace
+      font-size: 14px
+      font-weight: bold
+      line-height: 24px
+      text-transform: lowercase
+      white-space: nowrap
+      opacity: .4
+      transition: .2s
+
+    &:hover::after,
+    &:focus::after
+      opacity: 1
+
+  &.is-opened > button::after
+    content: 'hide'
+    transform: none
+
+  & > div
+    position: relative
+    padding: 8px 0 16px 16px
+    margin: 0 16px
+    background: transparent
+    border: 0
+
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      margin: 8px 0 16px
+      border-left: 2px solid var(--color-text-hint)
+      border-radius: 2px

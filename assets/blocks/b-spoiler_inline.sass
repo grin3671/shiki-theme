@@ -1,0 +1,17 @@
+.b-spoiler_inline
+  padding: 1px 4px
+
+  &:not(.is-opened)
+    background-color: transparent
+    outline: 1px solid var(--color-text-disabled)
+    outline-offset: -2px
+
+    @media screen and (min-width: 1024px)
+      &:hover
+        background-color: var(--color-overlay-text-hovered)
+    
+    &:active
+      background-color: var(--color-overlay-text-pressed)
+
+  &.is-opened
+    background-color: var(--color-overlay-text-pressed)
