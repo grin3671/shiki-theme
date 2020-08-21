@@ -50,21 +50,34 @@ textarea
   --color-yellow: #e8dc4f
   --color-magenta: #e84fde
 
-  --layout-grid: 8px
+
   // Расстояние между колонками
   --layout-gutter: 16px
   // Отступ от краёв области
   --layout-margin: 16px
-  --layout-margin-tablet: calc(var(--layout-margin) * 1.5)
+
+  // Размер отступов
+  --u-grid: 8px
+  --l-gutter: 16px // grid * 2
+  --l-margin: 16px // grid * 2
+  // Размер аватара
+  --l-avatar: 40px // grid * 5
+  // Положение для прилипающих элементов
+  --l-sticky--top: 56px
 
   --border-round: 50%
   --border-rounded: 3px
 
-  --font-size: 16px
+  --font-size: 16px // grid * 2
   --font-main: 'Arial', sans-serif
   --font-alt: var(--font-main)
 
   --word-spacing: .375em
+
+  @media (min-width: 960px)
+    --l-margin: 24px // grid * 3
+    --l-gutter: 24px // grid * 3
+    --l-avatar: 48px // grid * 6
 
 
 // MAIN BLOCKS
@@ -90,12 +103,8 @@ body
 
 .l-page
   min-height: 100%
-  padding: 16px var(--layout-margin) 0
+  padding: 16px var(--l-margin) 0
   background: var(--color-background)
-
-  @media (min-width: 960px)
-    padding-right: var(--layout-margin-tablet)
-    padding-left: var(--layout-margin-tablet)
 
 .l-footer
   padding: 0

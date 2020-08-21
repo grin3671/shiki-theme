@@ -151,7 +151,7 @@
 
         @media (max-width: 767px)
           &[data-unread_count]:after
-            top: auto
+            top: 16px
             width: var(--badge-size)
             height: var(--badge-size)
             margin-top: calc(var(--badge-size) / -2)
@@ -362,8 +362,8 @@
     margin: auto
     color: inherit
 
-    @media (min-width: 1025px)
-      padding: 0 var(--layout-margin-tablet)
+    @media (min-width: 1024px)
+      padding: 0 var(--l-margin)
 
       .x1000 &
         max-width: 1000px
@@ -373,8 +373,8 @@
         display: block
 
       .search-results
-        right: var(--layout-margin-tablet)
-        left: var(--layout-margin-tablet)
+        right: var(--l-margin)
+        left: var(--l-margin)
         width: auto
 
     @media (min-width: 1820px)
