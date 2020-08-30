@@ -1,0 +1,23 @@
+.b-quote-v2
+  padding: 8px 16px
+  background-color: var(--color-surface)
+  border: 1px solid var(--color-border)
+  border-radius: var(--border-rounded)
+
+  &::before
+    content: '"'
+    display: inline-block
+    width: 12px
+    margin-right: 12px
+    color: var(--color-text-hint)
+    font-family: shikimori
+    font-size: 12px
+    letter-spacing: normal
+    text-transform: none
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-feature-settings: 'liga'
+    font-feature-settings: 'liga'
+
+  & > .b-list
+    margin-left: 24px
