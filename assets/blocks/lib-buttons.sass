@@ -67,7 +67,10 @@
   .item-quote
     @extend %material-icons-18
     &::before
-      content: 'format_quote'
+      content: 'format_quote' !important
+
+    &:not(.is-active)
+      display: none
 
   .item-reply
     @extend %material-icons-18

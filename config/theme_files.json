@@ -445,11 +445,19 @@
     "checked": true
   },
   {
+    "url": "pages/p-animes-edit_field.sass",
+    "checked": true
+  },
+  {
     "url": "pages/p-club_pages.sass",
     "checked": true
   },
   {
     "url": "pages/p-clubs.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-collections_show.sass",
     "checked": true
   },
   {
