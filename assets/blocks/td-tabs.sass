@@ -136,6 +136,21 @@
       &::after
         background: var(--color-overlay-primary-pressed)
 
+  &.--akikawa
+    & > div:not([data-tab])
+      background: var(--color-surface)
+      border-radius: 18px
+
+    [data-tab-switch]
+      flex-grow: 1
+      padding: 6px 10px
+      margin: 0 4px
+      border: 0
+      transition: .08s ease
+
+      &.active
+        flex-grow: 1.5
+
 @keyframes switch-focus--vertical
   0%,
   100%
