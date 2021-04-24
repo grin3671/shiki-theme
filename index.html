@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?6">
+    <link rel="stylesheet" href="./src/css/common.css?7">
     <style></style>
   </head>
   <body>
@@ -35,453 +35,460 @@
 
 
 
-      <section id="nav_settings" class="content">
-        <h2 class="display1">Настройка темы</h2>
-        <p>Настройте тему, а затем нажмите желтую кнопку, чтобы начать сборку темы. Когда она будет завершена, вы сможете скопировать готовый код секцией ниже.</p>
-        <form action="/" @submit.prevent="createTheme" class="md-container">
-          <div class="md-list md-panel">
-            <span class="md-list_title inactive" id="label_user_cover">
-              <span class="md-icon ic-flip" aria-hidden="true"></span>Вид профиля
-            </span>
-            <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_user_cover">
-              <label class="md-control">
-                <input type="radio" name="type" value="cover"
-                       v-model="user.selected_layout"
-                       @input="setLayout($event.target.value)">
-                <span class="md-radio"></span>
-                <span>С обложкой</span>
-              </label>
-              <label class="md-control">
-                <input type="radio" name="type" value="simple"
-                       v-model="user.selected_layout"
-                       @input="setLayout($event.target.value)">
-                <span class="md-radio"></span>
-                <span>Без обложки</span>
-              </label>
-            </span>
-          </div>
-
-
-          <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
-            <label for="user_id" class="md-list_title inactive required">
-              <span class="md-icon ic-user" aria-hidden="true"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
-            </label>
-            <div class="md-list_content">
-              <div class="md-input fullwidth">
-                <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" aria-describedby="hint_cover_url" placeholder="8764532">
-                <div class="md-divider"></div>
-                <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.one">shikimori.one</a></span>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
-            <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
-              <span class="md-icon ic-image" aria-hidden="true"></span>Обложка профиля
-            </label>
-            <div class="md-list_content">
-              <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
-                <input type="text" id="user_cover" name="cover" @change="checkImage" v-model="user.user_cover" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
-                <div class="md-divider"></div>
-                <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
-                <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="md-list md-panel">
-            <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
-              <span class="md-icon ic-wallpaper" aria-hidden="true"></span>Фон сайта
-            </label>
-            <div class="md-list_content">
-              <div class="md-input fullwidth" :class="{ error: errors.user_background }">
-                <input type="text" id="user_background" name="background" @change="checkImage" v-model="user.user_background" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
-                <div class="md-divider"></div>
-                <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
-                <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
-              </div>
-            </div>
-          </div>
-
-
-          <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
-          <div class="md-list md-panel">
-            <label for="color_settings" class="md-list_title inactive">
-              <span class="md-icon ic-palette" aria-hidden="true"></span>Цветовая палитра
-            </label>
-            <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
-            <span class="md-list_content">
-              <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_palette }}</span>
-            </span>
-          </div>
-          <div class="md-list_hidden color-settings" v-if="!status.isFileLoading">
-            <p class="text-hint">Чтобы создать свою тему, достаточно настроить основной и акцентирующий цвет, а также выбрать цвет фона — все остальные цвета изменятся автоматически!</p>
-
-            <div class="md-container">
-              <label class="v-file md-list md-control">
-                <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
-                <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
-                <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
-              </label>
-            </div>
-
-            <h2>Готовые палитры</h2>
-
-            <palette-select v-model="user.selected_palette"
-                            :options="color_palette"
-                            v-if="!status.isFileLoading"
-                            v-if="!status.isFileLoading"
-                            @input="selectTheme($event)"
-            ></palette-select>
-
-
-            <h2>Основные цвета</h2>
-
-            <div class="content-flex">
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_primary"
-                  palette="color_primary"
-                  :background="color_background"
-                  :text="color_text_on_primary"
-                  @input="saveCustomTheme"
-                ></color-preview>
-                <color-preview
-                  v-model="color_text_on_primary"
-                  palette="color_text_on_primary"
-                  :background="color_primary"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_accent"
-                  palette="color_accent"
-                  :background="color_background"
-                  :text="color_text_on_accent"
-                  @input="saveCustomTheme"
-                ></color-preview>
-                <color-preview
-                  v-model="color_text_on_accent"
-                  palette="color_text_on_accent"
-                  :background="color_accent"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-            </div>
-
-            <div class="content-flex">
-              <div class="palette_preview small">
-                <color-preview
-                  v-model="color_link"
-                  palette="color_link"
-                  :background="color_background"
-                  text="auto"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview small">
-                <color-preview
-                  v-model="color_link_hover"
-                  palette="color_link_hover"
-                  :background="color_background"
-                  text="auto"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview small">
-                <color-preview
-                  v-model="color_link_active"
-                  palette="color_link_active"
-                  :background="color_background"
-                  text="auto"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-            </div>
-
-            <h2>Фоновые цвета</h2>
-
-            <div class="content-flex">
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_background"
-                  palette="color_background"
-                  :text="color_text_primary"
-                  @input="saveCustomTheme"
-                >
-                  <button type="button"
-                          class="md-button_icon tooltiped tooltiped-right"
-                          aria-label="Инвертировать цвет"
-                          @click.stop="setColor('color_background', 'invert')">
-                    <span class="md-icon ic-scheme"></span>
-                  </button>
-                </color-preview>
-                <color-preview
-                  v-model="color_text_primary"
-                  palette="color_text_primary"
-                  :background="color_background"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_surface"
-                  palette="color_surface"
-                  :text="color_text_primary"
-                  @input="saveCustomTheme"
-                ></color-preview>
-                <color-preview
-                  v-model="color_text_primary"
-                  palette="color_text_primary"
-                  :background="color_surface"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_background_dialog"
-                  palette="color_background_dialog"
-                  :text="color_text_primary"
-                  @input="saveCustomTheme"
-                ></color-preview>
-                <color-preview
-                  v-model="color_text_primary"
-                  palette="color_text_primary"
-                  :background="color_background_dialog"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-
-              <div class="palette_preview">
-                <color-preview
-                  v-model="color_menu_background"
-                  palette="color_menu_background"
-                  :text="color_menu_text_primary"
-                  @input="saveCustomTheme"
-                ></color-preview>
-                <color-preview
-                  v-model="color_menu_text_primary"
-                  palette="color_menu_text_primary"
-                  :background="color_menu_background"
-                  @input="saveCustomTheme"
-                ></color-preview>
-              </div>
-            </div>
-
-            <h2>Автоподбор цветов</h2>
-
-            <div class="md-container">
-              <template v-for="(helper, index) in builderData.helpers">
-                <label class="v-file md-list md-control" :class="{ disabled: helper.disabled }">
-                  <input type="checkbox"
-                         :value="index"
-                         v-model="customTheme.helpers"
-                         @change="saveCustomHelpers"
-                         :disabled="helper.disabled">
-                  <span class="md-checkbox"></span><span>{{ helper.name }}</span>
-                  <span class="md-list_description">{{ helper.desc }}</span>
+      <section id="nav_settings">
+        <div class="content">
+          <h2 class="display1">Настройка темы</h2>
+          <p>Настройте тему, а затем нажмите желтую кнопку, чтобы начать сборку темы. Когда она будет завершена, вы сможете скопировать готовый код секцией ниже.</p>
+          <form action="/" @submit.prevent="createTheme" class="md-container">
+            <div class="md-list md-panel">
+              <span class="md-list_title inactive" id="label_user_cover">
+                <span class="md-icon ic-flip" aria-hidden="true"></span>Вид профиля
+              </span>
+              <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_user_cover">
+                <label class="md-control">
+                  <input type="radio" name="type" value="cover"
+                        v-model="user.selected_layout"
+                        @input="setLayout($event.target.value)">
+                  <span class="md-radio"></span>
+                  <span>С обложкой</span>
                 </label>
-              </template>
+                <label class="md-control">
+                  <input type="radio" name="type" value="simple"
+                        v-model="user.selected_layout"
+                        @input="setLayout($event.target.value)">
+                  <span class="md-radio"></span>
+                  <span>Без обложки</span>
+                </label>
+              </span>
             </div>
 
-            <div v-if="!customTheme.helpers.includes('autoScheme')">
-              <h2>Детальная настройка</h2>
-              <p class="text-hint">Прежде чем начать подбирать цвета для темы, ознакомьтесь с системой цветов Material Design на их сайте: <a href="//material.io/guidelines/style/color.html#color-color-system">material.io</a>. Не меняйте цвет фонов и текста без необходимости: автоматическая настройка схемы подбирает цвета в соответствии с гайдлайном и всегда подбирает наиболее читабельные цвета.</p>
+
+            <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
+              <label for="user_id" class="md-list_title inactive required">
+                <span class="md-icon ic-user" aria-hidden="true"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
+              </label>
+              <div class="md-list_content">
+                <div class="md-input fullwidth">
+                  <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" aria-describedby="hint_cover_url" placeholder="8764532">
+                  <div class="md-divider"></div>
+                  <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.one">shikimori.one</a></span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
+              <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
+                <span class="md-icon ic-image" aria-hidden="true"></span>Обложка профиля
+              </label>
+              <div class="md-list_content">
+                <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
+                  <input type="text" id="user_cover" name="cover" @change="checkImage" v-model="user.user_cover" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
+                  <div class="md-divider"></div>
+                  <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
+                  <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="md-list md-panel">
+              <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
+                <span class="md-icon ic-wallpaper" aria-hidden="true"></span>Фон сайта
+              </label>
+              <div class="md-list_content">
+                <div class="md-input fullwidth" :class="{ error: errors.user_background }">
+                  <input type="text" id="user_background" name="background" @change="checkImage" v-model="user.user_background" placeholder="https://image.ibb.co/gT5kZJ/bd8W6VB.jpg">
+                  <div class="md-divider"></div>
+                  <span class="md-input_error">Вставьте прямую ссылку на изображение, заканчивающуюся на .jpg или .png</span>
+                  <span class="md-input_hint">Используйте хостинги картинок для получения прямых ссылок</span>
+                </div>
+              </div>
+            </div>
+
+
+            <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
+            <div class="md-list md-panel">
+              <label for="color_settings" class="md-list_title inactive">
+                <span class="md-icon ic-palette" aria-hidden="true"></span>Цветовая палитра
+              </label>
+              <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
+              <span class="md-list_content">
+                <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_palette }}</span>
+              </span>
+            </div>
+            <div class="md-list_hidden color-settings" v-if="!status.isFileLoading">
+              <p class="text-hint">Чтобы создать свою тему, достаточно настроить основной и акцентирующий цвет, а также выбрать цвет фона — все остальные цвета изменятся автоматически!</p>
+
+              <div class="md-container">
+                <label class="v-file md-list md-control">
+                  <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
+                  <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
+                  <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
+                </label>
+              </div>
+
+              <h2>Готовые палитры</h2>
+
+              <palette-select v-model="user.selected_palette"
+                              :options="color_palette"
+                              v-if="!status.isFileLoading"
+                              v-if="!status.isFileLoading"
+                              @input="selectTheme($event)"
+              ></palette-select>
+
+
+              <h2>Основные цвета</h2>
+
+              <div class="content-flex">
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_primary"
+                    palette="color_primary"
+                    :background="color_background"
+                    :text="color_text_on_primary"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                  <color-preview
+                    v-model="color_text_on_primary"
+                    palette="color_text_on_primary"
+                    :background="color_primary"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_accent"
+                    palette="color_accent"
+                    :background="color_background"
+                    :text="color_text_on_accent"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                  <color-preview
+                    v-model="color_text_on_accent"
+                    palette="color_text_on_accent"
+                    :background="color_accent"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+              </div>
+
+              <div class="content-flex">
+                <div class="palette_preview small">
+                  <color-preview
+                    v-model="color_link"
+                    palette="color_link"
+                    :background="color_background"
+                    text="auto"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview small">
+                  <color-preview
+                    v-model="color_link_hover"
+                    palette="color_link_hover"
+                    :background="color_background"
+                    text="auto"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview small">
+                  <color-preview
+                    v-model="color_link_active"
+                    palette="color_link_active"
+                    :background="color_background"
+                    text="auto"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+              </div>
+
+              <h2>Фоновые цвета</h2>
+
+              <div class="content-flex">
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_background"
+                    palette="color_background"
+                    :text="color_text_primary"
+                    @input="saveCustomTheme"
+                  >
+                    <button type="button"
+                            class="md-button_icon tooltiped tooltiped-right"
+                            aria-label="Инвертировать цвет"
+                            @click.stop="setColor('color_background', 'invert')">
+                      <span class="md-icon ic-scheme"></span>
+                    </button>
+                  </color-preview>
+                  <color-preview
+                    v-model="color_text_primary"
+                    palette="color_text_primary"
+                    :background="color_background"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_surface"
+                    palette="color_surface"
+                    :text="color_text_primary"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                  <color-preview
+                    v-model="color_text_primary"
+                    palette="color_text_primary"
+                    :background="color_surface"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_background_dialog"
+                    palette="color_background_dialog"
+                    :text="color_text_primary"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                  <color-preview
+                    v-model="color_text_primary"
+                    palette="color_text_primary"
+                    :background="color_background_dialog"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+
+                <div class="palette_preview">
+                  <color-preview
+                    v-model="color_menu_background"
+                    palette="color_menu_background"
+                    :text="color_menu_text_primary"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                  <color-preview
+                    v-model="color_menu_text_primary"
+                    palette="color_menu_text_primary"
+                    :background="color_menu_background"
+                    @input="saveCustomTheme"
+                  ></color-preview>
+                </div>
+              </div>
+
+              <h2>Автоподбор цветов</h2>
+
+              <div class="md-container">
+                <template v-for="(helper, index) in builderData.helpers">
+                  <label class="v-file md-list md-control" :class="{ disabled: helper.disabled }">
+                    <input type="checkbox"
+                          :value="index"
+                          v-model="customTheme.helpers"
+                          @change="saveCustomHelpers"
+                          :disabled="helper.disabled">
+                    <span class="md-checkbox"></span><span>{{ helper.name }}</span>
+                    <span class="md-list_description">{{ helper.desc }}</span>
+                  </label>
+                </template>
+              </div>
+
+              <div v-if="!customTheme.helpers.includes('autoScheme')">
+                <h2>Детальная настройка</h2>
+                <p class="text-hint">Прежде чем начать подбирать цвета для темы, ознакомьтесь с системой цветов Material Design на их сайте: <a href="//material.io/guidelines/style/color.html#color-color-system">material.io</a>. Не меняйте цвет фонов и текста без необходимости: автоматическая настройка схемы подбирает цвета в соответствии с гайдлайном и всегда подбирает наиболее читабельные цвета.</p>
+
+                <hr class="md-divider">
+
+                <div class="md-container">
+                  <h4>Фоны</h4>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_background"
+                    :index="'color_background'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_background_dialog"
+                    :index="'color_background_dialog'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_background_secondary"
+                    :index="'color_background_secondary'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_area_normal"
+                    :index="'color_area_normal'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_area_hover"
+                    :index="'color_area_hover'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_area_active"
+                    :index="'color_area_active'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_button_hover"
+                    :index="'color_button_hover'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_border"
+                    :index="'color_border'"
+                  ></color-variable>
+                </div>
+
+
+                <div class="md-container">
+                  <h4>Цвет текста</h4>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_text_primary"
+                    :index="'color_text_primary'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_text_secondary"
+                    :index="'color_text_secondary'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_text_hint"
+                    :index="'color_text_hint'"
+                  ></color-variable>
+                  <color-variable v-if="variables.scheme"
+                    :variable="variables.scheme.color_text_disabled"
+                    :index="'color_text_disabled'"
+                  ></color-variable>
+                </div>
+              </div>
 
               <hr class="md-divider">
-
-              <div class="md-container">
-                <h4>Фоны</h4>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_background"
-                  :index="'color_background'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_background_dialog"
-                  :index="'color_background_dialog'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_background_secondary"
-                  :index="'color_background_secondary'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_area_normal"
-                  :index="'color_area_normal'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_area_hover"
-                  :index="'color_area_hover'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_area_active"
-                  :index="'color_area_active'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_button_hover"
-                  :index="'color_button_hover'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_border"
-                  :index="'color_border'"
-                ></color-variable>
-              </div>
-
-
-              <div class="md-container">
-                <h4>Цвет текста</h4>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_text_primary"
-                  :index="'color_text_primary'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_text_secondary"
-                  :index="'color_text_secondary'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_text_hint"
-                  :index="'color_text_hint'"
-                ></color-variable>
-                <color-variable v-if="variables.scheme"
-                  :variable="variables.scheme.color_text_disabled"
-                  :index="'color_text_disabled'"
-                ></color-variable>
-              </div>
             </div>
 
-            <hr class="md-divider">
+
+            <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
+            <div class="md-list md-panel">
+              <label for="theme_files" class="md-list_title inactive">
+                <span class="md-icon ic-build" aria-hidden="true"></span>Файлы темы
+              </label>
+              <label for="theme_files" class="md-list_control md-icon ic-collapse"></label>
+              <span class="md-list_content">
+                <span class="md-list_content-placeholder">Настройка обложки, профиля, шрифтов и прочего.</span>
+              </span>
+            </div>
+            <div class="md-list_hidden theme-files">
+
+              <h2>Список файлов</h2>
+
+              <div class="md-container" v-if="!status.isFileLoading">
+                <template v-for="(file, index) in builderData.imports">
+                  <label class="v-file md-list md-control">
+                    <input type="checkbox" :value="file.url" v-model="user.selected_imports" @change="saveImports">
+                    <span class="md-checkbox"></span><span :data-url="file.url">{{ file.title ? file.title : file.url }}</span>
+                    <span class="md-list_description">{{ file.desc }}</span>
+                  </label>
+                </template>
+              </div>
+
+            </div>
+
+
+  <!--           <div class="md-list md-panel" v-if="support.file">
+              <label for="user_setting" class="md-list_title inactive">
+                <span class="md-icon ic-file" aria-hidden="true"></span>Мои настройки
+              </label>
+              <span class="md-list_content">
+                <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" @change="readUserFile" accept=".sass, .scss, .css"></span>
+              </span>
+            </div> -->
+
+
+            <button type="submit" id="create_css" class="md-btn raised primary ie-only" disabled><span>Создать тему</span></button>
+          </form>
+
+          <hr class="md-divider">
+
+          <p>Если у вас возникли вопросы по теме или сборщику, можете <a href="https://shikimori.one/grin3671">написать разработчику</a>.</p>
+
+          <p>Поддержать разработку можно через <span class="strong"><span style="color: #8b3ffd">Ю</span>money</span>: <a href="https://yoomoney.ru/to/41001258665103">41001258665103</a>. </p>
+        </div>
+      </section>
+
+
+
+      <section id="nav_code" v-show="status.isCompiled">
+        <div class="content">
+          <h2 class="display1">Готовый стиль</h2>
+          <div class="field">
+            <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
+            <div class="md-textarea code">
+              <textarea id="output_css" rows="5"></textarea>
+              <div class="md-divider"></div>
+            </div>
+            <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
+            <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="nav_preview" v-show="status.isFileLoading == false">
+        <div class="content">
+          <h2 class="display1">Предпросмотр</h2>
+          <p>Условный вид профиля без адаптации для мобильных телефонов.</p>
+
+          <div id="vue_preview" class="shiki-preview">
+            <div class="shiki-preview__body" :class="{ scheme_dark: user.selected_scheme == 'dark' }" :style="{ backgroundColor: color_background, backgroundImage: 'url(' + user.user_background + ')' }">
+              <div class="shiki-preview__menu" :style="{ backgroundColor: color_menu_background }"></div>
+              <div class="shiki-preview__page" :style="{ backgroundColor: color_background }">
+                <div class="shiki-preview__cover" :class="{ cover_display: user.selected_layout == 'cover' }" :style="{ backgroundImage: 'url(' + user.user_cover + ')' }"></div>
+                <div class="shiki-preview__profile">
+                  <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
+                  <div class="shiki-preview__block block-h1"></div>
+                </div>
+                <div class="shiki-preview__list clearfix">
+                  <div class="shiki-preview__block"></div>
+                  <div class="shiki-preview__list-anime color-primary" :style="{ backgroundColor: color_primary }"></div>
+                  <div class="shiki-preview__block"></div>
+                  <div class="shiki-preview__list-manga color-accent" :style="{ backgroundColor: color_accent }"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="shiki-preview__button color-primary" :style="{ backgroundColor: color_primary }"></div>
+              </div>
+            </div>
           </div>
 
-
-          <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
-          <div class="md-list md-panel">
-            <label for="theme_files" class="md-list_title inactive">
-              <span class="md-icon ic-build" aria-hidden="true"></span>Файлы темы
+          <div class="md-container">
+            <label class="v-file md-list md-control">
+              <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
+              <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
+              <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
             </label>
-            <label for="theme_files" class="md-list_control md-icon ic-collapse"></label>
-            <span class="md-list_content">
-              <span class="md-list_content-placeholder">Настройка обложки, профиля, шрифтов и прочего.</span>
-            </span>
           </div>
-          <div class="md-list_hidden theme-files">
-
-            <h2>Список файлов</h2>
-
-            <div class="md-container" v-if="!status.isFileLoading">
-              <template v-for="(file, index) in builderData.imports">
-                <label class="v-file md-list md-control">
-                  <input type="checkbox" :value="file.url" v-model="user.selected_imports" @change="saveImports">
-                  <span class="md-checkbox"></span><span :data-url="file.url">{{ file.title ? file.title : file.url }}</span>
-                  <span class="md-list_description">{{ file.desc }}</span>
-                </label>
-              </template>
-            </div>
-
-            <hr class="md-divider">
-          </div>
-
-
-<!--           <div class="md-list md-panel" v-if="support.file">
-            <label for="user_setting" class="md-list_title inactive">
-              <span class="md-icon ic-file" aria-hidden="true"></span>Мои настройки
-            </label>
-            <span class="md-list_content">
-              <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" @change="readUserFile" accept=".sass, .scss, .css"></span>
-            </span>
-          </div> -->
-
-
-          <button type="submit" id="create_css" class="md-btn raised primary ie-only" disabled><span>Создать тему</span></button>
-        </form>
-
-        <hr class="md-divider">
-
-        <p>Свои правила, в силу <a href="https://developer.mozilla.org/ru/docs/Web/Guide/CSS/Getting_Started/Cascading_and_inheritance">особенностей CSS</a>, рекомендуется указывать внизу стиля.</p>
-        <p>Если у вас что-то сломалось – проверьте <a href="https://github.com/grin3671/shiki-theme/commits/master">последние обновления</a> и обновитесь, если ваша версия темы устарела. Если обновление не помогло, пожалуйста, <a href="https://shikimori.one/grin3671">сообщите мне</a> об ошибке!</p>
-        <p>Поддержать разработку можно <span class="strong"><span style="color: red">Я</span>ндекс</span> Деньгами: <code>41001258665103</code></p>
-      </section>
-
-
-
-      <section id="nav_code" class="content" v-show="status.isCompiled">
-        <h2 class="display1">Готовый стиль</h2>
-        <div class="field">
-          <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
-          <div class="md-textarea code">
-            <textarea id="output_css" rows="5"></textarea>
-            <div class="md-divider"></div>
-          </div>
-          <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
-          <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
         </div>
       </section>
 
 
 
-      <section id="nav_preview" class="content" v-show="status.isFileLoading == false">
-        <h2 class="display1">Предпросмотр</h2>
-        <p>Условный вид профиля без адаптации для мобильных телефонов.</p>
-
-        <div id="vue_preview" class="shiki-preview">
-          <div class="shiki-preview__body" :class="{ scheme_dark: user.selected_scheme == 'dark' }" :style="{ backgroundColor: color_background, backgroundImage: 'url(' + user.user_background + ')' }">
-            <div class="shiki-preview__menu" :style="{ backgroundColor: color_menu_background }"></div>
-            <div class="shiki-preview__page" :style="{ backgroundColor: color_background }">
-              <div class="shiki-preview__cover" :class="{ cover_display: user.selected_layout == 'cover' }" :style="{ backgroundImage: 'url(' + user.user_cover + ')' }"></div>
-              <div class="shiki-preview__profile">
-                <div class="shiki-preview__avatar" :style="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
-                <div class="shiki-preview__block block-h1"></div>
-              </div>
-              <div class="shiki-preview__list clearfix">
-                <div class="shiki-preview__block"></div>
-                <div class="shiki-preview__list-anime color-primary" :style="{ backgroundColor: color_primary }"></div>
-                <div class="shiki-preview__block"></div>
-                <div class="shiki-preview__list-manga color-accent" :style="{ backgroundColor: color_accent }"></div>
-              </div>
-              <div class="clearfix"></div>
-              <div class="shiki-preview__button color-primary" :style="{ backgroundColor: color_primary }"></div>
-            </div>
+      <section id="nav_faq">
+        <div class="content">
+          <h2 class="display1">FAQ</h2>
+          <div class="section_faq">
+            <h3 id="how_find_my_id">Как узнать мой ID?</h3>
+            <p>Заходите в свой профиль на сайте shikimori.one, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
+            <p>
+              <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре">
+            </p>
+            <p>Если копировать адрес картинки по какой-то причине нельзя, вы можете "Сохранить картинку как...". В поле ввода имени файла будет отображаться ваш ID.</p>
+            <p>
+              <img src="https://i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку"><img src="https://i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла">
+            </p>
+            <p>Аватарку можно использовать не только из профиля, но и из настроек, комментариев и верхнего меню.</p>
           </div>
-        </div>
-
-        <div class="md-container">
-          <label class="v-file md-list md-control">
-            <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
-            <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
-            <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
-          </label>
-        </div>
-      </section>
-
-
-
-      <section id="nav_faq" class="content">
-        <h2 class="display1">FAQ</h2>
-        <div class="section_faq">
-          <h3 id="how_find_my_id">Как узнать мой ID?</h3>
-          <p>Заходите в свой профиль на сайте shikimori.one, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
-          <p>
-            <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре">
-          </p>
-          <p>Если копировать адрес картинки по какой-то причине нельзя, вы можете "Сохранить картинку как...". В поле ввода имени файла будет отображаться ваш ID.</p>
-          <p>
-            <img src="https://i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку"><img src="https://i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла">
-          </p>
-          <p>Аватарку можно использовать не только из профиля, но и из настроек, комментариев и верхнего меню.</p>
-        </div>
-        <div class="section_faq">
-          <h3>Какого размера должна быть обложка?</h3>
-          <p>Любого. Картинка сама подстроится под текущий размер обложки, при этом края могут обрезаться. Хорошо подходят изображения с соотношением сторон 16:9 (скриншоты аниме) и разрешением 1280x720.</p>
-        </div>
-        <div class="section_faq">
-          <h3>Что делать если обложка не отображается?</h3>
-          <p>Попробуйте сменить хостинг картинок. Изображение должно появиться в предпросмотре темы.</p>
+          <div class="section_faq">
+            <h3>Какого размера должна быть обложка?</h3>
+            <p>Любого. Картинка сама подстроится под текущий размер обложки, при этом края могут обрезаться. Хорошо подходят изображения с соотношением сторон 16:9 (скриншоты аниме) и разрешением 1280x720.</p>
+          </div>
+          <div class="section_faq">
+            <h3>Что делать если обложка не отображается?</h3>
+            <p>Попробуйте сменить хостинг картинок. Изображение должно появиться в предпросмотре темы.</p>
+          </div>
         </div>
       </section>
 
@@ -504,6 +511,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?6"></script>
+    <script src="./src/js/common.js?7"></script>
   </body>
 </html>

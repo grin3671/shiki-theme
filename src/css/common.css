@@ -49,8 +49,7 @@ body {
 
 a {
   color: var(--c-primary);
-  -webkit-text-decoration-skip: ink;
-  text-decoration-skip: ink;
+  text-decoration: none;
 }
 
 input,
@@ -136,21 +135,9 @@ p:last-child {
   margin: auto;
 }
 
-.page::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10em;
-  background: var(--c-primary);
-}
-
 .content {
   position: relative;
-  max-width: 720px;
   padding: 1.5em;
-  margin: 6em 5.5em 1.5em auto;
   background: var(--c-background);
   border-radius: 2px;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -1375,6 +1362,14 @@ img {
 
 
 @media (min-width: 1000px) {
+  body {
+    background: var(--c-background) linear-gradient(var(--c-primary), var(--c-primary)) left top / 100% 160px fixed no-repeat;
+  }
+  section {
+    max-width: 720px;
+    padding: 96px 0 24px;
+    margin: 0 88px 0 auto;
+  }
   .topbar > input,
   .menubar .ic-menu {
     display: none;
@@ -1388,15 +1383,12 @@ img {
 }
 
 @media (max-width: 999px) {
-  .page::before {
-    display: none;
-  }
   .topbar {
     z-index: 10;
   }
   .topbar .menubar {
     padding: .25em;
-    background: #009688;
+    background: var(--c-primary);
   }
   .topbar .topbar-title {
     display: inline-block;
@@ -1412,7 +1404,7 @@ img {
     width: calc(100% - 3.5em);
     height: 100%;
     max-width: 320px;
-    background: #fff;
+    background: var(--c-dialogue);
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
                 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
                 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
@@ -1903,36 +1895,38 @@ img {
 .color-picker__header > label {
   width: 100%;
   padding: 8px 16px;
-  background: rgba(0,0,0,.12);
+  background: var(--c-surface);
   border: none;
   color: var(--c-hint);
   font: inherit;
   font-size: 14px;
-  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   transition: .2s ease;
+  opacity: .72;
 }
 .color-picker__header > label:not(:first-child) {
-  border-left: 1px solid #d0d0d0;
+  border-left: 1px solid var(--c-border);
 }
 .color-picker__header > label:hover {
-  background: rgba(0,0,0,.08);
+  background: var(--c-overlay-hovered);
 }
 .color-picker__header > label:active {
-  background: rgba(0,0,0,.01);
+  background: var(--c-overlay-selected);
 }
 .color-picker > input:nth-child(1):checked ~ .color-picker__header > label:nth-child(1),
 .color-picker > input:nth-child(2):checked ~ .color-picker__header > label:nth-child(2),
 .color-picker > input:nth-child(3):checked ~ .color-picker__header > label:nth-child(3),
 .color-picker__header > label.active {
   background: rgba(0,0,0,.0);
-  color: #424242;
+  color: var(--c-text);
+  opacity: .86;
 }
 
 .color-picker__header > label span {
   display: block;
   font-size: 12px;
+  font-weight: 500;
   line-height: 20px;
   text-transform: none;
 }

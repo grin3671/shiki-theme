@@ -1115,7 +1115,6 @@ var vm = new Vue({
     document.head.appendChild(this.builderElement.styles);
     this.builderElement.styles = this.builderElement.styles.sheet;
     this.builderElement.styles.insertRule('body' + '{}', this.builderElement.styles.cssRules.length);
-    this.previewTheme();
   },
 });
 
