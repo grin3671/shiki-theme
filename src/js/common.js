@@ -329,6 +329,7 @@ var vm = new Vue({
       isFileLoading: true,
       isNotify: false,
       isBranchLoaded: false,
+      isLivePreview: true,
     },
     support: {
       copy: true,
@@ -444,6 +445,9 @@ var vm = new Vue({
       state: 0, // open or close
       color: '#009688', // v-model
       palette: 'color_primary', // link to variables
+    },
+    builderElement: {
+      styles: undefined,
     }
   },
   watch: {
@@ -944,6 +948,8 @@ var vm = new Vue({
       // Сохраняем тему
       this.saveLocal('custom_theme', JSON.stringify(localThemes));
 
+      // Обновление цветов сборщика
+      this.previewTheme();
 
       if (this.user.selected_palette == 'custom') return;
       this.$set(this.color_palette, newTheme.value, newTheme);
@@ -980,6 +986,9 @@ var vm = new Vue({
     selectTheme: function (theme) {
       this.saveLocal('selected_palette', theme);
       this.loadThemeSet(this.color_palette[theme] ? theme : 'light');
+
+      // Обновление цветов сборщика
+      this.previewTheme();
     },
     loadThemeSet: function (theme) {
       var theme = this.color_palette[theme];
@@ -1013,6 +1022,35 @@ var vm = new Vue({
         'autoMenu',
         'autoScheme',
       ];
+    },
+    getCurrentColors: function () {
+      return {
+        "--c-primary": this.color_primary,
+        "--c-on-primary": this.color_text_on_primary,
+        "--c-accent": this.color_accent,
+        "--c-on-accent": this.color_text_on_accent,
+        "--c-background": this.color_background,
+        "--c-dialogue": this.color_background_dialog,
+        "--c-menu": this.color_menu_background,
+        "--c-border": this.color_border,
+        "--c-surface": this.color_surface,
+        "--c-text": this.color_text_primary,
+        "--c-hint": this.color_text_hint,
+        "--c-overlay-hovered": this.color_overlay_text_hovered,
+        "--c-overlay-selected": this.color_overlay_text_selected,
+        "--c-overlay-pressed": this.color_overlay_text_pressed
+      }
+    },
+    previewTheme: function () {
+      let color = this.getCurrentColors(), properties = '';
+
+      for (let [key, value] of Object.entries(color)) {
+        properties += '  ' + key + ': ' + value + ';\n';
+      }
+
+      this.builderElement.styles.disabled = !this.status.isLivePreview;
+      this.builderElement.styles.insertRule('body' + '{' + properties + '}', this.builderElement.styles.cssRules.length);
+      this.builderElement.styles.deleteRule(0);
     },
   },
   mounted: function () {
@@ -1070,6 +1108,14 @@ var vm = new Vue({
 
     // Включение кнопки
     switchDisabled(document.getElementById('create_css'));
+
+
+    // Добавление лайв-стиля
+    this.builderElement.styles = document.createElement('style');
+    document.head.appendChild(this.builderElement.styles);
+    this.builderElement.styles = this.builderElement.styles.sheet;
+    this.builderElement.styles.insertRule('body' + '{}', this.builderElement.styles.cssRules.length);
+    this.previewTheme();
   },
 });
 

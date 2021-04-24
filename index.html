@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?5">
+    <link rel="stylesheet" href="./src/css/common.css?6">
     <style></style>
   </head>
   <body>
@@ -118,6 +118,14 @@
           </div>
           <div class="md-list_hidden color-settings" v-if="!status.isFileLoading">
             <p class="text-hint">Чтобы создать свою тему, достаточно настроить основной и акцентирующий цвет, а также выбрать цвет фона — все остальные цвета изменятся автоматически!</p>
+
+            <div class="md-container">
+              <label class="v-file md-list md-control">
+                <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
+                <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
+                <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
+              </label>
+            </div>
 
             <h2>Готовые палитры</h2>
 
@@ -419,6 +427,8 @@
 
       <section id="nav_preview" class="content" v-show="status.isFileLoading == false">
         <h2 class="display1">Предпросмотр</h2>
+        <p>Условный вид профиля без адаптации для мобильных телефонов.</p>
+
         <div id="vue_preview" class="shiki-preview">
           <div class="shiki-preview__body" :class="{ scheme_dark: user.selected_scheme == 'dark' }" :style="{ backgroundColor: color_background, backgroundImage: 'url(' + user.user_background + ')' }">
             <div class="shiki-preview__menu" :style="{ backgroundColor: color_menu_background }"></div>
@@ -439,7 +449,14 @@
             </div>
           </div>
         </div>
-        <p>Условный вид профиля без адаптации для мобильных телефонов.</p>
+
+        <div class="md-container">
+          <label class="v-file md-list md-control">
+            <input type="checkbox" v-model="status.isLivePreview" @change="previewTheme">
+            <span class="md-checkbox"></span><span>Интерактивный предпросмотр</span>
+            <span class="md-list_description">Использовать цветовую палитру в сборщике.</span>
+          </label>
+        </div>
       </section>
 
 
@@ -487,6 +504,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?5"></script>
+    <script src="./src/js/common.js?6"></script>
   </body>
 </html>
