@@ -905,19 +905,15 @@ var vm = new Vue({
     // Скачивание своих настроек
     // NOTE: возможно, потребуется дать разрешение на скачивание в браузере
     getMySettings: function () {
-      // Подготавливаем данные
-      this.user.custom_palette = this.color_palette[this.user.selected_palette].colors;
-      this.user.custom_scheme = this.color_scheme[this.user.selected_scheme].colors;
-
       // Создаём файл
-      var json = JSON.stringify(this.user, null, 2);
+      var json = JSON.stringify(this.color_palette[this.user.selected_palette], null, 2);
       var blob = new Blob([json], {type: "application/json"});
       var url  = URL.createObjectURL(blob);
 
       // Создаём элемент
       var link = document.createElement('a');
       link.setAttribute('href', url);
-      link.setAttribute('download', 'shiki-theme-settings.json');
+      link.setAttribute('download', 'shiki-theme-palette.json');
 
       // Подделываем клик по элементу
       var event = document.createEvent('MouseEvents');
@@ -965,6 +961,7 @@ var vm = new Vue({
       newTheme.author = localTheme ? theme.author : 'id' + this.user.user_id;
       newTheme.helpers = localTheme ? theme.helpers : null;
       newTheme.palette = localTheme ? theme.palette : this.getCurrentPalette();
+      newTheme.scheme = localTheme ? theme.scheme : tinycolor(this.color_menu_background).isDark() ? 'dark' : 'light';
       return newTheme;
     },
     loadUserTheme: function () {

@@ -6,8 +6,14 @@
  * Copyright (c) 2017 grin3671
  */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic&display=swap');
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
 
 :root {
   --c-primary: #009688;
@@ -186,13 +192,19 @@ p:last-child {
 }
 
 .topbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
+  width: 100%;
   max-width: inherit;
   margin: auto;
   color: var(--c-on-primary);
+}
+
+.topbar .menubar {
+  padding: 4px 0;
+  background: var(--c-primary);
 }
 
 .topbar > input {
@@ -260,11 +272,8 @@ p:last-child {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
-  font: 1.5em 'Material Icons';
-  line-height: 1;
+  font: normal normal 24px/1 'Material Icons';
 
-  font-style: normal;
-  font-weight: normal;
   letter-spacing: normal;
   text-transform: none;
   word-wrap: normal;
@@ -294,72 +303,8 @@ p:last-child {
   opacity: 0;
   z-index: -1;
 }
-
-/* Список иконок */
-.ic-menu::before {
-  content: 'menu';
-}
-.ic-collapse::before {
-  content: 'expand_more';
-  transition: .12s ease-in-out;
-}
-.ic-user::before {
-  content: 'person';
-}
-.ic-palette::before {
-  content: 'palette';
-}
-.ic-image::before {
-  content: 'image';
-}
-.ic-wallpaper::before {
-  content: 'wallpaper';
-}
-.ic-panorama::before {
-  content: 'panorama';
-}
-.ic-tune::before {
-  content: 'tune';
-}
-.ic-scheme::before {
-  content: 'invert_colors';
-}
-.ic-build::before {
-  content: 'build';
-}
-.ic-flag::before {
-  content: 'flag';
-}
-.ic-flip::before {
-  content: 'flip';
-}
-.ic-done::before {
-  content: 'done';
-}
-.ic-code::before {
-  content: 'code';
-}
-.ic-file::before {
-  content: 'attach_file';
-}
-.ic-folder::before {
-  content: 'folder';
-}
-.ic-folder.active::before {
-  content: 'folder_open';
-}
-.ic-settings::before {
-  content: 'settings';
-}
-.ic-branch::before {
-  content: 'developer_board';
-}
-.ic-cloud_download::before {
-  content: 'cloud_download';
-}
-[disabled] > .ic-cloud_download::before,
-.ic-cloud_download.active::before {
-  content: 'cloud_done';
+.md-icon[data-icon]::before {
+  content: attr(data-icon);
 }
 
 
@@ -1118,6 +1063,16 @@ img {
   transform: translateX(0);
 }
 
+.tooltiped-top::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(calc(-50% - 8px)) translateY(8px);
+  transition: .16s ease-in-out;
+}
+.tooltiped-top:hover::after {
+  transform: translateX(calc(-50% - 8px)) translateY(0);
+}
+
 
 
 .notify {
@@ -1371,12 +1326,15 @@ img {
     margin: 0 88px 0 auto;
   }
   .topbar > input,
-  .menubar .ic-menu {
+  .menubar .md-icon {
     display: none;
   }
+  .topbar .menubar {
+    position: absolute;
+  }
   .topbar-title {
-    padding: 0 .6667em;
-    margin: 1em 0;
+    padding: 0 16px;
+    margin: 20px 0;
     font-size: 1.5em;
     line-height: 1;
   }
@@ -1385,10 +1343,6 @@ img {
 @media (max-width: 999px) {
   .topbar {
     z-index: 10;
-  }
-  .topbar .menubar {
-    padding: .25em;
-    background: var(--c-primary);
   }
   .topbar .topbar-title {
     display: inline-block;
@@ -1428,14 +1382,14 @@ img {
   .content {
     width: 100%;
     max-width: 100%;
-    padding: 4em 1.5em;
+    padding: 8px 24px;
     margin: auto;
   }
 }
 
 @media (max-width: 599px) {
   .content {
-    padding: 4em 1em 0;
+    padding: 8px 16px 48px;
     box-shadow: none;
   }
 }
@@ -1451,6 +1405,9 @@ img {
   outline: none;
   border-radius: 3px;
 }
+.md-button_icon.md-button--rounded {
+  border-radius: 50%;
+}
 .md-button_icon::before {
   content: '';
   position: absolute;
@@ -1459,7 +1416,7 @@ img {
   bottom: 0;
   left: 0;
   background: currentColor;
-  border-radius: 3px;
+  border-radius: inherit;
   opacity: .08;
   transition: opacity .2s ease;
   pointer-events: none;
@@ -1778,10 +1735,10 @@ img {
   flex-direction: column;
   flex-shrink: 0;
   position: relative;
-  padding: .875em 1em;
+  min-width: 360px;
   margin: auto;
   background: var(--c-dialogue);
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 0 4px 12px 2px rgba(0,0,0,.32);
   box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),
               0 8px 10px 1px rgba(0,0,0,.14),
@@ -1886,6 +1843,24 @@ img {
   opacity: 0;
 }
 
+
+.modal__header {
+  padding: 20px 16px 8px;
+}
+@media (min-width: 1000px) {
+  .modal__header {
+    padding: 24px 24px 12px;
+  }
+}
+.modal__header > h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+
 .color-picker__header {
   display: flex;
   display: none;
@@ -1931,6 +1906,25 @@ img {
   text-transform: none;
 }
 
+.modal__body {
+  padding: 8px 16px;
+}
+.modal__body > .md-container:first-child {
+  margin-top: 0;
+}
+.modal__body > .md-container:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1000px) {
+  .modal__body {
+    padding: 8px 24px;
+  }
+  .modal__body > .md-container {
+    margin: 16px 0;
+  }
+}
+
+.modal__footer,
 .color-picker__footer {
   display: flex;
   align-content: center;
@@ -1940,6 +1934,7 @@ img {
   border-top: 1px solid var(--c-border);
 }
 
+.modal__footer > button,
 .color-picker__footer > button {
   width: 100%;
   padding: 8px 16px;
@@ -1956,9 +1951,11 @@ img {
   line-height: 24px;
   transition: .2s ease;
 }
+.modal__footer > button:hover,
 .color-picker__footer > button:hover {
   background: var(--c-overlay-hovered);
 }
+.modal__footer > button:active,
 .color-picker__footer > button:active {
   background: var(--c-overlay-pressed);
 }

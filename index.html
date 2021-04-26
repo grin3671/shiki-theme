@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?7">
+    <link rel="stylesheet" href="./src/css/common.css?8">
     <style></style>
   </head>
   <body>
@@ -15,11 +15,11 @@
       <header class="topbar">
         <input type="checkbox" id="topbar_menu">
         <div class="menubar">
-          <label for="topbar_menu" class="md-icon ic-menu">
+          <label for="topbar_menu" class="md-icon" data-icon="menu">
           </label><h1 class="topbar-title">Сборщик</h1>
         </div>
         <label for="create_css" class="md-fab" v-bind:class="{ hidden: status.isFileLoading }">
-          <span class="md-icon ic-done"></span>
+          <span class="md-icon" data-icon="done"></span>
         </label>
         <label for="topbar_menu" class="shade"></label>
         <nav>
@@ -42,7 +42,7 @@
           <form action="/" @submit.prevent="createTheme" class="md-container">
             <div class="md-list md-panel">
               <span class="md-list_title inactive" id="label_user_cover">
-                <span class="md-icon ic-flip" aria-hidden="true"></span>Вид профиля
+                <span class="md-icon" aria-hidden="true" data-icon="flip"></span>Вид профиля
               </span>
               <span class="md-list_content md-control_group" role="radiogroup" aria-labelledby="label_user_cover">
                 <label class="md-control">
@@ -65,7 +65,7 @@
 
             <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
               <label for="user_id" class="md-list_title inactive required">
-                <span class="md-icon ic-user" aria-hidden="true"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
+                <span class="md-icon" aria-hidden="true" data-icon="person"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
               </label>
               <div class="md-list_content">
                 <div class="md-input fullwidth">
@@ -79,7 +79,7 @@
 
             <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
               <label for="user_cover" class="md-list_title inactive" :class="{ error: errors.user_cover }">
-                <span class="md-icon ic-image" aria-hidden="true"></span>Обложка профиля
+                <span class="md-icon" aria-hidden="true" data-icon="image"></span>Обложка профиля
               </label>
               <div class="md-list_content">
                 <div class="md-input fullwidth" :class="{ error: errors.user_cover }">
@@ -94,7 +94,7 @@
 
             <div class="md-list md-panel">
               <label for="user_background" class="md-list_title inactive" :class="{ error: errors.user_background }">
-                <span class="md-icon ic-wallpaper" aria-hidden="true"></span>Фон сайта
+                <span class="md-icon" aria-hidden="true" data-icon="wallpaper"></span>Фон сайта
               </label>
               <div class="md-list_content">
                 <div class="md-input fullwidth" :class="{ error: errors.user_background }">
@@ -110,9 +110,9 @@
             <input type="checkbox" id="color_settings" class="field-checkbox" name="extra">
             <div class="md-list md-panel">
               <label for="color_settings" class="md-list_title inactive">
-                <span class="md-icon ic-palette" aria-hidden="true"></span>Цветовая палитра
+                <span class="md-icon" aria-hidden="true" data-icon="palette"></span>Цветовая палитра
               </label>
-              <label for="color_settings" class="md-list_control md-icon ic-collapse"></label>
+              <label for="color_settings" class="md-list_control md-icon" data-icon="expand_more"></label>
               <span class="md-list_content">
                 <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_palette }}</span>
               </span>
@@ -220,7 +220,7 @@
                             class="md-button_icon tooltiped tooltiped-right"
                             aria-label="Инвертировать цвет"
                             @click.stop="setColor('color_background', 'invert')">
-                      <span class="md-icon ic-scheme"></span>
+                      <span class="md-icon" data-icon="invert_colors"></span>
                     </button>
                   </color-preview>
                   <color-preview
@@ -364,9 +364,9 @@
             <input type="checkbox" id="theme_files" class="field-checkbox" name="files">
             <div class="md-list md-panel">
               <label for="theme_files" class="md-list_title inactive">
-                <span class="md-icon ic-build" aria-hidden="true"></span>Файлы темы
+                <span class="md-icon" aria-hidden="true" data-icon="build"></span>Файлы темы
               </label>
-              <label for="theme_files" class="md-list_control md-icon ic-collapse"></label>
+              <label for="theme_files" class="md-list_control md-icon" data-icon="expand_more"></label>
               <span class="md-list_content">
                 <span class="md-list_content-placeholder">Настройка обложки, профиля, шрифтов и прочего.</span>
               </span>
@@ -390,7 +390,7 @@
 
   <!--           <div class="md-list md-panel" v-if="support.file">
               <label for="user_setting" class="md-list_title inactive">
-                <span class="md-icon ic-file" aria-hidden="true"></span>Мои настройки
+                <span class="md-icon" aria-hidden="true" data-icon="attach_file"></span>Мои настройки
               </label>
               <span class="md-list_content">
                 <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" @change="readUserFile" accept=".sass, .scss, .css"></span>
@@ -473,11 +473,11 @@
             <h3 id="how_find_my_id">Как узнать мой ID?</h3>
             <p>Заходите в свой профиль на сайте shikimori.one, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
             <p>
-              <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре">
+              <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки" loading="lazy"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре" loading="lazy">
             </p>
             <p>Если копировать адрес картинки по какой-то причине нельзя, вы можете "Сохранить картинку как...". В поле ввода имени файла будет отображаться ваш ID.</p>
             <p>
-              <img src="https://i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку"><img src="https://i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла">
+              <img src="https://i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку" loading="lazy"><img src="https://i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла" loading="lazy">
             </p>
             <p>Аватарку можно использовать не только из профиля, но и из настроек, комментариев и верхнего меню.</p>
           </div>
@@ -511,6 +511,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?7"></script>
+    <script src="./src/js/common.js?8"></script>
   </body>
 </html>
