@@ -17,7 +17,8 @@
       "autoMain",
       "autoMainText",
       "autoScheme",
-      "autoMenu"
+      "autoMenu",
+      "autoTranslucency"
     ]
   },
   "light": {
@@ -36,7 +37,8 @@
       "autoMainText",
       "autoLinks",
       "autoScheme",
-      "autoMenu"
+      "autoMenu",
+      "autoTranslucency"
     ]
   },
   "dark": {
@@ -55,7 +57,8 @@
       "autoMainText",
       "autoLinks",
       "autoScheme",
-      "autoMenu"
+      "autoMenu",
+      "autoTranslucency"
     ]
   },
   "material-light": {

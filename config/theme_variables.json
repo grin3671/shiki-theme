@@ -1,314 +1,405 @@
-{
-  "color_text_primary": {
+[
+  {
+    "id": "color_text_primary",
     "category": "scheme",
     "block": "Цвета текстов",
     "name": "Цвет основной информации",
-    "desc": "Используется для заголовков, описаний, комментариев и прочего."
+    "desc": "Используется для заголовков, описаний, комментариев и прочего.",
+    "helper": "autoScheme"
   },
-  "color_text_secondary": {
+  {
+    "id": "color_text_secondary",
     "category": "scheme",
     "block": "Цвета текстов",
     "name": "Цвет дополнительной информации",
-    "desc": "Используется для дополняющего текста, подзаголовков и прочего."
+    "desc": "Используется для дополняющего текста, подзаголовков и прочего.",
+    "helper": "autoScheme"
   },
-  "color_text_hint": {
+  {
+    "id": "color_text_hint",
     "category": "scheme",
     "block": "Цвета текстов",
     "name": "Цвет подсказок",
-    "desc": "Используется для подсказок к основному тексту."
+    "desc": "Используется для подсказок к основному тексту.",
+    "helper": "autoScheme"
   },
-  "color_text_disabled": {
+  {
+    "id": "color_text_disabled",
     "category": "scheme",
     "block": "Цвета текстов",
     "name": "Цвет выключенного текста",
-    "desc": "Используется для информационного текста и небольших подсказок."
+    "desc": "Используется для информационного текста и небольших подсказок.",
+    "helper": "autoScheme"
   },
-  "color_overlay_text_hovered": {
+  {
+    "id": "color_overlay_text_hovered",
     "category": "calculated",
     "block": "Цвета текстов",
     "name": "Подложка при наведении",
-    "desc": "Подложка при наведении на элемент с цветом текста."
+    "desc": "Подложка при наведении на элемент с цветом текста.",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_text_selected": {
+  {
+    "id": "color_overlay_text_selected",
     "category": "calculated",
     "block": "Цвета текстов",
     "name": "Подложка при выборе",
-    "desc": "Подложка при выборе элемента с цветом текста."
+    "desc": "Подложка при выборе элемента с цветом текста.",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_text_pressed": {
+  {
+    "id": "color_overlay_text_pressed",
     "category": "calculated",
     "block": "Цвета текстов",
     "name": "Подложка при нажатии",
-    "desc": "Подложка при нажатии на элемент с цветом текста."
+    "desc": "Подложка при нажатии на элемент с цветом текста.",
+    "helper": "autoTranslucency"
   },
 
 
 
 
 
-  "color_link": {
+  {
+    "id": "color_link",
     "category": "pallete",
     "block": "Цвет ссылок",
     "name": "Ссылка",
-    "desc": "Цвет ссылок в тексте, упоминаний, спойлеров и некоторых переключателей."
+    "desc": "Цвет ссылок в тексте, упоминаний, спойлеров и некоторых переключателей.",
+    "helper": "autoLinks"
   },
-  "color_link_hover": {
+  {
+    "id": "color_link_hover",
     "category": "pallete",
     "block": "Цвет ссылок",
     "name": "Ссылка при наведении",
-    "desc": "Цвет ссылок при наведении указателя мыши."
+    "desc": "Цвет ссылок при наведении указателя мыши.",
+    "helper": "autoLinks"
   },
-  "color_link_active": {
+  {
+    "id": "color_link_active",
     "category": "pallete",
     "block": "Цвет ссылок",
     "name": "Ссылка при нажатии",
-    "desc": "Цвет ссылок при нажатии указателем мыши."
+    "desc": "Цвет ссылок при нажатии указателем мыши.",
+    "helper": "autoLinks"
   },
 
 
 
 
 
-  "color_primary": {
+  {
+    "id": "color_primary",
     "category": "pallete",
     "block": "Основной цвет",
     "name": "Основной",
     "desc": "Цвет большинства кнопок и полосы аниме в профиле."
   },
-  "color_text_on_primary": {
+  {
+    "id": "color_text_on_primary",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Текст на основном цвете",
-    "desc": "Цвет текста используемого на элементах, где фоном служит основной цвет."
+    "desc": "Цвет текста используемого на элементах, где фоном служит основной цвет.",
+    "helper": "autoMainText"
   },
-  "color_primary_reduced": {
+  {
+    "id": "color_primary_reduced",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Затемненный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(0,0,0,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(0,0,0,.12).",
+    "helper": "autoMain"
   },
-  "color_primary_hovered": {
+  {
+    "id": "color_primary_hovered",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Осветленный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12).",
+    "helper": "autoMain"
   },
-  "color_primary_pressed": {
+  {
+    "id": "color_primary_pressed",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Осветленный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12).",
+    "helper": "autoMain"
   },
-  "color_overlay_primary_hovered": {
+  {
+    "id": "color_overlay_primary_hovered",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Осветленный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12).",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_primary_selected": {
+  {
+    "id": "color_overlay_primary_selected",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Осветленный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12).",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_primary_pressed": {
+  {
+    "id": "color_overlay_primary_pressed",
     "category": "calculated",
     "block": "Основной цвет",
     "name": "Осветленный основной цвет",
-    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12)."
+    "desc": "Вычисляется как $color-primary + rgba(255,255,255,.12).",
+    "helper": "autoTranslucency"
   },
 
 
 
 
 
-  "color_accent": {
+  {
+    "id": "color_accent",
     "category": "pallete",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
     "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
   },
-  "color_text_on_accent": {
+  {
+    "id": "color_text_on_accent",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Текст на акцентирующем цвете",
-    "desc": "Цвет текста используемого на элементах, где фоном служит акцентирующий цвет."
+    "desc": "Цвет текста используемого на элементах, где фоном служит акцентирующий цвет.",
+    "helper": "autoMainText"
   },
-  "color_accent_reduced": {
+  {
+    "id": "color_accent_reduced",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
-    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
+    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле.",
+    "helper": "autoMain"
   },
-  "color_accent_fade": {
+  {
+    "id": "color_accent_fade",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
-    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
+    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле.",
+    "helper": "autoMain"
   },
-  "color_overlay_accent_hovered": {
+  {
+    "id": "color_overlay_accent_hovered",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
-    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
+    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле.",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_accent_selected": {
+  {
+    "id": "color_overlay_accent_selected",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
-    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
+    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле.",
+    "helper": "autoTranslucency"
   },
-  "color_overlay_accent_pressed": {
+  {
+    "id": "color_overlay_accent_pressed",
     "category": "calculated",
     "block": "Акцентирующий цвет",
     "name": "Акцентирующий",
-    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле."
+    "desc": "Подсветка важных элементов на странице, а также цвет полосы манги в профиле.",
+    "helper": "autoTranslucency"
   },
 
 
 
 
 
-  "color_background": {
+  {
+    "id": "color_background",
     "category": "scheme",
     "block": "Фоновые цвета",
     "name": "Фон",
     "desc": "Фоновый цвет страницы; определяет прочие цвета сайта."
   },
-  "color_background_translucent": {
+  {
+    "id": "color_background_translucent",
     "category": "calculated",
     "block": "Фоновые цвета",
     "name": "Фон",
-    "desc": "Фоновый цвет страницы; определяет прочие цвета сайта."
+    "desc": "Фоновый цвет страницы; определяет прочие цвета сайта.",
+    "helper": "autoTranslucency"
   },
-  "color_surface": {
+  {
+    "id": "color_surface",
     "category": "scheme",
     "block": "Фоновые цвета",
     "name": "Поверхности",
-    "desc": "Используется для цитат, полей ввода, некоторых кнопок."
+    "desc": "Используется для цитат, полей ввода, некоторых кнопок.",
+    "helper": "autoScheme"
   },
-  "color_surface_hover": {
+  {
+    "id": "color_surface_hover",
     "category": "calculated",
     "block": "Фоновые цвета",
     "name": "Поверхности при наведении",
-    "desc": null
+    "desc": null,
+    "helper": "autoScheme"
   },
-  "color_surface_active": {
+  {
+    "id": "color_surface_active",
     "category": "calculated",
     "block": "Фоновые цвета",
     "name": "Поверхности при нажатии",
-    "desc": null
+    "desc": null,
+    "helper": "autoScheme"
   },
-  "color_background_dialog": {
+  {
+    "id": "color_background_dialog",
     "category": "scheme",
     "block": "Фоновые цвета",
     "name": "Диалоги",
-    "desc": "Фоновый цвет всплывающих окон и выпадающих меню."
+    "desc": "Фоновый цвет всплывающих окон и выпадающих меню.",
+    "helper": "autoScheme"
   },
-  "color_border": {
+  {
+    "id": "color_border",
     "category": "calculated",
     "block": "Фоновые цвета",
     "name": "Границы",
-    "desc": "Цвет границ элементов и полос-разделителей."
+    "desc": "Цвет границ элементов и полос-разделителей.",
+    "helper": "autoScheme"
   },
 
 
 
 
 
-  "color_menu_background": {
+  {
+    "id": "color_menu_background",
     "category": "pallete",
     "block": "Цвета верхнего меню",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoMenuBg"
   },
-  "color_menu_background_fade": {
+  {
+    "id": "color_menu_background_fade",
     "category": "pallete",
     "block": "Цвета верхнего меню",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoTranslucency"
   },
-  "color_menu_text_primary": {
+  {
+    "id": "color_menu_text_primary",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_text_disabled": {
+  {
+    "id": "color_menu_text_disabled",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_icon": {
+  {
+    "id": "color_menu_icon",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_background_hover": {
+  {
+    "id": "color_menu_background_hover",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_background_active": {
+  {
+    "id": "color_menu_background_active",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_search": {
+  {
+    "id": "color_menu_search",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoMenu"
   },
-  "color_menu_search_fade": {
+  {
+    "id": "color_menu_search_fade",
     "category": "calculated",
     "block": "Цвета верхнего меню",
     "name": "Цвет текста в меню",
-    "desc": "Используется как для текста, так и для иконок."
+    "desc": "Используется как для текста, так и для иконок.",
+    "helper": "autoTranslucency"
   },
 
 
 
 
 
-  "color_planned": {
+  {
+    "id": "color_planned",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   },
-  "color_onhold": {
+  {
+    "id": "color_onhold",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   },
-  "color_watching": {
+  {
+    "id": "color_watching",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   },
-  "color_rewatching": {
+  {
+    "id": "color_rewatching",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   },
-  "color_completed": {
+  {
+    "id": "color_completed",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   },
-  "color_dropped": {
+  {
+    "id": "color_dropped",
     "category": "calculated",
     "block": "Цвета кнопок списков",
     "name": "Меню",
-    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню."
+    "desc": "Фоновый цвет верхнего меню; определяет внутренние цвета меню.",
+    "helper": "autoScheme"
   }
-}
+]

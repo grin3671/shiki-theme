@@ -283,12 +283,12 @@
                 <template v-for="(helper, index) in builderData.helpers">
                   <label class="v-file md-list md-control" :class="{ disabled: helper.disabled }">
                     <input type="checkbox"
-                          :value="index"
+                          :value="helper.id"
                           v-model="customTheme.helpers"
                           @change="saveCustomHelpers"
                           :disabled="helper.disabled">
-                    <span class="md-checkbox"></span><span>{{ helper.name }}</span>
-                    <span class="md-list_description">{{ helper.desc }}</span>
+                    <span class="md-checkbox"></span><span>{{ helper.title }}</span>
+                    <span class="md-list_description">{{ helper.description }}</span>
                   </label>
                 </template>
               </div>
@@ -511,6 +511,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?8"></script>
+    <script src="./src/js/common.js?9"></script>
   </body>
 </html>
