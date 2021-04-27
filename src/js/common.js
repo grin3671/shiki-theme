@@ -1057,7 +1057,7 @@ var vm = new Vue({
 
 
     // Загрузка списка переменных
-    XHR('./config/theme_variables.json', config => this.variables = JSON.parse(config));
+    XHR('./config/theme_colors.json', config => this.variables = JSON.parse(config));
 
 
     // Загрузка списка тем
