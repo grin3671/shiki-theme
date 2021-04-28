@@ -153,7 +153,7 @@ Vue.component('color-picker', {
                   '<label for="picker_helper"><i class="material-icons">assistant</i><span>Помощь</span></label>' +
                 '</div>' +
                 '<div class="color-picker__slide">' +
-                  '<div class="color-picker__pallete" ref="pallete" :style="{ backgroundColor: hue_bg }" ' +
+                  '<div class="color-picker__pallete" ref="palette" :style="{ backgroundColor: hue_bg }" ' +
                     '@mousedown="handleMouseDown" ' +
                     '@touchmove="handleChange" ' +
                     '@touchstart="handleChange" ' +
@@ -202,7 +202,7 @@ Vue.component('color-picker', {
     },
     handleChange: function (e, skip) {
       !skip && e.preventDefault();
-      var container = this.$refs.pallete;
+      var container = this.$refs.palette;
       var containerWidth = container.clientWidth;
       var containerHeight = container.clientHeight;
       var xOffset = container.getBoundingClientRect().left + window.pageXOffset;
@@ -258,16 +258,18 @@ Vue.component('palette-select', {
     selected: function () {
       return this.value;
     },
+    palette: function () {
+      return this.options.filter(x => x.value == this.selected)[0];
+    }
   },
   template: '<div class="md-select">' +
               '<div class="md-select_trigger" :class="{ active: state }" @click="open()">' +
-                '<theme-list :theme="options[selected]"></theme-list>' +
+                '<theme-list :theme="palette"></theme-list>' +
               '</div>' +
               '<div class="md-list" v-if="state">' +
-                '<theme-list v-for="(option, index) in options" ' +
+                '<theme-list v-for="(option) in options" ' +
                   ':theme="option" ' +
-                  ':index="index" ' +
-                  ':key="index" ' +
+                  ':key="option.value" ' +
                   ':selected="selected" ' +
                   '@select="select($event)" ' +
                   '></theme-list>' +
@@ -296,25 +298,28 @@ Vue.component('palette-select', {
 
 
 Vue.component('theme-list', {
-  props: ['theme', 'selected', 'index'],
-  template: '<div class="md-select_container" @click="click($event)" :class="{ selected: selected === index }">' +
+  props: ['theme', 'selected'],
+  template: '<div class="md-select_container" @click="click($event)" :class="{ selected: selected === theme.value }">' +
               '<div class="theme-preview">' +
                 '<div class="theme-preview--primary" :style="{ backgroundColor: theme.palette.color_primary }"></div>' +
                 '<div class="theme-preview--accent" :style="{ backgroundColor: theme.palette.color_accent }"></div>' +
               '</div>' +
               '<div class="theme-info">' +
                 '<div class="title">{{ theme.title }}</div>' +
-                '<div class="info">Палитра от <span>{{ theme.author }}</span></div>' +
+                '<div class="info" v-if="theme.author">Палитра от <span>{{ theme.author }}</span></div>' +
+                '<div class="info" v-else>Локальная палитра</div>' +
               '</div>' +
             '</div>',
   methods: {
     click: function () {
-      this.$emit('select', this.index);
+      this.$emit('select', this.theme.value);
     },
   },
 });
 
+
 var instances = {};
+
 
 var vm = new Vue({
   el: '#page',
@@ -361,17 +366,19 @@ var vm = new Vue({
       hasFile: false,
       selected_branch: 'master',
     },
-    customTheme: {
-      palette: {},
-      helpers: [
-        'autoMainText',
-        'autoLinks',
-        'autoMenuBg',
-        'autoMain',
-        'autoMenu',
-        'autoScheme',
-        'autoTranslucency',
-      ],
+    currentHelpers: [
+      'autoMainText',
+      'autoLinks',
+      'autoMenuBg',
+      'autoMain',
+      'autoMenu',
+      'autoScheme',
+      'autoTranslucency',
+    ],
+    currentPalette: {
+      id: null,
+      index: null,
+      locked: null,
     },
     builderData: {
       theme: {
@@ -379,6 +386,7 @@ var vm = new Vue({
       },
       imports: [],
       helpers: [],
+      lockedPalettes: [],
     },
     scheme: {
       // NOTE: Порядок соответствует color_scheme
@@ -434,7 +442,7 @@ var vm = new Vue({
     // Текст
     color_text_primary: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 87) : this.scheme.color_text_primary;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 87) : this.scheme.color_text_primary;
       },
       set: function (color) {
         this.scheme.color_text_primary = color;
@@ -442,7 +450,7 @@ var vm = new Vue({
     },
     color_text_secondary: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 68) : this.scheme.color_text_secondary;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 68) : this.scheme.color_text_secondary;
       },
       set: function (color) {
         this.scheme.color_text_secondary = color;
@@ -450,7 +458,7 @@ var vm = new Vue({
     },
     color_text_hint: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 54) : this.scheme.color_text_hint;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 54) : this.scheme.color_text_hint;
       },
       set: function (color) {
         this.scheme.color_text_hint = color;
@@ -458,7 +466,7 @@ var vm = new Vue({
     },
     color_text_disabled: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 38) : this.scheme.color_text_disabled;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 38) : this.scheme.color_text_disabled;
       },
       set: function (color) {
         this.scheme.color_text_disabled = color;
@@ -476,7 +484,7 @@ var vm = new Vue({
     // Ссылки
     color_link: {
       get: function () {
-        return this.customTheme.helpers.includes('autoLinks') ? this.color_primary : this.scheme.color_link;
+        return this.currentHelpers.includes('autoLinks') ? this.color_primary : this.scheme.color_link;
       },
       set: function (color) {
         this.scheme.color_link = color;
@@ -484,7 +492,7 @@ var vm = new Vue({
     },
     color_link_hover: {
       get: function () {
-        return this.customTheme.helpers.includes('autoLinks') ? this.color_accent : this.scheme.color_link_hover;
+        return this.currentHelpers.includes('autoLinks') ? this.color_accent : this.scheme.color_link_hover;
       },
       set: function (color) {
         this.scheme.color_link_hover = color;
@@ -492,7 +500,7 @@ var vm = new Vue({
     },
     color_link_active: {
       get: function () {
-        return this.customTheme.helpers.includes('autoLinks') ? tinycolor(this.color_accent).darken(12).toString() : this.scheme.color_link_active;
+        return this.currentHelpers.includes('autoLinks') ? tinycolor(this.color_accent).darken(12).toString() : this.scheme.color_link_active;
       },
       set: function (color) {
         this.scheme.color_link_active = color;
@@ -509,7 +517,7 @@ var vm = new Vue({
     },
     color_text_on_primary: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMainText') ? this.getMixedColor(this.color_primary, 87) : this.scheme.color_text_on_primary;
+        return this.currentHelpers.includes('autoMainText') ? this.getMixedColor(this.color_primary, 87) : this.scheme.color_text_on_primary;
       },
       set: function (color) {
         this.scheme.color_text_on_primary = color;
@@ -517,7 +525,7 @@ var vm = new Vue({
     },
     color_primary_reduced: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_primary, 72).toHexString() : this.scheme.color_primary_reduced;
+        return this.currentHelpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_primary, 72).toHexString() : this.scheme.color_primary_reduced;
       },
       set: function (color) {
         this.scheme.color_primary_reduced = color;
@@ -525,7 +533,7 @@ var vm = new Vue({
     },
     color_primary_hovered: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#fff', 8).toHexString() : this.scheme.color_primary_hovered;
+        return this.currentHelpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#fff', 8).toHexString() : this.scheme.color_primary_hovered;
       },
       set: function (color) {
         this.scheme.color_primary_hovered = color;
@@ -533,7 +541,7 @@ var vm = new Vue({
     },
     color_primary_pressed: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#000', 4).toHexString() : this.scheme.color_primary_pressed;
+        return this.currentHelpers.includes('autoMain') ? tinycolor.mix(this.color_primary, '#000', 4).toHexString() : this.scheme.color_primary_pressed;
       },
       set: function (color) {
         this.scheme.color_primary_pressed = color;
@@ -559,7 +567,7 @@ var vm = new Vue({
     },
     color_text_on_accent: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMainText') ? this.getMixedColor(this.color_accent, 87) : this.scheme.color_text_on_accent;
+        return this.currentHelpers.includes('autoMainText') ? this.getMixedColor(this.color_accent, 87) : this.scheme.color_text_on_accent;
       },
       set: function (color) {
         this.scheme.color_text_on_accent = color;
@@ -567,7 +575,7 @@ var vm = new Vue({
     },
     color_accent_reduced: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 72).toHexString() : this.scheme.color_accent_reduced;
+        return this.currentHelpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 72).toHexString() : this.scheme.color_accent_reduced;
       },
       set: function (color) {
         this.scheme.color_accent_reduced = color;
@@ -575,7 +583,7 @@ var vm = new Vue({
     },
     color_accent_fade: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 48).toHexString() : this.scheme.color_accent_fade;
+        return this.currentHelpers.includes('autoMain') ? tinycolor.mix(this.color_background, this.color_accent, 48).toHexString() : this.scheme.color_accent_fade;
       },
       set: function (color) {
         this.scheme.color_accent_fade = color;
@@ -604,7 +612,7 @@ var vm = new Vue({
     },
     color_background_dialog: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? tinycolor(this.color_background).lighten(5).toHexString() : this.scheme.color_background_dialog;
+        return this.currentHelpers.includes('autoScheme') ? tinycolor(this.color_background).lighten(5).toHexString() : this.scheme.color_background_dialog;
       },
       set: function (color) {
         this.scheme.color_background_dialog = color;
@@ -612,7 +620,7 @@ var vm = new Vue({
     },
     color_surface: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, this.color_text_primary, 5).toHexString() : this.scheme.color_surface;
+        return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, this.color_text_primary, 5).toHexString() : this.scheme.color_surface;
       },
       set: function (color) {
         this.scheme.color_surface = color;
@@ -620,7 +628,7 @@ var vm = new Vue({
     },
     color_surface_hover: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 8 : 4) : this.scheme.color_surface_hover;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 8 : 4) : this.scheme.color_surface_hover;
       },
       set: function (color) {
         this.scheme.color_surface_hover = color;
@@ -628,7 +636,7 @@ var vm = new Vue({
     },
     color_surface_active: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 12 : 8) : this.scheme.color_surface_active;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_surface, tinycolor(this.color_background).isDark() ? 12 : 8) : this.scheme.color_surface_active;
       },
       set: function (color) {
         this.scheme.color_surface_active = color;
@@ -636,7 +644,7 @@ var vm = new Vue({
     },
     color_border: {
       get: function () {
-        return this.customTheme.helpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 12) : this.scheme.color_border;
+        return this.currentHelpers.includes('autoScheme') ? this.getMixedColor(this.color_background, 12) : this.scheme.color_border;
       },
       set: function (color) {
         this.scheme.color_border = color;
@@ -645,7 +653,7 @@ var vm = new Vue({
     // Цвета меню
     color_menu_background: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenuBg') ? this.color_background_dialog : this.scheme.color_menu_background;
+        return this.currentHelpers.includes('autoMenuBg') ? this.color_background_dialog : this.scheme.color_menu_background;
       },
       set: function (color) {
         this.scheme.color_menu_background = color;
@@ -656,7 +664,7 @@ var vm = new Vue({
     },
     color_menu_text_primary: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 87) : this.scheme.color_menu_text_primary;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 87) : this.scheme.color_menu_text_primary;
       },
       set: function (color) {
         this.scheme.color_menu_text_primary = color;
@@ -664,7 +672,7 @@ var vm = new Vue({
     },
     color_menu_text_disabled: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 38) : this.scheme.color_menu_text_disabled;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 38) : this.scheme.color_menu_text_disabled;
       },
       set: function (color) {
         this.scheme.color_menu_text_disabled = color;
@@ -672,7 +680,7 @@ var vm = new Vue({
     },
     color_menu_icon: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 76) : this.scheme.color_menu_icon;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 76) : this.scheme.color_menu_icon;
       },
       set: function (color) {
         this.scheme.color_menu_icon = color;
@@ -680,7 +688,7 @@ var vm = new Vue({
     },
     color_menu_search: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 12) : this.scheme.color_menu_search;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, 12) : this.scheme.color_menu_search;
       },
       set: function (color) {
         this.scheme.color_menu_search = color;
@@ -691,7 +699,7 @@ var vm = new Vue({
     },
     color_menu_background_hover: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 8 : 4) : this.scheme.color_menu_background_hover;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 8 : 4) : this.scheme.color_menu_background_hover;
       },
       set: function (color) {
         this.scheme.color_menu_background_hover = color;
@@ -699,7 +707,7 @@ var vm = new Vue({
     },
     color_menu_background_active: {
       get: function () {
-        return this.customTheme.helpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 12 : 8) : this.scheme.color_menu_background_active;
+        return this.currentHelpers.includes('autoMenu') ? this.getMixedColor(this.color_menu_background, tinycolor(this.color_menu_background).isDark() ? 12 : 8) : this.scheme.color_menu_background_active;
       },
       set: function (color) {
         this.scheme.color_menu_background_active = color;
@@ -707,22 +715,22 @@ var vm = new Vue({
     },
     // Цвета кнопок списков
     color_planned: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 32).toHexString() : this.sheme.color_planned;
+      return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 32).toHexString() : this.sheme.color_planned;
     },
     color_onhold: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#9e9e9e', 32).toHexString() : this.sheme.color_onhold;
+      return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#9e9e9e', 32).toHexString() : this.sheme.color_onhold;
     },
     color_watching: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 24).toHexString() : this.sheme.color_watching;
+      return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#76d6ff', 24).toHexString() : this.sheme.color_watching;
     },
     color_rewatching: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? this.color_watching : this.sheme.color_rewatching;
+      return this.currentHelpers.includes('autoScheme') ? this.color_watching : this.sheme.color_rewatching;
     },
     color_completed: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#c6e97f', 24).toHexString() : this.sheme.color_completed;
+      return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#c6e97f', 24).toHexString() : this.sheme.color_completed;
     },
     color_dropped: function () {
-      return this.customTheme.helpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#ef5350', 24).toHexString() : this.sheme.color_dropped;
+      return this.currentHelpers.includes('autoScheme') ? tinycolor.mix(this.color_background, '#ef5350', 24).toHexString() : this.sheme.color_dropped;
     },
   },
   methods: {
@@ -741,14 +749,61 @@ var vm = new Vue({
     getMixedColor: function (color, amount) {
       return tinycolor.mix(color, tinycolor(color).isLight() ? '#000' : '#fff', amount).toHexString();
     },
-    setColor: function (type, color) {
-      if (color == 'invert') {
+    setColor: function (type, value) {
+      if (value == 'invert') {
         var oldColor = tinycolor(this.scheme[type]).toHsl();
         var newValue = (Math.abs((oldColor.l * 100) - 100) / 100);
-        color = tinycolor.fromRatio({ h: oldColor.h, s: oldColor.s, l: newValue }).toHexString();
+        value = tinycolor.fromRatio({ h: oldColor.h, s: oldColor.s, l: newValue }).toHexString();
       }
-      this.scheme[type] = color;
-      this.saveCustomTheme();
+
+      // Выбираем нужную палитру
+      if (this.currentPalette.locked) {
+        if (this.color_palette.filter(x => x.value === 'custom').length > 0) {
+          this.selectPalette('custom');
+        } else {
+          this.selectPalette(this.createCustomTheme());
+        }
+      }
+
+      // Подставляем новые цвета в палитру
+      let currentPalette = this.color_palette[this.currentPalette.index];
+      currentPalette.palette[type] = value;
+
+      // Обновляем переменные сборщика
+      this.updateColors(currentPalette);
+    },
+    updateColors: function (updatedPalette) {
+      // Определяем необходимые хелперы
+      if (this.currentHelpers.length !== this.defaultHelpers().length) {
+        updatedPalette.helpers = this.currentHelpers;
+      } else {
+        delete updatedPalette.helpers;
+      }
+
+      // Определяем цвета с учётом хелперов
+      let customColors = this.getCustomColors().map(color => color.id);
+
+      // Устанавливаем значения computed-свойств из палитры
+      for (var key in updatedPalette.palette) {
+        if (customColors.includes(key)) {
+          this[key] = updatedPalette.palette[key];
+        } else {
+          delete updatedPalette.palette[key];
+        }
+      }
+
+      // Устанавливаем значения для новых цветов в палитре
+      customColors.forEach(color => {
+        if (!updatedPalette.palette.hasOwnProperty(color)) updatedPalette.palette[color] = this[color];
+      });
+
+      // Определяем схему
+      updatedPalette.scheme = tinycolor(this.color_menu_background).isDark() ? 'dark' : 'light';
+
+      // Сохраняем всё в локальном хранилище
+      if (!this.currentPalette.locked) this.updateLocalThemes(updatedPalette);
+      // Обновляем внешний вид и пр.
+      this.builderUpdate();
     },
     setId: function () {
       // Вырезает из адреса аватарки ID пользователя
@@ -868,14 +923,11 @@ var vm = new Vue({
     saveImports: function () {
       this.saveLocal('selected_imports', JSON.stringify(this.user.selected_imports));
     },
-    // Скачивание своих настроек
-    // NOTE: возможно, потребуется дать разрешение на скачивание в браузере
     downloadTheme: function () {
       let data, blob, url, link, event;
 
       // Основные данные
-      data = this.color_palette[this.user.selected_palette];
-      data.palette = this.getCustomColorValues(this.getCustomColors());
+      data = this.color_palette.filter(x => x.value == this.currentPalette.id)[0];
 
       // Создаём файл
       blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
@@ -887,89 +939,93 @@ var vm = new Vue({
       link.setAttribute('download', 'shiki-theme_palette-' + data.value + '.json');
 
       // Подделываем клик по элементу
+      // NOTE: возможно, потребуется дать разрешение на скачивание в браузере
       event = document.createEvent('MouseEvents');
       event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
       link.dispatchEvent(event);
     },
-    saveCustomTheme: function (theme) {
-      var newTheme = {},
-          localThemes = {};
+    createCustomTheme: function () {
+      let newPalette = {};
 
-      // Собираем текущие цвета темы из computed-свойств
-      newTheme = this.createCustomTheme(theme);
-      // Устанавливаем цвета в список палитр
-      if (this.customTheme.helpers.length != this.defaultHelpers().length) newTheme.helpers = this.customTheme.helpers;
-      if (this.color_palette.custom) this.color_palette[newTheme.value] = newTheme;
+      newPalette.title = 'Моя тема';
+      newPalette.value = 'custom';
+      newPalette.author = '';
+      newPalette.palette = {};
+      newPalette.scheme = tinycolor(this.color_menu_background).isDark() ? 'dark' : 'light';
 
-      // Создаём еще одну вложенность для сохранения
-      localThemes[newTheme.value] = newTheme;
+      newPalette.helpers = this.currentHelpers.length != this.defaultHelpers().length ? this.currentHelpers : null;
 
-      // Сохраняем тему
-      this.saveLocal('custom_theme', JSON.stringify(localThemes));
+      this.color_palette.push(newPalette);
 
-      // Обновление цветов сборщика
-      this.previewTheme();
-
-      if (this.user.selected_palette == 'custom') return;
-      this.$set(this.color_palette, newTheme.value, newTheme);
-      this.user.selected_palette = newTheme.value;
-      this.selectTheme(newTheme.value);
+      return newPalette.value;
     },
-    createCustomTheme: function (theme) {
-      var localTheme = typeof theme == 'object';
-      // Создать новую запись в списке, если её еще нет
-      var newTheme = {};
-      newTheme.title = localTheme ? theme.title : 'Моя тема';
-      newTheme.value = localTheme ? theme.value : 'custom';
-      newTheme.author = localTheme ? theme.author : 'id' + this.user.user_id;
-      newTheme.helpers = localTheme ? theme.helpers : null;
-      newTheme.palette = localTheme ? theme.palette : this.getCustomColorValues(this.getCustomColors());
-      newTheme.scheme = localTheme ? theme.scheme : tinycolor(this.color_menu_background).isDark() ? 'dark' : 'light';
-      return newTheme;
-    },
-    loadUserTheme: function () {
+    getLocalThemes: function () {
       // Если в локальных настройках есть темы, то добавляем их в список тем
       if (localStorage.getItem('custom_theme') !== null) {
         // Список тем в локальных настройках
-        var localThemeList = JSON.parse(localStorage.getItem('custom_theme'));
-        // Список тем, загруженных в скрипт.
-        var vuejsThemeList = this.color_palette;
+        let local_themes = JSON.parse(localStorage.getItem('custom_theme'));
 
-        for (var theme in localThemeList) {
-          // Если имена совпадают — пропускаем.
-          if (!vuejsThemeList.hasOwnProperty(theme)) this.$set(vuejsThemeList, theme, localThemeList[theme]);
+        // TODO: Сompatibility! В старой версии в localStorage хранились в виде объекта.
+        if (Array.isArray(local_themes)) {
+          return local_themes;
+        } else {
+          local_themes['custom'].helpers.push('autoTranslucency');
+          return Object.values(local_themes);
         }
+      } else {
+        return [];
       }
-      this.selectTheme(this.user.selected_palette);
+    },
+    updateLocalThemes: function (palette) {
+      let localThemes, selectedThemeIndex;
+
+      localThemes = this.getLocalThemes();
+      selectedThemeIndex = localThemes.indexOf(localThemes.filter(x => x.value == this.currentPalette.id)[0]);
+
+      if (selectedThemeIndex >= 0) {
+        localThemes[selectedThemeIndex] = palette;
+      } else {
+        localThemes.push(palette);
+      }
+
+      this.saveLocal('custom_theme', JSON.stringify(localThemes));
+    },
+    loadUserTheme: function () {
+      // Создаём отдельный список не кастомизирующихся палитр
+      this.builderData.lockedPalettes = this.color_palette.map(x => x.value);
+      // Объединяем темы в скрипте с загруженными из локальных настроек
+      this.color_palette = this.color_palette.concat(this.getLocalThemes());
+      this.currentPalette.id = this.user.selected_palette;
+      this.selectPalette(this.currentPalette.id);
       this.status.isFileLoading = false;
     },
-    selectTheme: function (theme) {
-      this.saveLocal('selected_palette', theme);
-      this.loadThemeSet(this.color_palette[theme] ? theme : 'light');
-
+    builderUpdate: function () {
       // Обновление цветов сборщика
       this.previewTheme();
     },
-    loadThemeSet: function (theme) {
-      var theme = this.color_palette[theme];
-      for (var key in theme.palette) {
+    selectPalette: function (selectedPalette) {
+      let x = this.color_palette.filter(x => x.value == selectedPalette)[0];
+      if (x) {
+        this.currentPalette.locked = this.builderData.lockedPalettes.includes(x.value);
+        this.currentPalette.index = this.color_palette.indexOf(x);
+        this.currentPalette.id = x.value;
+
+        this.saveLocal('selected_palette', x.value);
+
+        // Если для палитры не нужны хелперы — отключаем
+        this.currentHelpers = x.helpers ? x.helpers : this.defaultHelpers();
+
         // Устанавливаем значения computed-свойств из палитры
-        this[key] = theme.palette[key];
-      }
-      // Если в теме не используются хелперы — отключаем
-      if (theme.helpers) {
-        this.customTheme.helpers = theme.helpers;
-      // Если в теме нет хелперов — значит всё включаем
+        this.updateColors(x);
+
+        this.builderUpdate();
       } else {
-        this.customTheme.helpers = this.defaultHelpers();
+        console.error('selectPalette:', 'Палитра ' + selectedPalette + ' не найдена!');
       }
     },
     saveCustomHelpers: function () {
-      if (this.user.selected_palette !== 'custom') return;
-      if (localStorage.getItem('custom_theme') !== null) {
-        var localThemeList = JSON.parse(localStorage.getItem('custom_theme'));
-        localThemeList[this.user.selected_palette].helpers = this.customTheme.helpers.length == this.defaultHelpers().length ? null : this.customTheme.helpers;
-        this.saveLocal('custom_theme', JSON.stringify(localThemeList));
+      if (!this.builderData.lockedPalettes.includes(this.currentPalette.id)) {
+        this.updateColors(this.color_palette[this.currentPalette.index]);
       }
     },
     defaultHelpers: function () {
@@ -1014,15 +1070,8 @@ var vm = new Vue({
       this.builderElement.styles.deleteRule(0);
     },
     getCustomColors: function () {
-      return this.variables.filter(color => !this.customTheme.helpers.includes(color.helper));
+      return this.variables.filter(color => !this.currentHelpers.includes(color.helper));
       // NOTE: get IDs only: arr.map(color => color.id)
-    },
-    getCustomColorValues: function (colors) {
-      let obj = {};
-      colors.forEach(color => {
-        obj[color.id] = this.$options.computed[color.id].get ? this.$options.computed[color.id].get.call(this) : this.$options.computed[color.id].call(this);
-      });
-      return obj;
     }
   },
   mounted: function () {

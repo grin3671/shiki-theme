@@ -1,5 +1,5 @@
-{
-  "default": {
+[
+  {
     "title": "Палитра Shikimori",
     "value": "default",
     "author": "morr",
@@ -21,7 +21,7 @@
       "autoTranslucency"
     ]
   },
-  "light": {
+  {
     "title": "Стандартная светлая",
     "value": "light",
     "author": "grin3671",
@@ -41,7 +41,7 @@
       "autoTranslucency"
     ]
   },
-  "dark": {
+  {
     "title": "Стандартная тёмная",
     "value": "dark",
     "author": "grin3671",
@@ -61,7 +61,7 @@
       "autoTranslucency"
     ]
   },
-  "material-light": {
+  {
     "title": "Material Light",
     "value": "material-light",
     "author": "MD Team",
@@ -72,7 +72,7 @@
       "color_background": "#ffffff"
     }
   },
-  "material-dark": {
+  {
     "title": "Material Dark",
     "value": "material-dark",
     "author": "MD Team",
@@ -83,7 +83,7 @@
       "color_background": "#121212"
     }
   },
-  "firewatch-night": {
+  {
     "title": "Firewatch Night",
     "value": "firewatch-night",
     "author": "grin3671",
@@ -94,4 +94,4 @@
       "color_background": "#181c24"
     }
   }
-}
+]

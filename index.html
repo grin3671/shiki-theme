@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?8">
+    <link rel="stylesheet" href="./src/css/common.css?10">
     <style></style>
   </head>
   <body>
@@ -130,12 +130,20 @@
 
               <h2>Готовые палитры</h2>
 
-              <palette-select v-model="user.selected_palette"
-                              :options="color_palette"
-                              v-if="!status.isFileLoading"
-                              v-if="!status.isFileLoading"
-                              @input="selectTheme($event)"
-              ></palette-select>
+              <div class="flex">
+                <palette-select v-model="currentPalette.id"
+                                :options="color_palette"
+                                v-if="!status.isFileLoading"
+                                @input="selectPalette($event)"
+                ></palette-select>
+
+                <button type="button"
+                        class="md-button_icon tooltiped tooltiped-left"
+                        aria-label="Скачать палитру"
+                        @click.stop="downloadTheme">
+                  <span class="md-icon" data-icon="save_alt"></span>
+                </button>
+              </div>
 
 
               <h2>Основные цвета</h2>
@@ -147,13 +155,11 @@
                     palette="color_primary"
                     :background="color_background"
                     :text="color_text_on_primary"
-                    @input="saveCustomTheme"
                   ></color-preview>
                   <color-preview
                     v-model="color_text_on_primary"
                     palette="color_text_on_primary"
                     :background="color_primary"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -163,13 +169,11 @@
                     palette="color_accent"
                     :background="color_background"
                     :text="color_text_on_accent"
-                    @input="saveCustomTheme"
                   ></color-preview>
                   <color-preview
                     v-model="color_text_on_accent"
                     palette="color_text_on_accent"
                     :background="color_accent"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
               </div>
@@ -181,7 +185,6 @@
                     palette="color_link"
                     :background="color_background"
                     text="auto"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -191,7 +194,6 @@
                     palette="color_link_hover"
                     :background="color_background"
                     text="auto"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -201,7 +203,6 @@
                     palette="color_link_active"
                     :background="color_background"
                     text="auto"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
               </div>
@@ -214,7 +215,6 @@
                     v-model="color_background"
                     palette="color_background"
                     :text="color_text_primary"
-                    @input="saveCustomTheme"
                   >
                     <button type="button"
                             class="md-button_icon tooltiped tooltiped-right"
@@ -227,7 +227,6 @@
                     v-model="color_text_primary"
                     palette="color_text_primary"
                     :background="color_background"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -236,13 +235,11 @@
                     v-model="color_surface"
                     palette="color_surface"
                     :text="color_text_primary"
-                    @input="saveCustomTheme"
                   ></color-preview>
                   <color-preview
                     v-model="color_text_primary"
                     palette="color_text_primary"
                     :background="color_surface"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -251,13 +248,11 @@
                     v-model="color_background_dialog"
                     palette="color_background_dialog"
                     :text="color_text_primary"
-                    @input="saveCustomTheme"
                   ></color-preview>
                   <color-preview
                     v-model="color_text_primary"
                     palette="color_text_primary"
                     :background="color_background_dialog"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
 
@@ -266,13 +261,11 @@
                     v-model="color_menu_background"
                     palette="color_menu_background"
                     :text="color_menu_text_primary"
-                    @input="saveCustomTheme"
                   ></color-preview>
                   <color-preview
                     v-model="color_menu_text_primary"
                     palette="color_menu_text_primary"
                     :background="color_menu_background"
-                    @input="saveCustomTheme"
                   ></color-preview>
                 </div>
               </div>
@@ -284,7 +277,7 @@
                   <label class="v-file md-list md-control" :class="{ disabled: helper.disabled }">
                     <input type="checkbox"
                           :value="helper.id"
-                          v-model="customTheme.helpers"
+                          v-model="currentHelpers"
                           @change="saveCustomHelpers"
                           :disabled="helper.disabled">
                     <span class="md-checkbox"></span><span>{{ helper.title }}</span>
@@ -293,7 +286,7 @@
                 </template>
               </div>
 
-              <div v-if="!customTheme.helpers.includes('autoScheme')">
+              <div v-if="!currentHelpers.includes('autoScheme')">
                 <h2>Детальная настройка</h2>
                 <p class="text-hint">Прежде чем начать подбирать цвета для темы, ознакомьтесь с системой цветов Material Design на их сайте: <a href="//material.io/guidelines/style/color.html#color-color-system">material.io</a>. Не меняйте цвет фонов и текста без необходимости: автоматическая настройка схемы подбирает цвета в соответствии с гайдлайном и всегда подбирает наиболее читабельные цвета.</p>
 
@@ -511,6 +504,6 @@
 
     <script src="./vendor/vue/vue.min.js"></script>
     <script src="./vendor/tinycolor/tinycolor.min.js"></script>
-    <script src="./src/js/common.js?9"></script>
+    <script src="./src/js/common.js?10"></script>
   </body>
 </html>
