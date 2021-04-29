@@ -864,9 +864,9 @@ var vm = new Vue({
         });
 
         // 
-        if (this.user.selected_palette != 'custom') {
-          output_newcss += '/* Тема «' + this.builderData.palettes[this.user.selected_palette].title + '» */\n';
-          output_newcss += import_url + 'theme-' + this.user.selected_palette.replace(/-/g, '_') + '.css);\n';
+        if (this.currentPalette.locked) {
+          output_newcss += '/* Тема «' + this.builderData.palettes[this.currentPalette.index].title + '» */\n';
+          output_newcss += import_url + 'theme-' + this.currentPalette.id.replace(/-/g, '_') + '.css);\n';
           output_newcss += '\n/* Настройки переменных темы */\n@media{:root {\n';
         } else {
           // Конвертировать переменные из этого скрипта в css-переменные
