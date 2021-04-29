@@ -19,7 +19,7 @@ Vue.component('color-preview', {
   props: ['value', 'palette', 'background', 'text'],
   computed: {
     color: function () {
-      return this.$root.variables.filter(color => color.id == this.palette)[0];
+      return this.$root.builderData.colors.filter(color => color.id == this.palette)[0];
     },
     readability: function () {
       return tinycolor.readability(this.background, this.value).toFixed(1);
@@ -413,7 +413,6 @@ var vm = new Vue({
     file_list: [],
     branches: {},
     color_scheme: {},
-    variables: [],
     theme: {
       branches: ['master'],
     },
@@ -876,7 +875,7 @@ var vm = new Vue({
           var currentCategory = '';
           Object.keys(arr).forEach((color) => {
             var value = arr[color].get ? arr[color].get.call(this) : arr[color].call(this);
-            let block = this.variables.filter(x => x.id == color)[0].block;
+            let block = this.builderData.colors.filter(x => x.id == color)[0].block;
             var categoryName = currentCategory == block ? '' : '  /* ' + block + ' */\n';
             currentCategory = block;
             output_newcss += categoryName + '  --' + color.replace(/_/g, '-') + ': ' + value + ';\n';
@@ -1067,7 +1066,7 @@ var vm = new Vue({
       this.builderElement.styles.deleteRule(0);
     },
     getCustomColors: function () {
-      return this.variables.filter(color => !this.currentHelpers.includes(color.helper));
+      return this.builderData.colors.filter(color => !this.currentHelpers.includes(color.helper));
       // NOTE: get IDs only: arr.map(color => color.id)
     }
   },
@@ -1102,23 +1101,20 @@ var vm = new Vue({
     }
 
 
-    // Загрузка списка переменных
-    XHR('./config/theme_colors.json', config => this.variables = JSON.parse(config));
+    // Загрузка настроек темы
+    let configs = [
+          'colors',
+          'imports',
+          'helpers',
+          'palettes'
+        ],
+        interation = configs.length;
 
-
-    // Список файлов для импорта
-    XHR('./config/theme_imports.json', config => this.builderData.imports = JSON.parse(config));
-
-
-    // Данные по настройке цветов
-    XHR('./config/theme_helpers.json', config => this.builderData.helpers = JSON.parse(config));
-
-
-    // Загрузка списка тем
-    XHR('./config/theme_palettes.json', (config) => {
-      this.builderData.palettes = JSON.parse(config);
-      // Загружаем палитры пользователя
-      Vue.nextTick(() => this.loadUserTheme());
+    configs.forEach(file => {
+      XHR('./config/theme_' + file + '.json', config => {
+        this.$set(this.builderData, file, JSON.parse(config));
+        if (--interation === 0) Vue.nextTick(() => this.loadUserTheme());
+      });
     });
 
 
