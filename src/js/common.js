@@ -381,11 +381,9 @@ var vm = new Vue({
       locked: null,
     },
     builderData: {
-      theme: {
-
-      },
       imports: [],
       helpers: [],
+      palettes: [],
       lockedPalettes: [],
     },
     scheme: {
@@ -414,7 +412,6 @@ var vm = new Vue({
     folders: [],
     file_list: [],
     branches: {},
-    color_palette: {},
     color_scheme: {},
     variables: [],
     theme: {
@@ -758,7 +755,7 @@ var vm = new Vue({
 
       // Выбираем нужную палитру
       if (this.currentPalette.locked) {
-        if (this.color_palette.filter(x => x.value === 'custom').length > 0) {
+        if (this.builderData.palettes.filter(x => x.value === 'custom').length > 0) {
           this.selectPalette('custom');
         } else {
           this.selectPalette(this.createCustomTheme());
@@ -766,7 +763,7 @@ var vm = new Vue({
       }
 
       // Подставляем новые цвета в палитру
-      let currentPalette = this.color_palette[this.currentPalette.index];
+      let currentPalette = this.builderData.palettes[this.currentPalette.index];
       currentPalette.palette[type] = value;
 
       // Обновляем переменные сборщика
@@ -868,7 +865,7 @@ var vm = new Vue({
 
         // 
         if (this.user.selected_palette != 'custom') {
-          output_newcss += '/* Тема «' + this.color_palette[this.user.selected_palette].title + '» */\n';
+          output_newcss += '/* Тема «' + this.builderData.palettes[this.user.selected_palette].title + '» */\n';
           output_newcss += import_url + 'theme-' + this.user.selected_palette.replace(/-/g, '_') + '.css);\n';
           output_newcss += '\n/* Настройки переменных темы */\n@media{:root {\n';
         } else {
@@ -927,7 +924,7 @@ var vm = new Vue({
       let data, blob, url, link, event;
 
       // Основные данные
-      data = this.color_palette.filter(x => x.value == this.currentPalette.id)[0];
+      data = this.builderData.palettes.filter(x => x.value == this.currentPalette.id)[0];
 
       // Создаём файл
       blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
@@ -955,7 +952,7 @@ var vm = new Vue({
 
       newPalette.helpers = this.currentHelpers.length != this.defaultHelpers().length ? this.currentHelpers : null;
 
-      this.color_palette.push(newPalette);
+      this.builderData.palettes.push(newPalette);
 
       return newPalette.value;
     },
@@ -992,9 +989,9 @@ var vm = new Vue({
     },
     loadUserTheme: function () {
       // Создаём отдельный список не кастомизирующихся палитр
-      this.builderData.lockedPalettes = this.color_palette.map(x => x.value);
+      this.builderData.lockedPalettes = this.builderData.palettes.map(x => x.value);
       // Объединяем темы в скрипте с загруженными из локальных настроек
-      this.color_palette = this.color_palette.concat(this.getLocalThemes());
+      this.builderData.palettes = this.builderData.palettes.concat(this.getLocalThemes());
       this.currentPalette.id = this.user.selected_palette;
       this.selectPalette(this.currentPalette.id);
       this.status.isFileLoading = false;
@@ -1004,10 +1001,10 @@ var vm = new Vue({
       this.previewTheme();
     },
     selectPalette: function (selectedPalette) {
-      let x = this.color_palette.filter(x => x.value == selectedPalette)[0];
+      let x = this.builderData.palettes.filter(x => x.value == selectedPalette)[0];
       if (x) {
         this.currentPalette.locked = this.builderData.lockedPalettes.includes(x.value);
-        this.currentPalette.index = this.color_palette.indexOf(x);
+        this.currentPalette.index = this.builderData.palettes.indexOf(x);
         this.currentPalette.id = x.value;
 
         this.saveLocal('selected_palette', x.value);
@@ -1025,7 +1022,7 @@ var vm = new Vue({
     },
     saveCustomHelpers: function () {
       if (!this.builderData.lockedPalettes.includes(this.currentPalette.id)) {
-        this.updateColors(this.color_palette[this.currentPalette.index]);
+        this.updateColors(this.builderData.palettes[this.currentPalette.index]);
       }
     },
     defaultHelpers: function () {
@@ -1109,20 +1106,20 @@ var vm = new Vue({
     XHR('./config/theme_colors.json', config => this.variables = JSON.parse(config));
 
 
-    // Загрузка списка тем
-    XHR('./config/theme_palettes.json', (config) => {
-      this.$set(this, 'color_palette', JSON.parse(config));
-      // Загружаем темы пользователя
-      Vue.nextTick(() => this.loadUserTheme());
-    });
-
-
     // Список файлов для импорта
     XHR('./config/theme_imports.json', config => this.builderData.imports = JSON.parse(config));
 
 
     // Данные по настройке цветов
     XHR('./config/theme_helpers.json', config => this.builderData.helpers = JSON.parse(config));
+
+
+    // Загрузка списка тем
+    XHR('./config/theme_palettes.json', (config) => {
+      this.builderData.palettes = JSON.parse(config);
+      // Загружаем палитры пользователя
+      Vue.nextTick(() => this.loadUserTheme());
+    });
 
 
     // Включение кнопки

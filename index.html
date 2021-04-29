@@ -132,7 +132,7 @@
 
               <div class="flex">
                 <palette-select v-model="currentPalette.id"
-                                :options="color_palette"
+                                :options="builderData.palettes"
                                 v-if="!status.isFileLoading"
                                 @input="selectPalette($event)"
                 ></palette-select>
