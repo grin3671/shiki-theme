@@ -1110,7 +1110,7 @@ var vm = new Vue({
 
 
     // Загрузка списка тем
-    XHR('./config/theme_list.json', (config) => {
+    XHR('./config/theme_palettes.json', (config) => {
       this.$set(this, 'color_palette', JSON.parse(config));
       // Загружаем темы пользователя
       Vue.nextTick(() => this.loadUserTheme());
