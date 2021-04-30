@@ -252,6 +252,10 @@ Vue.component('palette-select', {
   data: function () {
     return {
       state: false,
+      event: {
+        click: () => this.close(),
+        clickPrevent: (event) => event.stopPropagation(),
+      },
     }
   },
   computed: {
@@ -264,40 +268,37 @@ Vue.component('palette-select', {
   },
   template: '<div class="md-select">' +
               '<div class="md-select_trigger" :class="{ active: state }" @click="open()">' +
-                '<theme-list :theme="palette"></theme-list>' +
+                '<palette-item :theme="palette"></palette-item>' +
               '</div>' +
               '<div class="md-list" v-if="state">' +
-                '<theme-list v-for="(option) in options" ' +
+                '<palette-item v-for="(option) in options" ' +
                   ':theme="option" ' +
                   ':key="option.value" ' +
                   ':selected="selected" ' +
                   '@select="select($event)" ' +
-                  '></theme-list>' +
+                  '></palette-item>' +
               '</div>' +
             '</div>',
-  mounted: function () {
-    // Закрыть окно выбора при клике снаружи
-    document.addEventListener('click', this.close);
-    this.$el.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-  },
   methods: {
     close: function () {
+      document.removeEventListener('click', this.event.click, false);
+      this.$el.removeEventListener('click', this.event.clickPrevent, false);
       this.state = false;
     },
     open: function (theme) {
+      document.addEventListener('click', this.event.click, false);
+      this.$el.addEventListener('click', this.event.clickPrevent, false);
       this.state = this.state ? !1 : !0;
     },
     select: function (theme) {
-      this.state = false;
+      this.close();
       this.$emit('input', theme);
     },
   },
 });
 
 
-Vue.component('theme-list', {
+Vue.component('palette-item', {
   props: ['theme', 'selected'],
   template: '<div class="md-select_container" @click="click($event)" :class="{ selected: selected === theme.value }">' +
               '<div class="theme-preview">' +
@@ -306,8 +307,11 @@ Vue.component('theme-list', {
               '</div>' +
               '<div class="theme-info">' +
                 '<div class="title">{{ theme.title }}</div>' +
-                '<div class="info" v-if="theme.author">Палитра от <span>{{ theme.author }}</span></div>' +
-                '<div class="info" v-else>Локальная палитра</div>' +
+                '<div class="info">' +
+                  '<span class="md-icon" :data-icon="theme.scheme == \'dark\' ? \'dark_mode\' : \'light_mode\'"></span>' +
+                  '<span v-if="theme.value !== \'custom\'">Палитра от <strong>{{ theme.author }}</strong></span>' +
+                  '<span v-else>Локальная палитра</span>' +
+                '</div>' +
               '</div>' +
             '</div>',
   methods: {
@@ -1108,12 +1112,12 @@ var vm = new Vue({
           'helpers',
           'palettes'
         ],
-        interation = configs.length;
+        iteration = configs.length;
 
     configs.forEach(file => {
       XHR('./config/theme_' + file + '.json', config => {
         this.$set(this.builderData, file, JSON.parse(config));
-        if (--interation === 0) Vue.nextTick(() => this.loadUserTheme());
+        if (--iteration === 0) Vue.nextTick(() => this.loadUserTheme());
       });
     });
 

@@ -50,7 +50,7 @@ body {
   margin: 0;
   background: var(--c-background);
   color: var(--c-text);
-  font: 16px/1.25 'Roboto';
+  font: 16px/1.25 'Roboto', 'Arial';
 }
 
 a {
@@ -1686,6 +1686,7 @@ img {
   margin: -14px 18px;
 }
 .theme-info {
+  flex: 1;
   margin-left: 16px;
   letter-spacing: -.15px;
   text-overflow: ellipsis;
@@ -1705,8 +1706,13 @@ img {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.theme-info > .info span {
-  font-weight: 500;
+.theme-info .md-icon {
+  float: right;
+  margin-left: 6px;
+  color: var(--c-hint);
+}
+.theme-info .md-icon::before {
+  font-size: 17px;
 }
 
 
