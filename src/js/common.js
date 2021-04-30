@@ -794,7 +794,7 @@ var vm = new Vue({
       });
 
       // Определяем схему
-      updatedPalette.scheme = tinycolor(this.color_menu_background).isDark() ? 'dark' : 'light';
+      updatedPalette.scheme = tinycolor(this.color_background).isDark() ? 'dark' : 'light';
 
       // Сохраняем всё в локальном хранилище
       if (!this.currentPalette.locked) this.updateLocalThemes(updatedPalette);
