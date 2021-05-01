@@ -262,13 +262,13 @@ Vue.component('palette-select', {
     selected: function () {
       return this.value;
     },
-    palette: function () {
+    selectedItem: function () {
       return this.options.filter(x => x.value == this.selected)[0];
     }
   },
   template: '<div class="md-select">' +
               '<div class="md-select_trigger" :class="{ active: state }" @click="open()">' +
-                '<palette-item :theme="palette"></palette-item>' +
+                '<palette-item :theme="selectedItem"></palette-item>' +
               '</div>' +
               '<div class="md-list" v-if="state">' +
                 '<palette-item v-for="(option) in options" ' +
