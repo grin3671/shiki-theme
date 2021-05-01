@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009688">
     <title>Сборщик shiki-theme</title>
     <meta name="description" content="Сборщик CSS темы для Шикимори.">
-    <link rel="stylesheet" href="./src/css/common.css?13">
+    <link rel="stylesheet" href="./src/css/common.css?14">
     <style></style>
   </head>
   <body>
@@ -18,18 +18,17 @@
           <label for="topbar_menu" class="md-icon" data-icon="menu">
           </label><h1 class="topbar-title">Сборщик</h1>
         </div>
-        <label for="create_css" class="md-fab" v-bind:class="{ hidden: status.isFileLoading }">
-          <span class="md-icon" data-icon="done"></span>
+        <label for="copy_css" class="md-fab" :class="{ hidden: status.isFileLoading }">
+          <span class="md-icon" data-icon="content_copy"></span>
         </label>
         <label for="topbar_menu" class="shade"></label>
         <nav>
           <a href="#nav_settings">Настройка темы</a>
-          <a href="#nav_code" v-show="status.isCompiled">Готовый стиль</a>
           <a href="#nav_preview">Предпросмотр</a>
-          <a href="#nav_faq">FAQ</a>
+          <a href="#nav_code">Готовый стиль</a>
           <hr class="md-divider">
-          <a href="https://github.com/grin3671/shiki-theme" class="btn btn-icon icon-github">Код на GitHub.com</a>
-          <a href="https://shikimori.one/grin3671" class="btn btn-icon icon-author">Профиль автора</a>
+          <a href="https://github.com/grin3671/shiki-theme/blob/gh-pages/FAQ.md" class="nav_link--external md-icon" data-icon="open_in_new">FAQ</a>
+          <a href="https://github.com/grin3671/shiki-theme" class="nav_link--external md-icon" data-icon="open_in_new">Код на GitHub</a>
         </nav>
       </header>
 
@@ -38,7 +37,7 @@
       <section id="nav_settings">
         <div class="content">
           <h2 class="display1">Настройка темы</h2>
-          <p>Настройте тему, а затем нажмите желтую кнопку, чтобы начать сборку темы. Когда она будет завершена, вы сможете скопировать готовый код секцией ниже.</p>
+          <p>Настройте тему по вкусу, а затем нажмите зафиксированную круглую кнопку, чтобы скопировать код темы. Посмотреть готовый код можно внизу страницы.</p>
           <form action="/" @submit.prevent="createTheme" class="md-container">
             <div class="md-list md-panel">
               <span class="md-list_title inactive" id="label_user_cover">
@@ -65,13 +64,13 @@
 
             <div class="md-list md-panel" v-if="user.selected_layout == 'cover'">
               <label for="user_id" class="md-list_title inactive required">
-                <span class="md-icon" aria-hidden="true" data-icon="person"></span>Ваш ID <a href="#how_find_my_id" title="Как узнать мой ID?" class="question">?</a>
+                <span class="md-icon" aria-hidden="true" data-icon="person"></span>Ваш ID <a href="https://github.com/grin3671/shiki-theme/blob/gh-pages/FAQ.md#как-узнать-мой-id" title="Как узнать мой ID?" class="question">?</a>
               </label>
               <div class="md-list_content">
                 <div class="md-input fullwidth">
                   <input type="text" id="user_id" name="id" @change="setId" v-model="user.user_id" aria-describedby="hint_cover_url" placeholder="8764532">
                   <div class="md-divider"></div>
-                  <span class="md-input_hint" id="hint_cover_url">Вставьте сюда URL вашей аватарки на сайте <a href="https://shikimori.one">shikimori.one</a></span>
+                  <span class="md-input_hint" id="hint_cover_url">Вставьте URL вашей аватарки на сайте <a href="https://shikimori.one">shikimori.one</a></span>
                 </div>
               </div>
             </div>
@@ -389,9 +388,6 @@
                 <span class="md-list_content-placeholder"><input type="file" id="user_setting" name="file" @change="readUserFile" accept=".sass, .scss, .css"></span>
               </span>
             </div> -->
-
-
-            <button type="submit" id="create_css" class="md-btn raised primary ie-only" disabled><span>Создать тему</span></button>
           </form>
 
           <hr class="md-divider">
@@ -399,23 +395,6 @@
           <p>Если у вас возникли вопросы по теме или сборщику, можете <a href="https://shikimori.one/grin3671">написать разработчику</a>.</p>
 
           <p>Поддержать разработку можно через <span class="strong"><span style="color: #8b3ffd">Ю</span>money</span>: <a href="https://yoomoney.ru/to/41001258665103">41001258665103</a>. </p>
-        </div>
-      </section>
-
-
-
-      <section id="nav_code" v-show="status.isCompiled">
-        <div class="content">
-          <h2 class="display1">Готовый стиль</h2>
-          <div class="field">
-            <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
-            <div class="md-textarea code">
-              <textarea id="output_css" rows="5"></textarea>
-              <div class="md-divider"></div>
-            </div>
-            <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
-            <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
-          </div>
         </div>
       </section>
 
@@ -459,28 +438,17 @@
 
 
 
-      <section id="nav_faq">
+      <section id="nav_code" v-show="status.isCompiled">
         <div class="content">
-          <h2 class="display1">FAQ</h2>
-          <div class="section_faq">
-            <h3 id="how_find_my_id">Как узнать мой ID?</h3>
-            <p>Заходите в свой профиль на сайте shikimori.one, жмете ПКМ по своей аватарке и копируйте URL картинки. Вставляете в поле для ID. При этом в предпросмотре темы вы увидите свою аватарку.</p>
-            <p>
-              <img src="https://i.imgur.com/90U0aki.jpg" alt="Скопировать URL аватарки" loading="lazy"><img src="https://i.imgur.com/4axTIVE.jpg" alt="Аватарка в предпросмотре" loading="lazy">
-            </p>
-            <p>Если копировать адрес картинки по какой-то причине нельзя, вы можете "Сохранить картинку как...". В поле ввода имени файла будет отображаться ваш ID.</p>
-            <p>
-              <img src="https://i.imgur.com/x8iJTxZ.jpg" alt="Сохранить аватарку" loading="lazy"><img src="https://i.imgur.com/mxbEDYN.jpg" alt="ID в поле Имя файла" loading="lazy">
-            </p>
-            <p>Аватарку можно использовать не только из профиля, но и из настроек, комментариев и верхнего меню.</p>
-          </div>
-          <div class="section_faq">
-            <h3>Какого размера должна быть обложка?</h3>
-            <p>Любого. Картинка сама подстроится под текущий размер обложки, при этом края могут обрезаться. Хорошо подходят изображения с соотношением сторон 16:9 (скриншоты аниме) и разрешением 1280x720.</p>
-          </div>
-          <div class="section_faq">
-            <h3>Что делать если обложка не отображается?</h3>
-            <p>Попробуйте сменить хостинг картинок. Изображение должно появиться в предпросмотре темы.</p>
+          <h2 class="display1">Готовый стиль</h2>
+          <div class="field">
+            <label for="output_css" class="label-radio">Скопируйте этот код в настройки вашего профиля:</label>
+            <div class="md-textarea code">
+              <textarea id="output_css" rows="15"></textarea>
+              <div class="md-divider"></div>
+            </div>
+            <button id="copy_css" class="md-btn raised primary" @click.prevent="copyTheme"><span>Копировать</span></button>
+            <span class="text-hint" v-show="support.copy">Чтобы выделить весь текст нажмите на поле ввода сверху, а затем на [Ctrl]+[A].</span>
           </div>
         </div>
       </section>

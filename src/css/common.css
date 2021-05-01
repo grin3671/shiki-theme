@@ -84,10 +84,6 @@ h3 {
   font-weight: normal;
 }
 
-.section_faq + .section_faq h3 {
-  margin-top: 1.875em;
-}
-
 h4 {
   margin: 1.5em auto .5em;
   color: var(--c-hint);
@@ -224,13 +220,16 @@ p:last-child {
 }
 
 .topbar nav a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: .375em 1em;
   margin: .375em auto;
   border-radius: 2px;
   color: var(--c-hint);
   font-weight: 500;
   line-height: 1.5;
+  text-align: left;
   text-decoration: none;
 }
 .topbar nav a:hover {
@@ -239,6 +238,19 @@ p:last-child {
 .topbar nav a.active {
   background: rgba(0, 150, 136, 0.16);
   color: rgba(0, 150, 136, 1);
+}
+
+.topbar nav a::before {
+  order: 1;
+  margin-right: -7px;
+  font-size: 18px;
+}
+
+.nav_link--external {
+  opacity: .72;
+}
+.nav_link--external:hover {
+  opacity: 1;
 }
 
 .shade {
@@ -971,58 +983,28 @@ input[type=color]::-moz-color-swatch {
 
 
 
-
-
-#create_css {
+.question {
   display: none;
 }
 
-img {
-  max-width: 100%;
-}
-
-@media (min-width: 767px) {
-  .section_faq img {
-    width: 48%;
-    margin-right: 4%;
+@media (min-width: 1000px) {
+  .question {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 1.25em;
+    margin-left: .75em;
+    background: var(--c-border);
+    border-radius: 50%;
+    color: var(--c-hint);
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    opacity: .8;
   }
-
-  .section_faq img:nth-child(2n) {
-    margin-right: 0;
+  .question:hover,
+  .question:focus {
+    opacity: 1;
   }
-}
-
-
-
-.question {
-  display: inline-block;
-  vertical-align: baseline;
-  width: 1.25em;
-  margin-left: .75em;
-  background: var(--c-border);
-  border-radius: 50%;
-  color: var(--c-hint);
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  opacity: .8;
-}
-.question:hover,
-.question:focus {
-  opacity: 1;
-}
-
-
-
-.icon-author,
-.icon-github {
-  display: inline-block;
-  opacity: .72;
-  transition: .2s;
-}
-.icon-author:hover,
-.icon-github:hover {
-  opacity: 1;
 }
 
 

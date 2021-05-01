@@ -1008,6 +1008,8 @@ var vm = new Vue({
     builderUpdate: function () {
       // Обновление цветов сборщика
       this.previewTheme();
+      // Автоматическое обновление кода
+      this.createTheme();
     },
     selectPalette: function (selectedPalette) {
       let x = this.builderData.palettes.filter(x => x.value == selectedPalette)[0];
@@ -1126,10 +1128,6 @@ var vm = new Vue({
         if (--iteration === 0) Vue.nextTick(() => this.loadUserTheme());
       });
     });
-
-
-    // Включение кнопки
-    switchDisabled(document.getElementById('create_css'));
 
 
     // Добавление лайв-стиля
