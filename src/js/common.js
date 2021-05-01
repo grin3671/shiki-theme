@@ -328,6 +328,46 @@ Vue.component('palette-item', {
 });
 
 
+Vue.component('md-snackbar', {
+  props: ['labelText', 'actionButtonText', 'timeoutMs', 'index'],
+  data: function () {
+    return {
+      state: false,
+      timer: null,
+      idk: this.index,
+    }
+  },
+  template: '<div class="md-snackbar__container" v-if="index == 0" :class="{ \'md-snackbar--open\': state }">' +
+              '<div class="md-snackbar__label">{{ labelText }}</div>' +
+              '<div class="md-snackbar__label" v-if="actionButtonText">' +
+                '<button type="button" class="md-btn md-snackbar__action">' +
+                  '<span>{{ actionButtonText }}</span>' +
+                '</button>' +
+              '</div>' +
+            '</div>',
+  methods: {
+    show: function () {
+      setTimeout(() => {
+        this.state = true;
+      }, 100);
+      this.timer = setTimeout(() => {
+        this.close();
+      }, this.timeoutMs ? this.timeoutMs : 3000);
+    },
+    close: function () {
+      this.state = false;
+      this.$emit('close');
+    },
+  },
+  mounted: function () {
+    if (this.index == 0) this.show();
+  },
+  updated: function () {
+    if (this.index == 0 && this.state == false) this.show();
+  }
+})
+
+
 var instances = {};
 
 
@@ -433,7 +473,8 @@ var vm = new Vue({
     },
     builderElement: {
       styles: undefined,
-    }
+    },
+    snacksTexts: [],
   },
   watch: {
     "user.selected_imports": function () {
@@ -919,9 +960,14 @@ var vm = new Vue({
         document.getElementById('output_css').value = output_newcss;
       }
     },
-    copyTheme: function () {
-      document.getElementById('output_css').select();
-      document.execCommand('copy');
+    copyTheme: function (event) {
+      event.preventDefault();
+      navigator.clipboard.writeText(document.getElementById('output_css').value).then(() => {
+        this.notify('Скопировано в буфер обмена!');
+      }, () => {
+        document.getElementById('output_css').select();
+        document.execCommand('copy');
+      });
     },
     saveLocal: function (key, value) {
       localStorage.setItem(key, value);
@@ -1080,6 +1126,9 @@ var vm = new Vue({
     getCustomColors: function () {
       return this.builderData.colors.filter(color => !this.currentHelpers.includes(color.helper));
       // NOTE: get IDs only: arr.map(color => color.id)
+    },
+    notify: function (text) {
+      this.snacksTexts.push({ labelText: text });
     }
   },
   mounted: function () {

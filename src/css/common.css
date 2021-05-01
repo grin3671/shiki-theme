@@ -2051,3 +2051,48 @@ input[type=color]::-moz-color-swatch {
   text-align: center;
   line-height: 80px;
 }
+
+
+.md-snackbar {
+  position: fixed;
+  right: 0;
+  bottom: 80px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  margin: 8px;
+  z-index: 99;
+}
+
+.md-snackbar__container {
+  display: flex;
+  min-width: 100%;
+  background: #333333;
+  border-radius: 4px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  color: #e5e5e5;
+  pointer-events: auto;
+  transform: scale(.8);
+  opacity: 0;
+}
+.md-snackbar__container.md-snackbar--open {
+  transform: scale(1);
+  transition: .16s cubic-bezier(0, 0, .2, 1) 0ms;
+  opacity: 1;
+}
+
+.md-snackbar__label {
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+@media (min-width: 1000px) {
+  .md-snackbar {
+    bottom: 0;
+  }
+  .md-snackbar__container {
+    min-width: 344px;
+  }
+}
