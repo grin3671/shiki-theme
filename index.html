@@ -114,7 +114,7 @@
               </label>
               <label for="color_settings" class="md-list_control md-icon" data-icon="expand_more"></label>
               <span class="md-list_content">
-                <span class="md-list_content-placeholder">Текущая палитра: {{ user.selected_palette }}</span>
+                <span class="md-list_content-placeholder">Текущая палитра: {{ currentPalette.id }}</span>
               </span>
             </div>
             <div class="md-list_hidden color-settings" v-if="!status.isFileLoading">
