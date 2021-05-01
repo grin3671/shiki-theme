@@ -255,6 +255,9 @@ Vue.component('palette-select', {
       event: {
         click: () => this.close(),
         clickPrevent: (event) => event.stopPropagation(),
+        keyHandler: (event) => {
+          if (event.keyCode == 27) this.close();
+        }
       },
     }
   },
@@ -281,14 +284,17 @@ Vue.component('palette-select', {
             '</div>',
   methods: {
     close: function () {
-      document.removeEventListener('click', this.event.click, false);
-      this.$el.removeEventListener('click', this.event.clickPrevent, false);
+      document.removeEventListener('click', this.event.click);
+      document.removeEventListener('keydown', this.event.keyHandler);
+      this.$el.removeEventListener('click', this.event.clickPrevent);
       this.state = false;
     },
     open: function (theme) {
-      document.addEventListener('click', this.event.click, false);
-      this.$el.addEventListener('click', this.event.clickPrevent, false);
-      this.state = this.state ? !1 : !0;
+      if (this.state === true) return this.close();
+      document.addEventListener('click', this.event.click);
+      document.addEventListener('keydown', this.event.keyHandler);
+      this.$el.addEventListener('click', this.event.clickPrevent);
+      this.state = true;
     },
     select: function (theme) {
       this.close();
