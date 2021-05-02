@@ -2061,7 +2061,7 @@ input[type=color]::-moz-color-swatch {
   display: flex;
   justify-content: center;
   pointer-events: none;
-  margin: 8px;
+  margin: 8px 16px;
   z-index: 99;
 }
 

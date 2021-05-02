@@ -334,7 +334,6 @@ Vue.component('md-snackbar', {
     return {
       state: false,
       timer: null,
-      idk: this.index,
     }
   },
   template: '<div class="md-snackbar__container" v-if="index == 0" :class="{ \'md-snackbar--open\': state }">' +
@@ -347,12 +346,8 @@ Vue.component('md-snackbar', {
             '</div>',
   methods: {
     show: function () {
-      setTimeout(() => {
-        this.state = true;
-      }, 100);
-      this.timer = setTimeout(() => {
-        this.close();
-      }, this.timeoutMs ? this.timeoutMs : 3000);
+      setTimeout(() => this.state = true, 10);
+      this.timer = setTimeout(() => this.close(), this.timeoutMs ? this.timeoutMs : 3000);
     },
     close: function () {
       this.state = false;
