@@ -375,7 +375,6 @@ var vm = new Vue({
     },
     status: {
       isCompiled: false,
-      isCreating: false,
       isFileLoading: true,
       isNotify: false,
       isBranchLoaded: false,
@@ -384,10 +383,6 @@ var vm = new Vue({
     support: {
       copy: true,
       file: false,
-    },
-    text: {
-      fileLoading: 'Загрузка файлов…',
-      notify_message: 'Создание темы…',
     },
     user: {
       user_id: null,

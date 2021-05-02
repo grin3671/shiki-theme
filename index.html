@@ -464,12 +464,6 @@
         @close="closeColorPicker"
       ></color-picker>
 
-      <div class="notify" :class="{ loading: status.isCreating, notify_show: status.isNotify }">
-        <span></span>{{ text.notify_message }}
-      </div>
-      <div class="notify" :class="{ loading: status.isFileLoading, notify_show: status.isFileLoading }">
-        <span></span>{{ text.fileLoading }}
-      </div>
       <div class="md-snackbar">
         <template v-for="(notify, index) in snacksTexts">
           <md-snackbar :label-text="notify.labelText" 
