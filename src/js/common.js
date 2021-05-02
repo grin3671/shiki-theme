@@ -963,7 +963,7 @@ var vm = new Vue({
     copyTheme: function (event) {
       event.preventDefault();
       navigator.clipboard.writeText(document.getElementById('output_css').value).then(() => {
-        this.notify('Скопировано в буфер обмена!');
+        this.notify('Скопировано в буфер обмена');
       }, () => {
         document.getElementById('output_css').select();
         document.execCommand('copy');
