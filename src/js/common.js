@@ -461,9 +461,7 @@ var vm = new Vue({
       color: '#009688', // v-model
       palette: 'color_primary', // link to variables
     },
-    builderElement: {
-      styles: undefined,
-    },
+    builderStylesheet: undefined,
     snacksTexts: [],
   },
   watch: {
@@ -1109,9 +1107,9 @@ var vm = new Vue({
         properties += '  ' + key + ': ' + value + ';\n';
       }
 
-      this.builderElement.styles.disabled = !this.status.isLivePreview;
-      this.builderElement.styles.insertRule('body' + '{' + properties + '}', this.builderElement.styles.cssRules.length);
-      this.builderElement.styles.deleteRule(0);
+      this.builderStylesheet.disabled = !this.status.isLivePreview;
+      this.builderStylesheet.insertRule('body' + '{' + properties + '}', this.builderStylesheet.cssRules.length);
+      this.builderStylesheet.deleteRule(0);
     },
     getCustomColors: function () {
       return this.builderData.colors.filter(color => !this.currentHelpers.includes(color.helper));
@@ -1170,10 +1168,10 @@ var vm = new Vue({
 
 
     // Добавление лайв-стиля
-    this.builderElement.styles = document.createElement('style');
-    document.head.appendChild(this.builderElement.styles);
-    this.builderElement.styles = this.builderElement.styles.sheet;
-    this.builderElement.styles.insertRule('body' + '{}', this.builderElement.styles.cssRules.length);
+    this.builderStylesheet = document.createElement('style');
+    document.head.appendChild(this.builderStylesheet);
+    this.builderStylesheet = this.builderStylesheet.sheet;
+    this.builderStylesheet.insertRule('body' + '{}', this.builderStylesheet.cssRules.length);
   },
 });
 
