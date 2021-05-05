@@ -376,8 +376,6 @@ var vm = new Vue({
     status: {
       isCompiled: false,
       isFileLoading: true,
-      isNotify: false,
-      isBranchLoaded: false,
       isLivePreview: true,
     },
     support: {
@@ -400,11 +398,6 @@ var vm = new Vue({
       ],
       // Используется только для предпросмотра темы
       avatar: '',
-      // Не сохраняются в localStorage, вычисляются после загрузки страницы
-      hasPalette: false,
-      hasScheme: false,
-      hasFile: false,
-      selected_branch: 'master',
     },
     currentHelpers: [
       'autoMainText',
@@ -448,13 +441,6 @@ var vm = new Vue({
       // NOTE: Вычисляемые свойства
       color_text_on_primary: '#FAFAFA',
       color_text_on_accent: '#212121',
-    },
-    folders: [],
-    file_list: [],
-    branches: {},
-    color_scheme: {},
-    theme: {
-      branches: ['master'],
     },
     colorPicker: {
       state: 0, // open or close
@@ -1176,30 +1162,6 @@ var vm = new Vue({
 });
 
 
-var user_sass;
-var user_css;
-
-
-function shikiCssAdaptation (css) {
-  var css = css ? css : '@charset "UTF-8"; ';
-  if (css.substring(0, 17) == '@charset "UTF-8";') {
-    css = css.slice(18);
-  }
-  css = css.replace('data:image', 'data\\:image');
-  css = css.replace(/\/\*\*\//g, '');
-  return css;
-}
-
-
-function switchDisabled(elem) {
-  if (elem.hasAttribute('disabled')) {
-    elem.removeAttribute('disabled');
-  } else {
-    elem.setAttribute('disabled', 'disabled');
-  }
-}
-
-
 function XHR (url, callback, error) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
@@ -1224,18 +1186,3 @@ document.addEventListener('click', function () {
     document.activeElement.blur();
   }
 });
-
-
-/**
- * Get file extension from filename
- * @fname  {string}   File name
- * @return {string}   File extension
- * Author: VisioN (https://stackoverflow.com/a/12900504)
- */
-function getExtension (fname) {
-  return fname.slice((fname.lastIndexOf(".") - 1 >>> 0) + 2);
-}
-
-function wordCapitlize (word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
