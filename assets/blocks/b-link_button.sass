@@ -31,6 +31,19 @@
     &:disabled
       background-color: var(--color-text-disabled)
       color: var(--color-text-hint)
+  
+  &.dark-2
+    background-color: var(--color-surface)
+    color: var(--color-text-primary)
+
+    &:hover
+      @media (min-width: 1024px)
+        background-color: var(--color-surface-hover)
+        color: var(--color-text-primary)
+
+    &:active
+      background-color: var(--color-overlay-text-pressed)
+      color: var(--color-text-primary)
 
   &.join-club,
   &.watch-online,

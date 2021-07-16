@@ -3,6 +3,34 @@
  * Изменение положения блоков на главной странице
  */
 .p-dashboards-show
+  .cc-ongoings
+    @media (max-width: 959px)
+      display: flex
+      overflow-x: auto
+
+      --l-content: calc((100vw - (var(--l-margin) * 2)))
+      --l-gutter: 8px
+      --l-columns: calc((var(--l-content) + var(--l-gutter)) / var(--i-columns) - var(--l-gutter))
+
+      .c-column
+        &:nth-child(n)
+          display: block
+          flex-shrink: 0
+          width: var(--l-columns)
+        &:not(:last-child)
+          margin-right: var(--l-gutter)
+
+    @media (max-width: 480px)
+      --i-columns: 3
+
+    @media (min-width: 481px) and (max-width: 767px)
+      --i-columns: 4
+
+    @media (min-width: 768px) and (max-width: 959px)
+      --i-columns: 5
+
+
+
   .cc-second
     .cc-inner
       display: none
@@ -291,10 +319,46 @@
         .b-link_button.maxi
           padding: 0 8px
 
-  .hot-topics .inner > .b-news_line-topic,
-  .content-updates .inner > .b-news_line-topic
-    @media (min-width: 1024px)
-      margin-bottom: 8px
+  .hot-topics,
+  .content-updates
+    .inner
+      @media (max-width: 767px)
+        height: 206px
+
+      & > .b-news_line-topic
+        @media (max-width: 767px)
+          width: calc((100vw - (var(--l-margin) * 2)))
+          margin-bottom: 8px !important
+
+        @media (min-width: 1024px)
+          margin-bottom: 8px
+
+
+
+
+  .fc-ongoings
+    --l-content: calc((100vw - (var(--l-margin) * 2)))
+    --l-gutter: 8px
+    --l-columns: calc((var(--l-content) + var(--l-gutter)) / var(--i-columns) - var(--l-gutter))
+
+    @media (max-width: 480px)
+      --i-columns: 3
+
+    @media (min-width: 481px) and (max-width: 767px)
+      --i-columns: 4
+
+    @media (min-width: 768px) and (max-width: 1023px)
+      --i-columns: 5
+
+    .inner
+      .b-catalog_entry
+        @media (max-width: 1023px)
+          width: var(--l-columns) !important
+          margin-right: var(--l-gutter)
+
+
+
+
 
   .fc-user-sections
     .f-user
@@ -311,6 +375,144 @@
           padding-right: 16px
           font-size: .875rem
 
+    .tags,
+    .f-sections .fc-tags .f-tags
+      display: inline
+      margin: 0
+
+    .f-sections .fc-tags
+      display: block
+      margin: 0
+      text-align: center
+
+    .tag-link
+      float: none
+      padding: 0 10px
+      margin: 0 8px 8px 0
+      background-color: var(--color-surface-hover) !important
+      border: 0 !important
+      border-radius: 12px
+      color: var(--color-text-hint) !important
+      font-size: 0
+      font-weight: bold
+      line-height: 24px
+      text-transform: uppercase
+
+      &:hover
+        @media (min-width: 1024px)
+          color: var(--color-text-primary) !important
+
+      &::before
+        content: attr(title)
+        vertical-align: top
+        padding: 0
+        font-size: 13px
+
+
+
+
+
+  .create-topic
+    padding: 6px 16px
+    margin: 6px 0
+    font-size: 16px
+
+
+
+
+  .db-updates
+    --l-content: calc((100vw - (var(--l-margin) * 2)))
+
+    .inner
+      display: block
+      height: 188px // 88px + 12px + 88px
+      margin: 0
+
+      @media (min-width: 1024px)
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 12px 24px
+        height: auto
+        margin: 0
+
+      & > .db-update
+        width: var(--l-content)
+        margin-bottom: 12px
+
+        @media (min-width: 481px) and (max-width: 767px)
+          width: calc(var(--l-content) / 2 - 15px) // (30px * 1 / 2)
+          margin-bottom: 12px
+
+        @media (min-width: 768px) and (max-width: 1023px)
+          width: calc(var(--l-content) / 3 - 20px) // (30px * 2 / 3)
+          margin-bottom: 12px
+
+        @media (min-width: 1024px)
+          width: 100%
+          min-width: 100%
+          margin: 0
+
+
+
+
+  .db-update
+    display: inline-flex
+    padding: 2px 8px
+    border: 1px solid var(--color-border)
+    border-radius: 5px
+    transition: background .2s ease-in-out
+    &:hover
+      background-color: var(--color-overlay-text-hovered)
+    &:active
+      background-color: var(--color-overlay-text-pressed)
+
+    .poster
+      margin: 3px 8px 4px 0
+
+      img
+        border-radius: 3px
+    
+    .name
+      margin: 0 0 -2px
+      color: var(--color-text-primary)
+      font-size: 15px
+      line-height: 26px
+
+    .status-time
+      margin: 0
+      white-space: nowrap
+
+      time
+        color: var(--color-text-hint)
+        font-size: 12px
+
+      .b-anime_status_tag
+        margin: 2px 8px 2px 0
+
+    .tags
+      display: block
+      height: auto
+      padding: 0
+      margin: 0
+      color: var(--color-text-primary)
+      text-overflow: ellipsis
+      white-space: nowrap
+
+      .b-anime_status_tag
+        margin: 2px 5px 2px 0
+
+      .b-tag
+        padding: 0 !important
+        margin: 0
+
+        &:not(:last-child)::after
+          content: ','
+          padding-right: 3px
+
+
+
+
+
   .my-list
     padding: 0
     background: transparent
@@ -323,6 +525,9 @@
       font-weight: bold
       line-height: 32px
       text-transform: uppercase
+
+      span
+        color: var(--color-text-hint)
 
       .misc-links
         margin-left: auto
@@ -339,6 +544,7 @@
             color: var(--color-link-active)
 
           &::after
+            padding: 0 5px
             color: var(--color-text-disabled)
 
   @media (max-width: 1023px)
@@ -362,3 +568,16 @@
       justify-content: flex-end
       &::before
         background: linear-gradient(90deg, transparent, var(--color-background)) !important
+
+
+
+
+// Особые правила для широкоформатной версии сайта
+.p-dashboards-show.x1200 .v2
+  .db-updates .inner
+    @media (min-width: 1200px)
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      gap: 12px 24px
+      height: auto
+      margin: 0
