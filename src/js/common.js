@@ -838,6 +838,7 @@ var vm = new Vue({
       str = parseInt(str);
       this.user.user_id = isNaN(str) ? '' : str;
       this.saveLocal('user_id', this.user.user_id);
+      this.builderUpdate();
     },
     setLayout: function (value) {
       // Когда пользователь меняет вид профиля удаляем или добавляем css-файл
@@ -869,6 +870,7 @@ var vm = new Vue({
       }
 
       this.saveLocal(type, image);
+      this.builderUpdate();
     },
     createTheme: function () {
       let isSassBuilder = this.user.hasPatreonAccount;
@@ -948,6 +950,7 @@ var vm = new Vue({
     },
     saveImports: function () {
       this.saveLocal('selected_imports', JSON.stringify(this.user.selected_imports));
+      this.builderUpdate();
     },
     downloadTheme: function () {
       let data, blob, url, link, event;
