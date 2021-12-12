@@ -3,6 +3,12 @@
   padding: 0 var(--l-margin)
   margin: 0 calc(var(--l-margin) * -1)
 
+  & > .inner.b-height_shortened
+    width: auto
+    padding: 12px var(--l-margin) !important // override
+    margin: 0 calc(var(--l-margin) * -1)
+    transition: none
+
   // !important в исходном стиле
   .time
     @media (max-width: 1024px)
@@ -58,15 +64,9 @@
     & > header > .name-date
       margin-left: 0 !important
 
-  &:not(:last-child)
-    position: relative
-
-    &::before
-      content: ''
-      display: block
-      position: absolute
-      bottom: 0
-      right: 0
-      left: 3.5rem
-      height: 1px
-      background-color: var(--color-border)
+  &:not(:last-child)::after
+    content: ''
+    display: block
+    height: 1px
+    margin: 0 calc(var(--l-margin) * -1) 0 56px
+    background: var(--color-border)

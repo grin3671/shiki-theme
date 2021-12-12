@@ -1,0 +1,86 @@
+// Кнопки голосования в рецензиях и коллекциях
+.b-footer_vote
+  align-items: flex-start
+  padding: 0
+  margin-top: 1rem
+  margin-bottom: 1rem
+  background: transparent
+  border: 0
+  color: inherit
+  font-size: inherit
+  line-height: inherit
+
+  &::after
+    content: ''
+    display: block
+    clear: both
+
+  .star
+    vertical-align: top
+    padding: .5rem
+    line-height: 0
+    @extend %material-icons
+    &::before
+      content: 'thumbs_up_down'
+      width: 1.5rem
+      padding: 0
+      font-size: 1.5rem
+
+  .notice
+    margin: 0 1.5rem 0 1rem
+    line-height: 2.5rem
+
+  .vote-group
+    float: right
+
+    .separator
+      display: none
+
+    .vote
+      min-width: 5.5rem
+      padding: 0 1rem
+      margin: .25rem 0
+      background-color: var(--color-surface-active)
+      border: 0
+      border-radius: .125rem
+      color: inherit
+      font-size: .875rem
+      font-weight: 700
+      line-height: 2rem
+      text-transform: uppercase
+      cursor: pointer
+      opacity: 1
+      transition: background-color .24s ease, color .24s ease
+
+      &:not(:last-child)
+        margin-right: .5rem
+
+      @extend %material-icons
+      &.yes::before, &.no::before
+        display: inline
+        vertical-align: middle
+        padding: 0
+        margin-right: .875rem
+        font-size: 1.125rem !important
+
+      &.yes
+        &.selected, &:hover
+          background-color: #4CAF50
+          background-color: var(--color-success)
+          color: #FFFFFF
+
+        &::before
+          content: 'thumb_up'
+
+      &.no
+        &.selected, &:hover
+          background-color: #F44336
+          background-color: var(--color-danger)
+          color: #FFFFFF
+
+        &::before
+          content: 'thumb_down'
+
+      span
+        border: 0
+        color: var(--color-text-secondary)

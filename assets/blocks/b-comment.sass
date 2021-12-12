@@ -18,19 +18,16 @@
   div.body
     line-height: 1.25
 
-  &:not(:last-child) > .inner
-    &::before
-      content: ''
-      display: block
-      position: absolute
-      bottom: 0
-      right: 0
-      left: 3.5rem
-      height: 1px
-      background-color: var(--color-border)
+  &:not(:last-child)::after
+    content: ''
+    display: block
+    height: 1px
+    margin-left: 56px
+    background-color: var(--color-border)
 
-  .tooltip & > .inner
-    padding: 0
-
-    &::before
+  .tooltip &
+    &::after
       opacity: 0
+
+    & > .inner
+      padding: 0 !important // override
