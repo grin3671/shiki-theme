@@ -1,0 +1,58 @@
+.b-review_opinion_marker
+
+  &:not(:last-child)
+    margin-right: 8px
+
+  span
+    display: block
+    position: relative
+    padding: 8px !important
+    border: none !important
+    border-radius: 3px
+    color: var(--color-text-hint) !important
+    font-size: 0 !important
+
+    @extend %material-icons
+    @extend %md-tooltip
+    @extend %md-tooltip-top
+
+    &:hover
+      background-color: var(--color-overlay-text-hovered) !important
+      color: var(--color-text-secondary) !important
+
+    &:active
+      background-color: var(--color-overlay-text-pressed) !important
+      color: var(--color-text-secondary) !important
+
+  &.is-positive
+    input:checked + span
+      background-color: var(--color-success) !important
+      color: #fff !important
+
+    span::before
+      content: 'sentiment_very_satisfied'
+
+    span::after
+      content: 'Положительный'
+
+  &.is-neutral
+    input:checked + span
+      background-color: var(--color-info) !important
+      color: #fff !important
+
+    span::before
+      content: 'sentiment_neutral'
+
+    span::after
+      content: 'Нейтральный'
+
+  &.is-negative
+    input:checked + span
+      background-color: var(--color-danger) !important
+      color: #fff !important
+
+    span::before
+      content: 'sentiment_very_dissatisfied'
+
+    span::after
+      content: 'Отрицательный'
