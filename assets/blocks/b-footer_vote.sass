@@ -27,6 +27,7 @@
     &::before
       content: 'thumbs_up_down'
       padding: 0
+      color: var(--color-text-secondary)
 
   .notice
     margin: 0 24px 0 12px
@@ -34,6 +35,9 @@
 
   .vote-group
     margin-left: auto
+
+    @media (min-width: 481px)
+      margin-left: 24px
 
     .separator
       display: none

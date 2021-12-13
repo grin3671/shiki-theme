@@ -26,7 +26,7 @@
   .navigation-node
     align-items: center
     position: relative
-    padding: 8px
+    padding: 12px
     margin: 0 0 0 8px
     background: transparent
     border: 0
@@ -45,11 +45,14 @@
       span
         display: none
 
+    &.is-empty
+      color: var(--color-text-hint)
+
     &.is-active
       flex: 0 0 auto
       order: -1
       padding: 6px 16px !important
-      margin: 2px auto 2px -16px
+      margin: 6px auto 6px -16px
       border-radius: var(--border-rounded)
       color: var(--color-primary)
       font-size: 14px
