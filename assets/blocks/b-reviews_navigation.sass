@@ -1,0 +1,127 @@
+.b-reviews_navigation
+  margin-top: 1em
+
+  .navigation-container
+    align-items: center
+    height: auto
+    margin-bottom: 0
+
+    .label
+      align-items: center
+
+      @extend %material-icons
+      &::before
+        padding: 0
+
+  a.navigation-node
+    &.is-active
+      @media (min-width: 1024px)
+        &:hover
+          background: var(--color-overlay-primary-hovered)
+          transition: background 0.16s cubic-bezier(0.4, 0, 0.6, 1)
+
+      &:active
+        background: var(--color-overlay-primary-pressed)
+
+  .navigation-node
+    align-items: center
+    position: relative
+    padding: 8px
+    margin: 0 0 0 8px
+    background: transparent
+    border: 0
+    border-radius: var(--border-rounded)
+    color: var(--color-text-secondary)
+    font-size: 14px
+    font-weight: bold
+    line-height: 24px
+    transition: 0s
+
+    @media (min-width: 768px)
+      padding: 6px 8px !important
+      margin: 0 0 0 12px
+
+    @media (max-width: 767px)
+      span
+        display: none
+
+    &.is-active
+      flex: 0 0 auto
+      order: -1
+      padding: 6px 16px !important
+      margin: 2px auto 2px -16px
+      border-radius: var(--border-rounded)
+      color: var(--color-primary)
+      font-size: 14px
+
+      .label
+        &::before
+          display: none
+
+        span
+          display: block
+          text-decoration: none !important
+
+    &:not(.is-active):not(.is-empty)
+      @media (min-width: 1024px)
+        &:hover
+          background: var(--color-overlay-primary-hovered)
+          color: var(--color-text-secondary)
+          transition: background 0.16s cubic-bezier(0.4, 0, 0.6, 1)
+
+      &:active
+        background: var(--color-overlay-primary-pressed)
+        color: var(--color-text-secondary)
+
+    &.navigation-node-all
+
+      .label
+        &::before
+          content: 'more'
+
+    &.navigation-node-positive
+      .label
+        &::before
+          content: 'sentiment_very_satisfied'
+
+    &.navigation-node-neutral
+      .label
+        &::before
+          content: 'sentiment_neutral'
+
+    &.navigation-node-negative
+      .label
+        &::before
+          content: 'sentiment_very_dissatisfied'
+
+    &:not(.is-active)
+      .count
+        display: block !important
+        position: absolute
+        top: -4px
+        right: -4px
+        width: 24px
+        height: 24px
+        background: var(--color-accent)
+        border-radius: 50%
+        color: var(--color-text-on-accent)
+        font-size: 12px
+        font-weight: bold
+        line-height: 24px
+        text-align: center
+
+        &::before,
+        &::after
+          display: none
+
+  .review-controls
+    flex-direction: row-reverse
+    justify-content: space-between
+    padding: 10px 0
+
+    .to-other-reviews,
+    .create-topic
+      margin: 0
+
+      &::after
+        display: none

@@ -338,7 +338,15 @@
     "checked": true
   },
   {
+    "url": "blocks/b-review.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-review_opinion_marker.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-reviews_navigation.sass",
     "checked": true
   },
   {

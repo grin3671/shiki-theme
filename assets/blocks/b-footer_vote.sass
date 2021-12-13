@@ -1,9 +1,12 @@
 // Кнопки голосования в рецензиях и коллекциях
 .b-footer_vote
-  align-items: flex-start
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  width: 100%
   padding: 0
-  margin-top: 1rem
-  margin-bottom: 1rem
+  margin-top: 16px
+  margin-bottom: 16px
   background: transparent
   border: 0
   color: inherit
@@ -17,21 +20,20 @@
 
   .star
     vertical-align: top
-    padding: .5rem
+    padding: 0
     line-height: 0
+
     @extend %material-icons
     &::before
       content: 'thumbs_up_down'
-      width: 1.5rem
       padding: 0
-      font-size: 1.5rem
 
   .notice
-    margin: 0 1.5rem 0 1rem
-    line-height: 2.5rem
+    margin: 0 24px 0 12px
+    line-height: 24px
 
   .vote-group
-    float: right
+    margin-left: auto
 
     .separator
       display: none

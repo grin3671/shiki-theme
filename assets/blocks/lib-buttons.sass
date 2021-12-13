@@ -20,6 +20,30 @@
     display: none
 
 
+.item-quote-mobile[class]
+  width: auto
+  padding: 8px
+  margin: 4px 0
+  border-radius: 50%
+  color: var(--color-text-hint)
+  line-height: 1
+
+  &:not(.is-active)
+    display: none
+
+  &:active
+    background-color: var(--color-overlay-text-pressed)
+    color: var(--color-text-secondary)
+
+  &::before
+    content: 'format_quote'
+    display: block
+    width: 1em
+    font-size: 24px
+    font-family: 'Material Icons'
+    line-height: 1
+
+
 .buttons
   margin-right: 0
   color: inherit

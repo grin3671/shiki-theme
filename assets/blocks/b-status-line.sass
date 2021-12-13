@@ -5,8 +5,8 @@
 
   .section
     &:not(:last-child)::after
-      padding-right: 12px
-      margin-right: 12px
+      padding-right: 8px
+      margin-right: 8px
       border-color: var(--color-border)
 
     &.about
@@ -19,6 +19,25 @@
       .author
         padding-left: .5rem
 
+    &.main
+      & > span
+        align-self: center
+
+        &:not(:last-child)
+          margin-right: 8px
+
+      .comments
+        display: flex
+        align-items: center
+
+        @extend %material-icons
+        &::before
+          content: 'mode_comment'
+          color: var(--color-text-disabled)
+          padding-right: 0
+          margin-right: 8px
+          font-size: 18px !important
+
     &.created_at time,
     &.changed_at time,
     &.additional .collection-size,
@@ -29,18 +48,24 @@
         display: inline-block
         vertical-align: top
         padding: 0
-        margin-right: .375rem
+        margin-right: 4px
         color: var(--color-text-disabled)
-        font-size: 1.125rem !important
+        font-size: 18px !important
 
 
     &.created_at
-      time::before
-        content: 'create'
+      time
+        display: flex
+        align-items: center
+        &::before
+          content: 'create'
 
     &.changed_at
-      time::before
-        content: 'history'
+      time
+        display: flex
+        align-items: center
+        &::before
+          content: 'history'
 
     &.additional
       .collection-size

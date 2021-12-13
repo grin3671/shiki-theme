@@ -1,16 +1,14 @@
 .b-critique_votes
+  display: flex
+  align-items: center
   color: inherit
   font-size: inherit
   line-height: inherit
-  @extend %material-icons
-  &::before
-    content: 'thumbs_up_down'
-    display: inline-block
-    vertical-align: top
-    color: var(--color-text-disabled)
-    font-size: 1.125rem !important
 
-  span
+  &::before
+    display: none // default icon hidden, fake icon in .voted-against::after
+
+  & > span
     color: var(--color-text-disabled)
 
   .votes-for
@@ -18,3 +16,54 @@
 
   .votes-against
     color: var(--color-danger)
+
+  .user-vote
+    display: flex
+    order: -1
+    margin-right: 8px
+    font-size: 0
+    line-height: 1
+
+    .voted-for,
+    .voted-against
+
+      &::before
+        display: none
+        float: none
+        width: 1em
+        padding: 0
+        font-family: 'Material Icons'
+        font-size: 18px
+        line-height: 1
+
+      &.selected
+        margin: 0
+
+        &::before
+          display: block
+
+    .voted-for
+      &::before
+        content: 'thumb_up'
+
+    .voted-against
+      &::before
+        content: 'thumb_down'
+
+    // Default icon
+    .voted-against
+      display: block
+
+      &:not(.selected)::after
+        content: 'thumbs_up_down'
+        display: block
+        float: none
+        padding: 0
+        color: var(--color-text-disabled)
+        font-family: 'Material Icons'
+        font-size: 18px
+
+    // Default icon hidden if any vote is selected
+    & > .voted-for.selected + .voted-against
+      &::after
+        display: none

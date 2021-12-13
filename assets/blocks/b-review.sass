@@ -1,0 +1,177 @@
+.b-review
+  @extend %shiki-entry
+
+  border-top: none
+  margin-bottom: 4px
+
+  &:not(:last-child)
+    position: relative
+
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      bottom: -1px
+      right: 0
+      left: 0
+      height: 1px
+      background-color: var(--color-border)
+  
+  & > .inner
+    line-height: 1.5
+
+    header
+      .author-link
+        width: 40px
+        height: 40px
+        margin: 4px 16px 12px 0
+
+        & > img
+          border-radius: var(--border-round)
+          margin: 0
+
+    .review-details
+      .name-url
+        align-items: center
+        margin: 0
+        line-height: 24px
+
+        .name
+          color: var(--color-text-primary)
+          font-size: 16px
+
+          @media (min-width: 1024px)
+            &:hover
+              color: var(--color-link-hover)
+              text-decoration: underline
+
+          &:active
+            color: var(--color-link-active)
+
+        .to-review
+          display: flex
+          padding: 0 8px 0 4px
+          background: var(--color-overlay-text-hovered)
+          border-radius: 3px
+          color: var(--color-text-secondary)
+          font-size: 0
+          font-weight: bold
+
+          @media (min-width: 768px)
+            margin-left: 24px
+
+          @media (min-width: 1024px)
+            &:hover
+              background: var(--color-overlay-text-selected)
+              color: var(--color-text-primary)
+              text-decoration: none
+
+          &:active
+            background: var(--color-overlay-text-pressed)
+
+          @extend %material-icons
+          &::before
+            content: 'read_more'
+            margin-right: 8px
+
+          &::after
+            content: 'К отзыву'
+            font-size: 14px
+
+      .b-status-line
+        color: var(--color-text-hint)
+        line-height: 24px
+
+        time
+          display: flex
+
+    .review-info
+      align-items: center
+
+      .neutral
+        color: var(--color-text-hint)
+
+      .label
+        font-size: 14px
+        line-height: 16px
+
+      .opinion
+        width: auto
+        height: auto
+        padding: 4px
+        margin-right: 8px
+        border-radius: 3px
+
+        @extend %material-icons
+
+        &.positive::before
+          content: 'sentiment_very_satisfied'
+
+        &.neutral::before
+          content: 'sentiment_neutral'
+
+        &.negative::before
+          content: 'sentiment_very_dissatisfied'
+
+      .user-rate-label
+        color: var(--color-text-hint)
+        font-size: 12px
+
+      .user-rate
+        flex-direction: column-reverse
+        align-items: center
+        margin: 0 0 0 auto
+
+        @media (min-width: 481px)
+          margin-left: 48px
+
+        .b-rate
+          padding: 0
+          margin: 0 0 0 auto
+
+          .stars::before
+            font-size: 18px !important
+
+        .b-add_to_list
+
+          .edit
+            width: auto
+            height: auto
+            padding: 0
+
+          .edit-trigger
+            padding: 0
+            background: transparent
+            border: 0
+            cursor: auto
+
+          .trigger
+            max-width: none
+            padding: 0
+            background: transparent
+            border-left-width: 0
+            color: var(--color-text-secondary)
+            font-size: 14px
+            line-height: 18px
+
+            [class]::before
+              width: 1em !important
+              margin: 0
+              font-size: 18px !important
+
+    footer
+      .b-footer_vote
+        margin-top: 8px
+        margin-bottom: 8px
+
+      .do-comment
+        flex: 1 0 auto
+        font-size: 14px !important
+        text-transform: uppercase
+
+        &::before
+          content: 'mode_comment'
+          margin: 0 8px 0 0
+          font-family: 'Material Icons'
+          font-size: 18px
+          font-weight: normal
