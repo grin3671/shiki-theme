@@ -16,29 +16,70 @@
       left: 0
       height: 1px
       background-color: var(--color-border)
-  
+
   & > .inner
     line-height: 1.5
 
+    & > aside.buttons
+      position: absolute
+      top: 0
+      right: 0
+      margin: 0
+
     header
+      display: block
+      padding: 0
+      margin-bottom: 8px
+
+      @media (min-width: 481px) and (max-width: 959px)
+        // Правила для .is_written_before_release-container
+        &::after
+          display: none
+
       .author-link
         width: 40px
         height: 40px
-        margin: 4px 16px 12px 0
+        margin: 4px 16px 4px 0
 
         & > img
           border-radius: var(--border-round)
           margin: 0
 
     .review-details
+      display: block
+
       .name-url
+        width: calc(100% - 56px)
         align-items: center
         margin: 0
+        color: var(--color-text-secondary)
+        font-size: 0
         line-height: 24px
+        text-overflow: ellipsis
+        white-space: nowrap
+        overflow: hidden
+
+        .p-profiles-reviews &::after
+          content: '\00a0отзыв к\00a0'
+          order: -1
+          font-size: 15px
+
+        .p-profiles-reviews[data-locale="en"] &::after
+          content: '\00a0review on\00a0'
 
         .name
           color: var(--color-text-primary)
           font-size: 16px
+
+          &:first-child
+            order: -1
+
+          &:not(:first-child)
+            flex: 0 1 auto
+            margin-right: 4px
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
 
           @media (min-width: 1024px)
             &:hover
@@ -50,6 +91,7 @@
 
         .to-review
           display: flex
+          flex-shrink: 0
           padding: 0 8px 0 4px
           background: var(--color-overlay-text-hovered)
           border-radius: 3px
@@ -58,7 +100,7 @@
           font-weight: bold
 
           @media (min-width: 768px)
-            margin-left: 24px
+            margin-left: auto
 
           @media (min-width: 1024px)
             &:hover
@@ -78,15 +120,45 @@
             content: 'К отзыву'
             font-size: 14px
 
+          [data-locale="en"] &::after
+            content: 'To review'
+
       .b-status-line
         color: var(--color-text-hint)
         line-height: 24px
 
+        .tooltip &
+          margin: 0
+
         time
           display: flex
 
+    &.is-editing .review-info
+      @media (min-width: 960px)
+        margin-top: -48px
+
     .review-info
       align-items: center
+      padding: 4px 0
+
+      .tooltip &
+        width: auto
+        padding: 2px 6px
+        margin-top: 6px
+
+      @media (min-width: 481px) and (max-width: 959px)
+        // Правила для .is_written_before_release-container
+        float: left
+        width: auto
+        margin: 0 16px 8px 0
+
+      @media (min-width: 960px)
+        float: right
+        padding: 4px 8px
+        margin: 8px 0 0 8px
+        background: var(--color-overlay-text-hovered)
+        border: 1px solid var(--color-border)
+        border-radius: 5px
 
       .neutral
         color: var(--color-text-hint)
@@ -123,7 +195,7 @@
         margin: 0 0 0 auto
 
         @media (min-width: 481px)
-          margin-left: 48px
+          margin-left: 16px
 
         .b-rate
           padding: 0
@@ -158,6 +230,24 @@
               width: 1em !important
               margin: 0
               font-size: 18px !important
+
+    .is_written_before_release-container
+      margin: -8px 0 0
+
+      .b-anime_status_tag
+        margin-right: 0
+      
+      @media (min-width: 481px) and (max-width: 959px)
+        margin: 0
+
+      @media (min-width: 960px)
+        position: absolute
+        right: 0
+        margin-top: -36px
+
+    .body
+      @media (min-width: 481px) and (max-width: 959px)
+        clear: both
 
     footer
       .b-footer_vote

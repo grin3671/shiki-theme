@@ -9,9 +9,12 @@
   & > .inner
     padding: 12px 0 !important // important to override shiki's animation
 
-    aside.markers
-      @media (max-width: 1024px)
+    @media (max-width: 1023px)
+      aside.markers
         padding-right: 48px // offset for item-mobile
+
+      &.is-editing aside.markers
+        padding-right: 0 // fix offset in review editing
 
     header
       min-height: 32px

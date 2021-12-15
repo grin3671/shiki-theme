@@ -12,6 +12,7 @@
       @extend %material-icons
       &::before
         padding: 0
+        color: inherit !important // shiki has stupid rules like .navigation-node.is-empty:not(.is-active) .label:before
 
   a.navigation-node
     &.is-active
@@ -45,6 +46,16 @@
       span
         display: none
 
+    .count
+      margin-left: .25em
+      font-size: inherit
+
+      &::before,
+      &::after
+        padding: 0
+        color: var(--color-text-hint)
+        font-weight: inherit
+
     &.is-empty
       color: var(--color-text-hint)
 
@@ -65,6 +76,9 @@
           display: block
           text-decoration: none !important
 
+    &.is-active.is-empty
+      color: var(--color-text-hint)
+
     &:not(.is-active):not(.is-empty)
       @media (min-width: 1024px)
         &:hover
@@ -77,7 +91,6 @@
         color: var(--color-text-secondary)
 
     &.navigation-node-all
-
       .label
         &::before
           content: 'more'
