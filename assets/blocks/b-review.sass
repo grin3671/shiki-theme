@@ -53,19 +53,24 @@
         align-items: center
         margin: 0
         color: var(--color-text-secondary)
-        font-size: 0
         line-height: 24px
-        text-overflow: ellipsis
-        white-space: nowrap
-        overflow: hidden
 
-        .p-profiles-reviews &::after
-          content: '\00a0отзыв к\00a0'
-          order: -1
-          font-size: 15px
+        .name-inner
+          display: flex
+          align-items: flex-end
+          margin-right: 4px
+          font-size: 0
+          text-overflow: ellipsis
+          white-space: nowrap
+          overflow: hidden
 
-        .p-profiles-reviews[data-locale="en"] &::after
-          content: '\00a0review on\00a0'
+          .p-profiles-reviews &::after
+            content: '\00a0отзыв к\00a0'
+            order: -1
+            font-size: 15px
+
+          .p-profiles-reviews[data-locale="en"] &::after
+            content: '\00a0review on\00a0'
 
         .name
           color: var(--color-text-primary)
@@ -75,8 +80,6 @@
             order: -1
 
           &:not(:first-child)
-            flex: 0 1 auto
-            margin-right: 4px
             text-overflow: ellipsis
             white-space: nowrap
             overflow: hidden
