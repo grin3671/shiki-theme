@@ -20,11 +20,25 @@
   & > .inner
     line-height: 1.5
 
+    .item-mobile
+      @media (max-width: 767px)
+        top: 12px
+
+      @media (min-width: 768px) and (max-width: 1023px)
+        top: 12px
+
     & > aside.buttons
       position: absolute
       top: 0
       right: 0
       margin: 0
+
+    & > aside.markers
+      @media (max-width: 1023px)
+        padding-right: 0
+
+      & > div
+        margin: 0 0 0 8px
 
     header
       display: block
@@ -49,7 +63,6 @@
       display: block
 
       .name-url
-        width: calc(100% - 56px)
         align-items: center
         margin: 0
         color: var(--color-text-secondary)
@@ -103,7 +116,7 @@
           font-weight: bold
 
           @media (min-width: 768px)
-            margin-left: auto
+            margin-left: 12px
 
           @media (min-width: 1024px)
             &:hover
