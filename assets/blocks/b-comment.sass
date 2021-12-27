@@ -18,6 +18,10 @@
   div.body
     line-height: 1.25
 
+  .comments-loaded &
+    &:last-child
+      margin-bottom: 0 // override
+
   &:not(:last-child)::after
     content: ''
     display: block

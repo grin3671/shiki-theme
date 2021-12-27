@@ -1,23 +1,25 @@
 .b-quote-v2
   padding: 8px 16px
+  margin: .5em 0
   background-color: var(--color-surface)
   border: 1px solid var(--color-border)
   border-radius: var(--border-rounded)
 
+  &::first-line
+    line-height: 1.5
+
+  @extend %material-icons
   &::before
-    content: '"'
-    display: inline-block
-    width: 12px
-    margin-right: 12px
-    color: var(--color-text-hint)
-    font-family: shikimori
-    font-size: 12px
-    letter-spacing: normal
-    text-transform: none
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    -webkit-font-feature-settings: 'liga'
-    font-feature-settings: 'liga'
+    content: 'format_quote'
+    float: right
+    margin: 0 0 0 8px
+    color: var(--color-text-disabled)
+
+  .quoteable
+    padding: 0 0 6px
+
+    &::before
+      display: none
 
   & > .b-list
     margin-left: 24px

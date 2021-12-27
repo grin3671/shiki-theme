@@ -274,24 +274,26 @@
   .profile-head
     .c-history
       .entry
+        // TODO: move all rules under @media (min-width: 960px)
+        // TODO: move mobile rules to this tree =693
         position: relative
-        padding: .5rem 0
+        padding: 8px 0
         margin: 0
         border: 0
         overflow: initial
 
         &,
         &:first-child
-          padding-top: .5rem
+          padding-top: 8px
           margin-top: 0
 
         &::before
           content: ''
           display: block
           position: absolute
-          right: -.5rem
+          right: -8px
           bottom: 0
-          left: 3.5rem
+          left: 61px // 8px + 45px + 16px - 8px
           height: 1px
           pointer-events: none
 
@@ -301,12 +303,12 @@
         // Полноразмерная ссылка .entry, работает только для .c-history & .l-menu
         a
           display: block
-          padding: .5rem .5rem
-          margin: -.5rem
+          padding: 8px
+          margin: -8px
           transition: .16s cubic-bezier(.4, 0, .6, 1)
 
           @media (min-width: 960px)
-            padding: .75rem .5rem
+            padding: 12px 8px
 
           &::after
             content: ''
@@ -323,13 +325,16 @@
           text-decoration: none
 
         img
-          max-width: 40px
-          max-height: 72px
-          margin: 0 16px 0 0
-          border-radius: 2px
+          max-width: 45px
+          max-height: 70px
+          margin: -4px 16px -4px 0
+          background: var(--color-surface)
+          border-radius: var(--border-rounded)
+          object-fit: none
+          object-position: center top
 
         .misc
-          font-size: .75em
+          font-size: 12px
 
 
 
