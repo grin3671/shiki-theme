@@ -7,6 +7,11 @@
  * BUG: IE doesn't support Materail Icon's font format [.woff2]
  */
 
+:root
+  --font-icons-family: 'Material Icons'
+  --font-icons-size-m: 24px
+  --font-icons-size-s: 18px
+
 @font-face
   font-family: 'Material Icons'
   font-style: normal
@@ -17,8 +22,8 @@
   display: block
   flex-shrink: 0
   width: 1em !important
-  font-family: 'Material Icons' !important
-  font-size: 24px !important
+  font-family: var(--font-icons-family) !important
+  font-size: var(--font-icons-size-m) !important
   font-style: normal
   font-weight: 400 !important
   line-height: 1 !important
@@ -43,7 +48,7 @@
 %material-icons-18
   @extend %material-icons
   &::before
-    font-size: 18px !important
+    font-size: var(--font-icons-size-s) !important
 
 %material-icons-20
   @extend %material-icons
