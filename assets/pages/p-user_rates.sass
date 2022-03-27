@@ -220,20 +220,24 @@
 
 
 // Кнопки списков сбоку
-@media (min-width: 1312px)
-  .p-user_rates-index .l-content > .mylist
+.p-user_rates-index .l-content > .mylist
+  a
+    @extend %material-icons
+    @extend %md-tooltip-right
+
+  @media (min-width: 1312px)
     position: fixed
     top: 240px
     right: auto
     width: 56px
-    margin: 0 0 0 -80px
+    margin: 0 0 0 -62px
     text-align: left
 
     a
       position: relative
       display: block
       padding: 8px
-      margin: 4px 0
+      margin: -2px 0
       background: var(--color-background)
       border-radius: 50% 0 0 50%
       color: var(--color-text-hint)
@@ -245,25 +249,8 @@
         text-decoration: none
 
       &::before
-        display: block
-        width: 1em
         padding: 8px
         border-radius: 50%
-        font-family: 'Material Icons'
-        font-size: 24px
-        line-height: 1
-        overflow: hidden
-
-        letter-spacing: normal
-        text-transform: none
-        word-wrap: normal
-        white-space: nowrap
-        direction: ltr
-
-        -webkit-font-smoothing: antialiased
-        text-rendering: optimizeLegibility
-        -moz-osx-font-smoothing: grayscale
-        font-feature-settings: 'liga'
 
       &:hover::before,
       &.selected::before
@@ -288,8 +275,29 @@
       &[data-id='dropped']::before
         content: 'delete'
 
+
       &::after
-        display: none
+        top: 0
+        height: 20px
+        margin: auto 12px
+
+      &[data-id='planned']::after
+        content: 'Запланировано'
+
+      &[data-id='watching']::after
+        content: 'Смотрю'
+
+      &[data-id='rewatching']::after
+        content: 'Пересматриваю'
+
+      &[data-id='completed']::after
+        content: 'Просмотрено'
+
+      &[data-id='on_hold']::after
+        content: 'Отложено'
+
+      &[data-id='dropped']::after
+        content: 'Брошено'
 
       span
         position: absolute
