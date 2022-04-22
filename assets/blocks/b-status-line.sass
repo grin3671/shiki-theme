@@ -30,7 +30,8 @@
     &.created_at time,
     &.changed_at time,
     &.main .comments,
-    &.main .collection-size
+    &.main .collection-size,
+    &.main .is-pinned
       display: inline-flex
       align-items: center
       vertical-align: top
@@ -62,3 +63,8 @@
 
       &::before
         content: 'widgets'
+
+    &.main .is-pinned
+      &::before
+        content: 'push_pin'
+        transform: rotate(45deg)

@@ -72,12 +72,10 @@
   .body
     .editor
       textarea
-        padding: .5rem 1rem
+        @extend %md-textfield
+        padding-top: 12px
+        padding-bottom: 12px
         margin: 0
-        background: var(--color-surface)
-        border-radius: 2px
-        font-size: 1rem
-        line-height: 1.25rem
 
         // TODO: check moz & ms browsers
         &::-webkit-input-placeholder

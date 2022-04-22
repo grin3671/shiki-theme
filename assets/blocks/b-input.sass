@@ -1,17 +1,44 @@
+// From md-textfields
+%md-textfield
+  padding: 8px 16px
+  background: transparent
+  border: 0
+  border-radius: var(--border-rounded)
+  box-shadow: 0 0 0 1px var(--color-border) inset
+  font-family: inherit
+  font-size: inherit
+  line-height: 1.5
+  transition: box-shadow .24s cubic-bezier(0.4, 0, 0.6, 1)
+
+  &:hover
+    box-shadow: 0 0 0 2px var(--color-border) inset
+
+  &:invalid
+    box-shadow: 0 0 0 2px var(--color-danger) inset
+
+  &:focus
+    box-shadow: 0 0 0 2px var(--color-primary) inset
+    outline: none
+
+  &:focus-visible
+    box-shadow: 0 0 0 2px var(--color-primary) inset
+    outline: none
+
+  &:disabled
+    opacity: .5
+    box-shadow: 0 0 0 1px var(--color-border) inset
+
+
+
 .b-input
   margin-bottom: .5rem
 
   &:last-child
     margin-bottom: 0
 
-  input, textarea
-    padding: .3125rem 1rem
-    background: var(--color-surface)
-    border-color: var(--color-border)
-    border-radius: 2px
-    font-family: inherit
-    font-size: inherit
-    line-height: 1.25rem
+  input,
+  textarea
+    @extend %md-textfield
 
     // TODO: check moz & ms browsers
     &::-webkit-input-placeholder
@@ -50,6 +77,7 @@
     border: .125rem solid var(--color-text-hint)
     border-radius: .125rem
     box-sizing: border-box
+    box-shadow: none
     transition: .24s cubic-bezier(.4, 0, .2, 1)
     -webkit-appearance: none
     -moz-appearance: none
@@ -72,26 +100,43 @@
       background-color: var(--color-text-disabled)
       border-color: transparent
 
-  input[disabled]
-    padding: .375rem 0 .25rem
-    background: transparent
-    border-width: 0
-    border-bottom-width: .125rem
-    color: #9E9E9E !important
+  input[type=file]
+    &::file-selector-button
+      height: 40px
+      padding: 0 12px
+      margin: 0 8px 0 0
+      background: var(--color-border)
+      border: 0
+      border-radius: var(--border-rounded) 0 0 var(--border-rounded)
+      font-family: inherit
+      font-size: 14px
+      font-weight: bold
+      color: var(--color-text-hint)
+      line-height: 1
+      transition: 0.24s cubic-bezier(0.4, 0, 0.6, 1)
 
-  textarea
-    padding: .4375rem 1rem
+    &:focus::file-selector-button
+      background: var(--color-primary)
+      color: var(--color-text-on-primary)
+
+  input[disabled]
+    background: transparent
 
   select
-    height: 2rem
-    padding: 2px .5rem
-    background: var(--color-surface)
-    font-family: inherit
-    font-size: .875rem
-    line-height: 2rem
+    @extend %md-textfield
 
-    &:disabled
-      opacity: .5
+    --icon-dropdown: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAACVBMVEUAAACBgYGAgIC44mYqAAAAAnRSTlMAf7YpoZUAAAA3SURBVHja7dG3AcAwDANBvPcf2gOo+kYRVzMzVXUzvgEyA9kDORVyD+TmyFshr4v8B1Eg61XVD7j/AMm292cVAAAAAElFTkSuQmCC)
+
+    appearance: none
+    min-width: 88px
+    height: 40px // line-height does not affect the element's height
+    padding-right: 40px
+    background: var(--icon-dropdown) center right 8px / 24px no-repeat
+
+    optgroup,
+    option
+      background: var(--color-background)
+      color: var(--color-text-primary)
 
   label
     line-height: 1.5
@@ -100,8 +145,56 @@
 
   .hint
     color: var(--color-text-disabled)
-    font-size: .75rem
-    line-height: 1.25rem
+    font-size: 14px
+    line-height: 20px
+
+
+
+  // #vue_tags_input
+  &[class]
+    .vue-tags-input
+      border-radius: var(--border-rounded)
+      box-shadow: 0 0 0 1px var(--color-border) inset
+      transition: box-shadow 0.24s cubic-bezier(0.4, 0, 0.6, 1)
+
+      &:hover
+        box-shadow: 0 0 0 2px var(--color-border) inset
+
+      &.ti-focus
+        box-shadow: 0 0 0 2px var(--color-primary) inset
+
+    .ti-new-tag-input-wrapper
+      .ti-new-tag-input
+        padding: 0 12px
+        background: transparent
+        box-shadow: none
+        line-height: 40px
+
+    .ti-tag
+      padding: 0 12px
+      background: var(--color-surface)
+      border-radius: 16px
+      color: var(--color-text-secondary)
+      font-weight: bold
+      text-transform: capitalize
+
+      .ti-actions
+        margin-right: -4px
+        margin-left: 8px
+
+      .ti-icon-close
+        padding: 2px
+        background: var(--color-text-disabled)
+        border-radius: 50%
+        color: var(--color-surface)
+        opacity: 1
+
+        @extend %material-icons
+        &::before
+          content: 'close'
+          font-size: 14px !important
+
+
 
 @keyframes switch-to-black-check
   to

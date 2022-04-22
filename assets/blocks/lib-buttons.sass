@@ -230,14 +230,16 @@
   color: var(--color-text-hint) !important
   line-height: 18px !important
   transition: .16s cubic-bezier(.4, 0, .6, 1)
+  transition-property: background, color
 
   @media (min-width: 1025px)
-    width: 32px
-    height: 32px
-    padding: 7px
-    margin-left: 8px !important
-    border-radius: 2px
-    line-height: 18px !important
+    --size: 4 // 32px
+    width: calc(var(--l-unit) * var(--size))
+    height: calc(var(--l-unit) * var(--size))
+    padding: calc((var(--l-unit) * var(--size) - var(--font-icons-size-s)) / 2)
+    margin-left: calc(var(--font-size) / 2) !important
+    border-radius: var(--border-rounded)
+    line-height: var(--font-icons-size-s) !important
 
   &:hover
     background-color: var(--color-overlay-text-hovered)

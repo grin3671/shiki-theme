@@ -26,6 +26,20 @@
       font-size: .875em
       line-height: inherit
 
+    .is-pinned
+      align-self: center
+      padding: 4px
+      margin: 0 0 0 1em
+      color: var(--color-text-hint)
+      line-height: 0
+
+      @extend %material-icons
+      &::before
+        content: 'push_pin'
+        margin: 0
+        font-size: 16px !important
+        transform: rotate(45deg)
+
     .comments
       display: flex
       margin: auto 0 auto auto

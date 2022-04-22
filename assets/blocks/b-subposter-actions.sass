@@ -2,6 +2,11 @@
   @media (max-width: 480px)
     display: block
 
+  justify-content: space-between
+
+  & > .b-subposter-action
+    margin: 4px 0 !important
+
 .b-subposter-action
   @extend %md-icon
   @extend %md-icon-hover
@@ -61,6 +66,9 @@
 
   &.new_comment::before
     content: 'chat_bubble'
+
+  &.new_review::before
+    content: 'reviews'
 
 
   // club

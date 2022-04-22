@@ -1,0 +1,107 @@
+.b-review-topic
+  &.is-review_review_author_details > .inner
+    header
+      margin-bottom: 4px
+
+    .review-details
+      line-height: 24px
+
+      .name-url
+        align-items: center
+
+        .name
+          font-size: 16px
+
+        .to-review
+          display: flex
+          flex-shrink: 0
+          align-items: center
+          padding: 0 8px 0 4px
+          background: var(--color-overlay-text-hovered)
+          border-radius: 3px
+          color: var(--color-text-secondary)
+          font-size: 0
+          font-weight: bold
+
+          @media (min-width: 768px)
+            margin-left: 12px
+
+          @media (min-width: 1024px)
+            &:hover
+              background: var(--color-overlay-text-selected)
+              color: var(--color-text-primary)
+              text-decoration: none
+
+          &:active
+            background: var(--color-overlay-text-pressed)
+
+          @extend %material-icons
+          &::before
+            content: 'read_more'
+            margin-right: 8px
+
+          &::after
+            content: 'К отзыву'
+            font-size: 14px
+
+          [data-locale="en"] &::after
+            content: 'To review'
+
+      .b-status-line
+        color: var(--color-text-hint)
+
+      .opinion
+        width: auto
+        height: auto
+        padding: 4px
+        margin-right: 8px
+        border-radius: 3px
+
+        @extend %material-icons
+
+        &.positive::before
+          content: 'sentiment_very_satisfied'
+
+        &.neutral::before
+          content: 'sentiment_neutral'
+
+        &.negative::before
+          content: 'sentiment_very_dissatisfied'
+
+      .user-rate
+        .b-rate
+          padding: 0
+          margin: 0
+
+          .stars::before
+            font-size: 24px !important
+
+        .b-add_to_list
+
+          .edit
+            width: auto
+            height: auto
+            padding: 0
+
+          .edit-trigger
+            padding: 0
+            background: transparent
+            border: 0
+            cursor: auto
+
+          .trigger
+            max-width: none
+            padding: 0
+            background: transparent
+            border-left-width: 0
+            color: var(--color-text-secondary)
+            font-size: 14px
+            line-height: 18px
+
+            [class]::before
+              width: 1em !important
+              margin: 0
+              font-size: 18px !important
+
+    & > aside.buttons
+      margin-top: -40px

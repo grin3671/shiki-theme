@@ -1,18 +1,21 @@
 /* Звёзды рейтинга */
 .b-rate
+  display: flex
   padding: 6px 0
 
   &:last-child
     margin-bottom: 15px
 
   .text-score
-    vertical-align: top
+    position: relative
+    flex: 1 1 auto
     color: inherit
 
   .score-notice
+    position: absolute
+    inset: auto -50% 85%
     color: inherit
     font-size: 10px
-    margin-top: -46px
     text-transform: uppercase
 
     // FIX: position in review

@@ -82,15 +82,20 @@
     &.is-active.is-empty
       color: var(--color-text-hint)
 
+    &.is-empty:not(.is-active)
+      @media (min-width: 1024px)
+        .label
+          color: var(--color-text-disabled)
+
     &:not(.is-active):not(.is-empty)
       @media (min-width: 1024px)
         &:hover
-          background: var(--color-overlay-primary-hovered)
+          background: var(--color-overlay-text-hovered)
           color: var(--color-text-secondary)
           transition: background 0.16s cubic-bezier(0.4, 0, 0.6, 1)
 
       &:active
-        background: var(--color-overlay-primary-pressed)
+        background: var(--color-overlay-text-pressed)
         color: var(--color-text-secondary)
 
     &.navigation-node-all
