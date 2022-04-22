@@ -37,11 +37,13 @@
     z-index: 10
 
     .toggler
-      @extend %material-icons
+      background: var(--color-surface)
+      border-color: var(--color-border)
       border-radius: 4px
       padding: 0 .25em
       line-height: 24px
 
+      @extend %material-icons
       &::before
         content: 'chevron_right' !important
         display: inline-block
