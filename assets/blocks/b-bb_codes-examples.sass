@@ -1,0 +1,33 @@
+.b-bb_codes-examples
+  .example
+    span
+      color: var(--color-text-hint)
+      font-size: inherit
+      user-select: none // copy code without comments
+
+      &::before,
+      &::after
+        color: inherit
+
+    .textarea
+      padding: 1em
+      background: #343434
+      border-color: transparent
+      border-radius: var(--border-rounded)
+      color: #eee
+
+    .title
+      color: var(--color-text-hint)
+      font-size: 14px
+
+  .result
+    .title
+      color: var(--color-text-hint)
+      font-size: 14px
+
+  .notice
+    color: var(--color-text-hint)
+    font-size: 14px
+
+    b[style]
+      color: var(--color-text-primary) !important // override inline style="color: #000"
