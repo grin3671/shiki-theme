@@ -184,9 +184,42 @@
         color: var(--color-text-hint)
 
   .moderation
-    a
-      background: #222 !important
-      color: #fff !important
+    margin: 12px 0
+
+    .ajax-action:not(.link)
+      position: relative
+      padding: 0 16px
+      background: transparent !important
+      border: 0
+      color: var(--color-success)
+      font-size: 12px
+      font-weight: bold
+      line-height: 32px
+      text-transform: uppercase
+      backface-visibility: hidden
+
+      &.reject
+        margin-left: 12px
+        color: var(--color-danger)
+
+        &::after
+          background: var(--color-danger)
+
+      &::after
+        content: ''
+        position: absolute
+        inset: 0
+        background: var(--color-success)
+        border-radius: var(--border-rounded)
+        opacity: .08
+        transition: opacity .24s cubic-bezier(0.4, 0, 0.6, 1)
+        z-index: -1
+
+      &:hover::after
+        opacity: .12
+
+      &:active::after
+        opacity: .16
 
   & > .reason
     font-size: inherit
