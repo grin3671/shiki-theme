@@ -186,7 +186,7 @@
   .moderation
     margin: 12px 0
 
-    .ajax-action:not(.link)
+    a[class]:not(.link)
       position: relative
       padding: 0 16px
       background: transparent !important
@@ -198,7 +198,8 @@
       text-transform: uppercase
       backface-visibility: hidden
 
-      &.reject
+      &.reject,
+      &.delete
         margin-left: 12px
         color: var(--color-danger)
 
