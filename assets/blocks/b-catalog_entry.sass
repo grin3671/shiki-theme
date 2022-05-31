@@ -56,3 +56,37 @@
   &.dropped .image-decor::before
     content: 'delete'
     background: var(--color-danger)
+
+
+// from p-animes_collection-index.sass
+.collection_score
+  inset: auto
+  bottom: 47px
+  left: 4px
+  padding: 0
+  display: flex
+  background-color: transparent
+  box-shadow: none
+
+  .collection_score_marker
+    display: inline-flex
+    align-items: center
+    padding: 3px 8px 1px
+    margin: auto
+    background-color: rgba(0,0,0,.85)
+    border-radius: 24px
+    color: #f2f2f2
+    font-size: 14px
+    font-weight: bold
+    line-height: 20px
+
+    @extend %material-icons
+    &::before
+      content: 'star'
+
+      margin: -2px 4px 0 -1px
+      color: var(--color-accent)
+      font-size: 16px !important
+
+  .score_marker_star
+    display: none
