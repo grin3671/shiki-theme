@@ -69,16 +69,56 @@
           content: 'sentiment_very_dissatisfied'
 
       .user-rate
-        .b-rate
-          padding: 0
-          margin: 0
+        position: relative
+        display: flex
+        flex-direction: row-reverse
+        padding: 6px 4px 5px
+        margin: 0 0 0 1rem
+        background: var(--color-overlay-text-hovered)
+        border-radius: var(--border-rounded)
+        line-height: 18px
 
-          .stars::before
-            font-size: 24px !important
+        .b-rate
+          padding: 0 6px
+          margin: 0
+          border-left: thin solid var(--color-border)
+          line-height: inherit
+
+          .stars
+            display: none
+
+          .stars.score
+            position: static
+            display: flex
+            flex-direction: row-reverse
+            align-items: center
+            color: var(--color-text-secondary)
+
+            @for $n from 0 through 10
+              &.score-#{$n}
+                --score: $n
+
+            &::before
+              content: '\e838'
+              margin: 0 -3px 0 3px
+              font-size: 16px !important
+              letter-spacing: normal
+              transform: translateY(-1px)
+
+            &::after
+              counter-reset: score var(--score)
+              content: counter(score)
+              display: block
+              font-family: var(--font-main)
+              font-size: 14px
+              font-weight: bold
+              letter-spacing: normal
 
         .b-add_to_list
+          padding: 0 6px
 
           .edit
+            display: none
             width: auto
             height: auto
             padding: 0
