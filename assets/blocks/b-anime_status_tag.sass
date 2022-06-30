@@ -24,15 +24,15 @@
     background-color: transparent
     color: var(--color-info)
 
-  &.paused
-    @extend %shiki-marker
-    background-color: transparent
-    color: var(--color-text-hint)
-
   &.discontinued
     @extend %shiki-marker
     background-color: transparent
     color: var(--color-danger)
+
+  &.paused
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-text-hint)
 
   &.episode
     @extend %shiki-marker
@@ -57,13 +57,33 @@
         &:active
           opacity: 1
 
+  &.review
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-text-secondary)
+
+  &.review-negative
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-negative)
+
+  &.review-neutral
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-neutral)
+
+  &.review-positive
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-positive)
+
   &.other
     @extend %shiki-marker
     background-color: transparent
     border-color: var(--color-text-hint)
     color: var(--color-text-secondary)
 
-  &.summary
+  &.contest
     @extend %shiki-marker
     background-color: transparent
     color: var(--color-violet)
@@ -74,6 +94,11 @@
     color: var(--color-warning)
     border-color: var(--color-warning)
 
+  &.summary
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-violet)
+
   &.critique
     @extend %shiki-marker
     background-color: transparent
@@ -83,6 +108,16 @@
     @extend %shiki-marker
     background-color: transparent
     color: var(--color-success)
+
+  &.spoilers
+    @extend %shiki-marker
+    background-color: transparent
+    color: var(--color-danger)
+
+  &.article
+    @extend %shiki-marker
+    background-color: transparent
+    color: #e8ab4f
 
   &.cosplay
     @extend %shiki-marker
@@ -105,37 +140,27 @@
     background-color: transparent
     color: var(--color-magenta)
 
-  &.contest
+  &.unpublished-collection
     @extend %shiki-marker
     background-color: transparent
-    color: var(--color-violet)
+    color: var(--color-text-secondary)
 
-  &.article
+  &.opened-collection
     @extend %shiki-marker
     background-color: transparent
-    color: #e8ab4f
+    color: var(--color-info)
+
+  &.private-collection
+    @extend %shiki-marker
+    background-color: transparent
+    color: #a063cf
 
   &.is_written_before_release
     @extend %shiki-marker
     background-color: transparent
     color: var(--color-info)
 
-  &.review
+  &.promo
     @extend %shiki-marker
     background-color: transparent
-    color: var(--color-text-secondary)
-
-  &.review-negative
-    @extend %shiki-marker
-    background-color: transparent
-    color: var(--color-negative)
-
-  &.review-neutral
-    @extend %shiki-marker
-    background-color: transparent
-    color: var(--color-neutral)
-
-  &.review-positive
-    @extend %shiki-marker
-    background-color: transparent
-    color: var(--color-positive)
+    color: #f7b42c
