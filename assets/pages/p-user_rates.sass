@@ -220,99 +220,109 @@
 
 
 // Кнопки списков сбоку
-.p-user_rates-index .l-content > .mylist
-  a
-    @extend %material-icons
-    @extend %md-tooltip-right
-
-  @media (min-width: 1312px)
-    position: fixed
-    top: 240px
-    right: auto
-    width: 56px
-    margin: 0 0 0 -72px
-    background: var(--color-background)
-    border-radius: 28px 0 0 28px
-    text-align: left
-
+.p-user_rates-index
+  .l-content > .mylist
     a
-      position: relative
-      display: block
-      padding: 8px
-      margin: 2px 0
-      border-radius: 50% 0 0 50%
-      color: var(--color-text-hint)
-      font-size: 0
-      font-weight: normal
-      line-height: 0
+      @extend %material-icons
+      @extend %md-tooltip-right
 
-      &:hover
-        text-decoration: none
+    @media (min-width: 1312px)
+      position: fixed
+      top: 240px
+      right: auto
+      width: 56px
+      margin: 0 0 0 -72px
+      background: var(--color-background)
+      border-radius: 28px 0 0 28px
+      text-align: left
 
-      &::before
+      a
+        position: relative
+        display: block
         padding: 8px
-        border-radius: 50%
+        margin: 2px 0
+        border-radius: 50% 0 0 50%
+        color: var(--color-text-hint)
+        font-size: 0
+        font-weight: normal
+        line-height: 0
 
-      &:hover::before,
-      &.selected::before
-        background: var(--color-primary)
-        color: var(--color-text-on-primary)
+        &:hover
+          text-decoration: none
 
-      &[data-id='planned']::before
-        content: 'today'
+        &::before
+          padding: 8px
+          border-radius: 50%
 
-      &[data-id='watching']::before
-        content: 'play_arrow'
+        &:hover::before,
+        &.selected::before
+          background: var(--color-primary)
+          color: var(--color-text-on-primary)
 
-      &[data-id='rewatching']::before
-        content: 'replay'
+        &[data-id='planned']::before
+          content: 'today'
 
-      &[data-id='completed']::before
-        content: 'done'
+        &[data-id='watching']::before
+          content: 'play_arrow'
 
-      &[data-id='on_hold']::before
-        content: 'inbox'
+        &[data-id='rewatching']::before
+          content: 'replay'
 
-      &[data-id='dropped']::before
-        content: 'delete'
+        &[data-id='completed']::before
+          content: 'done'
+
+        &[data-id='on_hold']::before
+          content: 'inbox'
+
+        &[data-id='dropped']::before
+          content: 'delete'
 
 
-      &::after
-        top: 0
-        height: 20px
-        margin: auto 12px
-
-      &[data-id='planned']::after
-        content: 'Запланировано'
-
-      &[data-id='watching']::after
-        content: 'Смотрю'
-
-      &[data-id='rewatching']::after
-        content: 'Пересматриваю'
-
-      &[data-id='completed']::after
-        content: 'Просмотрено'
-
-      &[data-id='on_hold']::after
-        content: 'Отложено'
-
-      &[data-id='dropped']::after
-        content: 'Брошено'
-
-      span
-        position: absolute
-        top: 0
-        right: 0
-        padding: 2px 4px
-        margin: 6px 4px
-        background: var(--color-accent)
-        border-radius: 2px
-        color: var(--color-text-on-accent)
-        font-size: 14px
-        font-weight: bold
-        line-height: .8
-
-        &::before,
         &::after
-          display: none
+          top: 0
+          height: 20px
+          margin: auto 12px
+
+        &[data-id='planned']::after
+          content: 'Запланировано'
+
+        &[data-id='watching']::after
+          content: 'Смотрю'
+
+        &[href*='/manga/'][data-id='watching']::after
+          content: 'Читаю'
+
+        &[data-id='rewatching']::after
+          content: 'Пересматриваю'
+
+        &[href*='/manga/'][data-id='rewatching']::after
+          content: 'Перечитываю'
+
+        &[data-id='completed']::after
+          content: 'Просмотрено'
+
+        &[href*='/manga/'][data-id='completed']::after
+          content: 'Прочитано'
+
+        &[data-id='on_hold']::after
+          content: 'Отложено'
+
+        &[data-id='dropped']::after
+          content: 'Брошено'
+
+        span
+          position: absolute
+          top: 0
+          right: 0
+          padding: 2px 4px
+          margin: 6px 4px
+          background: var(--color-accent)
+          border-radius: 2px
+          color: var(--color-text-on-accent)
+          font-size: 14px
+          font-weight: bold
+          line-height: .8
+
+          &::before,
+          &::after
+            display: none
