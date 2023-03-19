@@ -1,7 +1,12 @@
 .b-catalog_entry-tooltip
+  .entry-tooltip_container
+    & > a
+      flex-shrink: 0
+
   .inner
     display: flex
     flex-wrap: wrap
+    align-content: flex-start
 
     a.name
       color: var(--color-text-primary) !important

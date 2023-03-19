@@ -120,7 +120,22 @@
 .p-topics-new,
 .p-topics-edit,
 .p-topics-create,
-.p-topics-update
+.p-topics-update,
+.p-articles-new,
+.p-articles-edit,
+.p-articles-create,
+.p-articles-update
   .topic-video
-    background: var(--color-surface)
-    border-color: var(--color-border)
+    .form
+      background: var(--color-surface)
+      border-color: var(--color-border)
+
+  // Убирает колонки в редактировании новостей и статей
+  .b-input > .fc-2
+    display: block
+    margin: 0
+
+    & > .f-column
+      width: 100%
+      margin: 0
+

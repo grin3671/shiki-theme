@@ -6,7 +6,6 @@
   background: var(--color-background-dialog)
   border-radius: var(--border-rounded)
   box-shadow: 0 0 0 1px rgba(0,0,0,.08)
-  overflow: hidden
   transition: box-shadow .16s ease
   &:hover
     box-shadow: 0 2px 8px 1px rgba(0,0,0,.12)
@@ -33,6 +32,10 @@
 
     .inner
       a
+        img,
+        .no-image
+          border-radius: var(--border-rounded) var(--border-rounded) 0 0
+
         .no-image
           background: rgba(255,255,255,.12)
 
@@ -80,3 +83,17 @@
 .p-achievements .p-achievements-global .b-achievement,
 .p-achievements .p-achievements-global .b-badge
   max-width: 328px
+
+// NOTE: замена изображений для ачивок
+.b-badge.b-tooltipped::after,
+.b-achievement .c-image .inner a::after
+  content: ""
+  position: absolute
+  inset: 0
+  background: var(--replacement-image, none) center top / cover
+  border-radius: var(--border-rounded, 0)
+
+
+.b-achievement:not(.b-badge) .c-image .inner a::after
+  --calc-border-radius: calc(var(--border-rounded) - 1px)
+  border-radius: var(--calc-border-radius) var(--calc-border-radius) 0 0

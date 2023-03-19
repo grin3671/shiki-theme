@@ -1,67 +1,78 @@
 /**
  * ТУРНИРЫ
  */
-.p-contests .match-container.b-ajax::after
-  z-index: 10
-
-.p-contests .b-contest_match .current-match .match-members:last-child
-  margin-bottom: 0 !important
 
 .p-contests .match-day
-  position: relative
   margin-bottom: 16px
   text-align: center
 
-.p-contests .match-day::before
-  content: ''
-  display: block
-  position: absolute
-  top: 10px
-  right: 0
-  left: 0
-  height: 1px
+  & > .date
+    position: relative
+    display: flex
+    align-items: center
+    margin-bottom: 4px
+    text-align: center
+    text-transform: uppercase
+    line-height: inherit
 
-.p-contests .match-day > .date
-  position: relative
-  display: inline-block
-  padding: 0 16px
-  margin-bottom: 4px
-  text-align: center
-  text-transform: uppercase
+    &::before,
+    &::after
+      content: ''
+      flex: 1 0 auto
+      border-top: thin solid var(--color-border)
 
-.p-contests .match-day > .date .from,
-.p-contests .match-day > .date .to
-  margin-right: 8px
+    &::before
+      margin-right: 12px
 
-.p-contests .match-day > .date .to
-  margin-left: 8px
+    &::after
+      margin-left: 12px
+
+    .from,
+    .to
+      color: var(--color-text-secondary)
+
+  .matches-num
+    display: inline-block
+    width: 56px
+    padding-right: 0
+    font-size: 16px
+    color: var(--color-text-hint)
+    @media (max-width: 1024px)
+      width: auto
+      padding: 0 4px
+      margin-right: 8px
+      border-radius: 2px
+      color: #FFF
+      font-size: 12px
+      line-height: 20px
+
 
 .p-contests .match-day .match-link
   padding-left: 0
   text-align: left
-  &:hover, &.active
+  &:hover,
+  &.active
     background: var(--color-overlay-text-hovered)
   &:active
     background: var(--color-overlay-text-pressed) !important // in shiki style
 
-// NOTE: !important in main.sass (.c-column)
-.p-contests .match-day .match-link .c-column
-  line-height: 32px !important
+  &.voted-none > .c-column a,
+  &.voted-left > .c-column:last-child a,
+  &.voted-right > .c-column:first-child a
+    color: var(--color-text-primary) !important
 
-// Ничья
-.p-contests .match-day .match-link .draw
-  padding-left: 0
+  .c-column
+    line-height: 32px !important // NOTE: !important in main.sass (.c-column)
+    @media (max-width: 1024px)
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
 
-  &::before
-    position: static
-    top: 0
-    left: 0
-    width: 12px
-    height: 12px
-    margin: 10px 4px
-    margin-right: 16px
 
-.p-contests .match-day .match-link
+    &.loser a,
+    &.created a
+      color: var(--color-text-primary) !important
+
   .voted, .winner, .loser, .created, .started, .finished
     @extend %material-icons-18
     &::before
@@ -77,181 +88,143 @@
     color: var(--color-text-disabled)
     padding-right: 0
 
-  .winner::before
-    content: 'thumb_up'
+  .winner
+    &::before
+      content: 'thumb_up'
+      color: var(--color-success)
 
-  .loser::before
-    content: 'thumb_down'
-    padding-right: 0
+    @media (max-width: 1024px)
+      &::before
+        display: none
 
-.p-contests .match-day .match-link .started::before,
-.p-contests .match-day .match-link.voted-abstain .started::before
-  content: 'check_box_outline_blank'
-  color: #757575
+      .matches-num
+        background-color: var(--color-success)
 
-.p-contests .match-day .match-link.voted-abstain .started::before
-  color: var(--color-text-disabled)
+  .loser
+    &::before
+      content: 'thumb_down'
+      padding-right: 0
+      color: var(--color-danger)
 
-.p-contests .match-day .match-link.voted-left .started:first-child::before,
-.p-contests .match-day .match-link.voted-right .started:last-child::before
-  content: 'check_box'
+    @media (max-width: 1024px)
+      &::before
+        display: none
 
-.p-contests .match-day .match-link.voted-left .started:last-child::before,
-.p-contests .match-day .match-link.voted-right .started:first-child::before
-  content: 'indeterminate_check_box'
+      .matches-num
+        background-color: var(--color-danger)
 
-.p-contests .match-day .match-link.voted-left .started:first-child::before,
-.p-contests .match-day .match-link.voted-right .started:last-child::before,
-.p-contests .match-day .match-link .winner::before
-  color: var(--color-success) /* Зеленый цвет */
+  // Пример ничьей в раунде:
+  // https://shikimori.one/contests/142/rounds/5/match/119828
+  .draw
+    padding-left: 0
 
-.p-contests .match-day .match-link.voted-left .started:last-child::before,
-.p-contests .match-day .match-link.voted-right .started:first-child::before,
-.p-contests .match-day .match-link .loser::before
-  color: var(--color-danger) /* Красный цвет */
+    &::before
+      position: static
+      top: 0
+      left: 0
+      width: 12px
+      height: 12px
+      margin: 10px 4px
+      margin-right: 16px
 
-.p-contests .match-day .matches-num
-  display: inline-block
-  width: 56px
-  padding-right: 0
-  font-size: 16px
+    @media (max-width: 1024px)
+      &::before
+        display: none
 
-.p-contests-show .cc-round_stats > .c-column:first-child:last-child > .block:last-child
-  padding: 4px 0
-
-.p-contests-show .warning
-  margin-top: 0
-  margin-bottom: 16px
-
-.p-contests .rating .member
-  height: auto
-
-.p-contests-users .subheadline a:hover
-  background: none
-
-.p-contests .b-contest_match .votes-percents
-  border-radius: 4px
-  font-size: 14px
-  line-height: 24px
-
-.p-contests .b-contest_match .votes-percents span
-  float: left
-  position: relative
-  white-space: nowrap
-  z-index: 1
-
-.p-contests .b-contest_match .votes-percents .left-part
-  position: relative
-  border-radius: inherit
-  padding-left: 8px
-  background-color: var(--color-accent)
-  &:hover
-    background-color: var(--color-accent)
-
-.p-contests .b-contest_match .votes-percents .left-part > span
-  color: var(--color-text-on-accent)
-
-.p-contests .b-contest_match .votes-percents .right-part
-  position: absolute
-  top: 0
-  right: 0
-  padding-right: 8px
-  background-color: var(--color-primary)
-  border-color: var(--color-primary)
-
-.p-contests .b-contest_match .votes-percents .right-part span
-  float: right
-  color: var(--color-text-on-primary)
-
-.p-contests .b-contest_match .votes-percents .left-part,
-.p-contests .b-contest_match .votes-percents .right-part
-  height: auto
-
-.p-contests .b-contest_match .votes-percents .right-part::before
-  left: -24px
-  border-right-width: 24px
-  border-top-width: 48px
-
-.p-contests .b-contest_match .votes-percents .left-part:hover .right-part
-  background-color: var(--color-primary)
-  border-color: var(--color-primary)
-
-.p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
-  border-right-width: 24px
-
-.p-contests .b-contest_match .votes-percents .right-part::before,
-.p-contests .b-contest_match .votes-percents .left-part:hover .right-part::before
-  border-right-color: inherit
-
-.p-contests .results .cc-result .c-rounds .label
-  color: var(--color-text-secondary)
-  font-size: .875rem
-
-.p-contests .results .cc-result .c-rounds .match-day::before
-  display: none
-
-.p-contests .results .cc-result .c-rounds .match-day .match
-  padding-bottom: 0
-  line-height: 32px
-  text-align: left
-
-.p-contests .results .cc-result .c-rounds .match-link
-  display: inline-block
-
-/* Убираем желтое свечение постеров */
-.b-contest_match .current-match .match-members .match-member > .b-catalog_entry.yellow-fade
-  background: transparent
-  outline-color: transparent
-
-/* BUG: font-size нужно указать внутри соответствующего элемента */
-@media (min-width: 768px)
-  .b-contest_match .vs
-    font-size: inherit
-
-  .b-contest_match .vs .label
-    font-family: inherit
-    font-size: 64px
-
-/* Мобильная версия */
-@media (max-width: 480px)
-  .b-contest_match .vs .vote-abstained[style = 'display: none;'] ~ .thanks
-    display: none !important
-
-@media (max-width: 1024px)
-  .p-contests .match-day .match-link .c-column
-    text-overflow: ellipsis
-    white-space: nowrap
-    overflow: hidden
-
-  .p-contests .match-day .match-link .draw::before,
-  .p-contests .match-day .match-link .loser::before,
-  .p-contests .match-day .match-link .winner::before
-    display: none
-
-  .p-contests .match-day .matches-num
-    width: auto
-    padding: 0 4px
-    margin-right: 8px
-    border-radius: 2px
-    color: #FFF
-    font-size: 12px
-    line-height: 20px
-
-  .p-contests .match-day .draw .matches-num
-    background-color: var(--color-info)
-
-  .p-contests .match-day .loser .matches-num
-    background-color: var(--color-danger)
-
-  .p-contests .match-day .winner .matches-num
-    background-color: var(--color-success)
+      .matches-num
+        background-color: var(--color-info)
 
 
-.p-contests .contest-match .vs .refrain,
-.p-contests .contest-match .votes-percents,
-.p-contests .contest-match .vs > div:first-child,
-.p-contests .contest-match .vs .next
-  font-weight: bold
+  .started::before,
+  &.voted-abstain .started::before
+    content: 'check_box_outline_blank'
+    color: #757575
+
+  &.voted-abstain .started::before
+    color: var(--color-text-disabled)
+
+  &.voted-left .started:first-child::before,
+  &.voted-right .started:last-child::before
+    content: 'check_box'
+    color: var(--color-success)
+
+  &.voted-left .started:last-child::before,
+  &.voted-right .started:first-child::before
+    content: 'indeterminate_check_box'
+    color: var(--color-danger)
+
+  &.voted-left .started:last-child::before,
+  &.voted-right .started:first-child::before
+    content: 'indeterminate_check_box'
+
+
+
+.p-contests .rating
+  .member
+    height: auto
+
+    .position
+      color: var(--color-text-hint)
+
+
+
+.p-contests .results
+  .cc-result
+    .c-rounds
+      .label
+        color: var(--color-text-secondary)
+        font-size: .875rem
+
+      .match-day
+        &::before
+          display: none
+
+        .match
+          padding-bottom: 0
+          line-height: 32px
+          text-align: left
+
+      .match-link
+        display: inline-block
+
+
+
+.p-contests-index
+  .contest
+    .date
+      color: var(--color-text-hint)
+
+
+
+.p-contests-show
+  .cc-round_stats
+    & > .c-column:first-child:last-child
+      & > .block:last-child
+        padding: 4px 0
+
+  .warning
+    margin-top: 0
+    margin-bottom: 16px
+
+
+
+.p-contests-users
+  .subheadline
+    a:hover
+      background: none
+
+
+
+.p-contests-grid
+  .round
+    .match
+      .date
+        a
+          &:hover
+            color: var(--color-link-hover)
+          &:active
+            color: var(--color-link-active)
+
 
 
 // New
@@ -277,7 +250,7 @@
     height: auto
     max-height: 288px
     padding: 8px
-    margin: 4px 8px 4px 0
+    margin: 2px 0
     border-radius: 2px
     color: var(--color-text-hint)
     &:hover
@@ -312,7 +285,6 @@
 
   .next-match
     order: 1
-    margin: 4px 0 4px 8px
     @media (max-width: 767px)
       right: 0
       left: auto
@@ -330,13 +302,39 @@
       display: flex
       line-height: inherit
       @media (max-width: 767px)
-        padding-top: 96px
+        padding-top: 88px // 44 - 2 + 40 + 6 (.actions - margin + .invitation + margin)
         margin-bottom: 1em
 
-      .match-member:last-child
-        margin-left: auto
+      &:last-child
+        margin-bottom: 0 !important // NOTE: important in shiki styles
+
+      .vs
+        @media(min-width: 768px)
+          max-width: none
+          padding: 0 1em
+
+      .match-member
+        // NOTE: отображается при удалении из базы одного из участников
+        // Пример: https://shikimori.one/contests/1/rounds/3/match/951
+        &.placeholder::before,
+          padding-top: 155.5556%
+          background: var(--color-surface)
+          border-radius: var(--border-rounded)
+          opacity: .8
+
+        &.placeholder::after
+          margin-top: 6px
+          background: var(--color-text-disabled)
+          border-radius: 1px
+          opacity: .5
+
+        // NOTE: Убираем желтое свечение постеров
+        & > .b-catalog_entry.yellow-fade
+          background: transparent
+          outline-color: transparent
 
   .match-member
+    width: 160px
     @media (max-width: 480px)
       float: left
       position: relative
@@ -348,9 +346,22 @@
 
   .vs
     margin: auto
+    color: var(--color-text-hint)
+    font-size: inherit
+
+    // TODO: что-то устаревше?
+    .refrain,
+    .next,
+    & > div:first-child
+      font-weight: bold
 
     // Иконка VS
     .label
+      color: var(--color-text-secondary)
+      font-family: inherit
+      font-size: 48px
+      text-transform: uppercase
+
       @media (max-width: 480px)
         display: inline-block
         position: absolute
@@ -375,21 +386,26 @@
     .hint,
     .not-selected
       padding: 0
-      margin-bottom: 1em
-      font-size: .875em
+      margin-bottom: 16px
+      color: var(--color-text-secondary)
+      font-size: 14px
       line-height: inherit
       @media (max-width: 767px)
         position: absolute
-        top: 52px
+        top: 44px
         right: 0
         left: 0
-        font-size: 1rem
+        font-size: 16px
         line-height: 40px
         margin: 0
 
     .thanks
       @media (max-width: 767px)
         top: 4px
+
+    .vote-abstained[style = 'display: none;'] ~ .thanks
+      @media (max-width: 480px)
+        display: none !important
 
     .actions
       line-height: 0
@@ -405,11 +421,9 @@
         padding: 0
         margin: 0
 
-        &:nth-child(2)
-          margin-left: 1em
-
         span
           @extend %md-button-flat
+          margin: 4px !important
 
       @media (max-width: 480px)
         .action:nth-child(2)
@@ -419,6 +433,60 @@
     @media (max-width: 480px)
       display: block
       padding: 0
+
+  .votes-percents
+    border-radius: 4px
+    font-size: 14px
+    font-weight: bold
+    line-height: 24px
+
+    span
+      float: left
+      position: relative
+      white-space: nowrap
+      z-index: 1
+
+    .left-part
+      position: relative
+      height: auto
+      padding-left: 8px
+      background-color: var(--color-accent)
+      border-radius: inherit
+      &:hover
+        background-color: var(--color-accent)
+
+
+      & > span
+        color: var(--color-text-on-accent)
+
+    .right-part
+      position: absolute
+      top: 0
+      right: 0
+      height: auto
+      padding-right: 8px
+      background-color: var(--color-primary)
+      border-color: var(--color-primary)
+
+      span
+        float: right
+        color: var(--color-text-on-primary)
+
+      &::before
+        left: -24px
+        border-right-width: 24px
+        border-right-color: inherit
+        border-top-width: 48px
+
+    .left-part:hover
+      .right-part
+        background-color: var(--color-primary)
+        border-color: var(--color-primary)
+
+        &::before
+          border-right-width: 24px
+          border-right-color: inherit
+
 
 
 .b-contests-menu .results

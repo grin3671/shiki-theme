@@ -1,0 +1,76 @@
+// Новый вид для подписей к полоске аниме/манги в профиле
+.b-stats_bar
+  .stat_names
+    .stat_name
+      display: flex
+      flex-direction: row-reverse
+      align-items: baseline
+      justify-content: flex-end
+      height: 32px
+      padding: 4px 8px 2px 0
+      margin: 4px 8px 4px 0
+      color: var(--color-text-hint)
+      font-size: 10px
+      font-weight: bold
+      line-height: 24px
+      text-transform: uppercase
+
+      &[data-type="completed"]
+        order: -1
+
+      a
+        display: flex
+        flex-direction: row-reverse
+        align-items: baseline
+        justify-content: flex-end
+        position: relative
+        height: 32px
+        padding: 4px 8px 2px 0
+        margin: -4px -8px -4px 0
+        color: var(--color-text-hint)
+
+        &:hover,
+        &:active
+          color: var(--color-text-hint)
+
+        &::before
+          position: absolute
+          top: 0
+          right: 0
+          left: -8px
+          width: auto
+          height: 100%
+          margin: 0
+          background: var(--color-overlay-text-pressed) !important
+          border-radius: var(--border-rounded)
+          opacity: 0
+          transition: 0.32s ease
+
+        &:hover::before
+          opacity: .32
+
+        &:active::before
+          opacity: 1
+
+        &:last-child
+          margin-right: 0
+
+      .size
+        margin-right: 4px
+        color: var(--color-text-primary)
+        font-size: 15px
+
+        &::before
+          display: none
+
+  @media (max-width: 599px)
+    &:hover
+      padding-left: 8px
+
+    .stat_name
+      display: none
+      padding: 9px 8px 8px 0
+      margin: 2px 0
+
+      a:hover
+        background: transparent

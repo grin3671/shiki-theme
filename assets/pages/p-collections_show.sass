@@ -1,14 +1,11 @@
 .p-collections-show
-  .b-catalog_entry
+  // change collections text tooltips
+  .b-catalog__entry
     .image-decor
       border-radius: var(--border-rounded)
       overflow: hidden
 
       .text
-        --color-collection-text-color: #333
-        --color-collection-hint-background: #d8d8d8cc
-        --color-collection-scroll-thumb: var(--color-primary)
-
         display: block
         top: auto
         right: 0
@@ -17,8 +14,8 @@
         width: auto
         max-height: 38px
         padding: 4px !important
-        background: var(--color-collection-hint-background)
-        color: var(--color-collection-text-color)
+        background: var(--color-collection-hint-background, #d8d8d8cc)
+        color: var(--color-collection-text-color, #333)
         font-size: 13px
         font-weight: bold
         letter-spacing: inherit
@@ -46,7 +43,7 @@
           background: transparent
 
         &::-webkit-scrollbar-thumb
-          background: var(--color-collection-scroll-thumb)
+          background: var(--color-collection-scroll-thumb, var(--color-primary))
           border-radius: var(--border-rounded)
 
         .b-video

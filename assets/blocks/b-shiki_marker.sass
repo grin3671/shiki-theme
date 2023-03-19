@@ -41,3 +41,31 @@ body[data-locale] .b-new_marker
 
   &.off:hover
     color: var(--color-info)
+
+
+// Clickable buttons
+body[data-locale] .b-offtopic_marker
+  --marker-color: var(--color-marker-offtop-rgb)
+
+body[data-locale] .b-new_marker
+  --marker-color: var(--color-marker-new-rgb)
+
+body[data-locale] .b-offtopic_marker,
+body[data-locale] .b-new_marker
+  padding: 0 8px
+  margin: 4px 0 4px 8px
+  border: 0
+  font-size: 13px
+  line-height: 24px
+
+  &,
+  &.active,
+  &.active:hover
+    background: RGBA(var(--marker-color) / var(--marker-background-opacity))
+    color: RGBA(var(--marker-color) / 1)
+    cursor: var(--cursor-pointer, pointer)
+
+  &.active.off,
+  &.active.off:hover
+    background: var(--color-overlay-text-selected)
+    color: var(--color-text-disabled)

@@ -1,7 +1,7 @@
 .b-button
   @extend %md-button-flat
 
-  // Только внутри пользовательской разметки
+  // NOTE: Только внутри пользовательской разметки
   h3 &.right
     margin: 0
 
@@ -20,3 +20,18 @@ a.b-button
   // Кнопка отмена (Клуб > Настройки > Страницы)
   & + .cancel
     @extend %md-button-flat
+
+// При использовании в качестве кнопок табов
+.b-button[data-tab-switch]
+  &:not(.active)
+    background-color: var(--color-surface)
+    color: var(--color-text-primary)
+
+    &:hover
+      @media screen and (min-width: 1024px)
+        background-color: var(--color-surface-hover)
+        color: var(--color-text-primary)
+
+  &.active
+    background-color: #4c7fa4
+    color: #fff

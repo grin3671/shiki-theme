@@ -221,6 +221,14 @@
     "checked": true
   },
   {
+    "url": "blocks/b-critique-topic.sass",
+    "checked": true
+  },
+  {
+    "url": "blocks/b-critique_votes.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-coub.sass",
     "checked": true
   },
@@ -351,10 +359,6 @@
   },
   {
     "url": "blocks/b-reviews_navigation.sass",
-    "checked": true
-  },
-  {
-    "url": "blocks/b-critique_votes.sass",
     "checked": true
   },
   {
@@ -558,14 +562,19 @@
     "description": "Обложка-фон с большим отступом от меню."
   },
   {
-    "url": "tests/profile-update.1.sass",
+    "url": "tests/profile-update_1.sass",
     "checked": true,
     "description": "Отображение времени за аниме и мангой."
   },
   {
-    "url": "tests/profile-update.1.1.sass",
+    "url": "tests/profile-update_2.sass",
     "checked": true,
-    "description": "Маленький блок достижений."
+    "description": "Новый вид для подписей к полоске аниме/манги в профиле."
+  },
+  {
+    "url": "tests/profile-update_3.sass",
+    "checked": true,
+    "description": "Блок «Вклад в сообщество»."
   },
   {
     "url": "tests/md-textfields.sass",

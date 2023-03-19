@@ -42,7 +42,6 @@
         border-radius: inherit
         transition: .24s ease
 
-      &::after,
       &::before
         display: block
         position: absolute
@@ -52,37 +51,38 @@
         left: 0
         width: auto
         height: auto
-        padding: 12px 12px 6px
+        padding: 12px 8px 4px
+        background: linear-gradient(transparent, rgba(0,0,0,.32))
         border-radius: 0 0 3px 3px
         color: #fff
-        font-size: 14px
+        font-size: 12px
         font-weight: bold
-        line-height: 20px
-        text-shadow: 0 0 1px black, 0 1px 5px rgba(0,0,0,.32)
+        line-height: 16px
+        text-align: left
+        text-shadow: 0 1px 2px #000, 0 0 6px rgba(0,0,0,.8)
         backface-visibility: hidden
         transition: .24s ease
         opacity: 1
         z-index: 1
 
-      &:hover::after,
       &:hover::before
         transform: translate3d(0, 100%, 0)
 
       &[original-title]::before
+        content: attr(original-title) ", " attr(data-progress) "%"
+
+      &[original-title].level-1::before
         content: attr(original-title)
 
       &[title]::before
+        content: attr(title) ", " attr(data-progress) "%"
+
+      &[title].level-1::before
         content: attr(title)
 
-      &::before
-        padding-right: 48px
-        background: linear-gradient(transparent, rgba(0,0,0,.32))
-        text-align: left
-
-      &::after
-        content: attr(data-progress) '%'
-        background: none
-        text-align: right
+      &.level-1::before
+        font-size: 16px
+        line-height: 20px
 
       &.level-0.unavailable:not(:hover) .no-image
         opacity: .2
@@ -163,7 +163,7 @@
           width: 100%
           margin: 0
 
-          &.level-1:not(:nth-child(n+17))
+          &.level-1
             grid-column-end: span 2
             grid-row-end: span 2
 

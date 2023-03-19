@@ -1,0 +1,79 @@
+// Блок «Вклад в сообщество»
+.p-profiles
+  .profile-head .c-info .c-additionals
+    clear: both
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: .5em
+
+    b
+      display: block
+      flex: 1 0 100%
+
+      &::after
+        content: "Вклад в сообщество"
+        display: inline-block
+        padding: 8px 0
+        text-transform: uppercase
+        line-height: 24px
+
+    div
+      display: flex
+      flex-wrap: wrap
+      flex: 0 0
+      position: relative
+      max-width: MAX(136px, 14.2857%)
+      min-width: MIN(33.3333%, 136px)
+      user-select: none
+
+      &[data-type="video_uploads"],
+      &[data-type="video_changes"]
+        // display: none
+
+      &::after
+        display: none
+
+      a,
+      span
+        flex: 1 0 100%
+        padding: 4px 8px
+        color: var(--color-text-disabled) !important
+        font-size: 10px
+        line-height: 16px
+        text-align: center
+        text-transform: uppercase
+        overflow: hidden
+        -webkit-tap-highlight-color: transparent
+        &::first-line
+          font-size: 15px
+          font-weight: bold
+          line-height: 24px
+          word-spacing: 200px
+
+      a
+        color: var(--color-text-hint) !important
+        &::first-line
+          color: var(--color-text-primary) !important
+        &:hover
+          text-decoration: none
+        &:focus
+          outline: none
+
+        &::before
+          content: ""
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          background: var(--color-overlay-text-pressed)
+          border-radius: var(--border-rounded)
+          opacity: 0
+          transition: .24s ease-in-out
+        &:hover::before
+          opacity: 0.32
+        &:active::before
+          opacity: 1
+
+      span
+        color: var(--color-text-hint)
