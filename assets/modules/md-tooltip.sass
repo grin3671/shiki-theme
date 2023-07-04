@@ -2,11 +2,11 @@
   &::after
     display: block !important
     position: absolute
-    padding: .375rem .75rem
-    margin: .25rem .75rem
-    background-color: #616161
-    border-radius: .125rem
-    color: #eee
+    padding: 6px 12px
+    margin: 4px 12px
+    background-color: var(--color-tooltip, #616161)
+    border-radius: var(--border-rounded)
+    color: var(--color-on-tooltip, #eee)
     font-size: .875rem
     line-height: 1.25rem
     white-space: nowrap
@@ -22,7 +22,7 @@
   &::after
     right: 100%
     bottom: 0
-    transform: translateX(0.75rem)
+    transform: translateX(12px)
 
   &:hover::after
     transform: translateX(0)
@@ -30,7 +30,7 @@
 %md-tooltip-top
   &::after
     bottom: 100%
-    transform: translateX(-50%) translateY(.75em)
+    transform: translateX(-50%) translateY(12px)
 
   &:hover::after
     transform: translateX(-50%) translateY(0)
@@ -41,7 +41,7 @@
   &::after
     left: 100%
     bottom: 0
-    transform: translateX(-.75rem)
+    transform: translateX(-12px)
 
   &:hover::after
     transform: translateX(0)
