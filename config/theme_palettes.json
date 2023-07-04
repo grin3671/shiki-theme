@@ -93,5 +93,17 @@
       "color_accent": "#eccf77",
       "color_background": "#181c24"
     }
+  },
+  {
+    "title": "Firewatch Sunset",
+    "value": "firewatch-sunset",
+    "author": "grin3671",
+    "scheme": "dark",
+    "palette": {
+      "color_primary": "#f1be70",
+      "color_accent": "#e07534",
+      "color_background": "#151314",
+      "color_text_primary": "#e8cfb1"
+    }
   }
 ]

@@ -879,20 +879,21 @@ var vm = new Vue({
         // 
       } else {
         // Если пользователь ничего не менял в файлах то делаем импорт файлов
-        let import_url = '@import url(https://shiki-theme.web.app/import/';
+        let import_url = '@import url("https://shiki-theme.web.app/stable/';
+        let palette_url = '@import url("https://shiki-theme.web.app/palette/';
 
         let selectedImports;
 
         selectedImports = this.builderData.imports.filter(file => this.user.selected_imports.includes(file.url));
         selectedImports.forEach(file => {
           output_newcss += '/* ' + file.title + ' */\n';
-          output_newcss += import_url + file.url + ');\n';
+          output_newcss += import_url + file.url + '");\n';
         });
 
         // 
         if (this.currentPalette.locked) {
           output_newcss += '/* Тема «' + this.builderData.palettes[this.currentPalette.index].title + '» */\n';
-          output_newcss += import_url + 'theme-' + this.currentPalette.id.replace(/-/g, '_') + '.css);\n';
+          output_newcss += palette_url + this.currentPalette.id.replace(/-/g, '_') + '.css");\n';
           output_newcss += '\n/* Настройки переменных темы */\n@media{:root {\n';
         } else {
           // Конвертировать переменные из этого скрипта в css-переменные
@@ -912,9 +913,9 @@ var vm = new Vue({
         }
 
         output_newcss += '  /* Обложка профиля */\n'
-        output_newcss += '  --user-cover: url(' + this.user.user_cover + ');\n';
+        output_newcss += '  --user-cover: url("' + this.user.user_cover + '");\n';
         output_newcss += '  /* Фон сайта */\n'
-        output_newcss += '  --user-background: ' + (this.user.user_background ? 'url(' + this.user.user_background + ');\n' : 'none;\n');
+        output_newcss += '  --user-background: ' + (this.user.user_background ? 'url("' + this.user.user_background + '");\n' : 'none;\n');
         // Закрыть root
         output_newcss += '}}\n';
 
