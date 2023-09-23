@@ -64,13 +64,30 @@
           display: none
 
   @media (max-width: 599px)
-    &:hover
-      padding-left: 8px
+    .stat_names
+      top: 40px
 
-    .stat_name
-      display: none
-      padding: 9px 8px 8px 0
-      margin: 2px 0
+      &::before
+        top: -40px
 
-      a:hover
-        background: transparent
+      &:hover
+        padding: 6px 0
+
+      .stat_name
+        display: none
+        height: 36px
+        padding: 6px 12px
+        margin: 2px 0
+
+        a
+          &:nth-child(n)
+            flex: 1
+            height: 36px
+            padding: 6px 12px
+            margin: -6px -12px
+
+          &::before
+            display: none
+
+      &::hover .stat_name
+        display: flex

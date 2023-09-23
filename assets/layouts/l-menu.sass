@@ -10,7 +10,11 @@
 
   .menu-logo
     @media (max-width: 767px)
+      flex-direction: row
+      overflow: hidden
+
       .menu-dropdown
+        order: -1
         margin-right: .5em
 
 
@@ -27,6 +31,9 @@
     color: inherit
     font-size: 20px
     font-weight: bold
+    @media (max-width: 767px)
+      overflow: hidden
+      white-space: nowrap
     @media (min-width: 768px)
       padding: 0 24px 0 8px
       margin-right: 0
@@ -38,6 +45,8 @@
 
     &::after
       content: attr(title)
+      text-overflow: ellipsis
+      overflow: hidden
 
     .glyph
       margin: 0 1em 0 0
@@ -48,6 +57,7 @@
   // Кнопки меню
   .menu-icon,
   .menu-dropdown
+    flex-shrink: 0
     margin-right: 0
 
   .menu-icon,
