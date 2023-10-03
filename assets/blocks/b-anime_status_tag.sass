@@ -169,3 +169,18 @@
     @extend %shiki-marker
     background-color: transparent
     color: #f7b42c
+  
+  &.collection-tag
+    padding: 0 8px
+    background-color: var(--color-surface-hover)
+    border-radius: var(--border-rounded)
+    color: var(--color-text-hint)
+    font-size: 12px
+    font-weight: bold
+    line-height: 24px
+    text-transform: uppercase
+
+    &[href]:hover,
+    &[href]:active
+      background-color: var(--color-surface-active)
+      color: var(--color-text-secondary)
