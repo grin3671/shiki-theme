@@ -349,21 +349,33 @@ input
   outline-width: 8px
 
 
-// TODO: check this element
-// NOTE: .b-comment.b-comment-info
+
+// NOTE: Элемент "Комментарий удалён пользователем"
 .b-comment-info
-  padding: 12px 0 12px 56px
+  padding: 12px 0 12px 56px !important // override shiki styles
   color: var(--color-text-hint)
   font-size: 14px
   line-height: 24px
   text-align: left
 
+  // TODO: убрать margin у b-user16 ?
+  & a.b-user16
+    padding-left: 14px // override shiki styles
+    margin: 0 // override theme styles
+
   & > span
-    margin-left: 16px
+    margin: 0 3px 0 0
+
+  // b-comment-info использует pl-56, поэтому разделителю не нужен ml-56
+  // b-comment-info использует pv-12, поэтому разделитель нужно сдвигать вниз элемента
+  &:not(:last-child)::after
+    margin: 11px 0 -12px 0
 
 
 
-
+.b-text_with_paragraphs
+  br
+    margin-bottom: 4px
 
 
 
@@ -394,3 +406,9 @@ input
 .b-message .body,
 .b-topic .body
   word-break: break-word /* FIXES: issue #8 */
+
+// TODO: replace
+.p-tests-show
+  .fonts-test
+    [class|="icon"]
+      color: var(--color-text-hint)

@@ -430,6 +430,10 @@
     "checked": true
   },
   {
+    "url": "blocks/b-user_history-line.sass",
+    "checked": true
+  },
+  {
     "url": "blocks/b-user_rate.sass",
     "checked": true
   },
@@ -478,6 +482,10 @@
   },
   {
     "url": "pages/p-clubs.sass",
+    "checked": true
+  },
+  {
+    "url": "pages/p-collections_edit.sass",
     "checked": true
   },
   {

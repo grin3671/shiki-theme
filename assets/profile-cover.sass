@@ -24,7 +24,7 @@
     @media (min-width: 320px) and (max-width: 480px)
       height: 16px
       padding-bottom: 56.25%
-      margin-top: -128px
+      margin-top: -144px
 
     @media (min-width: 481px)
       height: 268px
@@ -49,6 +49,13 @@
       .avatar
         align-self: flex-end
         min-width: 184px // иконки (40px * 4) + отступы (8px * 3)
+
+        &::before,
+        &::after
+          @media (min-width: 768px)
+            inset: auto auto 68px // 68px -- размер .profile-actions
+            width: 160px // TODO: --user-avatar-size
+            margin: 0 12px // (184px - var(--user-avatar-size)) / 2
 
         img
           width: auto

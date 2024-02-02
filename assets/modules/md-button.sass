@@ -36,6 +36,11 @@
     background: var(--color-overlay-primary-pressed)
     color: var(--color-primary)
 
+  &.disabled,
+  &[disabled]
+    background-color: var(--color-surface-active)
+    color: var(--color-text-disabled)
+
 %md-button-raised
   @extend %md-button
   background: var(--color-primary)
@@ -49,3 +54,8 @@
   &:active
     background: var(--color-primary-pressed)
     color: var(--color-text-on-primary)
+
+  &.disabled,
+  &[disabled]
+    background-color: var(--color-surface-active)
+    color: var(--color-text-disabled)

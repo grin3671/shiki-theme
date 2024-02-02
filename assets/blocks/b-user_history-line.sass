@@ -1,0 +1,40 @@
+.b-user_history-line
+  padding: 4px 0
+  margin-bottom: 0
+  line-height: 1.5rem
+
+  a
+    color: var(--color-link)
+    &:hover
+      color: var(--color-link-hover)
+    &:active
+      color: var(--color-link-active)
+
+  .date
+    color: var(--color-text-hint)
+
+  .destroy
+    position: relative
+    width: auto
+    padding: 6px
+    margin: -4px 0 -4px 4px
+    border-radius: var(--border-rounded)
+    color: var(--color-text-hint)
+    transition: .16s cubic-bezier(.4, 0, .6, 1)
+    &:hover
+      background: var(--color-overlay-text-hovered)
+      color: var(--color-text-secondary)
+      text-decoration: none
+    &:active
+      background: var(--color-overlay-text-pressed)
+
+    @extend %material-icons
+    &::before
+      content: 'delete'
+      font-size: 20px !important
+
+    @extend %md-tooltip
+    @extend %md-tooltip-left
+    &::after
+      content: 'Удалить'
+      margin: 0 .75rem

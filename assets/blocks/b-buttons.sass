@@ -1,6 +1,25 @@
 .b-button
   @extend %md-button-flat
 
+  &.blue
+    background: var(--color-primary)
+    border: 0
+    color: var(--color-text-on-primary)
+
+    &:hover,
+    &:focus
+      background: var(--color-primary-hovered)
+      color: var(--color-text-on-primary)
+
+    &:active
+      background: var(--color-primary-pressed)
+      color: var(--color-text-on-primary)
+
+  &.is-arrow
+    &::after
+      padding-left: 8px
+      line-height: 1
+
   // NOTE: Только внутри пользовательской разметки
   h3 &.right
     margin: 0
@@ -23,6 +42,13 @@ a.b-button
 
 // При использовании в качестве кнопок табов
 .b-button[data-tab-switch]
+  min-width: 24px
+  padding: 0 8px
+  margin: 0 8px 0 0
+
+  &:last-child
+    margin-right: 0
+
   &:not(.active)
     background-color: var(--color-surface)
     color: var(--color-text-primary)

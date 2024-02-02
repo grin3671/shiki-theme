@@ -22,12 +22,20 @@
       padding-bottom: 4px
       margin-bottom: 0
 
-      & > a > img
-        width: 40px
-        margin: 0 16px 8px 0
-        border-radius: 2px
-        @media (min-width: 1025px)
-          margin-top: 4px
+      img
+        display: block !important
+        width: 40px !important
+        min-height: 40px
+        margin: 0 16px 8px 0 !important
+        border-radius: var(--border-rounded)
+
+        @media (min-width: 960px)
+          width: 48px !important
+          min-height: 48px
+
+      .linkeable img
+        background: var(--color-surface)
+        visibility: visible !important
 
       .name-date
         margin-left: 0
@@ -36,9 +44,6 @@
 
         @media (max-width: 1024px)
           padding-right: 48px // offset for item-mobile
-
-        @media (max-width: 1024px)
-          line-height: 1.25rem
 
         a.name
           margin-right: .5rem
@@ -73,8 +78,10 @@
 
     .was_updated
       padding-left: 3.5rem
+      margin-top: 4px
       margin-bottom: 0
-      color: var(--color-text-disabled)
+      color: var(--color-text-hint)
+      line-height: 24px
 
       div
         vertical-align: top

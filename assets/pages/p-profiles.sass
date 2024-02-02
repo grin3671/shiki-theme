@@ -630,7 +630,7 @@
 
   // До тех пор пока используется аватарка по центру и история
   @media (min-width: 320px) and (max-width: 480px)
-    padding-top: 48px + 80px
+    padding-top: 144px
 
   // До тех пор пока используется аватарка по центру
   @media (min-width: 481px) and (max-width: 959px)
@@ -646,8 +646,8 @@
 
     // Приподнятая область на всю ширину экрана
     @media (min-width: 320px) and (max-width: 480px)
-      padding: 12px 16px
-      margin: 0 -16px 1em
+      padding: 0 0 12px
+      margin: 0 calc(var(--l-margin) * -1) 16px
 
     // Убираем отрицательные отступы
     @media (min-width: 481px)
@@ -666,19 +666,49 @@
 
       @media (max-width: 480px)
         float: none
-        position: relative
-        max-width: 100%
+        width: 36%
+        max-width: 160px
         min-height: 72px
-        margin: 0 0 12px
+        margin: 0 auto 12px
+
+      // &::before — для псевдо-аватара, &::after — для украшений / фреймов
+      &::before,
+      &::after
+        --translateY: translateY(-50%)
+        content: ""
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        width: inherit
+        max-width: 160px
+        margin: 0 auto
+        aspect-ratio: 1/1
+        background: transparent center / cover
+        transform: var(--translateY)
+        transform-origin: center
+        image-rendering: -webkit-optimize-contrast
+        pointer-events: none
+        z-index: 1
+
+        @media (min-width: 481px)
+          --translateY: translateY(0)
+          inset: 12px auto
+          width: 80px // TODO: --user-avatar-size
+          max-width: none
+
+      &::after
+        background-image: var(--user-avatar-frame, none)
+        transform: var(--translateY) scale(var(--user-avatar-frame-scale, 1))
 
       img
         vertical-align: top // фикс отступа
 
         @media (min-width: 320px) and (max-width: 480px)
-          width: 36%
-          max-width: 160px
-          transform: translateY(calc(-50% - 12px))
-          margin-bottom: -18%
+          width: 100%
+          transform: translateY(-50%)
+          margin-bottom: -50%
 
       .profile-actions
         display: block
@@ -687,7 +717,9 @@
         @media (min-width: 320px) and (max-width: 480px)
           position: absolute
           top: 0
-          width: 100%
+          right: 0
+          left: 0
+          padding: 12px 16px
           margin: 0
           text-align: left
 
@@ -732,42 +764,65 @@
       .subheadline
         display: inline-block
         vertical-align: top
+        margin: 0 0 0 -16px
 
         a
+          margin-right: -16px
           color: #eee !important
+          -webkit-tap-highlight-color: transparent
 
           &::before
             display: none
 
-      .b-block_list
+      & > div:last-child
         display: inline-block
         vertical-align: top
-        padding: .5rem
-        margin-left: .5rem
+        padding: 0
+        margin-left: 0
 
-      .entry
-        display: inline-block !important
+      .entry[class]
+        display: inline-block
         vertical-align: top
-        min-width: 112px
-        height: 2rem
-        padding-right: .5rem
-        padding-left: .5rem
-        margin-left: .5rem
-        border-radius: 1rem
-        overflow: hidden
+        padding: 4px !important
+        margin: 0 0 0 8px
 
-        .image-name
-          float: left
-          width: 32px
-          height: 32px
-          margin: -8px 8px -8px -8px
-          border-radius: 50%
-          font-size: 0
-          line-height: 0
+        a
+          display: block
+          max-width: 264px
+          padding: 4px !important
+          margin: -4px
+          border-radius: 24px
+          color: var(--color-text-hint) !important
+          line-height: 20px
+          transition: 0.16s cubic-bezier(0.4, 0, 0.6, 1)
           overflow: hidden
+          -webkit-tap-highlight-color: transparent
 
-        &::before,
-        span.misc
+        img
+          width: 40px
+          max-width: 40px
+          height: 40px
+          margin: 0 8px 0 0
+          object-fit: cover
+          object-position: center 15%
+          border-radius: 50%
+
+        .title
+          line-height: 20px
+          margin: 0
+
+        .misc
+          display: inline-block
+          vertical-align: top
+          line-height: 20px
+          max-width: 154px
+          text-overflow: ellipsis
+
+        time.misc
+          margin-left: .5em
+
+
+        &::before
           display: none
 
     // Без обложки
@@ -882,7 +937,6 @@
       font-size: .75em
 
 
-
 // Маленькие полоски аниме/манги
 // TODO: merge
 .p-profiles-show
@@ -896,7 +950,6 @@
         vertical-align: top
         font-size: inherit
         line-height: inherit
-
 
 
 // Точки перед названиями списков

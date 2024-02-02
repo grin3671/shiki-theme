@@ -9,6 +9,12 @@
     margin: 0 calc(var(--l-margin) * -1)
     transition: none
 
+  // rewrite %shiki-entry rules for mobile
+  & > .inner
+    header img
+      @media (max-width: 959px)
+        margin-bottom: 12px !important
+
   // !important в исходном стиле
   .time
     @media (max-width: 1024px)
@@ -45,13 +51,23 @@
 
     .inner
       position: static
+      padding: 0 !important
 
       header
+        display: flex
+        @extend %material-icons
+        &::before
+          content: 'reply'
+          margin-right: 12px
+          color: var(--color-text-disabled)
+
         img
-          width: 24px
-          margin: 0 12px 0 0
+          width: 24px !important
+          min-height: 24px
+          margin: 0 8px 0 0 !important
 
         .name-date
+          margin-left: 0 !important
           line-height: inherit
 
           .time
@@ -69,4 +85,6 @@
     display: block
     height: 1px
     margin: 0 calc(var(--l-margin) * -1) 0 56px
-    background: var(--color-border)
+    background-color: var(--color-border)
+    @media (min-width: 960px)
+      margin-left: 64px

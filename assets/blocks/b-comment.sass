@@ -1,22 +1,22 @@
 .b-comment
   @extend %shiki-comment
 
+  // rewrite %shiki-entry rules for mobile
+  & > .inner
+    header img
+      @media (max-width: 959px)
+        margin-bottom: 12px !important
+
   header
     .time:hover
       text-decoration: underline
 
     .hash
       position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
+      inset: 0
       margin: 0
       opacity: 0
       z-index: 1
-
-  div.body
-    line-height: 1.25
 
   .comments-loaded &
     &:last-child
@@ -28,6 +28,8 @@
     height: 1px
     margin-left: 56px
     background-color: var(--color-border)
+    @media (min-width: 960px)
+      margin-left: 64px
 
   .tooltip &
     &::after
