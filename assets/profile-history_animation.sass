@@ -15,13 +15,13 @@
       &.x2 .entry
         animation: steps(2, end) 4s slideUp_x2 infinite
 
-    .b-block_list
-      height: 86px
-      margin: 0 -.5em
-      overflow: hidden
+      & > :last-child // .b-block_list
+        height: 86px
+        margin: 0 -.5em
+        overflow: hidden
 
-      &:hover .entry
-        animation-play-state: paused
+        &:hover .entry
+          animation-play-state: paused
 
 @keyframes slideUp_x2
   0%
