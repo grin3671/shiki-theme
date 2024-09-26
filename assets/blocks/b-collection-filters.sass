@@ -111,17 +111,18 @@
   // "Мой список" в фильтрах поиска
   // Меняем название на более доступное
   .mylist-block
-    .subheadline
-      font-size: 0
-      line-height: 0
+    .p-animes_collection & .subheadline,
+    .p-userlist_comparer & .subheadline
+        font-size: 0
+        line-height: 0
 
-      &::after
-        content: 'Мой список'
-        font-size: .875rem
-        line-height: 1rem
+        &::after
+          content: 'Мой список'
+          font-size: .875rem
+          line-height: 1rem
 
-      [data-locale='en'] &::after
-        content: 'My List'
+        [data-locale='en'] &::after
+          content: 'My List'
 
     // Кнопка переключателя
     .item-sign
