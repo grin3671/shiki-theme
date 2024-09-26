@@ -2,12 +2,12 @@
 .b-log_entry,
 .b-user_rate_log
   position: relative
-  padding: .5rem 0
-  font-size: .875rem
-  line-height: 1.5rem
+  padding: 8px 0
+  font-size: 14px
+  line-height: 24px
 
   @media (min-width: 1025px)
-    padding: .25rem 0
+    padding: 4px 0
 
   & > span
     padding-right: var(--word-spacing)
@@ -31,52 +31,56 @@
 
   .b-user16
     span
-      padding-right: .5rem
+      padding-right: 8px
 
   // Icon instead plain text
   .spoiler.collapse
+    align-self: flex-start
     position: relative
-    top: 6px
-    padding: 6px !important // overwrite .triggered changes
-    margin: -10px 0 -10px auto
-    border-radius: var(--border-rounded)
-    color: var(--color-text-hint)
-    transition: .16s cubic-bezier(.4, 0, .6, 1)
+    padding: 0 !important // overwrite .triggered changes
+    margin: -4px 0 -4px auto
 
-    // NOTE: !important in default css
-    &:hover
-      background: var(--color-surface-hover) !important
-      color: var(--color-text-secondary)
+    span
+      --rotate: 180deg
+      --text: "Спрятать"
+      --text-en: "Hide"
 
-    @extend %material-icons
-    &::before
-      content: 'expand_more'
-      font-size: 20px !important
-      transition: inherit
+      display: block !important
+      padding: 6px
+      backface-visibility: hidden
+      border: 0
+      border-radius: var(--border-rounded)
+      color: var(--color-text-hint)
+      font-size: 0
+      transition: .16s cubic-bezier(.4, 0, .6, 1)
 
-    &.triggered
-      margin: -10px 0 -10px auto
+      &[style="display: none;"]
+        --rotate: 0deg
+        --text: "Показать детали"
+        --text-en: "Show details"
+      
+      &:hover
+        background: var(--color-surface-hover)
+        color: var(--color-text-secondary)
+
+      @extend %material-icons
       &::before
-        transform: rotate(180deg)
+        content: "expand_more"
+        font-size: 20px !important
+        transform: rotate(var(--rotate))
+        transition: inherit
 
-    @extend %md-tooltip
-    @extend %md-tooltip-left
-    &::after
-      content: 'Показать правку'
-      margin: 0 .75rem
+      @extend %md-tooltip
+      @extend %md-tooltip-left
+      &::after
+        content: var(--text)
+        margin: 0 12px
 
-    [data-locale=en] &::after
-      content: 'Show details'
-
-    &.triggered::after
-      content: 'Свернуть'
-
-    [data-locale=en] &.triggered::after
-      content: 'Hide'
+      [data-locale=en] &::after
+        content: var(--text-en)
 
   // rewrite style in html
-  .spoiler.collapsed,
-  .spoiler.collapse .action
+  .spoiler.collapsed
     display: none !important
 
   .state
