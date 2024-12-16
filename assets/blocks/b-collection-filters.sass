@@ -81,16 +81,10 @@
           text-transform: lowercase
 
         &.item-add::before
-          content: 'Исключить'
-
-        [data-locale='en'] &.item-add::before
-          content: 'Exclude'
+          content: var(--text-filters-add)
 
         &.item-minus::before
-          content: 'Добавить'
-
-        [data-locale='en'] &.item-minus::before
-          content: 'Include'
+          content: var(--text-filters-minus)
 
     // Иконки radio-переключателей
     &.orders
@@ -117,12 +111,9 @@
         line-height: 0
 
         &::after
-          content: 'Мой список'
+          content: var(--text-filters-mylist)
           font-size: .875rem
           line-height: 1rem
-
-        [data-locale='en'] &::after
-          content: 'My List'
 
     // Кнопка переключателя
     .item-sign

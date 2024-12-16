@@ -145,7 +145,7 @@
     overflow: visible
 
     &::after
-      content: 'Форум'
+      content: var(--text-dashboards-forum-button)
       @extend %md-button
       min-width: 0
       margin-left: -1rem
@@ -157,10 +157,6 @@
 
     &:active::after
       background-color: var(--color-overlay-primary-pressed)
-
-  &[data-locale='en']
-    .b-forums > .b-link_button.maxi::after
-      content: 'Forum'
 
 
   // Ссылки на текущие турниры

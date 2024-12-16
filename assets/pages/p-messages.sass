@@ -30,20 +30,14 @@
         content: 'done_all'
 
       &::after
-        content: 'Прочитать всё'
+        content: var(--text-messages-action-done)
 
     &:nth-child(2) > a
       &::before
         content: 'delete_sweep'
 
       &::after
-        content: 'Удалить всё'
-
-.p-messages[data-locale='en'] .mass-actions .action:nth-child(1) > a::after
-  content: 'Mark all messages as read'
-
-.p-messages[data-locale='en'] .mass-actions .action:nth-child(2) > a::after
-  content: 'Remove all messages'
+        content: var(--text-messages-action-delete)
 
 
 // Прилипающее меню для почты

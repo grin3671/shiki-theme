@@ -28,11 +28,8 @@
       text-shadow: none !important
       transform: rotate(-90deg)
 
-    [data-locale="ru"] &::after
-      content: 'Вернуться наверх'
-
-    [data-locale="en"] &::after
-      content: 'Back to top'
+    [data-locale] &::after
+      content: var(--text-to-top)
 
   &.active
     .slide

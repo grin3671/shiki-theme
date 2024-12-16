@@ -266,11 +266,8 @@
           color: var(--color-text-hint)
           font-size: 0
           &::after
-            content: 'Активность на сайте:'
+            content: var(--text-profile-additionals-label)
             font-size: 14px
-
-  &[data-locale='en'] .profile-head .c-info .c-additionals b::after
-    content: 'Activity:'
 
 
 
@@ -507,9 +504,7 @@
       &::before
         content: 'compare_arrows'
       &::after
-        content: 'Найти похожих пользователей'
-      [data-locale='en'] &::after
-        content: 'Find similar users'
+        content: var(--text-profile-similarity-search)
 
     // Убираем иконку совместимости в чужих профилях
     a[href ^= '/comparer']::before
@@ -532,9 +527,7 @@
         &::before
           content: 'people_outline'
         &::after
-          content: 'Нет совместимости'
-        [data-locale='en'] &::after
-          content: 'No compatibility'
+          content: var(--text-profile-similarity-zero)
 
       // Низкая совместимость
       &.weak
@@ -544,9 +537,7 @@
           background-color: #F0F4C3
           color: #C0CA33 !important
         &::after
-          content: 'Низкая совместимость'
-        [data-locale='en'] &::after
-          content: 'Low compatibility'
+          content: var(--text-profile-similarity-weak)
 
       // Средняя совместимость
       &.moderate
@@ -556,9 +547,7 @@
           background-color: #DCEDC8
           color: #7CB342 !important
         &::after
-          content: 'Средняя совместимость'
-        [data-locale='en'] &::after
-          content: 'Medium compatibility'
+          content: var(--text-profile-similarity-middle)
 
       // Высокая совместимость
       &.high
@@ -568,9 +557,7 @@
           background-color: #C8E6C9
           color: #43A047 !important
         &::after
-          content: 'Высокая совместимость'
-        [data-locale='en'] &::after
-          content: 'High compatibility'
+          content: var(--text-profile-similarity-high)
 
       // Полная совместимость
       &.full
@@ -580,9 +567,7 @@
           background-color: #B3E5FC
           color: #039BE5 !important
         &::after
-          content: 'Полная совместимость'
-        [data-locale='en'] &::after
-          content: 'Full compatibility'
+          content: var(--text-profile-similarity-full)
 
     // Скрытый список
     .link-replacement
@@ -862,14 +847,11 @@
         line-height: 0
 
         &::before
-          content: 'Активность'
+          content: var(--text-profile-lifetime-label)
           display: block
           color: var(--color-text-hint)
           font-size: 0.875rem
           line-height: 1rem
-
-  &[data-locale='en'] .lifetime .title > .label::before
-    content: 'Time spent'
 
   .activity
     .title

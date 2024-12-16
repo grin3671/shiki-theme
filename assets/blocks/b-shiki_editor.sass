@@ -122,12 +122,9 @@
       font-size: 0
 
       &::after
-        content: 'Редактировать'
+        content: var(--text-editor-unpreview-button)
         vertical-align: top
         font-size: .875rem
-
-      [data-locale=en] &::after
-        content: 'Edit'
 
     .cancel
       @extend %md-button-flat
@@ -157,13 +154,10 @@
         font-size: 1rem
 
       &::after
-        content: 'Справка'
+        content: var(--text-editor-button-help)
         display: none
         vertical-align: top
         font-size: .875rem
-
-      [data-locale='en'] &::after
-        content: 'Help'
 
       @media (max-width: 420px)
         flex-basis: auto
@@ -203,41 +197,29 @@
   .quotes,
   .upload
     .link-value
-      &[placeholder *= 'стран'] + .ok::before
-        content: 'Ссылка'
+      &[placeholder *= 'стран'] + .ok::before,
+      &[placeholder *= 'page'] + .ok::before
+        content: var(--text-editor-label-link)
 
-      [data-locale='en'] &[placeholder *= 'page'] + .ok::before
-        content: 'Page URL'
+      &[placeholder *= 'аним'] + .ok::before,
+      &[placeholder *= 'anim'] + .ok::before
+        content: var(--text-editor-label-anime)
 
-      &[placeholder *= 'аним'] + .ok::before
-        content: 'Аниме'
+      &[placeholder *= 'манг'] + .ok::before,
+      &[placeholder *= 'mang'] + .ok::before
+        content: var(--text-editor-label-manga)
 
-      [data-locale='en'] &[placeholder *= 'anim'] + .ok::before
-        content: 'Anime'
+      &[placeholder *= 'рано'] + .ok::before,
+      &[placeholder *= 'nove'] + .ok::before
+        content: var(--text-editor-label-ranobe)
 
-      &[placeholder *= 'манг'] + .ok::before
-        content: 'Манга'
+      &[placeholder *= 'перс'] + .ok::before,
+      &[placeholder *= 'cter'] + .ok::before
+        content: var(--text-editor-label-character)
 
-      [data-locale='en'] &[placeholder *= 'mang'] + .ok::before
-        content: 'Manga'
-
-      &[placeholder *= 'рано'] + .ok::before
-        content: 'Ранобэ'
-
-      [data-locale='en'] &[placeholder *= 'nove'] + .ok::before
-        content: 'Light Novel'
-
-      &[placeholder *= 'перс'] + .ok::before
-        content: 'Персонаж'
-
-      [data-locale='en'] &[placeholder *= 'cter'] + .ok::before
-        content: 'Character'
-
-      &[placeholder *= 'чело'] + .ok::before
-        content: 'Человек'
-
-      [data-locale='en'] &[placeholder *= 'pers'] + .ok::before
-        content: 'Person'
+      &[placeholder *= 'чело'] + .ok::before,
+      &[placeholder *= 'pers'] + .ok::before
+        content: var(--text-editor-label-person)
 
     .b-button.ok
       position: relative
@@ -256,13 +238,7 @@
         pointer-events: none
 
       &[data-type='images']::before
-        content: 'Изображение'
-
-      [data-locale='en'] &[data-type='images']::before
-        content: 'Image'
+        content: var(--text-editor-label-image)
 
       &[data-type='quotes']::before
-        content: 'Имя пользователя'
-
-      [data-locale='en'] &[data-type='quotes']::before
-        content: 'Username'
+        content: var(--text-editor-label-quote)

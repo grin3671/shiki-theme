@@ -78,12 +78,9 @@
           overflow: hidden
 
           .p-profiles-reviews &::after
-            content: '\00a0отзыв к\00a0'
+            content: var(--text-review-on-subject)
             order: -1
             font-size: 15px
-
-          .p-profiles-reviews[data-locale="en"] &::after
-            content: '\00a0review on\00a0'
 
         .name
           color: var(--color-text-primary)
@@ -133,11 +130,8 @@
             margin-right: 8px
 
           &::after
-            content: 'К отзыву'
+            content: var(--text-review-to-review)
             font-size: 14px
-
-          [data-locale="en"] &::after
-            content: 'To review'
 
       .b-status-line
         color: var(--color-text-hint)

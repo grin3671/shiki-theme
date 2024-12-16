@@ -60,11 +60,8 @@
 .l-page.menu-expanded .menu-toggler .toggler::before
   transform: rotate(90deg)
 
-[data-locale='ru'] .l-page .menu-toggler .toggler::after
-  content: 'меню'
-
-[data-locale='en'] .l-page .menu-toggler .toggler::after
-  content: 'sidebar'
+[data-locale] .l-page .menu-toggler .toggler::after
+  content: var(--text-sidebar-toggle-label)
 
 @media screen and (max-width: 1024px) and (min-width: 768px) and (orientation: landscape)
   .l-page .menu-toggler.ipad-expanded

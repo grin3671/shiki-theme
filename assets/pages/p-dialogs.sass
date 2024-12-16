@@ -21,12 +21,8 @@
       transform: scale(-1, 1)
 
     &::after
-      content: 'Непрочитанные начиная со старых'
+      content: var(--text-dialogs-action-check)
       color: #eee // недостаточный вес селектора; цвет текст в подсказке
-
-.p-dialogs[data-locale='en'] .misc-links > a::after
-  content: 'Unread messages from oldest one'
-
 
 // Скрываем subheadline, чтобы misc-links казались частью прилипающего меню
 .p-dialogs-index
