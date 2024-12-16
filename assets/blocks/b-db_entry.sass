@@ -13,6 +13,30 @@
       margin-top: 0
       margin-bottom: 1em
 
+      .medal
+        display: flex
+        float: none
+        width: auto
+        height: auto
+
+        &::before
+          display: none
+
+        &::after
+          content: var(--text-contest-winners)
+          padding: 16px
+          margin: 0 -16px
+          background-color: transparent
+          border: 0
+          color: var(--color-text-hint)
+          font-size: 14px
+          font-weight: bold
+          line-height: 16px
+          text-transform: uppercase
+
+      .winners
+        margin: 0
+
     .p-people-show &
       @media (min-width: 768px)
         float: none

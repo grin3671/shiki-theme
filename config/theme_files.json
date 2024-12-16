@@ -30,6 +30,10 @@
     "checked": true
   },
   {
+    "url": "i18n.sass",
+    "checked": true
+  },
+  {
     "url": "font-arial.sass",
     "cat": "font",
     "checked": false
